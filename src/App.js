@@ -1,14 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react'
-import Predict from './pages/predict/Predict'
+import Navigation from './components/Navigation'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Predict/>
-      </header>
+      {/* <header className="App-header"> */}
+      {/* </header> */}
+      <Navigation/>
     </div>
   );
 }

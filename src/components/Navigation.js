@@ -1,4 +1,7 @@
 import { NavLink } from "react-router-dom";
+import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
+import Predict from '../pages/predict/Predict';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 /**
  * Menu Navigation bar to navigate to different parts of the project
@@ -11,17 +14,18 @@ export default function Navigation() {
                 <h2><NavLink to="/">Risky Code</NavLink></h2>
             </div>            
             <div className="Navigation_links">
-                <ul id="Navigation_list">
-                    <li className="Navigation_link">
-                        <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Classify</NavLink>
-                    </li>
-                    <li className="Navigation_link">
-                        <NavLink to="/Analyze" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Train</NavLink>
-                    </li>
-                    <li className="Navigation_link">
-                        <NavLink to="/Simulate" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Optimize</NavLink>
-                    </li>
-                </ul>
+            </div>
+            <div className="Navigation_content">
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <h4>Predict</h4>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Predict/>
+                    </AccordionDetails>
+                </Accordion>
             </div>
         </div>
     )

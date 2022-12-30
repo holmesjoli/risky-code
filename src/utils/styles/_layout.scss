@@ -19,29 +19,24 @@ body {
     overflow: hidden;
 }
 
-// Top navigation
+// Left navigation
 .Navigation {
     grid-column-start: 1;
     grid-column-end: span 2;
-
     display: flex;
     flex-direction: row;
 }
 
 .Navigation_branding {
     flex: 1;
-
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
 .Navigation_links {
     flex: 1;
-
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: end;
+    justify-content: flex-end;
 }
