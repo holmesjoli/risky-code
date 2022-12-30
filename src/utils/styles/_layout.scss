@@ -2,7 +2,24 @@ body {
     color: $appColor;
     background-color: $appBackground;
 }
-  
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: hotpink;   
+}
+ 
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+h4 {
+    margin: 0;
+}
+
 // React app mounting point
 #root {
     width: 100vw;
