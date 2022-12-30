@@ -30,6 +30,12 @@ body {
     margin: 20px 0;
 }
 
+.Navigation_links {
+
+    display: grid;
+    grid-template-columns: minmax(150px, 18%) 1fr;
+}
+
 .Navigation_additional_content {
     margin-left: auto; 
     margin-right: 10px;
