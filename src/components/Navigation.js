@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import Predict from '../pages/predict/Predict';
+import Fairness from '../pages/fairness/Fairness';
+import CaseStudies from '../pages/case_studies/CaseStudies';
+import Deliberation from '../pages/deliberation/Deliberation';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 /**
@@ -24,6 +27,39 @@ export default function Navigation() {
                     </AccordionSummary>
                     <AccordionDetails>
                         <Predict/>
+                    </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <h4>Fairness</h4>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Fairness/>
+                    </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <h4>Fairness in Context</h4>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <CaseStudies/>
+                    </AccordionDetails>
+                </Accordion>
+
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                    >
+                        <h4>Deliberation</h4>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Deliberation/>
                     </AccordionDetails>
                 </Accordion>
             </div>
