@@ -15,53 +15,58 @@ export default function Navigation() {
         <div className="Navigation">
             <div className="Navigation_branding">
                 <h2><NavLink to="/">Risky Code</NavLink></h2>
+                <div className="Navigation_additional_content">
+                    <NavLink to="/Glossary">Glossary</NavLink>
+                    <NavLink to="/Glossary">Literature</NavLink>
+                    <NavLink to="/Glossary">About</NavLink>
+                </div>
             </div>            
             <div className="Navigation_links">
-            </div>
-            <div className="Navigation_content">
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                    >
-                        <h4>Predict</h4>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Predict/>
-                    </AccordionDetails>
-                </Accordion>
+                <div className="Navigation_content">
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                        >
+                            <h4>Predict</h4>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Predict/>
+                        </AccordionDetails>
+                    </Accordion>
 
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                    >
-                        <h4>Fairness</h4>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Fairness/>
-                    </AccordionDetails>
-                </Accordion>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                        >
+                            <h4>Fairness</h4>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Fairness/>
+                        </AccordionDetails>
+                    </Accordion>
 
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                    >
-                        <h4>Fairness in Context</h4>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CaseStudies/>
-                    </AccordionDetails>
-                </Accordion>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                        >
+                            <h4>Fairness in Context</h4>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <CaseStudies/>
+                        </AccordionDetails>
+                    </Accordion>
 
-                <Accordion>
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                    >
-                        <h4>Deliberation</h4>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <Deliberation/>
-                    </AccordionDetails>
-                </Accordion>
+                    <Accordion>
+                        <AccordionSummary
+                            expandIcon={<ExpandMoreIcon />}
+                        >
+                            <h4>Deliberation</h4>
+                        </AccordionSummary>
+                        <AccordionDetails>
+                            <Deliberation/>
+                        </AccordionDetails>
+                    </Accordion>
+                </div>
             </div>
         </div>
     )
