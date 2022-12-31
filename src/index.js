@@ -7,19 +7,35 @@ import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 
 const theme = createTheme({
-  root: {
-    color: "pink",
-  },
   typography: {
-    fontFamily: "IBM Plex Sans, Verdana, Geneva, Tahoma, sans-serif",
-    fontSize: 12,
+    fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
+    fontSize: 12
   },
   palette: {
-    mode: "dark",
+    type: "dark",
+    background: {
+      paper: "#21252b"
+    },
+    primary: {
+      main: "#03afbf"
+    },
+    secondary: {
+      main: "#919295"
+    }
+  },
+  overrides: {
+    MuiPaper: {
+      root: {
+        elevation: 0,
+        square: true,
+        padding: 0,
+        marginBottom: 0
+      },
+    }
   },
   shape: {
-    borderRadius: 0,
-  },
+    borderRadius: 0
+  }
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

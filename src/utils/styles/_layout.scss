@@ -77,4 +77,8 @@ ul {
 
 .MuiAccordionSummary-content.Mui-expanded {
     margin: 0;
-  }
+}
+
+.MuiPaper-root {
+    background-color: $appBackground;
+}
