@@ -16,9 +16,9 @@ export default function Navigation() {
             <div className="Navigation_branding">
                 <h2><NavLink to="/">Risky Code</NavLink></h2>
                 <div className="Navigation_additional_content">
-                    <NavLink to="/Glossary">Glossary</NavLink>
-                    <NavLink to="/Glossary">Literature</NavLink>
-                    <NavLink to="/Glossary">About</NavLink>
+                    <NavLink className="add-link" to="/Glossary">Glossary</NavLink>
+                    <NavLink className="add-link" to="/Literature">Literature</NavLink>
+                    <NavLink className="add-link" to="/About">About</NavLink>
                 </div>
             </div>            
             <div className="Navigation_links">
@@ -49,7 +49,7 @@ export default function Navigation() {
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                         >
-                            <h4>Fairness in Context</h4>
+                            <h4>Fairness in context</h4>
                         </AccordionSummary>
                         <AccordionDetails>
                             <CaseStudies/>
