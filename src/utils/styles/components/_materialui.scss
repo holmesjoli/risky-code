@@ -1,0 +1,17 @@
+// Material UI style overrides
+/* 
+    The StylesProvider component lets us change how styles are applied to child components. 
+    The options will be available in all child elements of the StylesProvider.
+    https://blog.bitsrc.io/4-ways-to-override-material-ui-styles-43aee2348ded
+ */
+
+ .MuiPaper-root {
+    border-bottom: 1px solid $appBorderColor;
+    box-shadow: none;
+    background-color: $appBackground;
+}
+
+
+.MuiAccordionSummary-content.Mui-expanded {
+    margin: 0;
+}

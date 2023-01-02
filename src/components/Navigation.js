@@ -1,19 +1,96 @@
+import { NavLink } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import Predict from '../pages/predict/Predict';
-import Fairness from '../pages/fairness/Fairness';
-import CaseStudies from '../pages/case_studies/CaseStudies';
-import Deliberation from '../pages/deliberation/Deliberation';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 /**
  * Menu Navigation bar to navigate to different parts of the project
  * @returns 
  */
+
+function Introduction() {
+    return(
+        <div className="Introduction">
+            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Introduction</NavLink>
+        </div>
+    )
+}
+
+function Predict() {
+    return (
+        <div className="Navigation Links">
+            <ul>
+                <li className="Navigation_link">
+                    <NavLink to="/Classify" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Classify</NavLink>
+                </li>
+                <li className="Navigation_link">
+                    <NavLink to="/Train" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Train</NavLink>
+                </li>
+                <li className="Navigation_link">
+                    <NavLink to="/Optimize" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Optimize</NavLink>
+                </li>
+            </ul>
+        </div>
+    )
+};
+
+function Fairness() {
+    return (  
+        <div className="Navigation Links">
+            <ul>
+                <li className="Navigation_link">
+                    <NavLink to="/Calibration" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Calibration</NavLink>
+                </li>
+                <li className="Navigation_link">
+                    <NavLink to="/FalseNegative" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Negative</NavLink>
+                </li>
+                <li className="Navigation_link">
+                    <NavLink to="/FalsePositive" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Positive</NavLink>
+                </li>
+            </ul>
+        </div>
+    )
+};
+
+function CaseStudies() {
+    return (  
+        <div className="Navigation Links">
+            <ul>
+                <li className="Navigation_link">
+                    <NavLink to="/PublicPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Algorithmic decision-making in public policy</NavLink>
+                </li>
+                <li className="Navigation_link">
+                    <NavLink to="/COMPAS" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>COMPAS algorithm</NavLink>
+                </li>
+            </ul>
+        </div>
+    )
+};
+
+function Deliberation() {
+    return (  
+        <div className="Navigation Links">
+            <ul>
+                <li className="Navigation_link">
+                    <NavLink to="/RiskFramework" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Greene AI Risk Framework</NavLink>
+                </li>
+                <li className="Navigation_link">
+                    <NavLink to="/Stakeholders" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Stakeholders</NavLink>
+                </li>
+                <li className="Navigation_link">
+                    <NavLink to="/DecisionAid" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Decision Aid</NavLink>
+                </li>
+            </ul>
+        </div>
+    )
+};
+
+
 export default function Navigation() {
     return (
         <div className="Navigation">  
             <div className="Navigation Links">
                 <div className="Navigation_content">
+                    <Introduction/>
                     <Accordion>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}

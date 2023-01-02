@@ -1,10 +1,19 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./utils/styles/style.scss";
-import App from "./App";
+
 import { createTheme, ThemeProvider } from "@material-ui/core";
-import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
+import {
+  Routes,
+  Route,
+  HashRouter,
+} from "react-router-dom";
+import Introduction from "./pages/Introduction";
+import Predict from "./pages/predict/Predict";
+import Fairness from "./pages/fairness/Fairness";
+import CaseStudies from "./pages/case_studies/CaseStudies";
+import Deliberation from "./pages/deliberation/Deliberation";
 
 const theme = createTheme({
   typography: {
@@ -20,7 +29,7 @@ const theme = createTheme({
       main: "#03afbf"
     },
     secondary: {
-      main: "#f0804e"
+      main: "#919295"
     }
   },
   overrides: {
@@ -41,11 +50,26 @@ const theme = createTheme({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <BrowserRouter>
     <ThemeProvider theme={theme}>
-      <App />
+      {/* <App /> */}
+      <HashRouter>
+      {
+        /**
+         * The BrowserRouter component is from the react-router library and allows simple static routing between different pages of a webapp.
+         * Each "Route" is a distinct component that will update the contents of the page and the URL path.
+         * Ex: routing to the Analyze page will change the URL to localhost:3000/Analyze
+         */
+      }
+      <Routes>
+        <Route path="/" element={<Introduction />} />
+        <Route path="/Predict" element={<Predict />} />
+        <Route path="/Fairness" element={<Fairness />} />
+        <Route path="/CaseStudies" element={<CaseStudies />} />
+        <Route path="/Deliberation" element={<Deliberation />} />
+      </Routes>
+    </HashRouter>
     </ThemeProvider>
-  </BrowserRouter>
+
 );
 
 // If you want to start measuring performance in your app, pass a function
