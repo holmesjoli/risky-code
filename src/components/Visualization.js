@@ -1,7 +1,5 @@
 export default function Visualization() {
     return (
-        <div className="Visualization">
-            <svg></svg>
-        </div>
+        <div className="Visualization"></div>
     )    
 }
