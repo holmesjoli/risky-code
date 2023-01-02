@@ -21,6 +21,9 @@ import PublicPolicy from "./pages/case_studies/PublicPolicy";
 import RiskFramework from "./pages/deliberation/RiskFramework";
 import Stakeholders from "./pages/deliberation/Stakeholders";
 import DecisionAid from "./pages/deliberation/DecisionAid";
+import About from "./pages/About";
+import Glossary from "./pages/Glossary";
+import Literature from "./pages/Literature";
 
 const theme = createTheme({
   typography: {
@@ -80,6 +83,9 @@ root.render(
         <Route path="/RiskFramework" element={<RiskFramework />} />
         <Route path="/Stakeholders" element={<Stakeholders />} />
         <Route path="/DecisionAid" element={<DecisionAid />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Glossary" element={<Glossary />} />
+        <Route path="/Literature" element={<Literature />} />
       </Routes>
     </HashRouter>
     </ThemeProvider>
