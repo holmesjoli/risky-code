@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from '../components/Navigation';
-import Visualization from '../components/Visualization';
 import Header from '../components/Header';
 
 export default function Introduction() {
@@ -9,7 +8,6 @@ export default function Introduction() {
           <Header/>
           <div className="Main">
             <Navigation/>
-            <Visualization/>
           </div>
         </div>
       );
