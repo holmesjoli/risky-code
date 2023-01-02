@@ -17,124 +17,117 @@ function Introduction() {
 
 function Predict() {
     return (
-        <div className="Navigation Links">
-            <ul>
-                <li className="Navigation_link">
-                    <NavLink to="/Classify" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Classify</NavLink>
-                </li>
-                <li className="Navigation_link">
-                    <NavLink to="/Train" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Train</NavLink>
-                </li>
-                <li className="Navigation_link">
-                    <NavLink to="/Optimize" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Optimize</NavLink>
-                </li>
-            </ul>
-        </div>
+        <Accordion>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+            >
+                <h4>Predict</h4>
+            </AccordionSummary>
+            <AccordionDetails>
+                <div className="Navigation Links">
+                    <ul>
+                        <li className="Navigation_link">
+                            <NavLink to="/Classify" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Classify</NavLink>
+                        </li>
+                        <li className="Navigation_link">
+                            <NavLink to="/Train" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Train</NavLink>
+                        </li>
+                        <li className="Navigation_link">
+                            <NavLink to="/Optimize" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Optimize</NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </AccordionDetails>
+        </Accordion>
     )
 };
 
 function Fairness() {
     return (  
-        <div className="Navigation Links">
-            <ul>
-                <li className="Navigation_link">
-                    <NavLink to="/Calibration" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Calibration</NavLink>
-                </li>
-                <li className="Navigation_link">
-                    <NavLink to="/FalseNegative" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Negative</NavLink>
-                </li>
-                <li className="Navigation_link">
-                    <NavLink to="/FalsePositive" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Positive</NavLink>
-                </li>
-            </ul>
-        </div>
+        <Accordion>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+            >
+                <h4>Fairness</h4>
+            </AccordionSummary>
+            <AccordionDetails>
+                <div className="Navigation Links">
+                    <ul>
+                        <li className="Navigation_link">
+                            <NavLink to="/Calibration" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Calibration</NavLink>
+                        </li>
+                        <li className="Navigation_link">
+                            <NavLink to="/FalseNegative" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Negative</NavLink>
+                        </li>
+                        <li className="Navigation_link">
+                            <NavLink to="/FalsePositive" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Positive</NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </AccordionDetails>
+        </Accordion>
     )
 };
 
 function CaseStudies() {
-    return (  
-        <div className="Navigation Links">
-            <ul>
-                <li className="Navigation_link">
-                    <NavLink to="/PublicPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Algorithmic decision-making in public policy</NavLink>
-                </li>
-                <li className="Navigation_link">
-                    <NavLink to="/COMPAS" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>COMPAS algorithm</NavLink>
-                </li>
-            </ul>
-        </div>
+    return (
+        <Accordion>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+            >
+                <h4>Fairness in context</h4>
+            </AccordionSummary>
+            <AccordionDetails>
+                <div className="Navigation Links">
+                    <ul>
+                        <li className="Navigation_link">
+                            <NavLink to="/PublicPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Algorithmic decision-making in public policy</NavLink>
+                        </li>
+                        <li className="Navigation_link">
+                            <NavLink to="/COMPAS" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>COMPAS algorithm</NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </AccordionDetails>
+    </Accordion>
     )
 };
 
 function Deliberation() {
     return (  
-        <div className="Navigation Links">
-            <ul>
-                <li className="Navigation_link">
-                    <NavLink to="/RiskFramework" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Greene AI Risk Framework</NavLink>
-                </li>
-                <li className="Navigation_link">
-                    <NavLink to="/Stakeholders" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Stakeholders</NavLink>
-                </li>
-                <li className="Navigation_link">
-                    <NavLink to="/DecisionAid" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Decision Aid</NavLink>
-                </li>
-            </ul>
-        </div>
+        <Accordion>
+            <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+            >
+                <h4>Deliberation</h4>
+            </AccordionSummary>
+            <AccordionDetails>
+                <div className="Navigation Links">
+                    <ul>
+                        <li className="Navigation_link">
+                            <NavLink to="/RiskFramework" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Greene AI Risk Framework</NavLink>
+                        </li>
+                        <li className="Navigation_link">
+                            <NavLink to="/Stakeholders" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Stakeholders</NavLink>
+                        </li>
+                        <li className="Navigation_link">
+                            <NavLink to="/DecisionAid" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Decision Aid</NavLink>
+                        </li>
+                    </ul>
+                </div>
+            </AccordionDetails>
+        </Accordion>
     )
 };
 
 export default function Navigation() {
     return (
         <div className="Navigation">  
-            <div className="Navigation Links">
-                <div className="Navigation_content">
-                    <Introduction/>
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <h4>Predict</h4>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Predict/>
-                        </AccordionDetails>
-                    </Accordion>
-
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <h4>Fairness</h4>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Fairness/>
-                        </AccordionDetails>
-                    </Accordion>
-
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <h4>Fairness in context</h4>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <CaseStudies/>
-                        </AccordionDetails>
-                    </Accordion>
-
-                    <Accordion>
-                        <AccordionSummary
-                            expandIcon={<ExpandMoreIcon />}
-                        >
-                            <h4>Deliberation</h4>
-                        </AccordionSummary>
-                        <AccordionDetails>
-                            <Deliberation/>
-                        </AccordionDetails>
-                    </Accordion>
-                </div>
-            </div>
+            <Introduction/>
+            <Predict/> 
+            <Fairness/>
+            <CaseStudies/> 
+            <Deliberation/>
         </div>
     )
 }
