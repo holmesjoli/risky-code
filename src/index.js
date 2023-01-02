@@ -10,10 +10,17 @@ import {
   HashRouter,
 } from "react-router-dom";
 import Introduction from "./pages/Introduction";
-import Predict from "./pages/predict/Predict";
-import Fairness from "./pages/fairness/Fairness";
-import CaseStudies from "./pages/case_studies/CaseStudies";
-import Deliberation from "./pages/deliberation/Deliberation";
+import Classify from "./pages/predict/Classify";
+import Train from "./pages/predict/Train";
+import Optimize from "./pages/predict/Optimize";
+import Calibration from "./pages/fairness/Calibration";
+import FalsePositive from "./pages/fairness/FalsePositive";
+import FalseNegative from "./pages/fairness/FalseNegative";
+import COMPAS from "./pages/case_studies/COMPAS";
+import PublicPolicy from "./pages/case_studies/PublicPolicy";
+import RiskFramework from "./pages/deliberation/RiskFramework";
+import Stakeholders from "./pages/deliberation/Stakeholders";
+import DecisionAid from "./pages/deliberation/DecisionAid";
 
 const theme = createTheme({
   typography: {
@@ -62,10 +69,17 @@ root.render(
       }
       <Routes>
         <Route path="/" element={<Introduction />} />
-        <Route path="/Predict" element={<Predict />} />
-        <Route path="/Fairness" element={<Fairness />} />
-        <Route path="/CaseStudies" element={<CaseStudies />} />
-        <Route path="/Deliberation" element={<Deliberation />} />
+        <Route path="/Classify" element={<Classify />} />
+        <Route path="/Train" element={<Train />} />
+        <Route path="/Optimize" element={<Optimize />} />
+        <Route path="/Calibration" element={<Calibration />} />
+        <Route path="/FalsePositive" element={<FalsePositive />} />
+        <Route path="/FalseNegative" element={<FalseNegative />} />
+        <Route path="/COMPAS" element={<COMPAS />} />
+        <Route path="/PublicPolicy" element={<PublicPolicy />} />
+        <Route path="/RiskFramework" element={<RiskFramework />} />
+        <Route path="/Stakeholders" element={<Stakeholders />} />
+        <Route path="/DecisionAid" element={<DecisionAid />} />
       </Routes>
     </HashRouter>
     </ThemeProvider>
