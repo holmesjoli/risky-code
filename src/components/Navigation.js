@@ -9,9 +9,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 function Introduction() {
     return(
-        <div className="Introduction">
+        <h4 className="Introduction">
             <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Introduction</NavLink>
-        </div>
+        </h4>
     )
 }
 
@@ -83,7 +83,6 @@ function Deliberation() {
         </div>
     )
 };
-
 
 export default function Navigation() {
     return (
