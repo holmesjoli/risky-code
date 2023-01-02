@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Fairness() {
     return (  
-        <div className="Navigation_links">
+        <div className="Navigation Links">
             <ul>
                 <li className="Navigation_link">
                     <NavLink to="/Calibration" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Calibration</NavLink>

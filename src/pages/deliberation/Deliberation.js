@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function Deliberation() {
     return (  
-        <div className="Navigation_links">
+        <div className="Navigation Links">
             <ul>
                 <li className="Navigation_link">
                     <NavLink to="/RiskFramework" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Greene AI Risk Framework</NavLink>

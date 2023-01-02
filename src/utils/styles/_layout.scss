@@ -27,41 +27,33 @@ ul {
     overflow: hidden;
 }
 
-.Navigation {
-    display: flex;
-    flex-direction: column;
-}
-
-.Navigation_branding {
+.Header {
     display: flex;
     flex-direction: row;
     margin: 20px 0;
 }
 
-.Navigation_links {
-
-    display: grid;
-    grid-template-columns: minmax(150px, 18%) 1fr;
-}
-
-.Navigation_additional_content {
+.Header > .Links {
     margin-left: auto; 
     margin-right: 10px;
 }
 
-.Navigation_additional_content a {
+.Header > .Links > a {
     margin: 20px 10px;
-    
 }
 
-
-// // Left navigation
-// .Navigation {
-//     grid-column-start: 1;
-//     grid-column-end: span 2;
-//     display: flex;
-//     flex-direction: row;
+// .Main {
+//     display: grid;
+//     grid-template-columns: minmax(150px, 18%) 1fr;
 // }
+
+// Left navigation
+.Main {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+    display: flex;
+    flex-direction: row;
+}
 
 // .Navigation_branding {
 //     flex: 1;
@@ -76,6 +68,11 @@ ul {
 //     flex-direction: row;
 //     // justify-content: flex-end;
 // }
+
+.Visualization > svg {
+    background-color: black;
+    height: 1vh;
+}
 
 .MuiAccordionSummary-content.Mui-expanded {
     margin: 0;

@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import Predict from '../pages/predict/Predict';
 import Fairness from '../pages/fairness/Fairness';
@@ -12,16 +11,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
  */
 export default function Navigation() {
     return (
-        <div className="Navigation">
-            <div className="Navigation_branding">
-                <h2><NavLink to="/">Risky Code</NavLink></h2>
-                <div className="Navigation_additional_content">
-                    <NavLink className="add-link" to="/Glossary">Glossary</NavLink>
-                    <NavLink className="add-link" to="/Literature">Literature</NavLink>
-                    <NavLink className="add-link" to="/About">About</NavLink>
-                </div>
-            </div>            
-            <div className="Navigation_links">
+        <div className="Navigation">  
+            <div className="Navigation Links">
                 <div className="Navigation_content">
                     <Accordion>
                         <AccordionSummary

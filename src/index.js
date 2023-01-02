@@ -20,7 +20,7 @@ const theme = createTheme({
       main: "#03afbf"
     },
     secondary: {
-      main: "#919295"
+      main: "#f0804e"
     }
   },
   overrides: {
