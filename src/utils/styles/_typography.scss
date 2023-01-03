@@ -96,6 +96,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   margin-bottom: 1.4rem;
   margin-top: 0;
+  color: $appColor;
 }
 
 h1 {
@@ -113,7 +114,7 @@ h2 {
 h2 > a:hover, 
 h2 > a:visited, 
 h2 > a:focus {
-  color: $appColorSecondary;
+  color: $appColor;
 }
 
 h3 {
@@ -161,7 +162,7 @@ a {
 }
 
 a:visited {
-  color: $appColorSecondary;
+  color: $appColor;
 }
 
 a:focus, a:hover {

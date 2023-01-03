@@ -1,10 +1,10 @@
 
-export default function Card({title=null, subtitle=null, text=null}) {
+export default function Card({config}) {
     return(
         <div className="Description">
-            <h3>{title}</h3>
-            <h4>{subtitle}</h4>
-            <p>{text}</p>
+            <h3>{config.title}</h3>
+            <h4>{config.subtitle}</h4>
+            <p>{config.descr}</p>
         </div>
     )
 }

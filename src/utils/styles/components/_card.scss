@@ -1,14 +1,15 @@
 .Card {
     // width: 50px;
     height: 100px;
-    background-color: aquamarine;
+    background-color: #fafafa;
     border-radius: 10px;
+    border: 3px solid #555555;
 }
 
 .Card-Container {
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
     margin: 25px;
     max-width: 300px;
 }
