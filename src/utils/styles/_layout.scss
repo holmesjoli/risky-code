@@ -17,17 +17,6 @@ ul {
     height: 100vh;
 }
 
-// Wrapper
-.Content {
-    display: grid;
-    grid-template-columns: [left] $queryColWidth [main] auto;
-    grid-template-rows: [nav] $topNavHeight [body] auto;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    margin: $appIndent;
-}
-
 .Header {
     display: flex;
     flex-direction: row;
@@ -51,6 +40,20 @@ ul {
     flex-direction: row;
     position: relative;
     grid-column-start: 2;
+}
+
+.Description {
+    margin-left: $appIndent;
+}
+
+// Wrapper
+.Content {
+    display: grid;
+    grid-template-columns: [left] $queryColWidth [main] auto;
+    grid-template-rows: [nav] $topNavHeight [body] auto;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
   
 .Visualization {

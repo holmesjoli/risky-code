@@ -10,8 +10,9 @@ export default function Main(config) {
             <Header/>
             <div className="Main">
                 <Navigation/>
+                <Description title={config.config.title} subtitle={config.config.subtitle} text={config.config.descr}/>
                 <div className="Content">
-                    <Description title={config.config.title} subtitle={config.config.subtitle} text={config.config.descr}/>
+
                 </div>
             </div>
       </div>
