@@ -25,6 +25,7 @@ ul {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    margin: $appIndent;
 }
 
 .Header {
@@ -48,9 +49,6 @@ ul {
     grid-column-end: span 2;
     display: flex;
     flex-direction: row;
-}
-
-.Main {
     position: relative;
     grid-column-start: 2;
 }
@@ -62,7 +60,6 @@ ul {
 
 .Introduction {
     margin: 15px;
-    color: $appColor;
 }
 
 // .Navigation_branding {
