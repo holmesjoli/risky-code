@@ -3,10 +3,10 @@ import React from 'react';
 import Navigation from './Navigation';
 import Header from './Header';
 import Description from "./Description";
-import Classify from "./pages/Classify";
-import Train from "./pages/Train";
-import Optimize from "./pages/Optimize";
-import Calibration from "./pages/Calibration";
+import * as Classify from "../pages/predict/Classify";
+import * as Train from "../pages/predict/Train";
+import * as Optimize from "../pages/predict/Optimize";
+import * as Calibration from "../pages/fairness/Calibration";
 
 class Content extends React.Component{
 
@@ -23,16 +23,16 @@ class Content extends React.Component{
         let component;
         switch (this.componentID) {
             case 'classify' :
-                component = <Classify config={this.config}/>;
+                component = <Classify.Visualization/>;
                 break;
             case 'train' :
-                component = <Train config={this.config}/>;
+                component = <Train.Visualization/>;
                 break;
             case 'optimize' :
-                component = <Optimize config={this.config}/>;
+                component = <Optimize.Visualization/>;
                 break;
             case 'calibration' :
-                component = <Calibration config={this.config}/>;
+                component = <Calibration.Visualization/>;
                 break;
         }
         return component;
