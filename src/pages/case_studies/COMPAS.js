@@ -1,14 +1,8 @@
-import React from 'react';
-import Navigation from '../../components/Navigation';
-import Header from '../../components/Header';
+import Main from "../../components/Main";
+import { config }  from "../../utils/global";
 
-export default function COMPAS() {
-    return (
-        <div className="App">
-            <Header/>
-            <div className="Main">
-                <Navigation/>
-            </div>
-      </div>
+export default function compas() {
+    return(
+        <Main config={config.compas}/>
     )
-};
+}

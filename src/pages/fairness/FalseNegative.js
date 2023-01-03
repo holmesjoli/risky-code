@@ -1,14 +1,8 @@
-import React from 'react';
-import Navigation from '../../components/Navigation';
-import Header from '../../components/Header';
+import Main from "../../components/Main";
+import { config }  from "../../utils/global";
 
-export default function FalseNegative() {
-    return (
-        <div className="App">
-            <Header/>
-            <div className="Main">
-                <Navigation/>
-            </div>
-      </div>
+export default function falseNegative() {
+    return(
+        <Main config={config.falseNegative}/>
     )
-};
+}

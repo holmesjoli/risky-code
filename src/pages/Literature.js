@@ -1,14 +1,8 @@
-import React from 'react';
-import Navigation from '../components/Navigation';
-import Header from '../components/Header';
+import Main from "../components/Main";
+import { config }  from "../utils/global";
 
 export default function Literature() {
-    return (
-        <div className="App">
-            <Header/>
-            <div className="Main">
-                <Navigation/>
-            </div>
-      </div>
+    return(
+        <Main config={config.literature}/>
     )
 }

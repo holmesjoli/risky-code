@@ -1,16 +1,8 @@
-import React from 'react';
-import Navigation from '../../components/Navigation';
-import Header from '../../components/Header';
-import Card from "../../components/Card";
+import Main from "../../components/Main";
+import { config }  from "../../utils/global";
 
-export default function Train() {
-    return (
-        <div className="App">
-            <Header/>
-            <div className="Main">
-                <Navigation/>
-                <Card/>
-            </div>
-      </div>
-    )    
+export default function train() {
+    return(
+        <Main config={config.train}/>
+    )
 }
