@@ -15,7 +15,7 @@ import * as DecisionAid from "../pages/deliberation/DecisionAid";
 import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
 
-class Content extends React.Component{
+class Content extends React.Component {
 
     constructor(config) {
         super(config);

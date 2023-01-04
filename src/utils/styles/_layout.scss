@@ -32,6 +32,10 @@ ul {
     margin: 20px 10px;
 }
 
+.App {
+    margin: $appIndent;
+}
+
 // Left navigation
 .Main {
     grid-column-start: 1;
@@ -42,23 +46,34 @@ ul {
     grid-column-start: 2;
 }
 
-.Description {
+// Wrapper
+.Content {
+    display: flex;
+    flex-direction: column;
     margin-left: $appIndent;
 }
 
-// Wrapper
-.Content {
+.Description {
     display: grid;
-    grid-template-columns: [left] $queryColWidth [main] auto;
-    grid-template-rows: [nav] $topNavHeight [body] auto;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    grid-template-columns: minmax(150px, 65%);
 }
 
 .Visualization {
-    width: 100%;
-    height: 100%;
+    display: grid;
+    grid-gap: 10px;
+    // width: 100%;
+    // height: 100%;
+    // width: 100vw;
+    // height: 100vh;
+    overflow: hidden;
+}
+
+.Three-Column {
+    grid-template-columns: 20% 60% 20%;
+}
+
+.Two-Column {
+    grid-template-columns: 50% 50%;
 }
 
 .Introduction {
