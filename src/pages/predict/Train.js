@@ -3,11 +3,12 @@ import Card from "../../components/Card";
 import Model from "../../components/Model";
 import { config }  from "../../utils/global";
 
-export function Visualization() {
+export function Content() {
     return(
-        <div className="Visualization Three-Column">
+        <div className="Content Three-Column">
             <Model/>
             <Card/>
+            <div></div>
         </div>
     )
 }

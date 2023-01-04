@@ -1,9 +1,9 @@
 import Main from "../../components/Main";
 import { config }  from "../../utils/global";
 
-export function Visualization() {
+export function Content() {
     return(
-        <div className="Visualization">
+        <div className="Content">
         </div>
     )
 }

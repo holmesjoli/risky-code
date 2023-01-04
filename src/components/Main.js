@@ -3,6 +3,10 @@ import React from 'react';
 import Navigation from './Navigation';
 import Header from './Header';
 import Description from "./Description";
+import * as About from "../pages/About";
+import * as Glossary from "../pages/Glossary";
+import * as Introduction from "../pages/Introduction";
+import * as Literature from "../pages/Literature";
 import * as Classify from "../pages/predict/Classify";
 import * as Train from "../pages/predict/Train";
 import * as Optimize from "../pages/predict/Optimize";
@@ -15,7 +19,7 @@ import * as DecisionAid from "../pages/deliberation/DecisionAid";
 import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
 
-class Content extends React.Component {
+class ContentContainer extends React.Component {
 
     constructor(config) {
         super(config);
@@ -27,38 +31,50 @@ class Content extends React.Component {
     getComponent() {
         let component;
         switch (this.componentID) {
+            default:
+                component = <Introduction.Content/>
+                break;
             case 'classify' :
-                component = <Classify.Visualization/>;
+                component = <Classify.Content/>;
                 break;
             case 'train' :
-                component = <Train.Visualization/>;
+                component = <Train.Content/>;
                 break;
             case 'optimize' :
-                component = <Optimize.Visualization/>;
+                component = <Optimize.Content/>;
                 break;
             case 'calibration' :
-                component = <Calibration.Visualization/>;
+                component = <Calibration.Content/>;
                 break;
             case 'falsePositive' :
-                component = <FalsePositive.Visualization/>;
+                component = <FalsePositive.Content/>;
                 break;
             case 'falseNegative' :
-                component = <FalseNegative.Visualization/>;
+                component = <FalseNegative.Content/>;
                 break;
             case 'compas' :
-                component = <Compas.Visualization/>;
+                component = <Compas.Content/>;
                 break;
             case 'publicPolicy' :
-                component = <PublicPolicy.Visualization/>;
+                component = <PublicPolicy.Content/>;
                 break;
             case 'decisionAid' :
-                component = <DecisionAid.Visualization/>;
+                component = <DecisionAid.Content/>;
                 break;
             case 'riskFramework' :
-                component = <RiskFramework.Visualization/>;
+                component = <RiskFramework.Content/>;
                 break;
             case 'stakeholderMapping' :
-                component = <StakeholderMapping.Visualization/>;
+                component = <StakeholderMapping.Content/>;
+                break;
+            case 'glossary' :
+                component = <Glossary.Content/>;
+                break;
+            case 'literature' :
+                component = <Literature.Content/>;
+                break;
+            case 'about' :
+                component = <About.Content/>;
                 break;
         }
         return component;
@@ -66,7 +82,7 @@ class Content extends React.Component {
 
     render() {
         return(
-            <div className="Content">
+            <div className="Content-Container">
                 <Description config={this.config}/>
                 {this.getComponent()}
             </div>
@@ -81,7 +97,7 @@ export default function Main(config) {
             <Header/>
             <div className="Main">
                 <Navigation/>
-                <Content config={config.config}/>
+                <ContentContainer config={config.config}/>
             </div>
         </div>
     )

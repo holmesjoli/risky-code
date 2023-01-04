@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
+// import arrow from "./utils/img/arrow.svg";
+import { DragDropContext } from 'react-beautiful-dnd';
 
-// https://rootstack.com/en/blog/how-do-i-use-drag-and-drop-react
+// dragging action adapted from https://rootstack.com/en/blog/how-do-i-use-drag-and-drop-react
 export default function Model() {
     
     const dragItem = useRef();
@@ -50,6 +52,8 @@ export default function Model() {
                     </>
                </div>
             </div>
+            {/* <div></div> */}
+            {/* <img src={arrow} alt="Your SVG" /> */}
             <div className="Selected-Variables">
                 <h5>Model Variables</h5>
             </div>

@@ -47,7 +47,7 @@ ul {
 }
 
 // Wrapper
-.Content {
+.Content-Container {
     display: flex;
     flex-direction: column;
     margin-left: $appIndent;
@@ -61,14 +61,11 @@ ul {
 .Visualization {
     display: grid;
     grid-gap: 10px;
-    // width: 100%;
-    // height: 100%;
-    // width: 100vw;
-    // height: 100vh;
     overflow: hidden;
 }
 
 .Three-Column {
+    display: grid;
     grid-template-columns: 20% 60% 20%;
     grid-gap: 50px;
 }

@@ -1,6 +1,6 @@
 export const config = {
     "introduction": {
-        "id": "introduction",
+        "id": "default",
         "title": "Introduction",
         "descr": ""
     },
