@@ -1,9 +1,9 @@
 .Card {
     // width: 50px;
     height: 100px;
-    background-color: #fafafa;
-    border-radius: 10px;
-    border: 3px solid #555555;
+    background-color: $cardBackgroundColor;
+    border-radius: $cardBorderRadius;
+    border: 3px solid $cardBorderColor;
 }
 
 .Card-Container {
