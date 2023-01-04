@@ -1,15 +1,22 @@
+import { useState } from 'react';
+
 export default function Model() {
+    
+    const [list, setList] = useState(['Item type','Print','Soiled','Pastel','Item color','Care type']);
+
     return(
+
         <div className="Model">
             <div className="Variables">
                <h5>Data Variables</h5>
                <div className="Variable-Container">
-                    <span className="Variable">Item type</span>
-                    <span className="Variable">Print</span>
-                    <span className="Variable">Soiled</span>
-                    <span className="Variable">Pastel</span>
-                    <span className="Variable">Item color</span>
-                    <span className="Variable">Care type</span>
+               <>
+                    {
+                    list&&
+                    list.map((item, index) => (
+                    <span className="Variable" key={index} draggable> {item}</span>
+                    ))}
+                    </>
                </div>
             </div>
             <div className="Selected-Variables">
