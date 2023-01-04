@@ -37,7 +37,15 @@ export default function Model() {
                     {
                     list&&
                     list.map((item, index) => (
-                    <span className="Variable" key={index} draggable> {item}</span>
+                    <span 
+                        className="Variable" 
+                        key={index} 
+                        onDragStart={(e) => dragStart(e, index)}
+                        onDragEnter={(e) => dragEnter(e, index)}
+                        onDragEnd={drop}
+                        draggable> 
+                        {item}
+                    </span>
                     ))}
                     </>
                </div>
