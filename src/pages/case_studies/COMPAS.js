@@ -95,7 +95,7 @@ function Interaction() {
 function Information() {
     return (
         <div className="Information">
-            <Legend componentType={"points"}/>
+            <Legend componentType={"default"}/>
         </div>
     )
 }
@@ -105,7 +105,7 @@ export function Content() {
         <div className="Content Three-Column">
             <Interaction/>
             <Visualization/>
-            <Information/> 
+            <Information/>
         </div>
     )
 }
