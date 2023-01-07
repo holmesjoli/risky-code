@@ -19,6 +19,7 @@ function Fairness() {
 
     return(
         <div className="Select-Fairness">
+            <h4>Fairness definition</h4>
             <FormControl variant="outlined" size="small">
                 <Select
                     labelId="fairness-select-label"
@@ -76,6 +77,7 @@ function Visualization() {
 function Probability() {
     return (
         <div className="Probability">
+            <h4>Predicted probability of reoffense</h4>
             <Slider/>
         </div>
     )
@@ -93,7 +95,7 @@ function Interaction() {
 function Information() {
     return (
         <div className="Information">
-            <Legend componentId={"points"}/>
+            <Legend componentType={"points"}/>
         </div>
     )
 }
