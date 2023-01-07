@@ -1,8 +1,42 @@
-import Main from "../../components/Main";
-import { config }  from "../../utils/global";
+import { FormControl, MenuItem, Select} from "@material-ui/core";
+import { useEffect, useState } from 'react';
 import * as d3 from "d3";
-import { useEffect } from 'react';
-// import lookup from '../data/processed/lu.json'
+import Main from "../../components/Main";
+import Legend from "../../components/Legend";
+import { config }  from "../../utils/global";
+import data from '../../data/processed/compas.json'
+
+function Fairness() {
+
+    const fairnessOpts = ["Calibration", "False Positive Rate", "False Negative Rate"];
+    const [fairnessBy, updateFairness] = useState('');
+
+    const handleChange = (event) => {
+        let newCategory = event.target.value;
+        updateFairness(newCategory);
+    }
+
+    return(
+        <FormControl variant="outlined" size="small">
+            <Select
+                labelId="fairness-select-label"
+                id="fairness-select"
+                displayEmpty
+                value={fairnessBy}
+                onChange={handleChange}
+            >
+            {
+                fairnessOpts.map((category) => {
+                    return (
+                        <MenuItem key={category} value={category}><em>{category}</em></MenuItem>
+                    )
+                })
+            }
+        </Select>
+    </FormControl>
+    )
+}
+
 
 function Visualization() {
 
@@ -16,37 +50,17 @@ function Visualization() {
             .attr("height", height);
 
         const plot = svg.append("g")
-        //     .attr("transform", `translate(${radius},${radius})`)
-        //     .attr('id', 'Position-Plot');
 
-        // const link = plot.append("g")
-        //     .attr("fill", "none")
-        //     .attr("stroke", "#4e5155")
-        //     .attr("stroke-opacity", 1)
-        //     .attr("stroke-width", 1.5)
-        //     .selectAll("path")
-        //     .data(root.links())
-        //     .enter()
-        //     .append("path")
-        //     .attr("d", (d3.linkRadial() as any)
-        //         .angle(d => d.x)
-        //         .radius(d => d.y));
+        const point = plot
+            .selectAll("circle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", 100)
+            .attr("cy", 100)
+            .attr("r", 1.5)
+            .attr("fill", "white")
 
-        // const node = plot.append("g")
-        //     .attr("stroke-linejoin", "round")
-        //     .attr("stroke-width", 3)
-        //     .selectAll("g")
-        //     .data(root.descendants().reverse())
-        //     .enter()
-        //     .append("g")
-        //     .attr("transform", d => `rotate(${radToDeg(d.x) - 90}) translate(${d.y},0)`);
-
-        // node.append("circle")
-        //     .attr("r", d => d.children ? 4 : 2)
-        //     .attr('id', (d: any) => d.data.descr)
-        //     .attr('class', 'Position-Node')
-
-        // updatePositionNodes()
     }, [])
 
     return (
@@ -60,6 +74,10 @@ export function Content() {
     return(
         <div className="Content Three-Column">
             <Visualization/>
+            <div>
+                <Legend/>
+                <Fairness/>
+            </div>        
         </div>
     )
 }
