@@ -5,7 +5,7 @@ import Legend from "../../components/Legend";
 function Information() {
     return (
         <div className="Information">
-            <Legend componentType={"points"}/>
+            <Legend componentType={"default"}/>
         </div>
     )
 }
@@ -13,11 +13,12 @@ function Information() {
 export function Content() {
     return(
         <div className="Content Three-Column">
+            <div></div>
+            <div></div>
             <Information/>
         </div>
     )
 }
-
 
 export default function calibration() {
     return(

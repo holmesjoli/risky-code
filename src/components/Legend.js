@@ -8,10 +8,31 @@ function ActualPredicted() {
     return(
         <div className="Legend ActualPredicted">
             <h4 className="Small-Margin">Legend</h4>
-            <div className="Card True"></div>
-            <div className="Card True"></div>
-            <div className="Card False"></div>
-            <div className="Card False"></div>
+            <div className="Column">
+                <div>
+                    <h5 className="Small-Margin">Predicted</h5>
+                </div>
+                <div>
+                    <h5 className="Small-Margin">Classified</h5>
+                        <div className="Row">
+                            <h6 className="Small-Margin">True</h6>
+                            <div className="Column">
+                                <h6 className="Small-Margin">Hot water load</h6>
+                                <div className="Card"></div>
+                            </div>                          
+                        </div>
+                <div className="Row">
+                    <div className="Group">
+                            <h6 className="Small-Margin">True</h6>
+                            <div className="Card False"></div>
+                        </div>
+                        <div className="Group">
+                            <h6 className="Small-Margin">False</h6>
+                            <div className="Card False"></div>
+                        </div>
+                </div>
+                </div>
+            </div>
         </div>
     )
 }

@@ -12,7 +12,9 @@ function Information() {
 
 export function Content() {
     return(
-        <div className="Content">
+        <div className="Content Three-Column">
+            <div></div>
+            <div></div>
             <Information/>
         </div>
     )
