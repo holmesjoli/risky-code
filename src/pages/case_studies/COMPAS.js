@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import * as d3 from "d3";
 import Main from "../../components/Main";
 import Legend from "../../components/Legend";
+import Slider from "../../components/Slider";
 import { config }  from "../../utils/global";
 import data from '../../data/processed/compas.json'
 
@@ -17,23 +18,25 @@ function Fairness() {
     }
 
     return(
-        <FormControl variant="outlined" size="small">
-            <Select
-                labelId="fairness-select-label"
-                id="fairness-select"
-                displayEmpty
-                value={fairnessBy}
-                onChange={handleChange}
-            >
-            {
-                fairnessOpts.map((category) => {
-                    return (
-                        <MenuItem key={category} value={category}><em>{category}</em></MenuItem>
-                    )
-                })
-            }
-        </Select>
-    </FormControl>
+        <div className="Select-Fairness">
+            <FormControl variant="outlined" size="small">
+                <Select
+                    labelId="fairness-select-label"
+                    id="fairness-select"
+                    displayEmpty
+                    value={fairnessBy}
+                    onChange={handleChange}
+                >
+                {
+                    fairnessOpts.map((category) => {
+                        return (
+                            <MenuItem key={category} value={category}><em>{category}</em></MenuItem>
+                        )
+                    })
+                }
+            </Select>
+        </FormControl>
+    </div>
     )
 }
 
@@ -70,17 +73,41 @@ function Visualization() {
     )
 }
 
-export function Content() {
-    return(
-        <div className="Content Three-Column">
-            <Visualization/>
-            <div>
-                <Legend/>
-                <Fairness/>
-            </div>        
+function Probability() {
+    return (
+        <div className="Probability">
+            <Slider/>
         </div>
     )
 }
+
+function Interaction() {
+    return(
+        <div className="Interaction">
+            <Fairness/>
+            <Probability/>
+        </div>
+    )
+}
+
+function Information() {
+    return (
+        <div className="Information">
+            <Legend componentId={"points"}/>
+        </div>
+    )
+}
+
+export function Content() {
+    return(
+        <div className="Content Three-Column">
+            <Interaction/>
+            <Visualization/>
+            <Information/> 
+        </div>
+    )
+}
+
 export default function compas() {
     return(
         <Main config={config.compas}/>
