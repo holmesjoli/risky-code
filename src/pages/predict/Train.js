@@ -4,11 +4,10 @@ import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import { config }  from "../../utils/global";
 
-
 function Information() {
     return (
         <div className="Information">
-            <Legend componentType={"predicted"}/>
+            <Legend componentType={"actual"}/>
         </div>
     )
 }

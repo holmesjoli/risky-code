@@ -92,3 +92,37 @@ export const colors = {
         "primaryColor": "#d35171"
     }
 }
+
+export const appTheme = {
+    "theme": {
+        typography: {
+            fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
+            fontSize: 12
+          },
+          palette: {
+            type: "dark",
+            background: {
+              paper: "#21252b"
+            },
+            primary: {
+              main: "#03afbf"
+            },
+            secondary: {
+              main: "#919295"
+            }
+          },
+          overrides: {
+            MuiPaper: {
+              root: {
+                elevation: 0,
+                square: true,
+                padding: 0,
+                marginBottom: 0
+              },
+            }
+          },
+          shape: {
+            borderRadius: 0
+          }
+    }
+}

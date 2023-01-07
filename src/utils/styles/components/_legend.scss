@@ -5,3 +5,14 @@
     padding: $cardPadding;
     margin-bottom: $cardMarginBottom;
 }
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.Column {
+    display: flex;
+    flex-direction: column;
+}

@@ -6,16 +6,31 @@ import { colors } from "../utils/global"
 function ActualPredicted() {
 
     return(
-        <div className="Legend">
-            <h4>Legend</h4>
+        <div className="Legend ActualPredicted">
+            <h4 className="Small-Margin">Legend</h4>
+            <div className="Card True"></div>
+            <div className="Card True"></div>
+            <div className="Card False"></div>
+            <div className="Card False"></div>
         </div>
     )
 }
 
 function Actual() {
     return(
-        <div className="Legend">
-            <h4>Legend</h4>
+        <div className="Legend Actual">
+            <h4 className="Small-Margin">Legend</h4>
+            <h5 className="Small-Margin">Classified</h5>
+            <div className="Row">
+                <div className="Group">
+                    <h6 className="Small-Margin">Hot water load</h6>
+                    <div className="Card"></div>
+                </div>
+                <div className="Group">
+                    <h6 className="Small-Margin">Save for later load</h6>
+                    <div className="Card"></div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -24,7 +39,6 @@ function Points() {
 
     const width = window.width, height = 40;
 
-    // window.width
     const data = [{x: 10, y:10, name: "Correct"},
                   {x: 10, y:30, name: "Incorrect"}]
 
@@ -62,11 +76,10 @@ function Points() {
 
     }, [])
 
-
     return(
         <div className="Legend">
-            <h4>Legend</h4>
-            <h5>Predicted</h5>
+            <h4 className="Small-Margin">Legend</h4>
+            <h5 className="Small-Margin">Predicted</h5>
             <div id='Legend-Visualization'></div>
         </div>
     )

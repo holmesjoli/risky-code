@@ -4,6 +4,15 @@
     background-color: $cardBackgroundColor;
     border-radius: $cardBorderRadius;
     border: 1px solid $cardBorderColor;
+    max-width: 75px;
+}
+
+.False {
+    border: 1px solid $warningColor;
+}
+
+.True {
+    border: 1px solid $cardBorderColor;
 }
 
 .Card-Container {

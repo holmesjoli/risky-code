@@ -5,7 +5,7 @@ import { config }  from "../../utils/global";
 function Information() {
     return (
         <div className="Information">
-            <Legend componentType={"predicted"}/>
+            <Legend componentType={"default"}/>
         </div>
     )
 }
