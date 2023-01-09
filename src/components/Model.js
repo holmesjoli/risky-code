@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { COLUMN_NAMES, VARIABLES } from "../utils/global";
+import { MODEL_COLUMN_NAMES, VARIABLES } from "../utils/global";
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
@@ -71,11 +71,11 @@ const MovableItem = ({
     item: { index, name, currentColumnName },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-      console.log(dropResult)
+
 
       if (dropResult) {
         const { name } = dropResult;
-        const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
+        const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
         switch (name) {
           case MODEL_VARIABLES:
             changeItemColumn(item, MODEL_VARIABLES);
@@ -98,7 +98,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item" style={{ opacity }}>
+    <div ref={ref} className="Movable-Item Variable" style={{ opacity }}>
       {name}
     </div>
   );
@@ -114,7 +114,7 @@ const Column = ({ children, className, title }) => {
     }),
     // Override monitor.canDrop() function
     canDrop: (item) => {
-      const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
+      const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
         currentColumnName === title ||
@@ -203,15 +203,15 @@ export const Model = () => {
       ));
   };
 
-  const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
+  const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
 
   return (
     <div className="Model-Container">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DATA_VARIABLES} className="Data-variable-column">
+        <Column title={DATA_VARIABLES} className="Movable-Item-Container Data-Variable-Column">
           {returnItemsForColumn(DATA_VARIABLES)}
         </Column>
-        <Column title={MODEL_VARIABLES} className="Model-variable-column">
+        <Column title={MODEL_VARIABLES} className="Movable-Item-Container Model-Variable-Column">
           {returnItemsForColumn(MODEL_VARIABLES)}
         </Column>
       </DndProvider>

@@ -93,12 +93,12 @@ export const colors = {
     }
 }
 
-export const COLUMN_NAMES = {
+export const MODEL_COLUMN_NAMES = {
     DATA_VARIABLES: 'Data variables',
     MODEL_VARIABLES: 'Model variables'
 }
 
-const {DATA_VARIABLES} = COLUMN_NAMES;
+const {DATA_VARIABLES} = MODEL_COLUMN_NAMES;
 export const VARIABLES = [
     {id: 1, name: 'Item type', column: DATA_VARIABLES},
     {id: 2, name: 'Print', column: DATA_VARIABLES},
@@ -108,37 +108,16 @@ export const VARIABLES = [
     {id: 6, name: 'Care type', column: DATA_VARIABLES },
 ];
 
-
-export const appTheme = {
-    "theme": {
-        typography: {
-            fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
-            fontSize: 12
-          },
-          palette: {
-            type: "dark",
-            background: {
-              paper: "#21252b"
-            },
-            primary: {
-              main: "#03afbf"
-            },
-            secondary: {
-              main: "#919295"
-            }
-          },
-          overrides: {
-            MuiPaper: {
-              root: {
-                elevation: 0,
-                square: true,
-                padding: 0,
-                marginBottom: 0
-              },
-            }
-          },
-          shape: {
-            borderRadius: 0
-          }
-    }
+export const CLASSIFY_COLUMN_NAMES = {
+    ITEM_LIST: 'Classify item',
+    CASE_TRUE: 'Case true',
+    CASE_FALSE: 'Case false'
 }
+
+const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
+export const CARDS = [
+    {id: 1, name: 'Card 1', column: ITEM_LIST},
+    {id: 2, name: 'Card 2', column: ITEM_LIST},
+    {id: 3, name: 'Card 3', column: ITEM_LIST},
+    {id: 4, name: 'Card 4', column: ITEM_LIST},
+];

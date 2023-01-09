@@ -71,24 +71,7 @@ ul {
 }
 
 .Two-Column {
-    grid-template-columns: 50% 50%;
+    display: grid;
+    grid-template-columns: 40% 40%;
+    grid-gap: 50px;
 }
-
-// .Navigation_branding {
-//     flex: 1;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-start;
-// }
-
-// .Navigation_links {
-//     flex: 1;
-//     display: flex;
-//     flex-direction: row;
-//     // justify-content: flex-end;
-// }
-
-// .Visualization > svg {
-//     background-color: black;
-//     // height: 1vh;
-// }

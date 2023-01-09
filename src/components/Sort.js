@@ -1,21 +1,7 @@
 import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-
-const COLUMN_NAMES = {
-    DO_IT: 'Do it',
-    IN_PROGRESS: 'In Progress',
-    AWAITING_REVIEW: 'Awaiting review',
-    DONE: 'Done',
-}
-
-const {DO_IT} = COLUMN_NAMES;
-const tasks = [
-    {id: 1, name: 'Item 1', column: DO_IT},
-    {id: 2, name: 'Item 2', column: DO_IT},
-    {id: 3, name: 'Item 3', column: DO_IT},
-    {id: 4, name: 'Item 4', column: DO_IT},
-];
+import { CLASSIFY_COLUMN_NAMES, CARDS } from "../utils/global";
 
 const MovableItem = ({
   name,
@@ -87,19 +73,16 @@ const MovableItem = ({
 
       if (dropResult) {
         const { name } = dropResult;
-        const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
+        const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
         switch (name) {
-          case IN_PROGRESS:
-            changeItemColumn(item, IN_PROGRESS);
+          case CASE_TRUE:
+            changeItemColumn(item, CASE_TRUE);
             break;
-          case AWAITING_REVIEW:
-            changeItemColumn(item, AWAITING_REVIEW);
+          case CASE_FALSE:
+            changeItemColumn(item, CASE_FALSE);
             break;
-          case DONE:
-            changeItemColumn(item, DONE);
-            break;
-          case DO_IT:
-            changeItemColumn(item, DO_IT);
+          case ITEM_LIST:
+            changeItemColumn(item, ITEM_LIST);
             break;
           default:
             break;
@@ -116,7 +99,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="movable-item" style={{ opacity }}>
+    <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
       {name}
     </div>
   );
@@ -132,16 +115,16 @@ const Column = ({ children, className, title }) => {
     }),
     // Override monitor.canDrop() function
     canDrop: (item) => {
-      const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
+      const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
         currentColumnName === title ||
-        (currentColumnName === DO_IT && title === IN_PROGRESS) ||
-        (currentColumnName === IN_PROGRESS &&
-          (title === DO_IT || title === AWAITING_REVIEW)) ||
-        (currentColumnName === AWAITING_REVIEW &&
-          (title === IN_PROGRESS || title === DONE)) ||
-        (currentColumnName === DONE && title === AWAITING_REVIEW)
+        (currentColumnName === ITEM_LIST && title === CASE_TRUE) ||
+        (currentColumnName === CASE_TRUE &&
+          (title === ITEM_LIST || title === CASE_FALSE)) ||
+        (currentColumnName === CASE_FALSE &&
+          (title === CASE_TRUE)) ||
+        ( title === CASE_FALSE)
       );
     }
   });
@@ -149,9 +132,21 @@ const Column = ({ children, className, title }) => {
   const getBackgroundColor = () => {
     if (isOver) {
       if (canDrop) {
-        return "rgb(188,251,255)";
+        return "rgb(253, 171, 51)"; // TODO change the highlight background color
       } else if (!canDrop) {
         return "rgb(255,188,188)";
+      }
+    } else {
+      return "";
+    }
+  };
+
+  const getColor = () => {
+    if (isOver) {
+      if (canDrop) {
+        return "rgb(0, 0, 0)"; 
+      } else if (!canDrop) {
+        return "rgb(255,255,255)";
       }
     } else {
       return "";
@@ -164,14 +159,19 @@ const Column = ({ children, className, title }) => {
       className={className}
       style={{ backgroundColor: getBackgroundColor() }}
     >
-      <p>{title}</p>
-      {children}
+      <h5 className="Small-Margin"
+      style={{ color: getColor() }}
+      
+      >{title}</h5>
+      <div className="Moveable-Items">
+        {children}
+      </div>
     </div>
   );
 };
 
 export const Sort = () => {
-  const [items, setItems] = useState(tasks);
+  const [items, setItems] = useState(CARDS);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -206,27 +206,25 @@ export const Sort = () => {
       ));
   };
 
-  const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
+  const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
   return (
-    <div className="container">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DO_IT} className="column do-it-column">
-          {returnItemsForColumn(DO_IT)}
-        </Column>
-        <Column title={IN_PROGRESS} className="column in-progress-column">
-          {returnItemsForColumn(IN_PROGRESS)}
-        </Column>
-        <Column
-          title={AWAITING_REVIEW}
-          className="column awaiting-review-column"
-        >
-          {returnItemsForColumn(AWAITING_REVIEW)}
-        </Column>
-        <Column title={DONE} className="column done-column">
-          {returnItemsForColumn(DONE)}
-        </Column>
+        <div className="Two-Column">
+            <div className="Classify-Container">
+                <Column title={ITEM_LIST} className="Movable-Item-Container item-list-column">
+                {returnItemsForColumn(ITEM_LIST)}
+                </Column>
+            </div>
+            <div className="Case-Container">
+                <Column title={CASE_TRUE} className="Movable-Item-Container case-true-column">
+                {returnItemsForColumn(CASE_TRUE)}
+                </Column>
+                <Column title={CASE_FALSE} className="Movable-Item-Container case-false-column">
+                {returnItemsForColumn(CASE_FALSE)}
+                </Column>
+            </div>
+        </div>
       </DndProvider>
-    </div>
   );
 };
