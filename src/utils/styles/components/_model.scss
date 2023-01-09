@@ -1,4 +1,4 @@
-.Variable {
+.movable-item {
     cursor: move; /* fallback if grab cursor is unsupported */
     cursor: grab;
     cursor: -moz-grab;
@@ -6,90 +6,47 @@
 }
 
  /* (Optional) Apply a "closed-hand" cursor during drag operation. */
-.Variable:active {
+.movable-item:active {
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
 }
 
-.Model {
-    display: grid;
-    grid-gap: 3rem;
-    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr))
-};
-
-.Model > div {
-    background-color: $cardBackgroundColor;
-    border-radius: $cardBorderRadius;
-    border: 1px solid $cardBorderColor;
-}
-
-.Variable-Container {
+.Model-Container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
 }
 
-.Model h5,
-.Variable {
-    margin-bottom: 0;
-}
-.Model h5 {
-    padding: $cardPadding;
-}
-
-.Variable {
-    padding: 2px 15px;
-    font-size: .75rem;
-    border-radius: $cardBorderRadius;
-    border: 1px solid $cardBorderColor;
-    // flex: 1 1 100px; /*  Stretching: */
-    flex: 0 1 100px; /*  No stretching: */
-    margin: 5px;
-    text-align: center;
-    background-color: #2d3747;
-    box-shadow: rgba(255, 255, 255, .4) 0px 1px 1px;
-}
-  
-p {
-    font-weight: bold;
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.column {
+.Column {
     height: max-content;
     min-height: 100px;
-    width: 160px;
-    margin: 10px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    border: 2px solid #7d7d7d; /* Параметры границы */
+    border: 1px solid $cardBorderColor;
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: $appIndent;
+    // display: grid;
+    // grid-gap: 1rem;
+    // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
-.do-it-column {
-    background-color: #fff0f0;
-}
-
-.in-progress-column {
-    background-color: #fef2e7;
+.data-variable-column,
+.model-variable-column {
+    background-color: $cardBackgroundColor;
 }
 
 .movable-item {
-    border-radius: 5px;
-    background-color: #fafdff;
-    height: 100px;
-    width: 140px;
-    margin: 10px auto;
+    border-radius: $cardBorderRadius;
+    background-color: #2d3747;
+    width: 80px;
+    margin: 3px;
+    padding: 3px;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+    font-size: 0.75rem;
 }

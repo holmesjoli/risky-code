@@ -93,6 +93,22 @@ export const colors = {
     }
 }
 
+export const COLUMN_NAMES = {
+    DATA_VARIABLES: 'Data Variables',
+    MODEL_VARIABLES: 'Model Variables'
+}
+
+const {DATA_VARIABLES} = COLUMN_NAMES;
+export const VARIABLES = [
+    {id: 1, name: 'Item type', column: DATA_VARIABLES},
+    {id: 2, name: 'Print', column: DATA_VARIABLES},
+    {id: 3, name: 'Pastel', column: DATA_VARIABLES},
+    {id: 4, name: 'Soiled', column: DATA_VARIABLES },
+    {id: 5, name: 'Item color', column: DATA_VARIABLES },
+    {id: 6, name: 'Care type', column: DATA_VARIABLES },
+];
+
+
 export const appTheme = {
     "theme": {
         typography: {
