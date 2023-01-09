@@ -39,3 +39,7 @@
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
 }
+
+.dragging {
+    border: 4px dashed #ccc;
+}

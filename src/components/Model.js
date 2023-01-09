@@ -71,6 +71,7 @@ const MovableItem = ({
     item: { index, name, currentColumnName },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
+      console.log(dropResult)
 
       if (dropResult) {
         const { name } = dropResult;
@@ -96,16 +97,12 @@ const MovableItem = ({
 
   drag(drop(ref));
 
-  console.log(ref)
-
   return (
     <div ref={ref} className="Movable-Item" style={{ opacity }}>
       {name}
     </div>
   );
 };
-
-
 
 const Column = ({ children, className, title }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
@@ -132,7 +129,7 @@ const Column = ({ children, className, title }) => {
   const getBackgroundColor = () => {
     if (isOver) {
       if (canDrop) {
-        return "rgb(188,251,255)";
+        return "rgb(188,251,255)"; // TODO change the highlight background color
       } else if (!canDrop) {
         return "rgb(255,188,188)";
       }
