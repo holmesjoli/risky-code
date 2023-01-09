@@ -1,9 +1,22 @@
 import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { COLUMN_NAMES, VARIABLES } from "../utils/global";
 
-// Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
+const COLUMN_NAMES = {
+    DO_IT: 'Do it',
+    IN_PROGRESS: 'In Progress',
+    AWAITING_REVIEW: 'Awaiting review',
+    DONE: 'Done',
+}
+
+const {DO_IT} = COLUMN_NAMES;
+const tasks = [
+    {id: 1, name: 'Item 1', column: DO_IT},
+    {id: 2, name: 'Item 2', column: DO_IT},
+    {id: 3, name: 'Item 3', column: DO_IT},
+    {id: 4, name: 'Item 4', column: DO_IT},
+];
+
 const MovableItem = ({
   name,
   index,
@@ -71,17 +84,22 @@ const MovableItem = ({
     item: { index, name, currentColumnName },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-      console.log(dropResult)
 
       if (dropResult) {
         const { name } = dropResult;
-        const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
+        const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
         switch (name) {
-          case MODEL_VARIABLES:
-            changeItemColumn(item, MODEL_VARIABLES);
+          case IN_PROGRESS:
+            changeItemColumn(item, IN_PROGRESS);
             break;
-          case DATA_VARIABLES:
-            changeItemColumn(item, DATA_VARIABLES);
+          case AWAITING_REVIEW:
+            changeItemColumn(item, AWAITING_REVIEW);
+            break;
+          case DONE:
+            changeItemColumn(item, DONE);
+            break;
+          case DO_IT:
+            changeItemColumn(item, DO_IT);
             break;
           default:
             break;
@@ -98,7 +116,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item" style={{ opacity }}>
+    <div ref={ref} className="movable-item" style={{ opacity }}>
       {name}
     </div>
   );
@@ -114,14 +132,16 @@ const Column = ({ children, className, title }) => {
     }),
     // Override monitor.canDrop() function
     canDrop: (item) => {
-      const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
+      const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
         currentColumnName === title ||
-        (currentColumnName === DATA_VARIABLES && title === MODEL_VARIABLES) ||
-        (currentColumnName === MODEL_VARIABLES &&
-          (title === DATA_VARIABLES)) ||
-        (currentColumnName === (title === MODEL_VARIABLES))
+        (currentColumnName === DO_IT && title === IN_PROGRESS) ||
+        (currentColumnName === IN_PROGRESS &&
+          (title === DO_IT || title === AWAITING_REVIEW)) ||
+        (currentColumnName === AWAITING_REVIEW &&
+          (title === IN_PROGRESS || title === DONE)) ||
+        (currentColumnName === DONE && title === AWAITING_REVIEW)
       );
     }
   });
@@ -129,21 +149,9 @@ const Column = ({ children, className, title }) => {
   const getBackgroundColor = () => {
     if (isOver) {
       if (canDrop) {
-        return "rgb(253, 171, 51)"; // TODO change the highlight background color
+        return "rgb(188,251,255)";
       } else if (!canDrop) {
         return "rgb(255,188,188)";
-      }
-    } else {
-      return "";
-    }
-  };
-
-  const getColor = () => {
-    if (isOver) {
-      if (canDrop) {
-        return "rgb(0, 0, 0)"; 
-      } else if (!canDrop) {
-        return "rgb(255,255,255)";
       }
     } else {
       return "";
@@ -156,19 +164,14 @@ const Column = ({ children, className, title }) => {
       className={className}
       style={{ backgroundColor: getBackgroundColor() }}
     >
-      <h5 className="Small-Margin"
-      style={{ color: getColor() }}
-      
-      >{title}</h5>
-        <div className="Moveable-Items">
+      <p>{title}</p>
       {children}
-        </div>
     </div>
   );
 };
 
-export const Model = () => {
-  const [items, setItems] = useState(VARIABLES);
+export const Sort = () => {
+  const [items, setItems] = useState(tasks);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -203,16 +206,25 @@ export const Model = () => {
       ));
   };
 
-  const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
+  const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
 
   return (
-    <div className="Model-Container">
+    <div className="container">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DATA_VARIABLES} className="Data-variable-column">
-          {returnItemsForColumn(DATA_VARIABLES)}
+        <Column title={DO_IT} className="column do-it-column">
+          {returnItemsForColumn(DO_IT)}
         </Column>
-        <Column title={MODEL_VARIABLES} className="Model-variable-column">
-          {returnItemsForColumn(MODEL_VARIABLES)}
+        <Column title={IN_PROGRESS} className="column in-progress-column">
+          {returnItemsForColumn(IN_PROGRESS)}
+        </Column>
+        <Column
+          title={AWAITING_REVIEW}
+          className="column awaiting-review-column"
+        >
+          {returnItemsForColumn(AWAITING_REVIEW)}
+        </Column>
+        <Column title={DONE} className="column done-column">
+          {returnItemsForColumn(DONE)}
         </Column>
       </DndProvider>
     </div>
