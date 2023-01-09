@@ -1,6 +1,4 @@
 export const COLUMN_NAMES = {
-    DO_IT: 'Do it',
-    IN_PROGRESS: 'In Progress',
-    AWAITING_REVIEW: 'Awaiting review',
-    DONE: 'Done',
+    DATA_VARIABLES: 'Data Variables',
+    MODEL_VARIABLES: 'Model Variables'
 }

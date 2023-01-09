@@ -6,6 +6,7 @@ import { tasks } from "./tasks";
 
 // import "./assets/styles/App.css";
 
+// Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
   name,
   index,
@@ -68,11 +69,6 @@ const MovableItem = ({
     }
   });
 
-//   useDrag({
-//     type: BOX,
-//     item: () => ({id})
-//  })
-
   const [{ isDragging }, drag] = useDrag({
     type: "Our first type",
     item: { index, name, currentColumnName },
@@ -81,19 +77,13 @@ const MovableItem = ({
 
       if (dropResult) {
         const { name } = dropResult;
-        const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
+        const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
         switch (name) {
-          case IN_PROGRESS:
-            changeItemColumn(item, IN_PROGRESS);
+          case MODEL_VARIABLES:
+            changeItemColumn(item, MODEL_VARIABLES);
             break;
-          case AWAITING_REVIEW:
-            changeItemColumn(item, AWAITING_REVIEW);
-            break;
-          case DONE:
-            changeItemColumn(item, DONE);
-            break;
-          case DO_IT:
-            changeItemColumn(item, DO_IT);
+          case DATA_VARIABLES:
+            changeItemColumn(item, DATA_VARIABLES);
             break;
           default:
             break;
@@ -126,16 +116,14 @@ const Column = ({ children, className, title }) => {
     }),
     // Override monitor.canDrop() function
     canDrop: (item) => {
-      const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
+      const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
         currentColumnName === title ||
-        (currentColumnName === DO_IT && title === IN_PROGRESS) ||
-        (currentColumnName === IN_PROGRESS &&
-          (title === DO_IT || title === AWAITING_REVIEW)) ||
-        (currentColumnName === AWAITING_REVIEW &&
-          (title === IN_PROGRESS || title === DONE)) ||
-        (currentColumnName === DONE && title === AWAITING_REVIEW)
+        (currentColumnName === DATA_VARIABLES && title === MODEL_VARIABLES) ||
+        (currentColumnName === MODEL_VARIABLES &&
+          (title === DATA_VARIABLES)) ||
+        (currentColumnName === (title === MODEL_VARIABLES))
       );
     }
   });
@@ -200,25 +188,16 @@ export const App = () => {
       ));
   };
 
-  const { DO_IT, IN_PROGRESS, AWAITING_REVIEW, DONE } = COLUMN_NAMES;
+  const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
 
   return (
     <div className="container">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DO_IT} className="column do-it-column">
-          {returnItemsForColumn(DO_IT)}
+        <Column title={DATA_VARIABLES} className="column do-it-column">
+          {returnItemsForColumn(DATA_VARIABLES)}
         </Column>
-        <Column title={IN_PROGRESS} className="column in-progress-column">
-          {returnItemsForColumn(IN_PROGRESS)}
-        </Column>
-        <Column
-          title={AWAITING_REVIEW}
-          className="column awaiting-review-column"
-        >
-          {returnItemsForColumn(AWAITING_REVIEW)}
-        </Column>
-        <Column title={DONE} className="column done-column">
-          {returnItemsForColumn(DONE)}
+        <Column title={MODEL_VARIABLES} className="column in-progress-column">
+          {returnItemsForColumn(MODEL_VARIABLES)}
         </Column>
       </DndProvider>
     </div>
