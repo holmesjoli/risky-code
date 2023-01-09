@@ -138,13 +138,28 @@ const Column = ({ children, className, title }) => {
     }
   };
 
+  const getColor = () => {
+    if (isOver) {
+      if (canDrop) {
+        return "rgb(0, 0, 0)"; 
+      } else if (!canDrop) {
+        return "rgb(255,255,255)";
+      }
+    } else {
+      return "";
+    }
+  };
+
   return (
     <div
       ref={drop}
       className={className}
       style={{ backgroundColor: getBackgroundColor() }}
     >
-      <h5 className="Small-Margin">{title}</h5>
+      <h5 className="Small-Margin"
+      style={{ color: getColor() }}
+      
+      >{title}</h5>
         <div className="Moveable-Items">
       {children}
         </div>

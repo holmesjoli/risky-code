@@ -17,8 +17,8 @@ export function Content() {
     return(
         <div className="Content Three-Column">
             <Model/>
-            <Card/>
-            <Information/>
+            {/* <Card/>
+            <Information/> */}
         </div>
     )
 }
