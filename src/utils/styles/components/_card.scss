@@ -5,6 +5,7 @@
     border-radius: $cardBorderRadius;
     border: 1px solid $cardBorderColor;
     max-width: 75px;
+    min-width: 75px;
 }
 
 .False {
@@ -18,6 +19,6 @@
 .Card-Container {
     display: grid;
     grid-gap: 10px;
+    column-gap: 20px;
     grid-template-columns: 20% 20% 20% 20% 20%;
-    max-width: 300px;
 }

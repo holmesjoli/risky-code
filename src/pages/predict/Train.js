@@ -3,6 +3,7 @@ import Card from "../../components/Card";
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import { config }  from "../../utils/global";
+import { App } from "../../components/App";
 
 function Information() {
     return (
@@ -14,11 +15,12 @@ function Information() {
 
 export function Content() {
     return(
-        <div className="Content Three-Column">
-            <Model/>
-            <Card/>
-            <Information/>
-        </div>
+        <App/>
+        // <div className="Content Three-Column">
+        //     <Model/>
+        //     <Card/>
+        //     <Information/>
+        // </div>
     )
 }
 
