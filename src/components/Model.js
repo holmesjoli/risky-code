@@ -129,7 +129,7 @@ const Column = ({ children, className, title }) => {
   const getBackgroundColor = () => {
     if (isOver) {
       if (canDrop) {
-        return "rgb(188,251,255)"; // TODO change the highlight background color
+        return "rgb(253, 171, 51)"; // TODO change the highlight background color
       } else if (!canDrop) {
         return "rgb(255,188,188)";
       }
