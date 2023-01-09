@@ -94,8 +94,8 @@ export const colors = {
 }
 
 export const COLUMN_NAMES = {
-    DATA_VARIABLES: 'Data Variables',
-    MODEL_VARIABLES: 'Model Variables'
+    DATA_VARIABLES: 'Data variables',
+    MODEL_VARIABLES: 'Model variables'
 }
 
 const {DATA_VARIABLES} = COLUMN_NAMES;

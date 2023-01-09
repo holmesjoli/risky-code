@@ -96,12 +96,16 @@ const MovableItem = ({
 
   drag(drop(ref));
 
+  console.log(ref)
+
   return (
-    <div ref={ref} className="movable-item" style={{ opacity }}>
+    <div ref={ref} className="Movable-Item" style={{ opacity }}>
       {name}
     </div>
   );
 };
+
+
 
 const Column = ({ children, className, title }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
@@ -144,7 +148,9 @@ const Column = ({ children, className, title }) => {
       style={{ backgroundColor: getBackgroundColor() }}
     >
       <h5 className="Small-Margin">{title}</h5>
+        <div className="Moveable-Items">
       {children}
+        </div>
     </div>
   );
 };
@@ -185,15 +191,16 @@ export const Model = () => {
       ));
   };
 
+
   const { DATA_VARIABLES, MODEL_VARIABLES } = COLUMN_NAMES;
 
   return (
     <div className="Model-Container">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DATA_VARIABLES} className="Column data-variable-column">
+        <Column title={DATA_VARIABLES} className="Data-variable-column">
           {returnItemsForColumn(DATA_VARIABLES)}
         </Column>
-        <Column title={MODEL_VARIABLES} className="Column model-variable-column">
+        <Column title={MODEL_VARIABLES} className="Model-variable-column">
           {returnItemsForColumn(MODEL_VARIABLES)}
         </Column>
       </DndProvider>
