@@ -1,0 +1,17 @@
+node,area_id,area,example_id,example,citation
+Algorithmically Informed Decision-Making,1,Education,1,School Assessment,AINOW
+Algorithmically Informed Decision-Making,1,Education,2,Teacher Evaluation,AINOW
+Algorithmically Informed Decision-Making,1,Education,3,School Admissions,"O'Neill, 2016"
+Algorithmically Informed Decision-Making,1,Education,4,School Risk and Violence Assessment,AINOW
+Algorithmically Informed Decision-Making,2,Criminal Justice,5,Inmate Housing,AINOW
+Algorithmically Informed Decision-Making,2,Criminal Justice,6,Surveillance Technology,AINOW
+Algorithmically Informed Decision-Making,2,Criminal Justice,7,Predictive Policing,AINOW
+Algorithmically Informed Decision-Making,2,Criminal Justice,8,DNA Analysis,AINOW
+Algorithmically Informed Decision-Making,2,Criminal Justice,9,Sentencing Risk Assessment,AINOW
+Algorithmically Informed Decision-Making,2,Criminal Justice,10,Parole Risk Assessment,AINOW
+Algorithmically Informed Decision-Making,3,Human Services,11,Homelessness Prioritization,"Eubanks, 2018"
+Algorithmically Informed Decision-Making,3,Human Services,12,Child Risk Assessment,"Eubanks, 2018"
+Algorithmically Informed Decision-Making,3,Human Services,13,Medicaid Eligibility,"Eubanks, 2018"
+Algorithmically Informed Decision-Making,4,Public Health,14,Disease Treatment,AINOW
+Algorithmically Informed Decision-Making,4,Public Health,15,Prescription Drug Monitoring,AINOW
+Algorithmically Informed Decision-Making,4,Public Health,16,Identifying Patients with Complex Needs,"Obermeyer et al., 2019"

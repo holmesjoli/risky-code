@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES, CARDS } from "../utils/global";
+import { getBackgroundColor, getColor } from "./DragAndDrop";
 
 const MovableItem = ({
   name,
@@ -129,38 +130,14 @@ const Column = ({ children, className, title }) => {
     }
   });
 
-  const getBackgroundColor = () => {
-    if (isOver) {
-      if (canDrop) {
-        return "rgb(253, 171, 51)"; // TODO change the highlight background color
-      } else if (!canDrop) {
-        return "rgb(255,188,188)";
-      }
-    } else {
-      return "";
-    }
-  };
-
-  const getColor = () => {
-    if (isOver) {
-      if (canDrop) {
-        return "rgb(0, 0, 0)"; 
-      } else if (!canDrop) {
-        return "rgb(255,255,255)";
-      }
-    } else {
-      return "";
-    }
-  };
-
   return (
     <div
       ref={drop}
       className={className}
-      style={{ backgroundColor: getBackgroundColor() }}
+      style={{ backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
       <h5 className="Small-Margin"
-      style={{ color: getColor() }}
+      style={{ color: getColor(isOver, canDrop) }}
       
       >{title}</h5>
       <div className="Moveable-Items">

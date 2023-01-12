@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 export const config = {
     "introduction": {
         "id": "default",
@@ -109,7 +111,7 @@ export const VARIABLES = [
 ];
 
 export const CLASSIFY_COLUMN_NAMES = {
-    ITEM_LIST: 'Classify item',
+    ITEM_LIST: 'Items',
     CASE_TRUE: 'Case true',
     CASE_FALSE: 'Case false'
 }
@@ -137,3 +139,14 @@ export const CARDS = [
     {id: 19, name: 'Card 19', column: ITEM_LIST},
     {id: 20, name: 'Card 20', column: ITEM_LIST}
 ];
+
+// Creates a colorScales for different types of variables
+export function colorScale() {
+
+    const scale = d3.scaleOrdinal()
+        .domain([2, 4, 3, 1, 0])
+        .range(["#0d0887", "#a41e9a", "#d35171", "#f0804e", "#000000"]);
+
+    return scale;
+}
+
