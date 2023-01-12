@@ -14,12 +14,22 @@ function policyDiagram() {
     const rScale = d3.scaleOrdinal()
         .domain(["root", "area", "example"])
         .range([0, 8, 5])
-    
+
+    const textColorScale = d3.scaleOrdinal()
+        .domain(["root", "area", "example"])
+        .range(["#000000", "#ffffff", "#d8d8d8"])
+
+    const textSizeScale = d3.scaleOrdinal()
+        .domain(["root", "area", "example"])
+        .range(["0px", "12px", "10px"])
+
     const margin = {top: 10, right: 10, bottom: 10, left: 10},
         width = 600 - margin.left - margin.right,
         height = 600 - margin.top - margin.bottom;
 
     const radius = width / 2;
+    const halo = "#ffffff";
+    const haloWidth = 3;
 
     const svg = d3.select("#chart")
         .append("svg")
@@ -31,10 +41,14 @@ function policyDiagram() {
     const cluster = d3.cluster()
         .size([360, radius - 60]);  // 360 means whole circle. radius - 60 means 60 px of margin around dendrogram
 
-        // Give the data to this cluster layout:
-        const root = d3.hierarchy(data, function(d) {
-            return d.children;
-        });
+    // Give the data to this cluster layout:
+    const root = d3.hierarchy(data, function(d) {
+        return d.children;
+    });
+
+    let label = d => d.name;
+    let descendants = root.descendants();
+    const labels =  descendants.map(d => label(d.data, d));
 
     cluster(root);
 
@@ -52,16 +66,30 @@ function policyDiagram() {
         .attr("stroke", '#ccc');
 
     // Add a circle for each node.
-    svg.selectAll("a")
+    let node = svg.append("g")
+        .selectAll("a")
         .data(root.descendants())
         .join("a")
         .attr("transform", function(d) {
             return `rotate(${d.x-90})
             translate(${d.y})`;
         })
+    
+    node
         .append("circle")
-            .attr("r", ((d) => rScale(d.data.group)))
-            .style("fill", ((d) => colorScale(d.data.area_id)));
+        .attr("r", ((d) => rScale(d.data.group)))
+        .style("fill", ((d) => colorScale(d.data.area_id)));
+
+    node
+        .append("text")
+        .attr("transform", d => `rotate(${d.x >= Math.PI ? 180 : 0})`)
+        .attr("dy", "0.32em")
+        .attr("x", d => d.x < Math.PI === !d.children ? 6 : -6)
+        .attr("text-anchor", d => d.x < Math.PI === !d.children ? "start" : "end")
+        .attr("paint-order", "stroke")
+        .attr("fill", ((d) => textColorScale(d.data.group)))
+        .attr("font-size", ((d) => textSizeScale(d.data.group)))
+        .text((d, i) => labels[i]);
 }
 
 export function Content() {
