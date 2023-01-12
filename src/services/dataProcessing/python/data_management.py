@@ -22,7 +22,7 @@ def policy_data(df):
 
         row = {"area_id": int(i),
                "group": "area",
-               "name": df[df.area_id == i].example.iloc[0],
+               "name": df[df.area_id == i].area.iloc[0],
                "children": examples}
 
         areas.append(row)
