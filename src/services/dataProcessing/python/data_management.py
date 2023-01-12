@@ -14,20 +14,20 @@ def policy_data(df):
 
             r = {"example_id": int(j),
                  "area_id": int(df[df.example_id == j].area_id.iloc[0]),
-                 "group": "example",
+                 "group": "Example",
                  "name": df[df.example_id == j].example.iloc[0],
                  "citation": df[df.example_id == j].citation.iloc[0]}
 
             examples.append(r)
 
         row = {"area_id": int(i),
-               "group": "area",
+               "group": "Policy area",
                "name": df[df.area_id == i].area.iloc[0],
                "children": examples}
 
         areas.append(row)
 
     return {"area_id": int(0),
-            "group": "root",
+            "group": "Root",
             "name": "Algorithmically Informed Decision-Making", 
             "children": areas}
