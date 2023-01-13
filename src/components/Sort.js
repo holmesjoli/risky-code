@@ -6,6 +6,15 @@ import { getBackgroundColor, getColor } from "./DragAndDrop";
 import Asset6 from "../assets/images/laundry/Asset6.svg";
 import probability from "../assets/images/laundry/probability.svg";
 
+// Modified from https://gist.github.com/shaquille-galimba/64f462f0b119945630427f9bedeceba7
+function importAll(r) {
+	let images = {};
+  r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
+	return images
+}
+
+const images = importAll(require.context('../assets/images/laundry/svg', false, /\.(png|jpe?g|svg)$/));
+
 const MovableItem = ({
   name,
   index,
@@ -107,7 +116,7 @@ const MovableItem = ({
 
   return (
     <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
-       <img src={Asset6} alt="An item of clothing" width="100" height="50" ></img>
+       <img src={images[Object.keys(images)[index]]} alt="An item of clothing" width="100" height="50" ></img>
        <img src={probability} alt="The predicted probability of the item"  width="100" height="50" ></img>
     </div>
   );
