@@ -6,11 +6,14 @@
  */
 
  .MuiPaper-root {
-    border-bottom: 1px solid $appBorderColor;
+    // border-bottom: 1px solid $appBorderColor;
     box-shadow: none;
     background-color: $appBackground;
 }
 
+.MuiPaper-elevation1 {
+    box-shadow: none;
+}
 
 .MuiAccordionSummary-content.Mui-expanded {
     margin: 0;

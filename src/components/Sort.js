@@ -33,7 +33,6 @@ const MovableItem = ({
     });
   };
 
-  console.log(itemId)
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -82,7 +81,6 @@ const MovableItem = ({
     type: "Our first type",
     item: { index, name, currentColumnName, path, itemId },
     end: (item, monitor) => {
-      console.log(item)
       const dropResult = monitor.getDropResult();
 
       if (dropResult) {
@@ -187,6 +185,8 @@ export const Sort = () => {
   };
 
   const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
+
+  console.log(CASE_FALSE)
 
   return (
       <DndProvider backend={HTML5Backend}>

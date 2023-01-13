@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./utils/styles/style.scss";
 
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import "./utils/styles/style.scss";
 import reportWebVitals from "./reportWebVitals";
 import {
   Routes,
@@ -48,9 +48,9 @@ const theme = createTheme({
         elevation: 0,
         square: true,
         padding: 0,
-        marginBottom: 0
-      },
+        marginBottom: 0,
     }
+  }
   },
   shape: {
     borderRadius: 0
