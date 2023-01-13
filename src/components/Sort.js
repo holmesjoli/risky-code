@@ -33,7 +33,6 @@ const MovableItem = ({
     });
   };
 
-  console.log(itemId)
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -82,13 +81,10 @@ const MovableItem = ({
     type: "Our first type",
     item: { index, name, currentColumnName, path, itemId },
     end: (item, monitor) => {
-      console.log(item)
       const dropResult = monitor.getDropResult();
 
       if (dropResult) {
         const { name } = dropResult;
-
-        console.log(name)
         const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
         switch (name) {
           case CASE_TRUE:

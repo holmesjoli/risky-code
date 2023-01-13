@@ -32,7 +32,7 @@
 .Variable {
     border-radius: $cardBorderRadius;
     border: 1px dashed #FDAB33;
-    background-color: #383838;
+    background-color: $cardBackgroundColor;
     padding: 3px;
     display: flex;
     width: 90px;
