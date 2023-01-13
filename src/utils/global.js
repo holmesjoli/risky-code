@@ -119,6 +119,7 @@ export const CLASSIFY_COLUMN_NAMES = {
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 const path = '/images/Asset 6.png';
 export const CARDS = [
+    {id: 0, name: 'Card 20', column: ITEM_LIST, thumb: path},
     {id: 1, name: 'Card 1', column: ITEM_LIST, thumb: path},
     {id: 2, name: 'Card 2', column: ITEM_LIST, thumb: path},
     {id: 3, name: 'Card 3', column: ITEM_LIST, thumb: path},
@@ -137,8 +138,8 @@ export const CARDS = [
     {id: 16, name: 'Card 16', column: ITEM_LIST, thumb: path},
     {id: 17, name: 'Card 17', column: ITEM_LIST, thumb: path},
     {id: 18, name: 'Card 18', column: ITEM_LIST, thumb: path},
-    {id: 19, name: 'Card 19', column: ITEM_LIST, thumb: path},
-    {id: 20, name: 'Card 20', column: ITEM_LIST, thumb: path}
+    {id: 19, name: 'Card 19', column: ITEM_LIST, thumb: path}
+
 ];
 
 // Creates a colorScales for different types of variables

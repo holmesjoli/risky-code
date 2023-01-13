@@ -3,8 +3,6 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES, CARDS } from "../utils/global";
 import { getBackgroundColor, getColor } from "./DragAndDrop";
-import Asset6 from "../assets/images/laundry/Asset6.svg";
-import probability from "../assets/images/laundry/probability.svg";
 
 // Modified from https://gist.github.com/shaquille-galimba/64f462f0b119945630427f9bedeceba7
 function importAll(r) {
@@ -19,6 +17,7 @@ const MovableItem = ({
   name,
   index,
   path,
+  itemId,
   currentColumnName,
   moveCardHandler,
   setItems
@@ -34,6 +33,7 @@ const MovableItem = ({
     });
   };
 
+  console.log(itemId)
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -80,7 +80,7 @@ const MovableItem = ({
 
   const [{ isDragging }, drag] = useDrag({
     type: "Our first type",
-    item: { index, name, currentColumnName, path },
+    item: { index, name, currentColumnName, path, itemId },
     end: (item, monitor) => {
       console.log(item)
       const dropResult = monitor.getDropResult();
@@ -116,8 +116,7 @@ const MovableItem = ({
 
   return (
     <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
-       <img src={images[Object.keys(images)[index]]} alt="An item of clothing" width="100" height="50" ></img>
-       <img src={probability} alt="The predicted probability of the item"  width="100" height="50" ></img>
+       <img src={images[Object.keys(images)[itemId]]} alt="An item of clothing" width="100" height="50" ></img>
     </div>
   );
 };
@@ -140,7 +139,7 @@ const Column = ({ children, className, title }) => {
     >
       <h5 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
-      
+  
       >{title}</h5>
       <div className="Moveable-Items">
         {children}
@@ -178,6 +177,7 @@ export const Sort = () => {
           key={item.id}
           name={item.name}
           path={item.thumb}
+          itemId={item.id}
           currentColumnName={item.column}
           setItems={setItems}
           index={index}
