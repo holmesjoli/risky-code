@@ -117,27 +117,28 @@ export const CLASSIFY_COLUMN_NAMES = {
 }
 
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
+const path = '/images/Asset 6.png';
 export const CARDS = [
-    {id: 1, name: 'Card 1', column: ITEM_LIST},
-    {id: 2, name: 'Card 2', column: ITEM_LIST},
-    {id: 3, name: 'Card 3', column: ITEM_LIST},
-    {id: 4, name: 'Card 4', column: ITEM_LIST},
-    {id: 5, name: 'Card 5', column: ITEM_LIST},
-    {id: 6, name: 'Card 6', column: ITEM_LIST},
-    {id: 7, name: 'Card 7', column: ITEM_LIST},
-    {id: 8, name: 'Card 8', column: ITEM_LIST},
-    {id: 9, name: 'Card 9', column: ITEM_LIST},
-    {id: 10, name: 'Card 10', column: ITEM_LIST},
-    {id: 11, name: 'Card 11', column: ITEM_LIST},
-    {id: 12, name: 'Card 12', column: ITEM_LIST},
-    {id: 13, name: 'Card 13', column: ITEM_LIST},
-    {id: 14, name: 'Card 14', column: ITEM_LIST},
-    {id: 15, name: 'Card 15', column: ITEM_LIST},
-    {id: 16, name: 'Card 16', column: ITEM_LIST},
-    {id: 17, name: 'Card 17', column: ITEM_LIST},
-    {id: 18, name: 'Card 18', column: ITEM_LIST},
-    {id: 19, name: 'Card 19', column: ITEM_LIST},
-    {id: 20, name: 'Card 20', column: ITEM_LIST}
+    {id: 1, name: 'Card 1', column: ITEM_LIST, thumb: path},
+    {id: 2, name: 'Card 2', column: ITEM_LIST, thumb: path},
+    {id: 3, name: 'Card 3', column: ITEM_LIST, thumb: path},
+    {id: 4, name: 'Card 4', column: ITEM_LIST, thumb: path},
+    {id: 5, name: 'Card 5', column: ITEM_LIST, thumb: path},
+    {id: 6, name: 'Card 6', column: ITEM_LIST, thumb: path},
+    {id: 7, name: 'Card 7', column: ITEM_LIST, thumb: path},
+    {id: 8, name: 'Card 8', column: ITEM_LIST, thumb: path},
+    {id: 9, name: 'Card 9', column: ITEM_LIST, thumb: path},
+    {id: 10, name: 'Card 10', column: ITEM_LIST, thumb: path},
+    {id: 11, name: 'Card 11', column: ITEM_LIST, thumb: path},
+    {id: 12, name: 'Card 12', column: ITEM_LIST, thumb: path},
+    {id: 13, name: 'Card 13', column: ITEM_LIST, thumb: path},
+    {id: 14, name: 'Card 14', column: ITEM_LIST, thumb: path},
+    {id: 15, name: 'Card 15', column: ITEM_LIST, thumb: path},
+    {id: 16, name: 'Card 16', column: ITEM_LIST, thumb: path},
+    {id: 17, name: 'Card 17', column: ITEM_LIST, thumb: path},
+    {id: 18, name: 'Card 18', column: ITEM_LIST, thumb: path},
+    {id: 19, name: 'Card 19', column: ITEM_LIST, thumb: path},
+    {id: 20, name: 'Card 20', column: ITEM_LIST, thumb: path}
 ];
 
 // Creates a colorScales for different types of variables

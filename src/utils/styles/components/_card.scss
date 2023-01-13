@@ -1,11 +1,15 @@
 .Card {
     // width: 50px;
-    height: 100px;
+    height: 130px;
     background-color: $cardBackgroundColor;
     border-radius: $cardBorderRadius;
     border: 1px solid $cardBorderColor;
     max-width: 75px;
     min-width: 75px;
+}
+
+.Card > img {
+    margin: 5px 0;
 }
 
 .False {

@@ -7,9 +7,11 @@ export default function Card() {
 
             {CARDS.map(({id, name}, index) => {
                 return( 
-                <div key={id} className="Card"></div>
-                )
-            })
+                    <div key={id} className="Card">
+                        <img src="../assets/images/laundry/Asset 6.png" alt="blah"></img>
+                    </div>
+                    )
+                })
             }
         </div>
     )

@@ -3,10 +3,13 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES, CARDS } from "../utils/global";
 import { getBackgroundColor, getColor } from "./DragAndDrop";
+import Asset6 from "../assets/images/laundry/Asset6.svg";
+import probability from "../assets/images/laundry/probability.svg";
 
 const MovableItem = ({
   name,
   index,
+  path,
   currentColumnName,
   moveCardHandler,
   setItems
@@ -68,12 +71,15 @@ const MovableItem = ({
 
   const [{ isDragging }, drag] = useDrag({
     type: "Our first type",
-    item: { index, name, currentColumnName },
+    item: { index, name, currentColumnName, path },
     end: (item, monitor) => {
+      console.log(item)
       const dropResult = monitor.getDropResult();
 
       if (dropResult) {
         const { name } = dropResult;
+
+        console.log(name)
         const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
         switch (name) {
           case CASE_TRUE:
@@ -101,7 +107,8 @@ const MovableItem = ({
 
   return (
     <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
-      {name}
+       <img src={Asset6} alt="An item of clothing" width="100" height="50" ></img>
+       <img src={probability} alt="The predicted probability of the item"  width="100" height="50" ></img>
     </div>
   );
 };
@@ -113,21 +120,7 @@ const Column = ({ children, className, title }) => {
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop()
-    }),
-    // Override monitor.canDrop() function
-    canDrop: (item) => {
-      const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
-      const { currentColumnName } = item;
-      return (
-        currentColumnName === title ||
-        (currentColumnName === ITEM_LIST && title === CASE_TRUE) ||
-        (currentColumnName === CASE_TRUE &&
-          (title === ITEM_LIST || title === CASE_FALSE)) ||
-        (currentColumnName === CASE_FALSE &&
-          (title === CASE_TRUE)) ||
-        ( title === CASE_FALSE)
-      );
-    }
+    })
   });
 
   return (
@@ -175,6 +168,7 @@ export const Sort = () => {
         <MovableItem
           key={item.id}
           name={item.name}
+          path={item.thumb}
           currentColumnName={item.column}
           setItems={setItems}
           index={index}
