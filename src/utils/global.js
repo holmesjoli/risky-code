@@ -21,19 +21,19 @@ export const config = {
         "title": "Literature",
         "descr": ""
     },
-    "classify": {
+    "Classify": {
         "id": "classify",
         "title": "Classify",
         "subtitle": "Goal: Classify each item as hot water load or save for later",
         "descr": "In this step of model building, we will classify each item to be run in the hot water load or save for later. For each item click hot water load or save for later. In the next step, we will use this data to train Laundry AID."
     },
-    "optimize": {
+    "Optimize": {
         "id": "optimize",
         "title": "Optimize",
         "subtitle": "Goal: Optimize model to be as accurate as possible",
         "descr": "In this step of model building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy."
     },
-    "train": {
+    "Train": {
         "id": "train",
         "title": "Train",
         "subtitle": "Goal: Predict which items should be included in the hot water load",

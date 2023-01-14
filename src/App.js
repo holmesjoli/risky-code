@@ -21,7 +21,16 @@ import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Literature from "./pages/Literature";
 
+import { config, CARDS, VARIABLES }  from "./utils/global";
+import { useState } from "react";
+
 export default function App() {
+
+    const [items, setItems] = useState(CARDS);
+    const [variables, setVariables] = useState(VARIABLES);
+
+    console.log(items)
+
     return(
         <HashRouter>
       {
@@ -33,9 +42,9 @@ export default function App() {
       }
       <Routes>
         <Route path="/" element={<Introduction />} />
-        <Route path="/Classify" element={<Classify />} />
-        <Route path="/Train" element={<Train />} />
-        <Route path="/Optimize" element={<Optimize />} />
+        <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
+        <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items}/>} />
+        <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items}/>} />
         <Route path="/Calibration" element={<Calibration />} />
         <Route path="/FalsePositive" element={<FalsePositive />} />
         <Route path="/FalseNegative" element={<FalseNegative />} />

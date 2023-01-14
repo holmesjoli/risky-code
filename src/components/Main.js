@@ -6,9 +6,6 @@ import * as About from "../pages/About";
 import * as Glossary from "../pages/Glossary";
 import * as Introduction from "../pages/Introduction";
 import * as Literature from "../pages/Literature";
-import * as Classify from "../pages/predict/Classify";
-import * as Train from "../pages/predict/Train";
-import * as Optimize from "../pages/predict/Optimize";
 import * as Calibration from "../pages/fairness/Calibration";
 import * as FalsePositive from "../pages/fairness/FalsePositive";
 import * as FalseNegative from "../pages/fairness/FalseNegative";
@@ -18,24 +15,12 @@ import * as DecisionAid from "../pages/deliberation/DecisionAid";
 import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
 
-import { CARDS, VARIABLES }  from "../utils/global";
-import { useState } from "react";
-
-function GetComponent({config, items, setItems, variables, setVariables}) {
+function GetComponent({config}) {
     let component;
 
     switch (config.id) {
         default:
             component = <Introduction.Content/>
-            break;
-        case 'classify' :
-            component = <Classify.Content items={items} setItems={setItems}/>;
-            break;
-        case 'train' :
-            component = <Train.Content variables={variables} setVariables={setVariables} items={items}/>;
-            break;
-        case 'optimize' :
-            component = <Optimize.Content variables={variables} setVariables={setVariables}/>;
             break;
         case 'calibration' :
             component = <Calibration.Content/>;
@@ -75,28 +60,17 @@ function GetComponent({config, items, setItems, variables, setVariables}) {
     return component;
 };
 
-function ContentContainer({config, items, setItems, variables, setVariables}) {
-    return(
-        <div className="Content-Container">
-            <Description config={config}/>
-            <GetComponent config={config} items={items} setItems={setItems} variables={variables} setVariables={setVariables}/>
-        </div>
-    );
-}
-
 export default function Main({config}) {
-
-    const [items, setItems] = useState(CARDS);
-    const [variables, setVariables] = useState(VARIABLES);
-
-    console.log(items)
 
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <Navigation/>
-                <ContentContainer config={config} items={items} setItems={setItems} variables={variables} setVariables={setVariables}/>
+                <div className="Content-Container">
+                    <Description config={config}/>
+                    <GetComponent config={config}/>
+                </div>
             </div>
         </div>
     )

@@ -16,9 +16,9 @@ export default function Card({items}) {
 
                     let name;
                     if (item.column === CASE_TRUE) {
-                        name = "True";
+                        name = "Case-True";
                     } else if (item.column === CASE_FALSE) {
-                        name = "False";
+                        name = "Case-False";
                     } else {
                         name = "Unclassified";
                     }

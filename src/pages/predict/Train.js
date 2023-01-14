@@ -1,4 +1,6 @@
-import Main from "../../components/Main";
+import Navigation from '../../components/Navigation';
+import Description from '../../components/Description';
+import Header from '../../components/Header';
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import Card from "../../components/Card";
@@ -21,10 +23,17 @@ export function Content({variables, setVariables, items}) {
     )
 }
 
-export default function train() {
-    return(
-        <div>
-            <Main config={config.train}/>
+export default function Train({config, variables, setVariables, items}) {
+    return (
+        <div className="App">
+            <Header/>
+            <div className="Main">
+                <Navigation/>
+                <div className="Content-Container">
+                    <Description config={config}/>
+                    <Content variables={variables} setVariables={setVariables} items={items} />
+                </div>
+            </div>
         </div>
     )
 }

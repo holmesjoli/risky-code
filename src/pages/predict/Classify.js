@@ -1,6 +1,7 @@
-import Main from "../../components/Main";
+import Navigation from '../../components/Navigation';
+import Description from '../../components/Description';
+import Header from '../../components/Header';
 import Sort from "../../components/Sort";
-import { config }  from "../../utils/global";
 
 export function Content({items, setItems}) {
 
@@ -11,8 +12,18 @@ export function Content({items, setItems}) {
     )
 }
 
-export default function classify() {
-    return(
-        <Main config={config.classify}/>
+export default function Classify({config, items, setItems}) {
+
+    return (
+        <div className="App">
+            <Header/>
+            <div className="Main">
+                <Navigation/>
+                <div className="Content-Container">
+                    <Description config={config}/>
+                    <Content items={items} setItems={setItems} />
+                </div>
+            </div>
+        </div>
     )
 }
