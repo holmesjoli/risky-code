@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { CLASSIFY_COLUMN_NAMES, CARDS } from "../utils/global";
+import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor } from "./DragAndDrop";
 
 // Modified from https://gist.github.com/shaquille-galimba/64f462f0b119945630427f9bedeceba7

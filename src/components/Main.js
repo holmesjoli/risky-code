@@ -19,75 +19,73 @@ import * as DecisionAid from "../pages/deliberation/DecisionAid";
 import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
 
-class ContentContainer extends React.Component {
-    
-    constructor({config}) {
+import { CARDS }  from "../utils/global";
+import { useState } from "react";
 
-        super();
-        this.config = config
-        this.render()
+function GetComponent({config}) {
+    let component;
+    const [items, setItems] = useState(CARDS);
+
+    console.log(items)
+
+    switch (config.id) {
+        default:
+            component = <Introduction.Content/>
+            break;
+        case 'classify' :
+            component = <Classify.Content items={items} setItems={setItems}/>;
+            break;
+        case 'train' :
+            component = <Train.Content/>;
+            break;
+        case 'optimize' :
+            component = <Optimize.Content/>;
+            break;
+        case 'calibration' :
+            component = <Calibration.Content/>;
+            break;
+        case 'falsePositive' :
+            component = <FalsePositive.Content/>;
+            break;
+        case 'falseNegative' :
+            component = <FalseNegative.Content/>;
+            break;
+        case 'compas' :
+            component = <Compas.Content/>;
+            break;
+        case 'publicPolicy' :
+            component = <PublicPolicy.Content/>;
+            break;
+        case 'decisionAid' :
+            component = <DecisionAid.Content/>;
+            break;
+        case 'riskFramework' :
+            component = <RiskFramework.Content/>;
+            break;
+        case 'stakeholderMapping' :
+            component = <StakeholderMapping.Content/>;
+            break;
+        case 'glossary' :
+            component = <Glossary.Content/>;
+            break;
+        case 'literature' :
+            component = <Literature.Content/>;
+            break;
+        case 'about' :
+            component = <About.Content/>;
+            break;
     }
 
-    getComponent() {
-        let component;
-        switch (this.config.componentID) {
-            default:
-                component = <Introduction.Content/>
-                break;
-            case 'classify' :
-                component = <Classify.Content/>;
-                break;
-            case 'train' :
-                component = <Train.Content/>;
-                break;
-            case 'optimize' :
-                component = <Optimize.Content/>;
-                break;
-            case 'calibration' :
-                component = <Calibration.Content/>;
-                break;
-            case 'falsePositive' :
-                component = <FalsePositive.Content/>;
-                break;
-            case 'falseNegative' :
-                component = <FalseNegative.Content/>;
-                break;
-            case 'compas' :
-                component = <Compas.Content/>;
-                break;
-            case 'publicPolicy' :
-                component = <PublicPolicy.Content/>;
-                break;
-            case 'decisionAid' :
-                component = <DecisionAid.Content/>;
-                break;
-            case 'riskFramework' :
-                component = <RiskFramework.Content/>;
-                break;
-            case 'stakeholderMapping' :
-                component = <StakeholderMapping.Content/>;
-                break;
-            case 'glossary' :
-                component = <Glossary.Content/>;
-                break;
-            case 'literature' :
-                component = <Literature.Content/>;
-                break;
-            case 'about' :
-                component = <About.Content/>;
-                break;
-        }
-        return component;
-    };
+    return component;
+};
 
-    render() {
-        return(
-            <div className="Content-Container">
-                <Description config={this.config}/>
-                {this.getComponent()}
-            </div>
-        );
-    }
+function Render({config}) {
+    return(
+        <div className="Content-Container">
+            <Description config={config}/>
+            <GetComponent config={config}/>
+        </div>
+    );
 }
 
 export default function Main({config}) {
@@ -97,7 +95,8 @@ export default function Main({config}) {
             <Header/>
             <div className="Main">
                 <Navigation/>
-                <ContentContainer config={config}/>
+                <Render config={config}/>
+                {/* <ContentContainer config={config}/> */}
             </div>
         </div>
     )
