@@ -2,8 +2,8 @@
     // width: 50px;
     max-height: 130px;
     background-color: $cardBackgroundColor;
-    border-radius: $cardBorderRadius;
-    border: 1px solid $cardBorderColor;
+    border-radius: $containerBorderRadius;
+    border: 1px solid $containerBorderColor;
     max-width: 75px;
     min-width: 75px;
 }
@@ -17,7 +17,7 @@
 }
 
 .True {
-    border: 1px solid $cardBorderColor;
+    border: 1px solid $containerBorderColor;
 }
 
 .Card-Container {

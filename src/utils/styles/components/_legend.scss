@@ -1,9 +1,9 @@
 .Legend {
     background-color: $containerBackgroundColor;
-    border-radius: $cardBorderRadius;
-    border: 1px solid $cardBorderColor;
-    padding: $cardPadding;
-    margin-bottom: $cardMarginBottom;
+    border-radius: $containerBorderRadius;
+    border: 1px solid $containerBorderColor;
+    padding: $containerPadding;
+    margin-bottom: $containerMarginBottom;
 }
 
 .Row {

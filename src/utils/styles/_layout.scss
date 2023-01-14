@@ -13,8 +13,8 @@ ul {
 
 // React app mounting point
 #root {
-    width: 100vw;
-    height: 100vh;
+    // width: 100vw;
+    // height: 100vh;
 }
 
 .Header {
@@ -60,6 +60,11 @@ ul {
 .Description {
     display: grid;
     grid-template-columns: minmax(150px, 65%);
+    background-color: $containerBackgroundColor;
+    border: 1px solid $containerBorderColor;
+    border-radius: $containerBorderRadius;
+    padding: $containerPadding;
+    margin-bottom: $containerMarginBottom;
 }
 
 .Visualization {

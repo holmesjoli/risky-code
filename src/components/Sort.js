@@ -13,6 +13,7 @@ function importAll(r) {
 
 const images = importAll(require.context('../assets/images/laundry/svg', false, /\.(png|jpe?g|svg)$/));
 
+// Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
   name,
   index,
