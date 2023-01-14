@@ -1,4 +1,5 @@
 import Main from "../../components/Main";
+import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import { config }  from "../../utils/global";
 
@@ -10,10 +11,10 @@ function Information() {
     )
 }
 
-export function Content() {
+export function Content({variables, setVariables}) {
     return(
-        <div className="Content">
-            <Information/>
+        <div className="Content Three-Column">
+            <Model variables={variables} setVariables={setVariables}/>
         </div>
     )
 }

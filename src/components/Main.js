@@ -1,5 +1,4 @@
 import React from 'react';
-// import {setState} from 'react';
 import Navigation from './Navigation';
 import Header from './Header';
 import Description from "./Description";
@@ -37,10 +36,10 @@ function GetComponent({config}) {
             component = <Classify.Content items={items} setItems={setItems}/>;
             break;
         case 'train' :
-            component = <Train.Content variables={variables} setVariables={setVariables}/>;
+            component = <Train.Content variables={variables} setVariables={setVariables} items={items}/>;
             break;
         case 'optimize' :
-            component = <Optimize.Content/>;
+            component = <Optimize.Content variables={variables} setVariables={setVariables}/>;
             break;
         case 'calibration' :
             component = <Calibration.Content/>;

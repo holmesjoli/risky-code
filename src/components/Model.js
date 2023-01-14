@@ -183,10 +183,10 @@ export default function Model({variables, setVariables}) {
   return (
     <div className="Model-Container">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DATA_VARIABLES} className="Movable-Item-Container Data-Variable-Column">
+        <Column title={DATA_VARIABLES} className="Container Data-Variable-Column">
           {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
-        <Column title={MODEL_VARIABLES} className="Movable-Item-Container Model-Variable-Column">
+        <Column title={MODEL_VARIABLES} className="Container Model-Variable-Column">
           {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
       </DndProvider>

@@ -1,18 +1,19 @@
 import { CARDS } from "../utils/global";
 
-export default function Card() {
+export default function Card({items}) {
 
     return(
-        <div className="Card-Container">
-
-            {CARDS.map(({id, name}, index) => {
-                return( 
-                    <div key={id} className="Card">
-                        <img src="../assets/images/laundry/Asset 6.png" alt="blah"></img>
-                    </div>
-                    )
-                })
-            }
+        <div className="Cards-Container Container">
+            <h5 className="Small-Margin">Items</h5>
+            <div className="Card-Container">
+                {CARDS.map(({id}, index) => {
+                    return( 
+                        <div key={id} className="Card">
+                        </div>
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }

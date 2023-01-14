@@ -1,6 +1,7 @@
 import Main from "../../components/Main";
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
+import Card from "../../components/Card";
 import { config }  from "../../utils/global";
 
 function Information() {
@@ -11,10 +12,11 @@ function Information() {
     )
 }
 
-export function Content({variables, setVariables}) {
+export function Content({variables, setVariables, items}) {
     return(
         <div className="Content Three-Column">
             <Model variables={variables} setVariables={setVariables}/>
+            <Card items={items}/>
             {/* <Card/>
             <Information/> */}
         </div>

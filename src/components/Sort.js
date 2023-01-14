@@ -191,15 +191,15 @@ export default function Sort({items, setItems}) {
       <DndProvider backend={HTML5Backend}>
         <div className="Two-Column">
             <div className="Classify-Container">
-                <Column title={ITEM_LIST} className="Movable-Item-Container item-list-column">
+                <Column title={ITEM_LIST} className="Container item-list-column">
                 {returnItemsForColumn(items, ITEM_LIST)}
                 </Column>
             </div>
             <div className="Case-Container">
-                <Column title={CASE_TRUE} className="Movable-Item-Container case-true-column">
+                <Column title={CASE_TRUE} className="Container case-true-column">
                 {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
-                <Column title={CASE_FALSE} className="Movable-Item-Container case-false-column">
+                <Column title={CASE_FALSE} className="Container case-false-column">
                 {returnItemsForColumn(items, CASE_FALSE)}
                 </Column>
             </div>
