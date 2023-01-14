@@ -21,12 +21,8 @@ import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
 import { CARDS, VARIABLES }  from "../utils/global";
 import { useState } from "react";
 
-function GetComponent({config}) {
+function GetComponent({config, items, setItems, variables, setVariables}) {
     let component;
-    const [items, setItems] = useState(CARDS);
-    const [variables, setVariables] = useState(VARIABLES);
-
-    console.log(items)
 
     switch (config.id) {
         default:
@@ -79,24 +75,28 @@ function GetComponent({config}) {
     return component;
 };
 
-function Render({config}) {
+function ContentContainer({config, items, setItems, variables, setVariables}) {
     return(
         <div className="Content-Container">
             <Description config={config}/>
-            <GetComponent config={config}/>
+            <GetComponent config={config} items={items} setItems={setItems} variables={variables} setVariables={setVariables}/>
         </div>
     );
 }
 
 export default function Main({config}) {
 
+    const [items, setItems] = useState(CARDS);
+    const [variables, setVariables] = useState(VARIABLES);
+
+    console.log(items)
+
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <Navigation/>
-                <Render config={config}/>
-                {/* <ContentContainer config={config}/> */}
+                <ContentContainer config={config} items={items} setItems={setItems} variables={variables} setVariables={setVariables}/>
             </div>
         </div>
     )

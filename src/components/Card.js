@@ -1,14 +1,14 @@
-import { CARDS } from "../utils/global";
 
 export default function Card({items}) {
 
+    console.log(items)
     return(
         <div className="Cards-Container Container">
             <h5 className="Small-Margin">Items</h5>
             <div className="Card-Container">
-                {CARDS.map(({id}, index) => {
+                {items.map((item) => {
                     return( 
-                        <div key={id} className="Card">
+                        <div key={item.id+"id"}className="Card">
                         </div>
                         )
                     })

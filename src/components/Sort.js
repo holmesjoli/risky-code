@@ -1,23 +1,16 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor } from "./DragAndDrop";
+import { importImages } from "./Helper";
 
-// Modified from https://gist.github.com/shaquille-galimba/64f462f0b119945630427f9bedeceba7
-function importAll(r) {
-	let images = {};
-  r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
-	return images
-}
-
-const images = importAll(require.context('../assets/images/laundry/svg', false, /\.(png|jpe?g|svg)$/));
+const images = importImages()
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
   name,
   index,
-  path,
   itemId,
   currentColumnName,
   moveCardHandler,
@@ -80,7 +73,7 @@ const MovableItem = ({
 
   const [{ isDragging }, drag] = useDrag({
     type: "Our first type",
-    item: { index, name, currentColumnName, path, itemId },
+    item: { index, name, currentColumnName, itemId },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
 
@@ -175,7 +168,6 @@ export default function Sort({items, setItems}) {
         <MovableItem
           key={item.id}
           name={item.name}
-          path={item.thumb}
           itemId={item.id}
           currentColumnName={item.column}
           setItems={setItems}

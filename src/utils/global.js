@@ -119,7 +119,7 @@ export const CLASSIFY_COLUMN_NAMES = {
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 const path = '/images/Asset 6.png';
 export const CARDS = [
-    {id: 0, name: 'Card 20', column: ITEM_LIST},
+    {id: 0, name: 'Card 0', column: ITEM_LIST},
     {id: 1, name: 'Card 1', column: ITEM_LIST},
     {id: 2, name: 'Card 2', column: ITEM_LIST},
     {id: 3, name: 'Card 3', column: ITEM_LIST},

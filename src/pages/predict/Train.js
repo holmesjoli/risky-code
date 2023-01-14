@@ -17,8 +17,6 @@ export function Content({variables, setVariables, items}) {
         <div className="Content Three-Column">
             <Model variables={variables} setVariables={setVariables}/>
             <Card items={items}/>
-            {/* <Card/>
-            <Information/> */}
         </div>
     )
 }
