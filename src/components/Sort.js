@@ -3,9 +3,10 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor } from "./DragAndDrop";
+import { addClass } from "./Card";
 import { importImages } from "./Helper";
 
-const images = importImages()
+const images = importImages();
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
@@ -106,7 +107,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
+    <div ref={ref} className={addClass(currentColumnName)+" Movable-Item Card"} style={{ opacity }}>
        <img src={images[Object.keys(images)[itemId]]} alt="An item of clothing" width="100" height="50" ></img>
     </div>
   );
@@ -184,15 +185,15 @@ export default function Sort({items, setItems}) {
         <div className="Two-Column">
             <div className="Classify-Container">
                 <Column title={ITEM_LIST} className="Container item-list-column">
-                {returnItemsForColumn(items, ITEM_LIST)}
+                  {returnItemsForColumn(items, ITEM_LIST)}
                 </Column>
             </div>
             <div className="Case-Container">
                 <Column title={CASE_TRUE} className="Container case-true-column">
-                {returnItemsForColumn(items, CASE_TRUE)}
+                  {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
                 <Column title={CASE_FALSE} className="Container case-false-column">
-                {returnItemsForColumn(items, CASE_FALSE)}
+                  {returnItemsForColumn(items, CASE_FALSE)}
                 </Column>
             </div>
         </div>

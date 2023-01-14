@@ -3,10 +3,23 @@ import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 
 const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
+export function addClass(column) {
+
+    let name;
+    if (column === CASE_TRUE) {
+        name = "Case-True";
+    } else if (column === CASE_FALSE) {
+        name = "Case-False";
+    } else {
+        name = "Unclassified";
+    }
+
+    return name;
+}
+
 export default function Card({items}) {
 
-    const images = importImages()
-    console.log(items)
+    const images = importImages();
 
     return(
         <div className="Cards-Container Container">
@@ -14,17 +27,10 @@ export default function Card({items}) {
             <div className="Card-Container">
                 {items.map((item) => {
 
-                    let name;
-                    if (item.column === CASE_TRUE) {
-                        name = "Case-True";
-                    } else if (item.column === CASE_FALSE) {
-                        name = "Case-False";
-                    } else {
-                        name = "Unclassified";
-                    }
+                    let cName = addClass(item.column);
 
                     return( 
-                        <div key={item.id+"id"} className={name+" Card Flat"}>
+                        <div key={item.id+"id"} className={cName+" Card Flat"}>
                             <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
                         </div>
                         )
