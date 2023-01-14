@@ -10,10 +10,10 @@ const MovableItem = ({
   index,
   currentColumnName,
   moveCardHandler,
-  setItems
+  setVariables
 }) => {
   const changeItemColumn = (currentItem, columnName) => {
-    setItems((prevState) => {
+    setVariables((prevState) => {
       return prevState.map((e) => {
         return {
           ...e,
@@ -144,13 +144,13 @@ const Column = ({ children, className, title }) => {
   );
 };
 export default function Model() {
-  const [items, setItems] = useState(VARIABLES);
+  const [variables, setVariables] = useState(VARIABLES);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
-    const dragItem = items[dragIndex];
+    const dragItem = variables[dragIndex];
 
     if (dragItem) {
-      setItems((prevState) => {
+      setVariables((prevState) => {
         const coppiedStateArray = [...prevState];
 
         // remove item by "hoverIndex" and put "dragItem" instead
@@ -164,15 +164,15 @@ export default function Model() {
     }
   };
 
-  const returnItemsForColumn = (columnName) => {
-    return items
+  const returnItemsForColumn = (variables, columnName) => {
+    return variables
       .filter((item) => item.column === columnName)
       .map((item, index) => (
         <MovableItem
           key={item.id}
           name={item.name}
           currentColumnName={item.column}
-          setItems={setItems}
+          setVariables={setVariables}
           index={index}
           moveCardHandler={moveCardHandler}
         />
@@ -185,10 +185,10 @@ export default function Model() {
     <div className="Model-Container">
       <DndProvider backend={HTML5Backend}>
         <Column title={DATA_VARIABLES} className="Movable-Item-Container Data-Variable-Column">
-          {returnItemsForColumn(DATA_VARIABLES)}
+          {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
         <Column title={MODEL_VARIABLES} className="Movable-Item-Container Model-Variable-Column">
-          {returnItemsForColumn(MODEL_VARIABLES)}
+          {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
       </DndProvider>
     </div>
