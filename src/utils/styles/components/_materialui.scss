@@ -5,13 +5,17 @@
     https://blog.bitsrc.io/4-ways-to-override-material-ui-styles-43aee2348ded
  */
 
- .MuiPaper-root {
-    // border-bottom: 1px solid $appBorderColor;
-    box-shadow: none;
-    background-color: $appBackground;
-}
+//  .MuiPaper-root {
+//     // border-bottom: 1px solid $appBorderColor;
+//     box-shadow: none;
+//     background-color: $appBackground;
+// }
+
+// .MuiPaper-elevation1 {
+//     box-shadow: none;
+// }
 
 
-.MuiAccordionSummary-content.Mui-expanded {
-    margin: 0;
-}
+// .MuiAccordionSummary-content.Mui-expanded {
+//     margin: 0;
+// }

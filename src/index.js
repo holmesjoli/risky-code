@@ -50,6 +50,9 @@ const theme = createTheme({
         padding: 0,
         marginBottom: 0
       },
+      elevation1: {
+        boxShadow: "none"
+      }
     }
   },
   shape: {
