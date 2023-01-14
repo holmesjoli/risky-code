@@ -20,17 +20,17 @@ import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
 
 class ContentContainer extends React.Component {
+    
+    constructor({config}) {
 
-    constructor(config) {
-        super(config);
-        this.componentID = config.config.id
-        this.config = config.config
+        super();
+        this.config = config
         this.render()
     }
 
     getComponent() {
         let component;
-        switch (this.componentID) {
+        switch (this.config.componentID) {
             default:
                 component = <Introduction.Content/>
                 break;
@@ -90,14 +90,14 @@ class ContentContainer extends React.Component {
     }
 }
 
-export default function Main(config) {
+export default function Main({config}) {
 
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <Navigation/>
-                <ContentContainer config={config.config}/>
+                <ContentContainer config={config}/>
             </div>
         </div>
     )

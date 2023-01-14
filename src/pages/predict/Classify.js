@@ -1,11 +1,14 @@
 import Main from "../../components/Main";
-import { config }  from "../../utils/global";
 import Sort from "../../components/Sort";
+import { config, CARDS }  from "../../utils/global";
+import { useState } from "react";
 
 export function Content() {
+    const [items, setItems] = useState(CARDS);
+
     return(
         <div className="Content">
-            <Sort/>
+            <Sort items={items} setItems={setItems} />
         </div>
     )
 }

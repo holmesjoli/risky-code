@@ -88,8 +88,6 @@ const MovableItem = ({
         const { name } = dropResult;
         const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
-        console.log(name, item, CASE_TRUE, CASE_FALSE)
-
         switch (name) {
           case CASE_TRUE:
             changeItemColumn(item, CASE_TRUE);
@@ -104,8 +102,6 @@ const MovableItem = ({
             break;
         }
       }
-
-      console.log(item)
     },
     collect: (monitor) => ({
       isDragging: monitor.isDragging()
@@ -151,8 +147,7 @@ const Column = ({ children, className, title }) => {
 };
 
 
-export default function Sort() {
-  const [items, setItems] = useState(CARDS);
+export default function Sort({items, setItems}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -172,7 +167,8 @@ export default function Sort() {
     }
   };
 
-  const returnItemsForColumn = (columnName) => {
+  const returnItemsForColumn = (items, columnName) => {
+
     return items
       .filter((item) => item.column === columnName)
       .map((item, index) => (
@@ -196,15 +192,15 @@ export default function Sort() {
         <div className="Two-Column">
             <div className="Classify-Container">
                 <Column title={ITEM_LIST} className="Movable-Item-Container item-list-column">
-                {returnItemsForColumn(ITEM_LIST)}
+                {returnItemsForColumn(items, ITEM_LIST)}
                 </Column>
             </div>
             <div className="Case-Container">
                 <Column title={CASE_TRUE} className="Movable-Item-Container case-true-column">
-                {returnItemsForColumn(CASE_TRUE)}
+                {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
                 <Column title={CASE_FALSE} className="Movable-Item-Container case-false-column">
-                {returnItemsForColumn(CASE_FALSE)}
+                {returnItemsForColumn(items, CASE_FALSE)}
                 </Column>
             </div>
         </div>
