@@ -150,7 +150,8 @@ const Column = ({ children, className, title }) => {
   );
 };
 
-export const Sort = () => {
+
+export default function Sort() {
   const [items, setItems] = useState(CARDS);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {

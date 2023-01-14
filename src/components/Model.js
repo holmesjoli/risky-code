@@ -143,8 +143,7 @@ const Column = ({ children, className, title }) => {
     </div>
   );
 };
-
-export const Model = () => {
+export default function Model() {
   const [items, setItems] = useState(VARIABLES);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {

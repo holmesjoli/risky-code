@@ -1,9 +1,7 @@
 import Main from "../../components/Main";
-import Card from "../../components/Card";
-import { Model } from "../../components/Model";
+import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import { config }  from "../../utils/global";
-
 
 function Information() {
     return (
