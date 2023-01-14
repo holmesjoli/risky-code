@@ -1,4 +1,4 @@
-import Main from "../../components/Main";
+import App from "../../App";
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import { config }  from "../../utils/global";
@@ -21,6 +21,6 @@ export function Content({variables, setVariables}) {
 
 export default function optimize() {
     return(
-        <Main config={config.optimize}/>
+        <App config={config.optimize}/>
     )
 }

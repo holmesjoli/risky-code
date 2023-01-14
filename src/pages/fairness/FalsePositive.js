@@ -1,4 +1,4 @@
-import Main from "../../components/Main";
+import App from "../../App";
 import { config }  from "../../utils/global";
 import Legend from "../../components/Legend";
 
@@ -20,6 +20,6 @@ export function Content() {
 
 export default function falsePositive() {
     return(
-        <Main config={config.falsePositive}/>
+        <App config={config.falsePositive}/>
     )
 }

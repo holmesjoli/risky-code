@@ -14,12 +14,13 @@ export default function Card({items}) {
             <div className="Card-Container">
                 {items.map((item) => {
 
+                    let name;
                     if (item.column === CASE_TRUE) {
-                        var name = "True";
+                        name = "True";
                     } else if (item.column === CASE_FALSE) {
-                        var name = "False";
+                        name = "False";
                     } else {
-                        var name = "Unclassified";
+                        name = "Unclassified";
                     }
 
                     return( 

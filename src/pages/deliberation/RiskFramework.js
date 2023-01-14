@@ -1,4 +1,4 @@
-import Main from "../../components/Main";
+import App from "../../App";
 import { config }  from "../../utils/global";
 
 export function Content() {
@@ -10,6 +10,6 @@ export function Content() {
 
 export default function riskFramework() {
     return(
-        <Main config={config.riskFramework}/>
+        <App config={config.riskFramework}/>
     )
 }

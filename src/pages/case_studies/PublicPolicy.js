@@ -1,9 +1,8 @@
-import Main from "../../components/Main";
+import App from "../../App";
 import { config }  from "../../utils/global";
 import data from "../../data/processed/policy.json";
 import * as d3 from 'd3';
 import { useEffect } from "react";
-
 
 // Tooltip
 function renderTooltip(circle) {
@@ -145,6 +144,6 @@ export function Content() {
 }
 export default function publicPolicy() {
     return(
-        <Main config={config.publicPolicy}/>
+        <App config={config.publicPolicy}/>
     )
 }

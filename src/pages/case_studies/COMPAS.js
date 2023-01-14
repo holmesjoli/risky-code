@@ -1,7 +1,7 @@
 import { FormControl, MenuItem, Select} from "@material-ui/core";
 import { useEffect, useState } from 'react';
 import * as d3 from "d3";
-import Main from "../../components/Main";
+import App from "../../App";
 import Legend from "../../components/Legend";
 import Slider from "../../components/Slider";
 import { config }  from "../../utils/global";
@@ -112,6 +112,6 @@ export function Content() {
 
 export default function compas() {
     return(
-        <Main config={config.compas}/>
+        <App config={config.compas}/>
     )
 }

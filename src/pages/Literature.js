@@ -1,4 +1,4 @@
-import Main from "../components/Main";
+import App from "../App";
 import { config }  from "../utils/global";
 
 export function Content() {
@@ -10,6 +10,6 @@ export function Content() {
 
 export default function Literature() {
     return(
-        <Main config={config.literature}/>
+        <App config={config.literature}/>
     )
 }
