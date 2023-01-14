@@ -11,10 +11,10 @@ function Information() {
     )
 }
 
-export function Content() {
+export function Content({variables, setVariables}) {
     return(
         <div className="Content Three-Column">
-            <Model/>
+            <Model variables={variables} setVariables={setVariables}/>
             {/* <Card/>
             <Information/> */}
         </div>

@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { MODEL_COLUMN_NAMES, VARIABLES } from "../utils/global";
+import { MODEL_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor } from "./DragAndDrop";
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
@@ -143,8 +143,7 @@ const Column = ({ children, className, title }) => {
     </div>
   );
 };
-export default function Model() {
-  const [variables, setVariables] = useState(VARIABLES);
+export default function Model({variables, setVariables}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = variables[dragIndex];

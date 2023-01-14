@@ -19,12 +19,13 @@ import * as DecisionAid from "../pages/deliberation/DecisionAid";
 import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
 
-import { CARDS }  from "../utils/global";
+import { CARDS, VARIABLES }  from "../utils/global";
 import { useState } from "react";
 
 function GetComponent({config}) {
     let component;
     const [items, setItems] = useState(CARDS);
+    const [variables, setVariables] = useState(VARIABLES);
 
     console.log(items)
 
@@ -36,7 +37,7 @@ function GetComponent({config}) {
             component = <Classify.Content items={items} setItems={setItems}/>;
             break;
         case 'train' :
-            component = <Train.Content/>;
+            component = <Train.Content variables={variables} setVariables={setVariables}/>;
             break;
         case 'optimize' :
             component = <Optimize.Content/>;
