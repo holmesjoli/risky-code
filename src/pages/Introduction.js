@@ -1,4 +1,4 @@
-import App from "../App";
+import Main from "../components/Main";
 import { config }  from "../utils/global";
 
 export function Content() {
@@ -10,6 +10,6 @@ export function Content() {
 
 export default function Introduction() {
     return(
-        <App config={config.introduction}/>
+        <Main config={config.introduction}/>
     )
 }

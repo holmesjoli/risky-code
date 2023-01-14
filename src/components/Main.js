@@ -1,6 +1,7 @@
 import React from 'react';
 import Navigation from './Navigation';
 import Description from "./Description";
+import Header from './Header';
 import * as About from "../pages/About";
 import * as Glossary from "../pages/Glossary";
 import * as Introduction from "../pages/Introduction";
@@ -91,9 +92,12 @@ export default function Main({config}) {
     console.log(items)
 
     return (
-        <div className="Main">
-            <Navigation/>
-            <ContentContainer config={config} items={items} setItems={setItems} variables={variables} setVariables={setVariables}/>
+        <div className="App">
+            <Header/>
+            <div className="Main">
+                <Navigation/>
+                <ContentContainer config={config} items={items} setItems={setItems} variables={variables} setVariables={setVariables}/>
+            </div>
         </div>
     )
 };

@@ -1,4 +1,4 @@
-import App from "../../App";
+import Main from "../../components/Main";
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import Card from "../../components/Card";
@@ -24,7 +24,7 @@ export function Content({variables, setVariables, items}) {
 export default function train() {
     return(
         <div>
-            <App config={config.train}/>
+            <Main config={config.train}/>
         </div>
     )
 }

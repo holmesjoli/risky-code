@@ -1,4 +1,4 @@
-import App from "../../App";
+import Main from "../../components/Main";
 import { config }  from "../../utils/global";
 import data from "../../data/processed/policy.json";
 import * as d3 from 'd3';
@@ -144,6 +144,6 @@ export function Content() {
 }
 export default function publicPolicy() {
     return(
-        <App config={config.publicPolicy}/>
+        <Main config={config.publicPolicy}/>
     )
 }

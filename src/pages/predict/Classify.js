@@ -1,4 +1,4 @@
-import App from "../../App";
+import Main from "../../components/Main";
 import Sort from "../../components/Sort";
 import { config }  from "../../utils/global";
 
@@ -13,6 +13,6 @@ export function Content({items, setItems}) {
 
 export default function classify() {
     return(
-        <App config={config.classify}/>
+        <Main config={config.classify}/>
     )
 }

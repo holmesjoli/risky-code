@@ -1,4 +1,4 @@
-import App from "../../App";
+import Main from "../../components/Main";
 import { config }  from "../../utils/global";
 
 export function Content() {
@@ -10,6 +10,6 @@ export function Content() {
 
 export default function stakeholderMapping() {
     return(
-        <App config={config.stakeholderMapping}/>
+        <Main config={config.stakeholderMapping}/>
     )
 }

@@ -1,4 +1,4 @@
-import App from "../../App";
+import Main from "../../components/Main";
 import { config }  from "../../utils/global";
 import Legend from "../../components/Legend";
 
@@ -20,6 +20,6 @@ export function Content() {
 
 export default function calibration() {
     return(
-        <App config={config.calibration}/>
+        <Main config={config.calibration}/>
     )
 }
