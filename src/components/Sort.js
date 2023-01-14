@@ -86,6 +86,9 @@ const MovableItem = ({
       if (dropResult) {
         const { name } = dropResult;
         const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
+
+        console.log(name, item, CASE_TRUE, CASE_FALSE)
+
         switch (name) {
           case CASE_TRUE:
             changeItemColumn(item, CASE_TRUE);
@@ -100,6 +103,8 @@ const MovableItem = ({
             break;
         }
       }
+
+      console.log(item)
     },
     collect: (monitor) => ({
       isDragging: monitor.isDragging()
