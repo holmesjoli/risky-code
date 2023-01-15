@@ -78,12 +78,12 @@ ul {
 
 .Three-Column {
     display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-gap: 50px;
+    grid-template-columns: 20% 45% 20%;
+    grid-gap: $containerMargin;
 }
 
 .Two-Column {
     display: grid;
-    grid-template-columns: 40% 40%;
-    grid-gap: 50px;
+    grid-template-columns: 45% 40%;
+    grid-gap: $containerMargin;
 }

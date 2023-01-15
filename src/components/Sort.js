@@ -133,7 +133,7 @@ const Column = ({ children, className, title }) => {
       style={{ color: getColor(isOver, canDrop) }}
   
       >{title}</h5>
-      <div className="Moveable-Items">
+      <div className="Card-Container">
         {children}
       </div>
     </div>
