@@ -1,7 +1,7 @@
 import { importImages } from "./Helper";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 
-const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
+const { CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
 export function addClass(column) {
 
@@ -20,6 +20,8 @@ export function addClass(column) {
 export default function Card({items, modelVariableSelected}) {
 
     const images = importImages();
+
+    console.log(items)
 
     return(
         <div className="Cards-Container Container">
