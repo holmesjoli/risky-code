@@ -1,7 +1,7 @@
-.Movable-Item-Container {
+.Variables-Column {
     height: max-content;
-    min-height: 100px;
-    padding: 10px;
+    min-height: 150px;
+    padding: $containerPadding;
 }
 
 .Moveable-Items {
