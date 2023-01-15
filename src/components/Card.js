@@ -17,7 +17,7 @@ export function addClass(column) {
     return name;
 }
 
-export default function Card({items}) {
+export default function Card({items, modelVariableSelected}) {
 
     const images = importImages();
 
@@ -26,12 +26,14 @@ export default function Card({items}) {
             <h5 className="Small-Margin">Items</h5>
             <div className="Card-Container">
                 {items.map((item) => {
-
-                    let cName = addClass(item.column);
-
                     return( 
-                        <div key={item.id+"Card-Id"} className={cName+" Card Flat"}>
+                        <div key={item.id+"Card-Id"} className={addClass(item.column)+" Card Flat"}>
                             <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
+                            {modelVariableSelected ? (
+                                 <div className="Washer"></div>
+                            ) : (
+                                <div></div>
+                            )}
                         </div>
                         )
                     })

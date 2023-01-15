@@ -30,13 +30,14 @@ export default function App() {
     const { MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
     const m = variables.filter((d) => d.column === MODEL_VARIABLES).map((d) => d.id);
     console.log(m)
+    const modelVariableSelected = false;
 
     return(
       <HashRouter>
         <Routes>
           <Route path="/" element={<Introduction />} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
-          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items}/>} />
+          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} modelVariableSelected={modelVariableSelected}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items}/>} />
           <Route path="/Calibration" element={<Calibration />} />
           <Route path="/FalsePositive" element={<FalsePositive />} />
