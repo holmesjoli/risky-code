@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/risky-code/static/css/main.fc06a622.css",
-    "main.js": "/risky-code/static/js/main.38542745.js",
+    "main.css": "/risky-code/static/css/main.a0c7ed75.css",
+    "main.js": "/risky-code/static/js/main.00022e81.js",
     "static/js/787.f65d5f83.chunk.js": "/risky-code/static/js/787.f65d5f83.chunk.js",
     "static/media/ibmplexsans-semibolditalic-webfont.ttf": "/risky-code/static/media/ibmplexsans-semibolditalic-webfont.dc52201a0f3abab7941e.ttf",
     "static/media/ibmplexsans-italic-webfont.ttf": "/risky-code/static/media/ibmplexsans-italic-webfont.2b311f7fe222ec0e8b39.ttf",
@@ -22,13 +22,33 @@
     "static/media/ibmplexsans-semibold-webfont.woff2": "/risky-code/static/media/ibmplexsans-semibold-webfont.566bb8deb05d88233916.woff2",
     "static/media/ibmplexsanscondensed-regular-webfont.woff2": "/risky-code/static/media/ibmplexsanscondensed-regular-webfont.a4fafab366940fb36743.woff2",
     "static/media/ibmplexsanscondensed-bold-webfont.woff2": "/risky-code/static/media/ibmplexsanscondensed-bold-webfont.d3ba293c191aafbecc3d.woff2",
+    "static/media/Asset 33.svg": "/risky-code/static/media/Asset 33.5556fbb6d1c2d8e5be2d.svg",
+    "static/media/Asset 90.svg": "/risky-code/static/media/Asset 90.a126899db558c5d49588.svg",
+    "static/media/Asset 38.svg": "/risky-code/static/media/Asset 38.0c53dabd136815aac8c2.svg",
+    "static/media/Asset 45.svg": "/risky-code/static/media/Asset 45.8f84cdc616188883afe8.svg",
+    "static/media/Asset 25.svg": "/risky-code/static/media/Asset 25.d2af3aa2ae6b173dd6d9.svg",
+    "static/media/Asset 87.svg": "/risky-code/static/media/Asset 87.a18cac000c2de5244601.svg",
+    "static/media/Asset 99.svg": "/risky-code/static/media/Asset 99.a18cac000c2de5244601.svg",
+    "static/media/Asset 20.svg": "/risky-code/static/media/Asset 20.e7561f7d2ab7b8dfd31b.svg",
+    "static/media/Asset 11.svg": "/risky-code/static/media/Asset 11.5d91b6af3ca65293be4e.svg",
+    "static/media/Asset 69.svg": "/risky-code/static/media/Asset 69.0392d0d14254cd222774.svg",
+    "static/media/Asset 10.svg": "/risky-code/static/media/Asset 10.33b7155bbe2a177e37fe.svg",
+    "static/media/Asset 6.svg": "/risky-code/static/media/Asset 6.b66171f778988fa61eec.svg",
+    "static/media/Asset 1.svg": "/risky-code/static/media/Asset 1.fe20cd0150ee114c64f3.svg",
+    "static/media/Asset 3.svg": "/risky-code/static/media/Asset 3.f647a5ce4ffac4dbf6b5.svg",
+    "static/media/Asset 71.svg": "/risky-code/static/media/Asset 71.932b9c8096384a956da0.svg",
+    "static/media/Asset 55.svg": "/risky-code/static/media/Asset 55.876fc942b8d7ddee4925.svg",
+    "static/media/Asset 8.svg": "/risky-code/static/media/Asset 8.e370ec1cb9a372b2052b.svg",
+    "static/media/Asset 0.svg": "/risky-code/static/media/Asset 0.84d2c8e48db64dbeffaa.svg",
+    "static/media/Asset 31.svg": "/risky-code/static/media/Asset 31.329c5d840d6beb298834.svg",
     "index.html": "/risky-code/index.html",
-    "main.fc06a622.css.map": "/risky-code/static/css/main.fc06a622.css.map",
-    "main.38542745.js.map": "/risky-code/static/js/main.38542745.js.map",
+    "static/media/Asset 2.svg": "/risky-code/static/media/Asset 2.28583fe38b79e28125f0.svg",
+    "main.a0c7ed75.css.map": "/risky-code/static/css/main.a0c7ed75.css.map",
+    "main.00022e81.js.map": "/risky-code/static/js/main.00022e81.js.map",
     "787.f65d5f83.chunk.js.map": "/risky-code/static/js/787.f65d5f83.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fc06a622.css",
-    "static/js/main.38542745.js"
+    "static/css/main.a0c7ed75.css",
+    "static/js/main.00022e81.js"
   ]
 }
