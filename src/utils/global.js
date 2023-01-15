@@ -120,26 +120,26 @@ export const CLASSIFY_COLUMN_NAMES = {
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 
 export const CARDS = [
-    {id: 0, column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "blue", care_type: "dry clean only", white: false},
-    {id: 1, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: true, item_color: "purple", care_type: "machine wash", white: false},
-    {id: 2, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "black", care_type: "machine wash", white: false},
-    {id: 3, column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "green", care_type: "machine wash", white: false},
-    {id: 4, column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "black", care_type: "machine wash", white: false},
-    {id: 5, column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "pink", care_type: "machine wash", white: false},
-    {id: 6, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 7, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", care_type: "machine wash", white: false},
-    {id: 8, column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: true, item_color: "blue", care_type: "dry clean only", white: false},
-    {id: 9, column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, soiled: false, item_color: "blue", care_type: "machine wash", white: false},
-    {id: 10, column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 11, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "pink", care_type: "machine wash", white: false},
-    {id: 12, column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 13, column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "yellow", care_type: "machine wash", white: false},
-    {id: 14, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "blue", care_type: "machine wash", white: false},
-    {id: 15, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", care_type: "machine wash", white: false},
-    {id: 16, column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "red", care_type: "dry clean only", white: false},
-    {id: 17, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 18, column: ITEM_LIST, item_type: "pants", print: true, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 19, column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true}
+    {id: 0, name: 'Card 0', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "blue", care_type: "dry clean only", white: false},
+    {id: 1, name: 'Card 1', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: true, item_color: "purple", care_type: "machine wash", white: false},
+    {id: 2, name: 'Card 2', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "black", care_type: "machine wash", white: false},
+    {id: 3, name: 'Card 3', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "green", care_type: "machine wash", white: false},
+    {id: 4, name: 'Card 4', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "black", care_type: "machine wash", white: false},
+    {id: 5, name: 'Card 5', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "pink", care_type: "machine wash", white: false},
+    {id: 6, name: 'Card 6', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
+    {id: 7, name: 'Card 7', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", care_type: "machine wash", white: false},
+    {id: 8, name: 'Card 8', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: true, item_color: "blue", care_type: "dry clean only", white: false},
+    {id: 9, name: 'Card 9', column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, soiled: false, item_color: "blue", care_type: "machine wash", white: false},
+    {id: 10, name: 'Card 10', column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
+    {id: 11, name: 'Card 11', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "pink", care_type: "machine wash", white: false},
+    {id: 12, name: 'Card 12', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
+    {id: 13, name: 'Card 13', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "yellow", care_type: "machine wash", white: false},
+    {id: 14, name: 'Card 14', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "blue", care_type: "machine wash", white: false},
+    {id: 15, name: 'Card 15', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", care_type: "machine wash", white: false},
+    {id: 16, name: 'Card 16', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "red", care_type: "dry clean only", white: false},
+    {id: 17, name: 'Card 17', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
+    {id: 18, name: 'Card 18', column: ITEM_LIST, item_type: "pants", print: true, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
+    {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true}
 ];
 
 // Creates a colorScales for different types of variables
