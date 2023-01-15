@@ -168,7 +168,7 @@ export default function Model({variables, setVariables}) {
       .filter((item) => item.column === columnName)
       .map((item, index) => (
         <MovableItem
-          key={item.id}
+        key={item.id+"Model-Id"}
           name={item.name}
           currentColumnName={item.column}
           setVariables={setVariables}

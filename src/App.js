@@ -1,5 +1,3 @@
-import Header from './components/Header';
-import Main from './components/Main';
 import {
     Routes,
     Route,
@@ -21,7 +19,7 @@ import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Literature from "./pages/Literature";
 
-import { config, CARDS, VARIABLES }  from "./utils/global";
+import { config, CARDS, VARIABLES, MODEL_COLUMN_NAMES }  from "./utils/global";
 import { useState } from "react";
 
 export default function App() {
@@ -29,34 +27,29 @@ export default function App() {
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
 
-    console.log(items)
+    const { MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
+    const m = variables.filter((d) => d.column === MODEL_VARIABLES).map((d) => d.id);
+    console.log(m)
 
     return(
-        <HashRouter>
-      {
-        /**
-         * The BrowserRouter component is from the react-router library and allows simple static routing between different pages of a webapp.
-         * Each "Route" is a distinct component that will update the contents of the page and the URL path.
-         * Ex: routing to the Analyze page will change the URL to localhost:3000/Analyze
-         */
-      }
-      <Routes>
-        <Route path="/" element={<Introduction />} />
-        <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
-        <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items}/>} />
-        <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items}/>} />
-        <Route path="/Calibration" element={<Calibration />} />
-        <Route path="/FalsePositive" element={<FalsePositive />} />
-        <Route path="/FalseNegative" element={<FalseNegative />} />
-        <Route path="/COMPAS" element={<COMPAS />} />
-        <Route path="/PublicPolicy" element={<PublicPolicy />} />
-        <Route path="/RiskFramework" element={<RiskFramework />} />
-        <Route path="/Stakeholders" element={<Stakeholders />} />
-        <Route path="/DecisionAid" element={<DecisionAid />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Glossary" element={<Glossary />} />
-        <Route path="/Literature" element={<Literature />} />
-      </Routes>
-    </HashRouter>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Introduction />} />
+          <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
+          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items}/>} />
+          <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items}/>} />
+          <Route path="/Calibration" element={<Calibration />} />
+          <Route path="/FalsePositive" element={<FalsePositive />} />
+          <Route path="/FalseNegative" element={<FalseNegative />} />
+          <Route path="/COMPAS" element={<COMPAS />} />
+          <Route path="/PublicPolicy" element={<PublicPolicy />} />
+          <Route path="/RiskFramework" element={<RiskFramework />} />
+          <Route path="/Stakeholders" element={<Stakeholders />} />
+          <Route path="/DecisionAid" element={<DecisionAid />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Glossary" element={<Glossary />} />
+          <Route path="/Literature" element={<Literature />} />
+        </Routes>
+      </HashRouter>
     )
 }

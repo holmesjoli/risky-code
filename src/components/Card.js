@@ -30,7 +30,7 @@ export default function Card({items}) {
                     let cName = addClass(item.column);
 
                     return( 
-                        <div key={item.id+"id"} className={cName+" Card Flat"}>
+                        <div key={item.id+"Card-Id"} className={cName+" Card Flat"}>
                             <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
                         </div>
                         )

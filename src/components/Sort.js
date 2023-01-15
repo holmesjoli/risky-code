@@ -167,7 +167,7 @@ export default function Sort({items, setItems}) {
       .filter((item) => item.column === columnName)
       .map((item, index) => (
         <MovableItem
-          key={item.id}
+        key={item.id+"Sort-Id"}
           name={item.name}
           itemId={item.id}
           currentColumnName={item.column}
