@@ -40,6 +40,11 @@ export default function App() {
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
     let modelVariableSelected = setModelVariableSelected(variables);
+    
+    items.map((d) => d.probability = Math.random())
+    items.sort((a, b) => b.probability - a.probability)
+
+    console.log(items)
 
     return(
       <HashRouter>
