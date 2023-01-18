@@ -4,7 +4,6 @@ import Header from '../../components/Header';
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import Card from "../../components/Card";
-import { config }  from "../../utils/global";
 
 function Information() {
     return (

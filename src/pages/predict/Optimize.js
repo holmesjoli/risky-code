@@ -4,7 +4,7 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
-import { config }  from "../../utils/global";
+import Card from "../../components/Card";
 
 function Information() {
     return (
@@ -14,15 +14,16 @@ function Information() {
     )
 }
 
-export function Content({variables, setVariables}) {
+export function Content({variables, setVariables, items, modelVariableSelected}) {
     return(
         <div className="Content Three-Column">
-            <Model variables={variables} setVariables={setVariables} />
+            <Model variables={variables} setVariables={setVariables}/>
+            <Card items={items} modelVariableSelected={modelVariableSelected}/>
         </div>
     )
 }
 
-export default function Optimize({config, variables, setVariables, items}) {
+export default function Optimize({config, variables, setVariables, items, modelVariableSelected}) {
     return (
         <div className="App">
             <Header/>
@@ -30,7 +31,7 @@ export default function Optimize({config, variables, setVariables, items}) {
                 <Navigation/>
                 <div className="Content-Container">
                     <Description config={config}/>
-                    <Content variables={variables} setVariables={setVariables} items={items} />
+                    <Content variables={variables} setVariables={setVariables} items={items} modelVariableSelected={modelVariableSelected}/>
                 </div>
             </div>
         </div>
