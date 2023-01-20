@@ -31,3 +31,28 @@ def policy_data(df):
             "group": "Root",
             "name": "Algorithmically Informed Decision-Making", 
             "children": areas}
+
+
+def laundry_data(df):
+
+    array = []
+
+    for i in range(0, df.shape[0] - 1):
+
+        # import pdb; pdb.set_trace()
+
+        row = {
+            "id": int(i),
+            "cleanType": df.iloc[i].clean_type,
+            "soiled": bool(df.iloc[i].soiled),
+            "clothes": bool(df.iloc[i].clothes),
+            "hotWaterLoad": bool(df.iloc[i].how_water_load),
+            "print": bool(df.iloc[i].prints),
+            "pastel": bool(df.iloc[i].pastel),
+            "white": bool(df.iloc[i].white),
+            "color": df.iloc[i].color,
+            "itemType": df.iloc[i].item_type
+        }
+        array.append(row)
+
+    return array
