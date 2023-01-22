@@ -186,7 +186,7 @@ a:focus, a:hover {
 }
 
 .inactive {
-  color: $appColorSecondary;
+  color: $appColorInactive;
 }
 
 .add-link {
@@ -198,4 +198,9 @@ a:focus, a:hover {
   padding: 15px;
   background-color: $containerBackgroundColor;
   margin-bottom: 0;
+}
+
+.Term-Citation {
+  font-style: italic;
+  color: $appColorSecondary;
 }

@@ -1,22 +1,24 @@
 import Navigation from '../components/Navigation';
-import Description from '../components/Description';
 import Header from '../components/Header';
-import { config, glossary }  from "../utils/global";
+import { glossary }  from "../utils/global";
+import { NavLink } from "react-router-dom";
+
 
 export function Content() {
 
     return(
         <div className="Content">
             {Object.keys(glossary).map((term, index) => {
-
-                // console.log(term)
-                    return(
-                        <div key={index} className="Term-Container">
-                            <h4 className="Term-Name">{glossary[term].name}</h4>
-                            <p className="Term-Definition">{glossary[term].definition}</p>
-                        </div>
-                        )
-                    })
+                return(
+                    <div key={index} className="Term-Container Container">
+                        <h4 className="Term-Name">{glossary[term].name}</h4>
+                        <p>
+                            <span className="Term-Definition">{glossary[term].definition}</span>
+                            <NavLink className="Term-Citation" to="/Literature"> {glossary[term].citation}</NavLink>
+                        </p>
+                    </div>
+                    )
+                })
                 }
         </div>
     )
@@ -29,7 +31,7 @@ export default function Glossary() {
             <div className="Main">
                 <Navigation/>
                 <div className="Content-Container">
-                    <Description config={config}/>
+                    <h3>Glossary</h3>
                     <Content />
                 </div>
             </div>
