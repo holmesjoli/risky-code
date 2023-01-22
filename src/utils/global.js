@@ -16,9 +16,9 @@ export const config = {
         "title": "Glossary",
         "descr": ""
     },
-    "literature": {
-        "id": "literature",
-        "title": "Literature",
+    "resources": {
+        "id": "resources",
+        "title": "Resources",
         "descr": ""
     },
     "Classify": {
@@ -157,36 +157,68 @@ export const glossary = {
         "name": "Algorithm",
         "definition": "A set of instructions, rules, and calculations designed to solve problems",
         "citation": "(Benjamin 2019)",
-        "link": ""
+        "link": "Benjamin-2019"
     },
     "automated-decision-making": {
         "name": "Automated decision-making",
         "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans... All automated decision systems are designed by humans and involve some degree of human involvement in their operation. Humans are ultimately responsible for how a system receives its inputs (e.g. who collects the data that feeds into a system), how the system is used, and how a system's outputs are interpreted and acted on",
         "citation": "(AINOW 2018)",
-        "link": ""
+        "link": "AINOW-2018"
     },
     "bias": {
         "name": "Bias",
         "definition": "Bias to refer to cases where computer systems 'systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others'",
         "citation": "(Friedman and Nissenbaum 1996)",
-        "link": ""
+        "link": "Friedman-Nissenbaum-1996"
     },
     "disparate-impact": {
         "name": "Disparate impact",
         "definition": "Disparate impact refers to policies or practices that are facially neutral but have a disproportionately adverse impact on protected classes",
         "citation": "(Barocas and Selbst 2016)",
-        "link": ""
+        "link": "Barocas-Selbst-2016"
     },
     "sociotechnical": {
         "name": "Sociotechnical",
         "definition": "Systems that consist of a combination of technical and social components",
         "citation": "(Selbst et al. 2019)",
-        "link": ""
+        "link": "Selbst-2019"
     },
     "stakeholder": {
         "name": "Stakeholder",
         "definition": "People impacted directly or indirectly by a system",
         "citation": "(Bender and Friedman 2018)",
-        "link": ""
+        "link": "Bender-Friedman-2018"
+    }
+}
+
+export const literature = {
+
+    "AINOW-2018": {
+        "inline-citation": "(AINOW 2018)",
+        "reference": 'AINOW. 2018. "Algorithmic Accountability Policy Toolkit."'
+    },
+    "Barocas-Selbst-2016": {
+        "inline-citation": "(Barocas and Selbst 2016)",
+        "reference": "Barocas, Solon, and Andrew D Selbst. 2016. &quot;Big Data's Disparate Impact.&quot; California Law Review 104 (3): 671-732."
+    },
+    "Bender-Friedman-2018": {
+        "inline-citation": "(Bender and Friedman 2018)",
+        "reference": "Bender, Emily M., and Batya Friedman. 2018. &quot;Data Statements for Natural Language Processing: Toward Mitigating System Bias and Enabling Better Science.&quot; Transactions of the Association for Computational Linguistics 6: 587-604."
+    },
+    "Benjamin-2019": {
+        "inline-citation": "(Benjamin 2019)",
+        "reference": "Benjamin, Ruha. 2019. Race After Technology: Abolitionist Tools for the New Jim Crow. Medford, MA: Polity Press."
+    },
+    "Friedman-Nissenbaum-1996": {
+        "inline-citation": "(Friedman and Nissenbaum 1996)",
+        "reference": 'Friedman, Batya, and Helen Nissenbaum. 1996. "Bias in Computer Systems." ACM Transactions on Information Systems 14 (3): 330-47.'
+    },
+    "Narayanan-2018": {
+        "inline-citation": "(Narayanan, 2018)",
+        "reference": 'Narayanan, Arvind. 2018. "Tutorial: 21 Fairness Definitions and Their Politics."'
+    },
+    "Selbst-2019": {
+        "inline-citation": "(Selbst et al. 2019)",
+        "reference": "Selbst, Andrew, Danah Boyd, Sorelle Friedler, Suresh Venkatasubramanian, and Janet Vertesi. 2019. &quot;Fairness and Abstraction in Sociotechnical Systems.&quot; In Proceedings of the Conference on Fairness, Accountability, and Transparency, 59-68. FAT '19. ACM."
     }
 }

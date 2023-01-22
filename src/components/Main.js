@@ -5,7 +5,6 @@ import Header from './Header';
 import * as About from "../pages/About";
 import * as Glossary from "../pages/Glossary";
 import * as Introduction from "../pages/Introduction";
-import * as Literature from "../pages/Literature";
 import * as Calibration from "../pages/fairness/Calibration";
 import * as FalsePositive from "../pages/fairness/FalsePositive";
 import * as FalseNegative from "../pages/fairness/FalseNegative";
@@ -48,9 +47,6 @@ function GetComponent({config}) {
             break;
         case 'glossary' :
             component = <Glossary.Content/>;
-            break;
-        case 'literature' :
-            component = <Literature.Content/>;
             break;
         case 'about' :
             component = <About.Content/>;

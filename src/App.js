@@ -17,7 +17,7 @@ import Stakeholders from "./pages/deliberation/Stakeholders";
 import DecisionAid from "./pages/deliberation/DecisionAid";
 import About from "./pages/About";
 import Glossary from "./pages/Glossary";
-import Literature from "./pages/Literature";
+import Resources from "./pages/Resources";
 
 import { config, CARDS, VARIABLES, MODEL_COLUMN_NAMES }  from "./utils/global";
 import { useState } from "react";
@@ -66,7 +66,7 @@ export default function App() {
           <Route path="/DecisionAid" element={<DecisionAid />} />
           <Route path="/About" element={<About />} />
           <Route path="/Glossary" element={<Glossary />} />
-          <Route path="/Literature" element={<Literature />} />
+          <Route path="/Resources" element={<Resources />} />
         </Routes>
       </HashRouter>
     )

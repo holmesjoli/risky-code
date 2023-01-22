@@ -3,9 +3,7 @@ import Header from '../components/Header';
 import { glossary }  from "../utils/global";
 import { NavLink } from "react-router-dom";
 
-
 export function Content() {
-
     return(
         <div className="Content">
             {Object.keys(glossary).map((term, index) => {
@@ -14,7 +12,7 @@ export function Content() {
                         <h4 className="Term-Name">{glossary[term].name}</h4>
                         <p>
                             <span className="Term-Definition">{glossary[term].definition}</span>
-                            <NavLink className="Term-Citation" to="/Literature"> {glossary[term].citation}</NavLink>
+                            <NavLink className="Term-Citation" to="/Resources"> {glossary[term].citation}</NavLink>
                         </p>
                     </div>
                     )
