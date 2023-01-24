@@ -63,11 +63,11 @@ export default function Main({config}) {
         <div className="App">
             <Header/>
             <div className="Main">
-                <Navigation/>
-                <div className="Content-Container">
+                <div className="Sidebar">
+                    <Navigation/>
                     <Description config={config}/>
-                    <GetComponent config={config}/>
                 </div>
+                <GetComponent config={config}/>
             </div>
             <Footer/>
         </div>
