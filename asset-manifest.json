@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/risky-code/static/css/main.308eee8b.css",
-    "main.js": "/risky-code/static/js/main.303a2719.js",
+    "main.css": "/risky-code/static/css/main.cf214a60.css",
+    "main.js": "/risky-code/static/js/main.dda539cc.js",
     "static/js/787.f65d5f83.chunk.js": "/risky-code/static/js/787.f65d5f83.chunk.js",
     "static/media/ibmplexsans-semibolditalic-webfont.ttf": "/risky-code/static/media/ibmplexsans-semibolditalic-webfont.dc52201a0f3abab7941e.ttf",
     "static/media/ibmplexsans-italic-webfont.ttf": "/risky-code/static/media/ibmplexsans-italic-webfont.2b311f7fe222ec0e8b39.ttf",
@@ -23,7 +23,7 @@
     "static/media/ibmplexsanscondensed-regular-webfont.woff2": "/risky-code/static/media/ibmplexsanscondensed-regular-webfont.a4fafab366940fb36743.woff2",
     "static/media/ibmplexsanscondensed-bold-webfont.woff2": "/risky-code/static/media/ibmplexsanscondensed-bold-webfont.d3ba293c191aafbecc3d.woff2",
     "static/media/Asset 33.svg": "/risky-code/static/media/Asset 33.5556fbb6d1c2d8e5be2d.svg",
-    "static/media/Asset 90.svg": "/risky-code/static/media/Asset 90.a126899db558c5d49588.svg",
+    "static/media/Asset 27.svg": "/risky-code/static/media/Asset 27.7d01e7ed4da80ddafefa.svg",
     "static/media/Asset 38.svg": "/risky-code/static/media/Asset 38.0c53dabd136815aac8c2.svg",
     "static/media/Asset 45.svg": "/risky-code/static/media/Asset 45.8f84cdc616188883afe8.svg",
     "static/media/Asset 25.svg": "/risky-code/static/media/Asset 25.d2af3aa2ae6b173dd6d9.svg",
@@ -43,12 +43,12 @@
     "static/media/Asset 31.svg": "/risky-code/static/media/Asset 31.329c5d840d6beb298834.svg",
     "index.html": "/risky-code/index.html",
     "static/media/Asset 2.svg": "/risky-code/static/media/Asset 2.28583fe38b79e28125f0.svg",
-    "main.308eee8b.css.map": "/risky-code/static/css/main.308eee8b.css.map",
-    "main.303a2719.js.map": "/risky-code/static/js/main.303a2719.js.map",
+    "main.cf214a60.css.map": "/risky-code/static/css/main.cf214a60.css.map",
+    "main.dda539cc.js.map": "/risky-code/static/js/main.dda539cc.js.map",
     "787.f65d5f83.chunk.js.map": "/risky-code/static/js/787.f65d5f83.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.308eee8b.css",
-    "static/js/main.303a2719.js"
+    "static/css/main.cf214a60.css",
+    "static/js/main.dda539cc.js"
   ]
 }
