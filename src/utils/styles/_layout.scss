@@ -44,6 +44,7 @@ ul {
     flex-direction: row;
     position: relative;
     grid-column-start: 2;
+    min-height: 80vh;
 }
 
 .Navigation .Links .Link {
