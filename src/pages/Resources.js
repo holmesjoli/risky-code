@@ -1,5 +1,6 @@
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const literature = {
 
@@ -98,6 +99,7 @@ export default function Resources() {
                     <Content />
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

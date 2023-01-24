@@ -1,6 +1,7 @@
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import Card from "../../components/Card";
@@ -33,6 +34,7 @@ export default function Train({config, variables, setVariables, items, modelVari
                     <Content variables={variables} setVariables={setVariables} items={items} modelVariableSelected={modelVariableSelected}/>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

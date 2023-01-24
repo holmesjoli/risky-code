@@ -133,14 +133,15 @@ h4 {
 }
 
 h5 {
-  font-size: 0.8rem;
   line-height: 1.5;
   font-size: .9rem;
 }
 
 h6 {
-  font-size: 0.75rem;
-  line-height: 1.4;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin-bottom: .3rem;
 }
 
 .Link > a {
@@ -194,7 +195,7 @@ a:focus, a:hover {
   font-size: 11pt;
 }
 
-.Introduction, h4 > {
+.Introduction, h4 {
   padding: 15px;
   background-color: $containerBackgroundColor;
   margin-bottom: 0;

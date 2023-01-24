@@ -1,5 +1,6 @@
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import { glossary }  from "../utils/global";
 import { NavLink } from "react-router-dom";
 
@@ -33,6 +34,7 @@ export default function Glossary() {
                     <Content />
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

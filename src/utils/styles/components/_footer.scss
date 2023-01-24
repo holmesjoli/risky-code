@@ -1,0 +1,25 @@
+.Footer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Footer-Component {
+    flex: 1 1 200px; /*  Stretching: */
+    flex: 0 1 200px; /*  No stretching: */
+    margin: 5px;
+}
+
+.Footer .Links,
+.Footer .Copyright,
+.Footer .About {
+    display: flex;
+    flex-direction: column;
+}
+
+.Footer .Links {
+    font-size: 12px;
+}
+
+.Copyright .Title {
+    font-size: 1.2rem;
+}

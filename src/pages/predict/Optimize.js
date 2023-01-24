@@ -1,10 +1,10 @@
-import Main from "../../components/Main";
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import Card from "../../components/Card";
+import Footer from '../../components/Footer';
 
 function Information() {
     return (
@@ -34,6 +34,7 @@ export default function Optimize({config, variables, setVariables, items, modelV
                     <Content variables={variables} setVariables={setVariables} items={items} modelVariableSelected={modelVariableSelected}/>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

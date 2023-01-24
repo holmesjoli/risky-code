@@ -1,6 +1,7 @@
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 
 export function Content({items, setItems}) {
@@ -24,6 +25,7 @@ export default function Classify({config, items, setItems}) {
                     <Content items={items} setItems={setItems} />
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

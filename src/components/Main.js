@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from './Navigation';
 import Description from "./Description";
 import Header from './Header';
+import Footer from './Footer';
 import * as About from "../pages/About";
 import * as Glossary from "../pages/Glossary";
 import * as Introduction from "../pages/Introduction";
@@ -68,6 +69,7 @@ export default function Main({config}) {
                     <GetComponent config={config}/>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 };
