@@ -1,12 +1,13 @@
 .Footer {
     display: flex;
     flex-wrap: wrap;
+    background-color: $appDarkAccent;
+    width: 100%;
 }
 
 .Footer-Component {
-    flex: 1 1 200px; /*  Stretching: */
-    flex: 0 1 200px; /*  No stretching: */
-    margin: 5px;
+    flex: 0 1 300px;
+    margin: 0 20px;
 }
 
 .Footer .Links,
@@ -16,10 +17,15 @@
     flex-direction: column;
 }
 
-.Footer .Links {
-    font-size: 12px;
+.Footer .Copyright .Title {
+    font-family: "ocr-a-std", monospace;
+    font-size: 1rem;
+    margin-bottom: .3rem;
 }
 
-.Copyright .Title {
-    font-size: 1.2rem;
+.Footer .Copyright {
+    margin-left: 300px;
+}
+.Footer .Link {
+    font-size: .75rem;
 }

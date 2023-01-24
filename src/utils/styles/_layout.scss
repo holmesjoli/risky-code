@@ -20,20 +20,20 @@ ul {
 .Header {
     display: flex;
     flex-direction: row;
-    margin: 20px 0;
 }
 
 .Header > .Links {
-    margin-left: auto; 
-    margin-right: 10px;
+    margin-left: auto;
 }
 
 .Header > .Links > a {
     margin: 20px 10px;
 }
 
-.App {
-    padding: $appIndent;
+.Main,
+.Header,
+.Footer {
+    padding: $appPadding;
 }
 
 // Left navigation
@@ -44,6 +44,10 @@ ul {
     flex-direction: row;
     position: relative;
     grid-column-start: 2;
+}
+
+.Navigation .Links .Link {
+    margin-bottom: .15rem;
 }
 
 .Link-Container {

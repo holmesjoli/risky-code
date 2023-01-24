@@ -34,6 +34,19 @@ const theme = createTheme({
       elevation1: {
         boxShadow: "none"
       }
+    },
+    MuiAccordionSummary: {
+      root: {
+        paddingLeft: 0
+      },
+      content: {
+        margin: 0
+      }
+    },
+    MuiAccordionDetails: {
+      root: {
+        paddingTop: 0
+      }
     }
   },
   shape: {
