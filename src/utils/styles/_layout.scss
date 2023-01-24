@@ -30,7 +30,7 @@ ul {
     margin: 20px 10px;
 }
 
-.Main,
+
 .Header,
 .Footer {
     padding: $appPadding;
@@ -38,17 +38,23 @@ ul {
 
 // Left navigation
 .Main {
-    grid-column-start: 1;
-    grid-column-end: span 2;
-    display: flex;
-    flex-direction: row;
-    position: relative;
-    grid-column-start: 2;
+    display: grid;
+    grid-template-columns: minmax(150px, 18%) 1fr;
     min-height: 80vh;
 }
 
+.Sidebar {
+    flex: 0 1 18vw;
+    background-color: $appDarkAccent;
+    padding: $appPadding $appPadding 0 $appPadding;
+}
+
+.Content {
+    padding: $appPadding;
+}
+
 .Navigation {
-    width: 40vh;
+    margin-bottom: $containerMarginBottom;
 }
 
 .Navigation .Links .Link {
@@ -63,7 +69,7 @@ ul {
 .Content-Container {
     display: flex;
     flex-direction: column;
-    margin-left: $appIndent;
+    padding: $appPadding;
 }
 
 .Container {
@@ -75,8 +81,8 @@ ul {
 }
 
 .Description {
-    display: grid;
-    grid-template-columns: minmax(150px, 65%);
+    border-top: 1px solid $containerBorderColor;
+    padding: $containerPadding;
 }
 
 .Visualization {
@@ -93,8 +99,8 @@ ul {
 
 .Two-Column {
     display: grid;
-    grid-template-columns: 45% 40%;
-    grid-gap: $containerMargin;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 .Introduction {

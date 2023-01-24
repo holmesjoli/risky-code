@@ -1,9 +1,9 @@
 
 export default function Card({config}) {
     return(
-        <div className="Description Container">
-            <h2 className="Title">{config.title}</h2>
-            <h3 className="Subtitle">{config.subtitle}</h3>
+        <div className="Description">
+            <h3 className="Title">Goal</h3>
+            <h4 className="Subtitle">{config.subtitle}</h4>
             <p>{config.descr}</p>
         </div>
     )

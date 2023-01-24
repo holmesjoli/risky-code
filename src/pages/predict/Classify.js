@@ -4,10 +4,11 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 
-export function Content({items, setItems}) {
+export function Content({config, items, setItems}) {
 
     return(
         <div className="Content">
+            <h2 className="Title">{config.title}</h2>
             <Sort items={items} setItems={setItems} />
         </div>
     )
@@ -19,11 +20,11 @@ export default function Classify({config, items, setItems}) {
         <div className="App">
             <Header/>
             <div className="Main">
-                <Navigation/>
-                <div className="Content-Container">
+                <div className="Sidebar">
+                    <Navigation/>
                     <Description config={config}/>
-                    <Content items={items} setItems={setItems} />
                 </div>
+                <Content config={config} items={items} setItems={setItems} />
             </div>
             <Footer/>
         </div>
