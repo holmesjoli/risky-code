@@ -25,7 +25,7 @@ export default function Card({items, modelVariableSelected}) {
 
     return(
         <div className="Cards-Container Container">
-            <h5 className="Small-Margin">Items</h5>
+            <h4 className="Small-Margin">Items</h4>
             <div className="Card-Container">
                 {items.map((item) => {
                     return( 

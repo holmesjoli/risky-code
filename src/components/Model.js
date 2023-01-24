@@ -133,10 +133,10 @@ const Column = ({ children, className, title }) => {
       className={className}
       style={{ backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h5 className="Small-Margin"
+      <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
       
-      >{title}</h5>
+      >{title}</h4>
         <div className="Moveable-Items">
       {children}
         </div>

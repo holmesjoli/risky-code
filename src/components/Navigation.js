@@ -10,9 +10,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function Introduction() {
     return(
         <div className="Link-Container">
-            <h4 className="Introduction Link">
+            <h3 className="Introduction Link">
                 <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Introduction</NavLink>
-            </h4>
+            </h3>
         </div>
     )
 }
@@ -24,7 +24,7 @@ function Predict() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h4>Predict</h4>
+                    <h3>Predict</h3>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">
@@ -53,7 +53,7 @@ function Fairness() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h4>Fairness</h4>
+                    <h3>Fairness</h3>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">
@@ -82,7 +82,7 @@ function CaseStudies() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h4>Fairness in context</h4>
+                    <h3>Fairness in context</h3>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">
@@ -108,7 +108,7 @@ function Deliberation() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h4>Deliberation</h4>
+                    <h3>Deliberation</h3>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">

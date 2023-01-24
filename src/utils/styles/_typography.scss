@@ -83,6 +83,14 @@ $fontPath: "/assets/fonts/";
   font-style: normal;
 }
 
+@import url("https://p.typekit.net/p.css?s=1&k=sbn1rmz&ht=tk&f=13375&a=87836698&app=typekit&e=css");
+
+@font-face {
+  font-family:"ocr-a-std";
+  src:url("https://use.typekit.net/af/3315df/000000000000000000012e5c/27/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"),url("https://use.typekit.net/af/3315df/000000000000000000012e5c/27/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"),url("https://use.typekit.net/af/3315df/000000000000000000012e5c/27/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
+  font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
+}
+
 body {
   font-family: $baseFont;
   font-size: $baseFontSize;
@@ -106,13 +114,13 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2rem;
   line-height: 1.2;
+  font-family: "ocr-a-std", monospace;
 }
 
 h2 {
-  font-size: 1.75rem;
-  line-height: 1.25;
-  margin: 0;
-  font-family: PlexCondensed;
+  font-size: 1.2rem;
+  line-height: 1.3;
+  margin-bottom: 1.3rem;
 }
 
 h2 > a:hover, 
@@ -122,19 +130,20 @@ h2 > a:focus {
 }
 
 h3 {
-  font-size: 1.2rem;
-  line-height: 1.3;
-  margin-bottom: 1.3rem;
-}
-
-h4 {
   margin-bottom: 1rem;
   font-size: 1rem;
 }
 
-h5 {
+h4 {
   line-height: 1.5;
   font-size: .9rem;
+}
+
+h5 {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin-bottom: .3rem;
 }
 
 h6 {
@@ -152,8 +161,8 @@ h6 {
   color: $appColor;
 }
 
-.Navigation h4,
-.Navigation h4 a {
+.Navigation h3,
+.Navigation h3 a {
   margin-bottom: 0;
   font-size: 1rem;
 }
@@ -190,12 +199,12 @@ a:focus, a:hover {
   color: $appColorInactive;
 }
 
-.add-link {
+.Link {
   font-weight: 300;
   font-size: 11pt;
 }
 
-.Introduction, h4 {
+.Introduction, h3 {
   padding: 15px;
   background-color: $containerBackgroundColor;
   margin-bottom: 0;
@@ -204,4 +213,13 @@ a:focus, a:hover {
 .Term-Citation {
   font-style: italic;
   color: $appColorSecondary;
+}
+
+.Title {
+  margin-bottom: .7rem;
+}
+
+.Subtitle {
+  padding: 0;
+  margin-bottom: .5rem;
 }

@@ -7,7 +7,7 @@ function ActualPredicted() {
 
     return(
         <div className="Legend ActualPredicted">
-            <h4 className="Small-Margin">Legend</h4>
+            <h3 className="Small-Margin">Legend</h3>
             <div className="Card True"></div>
             <div className="Card True"></div>
             <div className="Card False"></div>
@@ -19,15 +19,15 @@ function ActualPredicted() {
 function Actual() {
     return(
         <div className="Legend Actual">
-            <h4 className="Small-Margin">Legend</h4>
-            <h5 className="Small-Margin">Classified</h5>
+            <h3 className="Small-Margin">Legend</h3>
+            <h4 className="Small-Margin">Classified</h4>
             <div className="Row">
                 <div className="Group">
-                    <h6 className="Small-Margin">Hot water load</h6>
+                    <h5 className="Small-Margin">Hot water load</h5>
                     <div className="Card"></div>
                 </div>
                 <div className="Group">
-                    <h6 className="Small-Margin">Save for later load</h6>
+                    <h5 className="Small-Margin">Save for later load</h5>
                     <div className="Card"></div>
                 </div>
             </div>
@@ -78,8 +78,8 @@ function Points() {
 
     return(
         <div className="Legend">
-            <h4 className="Small-Margin">Legend</h4>
-            <h5 className="Small-Margin">Predicted</h5>
+            <h3 className="Small-Margin">Legend</h3>
+            <h4 className="Small-Margin">Predicted</h4>
             <div id='Legend-Visualization'></div>
         </div>
     )

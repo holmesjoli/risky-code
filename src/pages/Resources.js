@@ -62,7 +62,7 @@ export function Content() {
     return(
         <div className="Content">
             <div className="Literature-Container Container">
-                <h4>Literature</h4>
+                <h3>Literature</h3>
                 {Object.keys(literature).map((index) => {
                     return(
                             <p key={index} className="Literature-Reference">{literature[index].reference}
@@ -72,7 +72,7 @@ export function Content() {
                 }
             </div>
             <div className="Resources-Container Container">
-                <h4>AI Explainability Resources</h4>
+                <h3>AI Explainability Resources</h3>
                 <ul>
                     {Object.keys(aiExplainability).map((index) => {
                         return(
@@ -95,7 +95,7 @@ export default function Resources() {
             <div className="Main">
                 <Navigation/>
                 <div className="Content-Container">
-                    <h3>Resources</h3>
+                    <h2>Resources</h2>
                     <Content />
                 </div>
             </div>
