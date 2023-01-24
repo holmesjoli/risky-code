@@ -207,10 +207,8 @@ a:focus, a:hover {
   font-size: 11pt;
 }
 
-.Introduction, h3 {
-  padding: $appPadding;
+.Introduction {
   background-color: $containerBackgroundColor;
-  margin-bottom: 0;
 }
 
 .Term-Citation {

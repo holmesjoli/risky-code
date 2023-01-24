@@ -91,3 +91,12 @@ ul {
     grid-template-columns: 45% 40%;
     grid-gap: $containerMargin;
 }
+
+.Introduction {
+    padding: $appPadding;
+    margin-bottom: 0;
+}
+
+.Navigation h3 {
+    padding: $appPadding;
+}
