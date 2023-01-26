@@ -10,7 +10,7 @@ export function Content() {
             {Object.keys(glossary).map((term, index) => {
                 return(
                     <div key={index} className="Term-Container Container">
-                        <h3 className="Term-Name">{glossary[term].name}</h3>
+                        <h4 className="Term-Name">{glossary[term].name}</h4>
                         <p>
                             <span className="Term-Definition">{glossary[term].definition}</span>
                             <NavLink className="Term-Citation" to="/Resources"> {glossary[term].citation}</NavLink>

@@ -36,6 +36,10 @@ ul {
     padding: $appPadding;
 }
 
+.App {
+    background-color: $appDarkAccent;
+}
+
 // Left navigation
 .Main {
     display: grid;
@@ -45,8 +49,8 @@ ul {
 
 .Sidebar {
     flex: 0 1 18vw;
-    background-color: $appDarkAccent;
     padding: $appPadding $appPadding 0 $appPadding;
+    border-right: 1px solid $containerBorderColor;
 }
 
 .Content {
