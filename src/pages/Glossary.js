@@ -28,11 +28,10 @@ export default function Glossary() {
         <div className="App">
             <Header/>
             <div className="Main">
-                <Navigation/>
-                <div className="Content-Container">
-                    <h2>Glossary</h2>
-                    <Content />
+                <div className="Sidebar">
+                    <Navigation/>
                 </div>
+                <Content />
             </div>
             <Footer/>
         </div>

@@ -61,6 +61,7 @@ const aiExplainability = {
 export function Content() {
     return(
         <div className="Content">
+            <h2>Resources</h2>
             <div className="Literature-Container Container">
                 <h3>Literature</h3>
                 {Object.keys(literature).map((index) => {
@@ -93,11 +94,10 @@ export default function Resources() {
         <div className="App">
             <Header/>
             <div className="Main">
-                <Navigation/>
-                <div className="Content-Container">
-                    <h2>Resources</h2>
-                    <Content />
+                <div className="Sidebar">
+                    <Navigation/>
                 </div>
+                <Content />
             </div>
             <Footer/>
         </div>

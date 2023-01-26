@@ -1,5 +1,6 @@
-import Main from "../components/Main";
-import { config }  from "../utils/global";
+import Navigation from '../components/Navigation';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export function Content() {
     return(
@@ -9,7 +10,16 @@ export function Content() {
 }
 
 export default function Introduction() {
-    return(
-        <Main config={config.introduction}/>
+    return (
+        <div className="App">
+            <Header/>
+            <div className="Main">
+                <div className="Sidebar">
+                    <Navigation/>
+                </div>
+                <Content />
+            </div>
+            <Footer/>
+        </div>
     )
 }
