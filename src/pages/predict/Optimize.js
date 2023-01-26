@@ -1,22 +1,22 @@
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import Card from "../../components/Card";
-import Footer from '../../components/Footer';
 
 function Information() {
     return (
         <div className="Information">
-            <Legend componentType={"default"}/>
+            <Legend componentType={"actual"}/>
         </div>
     )
 }
 
 export function Content({config, variables, setVariables, items, modelVariableSelected}) {
     return(
-        <div className="Content Three-Column">
+        <div className="Content">
             <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
