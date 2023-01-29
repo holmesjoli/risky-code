@@ -47,10 +47,8 @@ export default function Regression() {
         }
     }
 
-    console.log(testingData)
-
     // // === Train the logistic regression === //
-    var model = logistic.fit(iris);
+    var model = logistic.fit(trainingData);
 
     console.log(logistic.threshold)
     // // === Print the trained model === //
