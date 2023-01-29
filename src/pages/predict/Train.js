@@ -22,7 +22,7 @@ export function Content({config, variables, setVariables, items, modelVariableSe
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Card items={items} modelVariableSelected={modelVariableSelected}/>
-                <Regression/>
+                <Regression items={items}/>
             </div>
         </div>
     )

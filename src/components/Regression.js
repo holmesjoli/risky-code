@@ -1,9 +1,8 @@
-import { PythonProvider } from 'react-py';
 import { useState } from 'react';
-import { usePython } from 'react-py';
+import { usePython, PythonProvider } from 'react-py';
 
-function Codeblock({packages}) {
-    const [input, setInput] = useState('')
+function Codeblock({packages, items}) {
+    const [input, setInput] = useState('print("hellow world")')
   
     // Use the usePython hook to run code and access both stdout and stderr
     const { runPython, stdout, stderr, isLoading, isRunning } = usePython(packages)
@@ -38,17 +37,17 @@ function Codeblock({packages}) {
     )
   }
 
-export default function Regression() {
+export default function Regression({items}) {
 
     const packages = {
-        official: ['scikit-learn', 'pandas']
-      }
+        official: ['scikit-learn', 'pandas', 'numpy']
+    }
+
+    console.log(items)
 
     return (
-        // Add the provider to your app
         <PythonProvider packages={packages}>
-          <Codeblock packages={packages}/>
+          <Codeblock packages={packages} items={items}/>
         </PythonProvider>
     )
-
 }
