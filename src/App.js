@@ -47,8 +47,6 @@ export default function App() {
       itemsSorted = itemsSorted.sort((a, b) => b.probability - a.probability)
     }
 
-    console.log(itemsSorted)
-
     return(
       <HashRouter>
         <Routes>

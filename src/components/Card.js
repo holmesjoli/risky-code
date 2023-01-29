@@ -21,8 +21,6 @@ export default function Card({items, modelVariableSelected}) {
 
     const images = importImages();
 
-    console.log(items)
-
     return(
         <div className="Cards-Container Container">
             <h4 className="Small-Margin">Items</h4>
