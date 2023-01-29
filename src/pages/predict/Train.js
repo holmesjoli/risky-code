@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import Model from "../../components/Model";
 import Legend from "../../components/Legend";
 import Card from "../../components/Card";
+import Regression from "../../components/Regression";
 
 function Information() {
     return (
@@ -21,6 +22,7 @@ export function Content({config, variables, setVariables, items, modelVariableSe
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Card items={items} modelVariableSelected={modelVariableSelected}/>
+                <Regression/>
             </div>
         </div>
     )
