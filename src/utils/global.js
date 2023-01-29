@@ -82,7 +82,7 @@ export const config = {
         "id": "publicPolicy",
         "title": "Algorithmic Decision-Making in Public Policy",
         "subtitle": "Learn about where algorithms are used in public policy",
-        "descr": "Algorithms are increasingly being used to inform decision-making in public policy. They’re currently in use across policy sectors such as criminal justice, education, public health, and human services. "
+        "descr": "Algorithms are increasingly being used to inform decision-making in public policy. They're currently in use across policy sectors such as criminal justice, education, public health, and human services. "
     }
 }
 
