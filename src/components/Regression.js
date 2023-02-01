@@ -1,6 +1,4 @@
-import { LogisticRegression } from  './JsRegression';
-// var jsregression = require('js-regression');
- 
+import { LogisticRegression } from  './JsRegression'; 
 import iris from "../data/processed/iris.json"
 
 function getRandomSubarray(arr, size) {
@@ -28,10 +26,6 @@ export default function Regression() {
     var ids = iris.map((d) => d.Id);
 
     let randomIds = getRandomSubarray(ids, trainingDataSize)
-    // let trainingData = iris.filter((d) => randomIds.includes(d.Id))
-    // let testingData = iris.filter((d) => !randomIds.includes(d.Id))
-
-    // console.log(iris)
 
     for(let i of iris) {
         var row = [];
