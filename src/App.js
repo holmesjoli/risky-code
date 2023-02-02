@@ -39,12 +39,15 @@ export default function App() {
 
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
+    const [selectedVariables, setSelectedVariables] = useState([]);
     let modelVariableSelected = setModelVariableSelected(variables);
     let itemsSorted = items;
 
     if (items[0].predicted) {
       items.sort((a, b) => b.predicted - a.predicted)
     }
+
+    // console.log(variables)
 
     console.log(items)
 

@@ -21,8 +21,8 @@ export function Content({config, variables, setVariables, items, setItems, model
             <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
-                <Card items={items} modelVariableSelected={modelVariableSelected}/>
-                <Regression items={items} setItems={setItems} modelVariableSelected={modelVariableSelected}/>
+                <Card items={items} variables={variables}/>
+                <Regression items={items} variables={variables}/>
             </div>
         </div>
     )
