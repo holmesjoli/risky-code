@@ -5,21 +5,33 @@ const { CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
 export function addClass(column) {
 
-    let name;
     if (column === CASE_TRUE) {
-        name = "Case-True";
+        return "Case-True";
     } else if (column === CASE_FALSE) {
-        name = "Case-False";
+        return "Case-False";
     } else {
-        name = "Unclassified";
+        return "Unclassified";
     }
-
-    return name;
 }
+
+export function addPredicted(predicted) {
+
+    if (predicted !== undefined) {
+
+        if (predicted) {
+            return "Predicted-True";
+        } else {
+            return "Predicted-False";
+        }
+    }
+}
+
 
 export default function Card({items, variables}) {
 
     const images = importImages();
+
+    console.log(items)
 
     return(
         <div className="Cards-Container Container">
@@ -27,10 +39,12 @@ export default function Card({items, variables}) {
             <div className="Card-Container">
                 {items.map((item) => {
                     return( 
-                        <div key={item.id+"Card-Id"} className={addClass(item.column)+" Card Flat"}>
+                        <div key={item.id+"Card-Id"} className={addClass(item.column) + " " + addPredicted(item.predictedCorrectly) + " Card Flat"}>
                             <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
                             {getModelVariables(variables).length > 0 ? (
-                                 <div className="Washer"></div>
+                                 <div className="Washer">
+                                    <span>{item.id + ": " + Math.round(item.predicted*100)/100}</span>
+                                 </div>
                             ) : (
                                 <div></div>
                             )}

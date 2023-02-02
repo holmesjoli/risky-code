@@ -36,6 +36,12 @@ function logisticData(iterateData, modelVars) {
             row.push(i.white ? 1: 0)
         }
 
+        if (i.hotWaterLoad === undefined) {
+            row.push(i.column == "Hot water load" ? 1: 0)
+        } else {
+            row.push(i.hotWaterLoad ? 1: 0)
+        }
+
         row.push(i.hotWaterLoad ? 1: 0)
 
         data.push(row);
@@ -44,14 +50,14 @@ function logisticData(iterateData, modelVars) {
     return data;
 }
 
-export default function Regression({items, variables}) {
+export default function Regression({items, setItems, variables}) {
 
     var modelVars = getModelVariables(variables);
 
     useEffect(() => {
 
         if (modelVars.length > 0) {
-        
+
             var trainingData = logisticData(laundry, modelVars);
             var testingData = logisticData(items, modelVars);
 
@@ -69,10 +75,10 @@ export default function Regression({items, variables}) {
                 // console.log("linear classifier binary classifier testing: actual: " + testingData[i][modelVars.length+1] + " predicted: " + predicted);
                 items[i].predictedCorrectly = testingData[i][modelVars.length+1] === predicted;
                 items[i].predicted = p;
+                items[i].hotWaterLoad = items[i].column == "Hot water load";
             }
+
+        setItems(items)
     }
     }, [modelVars])
-    // if (modelVariableSelected) {
-    console.log(items)
-    // }
 }

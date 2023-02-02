@@ -15,20 +15,20 @@ function Information() {
     )
 }
 
-export function Content({config, variables, setVariables, items, setItems, modelVariableSelected}) {
+export function Content({config, variables, setVariables, items, setItems}) {
     return(
         <div className="Content">
             <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Card items={items} variables={variables}/>
-                <Regression items={items} variables={variables}/>
+                <Regression items={items} setItems={setItems} variables={variables}/>
             </div>
         </div>
     )
 }
 
-export default function Train({config, variables, setVariables, items, setItems, modelVariableSelected}) {
+export default function Train({config, variables, setVariables, items, setItems}) {
     return (
         <div className="App">
             <Header/>
@@ -37,7 +37,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                     <Navigation/>
                     <Description config={config}/>
                 </div>
-                <Content config={config} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modelVariableSelected={modelVariableSelected}/>
+                <Content config={config} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
             </div>
             <Footer/>
         </div>
