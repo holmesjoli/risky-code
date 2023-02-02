@@ -6,19 +6,22 @@ import { NavLink } from "react-router-dom";
 
 export function Content() {
     return(
-        <div className="Content">
-            {Object.keys(glossary).map((term, index) => {
-                return(
-                    <div key={term.name} className="Term-Container Container">
-                        <h4 className="Term-Name">{glossary[term].name}</h4>
-                        <p>
-                            <span className="Term-Definition">{glossary[term].definition}</span>
-                            <NavLink className="Term-Citation" to="/Resources"> {glossary[term].citation}</NavLink>
-                        </p>
-                    </div>
-                    )
-                })
+        <div id="Glossary">
+            <h2>Glossary</h2>
+            <div className="Content">
+                {Object.keys(glossary).map((term, index) => {
+                    return(
+                        <div key={term.name} className="Term-Container Container">
+                            <h4 className="Term-Name">{glossary[term].name}</h4>
+                            <p>
+                                <span className="Term-Definition">{glossary[term].definition}</span>
+                                <NavLink className="Term-Citation" to="/Resources"> {glossary[term].citation}</NavLink>
+                            </p>
+                        </div>
+                        )
+                    })
                 }
+            </div>
         </div>
     )
 }

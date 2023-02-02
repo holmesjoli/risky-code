@@ -13,7 +13,7 @@ export const getBackgroundColor = (isOver, canDrop) => {
 export const getColor = (isOver, canDrop) => {
     if (isOver) {
       if (canDrop) {
-        return "rgb(0, 0, 0)"; 
+        return "rgb(255,255,255)"; 
       } else if (!canDrop) {
         return "rgb(255,255,255)";
       }
@@ -25,7 +25,7 @@ export const getColor = (isOver, canDrop) => {
 export const getBorder = (isOver, canDrop) => {
   if (isOver) {
     if (canDrop) {
-      return "2px dashed rgb(247, 212, 120)"; 
+      return "2px dashed rgb(49, 54, 60)"; 
     } else if (!canDrop) {
       return "none";
     }

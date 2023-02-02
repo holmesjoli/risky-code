@@ -91,6 +91,13 @@ $fontPath: "/assets/fonts/";
   font-display:auto;font-style:normal;font-weight:400;font-stretch:normal;
 }
 
+@font-face {
+  font-family: "VG5000";
+  src: url(#{$fontPath + 'VG5000-Regular.otf'}) format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   font-family: $baseFont;
   font-size: $baseFontSize;
@@ -114,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 2.1rem;
   line-height: 1.2;
-  font-family: "ocr-a-std", monospace;
+  font-family: "VG5000", "ocr-a-std", monospace;
   margin-bottom: 0;
 }
 

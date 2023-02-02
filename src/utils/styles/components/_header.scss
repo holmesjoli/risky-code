@@ -2,3 +2,23 @@
     width: 100%;
     border-bottom: 1px solid $containerBorderColor;
 }
+
+#Glossary .Content,
+#Resources .Content{
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+}
+
+.Term-Container{
+    flex: 1 1 250px; /*  Stretching: */
+    flex: 0 1 250px; /*  No stretching: */
+    margin: 5px;
+}
+
+.Literature-Container,
+.Resources-Container {
+    flex: 1 1 450px; /*  Stretching: */
+    flex: 0 1 450px; /*  No stretching: */
+    margin: 5px;
+}
