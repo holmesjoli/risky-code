@@ -42,17 +42,18 @@ export default function App() {
     let modelVariableSelected = setModelVariableSelected(variables);
     let itemsSorted = items;
 
-    items.map((d) => d.probability = Math.random())
-    if (modelVariableSelected) {
-      itemsSorted = itemsSorted.sort((a, b) => b.probability - a.probability)
+    if (items[0].predicted) {
+      items.sort((a, b) => b.predicted - a.predicted)
     }
+
+    console.log(items)
 
     return(
       <HashRouter>
         <Routes>
           <Route path="/" element={<Introduction />} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
-          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={itemsSorted} modelVariableSelected={modelVariableSelected}/>} />
+          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={itemsSorted} setItems={setItems} modelVariableSelected={modelVariableSelected}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={itemsSorted} modelVariableSelected={modelVariableSelected}/>} />
           <Route path="/Calibration" element={<Calibration />} />
           <Route path="/FalsePositive" element={<FalsePositive />} />
