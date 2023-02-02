@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
-import { getBackgroundColor, getColor } from "./DragAndDrop";
+import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 
@@ -10,12 +10,13 @@ const images = importImages();
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
+  id,
   name,
-  index,
   itemId,
   currentColumnName,
-  moveCardHandler,
-  setItems
+  setItems,
+  index,
+  moveCardHandler
 }) => {
   const changeItemColumn = (currentItem, columnName) => {
     setItems((prevState) => {
@@ -107,7 +108,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className={addClass(currentColumnName)+" Movable-Item Card"} style={{ opacity }}>
+    <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName)+" Movable-Item Card"} style={{ opacity }}>
        <img src={images[Object.keys(images)[itemId]]} alt="An item of clothing" width="100" height="50" ></img>
     </div>
   );
@@ -127,7 +128,7 @@ const Column = ({ children, className, title }) => {
     <div
       ref={drop}
       className={className}
-      style={{ backgroundColor: getBackgroundColor(isOver, canDrop) }}
+      style={{ border: getBorder(isOver, canDrop) }}
     >
       <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
@@ -167,7 +168,8 @@ export default function Sort({items, setItems}) {
       .filter((item) => item.column === columnName)
       .map((item, index) => (
         <MovableItem
-          key={index}
+          key={item.id}
+          id={item.id}
           name={item.name}
           itemId={item.id}
           currentColumnName={item.column}

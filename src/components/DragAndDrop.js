@@ -21,3 +21,15 @@ export const getColor = (isOver, canDrop) => {
       return "";
     }
 };
+
+export const getBorder = (isOver, canDrop) => {
+  if (isOver) {
+    if (canDrop) {
+      return "2px dashed rgb(247, 212, 120)"; 
+    } else if (!canDrop) {
+      return "none";
+    }
+  } else {
+    return "";
+  }
+};

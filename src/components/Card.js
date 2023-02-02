@@ -1,5 +1,7 @@
 import { importImages } from "./Helper";
 import { CLASSIFY_COLUMN_NAMES, getModelVariables } from "../utils/global";
+import { useEffect } from "react";
+import * as d3 from 'd3';
 
 const { CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
@@ -30,8 +32,24 @@ export function addPredicted(predicted) {
 export default function Card({items, variables}) {
 
     const images = importImages();
-
+    var modelVars = getModelVariables(variables);
     console.log(items)
+
+    // useEffect(() => {
+
+    //     if (modelVars.length > 0 ) {
+
+    //         for (let i of items) {
+
+    //             if (i.predicted !== undefined) {
+    //                 d3
+    //                     .selectAll(".predicted")
+    //                     .text(Math.round(i.predicted*100)/100)
+    //             }
+    //         }
+    //     }
+
+    // }, [items, modelVars])
 
     return(
         <div className="Cards-Container Container">
@@ -41,13 +59,14 @@ export default function Card({items, variables}) {
                     return( 
                         <div key={item.id+"Card-Id"} className={addClass(item.column) + " " + addPredicted(item.predictedCorrectly) + " Card Flat"}>
                             <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                            {getModelVariables(variables).length > 0 ? (
+                            <div id={item.id} className="predicted"></div>
+                            {/* {getModelVariables(variables).length > 0 ? (
                                  <div className="Washer">
                                     <span>{item.id + ": " + Math.round(item.predicted*100)/100}</span>
                                  </div>
                             ) : (
                                 <div></div>
-                            )}
+                            )} */}
                         </div>
                         )
                     })

@@ -37,7 +37,7 @@ function logisticData(iterateData, modelVars) {
         }
 
         if (i.hotWaterLoad === undefined) {
-            row.push(i.column == "Hot water load" ? 1: 0)
+            row.push(i.column === "Hot water load" ? 1: 0)
         } else {
             row.push(i.hotWaterLoad ? 1: 0)
         }
@@ -61,9 +61,6 @@ export default function Regression({items, setItems, variables}) {
             var trainingData = logisticData(laundry, modelVars);
             var testingData = logisticData(items, modelVars);
 
-            // console.log(testingData)
-            // console.log(trainingData)
-        
             // === Train the logistic regression === //
             var model = logistic.fit(trainingData);
             var threshold = .6;
@@ -75,7 +72,7 @@ export default function Regression({items, setItems, variables}) {
                 // console.log("linear classifier binary classifier testing: actual: " + testingData[i][modelVars.length+1] + " predicted: " + predicted);
                 items[i].predictedCorrectly = testingData[i][modelVars.length+1] === predicted;
                 items[i].predicted = p;
-                items[i].hotWaterLoad = items[i].column == "Hot water load";
+                items[i].hotWaterLoad = items[i].column === "Hot water load";
             }
 
         setItems(items)

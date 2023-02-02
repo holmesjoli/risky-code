@@ -9,7 +9,7 @@ export function Content() {
         <div className="Content">
             {Object.keys(glossary).map((term, index) => {
                 return(
-                    <div key={index} className="Term-Container Container">
+                    <div key={term.name} className="Term-Container Container">
                         <h4 className="Term-Name">{glossary[term].name}</h4>
                         <p>
                             <span className="Term-Definition">{glossary[term].definition}</span>
