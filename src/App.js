@@ -19,33 +19,13 @@ import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Resources from "./pages/Resources";
 
-import { config, CARDS, VARIABLES, MODEL_COLUMN_NAMES }  from "./utils/global";
-import { useState } from "react";
-
-function setModelVariableSelected(variables) {
-
-  const { MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
-  const m = variables.filter((d) => d.column === MODEL_VARIABLES).map((d) => d.id);
-  let modelVariableSelected = false;
-
-  if (m.length > 0) {
-    modelVariableSelected = true;
-  }
-
-  return modelVariableSelected;
-}
+import { config, CARDS, VARIABLES, MODEL_COLUMN_NAMES, getModelVariables }  from "./utils/global";
+import { useState} from "react";
 
 export default function App() {
 
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
-  
-    if (items[0].predicted) {
-      items.sort((a, b) => b.predicted - a.predicted)
-    }
-
-    // console.log(variables)
-    // console.log(items)
 
     return(
       <HashRouter>

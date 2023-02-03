@@ -75,7 +75,9 @@ export default function Regression({items, setItems, variables}) {
                 items[i].hotWaterLoad = items[i].column === "Hot water load";
             }
 
-        setItems(items)
-    }
-    }, [modelVars])
+            items.sort((a, b) => b.predicted - a.predicted);
+
+            setItems(items)
+        }
+    }, [items, variables])
 }

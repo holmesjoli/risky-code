@@ -94,7 +94,7 @@ $fontPath: "/assets/fonts/";
 @font-face {
   font-family: "VG5000";
   src: url(#{$fontPath + 'VG5000-Regular.otf'}) format("otf");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
