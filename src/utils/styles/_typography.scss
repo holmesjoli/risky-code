@@ -7,7 +7,7 @@ $fontPath: "/assets/fonts/";
   font-family: "Plex";
   src:
        url(#{$fontPath + 'ibmplexsans-thin-webfont.ttf'}) format('ttf');
-  font-weight: normal;
+  font-weight: 100;
   font-style: normal;
 }
 
@@ -15,7 +15,7 @@ $fontPath: "/assets/fonts/";
   font-family: "Plex";
   src:
        url(#{$fontPath + 'ibmplexsans-extralight-webfont.ttf'}) format('ttf');
-  font-weight: normal;
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -23,7 +23,7 @@ $fontPath: "/assets/fonts/";
   font-family: "Plex";
   src:
        url(#{$fontPath + 'ibmplexsans-light-webfont.ttf'}) format("truetype");
-  font-weight: normal;
+  font-weight: 300;
   font-style: normal;
 }
 
@@ -33,7 +33,7 @@ $fontPath: "/assets/fonts/";
        url(#{$fontPath + 'ibmplexsans-regular-webfont.woff2'}) format('woff2'),
        url(#{$fontPath + 'ibmplexsans-regular-webfont.woff'}) format("woff"),
        url(#{$fontPath + 'ibmplexsans-regular-webfont.ttf'}) format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -43,7 +43,7 @@ $fontPath: "/assets/fonts/";
        url(#{$fontPath + 'ibmplexsans-italic-webfont.woff2'}) format("woff2"),
        url(#{$fontPath + 'ibmplexsans-italic-webfont.woff'}) format("woff"),
        url(#{$fontPath + 'ibmplexsans-italic-webfont.ttf'}) format("truetype");
-  font-weight: normal;
+  font-weight: 400;
   font-style: italic;
 }
 
@@ -53,7 +53,7 @@ $fontPath: "/assets/fonts/";
        url(#{$fontPath + 'ibmplexsans-semibold-webfont.woff2'}) format("woff2"),
        url(#{$fontPath + 'ibmplexsans-semibold-webfont.woff'}) format("woff"),
        url(#{$fontPath + 'ibmplexsans-semibold-webfont.ttf'}) format("truetype");
-  font-weight: bold;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -63,7 +63,7 @@ $fontPath: "/assets/fonts/";
       url(#{$fontPath + 'ibmplexsans-semibolditalic-webfont.woff2'}) format("woff2"),
       url(#{$fontPath + 'ibmplexsans-semibolditalic-webfont.woff'}) format("woff"),
       url(#{$fontPath + 'ibmplexsans-semibolditalic-webfont.ttf'}) format("truetype");
-  font-weight: bold;
+  font-weight: 600;
   font-style: italic;
 }
 
@@ -71,7 +71,7 @@ $fontPath: "/assets/fonts/";
   font-family: "PlexCondensed";
   src: url(#{$fontPath + 'ibmplexsanscondensed-regular-webfont.woff2'}) format("woff2"),
        url(#{$fontPath + 'ibmplexsanscondensed-regular-webfont.woff'}) format("woff");
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -79,7 +79,7 @@ $fontPath: "/assets/fonts/";
   font-family: "PlexCondensed";
   src: url(#{$fontPath + 'ibmplexsanscondensed-bold-webfont.woff2'}) format("woff2"),
        url(#{$fontPath + 'ibmplexsanscondensed-bold-webfont.woff'}) format("woff");
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
 }
 
@@ -141,12 +141,12 @@ h1 > a:focus {
 }
 
 h2 {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   line-height: 1.3;
   margin-bottom: 1.3rem;
   font-variant: small-caps;
-  letter-spacing: 1.4px;
-  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-weight: 500;
 }
 
 .Introduction > a,
@@ -159,8 +159,8 @@ h3 {
 h4 {
   line-height: 1.3;
   font-size: .9rem;
-  font-weight: 600;
-  letter-spacing: .6px;
+  font-weight: 500;
+  letter-spacing: .5px;
 }
 
 h5,
