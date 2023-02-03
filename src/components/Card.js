@@ -28,39 +28,32 @@ export function addPredicted(predicted) {
     }
 }
 
-
 export default function Card({items, variables}) {
 
     const images = importImages();
     var modelVars = getModelVariables(variables);
-    console.log(items)
 
     const createCard = (items) => {
         return items.map((item) => {
             return( 
                 <div key={item.id+"Card-Id"} className={addClass(item.column) + " " + addPredicted(item.predictedCorrectly) + " Card Flat"}>
                     <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                    <div id={item.id} className="predicted"></div>
+                    <div>
+                        <span id={item.id + "-predicted"} className="predicted"></span>
+                    </div>
                 </div>
             )
         })
     }
 
-    // useEffect(() => {
+    useEffect(() => {
+        d3.selectAll(".predicted")
+            .text(function() {
+                let id = +this.getAttribute("id").match(/\d+/)[0];
+                let predicted = items.find((d) => d.id === id).predicted;
+                return predicted !== undefined ? Math.round(predicted*100)/100: ""})
 
-    //     if (modelVars.length > 0 ) {
-
-    //         for (let i of items) {
-
-    //             if (i.predicted !== undefined) {
-    //                 d3
-    //                     .selectAll(".predicted")
-    //                     .text(Math.round(i.predicted*100)/100)
-    //             }
-    //         }
-    //     }
-
-    // }, [items, modelVars])
+    }, [items, modelVars])
 
     return(
         <div className="Cards-Container Container">
