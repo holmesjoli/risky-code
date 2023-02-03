@@ -74,7 +74,7 @@ const glossary = {
 export function Content() {
     return(
         <div id="Glossary">
-            <h2>glossary</h2>
+            <h2>Glossary</h2>
             <div className="Content">
                 {Object.keys(glossary).map((term, index) => {
                     return(
