@@ -35,6 +35,17 @@ export default function Card({items, variables}) {
     var modelVars = getModelVariables(variables);
     console.log(items)
 
+    const createCard = (items) => {
+        return items.map((item) => {
+            return( 
+                <div key={item.id+"Card-Id"} className={addClass(item.column) + " " + addPredicted(item.predictedCorrectly) + " Card Flat"}>
+                    <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
+                    <div id={item.id} className="predicted"></div>
+                </div>
+            )
+        })
+    }
+
     // useEffect(() => {
 
     //     if (modelVars.length > 0 ) {
@@ -55,22 +66,7 @@ export default function Card({items, variables}) {
         <div className="Cards-Container Container">
             <h4 className="Small-Margin">Items</h4>
             <div className="Card-Container">
-                {items.map((item) => {
-                    return( 
-                        <div key={item.id+"Card-Id"} className={addClass(item.column) + " " + addPredicted(item.predictedCorrectly) + " Card Flat"}>
-                            <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                            <div id={item.id} className="predicted"></div>
-                            {/* {getModelVariables(variables).length > 0 ? (
-                                 <div className="Washer">
-                                    <span>{item.id + ": " + Math.round(item.predicted*100)/100}</span>
-                                 </div>
-                            ) : (
-                                <div></div>
-                            )} */}
-                        </div>
-                        )
-                    })
-                }
+                   {createCard(items)}
             </div>
         </div>
     )
