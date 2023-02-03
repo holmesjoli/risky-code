@@ -152,45 +152,6 @@ export function colorScale() {
     return scale;
 }
 
-export const glossary = {
-    "algorithm": {
-        "name": "Algorithm",
-        "definition": "A set of instructions, rules, and calculations designed to solve problems",
-        "citation": "(Benjamin 2019)",
-        "link": "Benjamin-2019"
-    },
-    "automated-decision-making": {
-        "name": "Automated decision-making",
-        "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans... All automated decision systems are designed by humans and involve some degree of human involvement in their operation. Humans are ultimately responsible for how a system receives its inputs (e.g. who collects the data that feeds into a system), how the system is used, and how a system's outputs are interpreted and acted on",
-        "citation": "(AINOW 2018)",
-        "link": "AINOW-2018"
-    },
-    "bias": {
-        "name": "Bias",
-        "definition": "Bias to refer to cases where computer systems 'systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others'",
-        "citation": "(Friedman and Nissenbaum 1996)",
-        "link": "Friedman-Nissenbaum-1996"
-    },
-    "disparate-impact": {
-        "name": "Disparate impact",
-        "definition": "Disparate impact refers to policies or practices that are facially neutral but have a disproportionately adverse impact on protected classes",
-        "citation": "(Barocas and Selbst 2016)",
-        "link": "Barocas-Selbst-2016"
-    },
-    "sociotechnical": {
-        "name": "Sociotechnical",
-        "definition": "Systems that consist of a combination of technical and social components",
-        "citation": "(Selbst et al. 2019)",
-        "link": "Selbst-2019"
-    },
-    "stakeholder": {
-        "name": "Stakeholder",
-        "definition": "People impacted directly or indirectly by a system",
-        "citation": "(Bender and Friedman 2018)",
-        "link": "Bender-Friedman-2018"
-    }
-}
-
 export function getModelVariables(variables) {
     const { MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
     const m = variables.filter((d) => d.column === MODEL_VARIABLES).map((d) => d.columnName);

@@ -61,7 +61,7 @@ const aiExplainability = {
 export function Content() {
     return(
         <div id="Resources">
-            <h2>Resources</h2>
+            <h2>resources</h2>
             <div className="Content">
                 <div className="Literature-Container Container">
                     <h4>Literature</h4>

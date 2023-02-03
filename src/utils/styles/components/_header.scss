@@ -4,10 +4,16 @@
 }
 
 #Glossary .Content,
-#Resources .Content{
+#Resources .Content {
     display: flex;
     flex-wrap: wrap;
     // justify-content: center;
+}
+
+#Glossary h2,
+#Resources h2 {
+    padding: $containerPadding;
+    margin-bottom: 0;
 }
 
 .Term-Container{
