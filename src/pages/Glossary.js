@@ -19,8 +19,8 @@ const glossary = {
             },
             "def3": {
                 "definition": "Aa series of steps that allow you to perform a particular task.",
-                "citation": "(Onuoha and Nucera, n.d.)",
-                "link": "Peoples-Guide"
+                "citation": "(Onuoha and Nucera, 2018)",
+                "link": "Peoples-Guide-2018"
             }
         }
     },
