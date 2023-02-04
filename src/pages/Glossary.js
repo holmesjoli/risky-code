@@ -16,6 +16,11 @@ const glossary = {
                 "definition": "A series of steps through which particular inputs can be turned into outputs",
                 "citation": "(Ada Lovelace Institute, AINOW, and Open Government Partnership 2021)",
                 "link": "AINOW-2021"
+            },
+            "def3": {
+                "definition": "Aa series of steps that allow you to perform a particular task.",
+                "citation": "(Onuoha and Nucera, n.d.)",
+                "link": "Peoples-Guide"
             }
         }
     },
