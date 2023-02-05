@@ -2,10 +2,13 @@
     max-height: 130px;
     background-color: $cardBackgroundColor;
     border-radius: $containerBorderRadius;
-    border: 1px solid $containerBorderColor;
+    border: 1px solid #2e3238;
     max-width: 75px;
     min-width: 75px;
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 6px 6px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    position: relative;
+    padding: 5px;
+    text-align: center;
 }
 
 .Flat {
@@ -36,10 +39,38 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23868b90' fill-opacity='1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
 }
 
-.Washer {
-    width: 40px;
+.container {
     height: 40px;
+    width: 40px;
+    position: relative;
     border: 2px solid #ffffff;
     border-radius: 50px;
     background-color: $cardBackgroundColor;
+}
+  
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.Washer {
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    border: 2px solid #ffffff;
+    border-radius: 50px;
+    background-color: $cardBackgroundColor;
+}
+
+.Washer span {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.Predicted-False {
+    border: 2px solid red;
 }

@@ -3,22 +3,22 @@ import * as d3 from 'd3';
 export const config = {
     "introduction": {
         "id": "default",
-        "title": "Introduction",
+        "title": "introduction",
         "descr": ""
     },
     "about": {
         "id": "about",
-        "title": "About",
+        "title": "about",
         "descr": ""
     },
     "glossary": {
         "id": "glossary",
-        "title": "Glossary",
+        "title": "glossary",
         "descr": ""
     },
     "resources": {
         "id": "resources",
-        "title": "Resources",
+        "title": "resources",
         "descr": ""
     },
     "Classify": {
@@ -41,46 +41,46 @@ export const config = {
     },
     "calibration": {
         "id": "calibration",
-        "title": "Calibration",
+        "title": "calibration",
         "subtitle": "Learn about calibration definition of mathematical fairness",
         "descr": ""
     },
     "falsePositive": {
         "id": "falsePositive",
-        "title": "False Positive Rate",
+        "title": "false positive rate",
         "subtitle": "Minimize the false positive rate",
         "descr": "The false positive rate (FPR) is a measure of algorithmic error. It represents the probability of falsely rejecting the truth. It is calculated as the proportion of negative cases incorrectly predicted by the algorithm as positive cases. The negative cases are referred to as false positives and the positive cases are referred to as true positives. To calculate the false positive rate, we divide the number of false positives by the sum of the false positives and true positives. Adjust the slider to see how the false positive rate changes as you increase or decrease the threshold."
     },
     "falseNegative": {
         "id": "falseNegative",
-        "title": "False Negative Rate",
+        "title": "false negative rate",
         "subtitle": "Minimize the false negative rate",
         "descr": "The false negative rate (FNR) is another measure of algorithmic error. It represents the probability of falsely rejecting the truth. It is calculated as the proportion of negative cases incorrectly predicted by the algorithm as positive cases. The negative cases are referred to as false negatives and the positive cases are referred to as true negatices. To calculate the false negative rate, we divide the number of false negatives by the sum of the false negatives and true negatives. Adjust the slider to see how the false negative rate changes as you increase or decrease the threshold."
     },
     "decisionAid": {
         "id": "decisionAid",
-        "title": "Decision Aid",
+        "title": "decision aid",
         "descr": ""
     },
     "riskFramework": {
         "id": "riskFramework",
-        "title": "Greene Risk Framework",
+        "title": "greene risk framework",
         "descr": ""
     },
     "stakeholderMapping": {
         "id": "stakeholderMapping",
-        "title": "Stakeholder Mapping",
+        "title": "stakeholder mapping",
         "descr": ""
     },
     "compas": {
         "id": "compas",
-        "title": "COMPAS",
+        "title": "compas",
         "subtitle": "Learn about the COMPAS recidivsm algorithm and critiques of its use",
         "descr": "In Laundry AID, we looked at different measures of algorithmic accuracy and error across the population of washable items as a whole. However, an important step in algorithmic development is to consider how different measures of algorithmic accuracy may vary across sub-populations. In the case of laundry AID, we could consider if the measures of algorithmic fairness differ by item type or material. The idea of algorithmic bias stems directly from the idea of sub-group comparison. One of the first times algorithmic bias was publically recognized was when the investigative journalism network ProPublica published an article in 2016 titled Machine Bias: There's software used across the country to predict future criminals. It's biased against blacks (Angwin et al. 2016). The article sparked a vibrant debate among many academic disciples about what it meant for an algorithm to be fair. The ProPublica analysis showed that while the calibration rate, the average recidivism rate by risk score, is approximately equal between Black and White, the algorithm's error rates differed substantially. In response to this observation, several mathematicians proved that it is mathematically impossible for multiple definitions of mathematical fairness to simultaneously exist (Kleinberg et al. 2016; Chouldechova 2016) if a population's overall recidivism rates differ. "
     },
     "publicPolicy": {
         "id": "publicPolicy",
-        "title": "Algorithmic Decision-Making in Public Policy",
+        "title": "algorithmic Decision-Making in Public Policy",
         "subtitle": "Learn about where algorithms are used in public policy",
         "descr": "Algorithms are increasingly being used to inform decision-making in public policy. They’re currently in use across policy sectors such as criminal justice, education, public health, and human services. "
     }
@@ -102,13 +102,13 @@ export const MODEL_COLUMN_NAMES = {
 
 const {DATA_VARIABLES} = MODEL_COLUMN_NAMES;
 export const VARIABLES = [
-    {id: 1, name: 'Item type', column: DATA_VARIABLES},
-    {id: 2, name: 'Print', column: DATA_VARIABLES},
-    {id: 3, name: 'Pastel', column: DATA_VARIABLES},
-    {id: 4, name: 'Soiled', column: DATA_VARIABLES },
-    {id: 5, name: 'Item color', column: DATA_VARIABLES },
-    {id: 6, name: 'Care type', column: DATA_VARIABLES },
-    {id: 7, name: 'White', column: DATA_VARIABLES },
+    {id: 1, name: 'Item type', columnName: 'item_type', column: DATA_VARIABLES},
+    {id: 2, name: 'Print', columnName: 'print',  column: DATA_VARIABLES},
+    {id: 3, name: 'Pastel', columnName: 'pastel', column: DATA_VARIABLES},
+    {id: 4, name: 'Soiled', columnName: 'soiled', column: DATA_VARIABLES },
+    // {id: 5, name: 'Item color', columnName: 'item_color', column: DATA_VARIABLES },
+    {id: 6, name: 'Care type', columnName: 'cleanType', column: DATA_VARIABLES },
+    {id: 7, name: 'White', columnName: 'white', column: DATA_VARIABLES },
 ];
 
 export const CLASSIFY_COLUMN_NAMES = {
@@ -120,26 +120,26 @@ export const CLASSIFY_COLUMN_NAMES = {
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 
 export const CARDS = [
-    {id: 0, name: 'Card 0', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "blue", care_type: "dry clean only", white: false},
-    {id: 1, name: 'Card 1', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: true, item_color: "purple", care_type: "machine wash", white: false},
-    {id: 2, name: 'Card 2', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "black", care_type: "machine wash", white: false},
-    {id: 3, name: 'Card 3', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "green", care_type: "machine wash", white: false},
-    {id: 4, name: 'Card 4', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "black", care_type: "machine wash", white: false},
-    {id: 5, name: 'Card 5', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "pink", care_type: "machine wash", white: false},
-    {id: 6, name: 'Card 6', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 7, name: 'Card 7', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", care_type: "machine wash", white: false},
-    {id: 8, name: 'Card 8', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: true, item_color: "blue", care_type: "dry clean only", white: false},
-    {id: 9, name: 'Card 9', column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, soiled: false, item_color: "blue", care_type: "machine wash", white: false},
-    {id: 10, name: 'Card 10', column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 11, name: 'Card 11', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "pink", care_type: "machine wash", white: false},
-    {id: 12, name: 'Card 12', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 13, name: 'Card 13', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "yellow", care_type: "machine wash", white: false},
-    {id: 14, name: 'Card 14', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "blue", care_type: "machine wash", white: false},
-    {id: 15, name: 'Card 15', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", care_type: "machine wash", white: false},
-    {id: 16, name: 'Card 16', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "red", care_type: "dry clean only", white: false},
-    {id: 17, name: 'Card 17', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 18, name: 'Card 18', column: ITEM_LIST, item_type: "pants", print: true, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true},
-    {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", care_type: "machine wash", white: true}
+    {id: 0, name: 'Card 0', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "blue", cleanType: "dry clean only", white: false},
+    {id: 1, name: 'Card 1', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: true, item_color: "purple", cleanType: "machine wash", white: false},
+    {id: 2, name: 'Card 2', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "black", cleanType: "machine wash", white: false},
+    {id: 3, name: 'Card 3', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "green", cleanType: "machine wash", white: false},
+    {id: 4, name: 'Card 4', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: false, item_color: "black", cleanType: "machine wash", white: false},
+    {id: 5, name: 'Card 5', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "pink", cleanType: "machine wash", white: false},
+    {id: 6, name: 'Card 6', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", cleanType: "machine wash", white: true},
+    {id: 7, name: 'Card 7', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", cleanType: "machine wash", white: false},
+    {id: 8, name: 'Card 8', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, soiled: true, item_color: "blue", cleanType: "dry clean only", white: false},
+    {id: 9, name: 'Card 9', column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, soiled: false, item_color: "blue", cleanType: "machine wash", white: false},
+    {id: 10, name: 'Card 10', column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, soiled: false, item_color: "white", cleanType: "machine wash", white: true},
+    {id: 11, name: 'Card 11', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "pink", cleanType: "machine wash", white: false},
+    {id: 12, name: 'Card 12', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "white", cleanType: "machine wash", white: true},
+    {id: 13, name: 'Card 13', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, soiled: false, item_color: "yellow", cleanType: "machine wash", white: false},
+    {id: 14, name: 'Card 14', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "blue", cleanType: "machine wash", white: false},
+    {id: 15, name: 'Card 15', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "green", cleanType: "machine wash", white: false},
+    {id: 16, name: 'Card 16', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, soiled: false, item_color: "red", cleanType: "dry clean only", white: false},
+    {id: 17, name: 'Card 17', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", cleanType: "machine wash", white: true},
+    {id: 18, name: 'Card 18', column: ITEM_LIST, item_type: "pants", print: true, pastel: false, soiled: false, item_color: "white", cleanType: "machine wash", white: true},
+    {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", cleanType: "machine wash", white: true}
 ];
 
 // Creates a colorScales for different types of variables
@@ -152,41 +152,9 @@ export function colorScale() {
     return scale;
 }
 
-export const glossary = {
-    "algorithm": {
-        "name": "Algorithm",
-        "definition": "A set of instructions, rules, and calculations designed to solve problems",
-        "citation": "(Benjamin 2019)",
-        "link": "Benjamin-2019"
-    },
-    "automated-decision-making": {
-        "name": "Automated decision-making",
-        "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans... All automated decision systems are designed by humans and involve some degree of human involvement in their operation. Humans are ultimately responsible for how a system receives its inputs (e.g. who collects the data that feeds into a system), how the system is used, and how a system's outputs are interpreted and acted on",
-        "citation": "(AINOW 2018)",
-        "link": "AINOW-2018"
-    },
-    "bias": {
-        "name": "Bias",
-        "definition": "Bias to refer to cases where computer systems 'systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others'",
-        "citation": "(Friedman and Nissenbaum 1996)",
-        "link": "Friedman-Nissenbaum-1996"
-    },
-    "disparate-impact": {
-        "name": "Disparate impact",
-        "definition": "Disparate impact refers to policies or practices that are facially neutral but have a disproportionately adverse impact on protected classes",
-        "citation": "(Barocas and Selbst 2016)",
-        "link": "Barocas-Selbst-2016"
-    },
-    "sociotechnical": {
-        "name": "Sociotechnical",
-        "definition": "Systems that consist of a combination of technical and social components",
-        "citation": "(Selbst et al. 2019)",
-        "link": "Selbst-2019"
-    },
-    "stakeholder": {
-        "name": "Stakeholder",
-        "definition": "People impacted directly or indirectly by a system",
-        "citation": "(Bender and Friedman 2018)",
-        "link": "Bender-Friedman-2018"
-    }
+export function getModelVariables(variables) {
+    const { MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
+    const m = variables.filter((d) => d.column === MODEL_VARIABLES).map((d) => d.columnName);
+
+    return m;
 }

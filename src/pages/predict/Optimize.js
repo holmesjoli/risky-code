@@ -14,19 +14,19 @@ function Information() {
     )
 }
 
-export function Content({config, variables, setVariables, items, modelVariableSelected}) {
+export function Content({config, variables, setVariables, items}) {
     return(
         <div className="Content">
             <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
-                <Card items={items} modelVariableSelected={modelVariableSelected}/>
+                <Card items={items} variables={variables}/>
             </div>
         </div>
     )
 }
 
-export default function Optimize({config, variables, setVariables, items, modelVariableSelected}) {
+export default function Optimize({config, variables, setVariables, items}) {
     return (
         <div className="App">
             <Header/>
@@ -35,7 +35,7 @@ export default function Optimize({config, variables, setVariables, items, modelV
                     <Navigation/>
                     <Description config={config}/>
                 </div>
-                <Content config={config} variables={variables} setVariables={setVariables} items={items} modelVariableSelected={modelVariableSelected}/>
+                <Content config={config} variables={variables} setVariables={setVariables} items={items}/>
             </div>
             <Footer/>
         </div>

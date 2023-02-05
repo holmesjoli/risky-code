@@ -19,41 +19,21 @@ import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Resources from "./pages/Resources";
 
-import { config, CARDS, VARIABLES, MODEL_COLUMN_NAMES }  from "./utils/global";
-import { useState } from "react";
-
-function setModelVariableSelected(variables) {
-
-  const { MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
-  const m = variables.filter((d) => d.column === MODEL_VARIABLES).map((d) => d.id);
-  let modelVariableSelected = false;
-
-  if (m.length > 0) {
-    modelVariableSelected = true;
-  }
-
-  return modelVariableSelected;
-}
+import { config, CARDS, VARIABLES, MODEL_COLUMN_NAMES, getModelVariables }  from "./utils/global";
+import { useState} from "react";
 
 export default function App() {
 
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
-    let modelVariableSelected = setModelVariableSelected(variables);
-    let itemsSorted = items;
-
-    items.map((d) => d.probability = Math.random())
-    if (modelVariableSelected) {
-      itemsSorted = itemsSorted.sort((a, b) => b.probability - a.probability)
-    }
 
     return(
       <HashRouter>
         <Routes>
           <Route path="/" element={<Introduction />} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
-          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={itemsSorted} modelVariableSelected={modelVariableSelected}/>} />
-          <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={itemsSorted} modelVariableSelected={modelVariableSelected}/>} />
+          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
+          <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items}/>} />
           <Route path="/Calibration" element={<Calibration />} />
           <Route path="/FalsePositive" element={<FalsePositive />} />
           <Route path="/FalseNegative" element={<FalseNegative />} />

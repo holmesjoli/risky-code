@@ -27,13 +27,13 @@
 
 .Variable {
     border-radius: $containerBorderRadius;
-    border: 1px solid $containerBorderColor;
+    border: 1px solid #2e3238;
     background-color: $cardBackgroundColor;
     padding: 3px;
     display: flex;
     width: 90px;
     justify-content: center;
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 6px 6px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
     font-size: 0.75rem;
     margin: 5px 0;
 }

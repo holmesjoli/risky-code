@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { MODEL_COLUMN_NAMES } from "../utils/global";
-import { getBackgroundColor, getColor } from "./DragAndDrop";
+import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
@@ -131,7 +131,8 @@ const Column = ({ children, className, title }) => {
     <div
       ref={drop}
       className={className}
-      style={{ backgroundColor: getBackgroundColor(isOver, canDrop) }}
+      style={{ border: getBorder(isOver, canDrop),
+        backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
       <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
@@ -168,7 +169,7 @@ export default function Model({variables, setVariables}) {
       .filter((item) => item.column === columnName)
       .map((item, index) => (
         <MovableItem
-          key={index}
+          key={item.id}
           name={item.name}
           currentColumnName={item.column}
           setVariables={setVariables}
