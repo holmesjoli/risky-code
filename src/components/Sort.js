@@ -128,7 +128,8 @@ const Column = ({ children, className, title }) => {
     <div
       ref={drop}
       className={className}
-      style={{ border: getBorder(isOver, canDrop) }}
+      style={{ border: getBorder(isOver, canDrop),
+        backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
       <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
