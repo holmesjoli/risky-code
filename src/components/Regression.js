@@ -67,9 +67,11 @@ export default function Regression({items, setItems, variables}) {
         
             // var itemsUpdated = items;
             var itemsUpdated = Object.assign([], items);
-            console.log(itemsUpdated)
+            // console.log(itemsUpdated)
 
             // // // === Testing the trained logistic regression === //
+
+            console.log(model.threshold)
             for(var i=0; i < testingData.length; ++i){
                 var p = logistic.transform(testingData[i]);
                 var predicted = p >= model.threshold ? 1 : 0;
