@@ -67,18 +67,18 @@ export default function Regression({items, setItems, variables}) {
         
             // var itemsUpdated = items;
             var itemsUpdated = Object.assign([], items);
-            // console.log(itemsUpdated)
 
             // // // === Testing the trained logistic regression === //
 
             console.log(model.threshold)
             for(var i=0; i < testingData.length; ++i){
-                var p = logistic.transform(testingData[i]);
-                var predicted = p >= model.threshold ? 1 : 0;
-                // console.log("linear classifier binary classifier testing: actual: " + testingData[i][modelVars.length+1] + " predicted: " + predicted);
-                itemsUpdated[i].predictedCorrectly = testingData[i][modelVars.length+1] === predicted;
-                itemsUpdated[i].predicted = p;
-                itemsUpdated[i].hotWaterLoad = itemsUpdated[i].column === "Hot water load";
+                var pp = logistic.transform(testingData[i]);
+                var predicted = pp >= model.threshold? 1: 0;
+    
+                itemsUpdated[i].predicted = predicted;
+                itemsUpdated[i].predictedProbability = pp;
+                itemsUpdated[i].actual = itemsUpdated[i].column === "Hot water load"? 1: 0;
+                itemsUpdated[i].predictedCorrectly = itemsUpdated[i].actual === itemsUpdated[i].predicted;
             }
 
             itemsUpdated.sort((a, b) => b.predicted - a.predicted);

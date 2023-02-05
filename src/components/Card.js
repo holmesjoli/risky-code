@@ -36,8 +36,8 @@ export default function Card({items, variables}) {
             d3.selectAll(".predicted")
                 .text(function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
-                    let predicted = items.find((d) => d.id === id).predicted;
-                    return predicted !== undefined ? Math.round(predicted*100)/100: ""})
+                    let predictedProbability = items.find((d) => d.id === id).predictedProbability;
+                    return predictedProbability !== undefined ? Math.round(predictedProbability*100)/100: ""})
 
             d3.selectAll(".Card")
                 .attr("class", function() {
@@ -58,7 +58,6 @@ export default function Card({items, variables}) {
                     return addClass(column) + " Card Flat";
                 })
         }
-
     }, [items, variables])
 
     const createCard = (items) => {
@@ -71,11 +70,6 @@ export default function Card({items, variables}) {
             )
         })
     }
-
-    console.log(items)
-
-    // console.log(variables)
-    // console.log(items)
 
     return(
         <div className="Cards-Container Container">
