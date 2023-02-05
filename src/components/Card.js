@@ -66,9 +66,7 @@ export default function Card({items, variables}) {
             return( 
                 <div key={item.id+"Card-Id"} id={item.id+"Card-Id"} className={addClass(item.column) + " Card Flat"}>
                     <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                    <div >
                         <span id={item.id + "-predicted"} className="predicted"></span>
-                    </div>
                 </div>
             )
         })
