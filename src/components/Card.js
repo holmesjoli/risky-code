@@ -36,12 +36,11 @@ export default function Card({items, variables}) {
     useEffect(() => {
 
         if (modelVars.length > 0 ) {
-
             d3.selectAll(".predicted")
-            .text(function() {
-                let id = +this.getAttribute("id").match(/\d+/)[0];
-                let predicted = items.find((d) => d.id === id).predicted;
-                return predicted !== undefined ? Math.round(predicted*100)/100: ""})
+                .text(function() {
+                    let id = +this.getAttribute("id").match(/\d+/)[0];
+                    let predicted = items.find((d) => d.id === id).predicted;
+                    return predicted !== undefined ? Math.round(predicted*100)/100: ""})
             // .attr("class", function() {
             //     let id = +this.getAttribute("id").match(/\d+/)[0];
             //     let predictedCorrectly = items.find((d) => d.id === id).predictedCorrectly;
@@ -49,9 +48,9 @@ export default function Card({items, variables}) {
             // })
 
         } else {
-            let obj = d3.selectAll(".predicted");
-            d3.selectAll(".predicted g").remove();
-            obj = obj.append("g");
+
+            d3.selectAll(".predicted")
+                .text("")
         }
 
     }, [items, variables])
@@ -62,7 +61,7 @@ export default function Card({items, variables}) {
             return( 
                 <div key={item.id+"Card-Id"} className={addClass(item.column) + " Card Flat"}>
                     <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                    <div>
+                    <div >
                         <span id={item.id + "-predicted"} className="predicted"></span>
                     </div>
                 </div>
