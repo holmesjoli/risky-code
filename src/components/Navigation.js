@@ -10,9 +10,9 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function Introduction() {
     return(
         <div className="Link-Container">
-            <h3 className="Introduction Link">
+            <h4 className="Introduction Link">
                 <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Introduction</NavLink>
-            </h3>
+            </h4>
         </div>
     )
 }

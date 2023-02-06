@@ -23,7 +23,7 @@ export const config = {
     },
     "Classify": {
         "id": "classify",
-        "title": "Classify",
+        "title": "classify",
         "subtitle": "Classify each item as hot water load or save for later",
         "descr": "In this step of model building, we will classify each item to be run in the hot water load or save for later. For each item click hot water load or save for later. In the next step, we will use this data to train Laundry AID."
     },
