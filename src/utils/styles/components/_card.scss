@@ -31,9 +31,9 @@
 }
 
 .Card-Container {
-    display: flex;
-    flex-wrap: wrap;
-    // justify-content: center;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 90px));
 }
 
 // Pattern created here https://heropatterns.com/
