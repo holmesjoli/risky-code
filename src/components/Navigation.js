@@ -24,7 +24,7 @@ function Predict() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h3>Predict</h3>
+                    <h4>Predict</h4>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">
@@ -53,7 +53,7 @@ function Fairness() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h3>Fairness</h3>
+                    <h4>Fairness</h4>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">
@@ -82,7 +82,7 @@ function CaseStudies() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h3>Fairness in context</h3>
+                    <h4>Fairness in context</h4>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">
@@ -108,7 +108,7 @@ function Deliberation() {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                    <h3>Deliberation</h3>
+                    <h4>Deliberation</h4>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div className="Navigation Links">

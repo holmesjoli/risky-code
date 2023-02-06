@@ -127,8 +127,7 @@ h1 {
 .Link > .active,
 .Link > a:focus {
   font-weight: 500;
-  letter-spacing: 1.5px;
-  font-variant: small-caps;
+  letter-spacing: 1.1px;
   font-size: .945rem;
   color: white;
 }
@@ -171,6 +170,11 @@ h4 {
   margin-bottom: 1rem;
   font-size: 1rem;
   letter-spacing: .7px;
+  color: white;
+}
+
+.Introduction > a {
+  color: $appColor;
 }
 
 h5,
@@ -192,8 +196,8 @@ h6 {
   letter-spacing: .8px;
 }
 
-.Navigation h3,
-.Navigation h3 a {
+.Navigation h4,
+.Navigation h4 a {
   margin-bottom: 0;
 }
 
