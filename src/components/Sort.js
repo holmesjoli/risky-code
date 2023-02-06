@@ -8,6 +8,8 @@ import { importImages } from "./Helper";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
+let nClassified = 0;
+let totalClassify;
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
@@ -112,7 +114,7 @@ const MovableItem = ({
   if(currentColumnName === ITEM_LIST) {
     return (
       <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
-         <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" height="200" width="200"></img>
+         <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="200"></img>
          <div className="Label">
               <h5>Care type</h5>
               <p>{item.cleanType}</p>
@@ -125,7 +127,7 @@ const MovableItem = ({
   } else {
     return (
       <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
-         <img src={images[Object.keys(images)[id]]} alt="An item of clothing" width="100" height="55"></img>
+         <img src={images[Object.keys(images)[id]]} alt="" width="100" height="55"></img>
       </div>
     );
   }
@@ -155,6 +157,7 @@ const Column = ({ children, className, title }) => {
       <div className="Card-Container">
         {children}
       </div>
+      <p className="Small-Margin">{className === "Container item-list-column"? `${nClassified}/${totalClassify} classified`: ""}</p>
     </div>
   );
 };
@@ -183,7 +186,7 @@ export default function Sort({items, setItems}) {
   const returnSingleItemForColumn = (items, columnName) => {
 
     const id = items.filter((d) => d.column === columnName).map((d) => d.id)[0];
-    const cNames = items.map((d) => d.column);
+    nClassified = totalClassify - items.filter((d) => d.column === columnName).length;
 
     return items
       .filter((item) => item.column === columnName && item.id === id)
@@ -221,6 +224,8 @@ export default function Sort({items, setItems}) {
   };
 
   const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
+
+  totalClassify = items.length;
 
   return (
       <DndProvider backend={HTML5Backend}>
