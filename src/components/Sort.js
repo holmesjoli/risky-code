@@ -7,15 +7,16 @@ import { addClass } from "./Card";
 import { importImages } from "./Helper";
 
 const images = importImages();
+const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
   id,
   name,
-  itemId,
   currentColumnName,
   setItems,
   index,
+  item,
   moveCardHandler
 }) => {
   const changeItemColumn = (currentItem, columnName) => {
@@ -75,7 +76,7 @@ const MovableItem = ({
 
   const [{ isDragging }, drag] = useDrag({
     type: "Our first type",
-    item: { index, name, currentColumnName, itemId },
+    item: { index, name, currentColumnName, id },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
 
@@ -107,11 +108,27 @@ const MovableItem = ({
 
   drag(drop(ref));
 
-  return (
-    <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName)+" Movable-Item Card"} style={{ opacity }}>
-       <img src={images[Object.keys(images)[itemId]]} alt="An item of clothing" width="100" height="50" ></img>
-    </div>
-  );
+  console.log(item)
+  if(currentColumnName === ITEM_LIST) {
+    return (
+      <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
+         <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" height="200" width="200"></img>
+         <div className="Label">
+              <h5>Care type</h5>
+              <p>{item.cleanType}</p>
+              <h5>Soiled</h5>
+              <p>{item.soiled ? "Yes": "No"}</p>
+         </div>
+      </div>
+    );
+
+  } else {
+    return (
+      <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
+         <img src={images[Object.keys(images)[id]]} alt="An item of clothing" width="100" height="55"></img>
+      </div>
+    );
+  }
 };
 
 const Column = ({ children, className, title }) => {
@@ -163,10 +180,13 @@ export default function Sort({items, setItems}) {
     }
   };
 
-  const returnItemsForColumn = (items, columnName) => {
+  const returnSingleItemForColumn = (items, columnName) => {
+
+    const id = items.filter((d) => d.column === columnName).map((d) => d.id)[0];
+    const cNames = items.map((d) => d.column);
 
     return items
-      .filter((item) => item.column === columnName)
+      .filter((item) => item.column === columnName && item.id === id)
       .map((item, index) => (
         <MovableItem
           key={item.id}
@@ -176,6 +196,25 @@ export default function Sort({items, setItems}) {
           currentColumnName={item.column}
           setItems={setItems}
           index={index}
+          item={item}
+          moveCardHandler={moveCardHandler}
+        />
+      ));
+  };
+
+  const returnItemsForColumn = (items, columnName) => {
+
+    return items
+      .filter((item) => item.column === columnName)
+      .map((item, index) => (
+        <MovableItem
+          key={item.id}
+          id={item.id}
+          name={item.name}
+          currentColumnName={item.column}
+          setItems={setItems}
+          index={index}
+          item={item}
           moveCardHandler={moveCardHandler}
         />
       ));
@@ -188,7 +227,7 @@ export default function Sort({items, setItems}) {
         <div className="Two-Column">
             <div className="Classify-Container">
                 <Column title={ITEM_LIST} className="Container item-list-column">
-                  {returnItemsForColumn(items, ITEM_LIST)}
+                  {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
             </div>
             <div className="Case-Container">

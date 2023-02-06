@@ -165,8 +165,9 @@ h3 {
 }
 
 h4 {
-  line-height: 1.3;
-  font-size: .9rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: .3rem;
   font-weight: 500;
   letter-spacing: .5px;
 }
@@ -175,17 +176,19 @@ h5,
 .Header .Link {
   font-size: 1rem;
   line-height: 1.5;
-  font-variant: small-caps;
+  // font-variant: small-caps;
   margin-bottom: .3rem;
-  font-weight: 600;
-  letter-spacing: .5px;
+  font-weight: 500;
+  letter-spacing: .8px;
 }
 
 h6 {
-  font-size: 0.8rem;
+  font-size: .9rem;
   line-height: 1.5;
-  text-transform: uppercase;
+  font-variant: small-caps;
   margin-bottom: .3rem;
+  font-weight: 500;
+  letter-spacing: .8px;
 }
 
 .Navigation h3,
