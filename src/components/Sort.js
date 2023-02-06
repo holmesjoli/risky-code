@@ -110,16 +110,19 @@ const MovableItem = ({
 
   drag(drop(ref));
 
-  console.log(item)
   if(currentColumnName === ITEM_LIST) {
     return (
       <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
          <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="200"></img>
          <div className="Label">
-              <h5>Care type</h5>
-              <p>{item.cleanType}</p>
-              <h5>Soiled</h5>
-              <p>{item.soiled ? "Yes": "No"}</p>
+            <div class="Small-Margin">
+              <h6>Care type</h6>
+              <h5>{item.cleanType}</h5>
+            </div>
+            <div class="Small-Margin">
+              <h6>Soiled</h6>
+              <h5>{item.soiled ? "yes": "no"}</h5>
+            </div>
          </div>
       </div>
     );
