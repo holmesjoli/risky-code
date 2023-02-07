@@ -13,7 +13,7 @@ import Regression from "../../components/Regression";
 function Information() {
     return (
         <div className="Information">
-            <Legend componentType={"actual"}/>
+            {/* <Legend componentType={"actual"}/> */}
         </div>
     )
 }
@@ -38,10 +38,11 @@ export function Content({config, variables, setVariables, items, setItems}) {
                 <Model variables={variables} setVariables={setVariables}/>
                 <Regression items={items} setItems={setItems} variables={variables}/>
                 <Card items={items} variables={variables}/>
-                <div>
-                    <Button variant="outlined" onClick={routeBack}>Back</Button>
-                    <Button variant="contained" onClick={routeNext}>Next</Button>
-                </div>
+                <Information/>
+            </div>
+            <div className="Button-Container">
+                <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
+                <Button variant="contained" className="Next" onClick={routeNext}>Next</Button>
             </div>
         </div>
     )

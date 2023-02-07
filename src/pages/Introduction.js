@@ -15,7 +15,9 @@ export function Content() {
 
     return(
         <div className="Content">
-            <Button variant="contained" onClick={routeNext}>Next</Button>
+            <div className="Button-Container">
+                <Button variant="contained" onClick={routeNext}>Next</Button>
+            </div>
         </div>
     )
 }

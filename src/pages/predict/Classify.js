@@ -27,8 +27,8 @@ export function Content({config, items, setItems}) {
         <div className="Content">
             <h2 className="Title">{config.title}</h2>
             <Sort items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
-            <div>
-                <Button variant="outlined" onClick={routeBack}>Back</Button>
+            <div className="Button-Container">
+                <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
                 <Tooltip title="Classify each item to advance">
                     <span>
                     <Button variant="contained" disabled={nClassified !== items.length} onClick={routeNext}>Next</Button>

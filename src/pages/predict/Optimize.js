@@ -36,10 +36,10 @@ export function Content({config, variables, setVariables, items}) {
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Card items={items} variables={variables}/>
-                <div>
-                    <Button variant="outlined" onClick={routeBack}>Back</Button>
+            </div>
+            <div className="Button-Container">
+                    <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
                     <Button variant="contained" onClick={routeNext}>Next</Button>
-                </div>
             </div>
         </div>
     )
