@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import { Button, Tooltip } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
@@ -13,7 +13,20 @@ import Regression from "../../components/Regression";
 function Information() {
     return (
         <div className="Information">
-            {/* <Legend componentType={"actual"}/> */}
+            <div className="Legend Container">
+                <h4>Legend</h4>
+                <h5>Classified</h5>
+                <div>
+                    <div className="Legend-Card">
+                        <h6>Hot water load</h6>
+                        <div className="Card"></div>
+                    </div>
+                    <div className="Legend-Card">
+                        <h6>Save for later load</h6>
+                        <div className="Card Case-False"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

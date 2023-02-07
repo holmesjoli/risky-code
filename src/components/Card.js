@@ -39,23 +39,23 @@ export default function Card({items, variables}) {
                     let predictedProbability = items.find((d) => d.id === id).predictedProbability;
                     return predictedProbability !== undefined ? Math.round(predictedProbability*100)/100: ""})
 
-            d3.selectAll(".Card")
+            d3.selectAll(".Card-Flat")
                 .attr("class", function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let predictedCorrectly = items.find((d) => d.id === id).predictedCorrectly;
                     let column = items.find((d) => d.id === id).column;
-                    return predictedCorrectly!== undefined ? addClass(column) + " Card Flat" + " " + addPredicted(predictedCorrectly): "";
+                    return predictedCorrectly!== undefined ? addClass(column) + " Card Card-Flat" + " " + addPredicted(predictedCorrectly): "";
                 })
 
         } else {
             d3.selectAll(".predicted")
                 .text("")
 
-            d3.selectAll(".Card")
+            d3.selectAll(".Card-Flat")
                 .attr("class", function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let column = items.find((d) => d.id === id).column;
-                    return addClass(column) + " Card Flat";
+                    return addClass(column) + " Card Card-Flat";
                 })
         }
     }, [items, variables])
@@ -63,7 +63,7 @@ export default function Card({items, variables}) {
     const createCard = (items) => {
         return items.map((item) => {
             return( 
-                <div key={item.id+"Card-Id"} id={item.id+"Card-Id"} className={addClass(item.column) + " Card Flat"}>
+                <div key={item.id+"Card-Id"} id={item.id+"Card-Id"} className={addClass(item.column) + " Card Card-Flat"}>
                     <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
                         <span id={item.id + "-predicted"} className="predicted"></span>
                 </div>

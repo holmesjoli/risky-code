@@ -96,7 +96,7 @@ ul {
 
 .Three-Column {
     display: grid;
-    grid-template-columns: 20% 45% 20%;
+    grid-template-columns: minmax(150px, 20%) minmax(150px, 51%) minmax(150px, 20%);
     grid-gap: $containerMargin;
 }
 

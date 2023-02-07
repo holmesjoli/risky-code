@@ -125,3 +125,4 @@ export default function Legend(componentType) {
         <LegendContainer componentType={componentType}/>
     )
 }
+
