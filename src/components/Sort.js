@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
@@ -8,7 +8,6 @@ import { importImages } from "./Helper";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
-let nClassified = 0;
 let totalClassify;
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
@@ -115,13 +114,13 @@ const MovableItem = ({
       <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
          <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="200"></img>
          <div className="Label">
-            <div class="Small-Margin">
-              <h6>Care type</h6>
-              <h5>{item.cleanType}</h5>
+            <div className="Small-Margin">
+              <h5>Care type</h5>
+              <h6>{item.cleanType}</h6>
             </div>
-            <div class="Small-Margin">
-              <h6>Soiled</h6>
-              <h5>{item.soiled ? "yes": "no"}</h5>
+            <div className="Small-Margin">
+              <h5>Soiled</h5>
+              <h6>{item.soiled ? "Yes": "No"}</h6>
             </div>
          </div>
       </div>
@@ -136,7 +135,7 @@ const MovableItem = ({
   }
 };
 
-const Column = ({ children, className, title }) => {
+const Column = ({ children, className, title, nClassified }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: "Our first type",
     drop: () => ({ name: title }),
@@ -160,13 +159,12 @@ const Column = ({ children, className, title }) => {
       <div className="Card-Container">
         {children}
       </div>
-      <p className="Small-Margin">{className === "Container item-list-column"? `${nClassified}/${totalClassify} classified`: ""}</p>
+      <h6 className="Small-Margin">{className === "Container item-list-column"? `${nClassified}/${totalClassify} classified`: ""}</h6>
     </div>
   );
 };
 
-
-export default function Sort({items, setItems}) {
+export default function Sort({items, setItems, nClassified, setNClassified}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -186,10 +184,13 @@ export default function Sort({items, setItems}) {
     }
   };
 
+  useEffect(() => {
+    setNClassified(totalClassify - items.filter((d) => d.column === CLASSIFY_COLUMN_NAMES.ITEM_LIST).length);
+  }, [nClassified])
+
   const returnSingleItemForColumn = (items, columnName) => {
 
     const id = items.filter((d) => d.column === columnName).map((d) => d.id)[0];
-    nClassified = totalClassify - items.filter((d) => d.column === columnName).length;
 
     return items
       .filter((item) => item.column === columnName && item.id === id)
@@ -234,7 +235,7 @@ export default function Sort({items, setItems}) {
       <DndProvider backend={HTML5Backend}>
         <div className="Two-Column">
             <div className="Classify-Container">
-                <Column title={ITEM_LIST} className="Container item-list-column">
+                <Column title={ITEM_LIST} className="Container item-list-column" nClassified={nClassified}>
                   {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
             </div>

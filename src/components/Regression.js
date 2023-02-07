@@ -17,7 +17,7 @@ function logisticData(iterateData, modelVars) {
         var row = [];
 
         if (modelVars.includes("cleanType")) {
-            row.push(i.cleanType === "machine wash cold"? 1: 0)
+            row.push(i.cleanType === "Machine wash cold"? 1: 0)
         }
 
         if (modelVars.includes("pastel")) {

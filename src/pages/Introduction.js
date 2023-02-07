@@ -1,10 +1,12 @@
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Button } from "@material-ui/core";
 
 export function Content() {
     return(
         <div className="Content">
+            <Button variant="contained">Next</Button>
         </div>
     )
 }
