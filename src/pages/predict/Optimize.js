@@ -1,3 +1,6 @@
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { Button } from "@material-ui/core";
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
@@ -15,12 +18,28 @@ function Information() {
 }
 
 export function Content({config, variables, setVariables, items}) {
+
+    let navigate = useNavigate(); 
+    const routeNext = () => {
+      let path = `/Calibration`; 
+      navigate(path);
+    }
+
+    const routeBack = () => {
+      let path = `/Train`; 
+      navigate(path);
+    } 
+
     return(
         <div className="Content">
             <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Card items={items} variables={variables}/>
+                <div>
+                    <Button variant="outlined" onClick={routeBack}>Back</Button>
+                    <Button variant="contained" onClick={routeNext}>Next</Button>
+                </div>
             </div>
         </div>
     )

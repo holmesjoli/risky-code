@@ -5,6 +5,7 @@ import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
+import * as d3 from "d3";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -159,7 +160,7 @@ const Column = ({ children, className, title, nClassified }) => {
       <div className="Card-Container">
         {children}
       </div>
-      <h6 className="Small-Margin">{className === "Container item-list-column"? `${nClassified}/${totalClassify} classified`: ""}</h6>
+      <h6 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h6>
     </div>
   );
 };
@@ -184,9 +185,6 @@ export default function Sort({items, setItems, nClassified, setNClassified}) {
     }
   };
 
-  useEffect(() => {
-    setNClassified(totalClassify - items.filter((d) => d.column === CLASSIFY_COLUMN_NAMES.ITEM_LIST).length);
-  }, [nClassified])
 
   const returnSingleItemForColumn = (items, columnName) => {
 
@@ -230,6 +228,12 @@ export default function Sort({items, setItems, nClassified, setNClassified}) {
   const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
   totalClassify = items.length;
+
+  useEffect(() => {
+
+    setNClassified(totalClassify - items.filter((d) => d.column === CLASSIFY_COLUMN_NAMES.ITEM_LIST).length);
+
+  }, [nClassified, items])
 
   return (
       <DndProvider backend={HTML5Backend}>

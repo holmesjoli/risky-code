@@ -1,3 +1,6 @@
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { Button, Tooltip } from "@material-ui/core";
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
@@ -16,6 +19,18 @@ function Information() {
 }
 
 export function Content({config, variables, setVariables, items, setItems}) {
+
+    let navigate = useNavigate(); 
+    const routeNext = () => {
+      let path = `/Optimize`; 
+      navigate(path);
+    }
+
+    const routeBack = () => {
+      let path = `/Classify`; 
+      navigate(path);
+    }
+
     return(
         <div className="Content">
             <h2 className="Title">{config.title}</h2>
@@ -23,6 +38,10 @@ export function Content({config, variables, setVariables, items, setItems}) {
                 <Model variables={variables} setVariables={setVariables}/>
                 <Regression items={items} setItems={setItems} variables={variables}/>
                 <Card items={items} variables={variables}/>
+                <div>
+                    <Button variant="outlined" onClick={routeBack}>Back</Button>
+                    <Button variant="contained" onClick={routeNext}>Next</Button>
+                </div>
             </div>
         </div>
     )

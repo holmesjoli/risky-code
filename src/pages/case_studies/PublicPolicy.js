@@ -1,3 +1,6 @@
+import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { Button, Tooltip } from "@material-ui/core";
 import Main from "../../components/Main";
 import { config }  from "../../utils/global";
 import data from "../../data/processed/policy.json";
