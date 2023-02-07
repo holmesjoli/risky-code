@@ -14,16 +14,16 @@ function Information() {
     return (
         <div className="Information">
             <div className="Legend Container">
-                <h4>Legend</h4>
+                <h4 className='Small-Margin'>Legend</h4>
                 <h5>Classified</h5>
-                <div>
+                <div className='Actual'>
                     <div className="Legend-Card">
                         <h6>Hot water load</h6>
-                        <div className="Card"></div>
+                        <div className="Card-Flat"></div>
                     </div>
                     <div className="Legend-Card">
-                        <h6>Save for later load</h6>
-                        <div className="Card Case-False"></div>
+                        <h6>Save for later</h6>
+                        <div className="Card-Flat Case-False"></div>
                     </div>
                 </div>
             </div>

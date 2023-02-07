@@ -39,7 +39,7 @@ export default function Card({items, variables}) {
                     let predictedProbability = items.find((d) => d.id === id).predictedProbability;
                     return predictedProbability !== undefined ? Math.round(predictedProbability*100)/100: ""})
 
-            d3.selectAll(".Card-Flat")
+            d3.selectAll(".Card")
                 .attr("class", function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let predictedCorrectly = items.find((d) => d.id === id).predictedCorrectly;
@@ -51,7 +51,7 @@ export default function Card({items, variables}) {
             d3.selectAll(".predicted")
                 .text("")
 
-            d3.selectAll(".Card-Flat")
+            d3.selectAll(".Card")
                 .attr("class", function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let column = items.find((d) => d.id === id).column;

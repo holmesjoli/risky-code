@@ -4,20 +4,24 @@
     grid-template-columns: repeat(auto-fit, minmax(75px, 90px));
 }
 
-.Card {
+.Card,
+.Card-Flat {
     background-color: $cardBackgroundColor;
     border-radius: $containerBorderRadius;
     border: 1px solid #2e3238;
     min-height: 100px;
     max-height: 100px;
     max-width: 75px;
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 6px 6px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
     position: relative;
     padding: 5px;
     text-align: center;
     flex: 1 1 150px; /*  Stretching: */
     // flex: 0 1 150px; /*  No stretching: */
     margin: 5px;
+}
+
+.Card {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 6px 6px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
 }
 
 .Card-Flat {
