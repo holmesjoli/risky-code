@@ -11,6 +11,11 @@ const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 let totalClassify;
 
+
+function bigCardClass(currentColumnName) {
+  return currentColumnName === ITEM_LIST? " Card-Big": "Card";
+}
+
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
   id,
@@ -112,7 +117,7 @@ const MovableItem = ({
 
   if(currentColumnName === ITEM_LIST) {
     return (
-      <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
+      <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item" + bigCardClass(currentColumnName)} style={{ opacity }}>
          <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="200"></img>
          <div className="Label">
             <div className="Small-Margin">
@@ -129,7 +134,7 @@ const MovableItem = ({
 
   } else {
     return (
-      <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
+      <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName) + " Movable-Item " + bigCardClass(currentColumnName)} style={{ opacity }}>
          <img src={images[Object.keys(images)[id]]} alt="" width="100" height="55"></img>
       </div>
     );
@@ -146,6 +151,9 @@ const Column = ({ children, className, title, nClassified }) => {
     })
   });
 
+  
+  console.log(className)
+
   return (
     <div
       ref={drop}
@@ -155,12 +163,13 @@ const Column = ({ children, className, title, nClassified }) => {
     >
       <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
+
   
       >{title}</h4>
-      <div className="Card-Container">
-        {children}
+        <div className={className === "Container item-list-column"?"": "Card-Container"}>
+          {children}
+          <h6 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h6>
       </div>
-      <h6 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h6>
     </div>
   );
 };

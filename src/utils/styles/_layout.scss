@@ -103,7 +103,7 @@ ul {
 .Two-Column {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: minmax(300px, 30%) minmax(300px, 50%);
 }
 
 .Introduction {
@@ -113,4 +113,9 @@ ul {
 
 .Navigation h4 {
     padding: $appPadding;
+}
+
+.case-true-column ,
+.case-false-column {
+    min-height: 100px;
 }
