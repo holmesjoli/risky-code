@@ -19,7 +19,7 @@ import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Resources from "./pages/Resources";
 
-import { config, CARDS, VARIABLES, MODEL_COLUMN_NAMES, getModelVariables }  from "./utils/global";
+import { config, CARDS, VARIABLES }  from "./utils/global";
 import { useState} from "react";
 
 export default function App() {
