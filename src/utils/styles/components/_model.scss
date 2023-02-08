@@ -40,3 +40,9 @@
     text-transform: uppercase;
     font-weight: 500;
 }
+
+#Arrow {
+    max-height: 50px;
+    max-width: 50px;
+    fill: $appColor;
+}
