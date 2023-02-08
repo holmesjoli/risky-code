@@ -144,6 +144,7 @@ const Column = ({ children, className, title }) => {
     </div>
   );
 };
+
 export default function Model({variables, setVariables}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {

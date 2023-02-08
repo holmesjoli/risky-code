@@ -23,7 +23,7 @@ export function ActualPredicted() {
                             <div className="Card-Flat Case-False"></div>
                         </div>
                     </div>
-                    <div className="my-grid">
+                    <div id="Predicted-Container" className="my-grid Hidden">
                         <h6 className="section-title1">Incorrectly</h6>
                         <div className="my-grid2">
                             <div className="Card-Flat Predicted-False"></div>

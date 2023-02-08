@@ -48,7 +48,7 @@ export default function Card({items, variables}) {
                 })
             
             d3.selectAll("#Predicted-Container")
-                .attr("class", "Visible")
+                .attr("class", "my-grid Visible")
 
         } else {
             d3.selectAll(".predicted")
@@ -62,7 +62,7 @@ export default function Card({items, variables}) {
                 })
 
             d3.selectAll("#Predicted-Container")
-                .attr("class", "Hidden")
+                .attr("class", "my-grid Hidden")
         }
     }, [items, variables])
 
