@@ -6,28 +6,13 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Model from "../../components/Model";
-import Legend from "../../components/Legend";
+import { ActualPredicted } from "../../components/Legend";
 import Card from "../../components/Card";
 import Regression from "../../components/Regression";
 
 function Information() {
     return (
-        <div className="Information">
-            <div className="Legend Container">
-                <h4 className='Small-Margin'>Legend</h4>
-                <h5>Classified</h5>
-                <div className='Actual'>
-                    <div className="Legend-Card">
-                        <h6>Hot water load</h6>
-                        <div className="Card-Flat"></div>
-                    </div>
-                    <div className="Legend-Card">
-                        <h6>Save for later</h6>
-                        <div className="Card-Flat Case-False"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <ActualPredicted/>
     )
 }
 

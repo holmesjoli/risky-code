@@ -3,15 +3,35 @@ import * as d3 from "d3";
 import { useEffect } from 'react';
 import { colors } from "../utils/global"
 
-function ActualPredicted() {
+export function ActualPredicted() {
 
     return(
-        <div className="Legend ActualPredicted">
-            <h3 className="Small-Margin">Legend</h3>
-            <div className="Card True"></div>
-            <div className="Card True"></div>
-            <div className="Card False"></div>
-            <div className="Card False"></div>
+        <div className="Legend Container">
+            <h4>Legend</h4>
+            <div className="my-grid">
+                <div>
+                    <h5 className="section-title0">Predicted Hot Water Load</h5>
+                </div>
+                <div>
+                    <h5 className="section-title2">Actual Hot Water Load</h5>
+                    <div className="my-grid">
+                        <h6 className="section-title">Correctly</h6>
+                        <div className="my-grid2">
+                            <h6 className="section-title2">Yes</h6>
+                            <h6 className="section-title2">No</h6>
+                            <div className="Card-Flat"></div>
+                            <div className="Card-Flat Case-False"></div>
+                        </div>
+                    </div>
+                    <div className="my-grid">
+                        <h6 className="section-title1">Incorrectly</h6>
+                        <div className="my-grid2">
+                            <div className="Card-Flat Predicted-False"></div>
+                            <div className="Card-Flat Predicted-False Case-False"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

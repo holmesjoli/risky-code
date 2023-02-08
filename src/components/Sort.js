@@ -151,9 +151,6 @@ const Column = ({ children, className, title, nClassified }) => {
     })
   });
 
-  
-  console.log(className)
-
   return (
     <div
       ref={drop}

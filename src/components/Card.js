@@ -46,6 +46,9 @@ export default function Card({items, variables}) {
                     let column = items.find((d) => d.id === id).column;
                     return predictedCorrectly!== undefined ? addClass(column) + " Card Card-Flat" + " " + addPredicted(predictedCorrectly): "";
                 })
+            
+            d3.selectAll("#Predicted-Container")
+                .attr("class", "Visible")
 
         } else {
             d3.selectAll(".predicted")
@@ -57,6 +60,9 @@ export default function Card({items, variables}) {
                     let column = items.find((d) => d.id === id).column;
                     return addClass(column) + " Card Card-Flat";
                 })
+
+            d3.selectAll("#Predicted-Container")
+                .attr("class", "Hidden")
         }
     }, [items, variables])
 

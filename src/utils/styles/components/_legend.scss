@@ -1,22 +1,36 @@
-.Actual {
-    display: flex;
-    flex-direction: row;
+.Hidden {
+    visibility: hidden;
+    max-height: 0;
 }
 
-.Legend-Card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-right: 15px;
+.my-grid {
+  display: grid;
+  grid-template-columns: 2rem 1fr;
 }
 
-// .Row {
-//     display: flex;
-//     flex-direction: row;
-//     gap: 15px;
-// }
+.my-grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
-// .Column {
-//     display: flex;
-//     flex-direction: column;
-// }
+.section-title0,
+.section-title1,
+.section-title {
+  grid-row: 1 / span 1;
+  text-align: center;
+  writing-mode:vertical-rl; /* vertical text */
+  line-height: 2rem; /* center in div */
+  transform:rotate(180deg); /* spin to orient as required */
+}
+
+.section-title0 {
+    padding-bottom: 55px;
+}
+
+.section-title {
+    padding-bottom: 20px;
+}
+
+.section-title2 {
+    text-align: center;
+}
