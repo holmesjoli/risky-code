@@ -6,18 +6,17 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Model from "../../components/Model";
-import Legend from "../../components/Legend";
+import { ActualPredicted } from "../../components/Legend";
 import Card from "../../components/Card";
+import Regression from "../../components/Regression";
 
 function Information() {
     return (
-        <div className="Information">
-            <Legend componentType={"actual"}/>
-        </div>
+        <ActualPredicted/>
     )
 }
 
-export function Content({config, variables, setVariables, items}) {
+export function Content({config, variables, setVariables, items, setItems}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -35,17 +34,19 @@ export function Content({config, variables, setVariables, items}) {
             <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
+                <Regression items={items} setItems={setItems} variables={variables}/>
                 <Card items={items} variables={variables}/>
+                <Information/>
             </div>
             <div className="Button-Container">
-                    <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
-                    <Button variant="contained" onClick={routeNext}>Next</Button>
+                <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
+                <Button variant="contained" className="Next" onClick={routeNext}>Next</Button>
             </div>
         </div>
     )
 }
 
-export default function Optimize({config, variables, setVariables, items}) {
+export default function Optimize({config, variables, setVariables, items, setItems}) {
     return (
         <div className="App">
             <Header/>
@@ -54,7 +55,7 @@ export default function Optimize({config, variables, setVariables, items}) {
                     <Navigation/>
                     <Description config={config}/>
                 </div>
-                <Content config={config} variables={variables} setVariables={setVariables} items={items}/>
+                <Content config={config} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
             </div>
             <Footer/>
         </div>

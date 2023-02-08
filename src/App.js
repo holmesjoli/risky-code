@@ -33,7 +33,7 @@ export default function App() {
           <Route path="/" element={<Introduction />} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
-          <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items}/>} />
+          <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
           <Route path="/Calibration" element={<Calibration />} />
           <Route path="/FalsePositive" element={<FalsePositive />} />
           <Route path="/FalseNegative" element={<FalseNegative />} />
