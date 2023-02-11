@@ -191,7 +191,6 @@ export default function Sort({items, setItems, nClassified, setNClassified}) {
     }
   };
 
-
   const returnSingleItemForColumn = (items, columnName) => {
 
     const id = items.filter((d) => d.column === columnName).map((d) => d.id)[0];
