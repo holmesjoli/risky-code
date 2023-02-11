@@ -46,7 +46,7 @@ export default function Card({items, variables}) {
                     let column = items.find((d) => d.id === id).column;
                     return predictedCorrectly!== undefined ? addClass(column) + " Card Card-Flat" + " " + addPredicted(predictedCorrectly): "";
                 })
-            
+
             d3.selectAll("#Predicted-Container")
                 .attr("class", "my-grid Visible")
 

@@ -81,7 +81,7 @@ export default function Regression({items, setItems, variables}) {
 
             itemsUpdated.sort((a, b) => b.predicted - a.predicted);
 
-            setItems(items)
+            setItems(itemsUpdated)
         }
     }, [items, variables])
 }
