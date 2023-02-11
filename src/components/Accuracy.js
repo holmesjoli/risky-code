@@ -13,14 +13,20 @@ export default function Accuracy({items, variables}) {
         if (modelVars.length > 0 ) {
             d3.selectAll(".Accuracy-Percent")
                 .text(`${pct}%`)
+
+            d3.selectAll(".Accuracy")
+                .attr("class", "Accuracy Container Visible")
         } else {
             d3.selectAll(".Accuracy-Percent")
                 .text("")
+
+            d3.select(".Accuracy")
+                .attr("class", "Accuracy Container Hidden")
         }
     }, [items, variables])
 
     return(
-        <div className="Accuracy Container">
+        <div className="Accuracy Container Hidden">
             <h4 className="Small-Margin">Model accuracy</h4>
             <div className="Accuracy-Percent Small-Margin"></div>
             <p>Accuracy is a percent of how many predicted values match the actual values.</p>
