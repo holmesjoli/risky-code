@@ -9,10 +9,14 @@ import Model from "../../components/Model";
 import { ActualPredicted } from "../../components/Legend";
 import Card from "../../components/Card";
 import Regression from "../../components/Regression";
+import Accuracy from '../../components/Accuracy';
 
-function Information() {
+function Information({items, variables}) {
     return (
-        <ActualPredicted/>
+        <div>
+            <ActualPredicted/>
+            <Accuracy items={items} variables={variables}/>
+        </div>
     )
 }
 
@@ -36,7 +40,7 @@ export function Content({config, variables, setVariables, items, setItems}) {
                 <Model variables={variables} setVariables={setVariables}/>
                 <Regression items={items} setItems={setItems} variables={variables}/>
                 <Card items={items} variables={variables}/>
-                <Information/>
+                <Information items={items} variables={variables}/>
             </div>
             <div className="Button-Container">
                 <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>

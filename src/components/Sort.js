@@ -5,12 +5,10 @@ import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
-import * as d3 from "d3";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 let totalClassify;
-
 
 function bigCardClass(currentColumnName) {
   return currentColumnName === ITEM_LIST? " Card-Big": "Card";
