@@ -64,24 +64,21 @@ export default function Regression({items, setItems, variables}) {
             // === Train the logistic regression === //
             var model = logistic.fit(trainingData);
             var threshold = .6;
-        
-            // var itemsUpdated = items;
-            var itemsUpdated = Object.assign([], items);
 
             // // // === Testing the trained logistic regression === //
             for(var i=0; i < testingData.length; ++i){
                 var pp = logistic.transform(testingData[i]);
                 var predicted = pp >= model.threshold? 1: 0;
     
-                itemsUpdated[i].predicted = predicted;
-                itemsUpdated[i].predictedProbability = pp;
-                itemsUpdated[i].actual = itemsUpdated[i].column === "Hot water load"? 1: 0;
-                itemsUpdated[i].predictedCorrectly = itemsUpdated[i].actual === itemsUpdated[i].predicted;
+                items[i].predicted = predicted;
+                items[i].predictedProbability = pp;
+                items[i].actual = items[i].column === "Hot water load"? 1: 0;
+                items[i].predictedCorrectly = items[i].actual === items[i].predicted;
             }
 
-            itemsUpdated.sort((a, b) => b.predicted - a.predicted);
+            items.sort((a, b) => b.predicted - a.predicted);
 
-            setItems(itemsUpdated)
+            setItems(items)
         }
     }, [items, variables])
 }
