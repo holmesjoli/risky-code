@@ -42,14 +42,20 @@ ul {
 // Left navigation
 .Main {
     display: grid;
-    grid-template-columns: minmax(150px, 18%) 1fr;
+    grid-template-columns: minmax(150px, 18%) 1fr minmax(150px, 18%);
     min-height: 80vh;
 }
 
-.Sidebar {
+.Sidebar-Left {
     flex: 0 1 18vw;
     padding: $appPadding $appPadding 0 $appPadding;
     border-right: 1px solid $containerBorderColor;
+}
+
+.Sidebar-Right {
+    flex: 0 1 18vw;
+    padding: $appPadding $appPadding 0 $appPadding;
+    border-left: 1px solid $containerBorderColor;
 }
 
 .Content {
@@ -99,18 +105,12 @@ ul {
 
 .Three-Column {
     display: grid;
-    grid-template-columns: minmax(150px, 20%) minmax(150px, 51%) minmax(150px, 20%);
+    grid-template-columns: minmax(150px, 25%) minmax(150px, 50%) minmax(150px, 25%);
     grid-gap: $containerMargin;
 }
 
 
 .Two-Column {
-    display: grid;
-    grid-gap: 1rem;
-    grid-template-columns: minmax(300px, 30%) minmax(300px, 50%);
-}
-
-.Two-Column2 {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: minmax(300px, 50%) minmax(300px, 50%);

@@ -36,15 +36,17 @@ export default function Classify({config, items, setItems, modules, setModules})
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar">
+                <div className="Sidebar-Left">
                     <Description config={config}/>
                     <div className="Button-Container">
                         <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                         <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
                     </div>
-                    <Navigation id={config.id} modules={modules} setModules={setModules}/>
                 </div>
                 <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+                <div className="Sidebar-Right">
+                    <Navigation id={config.id} modules={modules} setModules={setModules}/>
+                </div>
             </div>
             <Footer/>
         </div>

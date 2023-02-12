@@ -51,15 +51,17 @@ export default function Train({config, variables, setVariables, items, setItems,
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar">
+                <div className="Sidebar-Left">
                     <Description config={config}/>
                     <div className="Button-Container">
                         <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
-                    <Navigation id={config.id} modules={modules} setModules={setModules}/>
                 </div>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
+                <div className="Sidebar-Right">
+                    <Navigation id={config.id} modules={modules} setModules={setModules}/>
+                </div>
             </div>
             <Footer/>
         </div>
