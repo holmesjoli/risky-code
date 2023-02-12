@@ -114,15 +114,17 @@ export function Content() {
     )
 }
 
-export default function Resources() {
+export default function Resources({modules, setModules}) {
     return (
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar">
-                    <Navigation/>
+            <div className="Sidebar-Left">
                 </div>
                 <Content />
+                <div className="Sidebar-Right">
+                    <Navigation id="resources" modules={modules} setModules={setModules}/>
+                </div>
             </div>
             <Footer/>
         </div>

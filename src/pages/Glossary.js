@@ -105,15 +105,17 @@ export function Content() {
     )
 }
 
-export default function Glossary() {
+export default function Glossary({modules, setModules}) {
     return (
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar">
-                    <Navigation/>
+                <div className="Sidebar-Left">
                 </div>
                 <Content />
+                <div className="Sidebar-Right">
+                    <Navigation id="glossary" modules={modules} setModules={setModules}/>
+                </div>
             </div>
             <Footer/>
         </div>

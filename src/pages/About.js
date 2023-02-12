@@ -9,15 +9,16 @@ export function Content() {
     )
 }
 
-export default function About() {
+export default function About({modules, setModules}) {
     return (
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar">
-                    <Navigation/>
-                </div>
+                <div className="Sidebar-Left"></div>
                 <Content />
+                <div className="Sidebar-Right">
+                    <Navigation id="about" modules={modules} setModules={setModules}/>
+                </div>
             </div>
             <Footer/>
         </div>
