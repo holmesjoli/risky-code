@@ -9,7 +9,7 @@ import Optimize from "./pages/predict/Optimize";
 import Calibration from "./pages/fairness/Calibration";
 import FalsePositive from "./pages/fairness/FalsePositive";
 import FalseNegative from "./pages/fairness/FalseNegative";
-import COMPAS from "./pages/case_studies/COMPAS";
+import COMPAS from "./pages/fairness/COMPAS";
 import RiskFramework from "./pages/deliberation/RiskFramework";
 import Stakeholders from "./pages/deliberation/Stakeholders";
 import DecisionAid from "./pages/deliberation/DecisionAid";

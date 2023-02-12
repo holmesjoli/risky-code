@@ -9,7 +9,7 @@ import * as Introduction from "../pages/Introduction";
 import * as Calibration from "../pages/fairness/Calibration";
 import * as FalsePositive from "../pages/fairness/FalsePositive";
 import * as FalseNegative from "../pages/fairness/FalseNegative";
-import * as Compas from "../pages/case_studies/COMPAS";
+import * as Compas from "../pages/fairness/COMPAS";
 import * as DecisionAid from "../pages/deliberation/DecisionAid";
 import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
