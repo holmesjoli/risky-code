@@ -1,10 +1,10 @@
 import * as d3 from 'd3';
 
 export const config = {
-    "introduction": {
-        "id": "default",
+    "Introduction": {
+        "id": "introduction",
         "title": "introduction",
-        "descr": ""
+        "descr": "Welcome to Risky Code, a digitial interactive toolkit to facilitate deliberation about algorithmically informed decision-making."
     },
     "about": {
         "id": "about",

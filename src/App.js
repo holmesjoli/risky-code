@@ -29,7 +29,7 @@ export default function App() {
     return(
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Introduction />} />
+          <Route path="/" element={<Introduction config={config.Introduction}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
           <Route path="/Calibration" element={<Calibration />} />
