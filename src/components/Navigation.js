@@ -33,9 +33,6 @@ function Predict() {
                                 <NavLink to="/Classify" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Classify</NavLink>
                             </li>
                             <li className="Link">
-                                <NavLink to="/Train" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Train</NavLink>
-                            </li>
-                            <li className="Link">
                                 <NavLink to="/Optimize" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Optimize</NavLink>
                             </li>
                         </ul>

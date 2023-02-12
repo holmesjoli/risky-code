@@ -5,7 +5,6 @@ import {
   } from "react-router-dom";
 import Introduction from "./pages/Introduction";
 import Classify from "./pages/predict/Classify";
-import Train from "./pages/predict/Train";
 import Optimize from "./pages/predict/Optimize";
 import Calibration from "./pages/fairness/Calibration";
 import FalsePositive from "./pages/fairness/FalsePositive";
@@ -32,7 +31,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Introduction />} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
-          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
           <Route path="/Calibration" element={<Calibration />} />
           <Route path="/FalsePositive" element={<FalsePositive />} />

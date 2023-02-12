@@ -69,7 +69,7 @@ export default function Regression({items, setItems, variables}) {
             for(var i=0; i < testingData.length; ++i){
                 var pp = logistic.transform(testingData[i]);
                 var predicted = pp >= model.threshold? 1: 0;
-    
+
                 items[i].predicted = predicted;
                 items[i].predictedProbability = pp;
                 items[i].actual = items[i].column === "Hot water load"? 1: 0;
