@@ -67,29 +67,6 @@ function Fairness() {
                             <li className="Link">
                                 <NavLink to="/FalsePositive" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Positive</NavLink>
                             </li>
-                        </ul>
-                    </div>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-    )
-};
-
-function CaseStudies() {
-    return (
-        <div className="Link-Container">
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                >
-                    <h4>Fairness in context</h4>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <div className="Navigation Links">
-                        <ul>
-                            <li className="Link">
-                                <NavLink to="/PublicPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Algorithmic decision-making in public policy</NavLink>
-                            </li>
                             <li className="Link">
                                 <NavLink to="/COMPAS" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>COMPAS algorithm</NavLink>
                             </li>
@@ -136,7 +113,6 @@ export default function Navigation() {
             <Introduction/>
             <Predict/> 
             <Fairness/>
-            <CaseStudies/> 
             <Deliberation/>
         </div>
     )

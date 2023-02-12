@@ -10,7 +10,6 @@ import Calibration from "./pages/fairness/Calibration";
 import FalsePositive from "./pages/fairness/FalsePositive";
 import FalseNegative from "./pages/fairness/FalseNegative";
 import COMPAS from "./pages/case_studies/COMPAS";
-import PublicPolicy from "./pages/case_studies/PublicPolicy";
 import RiskFramework from "./pages/deliberation/RiskFramework";
 import Stakeholders from "./pages/deliberation/Stakeholders";
 import DecisionAid from "./pages/deliberation/DecisionAid";
@@ -36,7 +35,6 @@ export default function App() {
           <Route path="/FalsePositive" element={<FalsePositive />} />
           <Route path="/FalseNegative" element={<FalseNegative />} />
           <Route path="/COMPAS" element={<COMPAS />} />
-          <Route path="/PublicPolicy" element={<PublicPolicy />} />
           <Route path="/RiskFramework" element={<RiskFramework />} />
           <Route path="/Stakeholders" element={<Stakeholders />} />
           <Route path="/DecisionAid" element={<DecisionAid />} />
