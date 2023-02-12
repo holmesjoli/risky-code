@@ -34,6 +34,7 @@ const theme = createTheme({
     },
     MuiAccordionSummary: {
       root: {
+        position: "relative",
         paddingLeft: 0,
         marginLeft: "15px",
         marginRight: "15px",
@@ -44,6 +45,9 @@ const theme = createTheme({
       },
       content: {
         margin: 0
+      },
+      expandIcon: {
+        position: "relative"
       }
     },
     MuiAccordionDetails: {
@@ -51,6 +55,13 @@ const theme = createTheme({
         padding: 0
       }
     },
+    MuiButtonBase: {
+      root: {
+        position: "absolute"
+      }
+    },
+
+    // MuiButtonBase-root MuiButton-root MuiButton-contained Next
     MuiButton: {
       root: {
         borderRadius: "0.25rem"
@@ -58,7 +69,9 @@ const theme = createTheme({
       label: {
         fontVariant: "small-caps",
         fontWeight: 500,
-        letterSpacing: ".6px"
+        letterSpacing: ".6px",
+        textTransform: "none",
+        fontSize: "1.05rem"
       }
     }
   },

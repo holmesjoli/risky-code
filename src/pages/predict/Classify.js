@@ -39,10 +39,10 @@ export default function Classify({config, items, setItems}) {
                 <div className="Sidebar">
                     <Description config={config}/>
                     <div className="Button-Container">
-                        <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
+                        <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                         <Tooltip title="Classify each item to advance">
                             <span>
-                            <Button variant="contained" disabled={nClassified !== items.length} onClick={routeNext}>Next</Button>
+                            <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
                             </span>
                         </Tooltip>
                     </div>

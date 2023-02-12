@@ -54,8 +54,8 @@ export default function Optimize({config, variables, setVariables, items, setIte
                 <div className="Sidebar">
                     <Description config={config}/>
                     <div className="Button-Container">
-                        <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
-                        <Button variant="contained" className="Next" onClick={routeNext}>Next</Button>
+                        <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
                     <Navigation/>
                 </div>

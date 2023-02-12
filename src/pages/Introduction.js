@@ -165,7 +165,7 @@ export default function Introduction({config}) {
                 <div className="Sidebar">
                     <Description config={config}/>
                     <div className="Button-Container">  
-                        <Button variant="contained" onClick={routeNext}>Next</Button>
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
                     <Navigation id={config.id}/>
                 </div>
