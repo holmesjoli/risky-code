@@ -75,20 +75,6 @@ export default function Navigation({id}) {
             .domain(regular)
             .range(colors);
 
-        let variants = Array(regular.length - 1).fill("none");
-        variants.unshift("small-caps");
-
-        const fontVariant = d3.scaleOrdinal()
-            .domain(regular)
-            .range(variants);
-
-        let sizes = Array(regular.length - 1).fill(12);
-        sizes.unshift(14);
-
-        const fontSize = d3.scaleOrdinal()
-            .domain(regular)
-            .range(sizes)
-
         let cases = Array(regular.length - 1).fill("none");
         cases.unshift("lowercase");
 
@@ -132,10 +118,9 @@ export default function Navigation({id}) {
                 // .attr("text-anchor", "middle")
                 .attr("x", 30)
                 .attr("y", 5)
-                .attr("font-size", d => fontSize(d.name))
+                .attr("font-size", 13)
                 .attr("font-weight", d => fontWeight(d.name))
                 .attr("text-transform", d => textTransform(d.name))
-                .attr("font-variant", d => fontVariant(d.name))
                 .style("fill", d => fontColor(d.name))
                 .text(d => d.name)
     }, [])
@@ -146,7 +131,7 @@ export default function Navigation({id}) {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                <h4>Progress</h4>
+                <div className="Button">progress</div>
                 </AccordionSummary>
                 <AccordionDetails>
             <div id="Navigation-Chart"></div>

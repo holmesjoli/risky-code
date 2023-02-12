@@ -8,37 +8,29 @@ import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import { useState} from "react";
 
-export function Content({config, items, setItems}) {
+export function Content({config, items, setItems, nClassified, setNClassified}) {
+
+    return(
+        <div className="Content">
+            <Sort items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+        </div>
+    )
+}
+
+export default function Classify({config, items, setItems}) {
 
     const [nClassified, setNClassified] = useState(0);
 
     let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/Train`; 
+      let path = `/Optimize`; 
       navigate(path);
     }
 
     const routeBack = () => {
       let path = `/`; 
       navigate(path);
-    }  
-
-    return(
-        <div className="Content">
-            <Sort items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
-            <div className="Button-Container">
-                <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
-                <Tooltip title="Classify each item to advance">
-                    <span>
-                    <Button variant="contained" disabled={nClassified !== items.length} onClick={routeNext}>Next</Button>
-                    </span>
-                </Tooltip>
-            </div>
-        </div>
-    )
-}
-
-export default function Classify({config, items, setItems}) {
+    }
 
     return (
         <div className="App">
@@ -46,9 +38,17 @@ export default function Classify({config, items, setItems}) {
             <div className="Main">
                 <div className="Sidebar">
                     <Description config={config}/>
+                    <div className="Button-Container">
+                        <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
+                        <Tooltip title="Classify each item to advance">
+                            <span>
+                            <Button variant="contained" disabled={nClassified !== items.length} onClick={routeNext}>Next</Button>
+                            </span>
+                        </Tooltip>
+                    </div>
                     <Navigation/>
                 </div>
-                <Content config={config} items={items} setItems={setItems}/>
+                <Content config={config} items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
             </div>
             <Footer/>
         </div>

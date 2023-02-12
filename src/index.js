@@ -20,7 +20,7 @@ const theme = createTheme({
       main: "#03afbf"
     },
     secondary: {
-      main: "#919295"
+      main: "#cbcbcb"
     }
   },
   overrides: {
@@ -35,9 +35,12 @@ const theme = createTheme({
     MuiAccordionSummary: {
       root: {
         paddingLeft: 0,
+        marginLeft: "15px",
+        marginRight: "15px",
         borderColor: "#272B30",
         borderWidth: "1px",
-        borderStyle: "solid"
+        borderStyle: "solid",
+        borderRadius: ".25rem"
       },
       content: {
         margin: 0
@@ -46,6 +49,16 @@ const theme = createTheme({
     MuiAccordionDetails: {
       root: {
         padding: 0
+      }
+    },
+    MuiButton: {
+      root: {
+        borderRadius: "0.25rem"
+      },
+      label: {
+        fontVariant: "small-caps",
+        fontWeight: 500,
+        letterSpacing: ".6px"
       }
     }
   },

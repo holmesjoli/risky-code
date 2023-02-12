@@ -23,19 +23,19 @@ export const config = {
     },
     "Classify": {
         "id": "classify",
-        "title": "Classify",
+        "title": "classify",
         "subtitle": "Classify each item as hot water load or save for later",
         "descr": "In this step of model building, we will classify each item to be run in the hot water load or save for later. For each item click hot water load or save for later. In the next step, we will use this data to train Laundry AID."
     },
     "Optimize": {
         "id": "optimize",
-        "title": "Optimize",
+        "title": "optimize",
         "subtitle": "Optimize model to be as accurate as possible",
         "descr": "In this step of model building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy."
     },
     "Train": {
         "id": "train",
-        "title": "Train",
+        "title": "train",
         "subtitle": "Predict which items should be included in the hot water load",
         "descr": "In this step of model building, we will train the Laundry AID to predict whether new items should be added to the hot water load. Drag the data variables from the variable list to the model list to add them to the model. Add or remove variables from the model to see how the predicitive probabilities change."
     },
@@ -153,13 +153,13 @@ export const MODEL_COLUMN_NAMES = {
 
 const {DATA_VARIABLES} = MODEL_COLUMN_NAMES;
 export const VARIABLES = [
-    {id: 1, name: 'Item type', columnName: 'item_type', column: DATA_VARIABLES},
-    {id: 2, name: 'Print', columnName: 'print',  column: DATA_VARIABLES},
-    {id: 3, name: 'Pastel', columnName: 'pastel', column: DATA_VARIABLES},
-    {id: 4, name: 'Soiled', columnName: 'soiled', column: DATA_VARIABLES },
+    {id: 1, name: 'item type', columnName: 'item_type', column: DATA_VARIABLES},
+    {id: 2, name: 'print', columnName: 'print',  column: DATA_VARIABLES},
+    {id: 3, name: 'pastel', columnName: 'pastel', column: DATA_VARIABLES},
+    {id: 4, name: 'soiled', columnName: 'soiled', column: DATA_VARIABLES },
     // {id: 5, name: 'Item color', columnName: 'item_color', column: DATA_VARIABLES },
-    {id: 6, name: 'Care type', columnName: 'cleanType', column: DATA_VARIABLES },
-    {id: 7, name: 'White', columnName: 'white', column: DATA_VARIABLES },
+    {id: 6, name: 'care type', columnName: 'cleanType', column: DATA_VARIABLES },
+    {id: 7, name: 'white', columnName: 'white', column: DATA_VARIABLES },
 ];
 
 export const CLASSIFY_COLUMN_NAMES = {

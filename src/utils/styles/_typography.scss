@@ -158,11 +158,9 @@ h2 {
 }
 
 h3 {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin-bottom: .3rem;
-  font-weight: 400;
   letter-spacing: .5px;
+  font-variant: small-caps;
+  font-weight: 400;
 }
 
 .Introduction > a,
@@ -251,4 +249,14 @@ h1 .active {
 .Subtitle {
   padding: 0;
   margin-bottom: .5rem;
+}
+
+.Button {
+  font-variant: small-caps;
+  font-weight: 500;
+  color: $appColor;
+  margin-left: $containerMargin;
+  line-height: normal;
+  font-size: 1.05rem;
+  letter-spacing: .6px;
 }

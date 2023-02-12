@@ -101,7 +101,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item Variable" style={{ opacity }}>
+    <div ref={ref} className="Movable-Item Button Variable" style={{ opacity }}>
       {name}
     </div>
   );

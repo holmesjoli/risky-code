@@ -22,17 +22,6 @@ function Information({items, variables}) {
 
 export function Content({config, variables, setVariables, items, setItems}) {
 
-    let navigate = useNavigate(); 
-    const routeNext = () => {
-      let path = `/Calibration`; 
-      navigate(path);
-    }
-
-    const routeBack = () => {
-      let path = `/Train`; 
-      navigate(path);
-    } 
-
     return(
         <div className="Content">
             <div className="Three-Column">
@@ -41,21 +30,33 @@ export function Content({config, variables, setVariables, items, setItems}) {
                 <Card items={items} variables={variables}/>
                 <Information items={items} variables={variables}/>
             </div>
-            <div className="Button-Container">
-                <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
-                <Button variant="contained" className="Next" onClick={routeNext}>Next</Button>
-            </div>
         </div>
     )
 }
 
 export default function Optimize({config, variables, setVariables, items, setItems}) {
+
+    let navigate = useNavigate(); 
+    const routeNext = () => {
+      let path = `/Calibration`; 
+      navigate(path);
+    }
+
+    const routeBack = () => {
+      let path = `/Classify`; 
+      navigate(path);
+    }
+
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
                     <Description config={config}/>
+                    <div className="Button-Container">
+                        <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
+                        <Button variant="contained" className="Next" onClick={routeNext}>Next</Button>
+                    </div>
                     <Navigation/>
                 </div>
                 <Content config={config} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
