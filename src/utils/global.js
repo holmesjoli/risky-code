@@ -86,7 +86,7 @@ export const config = {
     }
 }
 
-export const navigation = [ {
+export const navigationData = [ {
         "name": "Introduction",
         "id": "introduction",
         "size": "Large"

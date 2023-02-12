@@ -1,7 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { navigation } from "../utils/global";
+import { navigationData } from "../utils/global";
 import * as d3 from 'd3';
 import { useEffect } from 'react';
 
@@ -39,220 +37,109 @@ function wrap(text, width) {
     });
 }
 
+const height = 100;
+const width = 1400;
+const space = 120;
+const margin = {left: 50}
 
-
-/**
- * Menu Navigation bar to navigate to different parts of the project
- * @returns 
- */
-
-function Introduction() {
-    return(
-        <div className="Link-Container">
-            <h4 className="Introduction Link">
-                <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Introduction</NavLink>
-            </h4>
-        </div>
-    )
-}
-
-function Predict() {
-    return (
-        <div className="Link-Container">
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                >
-                    <h4>Predict</h4>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <div className="Navigation Links">
-                        <ul>
-                            <li className="Link">
-                                <NavLink to="/Classify" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Classify</NavLink>
-                            </li>
-                            <li className="Link">
-                                <NavLink to="/Optimize" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Optimize</NavLink>
-                            </li>
-                        </ul>
-                    </div>
-            </AccordionDetails>
-        </Accordion>
-    </div>
-    )
-};
-
-function Fairness() {
-    return ( 
-        <div className="Link-Container">
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                >
-                    <h4>Fairness</h4>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <div className="Navigation Links">
-                        <ul>
-                            <li className="Link">
-                                <NavLink to="/Calibration" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Calibration</NavLink>
-                            </li>
-                            <li className="Link">
-                                <NavLink to="/FalseNegative" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Negative</NavLink>
-                            </li>
-                            <li className="Link">
-                                <NavLink to="/FalsePositive" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>False Positive</NavLink>
-                            </li>
-                            <li className="Link">
-                                <NavLink to="/COMPAS" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>COMPAS algorithm</NavLink>
-                            </li>
-                        </ul>
-                    </div>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-    )
-};
-
-function Deliberation() {
-    return (
-        <div className="Link-Container">
-            <Accordion>
-                <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                >
-                    <h4>Deliberation</h4>
-                </AccordionSummary>
-                <AccordionDetails>
-                    <div className="Navigation Links">
-                        <ul>
-                            <li className="Link">
-                                <NavLink to="/RiskFramework" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Greene AI Risk Framework</NavLink>
-                            </li>
-                            <li className="Link">
-                                <NavLink to="/Stakeholders" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Stakeholders</NavLink>
-                            </li>
-                            <li className="Link">
-                                <NavLink to="/DecisionAid" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Decision Aid</NavLink>
-                            </li>
-                        </ul>
-                    </div>
-                </AccordionDetails>
-            </Accordion>
-        </div>
-    )
-};
-
+const rScale = d3.scaleOrdinal()
+    .domain(["Small", "Large"])
+    .range([8, 18])
 
 export default function Navigation({id}) {
 
     useEffect(() => {
-
-        const height = 100;
-        const width = 1400;
-        const space = 120;
-        const margin = {left: 50}
 
         let svg = d3.select("#Navigation-Chart")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
 
-        // const rScale = d3.scaleOrdinal()
-        //     .domain(["Small", "Large"])
-        //     .range([8, 18])
+        let bold = navigationData.filter(d => d.id === id).map(d => d.name);
+        let regular = navigationData.filter(d => d.id !== id).map(d => d.name);
+        regular.unshift(bold);
 
-        // const bold = navigation.find(d => d.id === id).name;
-        // let regular = navigation.filter(d => d.id !== id).map(d => d.name);
-        // regular.unshift(bold);
+        let weights = Array(regular.length - 1).fill(400);
+        weights.unshift(500);
 
-        // let weights = Array(regular.length - 1).fill(400);
-        // weights.unshift(500);
-
-        // const fontWeight = d3.scaleOrdinal()
-        //     .domain(regular)
-        //     .range(weights);
+        const fontWeight = d3.scaleOrdinal()
+            .domain(regular)
+            .range(weights);
     
-        // let colors = Array(regular.length - 1).fill("#868B90");
-        // colors.unshift("#cbcbcb");
+        let colors = Array(regular.length - 1).fill("#868B90");
+        colors.unshift("#cbcbcb");
 
-        // const fontColor = d3.scaleOrdinal()
-        //     .domain(regular)
-        //     .range(colors);
+        const fontColor = d3.scaleOrdinal()
+            .domain(regular)
+            .range(colors);
 
-        // let variants = Array(regular.length - 1).fill("none");
-        // variants.unshift("small-caps");
+        let variants = Array(regular.length - 1).fill("none");
+        variants.unshift("small-caps");
 
-        // const fontVariant = d3.scaleOrdinal()
-        //     .domain(regular)
-        //     .range(variants);
+        const fontVariant = d3.scaleOrdinal()
+            .domain(regular)
+            .range(variants);
 
-        // let sizes = Array(regular.length - 1).fill(12);
-        // sizes.unshift(14);
+        let sizes = Array(regular.length - 1).fill(12);
+        sizes.unshift(14);
 
-        // const fontSize = d3.scaleOrdinal()
-        //     .domain(regular)
-        //     .range(sizes)
+        const fontSize = d3.scaleOrdinal()
+            .domain(regular)
+            .range(sizes)
 
-        // let cases = Array(regular.length - 1).fill("none");
-        // cases.unshift("lowercase");
+        let cases = Array(regular.length - 1).fill("none");
+        cases.unshift("lowercase");
 
-        // const textTransform = d3.scaleOrdinal()
-        //     .domain(regular)
-        //     .range(cases)
+        const textTransform = d3.scaleOrdinal()
+            .domain(regular)
+            .range(cases)
 
-        // svg
-        //     .append("line")
-        //     .attr("x1", margin.left)
-        //     .attr("x2", space*(navigation.length - 1) + margin.left)
-        //     .attr("y1", height/4)
-        //     .attr("y2", height/4)
-        //     .attr("stroke", "#272B30")
+        svg
+            .append("line")
+            .attr("x1", margin.left)
+            .attr("x2", space*(navigationData.length - 1) + margin.left)
+            .attr("y1", height/4)
+            .attr("y2", height/4)
+            .attr("stroke", "#272B30")
 
-        // var nodes = svg.append("g")
-        //     .attr("class", "nodes")
-        //     .selectAll("circle")
-        //     .data(navigation)
-        //     .enter()
-        //     // Add one g element for each data node here.
-        //     .append("g")
-        //     // Position the g element like the circle element used to be.
-        //     .attr("transform", function(d, i) {
-        //         // Set d.x and d.y here so that other elements can use it. d is 
-        //         // expected to be an object here.
-        //         d.x = i * space + margin.left;
-        //         d.y = height / 4;
-        //         return "translate(" + d.x + "," + d.y + ")"; 
-        //     })
-        //     .call(wrap, 40);
+        var nodes = svg.append("g")
+            .attr("class", "nodes")
+            .selectAll("circle")
+            .data(navigationData)
+            .enter()
+            // Add one g element for each data node here.
+            .append("g")
+            // Position the g element like the circle element used to be.
+            .attr("transform", function(d, i) {
+                // Set d.x and d.y here so that other elements can use it. d is 
+                // expected to be an object here.
+                d.x = i * space + margin.left;
+                d.y = height / 4;
+                return "translate(" + d.x + "," + d.y + ")"; 
+            })
+            .call(wrap, 40);
 
-        //     nodes.append("circle")
-        //         .attr("class", "nav-node")
-        //         .attr("r", d => rScale(d.size))
-        //         .attr("fill", "#1C2022")
-        //         .attr("stroke", "#272B30")
+            nodes.append("circle")
+                .attr("class", "nav-node")
+                .attr("r", d => rScale(d.size))
+                .attr("fill", "#1C2022")
+                .attr("stroke", "#272B30")
 
-        //     // Add a text element to the previously added g element.
-        //     nodes.append("text")
-        //         .attr("text-anchor", "middle")
-        //         .attr("y", 50)
-        //         .attr("font-size", d => fontSize(d.name))
-        //         .attr("font-weight", d => fontWeight(d.name))
-        //         .attr("text-transform", d => textTransform(d.name))
-        //         .attr("font-variant", d => fontVariant(d.name))
-        //         .style("fill", d => fontColor(d.name))
-        //         .text(d => d.name)
+            // Add a text element to the previously added g element.
+            nodes.append("text")
+                .attr("text-anchor", "middle")
+                .attr("y", 50)
+                .attr("font-size", d => fontSize(d.name))
+                .attr("font-weight", d => fontWeight(d.name))
+                .attr("text-transform", d => textTransform(d.name))
+                .attr("font-variant", d => fontVariant(d.name))
+                .style("fill", d => fontColor(d.name))
+                .text(d => d.name)
     }, [])
 
     return (
         <div className="Navigation">
             <div id="Navigation-Chart"></div>
-            <div>
-                <Introduction/>
-                <Predict/> 
-                <Fairness/>
-                <Deliberation/>
-            </div>
         </div>
     )
 }
