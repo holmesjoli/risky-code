@@ -45,8 +45,8 @@ export default function Classify({config, items, setItems}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
-                    <Navigation/>
                     <Description config={config}/>
+                    <Navigation/>
                 </div>
                 <Content config={config} items={items} setItems={setItems}/>
             </div>

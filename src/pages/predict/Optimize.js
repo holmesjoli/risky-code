@@ -55,8 +55,8 @@ export default function Optimize({config, variables, setVariables, items, setIte
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
-                    <Navigation/>
                     <Description config={config}/>
+                    <Navigation/>
                 </div>
                 <Content config={config} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
             </div>
