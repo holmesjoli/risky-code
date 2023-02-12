@@ -34,7 +34,7 @@ export function Content({config, variables, setVariables, items, setItems}) {
     )
 }
 
-export default function Optimize({config, variables, setVariables, items, setItems}) {
+export default function Train({config, variables, setVariables, items, setItems}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {

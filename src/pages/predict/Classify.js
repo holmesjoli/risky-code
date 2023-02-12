@@ -23,7 +23,7 @@ export default function Classify({config, items, setItems}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/Optimize`; 
+      let path = `/Train`; 
       navigate(path);
     }
 
