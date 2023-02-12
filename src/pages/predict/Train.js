@@ -20,7 +20,7 @@ function Information({items, variables}) {
     )
 }
 
-export function Content({config, variables, setVariables, items, setItems}) {
+export function Content({variables, setVariables, items, setItems}) {
 
     return(
         <div className="Content">
@@ -59,7 +59,7 @@ export default function Train({config, variables, setVariables, items, setItems}
                     </div>
                     <Navigation/>
                 </div>
-                <Content config={config} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
+                <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
             </div>
             <Footer/>
         </div>

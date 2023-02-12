@@ -80,7 +80,18 @@ export default function Navigation({id}) {
 
         const textTransform = d3.scaleOrdinal()
             .domain(regular)
-            .range(cases)
+            .range(cases);
+
+        let highlight = navigationData.filter(d => d.id === id).map(d => d.id);
+        let regularColors = navigationData.filter(d => d.id !== id).map(d => d.id);
+        regularColors.unshift(highlight);
+
+        let colorsCircle = Array(regular.length - 1).fill("#272B30");
+        colorsCircle.unshift("#7FC243");
+
+        const strokeScale = d3.scaleOrdinal()
+            .domain(regularColors)
+            .range(colorsCircle);
 
         svg
             .append("line")
@@ -111,7 +122,7 @@ export default function Navigation({id}) {
                 .attr("class", "nav-node")
                 .attr("r", d => rScale(d.size))
                 .attr("fill", "#1C2022")
-                .attr("stroke", "#272B30")
+                .attr("stroke", d => strokeScale(d.id))
 
             // Add a text element to the previously added g element.
             nodes.append("text")

@@ -6,6 +6,8 @@ import { createTheme, ThemeProvider } from "@material-ui/core";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App"
 
+const highlightColor = "#7FC243";
+
 const theme = createTheme({
   typography: {
     fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
@@ -38,16 +40,18 @@ const theme = createTheme({
         paddingLeft: 0,
         marginLeft: "15px",
         marginRight: "15px",
-        borderColor: "#272B30",
+        borderColor: highlightColor,
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: ".25rem"
       },
       content: {
-        margin: 0
+        margin: 0,
+        color: highlightColor
       },
       expandIcon: {
-        position: "relative"
+        position: "relative",
+        color: highlightColor
       }
     },
     MuiAccordionDetails: {
@@ -60,8 +64,11 @@ const theme = createTheme({
         position: "absolute"
       }
     },
-
-    // MuiButtonBase-root MuiButton-root MuiButton-contained Next
+    Mui: {
+      disabled: {
+        backgroundColor: "rgb(127, 194, 67, .12)"
+      }
+    },
     MuiButton: {
       root: {
         borderRadius: "0.25rem"
@@ -72,6 +79,13 @@ const theme = createTheme({
         letterSpacing: ".6px",
         textTransform: "none",
         fontSize: "1.05rem"
+      },
+      contained: {
+        backgroundColor: highlightColor
+      },
+      outlinedSecondary: {
+        borderColor: highlightColor,
+        color: highlightColor
       }
     }
   },

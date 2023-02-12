@@ -31,7 +31,7 @@ export default function App() {
           <Route path="/" element={<Introduction config={config.Introduction}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
-          <Route path="/Calibration" element={<Calibration />} />
+          <Route path="/Calibration" element={<Calibration config={config.Calibration}/>} />
           <Route path="/FalsePositive" element={<FalsePositive />} />
           <Route path="/FalseNegative" element={<FalseNegative />} />
           <Route path="/COMPAS" element={<COMPAS />} />

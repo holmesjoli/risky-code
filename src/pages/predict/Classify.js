@@ -8,7 +8,7 @@ import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import { useState} from "react";
 
-export function Content({config, items, setItems, nClassified, setNClassified}) {
+export function Content({items, setItems, nClassified, setNClassified}) {
 
     return(
         <div className="Content">
@@ -40,15 +40,11 @@ export default function Classify({config, items, setItems}) {
                     <Description config={config}/>
                     <div className="Button-Container">
                         <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                        <Tooltip title="Classify each item to advance">
-                            <span>
-                            <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
-                            </span>
-                        </Tooltip>
+                        <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
                     </div>
                     <Navigation/>
                 </div>
-                <Content config={config} items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+                <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
             </div>
             <Footer/>
         </div>

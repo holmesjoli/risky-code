@@ -39,20 +39,20 @@ export const config = {
         "subtitle": "Predict which items should be included in the hot water load",
         "descr": "In this step of model building, we will train the Laundry AID to predict whether new items should be added to the hot water load. Drag the data variables from the variable list to the model list to add them to the model. Add or remove variables from the model to see how the predicitive probabilities change."
     },
-    "calibration": {
+    "Calibration": {
         "id": "calibration",
         "title": "calibration",
         "subtitle": "Learn about calibration definition of mathematical fairness",
         "descr": ""
     },
-    "falsePositive": {
-        "id": "falsePositive",
+    "FPR": {
+        "id": "fpr",
         "title": "false positive rate",
         "subtitle": "Minimize the false positive rate",
         "descr": "The false positive rate (FPR) is a measure of algorithmic error. It represents the probability of falsely rejecting the truth. It is calculated as the proportion of negative cases incorrectly predicted by the algorithm as positive cases. The negative cases are referred to as false positives and the positive cases are referred to as true positives. To calculate the false positive rate, we divide the number of false positives by the sum of the false positives and true positives. Adjust the slider to see how the false positive rate changes as you increase or decrease the threshold."
     },
-    "falseNegative": {
-        "id": "falseNegative",
+    "FNR": {
+        "id": "fnr",
         "title": "false negative rate",
         "subtitle": "Minimize the false negative rate",
         "descr": "The false negative rate (FNR) is another measure of algorithmic error. It represents the probability of falsely rejecting the truth. It is calculated as the proportion of negative cases incorrectly predicted by the algorithm as positive cases. The negative cases are referred to as false negatives and the positive cases are referred to as true negatices. To calculate the false negative rate, we divide the number of false negatives by the sum of the false negatives and true negatives. Adjust the slider to see how the false negative rate changes as you increase or decrease the threshold."

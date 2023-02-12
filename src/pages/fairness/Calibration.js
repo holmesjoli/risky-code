@@ -1,9 +1,11 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@material-ui/core";
-import Main from "../../components/Main";
-import { config }  from "../../utils/global";
 import Legend from "../../components/Legend";
+import Navigation from '../../components/Navigation';
+import Description from '../../components/Description';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 function Information() {
     return (
@@ -13,7 +15,7 @@ function Information() {
     )
 }
 
-export function Content() {
+export function Content({items, setItems}) {
     return(
         <div className="Content Three-Column">
             <Information/>
@@ -21,8 +23,34 @@ export function Content() {
     )
 }
 
-export default function calibration() {
-    return(
-        <Main config={config.calibration}/>
+export default function Classify({config, items, setItems}) {
+
+    let navigate = useNavigate(); 
+    const routeNext = () => {
+      let path = `/Train`; 
+      navigate(path);
+    }
+
+    const routeBack = () => {
+      let path = `/Train`; 
+      navigate(path);
+    }
+
+    return (
+        <div className="App">
+            <Header/>
+            <div className="Main">
+                <div className="Sidebar">
+                    <Description config={config}/>
+                    <div className="Button-Container">
+                        <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                    </div>
+                    <Navigation/>
+                </div>
+                <Content items={items} setItems={setItems}/>
+            </div>
+            <Footer/>
+        </div>
     )
 }
