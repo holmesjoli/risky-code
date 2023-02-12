@@ -58,7 +58,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                     <Description config={config}/>
                 </div>
                 <div>
-                    <Navigation id={config.id}/>
+                    <Navigation title={config.title}/>
                     <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
                 </div>
             </div>

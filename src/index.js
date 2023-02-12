@@ -35,6 +35,12 @@ const theme = createTheme({
         boxShadow: "none"
       }
     },
+    MuiButton: {
+      outlinedSecondary: {
+        position: "absolute",
+        bottom: 0
+      }
+    },
     MuiAccordionSummary: {
       root: {
         paddingLeft: 0

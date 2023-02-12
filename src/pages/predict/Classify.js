@@ -8,26 +8,19 @@ import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import { useState} from "react";
 
-export function Content({items, setItems}) {
+export function Content({items, setItems, navigate}) {
 
     const [nClassified, setNClassified] = useState(0);
 
-    let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/Train`; 
-      navigate(path);
-    }
-
-    const routeBack = () => {
-      let path = `/`; 
-      navigate(path);
+        let path = `/Train`; 
+        navigate(path);
     }  
 
     return(
         <div className="Content">
             <Sort items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
             <div className="Button-Container">
-                <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
                 <Tooltip title="Classify each item to advance">
                     <span>
                     <Button variant="contained" disabled={nClassified !== items.length} onClick={routeNext}>Next</Button>
@@ -40,16 +33,23 @@ export function Content({items, setItems}) {
 
 export default function Classify({config, items, setItems}) {
 
+    let navigate = useNavigate(); 
+    const routeBack = () => {
+        let path = `/`; 
+        navigate(path);
+      }  
+
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
                     <Description config={config}/>
+                    <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
                 </div>
                 <div>
                     <Navigation id={config.id}/>
-                    <Content items={items} setItems={setItems}/>
+                    <Content items={items} setItems={setItems} navigate={navigate}/>
                 </div>
             </div>
             <Footer/>

@@ -119,6 +119,12 @@ ul {
     grid-template-columns: minmax(300px, 30%) minmax(300px, 50%);
 }
 
+.Two-Column2 {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(300px, 50%) minmax(300px, 50%);
+}
+
 .Introduction {
     padding: $appPadding;
     margin-bottom: 0;
@@ -135,4 +141,13 @@ ul {
 
 .node {
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 6px 6px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.Button-Container {
+    position: absolute;
+    bottom: 0;
+    right: $containerMargin;
+}
+
+.MuiButton-outlinedSecondary {
+    bottom: 0;
 }

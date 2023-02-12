@@ -141,16 +141,9 @@ export default function Navigation({id}) {
                 .attr("font-variant", d => fontVariant(d.name))
                 .style("fill", d => fontColor(d.name))
                 .text(d => d.name)
-
-        
     }, [])
 
     return (
-        <div className="Navigation">  
-            {/* <Introduction/>
-            <Predict/> 
-            <Fairness/>
-            <Deliberation/> */}
-        </div>
+        <div className="Navigation"></div>
     )
 }
