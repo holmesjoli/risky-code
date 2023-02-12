@@ -86,6 +86,57 @@ export const config = {
     }
 }
 
+export const navigation = [ {
+        "name": "Introduction",
+        "id": "introduction",
+        "size": "Large"
+    }, {
+        "name": "Prediction",
+        "id": "prediction",
+        "size": "Large"
+    }, {
+        "name": "Classify",
+        "id": "classify",
+        "size": "Small"
+    }, {
+        "name": "Train",
+        "id": "train",
+        "size": "Small"
+    }, {
+        "name": "Fairness",
+        "id": "fairness",
+        "size": "Large"
+    }, {
+        "name": "False Positive Rate",
+        "id": "fpr",
+        "size": "Small"
+    }, {
+        "name": "False Negative Rate",
+        "id": "fnr",
+        "size": "Small"
+    }, {
+        "name": "Case Study - COMPAS",
+        "id": "compas",
+        "size": "Small"
+    }, {
+        "name": "Deliberation",
+        "id": "deliberation",
+        "size": "Large"
+    }, {
+        "name": "Stakeholder Mapping",
+        "id": "stakeholder",
+        "size": "Small"
+    }, {
+        "name": "Risk Mapping",
+        "id": "risk",
+        "size": "Small"
+    }, {
+        "name": "Decision Aid",
+        "id": "decision",
+        "size": "Small"
+    }
+]
+
 export const colors = {
     "text": {
         "primaryColor": "#FFFFFF"

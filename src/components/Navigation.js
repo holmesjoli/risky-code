@@ -1,6 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { navigation } from "../utils/global";
+import * as d3 from 'd3';
+import { useEffect } from 'react';
 
 /**
  * Menu Navigation bar to navigate to different parts of the project
