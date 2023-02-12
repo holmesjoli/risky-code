@@ -25,7 +25,6 @@ export function Content({config, items, setItems}) {
 
     return(
         <div className="Content">
-            <h2 className="Title">{config.title}</h2>
             <Sort items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
             <div className="Button-Container">
                 <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>

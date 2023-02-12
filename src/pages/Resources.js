@@ -8,17 +8,29 @@ const literature = {
         "inline-citation": "(AINOW 2018)",
         "reference": 'AINOW. 2018. "Algorithmic Accountability Policy Toolkit."'
     },
+    "Angwin-2016": {
+        "inline-citation": "(Angwin et al. 2016)",
+        "reference": 'Angwin, Julia, Jeff Larson, Surya Mattu, and Lauren Kirchner. 2016. \"Machine Bias: There\'s Software Used across the Country to Predict Future Criminals. It\'s Biased against Blacks.\" ProPublica, May 23, 2016.'
+    },
     "Barocas-Selbst-2016": {
         "inline-citation": "(Barocas and Selbst 2016)",
-        "reference": "Barocas, Solon, and Andrew D Selbst. 2016. \'Big Data's Disparate Impact.\' California Law Review 104 (3): 671-732."
+        "reference": "Barocas, Solon, and Andrew D Selbst. 2016. \"Big Data's Disparate Impact.\" California Law Review 104 (3): 671-732."
     },
     "Bender-Friedman-2018": {
         "inline-citation": "(Bender and Friedman 2018)",
-        "reference": "Bender, Emily M., and Batya Friedman. 2018. \'Data Statements for Natural Language Processing: Toward Mitigating System Bias and Enabling Better Science.\' Transactions of the Association for Computational Linguistics 6: 587-604."
+        "reference": "Bender, Emily M., and Batya Friedman. 2018. \"Data Statements for Natural Language Processing: Toward Mitigating System Bias and Enabling Better Science.\" Transactions of the Association for Computational Linguistics 6: 587-604."
     },
     "Benjamin-2019": {
         "inline-citation": "(Benjamin 2019)",
         "reference": "Benjamin, Ruha. 2019. Race After Technology: Abolitionist Tools for the New Jim Crow. Medford, MA: Polity Press."
+    },
+    "Corbett-Davies-2016": {
+        "inline-citation": "(Corbett-Davies et al. 2016)",
+        "reference": "Corbett-Davies, Sam, Emma Pierson, Avi Feller, and Sharad Goel. 2016. \"A Computer Program Used for Bail and Sentencing Decisions Was Labeled Biased against Blacks. It\'s Actually Not That Clear: The Tool Called COMPAS May Be Biased. But It's Hard to Tell.\" Washington Post - Blogs."
+    },
+    "Flores-2016": {
+        "inline-citation": "(Flores et al. 2016)",
+        "reference": "Flores, Anthony W, Kristin Bechtel, and Christopher T Lowenkamp. 2016. \"False Positives, False Negatives, and False Analyses: A Rejoinder to \'Machine Bias: There\'s Software Used across the Country to Predict Future Criminals, and It\'s Biased against Blacks.\'\" Federal Probation 80 (2): 38-."
     },
     "Friedman-Nissenbaum-1996": {
         "inline-citation": "(Friedman and Nissenbaum 1996)",
@@ -30,7 +42,7 @@ const literature = {
     },
     "Selbst-2019": {
         "inline-citation": "(Selbst et al. 2019)",
-        "reference": "Selbst, Andrew, Danah Boyd, Sorelle Friedler, Suresh Venkatasubramanian, and Janet Vertesi. 2019. \'Fairness and Abstraction in Sociotechnical Systems.\' In Proceedings of the Conference on Fairness, Accountability, and Transparency, 59-68. FAT '19. ACM."
+        "reference": "Selbst, Andrew, Danah Boyd, Sorelle Friedler, Suresh Venkatasubramanian, and Janet Vertesi. 2019. \"Fairness and Abstraction in Sociotechnical Systems.\" In Proceedings of the Conference on Fairness, Accountability, and Transparency, 59-68. FAT '19. ACM."
     }
 }
 

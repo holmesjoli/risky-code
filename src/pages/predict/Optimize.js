@@ -35,7 +35,6 @@ export function Content({config, variables, setVariables, items, setItems}) {
 
     return(
         <div className="Content">
-            <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Regression items={items} setItems={setItems} variables={variables}/>
