@@ -1,4 +1,6 @@
 import { NavLink } from "react-router-dom";
+import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { navigationData } from "../utils/global";
 import * as d3 from 'd3';
 import { useEffect } from 'react';
@@ -37,14 +39,14 @@ function wrap(text, width) {
     });
 }
 
-const height = 100;
-const width = 1400;
-const space = 120;
-const margin = {left: 50}
+const height = 610;
+const width = 260;
+const space = 50;
+const margin = {left: 30, top: 30}
 
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
-    .range([8, 18])
+    .range([6, 10])
 
 export default function Navigation({id}) {
 
@@ -97,9 +99,9 @@ export default function Navigation({id}) {
         svg
             .append("line")
             .attr("x1", margin.left)
-            .attr("x2", space*(navigationData.length - 1) + margin.left)
-            .attr("y1", height/4)
-            .attr("y2", height/4)
+            .attr("x2", margin.left)
+            .attr("y1", margin.top)
+            .attr("y2", space*(navigationData.length - 1) + margin.top)
             .attr("stroke", "#272B30")
 
         var nodes = svg.append("g")
@@ -113,8 +115,8 @@ export default function Navigation({id}) {
             .attr("transform", function(d, i) {
                 // Set d.x and d.y here so that other elements can use it. d is 
                 // expected to be an object here.
-                d.x = i * space + margin.left;
-                d.y = height / 4;
+                d.x = margin.left;
+                d.y = i * space + margin.top;
                 return "translate(" + d.x + "," + d.y + ")"; 
             })
             .call(wrap, 40);
@@ -127,8 +129,9 @@ export default function Navigation({id}) {
 
             // Add a text element to the previously added g element.
             nodes.append("text")
-                .attr("text-anchor", "middle")
-                .attr("y", 50)
+                // .attr("text-anchor", "middle")
+                .attr("x", 30)
+                .attr("y", 5)
                 .attr("font-size", d => fontSize(d.name))
                 .attr("font-weight", d => fontWeight(d.name))
                 .attr("text-transform", d => textTransform(d.name))
@@ -139,7 +142,16 @@ export default function Navigation({id}) {
 
     return (
         <div className="Navigation">
+            <Accordion>
+                <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                >
+                <h4>Progress</h4>
+                </AccordionSummary>
+                <AccordionDetails>
             <div id="Navigation-Chart"></div>
-        </div>
+                </AccordionDetails>
+                </Accordion>
+            </div>
     )
 }

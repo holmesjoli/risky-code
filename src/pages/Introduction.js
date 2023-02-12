@@ -138,12 +138,6 @@ function policyDiagram() {
 
 export function Content() {
 
-    let navigate = useNavigate(); 
-    const routeNext = () => {
-      let path = `/Classify`; 
-      navigate(path);
-    }  
-
     useEffect(() => {
         policyDiagram();
     }, [])
@@ -152,25 +146,30 @@ export function Content() {
         <div className="Content Two-Column2">
             <div><p>In May 2016, the investigative newsroom, ProPublica, published an article titled Machine Bias. The article accused Equivant (formerly Northepointe), the developer of COMPAS, a recidivism algorithm, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. The article sparked passionate discourse across industries and disciplines — journalists, lawyers, data scientists, and mathematicians — resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>. However, the discourse did not result in a consensus supporting claims made by the authors of Machine Bias or a complete vindication of Equivant. Instead, it sparked several new questions enshroud with complexity about algorithmically informed decision-making — what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p></div>
             <div id="policyChart" className="chart"></div>
-            <div>
-                <div className="Button-Container">  
-                    <Button variant="contained" onClick={routeNext}>Next</Button>
-                </div>
-            </div>
         </div>
     )
 }
 
 export default function Introduction({config}) {
+
+    let navigate = useNavigate(); 
+    const routeNext = () => {
+      let path = `/Classify`; 
+      navigate(path);
+    }
+
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
                     <Description config={config}/>
+                    <div className="Button-Container">  
+                        <Button variant="contained" onClick={routeNext}>Next</Button>
+                    </div>
+                    <Navigation id={config.id}/>
                 </div>
                 <div>
-                    <Navigation id={config.id}/>
                     <Content />
                 </div>
             </div>

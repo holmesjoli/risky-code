@@ -14,7 +14,7 @@ const theme = createTheme({
   palette: {
     type: "dark",
     background: {
-      paper: "#1c2022"
+      paper: "#131517"
     },
     primary: {
       main: "#03afbf"
@@ -30,14 +30,14 @@ const theme = createTheme({
         square: true,
         padding: 0,
         marginBottom: 0
-      },
-      elevation1: {
-        boxShadow: "none"
       }
     },
     MuiAccordionSummary: {
       root: {
-        paddingLeft: 0
+        paddingLeft: 0,
+        borderColor: "#272B30",
+        borderWidth: "1px",
+        borderStyle: "solid"
       },
       content: {
         margin: 0
@@ -45,7 +45,7 @@ const theme = createTheme({
     },
     MuiAccordionDetails: {
       root: {
-        paddingTop: 0
+        padding: 0
       }
     }
   },
