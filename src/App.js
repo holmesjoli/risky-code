@@ -9,7 +9,7 @@ import Optimize from "./pages/predict/Optimize";
 import Calibration from "./pages/fairness/Calibration";
 import FalsePositive from "./pages/fairness/FalsePositive";
 import FalseNegative from "./pages/fairness/FalseNegative";
-import COMPAS from "./pages/case_studies/COMPAS";
+import COMPAS from "./pages/fairness/COMPAS";
 import RiskFramework from "./pages/deliberation/RiskFramework";
 import Stakeholders from "./pages/deliberation/Stakeholders";
 import DecisionAid from "./pages/deliberation/DecisionAid";
@@ -28,7 +28,7 @@ export default function App() {
     return(
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Introduction />} />
+          <Route path="/" element={<Introduction config={config.Introduction}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
           <Route path="/Calibration" element={<Calibration />} />

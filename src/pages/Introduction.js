@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Navigation from '../components/Navigation';
+import Description from '../components/Description';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from "@material-ui/core";
@@ -15,7 +16,7 @@ function renderTooltip(circle) {
         .append("div")
         .attr("class", "tooltip");
 
-    d3.selectAll("circle").on("mouseover", function(e, d) {
+    d3.selectAll(".node").on("mouseover", function(e, d) {
 
         let thisCircle = d3.select(this);
         let x = e.layerX + 20;
@@ -37,7 +38,7 @@ function renderTooltip(circle) {
         tooltip.style("visibility", "hidden");
         circle.attr("opacity", 1);
 
-        d3.selectAll('circle')
+        d3.selectAll('.node')
             .attr("stroke-width", .5)
             .attr("stroke", "none"); 
     });
@@ -61,11 +62,11 @@ function policyDiagram() {
 
     const textSizeScale = d3.scaleOrdinal()
         .domain(["Root", "Policy area", "Example"])
-        .range(["0px", "12px", "10px"])
+        .range(["0px", "12px", "10px"]);
 
-    const margin = {top: 10, right: 10, bottom: 10, left: 10},
-        width = 600 - margin.left - margin.right,
-        height = 600 - margin.top - margin.bottom;
+    const margin = {top: 50, right: 50, bottom: 50, left: 50},
+        width = 650 - margin.left - margin.right,
+        height = 650 - margin.top - margin.bottom;
 
     const radius = width / 2;
     const svg = d3.select("#policyChart")
@@ -101,7 +102,8 @@ function policyDiagram() {
         .join('path')
         .attr("d", linksGenerator)
         .style("fill", 'none')
-        .attr("stroke", '#ccc');
+        .attr("stroke", '#272B30')
+        .attr("stroke-width", 2);
 
     // Add a circle for each node.
     let circle = svg.append("g")
@@ -112,9 +114,10 @@ function policyDiagram() {
             return `rotate(${d.x-90})
             translate(${d.y})`;
         })
-    
+
     circle
         .append("circle")
+        .attr("class", "node")
         .attr("r", ((d) => rScale(d.data.group)))
         .style("fill", ((d) => colorScale(d.data.area_id)));
 
@@ -144,25 +147,25 @@ export function Content() {
     }, [])
 
     return(
-        <div className="Content">
-             <div id="policyChart" className="chart"></div>
-            <div className="Button-Container">
-                
+        <div className="Content Two-Column">
+            <div id="policyChart" className="chart"></div>
+            <div className="Button-Container">  
                 <Button variant="contained" onClick={routeNext}>Next</Button>
             </div>
         </div>
     )
 }
 
-export default function Introduction() {
+export default function Introduction({config}) {
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
+                    <Description config={config}/>
                 </div>
                 <div>
-                    <Navigation/>
+                    <Navigation id={config.id}/>
                     <Content />
                 </div>
             </div>
