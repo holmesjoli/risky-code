@@ -1,7 +1,7 @@
 export const getBackgroundColor = (isOver, canDrop) => {
     if (isOver) {
       if (canDrop) {
-        return "rgb(39, 43, 48)"; // TODO change the highlight background color
+        return "rgb(127, 194, 67, .12)"; // TODO change the highlight background color
       } else if (!canDrop) {
         return "rgb(255,188,188)";
       }
@@ -25,7 +25,7 @@ export const getColor = (isOver, canDrop) => {
 export const getBorder = (isOver, canDrop) => {
   if (isOver) {
     if (canDrop) {
-      return "1px dashed rgb(255, 255, 255)"; 
+      return "1.5px dashed rgb(127, 194, 67)"; 
     } else if (!canDrop) {
       return "none";
     }
