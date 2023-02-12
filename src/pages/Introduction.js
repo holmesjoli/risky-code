@@ -28,9 +28,11 @@ export default function Introduction() {
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
-                    <Navigation/>
                 </div>
-                <Content />
+                <div>
+                    <Navigation/>
+                    <Content />
+                </div>
             </div>
             <Footer/>
         </div>

@@ -165,7 +165,7 @@ h3 {
   letter-spacing: .5px;
 }
 
-.Introduction > a,
+.Link-Container > h4,
 h4 {
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -173,7 +173,12 @@ h4 {
   color: white;
 }
 
-.Introduction > a {
+.Link-Container > h4 > a {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.Link-Container > h4 {
   color: $appColor;
 }
 
@@ -234,7 +239,7 @@ h1 .active {
   color: $appColorInactive;
 }
 
-.Introduction {
+.Link-Container > h4 {
   background-color: $containerBackgroundColor;
 }
 

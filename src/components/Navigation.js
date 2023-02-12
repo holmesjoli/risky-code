@@ -10,7 +10,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 function Introduction() {
     return(
         <div className="Link-Container">
-            <h4 className="Introduction Link">
+            <h4 className="Navigation-Link">
                 <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Introduction</NavLink>
             </h4>
         </div>
@@ -27,7 +27,7 @@ function Predict() {
                     <h4>Predict</h4>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div className="Navigation Links">
+                    <div className="Navigation-Links">
                         <ul>
                             <li className="Link">
                                 <NavLink to="/Classify" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Classify</NavLink>
@@ -53,7 +53,7 @@ function Fairness() {
                     <h4>Fairness</h4>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div className="Navigation Links">
+                    <div className="Navigation-Links">
                         <ul>
                             <li className="Link">
                                 <NavLink to="/Calibration" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Calibration</NavLink>
@@ -82,7 +82,7 @@ function CaseStudies() {
                     <h4>Fairness in context</h4>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div className="Navigation Links">
+                    <div className="Navigation-Links">
                         <ul>
                             <li className="Link">
                                 <NavLink to="/PublicPolicy" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Algorithmic decision-making in public policy</NavLink>
@@ -108,7 +108,7 @@ function Deliberation() {
                     <h4>Deliberation</h4>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div className="Navigation Links">
+                    <div className="Navigation-Links">
                         <ul>
                             <li className="Link">
                                 <NavLink to="/RiskFramework" className={({ isActive }) => (isActive ? 'active' : 'inactive')}>Greene AI Risk Framework</NavLink>

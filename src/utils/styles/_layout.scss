@@ -57,15 +57,25 @@ ul {
 }
 
 .Navigation {
-    margin-bottom: $containerMarginBottom;
+    margin: $containerMargin 0 0 $containerMargin;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: $containerPadding;
+    margin-right: $containerPadding;
+    border-bottom: 1px solid $containerBorderColor;
 }
 
 .Navigation .Links .Link {
     margin-bottom: .15rem;
 }
 
+.MuiPaper-root,
+.Link-Container > h4 {
+    border: 1px solid $containerBorderColor;
+}
+
 .Link-Container {
-    border: 1px solid #272B30;
+    margin-right: $containerMargin;
 }
 
 // Wrapper
@@ -87,6 +97,8 @@ ul {
 .Description {
     border-top: 1px solid $containerBorderColor;
     padding: $containerPadding;
+    border-bottom: 1px solid $containerBorderColor;
+    margin-bottom: $containerMargin
 }
 
 .Visualization {
