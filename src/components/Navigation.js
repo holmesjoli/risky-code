@@ -71,7 +71,8 @@ export default function Navigation({id, modules, setModules}) {
         let visitedColors = Array(visited.length).fill(highlightColor);
         let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
 
-        let fill = Array(regularColors.length - 1).fill("#131517");
+        let fill = Array(regularColors.length).fill("#131517");
+        regularColors.unshift(highlight);
         fill.unshift(highlightColor);
 
         const fillScale = d3.scaleOrdinal()
