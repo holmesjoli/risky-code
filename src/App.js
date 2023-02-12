@@ -24,14 +24,15 @@ export default function App() {
 
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
+    const [modules, setModules] = useState([]);
 
     return(
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Introduction config={config.Introduction}/>} />
-          <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems}/>} />
-          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>} />
-          <Route path="/Calibration" element={<Calibration config={config.Calibration}/>} />
+          <Route path="/" element={<Introduction config={config.Introduction} modules={modules} setModules={setModules}/>} />
+          <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
+          <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
+          <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules} setModules={setModules}/>} />
           <Route path="/FalsePositive" element={<FalsePositive />} />
           <Route path="/FalseNegative" element={<FalseNegative />} />
           <Route path="/COMPAS" element={<COMPAS />} />

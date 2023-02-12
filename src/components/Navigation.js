@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { navigationData } from "../utils/global";
+import { navigationData, highlightColor } from "../utils/global";
 import * as d3 from 'd3';
 import { useEffect } from 'react';
 
@@ -48,7 +48,9 @@ const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([6, 10])
 
-export default function Navigation({id}) {
+const m = []
+
+export default function Navigation({id, modules, setModules}) {
 
     useEffect(() => {
 
@@ -57,7 +59,30 @@ export default function Navigation({id}) {
             .attr("width", width)
             .attr("height", height)
 
-        let bold = navigationData.filter(d => d.id === id).map(d => d.name);
+        let highlight = navigationData.filter(d => d.id === id).map(d => d.id)[0];
+        let regularColors = navigationData.filter(d => d.id !== id).map(d => d.id);
+
+        if (!modules.includes(highlight)) {
+            modules.push(highlight)
+        }
+
+        let visited = navigationData.filter(d => modules.includes(d.id)).map(d => d.id);
+        let notVisited = navigationData.filter(d => !modules.includes(d.id)).map(d => d.id);
+        let visitedColors = Array(visited.length).fill(highlightColor);
+        let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
+
+        let fill = Array(regularColors.length - 1).fill("#131517");
+        fill.unshift(highlightColor);
+
+        const fillScale = d3.scaleOrdinal()
+            .domain(regularColors)
+            .range(fill);
+
+        const strokeScale = d3.scaleOrdinal()
+            .domain(visited.concat(notVisited))
+            .range(visitedColors.concat(notVisitedStrokes));
+
+        let bold = navigationData.filter(d => d.id === id).map(d => d.name)[0];
         let regular = navigationData.filter(d => d.id !== id).map(d => d.name);
         regular.unshift(bold);
 
@@ -81,17 +106,6 @@ export default function Navigation({id}) {
         const textTransform = d3.scaleOrdinal()
             .domain(regular)
             .range(cases);
-
-        let highlight = navigationData.filter(d => d.id === id).map(d => d.id);
-        let regularColors = navigationData.filter(d => d.id !== id).map(d => d.id);
-        regularColors.unshift(highlight);
-
-        let colorsCircle = Array(regular.length - 1).fill("#272B30");
-        colorsCircle.unshift("#7FC243");
-
-        const strokeScale = d3.scaleOrdinal()
-            .domain(regularColors)
-            .range(colorsCircle);
 
         svg
             .append("line")
@@ -121,7 +135,7 @@ export default function Navigation({id}) {
             nodes.append("circle")
                 .attr("class", "nav-node")
                 .attr("r", d => rScale(d.size))
-                .attr("fill", "#1C2022")
+                .attr("fill", d => fillScale(d.id))
                 .attr("stroke", d => strokeScale(d.id))
 
             // Add a text element to the previously added g element.
@@ -134,7 +148,7 @@ export default function Navigation({id}) {
                 .attr("text-transform", d => textTransform(d.name))
                 .style("fill", d => fontColor(d.name))
                 .text(d => d.name)
-    }, [])
+    }, [modules])
 
     return (
         <div className="Navigation">

@@ -17,7 +17,7 @@ export function Content({items, setItems, nClassified, setNClassified}) {
     )
 }
 
-export default function Classify({config, items, setItems}) {
+export default function Classify({config, items, setItems, modules, setModules}) {
 
     const [nClassified, setNClassified] = useState(0);
 
@@ -42,7 +42,7 @@ export default function Classify({config, items, setItems}) {
                         <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                         <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
                     </div>
-                    <Navigation/>
+                    <Navigation id={config.id} modules={modules} setModules={setModules}/>
                 </div>
                 <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
             </div>

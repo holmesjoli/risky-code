@@ -5,8 +5,7 @@ import "./utils/styles/style.scss";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App"
-
-const highlightColor = "#7FC243";
+import { highlightColor } from "./utils/global";
 
 const theme = createTheme({
   typography: {
@@ -65,9 +64,11 @@ const theme = createTheme({
       }
     },
     Mui: {
-      disabled: {
-        backgroundColor: "rgb(127, 194, 67, .12)"
-      }
+        "root": {
+          "&$disabled": {
+            "backgroundColor": "rgb(127, 194, 67, .12)"
+          }
+        }
     },
     MuiButton: {
       root: {

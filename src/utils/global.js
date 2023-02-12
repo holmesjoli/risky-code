@@ -4,7 +4,7 @@ export const config = {
     "Introduction": {
         "id": "introduction",
         "title": "introduction",
-        "descr": "Welcome to Risky Code, a digitial interactive toolkit to facilitate deliberation about algorithmically informed decision-making."
+        "descr": "Welcome to Risky Code, an interactive digital toolkit to facilitate deliberation about algorithmically informed decision-making."
     },
     "about": {
         "id": "about",
@@ -209,3 +209,5 @@ export function getModelVariables(variables) {
 
     return m;
 }
+
+export const highlightColor = "#7FC243";
