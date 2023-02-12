@@ -101,10 +101,23 @@ ul {
     grid-gap: $containerMargin;
 }
 
+
 .Two-Column {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: minmax(300px, 30%) minmax(300px, 50%);
+}
+
+.Two-Column2 {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(300px, 50%) minmax(300px, 50%);
+}
+
+.One-Column {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(300px, 65%);
 }
 
 .Introduction {

@@ -4,6 +4,11 @@ import Footer from '../components/Footer';
 
 const literature = {
 
+
+    "ADA-2018": {
+        "inline-citation": "(ADA 2018)",
+        "reference": 'Ada Lovelace Institute, AINOW, and Open Government Partnership. 2017. \"Algorithmic Accountability for the Public Sector.\"'
+    },
     "AINOW-2018": {
         "inline-citation": "(AINOW 2018)",
         "reference": 'AINOW. 2018. "Algorithmic Accountability Policy Toolkit."'
@@ -40,6 +45,10 @@ const literature = {
         "inline-citation": "(Narayanan, 2018)",
         "reference": 'Narayanan, Arvind. 2018. "Tutorial: 21 Fairness Definitions and Their Politics."'
     },
+    "Onuoha-2018": {
+        "inline-citation": "(Onuoha and Nucera, 2018)",
+        "reference": "Onuoha, Mimi, and Diana Nucera. 2018. A People\'s Guide to AI. Print."
+    },
     "Selbst-2019": {
         "inline-citation": "(Selbst et al. 2019)",
         "reference": "Selbst, Andrew, Danah Boyd, Sorelle Friedler, Suresh Venkatasubramanian, and Janet Vertesi. 2019. \"Fairness and Abstraction in Sociotechnical Systems.\" In Proceedings of the Conference on Fairness, Accountability, and Transparency, 59-68. FAT '19. ACM."
@@ -74,7 +83,7 @@ export function Content() {
     return(
         <div id="Resources">
             <h2>Resources</h2>
-            <div className="Content">
+            <div className="Content Two-Column2">
                 <div className="Literature-Container Container">
                     <h4>Literature</h4>
                     <div>

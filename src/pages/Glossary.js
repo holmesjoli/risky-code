@@ -80,7 +80,7 @@ export function Content() {
     return(
         <div id="Glossary">
             <h2>Glossary</h2>
-            <div className="Content">
+            <div className="Content One-Column">
                 {Object.keys(glossary).map((term, index) => {
                     return(
                         <div key={index} className="Term-Container Container">
