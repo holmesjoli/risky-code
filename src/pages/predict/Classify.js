@@ -8,7 +8,7 @@ import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import { useState} from "react";
 
-export function Content({items, setItems}) {
+export function Content({config, items, setItems}) {
 
     const [nClassified, setNClassified] = useState(0);
 
@@ -25,6 +25,7 @@ export function Content({items, setItems}) {
 
     return(
         <div className="Content">
+            <h2 className="Title">{config.title}</h2>
             <Sort items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
             <div className="Button-Container">
                 <Button variant="outlined" color="secondary" onClick={routeBack}>Back</Button>
@@ -45,12 +46,10 @@ export default function Classify({config, items, setItems}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
+                    <Navigation/>
                     <Description config={config}/>
                 </div>
-                <div>
-                    <Navigation id={config.id}/>
-                    <Content items={items} setItems={setItems}/>
-                </div>
+                <Content config={config} items={items} setItems={setItems}/>
             </div>
             <Footer/>
         </div>

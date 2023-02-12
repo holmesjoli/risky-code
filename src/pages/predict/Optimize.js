@@ -20,7 +20,7 @@ function Information({items, variables}) {
     )
 }
 
-export function Content({variables, setVariables, items, setItems}) {
+export function Content({config, variables, setVariables, items, setItems}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -29,12 +29,13 @@ export function Content({variables, setVariables, items, setItems}) {
     }
 
     const routeBack = () => {
-      let path = `/Classify`; 
+      let path = `/Train`; 
       navigate(path);
     } 
 
     return(
         <div className="Content">
+            <h2 className="Title">{config.title}</h2>
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Regression items={items} setItems={setItems} variables={variables}/>
@@ -55,12 +56,10 @@ export default function Optimize({config, variables, setVariables, items, setIte
             <Header/>
             <div className="Main">
                 <div className="Sidebar">
+                    <Navigation/>
                     <Description config={config}/>
                 </div>
-                <div>
-                    <Navigation id={config.id}/>
-                    <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
-                </div>
+                <Content config={config} variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
             </div>
             <Footer/>
         </div>

@@ -9,7 +9,8 @@ import * as Introduction from "../pages/Introduction";
 import * as Calibration from "../pages/fairness/Calibration";
 import * as FalsePositive from "../pages/fairness/FalsePositive";
 import * as FalseNegative from "../pages/fairness/FalseNegative";
-import * as Compas from "../pages/fairness/COMPAS";
+import * as Compas from "../pages/case_studies/COMPAS";
+import * as PublicPolicy from "../pages/case_studies/PublicPolicy";
 import * as DecisionAid from "../pages/deliberation/DecisionAid";
 import * as RiskFramework from "../pages/deliberation/RiskFramework";
 import * as StakeholderMapping from "../pages/deliberation/Stakeholders";
@@ -32,6 +33,9 @@ function GetComponent({config}) {
             break;
         case 'compas' :
             component = <Compas.Content/>;
+            break;
+        case 'publicPolicy' :
+            component = <PublicPolicy.Content/>;
             break;
         case 'decisionAid' :
             component = <DecisionAid.Content/>;
