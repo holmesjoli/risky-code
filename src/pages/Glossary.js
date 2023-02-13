@@ -93,7 +93,6 @@ export function Content() {
                                             <NavLink className="Term-Citation" to="/Resources"> {glossary[term].definitions[def].citation}</NavLink>
                                         </p>
                                     )
-
                                 }) 
                             }                            
                         </div>

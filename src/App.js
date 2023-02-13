@@ -16,6 +16,7 @@ import DecisionAid from "./pages/deliberation/DecisionAid";
 import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Resources from "./pages/Resources";
+import Contact from "./pages/Contact";
 
 import { config, CARDS, VARIABLES }  from "./utils/global";
 import { useState} from "react";
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/About" element={<About config={config.About} modules={modules} setModules={setModules}/>} />
           <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules} setModules={setModules}/>} />
           <Route path="/Resources" element={<Resources config={config.Resources} modules={modules} setModules={setModules}/>} />
+          <Route path="/Contact" element={<Contact config={config.Contact} modules={modules} setModules={setModules}/>} />
         </Routes>
       </HashRouter>
     )

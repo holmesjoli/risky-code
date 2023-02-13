@@ -21,6 +21,11 @@ export const config = {
         "title": "resources",
         "descr": ""
     },
+    "Contact": {
+        "id": "contact",
+        "title": "Contact",
+        "descr": ""
+    },
     "Classify": {
         "id": "classify",
         "title": "classify",
