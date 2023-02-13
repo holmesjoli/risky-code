@@ -6,17 +6,17 @@ export const config = {
         "title": "introduction",
         "descr": "Welcome to Risky Code, an interactive digital toolkit to facilitate deliberation about algorithmically informed decision-making."
     },
-    "about": {
+    "About": {
         "id": "about",
         "title": "about",
         "descr": ""
     },
-    "glossary": {
+    "Glossary": {
         "id": "glossary",
         "title": "glossary",
         "descr": ""
     },
-    "resources": {
+    "Resources": {
         "id": "resources",
         "title": "resources",
         "descr": ""

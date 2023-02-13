@@ -39,9 +39,9 @@ export default function App() {
           <Route path="/RiskFramework" element={<RiskFramework />} />
           <Route path="/Stakeholders" element={<Stakeholders />} />
           <Route path="/DecisionAid" element={<DecisionAid />} />
-          <Route path="/About" element={<About modules={modules} setModules={setModules}/>} />
-          <Route path="/Glossary" element={<Glossary modules={modules} setModules={setModules}/>} />
-          <Route path="/Resources" element={<Resources modules={modules} setModules={setModules}/>} />
+          <Route path="/About" element={<About config={config.About} modules={modules} setModules={setModules}/>} />
+          <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules} setModules={setModules}/>} />
+          <Route path="/Resources" element={<Resources config={config.Resources} modules={modules} setModules={setModules}/>} />
         </Routes>
       </HashRouter>
     )

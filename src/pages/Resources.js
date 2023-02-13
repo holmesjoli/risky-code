@@ -1,9 +1,9 @@
+import Description from '../components/Description';
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const literature = {
-
 
     "ADA-2018": {
         "inline-citation": "(ADA 2018)",
@@ -82,7 +82,6 @@ const aiExplainability = {
 export function Content() {
     return(
         <div id="Resources">
-            <h2>Resources</h2>
             <div className="Content Two-Column2">
                 <div className="Literature-Container Container">
                     <h4>Literature</h4>
@@ -114,12 +113,13 @@ export function Content() {
     )
 }
 
-export default function Resources({modules, setModules}) {
+export default function Resources({config, modules, setModules}) {
     return (
         <div className="App">
             <Header/>
             <div className="Main">
-            <div className="Sidebar-Left">
+                <div className="Sidebar-Left">
+                    <Description config={config}/>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">

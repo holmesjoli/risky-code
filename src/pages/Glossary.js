@@ -1,3 +1,4 @@
+import Description from '../components/Description';
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -79,7 +80,6 @@ const glossary = {
 export function Content() {
     return(
         <div id="Glossary">
-            <h2>Glossary</h2>
             <div className="Content One-Column">
                 {Object.keys(glossary).map((term, index) => {
                     return(
@@ -105,12 +105,13 @@ export function Content() {
     )
 }
 
-export default function Glossary({modules, setModules}) {
+export default function Glossary({config, modules, setModules}) {
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
+                    <Description config={config}/>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
