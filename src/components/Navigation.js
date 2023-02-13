@@ -177,16 +177,16 @@ export default function Navigation({id, modules, setModules}) {
 
     return (
         <div className="Navigation">
-            <Accordion>
+            <Accordion defaultExpanded>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
                 <div className="Button">progress</div>
                 </AccordionSummary>
                 <AccordionDetails>
-            <div id="Navigation-Chart"></div>
+                    <div id="Navigation-Chart"></div>
                 </AccordionDetails>
-                </Accordion>
-            </div>
+            </Accordion>
+        </div>
     )
 }
