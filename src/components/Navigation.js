@@ -1,4 +1,4 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { navigationData, highlightColor } from "../utils/global";
@@ -141,6 +141,7 @@ export default function Navigation({id, modules, setModules}) {
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
             .attr("stroke", d => strokeScale(d.id))
+            .attr("box-shadow", d => visited.includes(d.id) ? "12px 12px 5px 0px rgba(0, 0, 0, 1)" : "none")
 
         // Add a text element to the previously added g element.
         nodes.append("text")
@@ -155,6 +156,21 @@ export default function Navigation({id, modules, setModules}) {
         // Click to Navigate to a different page
         d3.selectAll(".nav-node").on("click", function(e, d) {
             routeChange(d.navLink)
+        })
+
+        d3.selectAll(".nav-node").on("mouseover", function(e, d) {
+
+            let thisCircle = d3.select(this);
+
+            thisCircle
+                .attr("stroke-width", d => d.id !== highlight? 2: 1)
+                .attr("fill", d => d.id !== highlight? "rgb(127, 194, 67, .2)": highlightColor);
+
+        }).on("mouseout", function() {
+
+            d3.selectAll('.nav-node')
+                .attr("stroke-width", 1)
+                .attr("fill", d => fillScale(d.id));
         })
 
     }, [modules])
