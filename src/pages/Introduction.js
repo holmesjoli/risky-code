@@ -50,7 +50,8 @@ function policyDiagram() {
 
     const colorScale = d3.scaleOrdinal()
         .domain([2, 4, 3, 1, 0])
-        .range(["#0d0887", "#a41e9a", "#d35171", "#f0804e", "#000000"]);
+        // .range(["#5B1647", "#93063E", "#CA0035", "#FF5627", "#000000"])
+        .range(["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#000000"]);
 
     const rScale = d3.scaleOrdinal()
         .domain(["Root", "Policy area", "Example"])
@@ -65,8 +66,8 @@ function policyDiagram() {
         .range(["0px", "12px", "10px"]);
 
     const margin = {top: 50, right: 50, bottom: 50, left: 50},
-        width = 650 - margin.left - margin.right,
-        height = 650 - margin.top - margin.bottom;
+        width = 550 - margin.left - margin.right,
+        height = 550 - margin.top - margin.bottom;
 
     const radius = width / 2;
     const svg = d3.select("#policyChart")
@@ -102,8 +103,8 @@ function policyDiagram() {
         .join('path')
         .attr("d", linksGenerator)
         .style("fill", 'none')
-        .attr("stroke", '#272B30')
-        .attr("stroke-width", 2);
+        .attr("stroke", 'rgb(134, 139, 144)')
+        .attr("stroke-width", 1);
 
     // Add a circle for each node.
     let circle = svg.append("g")
@@ -144,8 +145,11 @@ export function Content() {
 
     return(
         <div className="Content Two-Column">
+            <div className="Container">
             <div id="policyChart" className="chart"></div>
-            <div>
+            <h6>Visualization show different policy areas where algorithmically informed-decision making is currently in use.</h6>
+            </div>
+            <div className="Container">
                 <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <em>Machine Bias</em>. The article accused Equivant (formerly Northepointe), the developer of COMPAS, a recidivism algorithm, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. The article sparked passionate discourse across industries and disciplines — journalists, lawyers, data scientists, and mathematicians — resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
                 <p>However, the discourse did not result in a consensus supporting claims made by the authors of Machine Bias or a complete vindication of Equivant. Instead, it sparked several new questions enshroud with complexity about algorithmically informed decision-making — what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
             </div>

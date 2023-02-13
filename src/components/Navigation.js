@@ -39,14 +39,14 @@ function wrap(text, width) {
     });
 }
 
-const height = 610;
+const height = 505;
 const width = 260;
-const space = 50;
+const space = 42;
 const margin = {left: 30, top: 30}
 
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
-    .range([6, 10])
+    .range([5, 9])
 
 export default function Navigation({id, modules, setModules}) {
 

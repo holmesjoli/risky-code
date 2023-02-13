@@ -223,4 +223,4 @@ export function getModelVariables(variables) {
     return m;
 }
 
-export const highlightColor = "#7FC243";
+export const highlightColor = "#40FF01";
