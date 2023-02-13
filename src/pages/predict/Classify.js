@@ -6,7 +6,7 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
-import { useState} from "react";
+import { useState } from "react";
 
 export function Content({items, setItems, nClassified, setNClassified}) {
 

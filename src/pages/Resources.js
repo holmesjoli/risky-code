@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { Button } from "@material-ui/core";
 import Description from '../components/Description';
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
@@ -114,12 +116,18 @@ export function Content() {
 }
 
 export default function Resources({config, modules, setModules}) {
+
+    let navigate = useNavigate();
+
     return (
         <div className="App">
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                    <div className="Button-Container">
+                        <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
+                    </div>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
