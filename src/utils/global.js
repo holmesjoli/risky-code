@@ -9,22 +9,22 @@ export const config = {
     "About": {
         "id": "about",
         "title": "about",
-        "descr": ""
+        "descr": "About page"
     },
     "Glossary": {
         "id": "glossary",
         "title": "glossary",
-        "descr": ""
+        "descr": "Glossary of terms related to algorithmically informed decision-making. For some terms, more than one definition is given to show variety and similarity across term definition."
     },
     "Resources": {
         "id": "resources",
         "title": "resources",
-        "descr": ""
+        "descr": "This design builds on extensive research in the algorithmic fairness literature to help policymakers better understand the implications of having a just AI. A list of literature and precedent artifacts are referenced here for those interested in learning more."
     },
     "Contact": {
         "id": "contact",
         "title": "Contact",
-        "descr": ""
+        "descr": "Contact page"
     },
     "Classify": {
         "id": "classify",
