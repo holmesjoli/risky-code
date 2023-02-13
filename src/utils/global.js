@@ -89,51 +89,64 @@ export const config = {
 export const navigationData = [ {
         "name": "Introduction",
         "id": "introduction",
-        "size": "Large"
+        "size": "Large",
+        "navLink": "/"
     }, {
         "name": "Prediction",
         "id": "prediction",
-        "size": "Large"
+        "size": "Large",
+        "navLink": "/Prediction"
     }, {
         "name": "Classify",
         "id": "classify",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/Classify"
     }, {
         "name": "Train",
         "id": "train",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/Train"
+        
     }, {
         "name": "Fairness",
         "id": "fairness",
-        "size": "Large"
+        "size": "Large",
+        "navLink": "/Fairness"
     }, {
         "name": "False Positive Rate",
         "id": "fpr",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/FPR"
     }, {
         "name": "False Negative Rate",
         "id": "fnr",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/FNR"
     }, {
         "name": "Case Study - COMPAS",
         "id": "compas",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/COMPAS"
     }, {
         "name": "Deliberation",
         "id": "deliberation",
-        "size": "Large"
+        "size": "Large",
+        "navLink": "/Deliberation"
     }, {
         "name": "Stakeholder Mapping",
         "id": "stakeholder",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/Stakeholder"
     }, {
         "name": "Risk Mapping",
         "id": "risk",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/Risk"
     }, {
         "name": "Decision Aid",
         "id": "decision",
-        "size": "Small"
+        "size": "Small",
+        "navLink": "/Decision"
     }
 ]
 

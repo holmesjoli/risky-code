@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { navigationData, highlightColor } from "../utils/global";
@@ -48,9 +48,12 @@ const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([6, 10])
 
-const m = []
-
 export default function Navigation({id, modules, setModules}) {
+
+    let navigate = useNavigate(); 
+    const routeChange = (d) => {
+        navigate(d);
+    }
 
     useEffect(() => {
 
@@ -133,22 +136,27 @@ export default function Navigation({id, modules, setModules}) {
             })
             .call(wrap, 40);
 
-            nodes.append("circle")
-                .attr("class", "nav-node")
-                .attr("r", d => rScale(d.size))
-                .attr("fill", d => fillScale(d.id))
-                .attr("stroke", d => strokeScale(d.id))
+        nodes.append("circle")
+            .attr("class", d => visited.includes(d.id) ? "nav-node": null)
+            .attr("r", d => rScale(d.size))
+            .attr("fill", d => fillScale(d.id))
+            .attr("stroke", d => strokeScale(d.id))
 
-            // Add a text element to the previously added g element.
-            nodes.append("text")
-                // .attr("text-anchor", "middle")
-                .attr("x", 30)
-                .attr("y", 5)
-                .attr("font-size", 13)
-                .attr("font-weight", d => fontWeight(d.name))
-                .attr("text-transform", d => textTransform(d.name))
-                .style("fill", d => fontColor(d.name))
-                .text(d => d.name)
+        // Add a text element to the previously added g element.
+        nodes.append("text")
+            .attr("x", 30)
+            .attr("y", 5)
+            .attr("font-size", 13)
+            .attr("font-weight", d => fontWeight(d.name))
+            .attr("text-transform", d => textTransform(d.name))
+            .style("fill", d => fontColor(d.name))
+            .text(d => d.name);
+
+        // Click to Navigate to a different page
+        d3.selectAll(".nav-node").on("click", function(e, d) {
+            routeChange(d.navLink)
+        })
+
     }, [modules])
 
     return (
