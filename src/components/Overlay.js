@@ -5,11 +5,11 @@ export function Overlay({ isOpen, onClose, children }) {
     <Fragment>
       {isOpen && (
         <div className="Overlay">
-          <div className="Overlay__background" onClick={onClose} />
-          <div className="Overlay__container">
-            <div className="Overlay__controls">
+          <div className="Overlay-Background" onClick={onClose} />
+          <div className="Overlay-Container">
+            <div className="Overlay-Controls">
               <button
-                className="Overlay__close"
+                className="Overlay-Close"
                 type="button"
                 onClick={onClose}
               />

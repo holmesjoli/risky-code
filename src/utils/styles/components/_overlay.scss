@@ -1,4 +1,4 @@
-.overlay__background {
+.Overlay__background {
     background-color: rgba(0, 0, 0, 0.5);
     width: 100vw;
     height: 100vh;
@@ -9,7 +9,7 @@
     z-index: 9;
   }
   
-.Overlay__container {
+.Overlay-Container {
   background: rgba(0,0,0,.7);
   position: fixed;
   top: 0;
@@ -24,22 +24,22 @@
   color: $appColor;
 }
 
-.Overlay__container  > .Container {
+.Overlay-Container  > .Container {
   opacity: 1;
 }
 
-.Overlay__controls {
+.Overlay-Controls {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
   
-.Overlay__close:after {
+.Overlay-Close:after {
   display: inline-block;
   content: "\00d7";
 }
   
-.Overlay__close {
+.Overlay-Close {
   border: none;
   background-color: transparent;
   font-size: 36px;
