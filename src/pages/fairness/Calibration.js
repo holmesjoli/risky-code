@@ -27,7 +27,7 @@ export default function Classify({config, items, setItems, modules}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/FalsePositive`; 
+      let path = `/Error`; 
       navigate(path);
     }
 

@@ -50,10 +50,10 @@ export const config = {
         "subtitle": "Learn about calibration definition of mathematical fairness",
         "descr": ""
     },
-    "FPR": {
-        "id": "fpr",
-        "title": "false positive rate",
-        "subtitle": "Minimize the false positive rate",
+    "Error": {
+        "id": "error",
+        "title": "error",
+        "subtitle": "Minimize the error rates",
         "descr": "The false positive rate (FPR) is a measure of algorithmic error. It represents the probability of falsely rejecting the truth. It is calculated as the proportion of negative cases incorrectly predicted by the algorithm as positive cases. The negative cases are referred to as false positives and the positive cases are referred to as true positives. To calculate the false positive rate, we divide the number of false positives by the sum of the false positives and true positives. Adjust the slider to see how the false positive rate changes as you increase or decrease the threshold."
     },
     "FNR": {

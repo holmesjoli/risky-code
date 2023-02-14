@@ -7,8 +7,7 @@ import Introduction from "./pages/Introduction";
 import Classify from "./pages/predict/Classify";
 import Train from "./pages/predict/Train";
 import Calibration from "./pages/fairness/Calibration";
-import FalsePositive from "./pages/fairness/FalsePositive";
-import FalseNegative from "./pages/fairness/FalseNegative";
+import Error from "./pages/fairness/Error";
 import COMPAS from "./pages/fairness/COMPAS";
 import RiskFramework from "./pages/deliberation/RiskFramework";
 import Stakeholders from "./pages/deliberation/Stakeholders";
@@ -34,8 +33,7 @@ export default function App() {
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules}/>} />
-          <Route path="/FalsePositive" element={<FalsePositive />} />
-          <Route path="/FalseNegative" element={<FalseNegative />} />
+          <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS />} />
           <Route path="/RiskFramework" element={<RiskFramework />} />
           <Route path="/Stakeholders" element={<Stakeholders />} />
