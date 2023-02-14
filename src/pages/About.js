@@ -12,7 +12,7 @@ export function Content() {
     )
 }
 
-export default function About({config, modules, setModules}) {
+export default function About({config, modules}) {
 
     let navigate = useNavigate(); 
 
@@ -28,7 +28,7 @@ export default function About({config, modules, setModules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <Navigation id="about" modules={modules} setModules={setModules}/>
+                    <Navigation id="about" modules={modules}/>
                 </div>
             </div>
             <Footer/>

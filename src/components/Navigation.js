@@ -48,7 +48,7 @@ const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([5, 9])
 
-export default function Navigation({id, modules, setModules}) {
+export default function Navigation({id, modules}) {
 
     let navigate = useNavigate(); 
     const routeChange = (d) => {

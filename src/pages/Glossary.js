@@ -126,7 +126,7 @@ export function Content() {
     )
 }
 
-export default function Glossary({config, modules, setModules}) {
+export default function Glossary({config, modules}) {
 
     let navigate = useNavigate();
 
@@ -142,7 +142,7 @@ export default function Glossary({config, modules, setModules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <Navigation id="glossary" modules={modules} setModules={setModules}/>
+                    <Navigation id="glossary" modules={modules}/>
                 </div>
             </div>
             <Footer/>

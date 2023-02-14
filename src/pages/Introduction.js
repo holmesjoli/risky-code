@@ -156,7 +156,7 @@ export function Content() {
     )
 }
 
-export default function Introduction({config, modules, setModules}) {
+export default function Introduction({config, modules}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -176,7 +176,7 @@ export default function Introduction({config, modules, setModules}) {
                     <div className="Button-Container-Right">  
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
-                    <Navigation id={config.id} modules={modules} setModules={setModules}/>
+                    <Navigation id={config.id} modules={modules}/>
                 </div>
             </div>
             <Footer/>

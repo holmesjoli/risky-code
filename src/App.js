@@ -30,20 +30,20 @@ export default function App() {
     return(
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Introduction config={config.Introduction} modules={modules} setModules={setModules}/>} />
+          <Route path="/" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
-          <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules} setModules={setModules}/>} />
+          <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules}/>} />
           <Route path="/FalsePositive" element={<FalsePositive />} />
           <Route path="/FalseNegative" element={<FalseNegative />} />
           <Route path="/COMPAS" element={<COMPAS />} />
           <Route path="/RiskFramework" element={<RiskFramework />} />
           <Route path="/Stakeholders" element={<Stakeholders />} />
           <Route path="/DecisionAid" element={<DecisionAid />} />
-          <Route path="/About" element={<About config={config.About} modules={modules} setModules={setModules}/>} />
-          <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules} setModules={setModules}/>} />
-          <Route path="/Resources" element={<Resources config={config.Resources} modules={modules} setModules={setModules}/>} />
-          <Route path="/Contact" element={<Contact config={config.Contact} modules={modules} setModules={setModules}/>} />
+          <Route path="/About" element={<About config={config.About} modules={modules} />} />
+          <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules}/>} />
+          <Route path="/Resources" element={<Resources config={config.Resources} modules={modules}/>} />
+          <Route path="/Contact" element={<Contact config={config.Contact} modules={modules}/>} />
         </Routes>
       </HashRouter>
     )

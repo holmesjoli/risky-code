@@ -123,7 +123,7 @@ export function Content() {
     )
 }
 
-export default function Resources({config, modules, setModules}) {
+export default function Resources({config, modules}) {
 
     let navigate = useNavigate();
 
@@ -139,7 +139,7 @@ export default function Resources({config, modules, setModules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <Navigation id="resources" modules={modules} setModules={setModules}/>
+                    <Navigation id="resources" modules={modules}/>
                 </div>
             </div>
             <Footer/>
