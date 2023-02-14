@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/risky-code/static/css/main.dc98a1ae.css",
-    "main.js": "/risky-code/static/js/main.8f197011.js",
+    "main.css": "/risky-code/static/css/main.09ab1541.css",
+    "main.js": "/risky-code/static/js/main.b84eb5b6.js",
     "static/js/787.f65d5f83.chunk.js": "/risky-code/static/js/787.f65d5f83.chunk.js",
     "static/media/ibmplexsans-semibolditalic-webfont.ttf": "/risky-code/static/media/ibmplexsans-semibolditalic-webfont.dc52201a0f3abab7941e.ttf",
     "static/media/ibmplexsans-italic-webfont.ttf": "/risky-code/static/media/ibmplexsans-italic-webfont.2b311f7fe222ec0e8b39.ttf",
@@ -10,11 +10,14 @@
     "static/media/ibmplexsans-light-webfont.ttf": "/risky-code/static/media/ibmplexsans-light-webfont.f6a1d8cf71c931e0b2aa.ttf",
     "static/media/ibmplexsans-semibold-webfont.ttf": "/risky-code/static/media/ibmplexsans-semibold-webfont.f2e690b59fb90d236c08.ttf",
     "static/media/ibmplexsans-regular-webfont.ttf": "/risky-code/static/media/ibmplexsans-regular-webfont.d77342fdcbcb6b3ce1b5.ttf",
-    "static/media/VG5000-Regular.otf": "/risky-code/static/media/VG5000-Regular.22aceea41d857a13b673.otf",
+    "static/media/VG5000-Regular_web.eot": "/risky-code/static/media/VG5000-Regular_web.3c08411f29a6e7cf3df8.eot",
+    "static/media/VG5000-Regular_web.ttf": "/risky-code/static/media/VG5000-Regular_web.cb1da24093f084227067.ttf",
     "static/media/ibmplexsans-semibolditalic-webfont.woff": "/risky-code/static/media/ibmplexsans-semibolditalic-webfont.d115236d262e0890cbae.woff",
+    "static/media/VG5000-Regular_web.woff": "/risky-code/static/media/VG5000-Regular_web.8d9c6e4ed76b727fbeac.woff",
     "static/media/ibmplexsans-regular-webfont.woff": "/risky-code/static/media/ibmplexsans-regular-webfont.08eb2b1d951a468ca84f.woff",
     "static/media/ibmplexsans-italic-webfont.woff": "/risky-code/static/media/ibmplexsans-italic-webfont.4aa001a010635e97cfd1.woff",
     "static/media/ibmplexsans-semibold-webfont.woff": "/risky-code/static/media/ibmplexsans-semibold-webfont.a9dbc648eec567b4f30f.woff",
+    "static/media/VG5000-Regular_web.woff2": "/risky-code/static/media/VG5000-Regular_web.41ac01e96e4c3f77244a.woff2",
     "static/media/ibmplexsans-semibolditalic-webfont.woff2": "/risky-code/static/media/ibmplexsans-semibolditalic-webfont.87ea1ac47329b1cec902.woff2",
     "static/media/ibmplexsanscondensed-regular-webfont.woff": "/risky-code/static/media/ibmplexsanscondensed-regular-webfont.0865dd072c2597a082f0.woff",
     "static/media/ibmplexsanscondensed-bold-webfont.woff": "/risky-code/static/media/ibmplexsanscondensed-bold-webfont.be3a57c2fc8ce14b3f65.woff",
@@ -45,12 +48,12 @@
     "static/media/Asset 31.svg": "/risky-code/static/media/Asset 31.329c5d840d6beb298834.svg",
     "index.html": "/risky-code/index.html",
     "static/media/Asset 2.svg": "/risky-code/static/media/Asset 2.28583fe38b79e28125f0.svg",
-    "main.dc98a1ae.css.map": "/risky-code/static/css/main.dc98a1ae.css.map",
-    "main.8f197011.js.map": "/risky-code/static/js/main.8f197011.js.map",
+    "main.09ab1541.css.map": "/risky-code/static/css/main.09ab1541.css.map",
+    "main.b84eb5b6.js.map": "/risky-code/static/js/main.b84eb5b6.js.map",
     "787.f65d5f83.chunk.js.map": "/risky-code/static/js/787.f65d5f83.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.dc98a1ae.css",
-    "static/js/main.8f197011.js"
+    "static/css/main.09ab1541.css",
+    "static/js/main.b84eb5b6.js"
   ]
 }
