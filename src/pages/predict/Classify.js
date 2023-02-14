@@ -21,6 +21,7 @@ export default function Classify({config, items, setItems, modules}) {
 
     const [nClassified, setNClassified] = useState(0);
     const [isOpen, setIsOpen] = useState(true);
+    modules.push('predict')
 
     let navigate = useNavigate(); 
     const routeNext = () => {

@@ -97,10 +97,10 @@ export const navigationData = [ {
         "size": "Large",
         "navLink": "/"
     }, {
-        "name": "Prediction",
-        "id": "prediction",
+        "name": "Predict",
+        "id": "predict",
         "size": "Large",
-        "navLink": "/Prediction"
+        "navLink": "/Classify"
     }, {
         "name": "Classify",
         "id": "classify",
@@ -117,16 +117,17 @@ export const navigationData = [ {
         "id": "fairness",
         "size": "Large",
         "navLink": "/Fairness"
-    }, {
-        "name": "False Positive Rate",
-        "id": "fpr",
+    },
+    {
+        "name": "Calibration",
+        "id": "calibration",
         "size": "Small",
-        "navLink": "/FPR"
+        "navLink": "/Calibration"
     }, {
-        "name": "False Negative Rate",
-        "id": "fnr",
+        "name": "Error Rates",
+        "id": "error-rates",
         "size": "Small",
-        "navLink": "/FNR"
+        "navLink": "/Error"
     }, {
         "name": "Case Study - COMPAS",
         "id": "compas",
