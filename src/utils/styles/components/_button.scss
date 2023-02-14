@@ -16,25 +16,15 @@
 }
 
 .Button-Container-Left {
-    position: relative;
-    // border-bottom: 1px solid #272B30;
-    // padding-right: $containerPadding;
-    // padding-bottom: $containerPadding;
-    // padding-left: $containerPadding;
-    // margin-left: $containerMargin;
     margin-right: $containerMargin;
     min-height: 60px;
     width: 100%;
 }
 
 .Button-Container-Right {
-    position: relative;
-    // border-bottom: 1px solid #272B30;
-    // padding-right: $containerPadding;
-    // padding-bottom: $containerPadding;
-    // padding-left: $containerPadding;
     margin-left: $containerMargin;
     margin-right: $containerMargin;
     min-height: 60px;
     width: 100%;
 }
+
