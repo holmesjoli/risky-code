@@ -37,8 +37,8 @@ const theme = createTheme({
       root: {
         position: "relative",
         paddingLeft: 0,
-        marginLeft: "15px",
-        marginRight: "15px",
+        // marginLeft: "15px",
+        // marginRight: "15px",
         borderColor: highlightColor,
         borderWidth: "1px",
         borderStyle: "solid",
@@ -59,9 +59,9 @@ const theme = createTheme({
       }
     },
     MuiButtonBase: {
-      root: {
-        position: "absolute"
-      }
+      // root: {
+      //   position: "absolute"
+      // }
     },
     Mui: {
         "root": {
@@ -72,7 +72,8 @@ const theme = createTheme({
     },
     MuiButton: {
       root: {
-        borderRadius: "0.25rem"
+        borderRadius: "0.25rem",
+        width: "100%"
       },
       label: {
         fontVariant: "small-caps",

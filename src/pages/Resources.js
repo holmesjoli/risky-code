@@ -125,7 +125,7 @@ export default function Resources({config, modules, setModules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <div className="Button-Container">
+                    <div className="Button-Container-Left">
                         <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
                     </div>
                 </div>

@@ -171,12 +171,12 @@ export default function Introduction({config, modules, setModules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <div className="Button-Container">  
-                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                    </div>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
+                    <div className="Button-Container-Right">  
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                    </div>
                     <Navigation id={config.id} modules={modules} setModules={setModules}/>
                 </div>
             </div>
