@@ -136,7 +136,6 @@ function policyDiagram() {
     renderTooltip(circle);
 }
 
-
 export function Content() {
 
     useEffect(() => {
