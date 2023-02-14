@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const glossary = {
     "algorithm": {
-        "name": "Algorithm",
+        "name": "algorithm",
         "definitions": {
             "def1": {
                 "definition": "A set of instructions, rules, and calculations designed to solve problems",
@@ -22,13 +22,13 @@ const glossary = {
             },
             "def3": {
                 "definition": "Aa series of steps that allow you to perform a particular task.",
-                "citation": "(Onuoha and Nucera, 2018)",
+                "citation": "(Onuoha and Nucera 2018)",
                 "link": "Peoples-Guide-2018"
             }
         }
     },
     "automated-decision-making": {
-        "name": "Automated decision-making",
+        "name": "automated decision-making",
         "definitions": {
             "def1": {
                 "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans... All automated decision systems are designed by humans and involve some degree of human involvement in their operation. Humans are ultimately responsible for how a system receives its inputs (e.g. who collects the data that feeds into a system), how the system is used, and how a system's outputs are interpreted and acted on",
@@ -38,7 +38,7 @@ const glossary = {
         }
     },
     "bias": {
-        "name": "Bias",
+        "name": "bias",
         "definitions": {
             "def1": {
                 "definition": "Bias to refer to cases where computer systems 'systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others'",
@@ -48,7 +48,7 @@ const glossary = {
         }
     },
     "disparate-impact": {
-        "name": "Disparate impact",
+        "name": "disparate impact",
         "definitions": {
             "def1": {
                 "definition": "Disparate impact refers to policies or practices that are facially neutral but have a disproportionately adverse impact on protected classes",
@@ -58,7 +58,7 @@ const glossary = {
         }
     },
     "sociotechnical": {
-        "name": "Sociotechnical",
+        "name": "sociotechnical",
         "definitions": {
             "def1": {
                 "definition": "Systems that consist of a combination of technical and social components",
@@ -68,12 +68,22 @@ const glossary = {
         }
     },
     "stakeholder": {
-        "name": "Stakeholder",
+        "name": "stakeholder",
         "definitions": {
             "def1": {
                 "definition": "People impacted directly or indirectly by a system",
                 "citation": "(Bender and Friedman 2018)",
                 "link": "Bender-Friedman-2018"
+            }
+        }
+    },
+    "mathematical-fairness": {
+        "name": "mathematical fairness",
+        "definitions": {
+            "def1": {
+                "definition": "Formal mathematical constructions of legal concepts such as \"equal protection\" and \"disparate impact\"",
+                "citation": "(Movva 2021)",
+                "link": "Movva-2021"
             }
         }
     }

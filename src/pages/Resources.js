@@ -43,6 +43,10 @@ const literature = {
         "inline-citation": "(Friedman and Nissenbaum 1996)",
         "reference": 'Friedman, Batya, and Helen Nissenbaum. 1996. "Bias in Computer Systems." ACM Transactions on Information Systems 14 (3): 330-47.'
     },
+    "Movva-2021": {
+        "inline-citation": "(Movva 2021)",
+        "reference": 'Movva, Rajiv. 2021. \"Fairness Deconstructed: A Sociotechnical View of \'Fair\' Algorithms in Criminal Justice.\"'
+    },
     "Narayanan-2018": {
         "inline-citation": "(Narayanan, 2018)",
         "reference": 'Narayanan, Arvind. 2018. "Tutorial: 21 Fairness Definitions and Their Politics."'
@@ -84,7 +88,7 @@ const aiExplainability = {
 export function Content() {
     return(
         <div id="Resources">
-            <div className="Content Two-Column2">
+            <div className="Content One-Column">
                 <div className="Literature-Container Container">
                     <h3>Literature</h3>
                     <div>
