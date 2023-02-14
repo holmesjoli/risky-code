@@ -15,7 +15,7 @@ export function Overlay({ isOpen, onClose, children }) {
                 onClick={onClose}
               />
             </div>
-            {children}
+            {children} 
           </div>
         </div>
       )}

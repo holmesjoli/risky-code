@@ -22,13 +22,16 @@
   width: 100vw;
   height: 100vh;
   color: $appColor;
-  // display: grid;
-  // place-items: center;
 }
 
-.Overlay-Container  > .Container {
+.Containers-Container {
+  display: grid;
+  place-items: center;
+}
+
+.Overlay-Container .Container {
   opacity: 1;
-  max-width: 40%;
+  max-width: 50%;
 }
 
 .Overlay-Controls {
