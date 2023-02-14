@@ -10,7 +10,7 @@
   }
   
 .Overlay-Container {
-  background: rgba(0,0,0,.7);
+  background: rgba(0,0,0,.8);
   position: fixed;
   top: 0;
   right: 0;
@@ -48,10 +48,10 @@
 .Overlay-Close {
   border: none;
   background-color: transparent;
-  font-size: 36px;
   cursor: pointer;
   font-family: 'VG5000';
   font-size: 2rem;
   font-weight: bold;
   text-decoration: none;
+  color: white;
 }
