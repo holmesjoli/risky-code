@@ -27,6 +27,16 @@ const glossary = {
             }
         }
     },
+    "algorithmic-literacy": {
+        "name": "algorithmic literacy",
+        "definitions": {
+            "def1": {
+                "definition": "An understanding of algorithmic mechanisms and the ability to think critically about the social implications of algorithmic decision-making",
+                "citation": "(Raine and Anderson 2017)",
+                "link": "Raine-Anderson-2017"
+            }
+        }
+    },
     "automated-decision-making": {
         "name": "automated decision-making",
         "definitions": {

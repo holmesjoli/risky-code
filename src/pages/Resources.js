@@ -55,6 +55,10 @@ const literature = {
         "inline-citation": "(Onuoha and Nucera, 2018)",
         "reference": "Onuoha, Mimi, and Diana Nucera. 2018. A People\'s Guide to AI. Print."
     },
+    "Raine-Anderson-2017": {
+        "inline-citation": "(Raine and Anderson 2017)",
+        "reference": "Raine, Lee, and Janna Anderson. 2017. \"Theme 7: The Need Grows for Algorithmic Literacy, Transparency and Oversight.\" Pew Research Center, 2017. https://www.pewresearch.org/internet/2017/02/08/theme-7-the-need-grows-for-algorithmic-literacy-transparency-and-oversight/."
+    },
     "Selbst-2019": {
         "inline-citation": "(Selbst et al. 2019)",
         "reference": "Selbst, Andrew, Danah Boyd, Sorelle Friedler, Suresh Venkatasubramanian, and Janet Vertesi. 2019. \"Fairness and Abstraction in Sociotechnical Systems.\" In Proceedings of the Conference on Fairness, Accountability, and Transparency, 59-68. FAT '19. ACM."
