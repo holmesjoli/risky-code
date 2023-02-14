@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 
+// modified from https://medium.com/@code-flow/how-to-write-a-simple-and-reusable-overlay-component-using-react-7830dc4519a6
 export function Overlay({ isOpen, onClose, children }) {
   return (
     <Fragment>

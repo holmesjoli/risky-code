@@ -22,10 +22,13 @@
   width: 100vw;
   height: 100vh;
   color: $appColor;
+  // display: grid;
+  // place-items: center;
 }
 
 .Overlay-Container  > .Container {
   opacity: 1;
+  max-width: 40%;
 }
 
 .Overlay-Controls {
@@ -44,4 +47,8 @@
   background-color: transparent;
   font-size: 36px;
   cursor: pointer;
+  font-family: 'VG5000';
+  font-size: 2rem;
+  font-weight: bold;
+  text-decoration: none;
 }
