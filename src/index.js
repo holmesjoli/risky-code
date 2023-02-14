@@ -37,16 +37,21 @@ const theme = createTheme({
       root: {
         position: "relative",
         paddingLeft: 0,
-        // marginLeft: "15px",
-        // marginRight: "15px",
         borderColor: highlightColor,
         borderWidth: "1px",
         borderStyle: "solid",
-        borderRadius: ".25rem"
+        borderRadius: ".25rem",
+        minHeight: "none",
+        "&$expanded": {
+          minHeight: "none"
+        }
       },
       content: {
+        color: highlightColor,
         margin: 0,
-        color: highlightColor
+        "&$expanded": {
+          margin: 0
+        }
       },
       expandIcon: {
         position: "relative",
@@ -57,11 +62,6 @@ const theme = createTheme({
       root: {
         padding: 0
       }
-    },
-    MuiButtonBase: {
-      // root: {
-      //   position: "absolute"
-      // }
     },
     Mui: {
         "root": {
