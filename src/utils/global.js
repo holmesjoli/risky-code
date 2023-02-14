@@ -165,8 +165,8 @@ export const colors = {
 }
 
 export const MODEL_COLUMN_NAMES = {
-    DATA_VARIABLES: 'Data variables',
-    MODEL_VARIABLES: 'Model variables'
+    DATA_VARIABLES: 'data variables',
+    MODEL_VARIABLES: 'model variables'
 }
 
 const {DATA_VARIABLES} = MODEL_COLUMN_NAMES;
@@ -181,9 +181,9 @@ export const VARIABLES = [
 ];
 
 export const CLASSIFY_COLUMN_NAMES = {
-    ITEM_LIST: 'Items',
-    CASE_TRUE: 'Hot water load',
-    CASE_FALSE: 'Save for later load'
+    ITEM_LIST: 'items',
+    CASE_TRUE: 'hot water load',
+    CASE_FALSE: 'save for later load'
 }
 
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;

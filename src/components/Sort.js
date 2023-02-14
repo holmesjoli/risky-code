@@ -156,11 +156,11 @@ const Column = ({ children, className, title, nClassified }) => {
       style={{ border: getBorder(isOver, canDrop),
         backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h4 className="Small-Margin"
+      <h3 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
 
   
-      >{title}</h4>
+      >{title}</h3>
         <div className={className === "Container item-list-column"?"": "Card-Container"}>
           {children}
           <h6 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h6>

@@ -7,7 +7,7 @@ export function ActualPredicted() {
 
     return(
         <div className="Legend Container">
-            <h4>Legend</h4>
+            <h3>legend</h3>
             <div className="my-grid">
                 <div>
                     <h5 className="section-title0">Predicted Hot Water Load</h5>

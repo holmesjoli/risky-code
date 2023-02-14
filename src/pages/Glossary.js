@@ -86,7 +86,7 @@ export function Content() {
                 {Object.keys(glossary).map((term, index) => {
                     return(
                         <div key={index} className="Term-Container Container">
-                            <h4 className="Term-Name">{glossary[term].name}</h4>
+                            <h3 className="Term-Name">{glossary[term].name}</h3>
                             {
                                 Object.keys(glossary[term].definitions).map((def, index) => {
                                     return(
