@@ -247,10 +247,10 @@ export default function Sort({items, setItems, nClassified, setNClassified}) {
                 </Column>
             </div>
             <div className="Case-Container">
-                <Column title={CASE_TRUE} className="Container case-true-column">
+                <Column title={CASE_TRUE} className="Container Case-True-Column">
                   {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
-                <Column title={CASE_FALSE} className="Container case-false-column">
+                <Column title={CASE_FALSE} className="Container Case-False-Column">
                   {returnItemsForColumn(items, CASE_FALSE)}
                 </Column>
             </div>

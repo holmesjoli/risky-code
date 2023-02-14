@@ -187,11 +187,11 @@ export default function Model({variables, setVariables}) {
   return (
     <div className="Model-Container">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DATA_VARIABLES} className="Container Variables-Column">
+        <Column title={DATA_VARIABLES} className="Container Variables-Column Data-Variables">
           {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
         <Arrow/>
-        <Column title={MODEL_VARIABLES} className="Container Variables-Column">
+        <Column title={MODEL_VARIABLES} className="Container Variables-Column Model-Variables">
           {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
       </DndProvider>

@@ -104,7 +104,7 @@ export default function Navigation({id, modules}) {
         const fontWeight = d3.scaleOrdinal()
             .domain(regular)
             .range(weights);
-    
+
         let colors = Array(regular.length - 1).fill("#868B90");
         colors.unshift("#cbcbcb");
 

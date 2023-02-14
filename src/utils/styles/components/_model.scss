@@ -8,6 +8,10 @@
     padding: $containerPadding;
 }
 
+.Model-Variables {
+    border: 1.5pt dotted #4e5155;
+}
+
 .Moveable-Items {
     display: grid;
     // grid-gap: .5rem;
