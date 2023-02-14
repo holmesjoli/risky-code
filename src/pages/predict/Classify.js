@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@material-ui/core";
 import Navigation from '../../components/Navigation';
@@ -21,7 +21,7 @@ export default function Classify({config, items, setItems, modules}) {
 
     const [nClassified, setNClassified] = useState(0);
     const [isOpen, setIsOpen] = useState(true);
-    modules.push('predict')
+    let id;
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -37,6 +37,12 @@ export default function Classify({config, items, setItems, modules}) {
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
+
+    if (isOpen) {
+        id = "predict"
+    } else {
+        id = "classify"
+    }
 
     return (
         <div className="App">
@@ -62,7 +68,7 @@ export default function Classify({config, items, setItems, modules}) {
                         <div className="Button-Container-Right">
                             <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
                         </div>
-                        <Navigation id={config.id} modules={modules}/>
+                        <Navigation id={id} modules={modules}/>
                     </div>
                 </div>
                 <Footer/>

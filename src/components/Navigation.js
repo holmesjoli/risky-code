@@ -57,10 +57,16 @@ export default function Navigation({id, modules}) {
 
     useEffect(() => {
 
-        let svg = d3.select("#Navigation-Chart")
+        d3.select("#Navigation-Chart")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
+
+    }, [])
+
+    useEffect(() => {
+
+        let svg = d3.select("#Navigation-Chart svg")
 
         let highlight = navigationData.filter(d => d.id === id).map(d => d.id)[0];
         let regularColors = navigationData.filter(d => d.id !== id).map(d => d.id);
@@ -73,6 +79,8 @@ export default function Navigation({id, modules}) {
         let notVisited = navigationData.filter(d => !modules.includes(d.id)).map(d => d.id);
         let visitedColors = Array(visited.length).fill(highlightColor);
         let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
+
+        console.log(visited)
 
         let fill = Array(regularColors.length).fill("#131517");
         regularColors.unshift(highlight);
@@ -173,7 +181,7 @@ export default function Navigation({id, modules}) {
                 .attr("fill", d => fillScale(d.id));
         })
 
-    }, [modules])
+    }, [modules, id])
 
     return (
         <div className="Navigation">
