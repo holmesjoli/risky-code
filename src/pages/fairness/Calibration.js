@@ -10,7 +10,6 @@ import Footer from '../../components/Footer';
 function Information() {
     return (
         <div className="Information">
-            <Legend componentType={"points"}/>
         </div>
     )
 }

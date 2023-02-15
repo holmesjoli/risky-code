@@ -102,7 +102,12 @@ ul {
     grid-template-columns: minmax(150px, 25%) minmax(150px, 50%) minmax(150px, 25%);
     grid-gap: $containerMargin;
 }
-
+.Three-Column2 {
+    display: grid;
+    grid-template-columns: minmax(150px, 45%) minmax(30px, 5%) minmax(150px, 48%);
+    grid-gap: $containerMargin;
+    text-align: center;
+}
 
 .Two-Column {
     display: grid;

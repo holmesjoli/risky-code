@@ -5,6 +5,7 @@ import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
+import { ReactComponent as Arrow } from '../assets/images/arrow.svg';
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -240,12 +241,13 @@ export default function Sort({items, setItems, nClassified, setNClassified}) {
 
   return (
       <DndProvider backend={HTML5Backend}>
-        <div className="Two-Column">
+        <div className="Three-Column2">
             <div className="Classify-Container">
                 <Column title={ITEM_LIST} className="Container item-list-column" nClassified={nClassified}>
                   {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
             </div>
+            <Arrow className="Rotate90"/>
             <div className="Case-Container">
                 <Column title={CASE_TRUE} className="Container Case-True-Column">
                   {returnItemsForColumn(items, CASE_TRUE)}

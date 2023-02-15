@@ -80,8 +80,6 @@ export default function Navigation({id, modules}) {
         let visitedColors = Array(visited.length).fill(highlightColor);
         let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
 
-        console.log(visited)
-
         let fill = Array(regularColors.length).fill("#131517");
         regularColors.unshift(highlight);
         fill.unshift(highlightColor);
@@ -163,6 +161,11 @@ export default function Navigation({id, modules}) {
 
         // Click to Navigate to a different page
         d3.selectAll(".nav-node").on("click", function(e, d) {
+
+            // if(d.id === "predict") {
+            //     modules = modules.filter(item => item !== "predict")
+            // }
+
             routeChange(d.navLink)
         })
 

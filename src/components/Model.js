@@ -5,7 +5,6 @@ import { MODEL_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { ReactComponent as Arrow } from '../assets/images/arrow.svg';
 
-
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
   name,

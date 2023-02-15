@@ -25,7 +25,7 @@ export const getColor = (isOver, canDrop) => {
 export const getBorder = (isOver, canDrop) => {
   if (isOver) {
     if (canDrop) {
-      return "1.5px dashed rgb(127, 194, 67)"; 
+      return "1.5pt dotted rgb(127, 194, 67)"; 
     } else if (!canDrop) {
       return "none";
     }
