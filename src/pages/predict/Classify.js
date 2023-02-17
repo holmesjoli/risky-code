@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@material-ui/core";
 import Navigation from '../../components/Navigation';
@@ -22,6 +22,7 @@ export default function Classify({config, items, setItems, modules}) {
     const [nClassified, setNClassified] = useState(0);
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("predict");
+    const previousOpen = useRef();
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -36,22 +37,16 @@ export default function Classify({config, items, setItems, modules}) {
 
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
+        setId("classify")
     };
 
-    console.log(modules)
-
     useEffect(() => {
-    //     // if(modules.includes("predict")) {
-    //     //     setIsOpen(false);
-    //     // } else {
-    //     //     setIsOpen(true);
-    //     // }
-        setId(isOpen ? "predict": "classify")
-    }, [isOpen])
+        previousOpen.current = true;
+      }, [isOpen]);
 
     return (
         <div className="App"> {
-            !modules.includes("predict") ?
+            !previousOpen.current ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container">
