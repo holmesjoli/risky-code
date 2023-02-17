@@ -11,6 +11,36 @@ import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
 import { wrap } from "../../utils/global";
 
+// Tooltip
+function renderTooltip() {
+
+    let tooltip = d3.select("#Fairness-Chart")
+        .append("div")
+        .attr("class", "tooltip");
+
+    d3.selectAll("#Fairness-Chart circle").on("mouseover", function(e, d) {
+
+        let thisCircle = d3.select(this);
+        let x = e.layerX + 20;
+        let y = e.layerY - 10;
+
+        tooltip.style("visibility", "visible")
+            .style("top", `${y}px`)
+            .style("left", `${x}px`)
+            .html(`${d.fairness_definition} <br> ${d.author}`);
+
+        thisCircle
+            .attr("stroke", "white")
+            .attr("stroke-width", 2);
+
+    }).on("mouseout", function() {
+
+        tooltip.style("visibility", "hidden");
+        d3.selectAll('.node')
+            .attr("stroke", "none"); 
+    });
+}
+
 function fairnessDefinitions() {
 
     let n = data.length;
@@ -57,6 +87,8 @@ function fairnessDefinitions() {
         .attr("font-size", 14)
         .attr("text-anchor", "middle")
         .call(wrap, 100);
+
+    renderTooltip();
 }
 
 function Information() {
