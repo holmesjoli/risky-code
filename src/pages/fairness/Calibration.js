@@ -9,7 +9,11 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
-import { wrap } from "../../utils/global";
+import { wrap, highlightColor } from "../../utils/global";
+
+// const fillScale = d3.scaleOrdinal()
+//     .domain()
+//     .range()
 
 // Tooltip
 function renderTooltip() {
@@ -30,14 +34,16 @@ function renderTooltip() {
             .html(`${d.fairness_definition} <br> ${d.author}`);
 
         thisCircle
-            .attr("stroke", "white")
+            .attr("stroke", highlightColor)
             .attr("stroke-width", 2);
 
     }).on("mouseout", function() {
 
         tooltip.style("visibility", "hidden");
-        d3.selectAll('.node')
-            .attr("stroke", "none"); 
+
+        d3.selectAll("#Fairness-Chart circle")
+            .attr("stroke", "#272B30")
+            .attr("stroke-width", 1);
     });
 }
 
@@ -69,15 +75,11 @@ function fairnessDefinitions() {
         .append("circle")
         .attr("cx", d => d.x)
         .attr("cy", d => d.y)
-        .attr("r", 8)
-        .attr("fill", "white");
-
-    nodes
-        .append("circle")
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y)
-        .attr("r", 8)
-        .attr("fill", "white");
+        .attr("r", 10)
+        .attr("fill", "#131517")
+        .attr("stroke", "#272B30")
+        .attr("stroke-width", 1)
+        .attr("class", "shadow");
 
     svg.append("text")
         .attr("x", 250)

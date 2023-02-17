@@ -114,7 +114,7 @@ export default function Navigation({id, modules}) {
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
             .attr("stroke", d => strokeScale(d.id))
-            .attr("box-shadow", d => visited.includes(d.id) ? "12px 12px 5px 0px rgba(0, 0, 0, 1)" : "none")
+            .attr("class", d => visited.includes(d.id) ? "shadow2" : "")
 
         // Add a text element to the previously added g element.
         nodes.append("text")
