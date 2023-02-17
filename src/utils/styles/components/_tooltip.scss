@@ -1,7 +1,10 @@
 .chart {
     // height: 100vh;
     position: relative;
-    margin: $containerMargin
+    margin: $containerMargin;
+    display: block;
+    margin: auto;
+    text-align: center;
 }
 
 .tooltip {
