@@ -17,12 +17,12 @@ export function Content({items, setItems, nClassified, setNClassified}) {
     )
 }
 
-export default function Classify({config, items, setItems, modules}) {
+export default function Classify({config, items, setItems, modules, isOpen, setIsOpen}) {
 
     const [nClassified, setNClassified] = useState(0);
-    const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("predict");
-    const previousOpen = useRef();
+
+    // console.log(isOpen)
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -37,16 +37,15 @@ export default function Classify({config, items, setItems, modules}) {
 
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
-        setId("classify")
     };
 
     useEffect(() => {
-        previousOpen.current = true;
-      }, [isOpen]);
+        setId(isOpen ? "predict": "classify")
+    }, [isOpen])
 
     return (
         <div className="App"> {
-            !previousOpen.current ?
+            isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container">
@@ -69,7 +68,8 @@ export default function Classify({config, items, setItems, modules}) {
                     <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
                     <div className="Sidebar-Right">
                         <div className="Button-Container-Right">
-                            <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
+                            {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
+                            <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                         </div>
                         <Navigation id={id} modules={modules}/>
                     </div>
