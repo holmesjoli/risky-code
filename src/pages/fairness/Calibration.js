@@ -53,9 +53,10 @@ function fairnessDefinitions() {
         .attr("x", 250)
         .attr("y", 250)
         .text("Mathematical fairness definitions")
-        .attr("fill", "white")
+        .attr("fill", "#cbcbcb")
         .attr("font-size", 14)
-        .call(wrap, 40);
+        .attr("text-anchor", "middle")
+        .call(wrap, 100);
 }
 
 function Information() {
