@@ -15,6 +15,26 @@ import { wrap, highlightColor } from "../../utils/global";
 //     .domain()
 //     .range()
 
+
+ // Updates the label position
+//  function labelPosition(angle, radius) {
+
+
+//     if (angle < 1.2) {
+//         l.label.position.set(x + radius, y);
+//         } else if(angle > 1.2 && angle < 1.8) {
+//         l.label.position.set(x - width/2, y + radius);
+//         } else if (angle >= 1.8 && angle < 3.3) {
+//         l.label.position.set(x - radius - width, y);
+//         } else if (angle >= 3.3 && l.angle < 4.5) {
+//         l.label.position.set(x - radius - width, y - height);
+//         } else if(angle >= 4.5 && angle < 5) {
+//         l.label.position.set(x - width/2, y - height*1.5);
+//         } else {
+//         l.label.position.set(x + radius, y - height);
+//         }
+//     }
+
 // Tooltip
 function renderTooltip() {
 
@@ -51,24 +71,35 @@ function fairnessDefinitions() {
 
     let n = data.length;
     let theta = ((Math.PI*2) / n);
-    let width = 500;
+    let width = 650;
     let height = 500;
     let radius = 200; 
 
     for (let i in data) {
-        let angle = (theta * i);
-        data[i].x = (radius * Math.cos(angle)) + width/2;
-        data[i].y = (radius * Math.sin(angle)) + height/2;
+        data[i].angle = (theta * i);
+        data[i].x = (radius * Math.cos(data[i].angle)) + width/2;
+        data[i].y = (radius * Math.sin(data[i].angle)) + height/2;
     }
 
     let svg = d3.select("#Fairness-Chart")
         .append("svg")
         .attr("width", width)
-        .attr("height", height)
+        .attr("height", height);
+    
+    svg.append("text")
+        .attr("x", width/2)
+        .attr("y", height/2)
+        .text("Mathematical fairness definitions")
+        .attr("fill", "#cbcbcb")
+        .attr("font-size", 14)
+        .attr("text-anchor", "middle")
+        .call(wrap, 100);
 
-    let nodes = svg.selectAll("circle")
+    svg = svg.selectAll("circle")
         .data(data)
         .enter()
+
+    svg
         .append("a")
         .attr("href", d=> d.link)
         .attr("target", "_blank")
@@ -78,16 +109,15 @@ function fairnessDefinitions() {
         .attr("r", 10)
         .attr("fill", "#131517")
         .attr("stroke", "#272B30")
-        .attr("stroke-width", 1)
+        .attr("stroke-width", 1.5)
         .attr("class", "shadow");
 
     svg.append("text")
-        .attr("x", 250)
-        .attr("y", 250)
-        .text("Mathematical fairness definitions")
-        .attr("fill", "#cbcbcb")
-        .attr("font-size", 14)
-        .attr("text-anchor", "middle")
+        .attr("x", d => d.x + 10)
+        .attr("y", d => d.y)
+        .attr("fill", "#d8d8d8")
+        .attr("font-size", 11)
+        .text(d => d.fairness_definition)
         .call(wrap, 100);
 
     renderTooltip();

@@ -123,6 +123,7 @@ export default function Navigation({id, modules}) {
             .attr("font-size", 13)
             .attr("font-weight", d => fontWeight(d.name))
             .attr("text-transform", d => textTransform(d.name))
+            .attr("letter-spacing", ".8px")
             .style("fill", d => fontColor(d.name))
             .text(d => d.name);
 

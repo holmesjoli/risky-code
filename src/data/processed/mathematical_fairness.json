@@ -133,7 +133,7 @@
         "": ""
     },
     {
-        "fairness_definition": "No proxy discrimination",
+        "fairness_definition": "Fair inference",
         "author": "R. Nabi and I. Shpitser.",
         "date": "2018",
         "link": "https://arxiv.org/abs/1705.10378",
