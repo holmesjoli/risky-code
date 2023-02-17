@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Button, Tooltip } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import Navigation from '../../components/Navigation';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
@@ -17,12 +17,11 @@ export function Content({items, setItems, nClassified, setNClassified}) {
     )
 }
 
-export default function Classify({config, items, setItems, modules, isOpen, setIsOpen}) {
+export default function Classify({config, items, setItems, modules}) {
 
+    const [isOpen, setIsOpen] = useState(true);
     const [nClassified, setNClassified] = useState(0);
     const [id, setId] = useState("predict");
-
-    // console.log(isOpen)
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -68,8 +67,8 @@ export default function Classify({config, items, setItems, modules, isOpen, setI
                     <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
                     <div className="Sidebar-Right">
                         <div className="Button-Container-Right">
-                            <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
-                            {/* <Button variant="contained" className="Next" onClick={routeNext}>next</Button> */}
+                            {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
+                            <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                         </div>
                         <Navigation id={id} modules={modules}/>
                     </div>

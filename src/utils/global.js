@@ -104,7 +104,7 @@ export const navigationData = [ {
         "name": "Fairness",
         "id": "fairness",
         "size": "Large",
-        "navLink": "/Fairness"
+        "navLink": "/Calibration"
     },
     {
         "name": "Calibration",

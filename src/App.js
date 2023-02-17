@@ -25,13 +25,12 @@ export default function App() {
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
     const [modules, setModules] = useState([]);
-    const [isOpen, setIsOpen] = useState(true);
-
+  
     return(
       <HashRouter>
         <Routes>
           <Route path="/" element={<Introduction config={config.Introduction} modules={modules}/>} />
-          <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems} modules={modules} setModules={setModules} isOpen={isOpen} setIsOpen={setIsOpen}/>} />
+          <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
