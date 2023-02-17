@@ -15,25 +15,102 @@ import { wrap, highlightColor } from "../../utils/global";
 //     .domain()
 //     .range()
 
+//  Updates the label position
+ function xLabelPosition(d, width, radius) {
 
- // Updates the label position
-//  function labelPosition(angle, radius) {
+    if (d.angle > 1.2) {
+        return d.x + 10;
+    } else if (d.angle > 1.8) {
+        return d.x + 10;
+    } else if (d.angle > 3.3) {
+        return d.x + 10;
+    } else if (d.angle > 4.5) {
+        return d.x + 10;
+    } else if (d.angle > 5.5) {
+        return d.x + 10;
+    } else {
+        return d.x + 10;
+    }
 
 
-//     if (angle < 1.2) {
-//         l.label.position.set(x + radius, y);
-//         } else if(angle > 1.2 && angle < 1.8) {
-//         l.label.position.set(x - width/2, y + radius);
-//         } else if (angle >= 1.8 && angle < 3.3) {
-//         l.label.position.set(x - radius - width, y);
-//         } else if (angle >= 3.3 && l.angle < 4.5) {
-//         l.label.position.set(x - radius - width, y - height);
-//         } else if(angle >= 4.5 && angle < 5) {
-//         l.label.position.set(x - width/2, y - height*1.5);
-//         } else {
-//         l.label.position.set(x + radius, y - height);
-//         }
-//     }
+    // if (angle < 1.2) {
+    //     l.label.position.set(x + radius, y);
+    //     } else if(angle > 1.2 && angle < 1.8) {
+    //     l.label.position.set(x - width/2, y + radius);
+    //     } else if (angle >= 1.8 && angle < 3.3) {
+    //     l.label.position.set(x - radius - width, y);
+    //     } else if (angle >= 3.3 && l.angle < 4.5) {
+    //     l.label.position.set(x - radius - width, y - height);
+    //     } else if(angle >= 4.5 && angle < 5) {
+    //     l.label.position.set(x - width/2, y - height*1.5);
+    //     } else {
+    //     l.label.position.set(x + radius, y - height);
+    //     }
+    // }
+
+}
+
+//  Updates the label position
+function yLabelPosition(d, width, radius) {
+
+    if (d.angle > 1.2) {
+        return d.y + 10;
+    } else if (d.angle > 1.8) {
+        return d.y + 10;
+    } else if (d.angle > 3.3) {
+        return d.y + 10;
+    } else if (d.angle > 4.5) {
+        return d.y + 10;
+    } else if (d.angle > 5.5) {
+        return d.y + 10;
+    } else {
+        return d.y + 10;
+    }
+
+
+    // if (angle < 1.2) {
+    //     l.label.position.set(x + radius, y);
+    //     } else if(angle > 1.2 && angle < 1.8) {
+    //     l.label.position.set(x - width/2, y + radius);
+    //     } else if (angle >= 1.8 && angle < 3.3) {
+    //     l.label.position.set(x - radius - width, y);
+    //     } else if (angle >= 3.3 && l.angle < 4.5) {
+    //     l.label.position.set(x - radius - width, y - height);
+    //     } else if(angle >= 4.5 && angle < 5) {
+    //     l.label.position.set(x - width/2, y - height*1.5);
+    //     } else {
+    //     l.label.position.set(x + radius, y - height);
+    //     }
+    // }
+
+}
+
+
+function textAnchor(angle) {
+
+    if (angle < 1.2 || angle > 5) {
+        return "start";
+    } else if(angle > 4.5) {
+        return "middle";
+    } else {
+        return "end";
+    }
+}
+
+function textAngle(angle) {
+
+    return (180/Math.PI)*angle;
+
+    // if (angle < 1.2 || angle > 5) {
+    //     return "start";
+    // } else if(angle > 4.5) {
+    //     return 0;
+    // } else {
+    //     return "end";
+    // }
+}
+
+
 
 // Tooltip
 function renderTooltip() {
@@ -112,13 +189,16 @@ function fairnessDefinitions() {
         .attr("stroke-width", 1.5)
         .attr("class", "shadow");
 
+        // var rotation = d.endAngle < Math.PI ? (d.startAngle / 2 + d.endAngle / 2) * 180 / Math.PI : (d.startAngle / 2 + d.endAngle / 2 + Math.PI) * 180 / Math.PI;
+
     svg.append("text")
-        .attr("x", d => d.x + 10)
-        .attr("y", d => d.y)
+        .attr("transform", d => `translate(${d.x + 15},${d.y - 2}) rotate(${textAngle(d.angle)})`)
+        .attr("text-anchor", "start")
+        .attr("alignment-baseline", "middle")
         .attr("fill", "#d8d8d8")
         .attr("font-size", 11)
         .text(d => d.fairness_definition)
-        .call(wrap, 100);
+        // .call(wrap, 100);
 
     renderTooltip();
 }
