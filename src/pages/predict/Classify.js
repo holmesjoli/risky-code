@@ -68,8 +68,8 @@ export default function Classify({config, items, setItems, modules, isOpen, setI
                     <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
                     <div className="Sidebar-Right">
                         <div className="Button-Container-Right">
-                            {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
-                            <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                            <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button>
+                            {/* <Button variant="contained" className="Next" onClick={routeNext}>next</Button> */}
                         </div>
                         <Navigation id={id} modules={modules}/>
                     </div>
