@@ -6,6 +6,7 @@ import Navigation from '../../components/Navigation';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
+import { policyDiagram } from '../../components/PolicyDiagram';
 
 export function Content() {
     return(
@@ -18,6 +19,7 @@ export default function StreetBump({config, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("cases");
+    let chartID = "Policy-Chart2";
 
     let navigate = useNavigate();
 
@@ -37,7 +39,11 @@ export default function StreetBump({config, modules}) {
 
     useEffect(() => {
         setId(isOpen ? "cases": "street");
-    }, [isOpen])
+    }, [isOpen]);
+
+    useEffect(() => {
+        policyDiagram(chartID);
+    }, []);
 
     return (
         <div className="App">
@@ -54,6 +60,7 @@ export default function StreetBump({config, modules}) {
                             onClick={toggleOverlay}
                         />
                     </div>
+                    <div id={chartID} className="chart"></div>
                 </div>
             </div>
         </Overlay>:
