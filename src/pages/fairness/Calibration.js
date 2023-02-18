@@ -15,77 +15,6 @@ import { wrap, highlightColor } from "../../utils/global";
 //     .domain()
 //     .range()
 
-//  Updates the label position
- function xLabelPosition(d, width, radius) {
-
-    if (d.angle > 1.2) {
-        return d.x + 10;
-    } else if (d.angle > 1.8) {
-        return d.x + 10;
-    } else if (d.angle > 3.3) {
-        return d.x + 10;
-    } else if (d.angle > 4.5) {
-        return d.x + 10;
-    } else if (d.angle > 5.5) {
-        return d.x + 10;
-    } else {
-        return d.x + 10;
-    }
-
-
-    // if (angle < 1.2) {
-    //     l.label.position.set(x + radius, y);
-    //     } else if(angle > 1.2 && angle < 1.8) {
-    //     l.label.position.set(x - width/2, y + radius);
-    //     } else if (angle >= 1.8 && angle < 3.3) {
-    //     l.label.position.set(x - radius - width, y);
-    //     } else if (angle >= 3.3 && l.angle < 4.5) {
-    //     l.label.position.set(x - radius - width, y - height);
-    //     } else if(angle >= 4.5 && angle < 5) {
-    //     l.label.position.set(x - width/2, y - height*1.5);
-    //     } else {
-    //     l.label.position.set(x + radius, y - height);
-    //     }
-    // }
-
-}
-
-//  Updates the label position
-function yLabelPosition(d, width, radius) {
-
-    if (d.angle > 1.2) {
-        return d.y + 10;
-    } else if (d.angle > 1.8) {
-        return d.y + 10;
-    } else if (d.angle > 3.3) {
-        return d.y + 10;
-    } else if (d.angle > 4.5) {
-        return d.y + 10;
-    } else if (d.angle > 5.5) {
-        return d.y + 10;
-    } else {
-        return d.y + 10;
-    }
-
-
-    // if (angle < 1.2) {
-    //     l.label.position.set(x + radius, y);
-    //     } else if(angle > 1.2 && angle < 1.8) {
-    //     l.label.position.set(x - width/2, y + radius);
-    //     } else if (angle >= 1.8 && angle < 3.3) {
-    //     l.label.position.set(x - radius - width, y);
-    //     } else if (angle >= 3.3 && l.angle < 4.5) {
-    //     l.label.position.set(x - radius - width, y - height);
-    //     } else if(angle >= 4.5 && angle < 5) {
-    //     l.label.position.set(x - width/2, y - height*1.5);
-    //     } else {
-    //     l.label.position.set(x + radius, y - height);
-    //     }
-    // }
-
-}
-
-
 function textAnchor(angle) {
 
     if (angle < 1.2 || angle > 5) {
@@ -98,19 +27,8 @@ function textAnchor(angle) {
 }
 
 function textAngle(angle) {
-
     return (180/Math.PI)*angle;
-
-    // if (angle < 1.2 || angle > 5) {
-    //     return "start";
-    // } else if(angle > 4.5) {
-    //     return 0;
-    // } else {
-    //     return "end";
-    // }
 }
-
-
 
 // Tooltip
 function renderTooltip() {
@@ -128,7 +46,7 @@ function renderTooltip() {
         tooltip.style("visibility", "visible")
             .style("top", `${y}px`)
             .style("left", `${x}px`)
-            .html(`${d.fairness_definition} <br> ${d.author}`);
+            .html(`${d.fairness_definition} <br> ${d.author} <br> ${d.angle}`);
 
         thisCircle
             .attr("stroke", highlightColor)
@@ -149,13 +67,15 @@ function fairnessDefinitions() {
     let n = data.length;
     let theta = ((Math.PI*2) / n);
     let width = 650;
-    let height = 500;
-    let radius = 200; 
+    let height = 600;
+    let radius = 125; 
 
     for (let i in data) {
         data[i].angle = (theta * i);
         data[i].x = (radius * Math.cos(data[i].angle)) + width/2;
         data[i].y = (radius * Math.sin(data[i].angle)) + height/2;
+        data[i].xLabel = (radius*1.17 * Math.cos(data[i].angle)) + width/2;
+        data[i].yLabel = (radius*1.17 * Math.sin(data[i].angle)) + height/2;
     }
 
     let svg = d3.select("#Fairness-Chart")
@@ -189,12 +109,10 @@ function fairnessDefinitions() {
         .attr("stroke-width", 1.5)
         .attr("class", "shadow");
 
-        // var rotation = d.endAngle < Math.PI ? (d.startAngle / 2 + d.endAngle / 2) * 180 / Math.PI : (d.startAngle / 2 + d.endAngle / 2 + Math.PI) * 180 / Math.PI;
-
     svg.append("text")
-        .attr("transform", d => `translate(${d.x + 15},${d.y - 2}) rotate(${textAngle(d.angle)})`)
+        .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)})`)
         .attr("text-anchor", "start")
-        .attr("alignment-baseline", "middle")
+        .attr("alignment-baseline", "bottom")
         .attr("fill", "#d8d8d8")
         .attr("font-size", 11)
         .text(d => d.fairness_definition)
