@@ -113,7 +113,7 @@ export const navigationData = [ {
         "navLink": "/Calibration"
     }, {
         "name": "Error Rates",
-        "id": "error-rates",
+        "id": "error",
         "size": "Small",
         "navLink": "/Error"
     }, {
