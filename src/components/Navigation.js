@@ -110,11 +110,10 @@ export default function Navigation({id, modules}) {
             .call(wrap, 40);
 
         nodes.append("circle")
-            .attr("class", d => visited.includes(d.id) ? "nav-node": null)
+            .attr("class", d => visited.includes(d.id) ? "nav-node shadow2": null)
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
-            .attr("stroke", d => strokeScale(d.id))
-            .attr("class", d => visited.includes(d.id) ? "shadow2" : "")
+            .attr("stroke", d => strokeScale(d.id));
 
         // Add a text element to the previously added g element.
         nodes.append("text")
