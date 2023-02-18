@@ -11,8 +11,6 @@ const width = 260;
 const space = 42;
 const margin = {left: 30, top: 30}
 
-let fillScale;
-
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([5, 9]);
@@ -29,7 +27,6 @@ function lookupOtherPages(id) {
 
 function createVisited(modules) {
     let visited = navigationData.filter(d => modules.includes(d.id)).map(d => d.id);
-
     return visited;
 }
 
@@ -48,57 +45,44 @@ function createStrokeScale(modules, visited) {
 
 function createFillScale(pageId, otherPageIds) {
 
-    otherPageIds.unshift(pageId);
     let fill = Array(otherPageIds.length).fill("#131517");
-    fill.unshift(highlightColor);
 
     let fillScale = d3.scaleOrdinal()
-        .domain(otherPageIds)
-        .range(fill);
+        .domain([pageId].concat(otherPageIds))
+        .range([highlightColor].concat(fill));
 
     return fillScale;
 }
 
 function createFontWeight(pageId, otherPageIds) {
 
-    let bold = pageId;
-    let regular = otherPageIds;
-    regular.unshift(bold);
-
-    let weights = Array(regular.length - 1).fill(400);
-    weights.unshift(500);
+    let weights = Array(otherPageIds.length).fill(400);
     
     const fontWeight = d3.scaleOrdinal()
-        .domain(regular)
-        .range(weights);
+        .domain([pageId].concat(otherPageIds))
+        .range([500].concat(weights));
 
     return fontWeight;
 }
 
-function createFontColor(otherPageIds) {
+function createFontColor(pageId, otherPageIds) {
 
-    let regular = otherPageIds;
-    // regular.unshift(bold);
-
-    let colors = Array(regular.length - 1).fill("#868B90");
-    colors.unshift("#cbcbcb");
+    let colors = Array(otherPageIds.length).fill("#868B90");
 
     const fontColor = d3.scaleOrdinal()
-        .domain(regular)
-        .range(colors);
+        .domain([pageId].concat(otherPageIds))
+        .range(["#cbcbcb"].concat(colors));
 
     return fontColor;
 }
 
-function createTextTransform(otherPageIds) {
+function createTextTransform(pageId, otherPageIds) {
 
-    let regular = otherPageIds;
-    let cases = Array(regular.length - 1).fill("none");
-    cases.unshift("lowercase");
+    let cases = Array(otherPageIds.length).fill("none");
 
     const textTransform = d3.scaleOrdinal()
-        .domain(regular)
-        .range(cases);
+        .domain([pageId].concat(otherPageIds))
+        .range(["lowercase"].concat(cases));
 
     return textTransform;
 }
@@ -120,7 +104,7 @@ function onClickNav(navigate) {
     })
 }
 
-function renderTooltip(pageId) {
+function renderTooltip(pageId, fillScale) {
     
     d3.selectAll(".nav-node").on("mouseover", function(e, d) {
 
@@ -154,12 +138,15 @@ export default function Navigation({id, modules}) {
         // Node scales
         let visited = createVisited(modules);
         let strokeScale = createStrokeScale(modules, visited);
-        fillScale = createFillScale(pageId, otherPageIds);
+        let fillScale = createFillScale(pageId, otherPageIds);
+
+        console.log(otherPageIds)
+
 
         // Font scales
         let fontWeight = createFontWeight(pageId, otherPageIds);
-        let fontColor = createFontColor(otherPageIds);
-        let textTransform = createTextTransform(otherPageIds);
+        let fontColor = createFontColor(pageId, otherPageIds);
+        let textTransform = createTextTransform(pageId, otherPageIds);
 
         // Initialized svg
         let svg = d3.select("#Navigation-Chart")
@@ -206,7 +193,7 @@ export default function Navigation({id, modules}) {
             .text(d => d.name);
 
         onClickNav(navigate);
-        renderTooltip(pageId);
+        renderTooltip(pageId, fillScale);
 
     }, [])
 
@@ -221,11 +208,11 @@ export default function Navigation({id, modules}) {
 
         let visited = createVisited(modules);
         let strokeScale = createStrokeScale(modules, visited);
-        fillScale = createFillScale(pageId, otherPageIds);
+        let fillScale = createFillScale(pageId, otherPageIds);
 
         let fontWeight = createFontWeight(pageId, otherPageIds);
-        let fontColor = createFontColor(otherPageIds);
-        let textTransform = createTextTransform(otherPageIds);
+        let fontColor = createFontColor(pageId, otherPageIds);
+        let textTransform = createTextTransform(pageId, otherPageIds);
 
         d3.selectAll(".nav-node")
             .attr("class", d => visited.includes(d.id) ? "nav-node": null)
@@ -238,7 +225,7 @@ export default function Navigation({id, modules}) {
             .style("fill", d => fontColor(d.name))
 
         onClickNav(navigate);
-        renderTooltip(pageId);
+        renderTooltip(pageId, fillScale);
 
     }, [modules, id])
 
