@@ -94,25 +94,24 @@ export default function Navigation({id, modules}) {
     const fontWeight = [500].concat(Array(navigationData.length - 1).fill(400));
     const fontColor = ["#cbcbcb"].concat(Array(navigationData.length - 1).fill("#868B90"));
     const textTransform = ["lowercase"].concat(Array(navigationData.length - 1).fill("none"));
+    
+    let pageId, otherPageIds;
+    let visited, strokeScale, fillScale, fontWeightScale, fontColorScale, textTransformScale;
 
     useEffect(() => {
 
-        let pageId = lookupPageId(id);
-        let otherPageIds = lookupOtherPages(id);
-
-        if (!modules.includes(pageId)) {
-            modules.push(pageId)
-        }
+        pageId = lookupPageId(id);
+        otherPageIds = lookupOtherPages(id);
 
         // Node scales
-        let visited = createVisited(modules);
-        let strokeScale = createStrokeScale(modules, visited);
-        let fillScale = createScale(pageId, otherPageIds, fill);
+        visited = createVisited(modules);
+        strokeScale = createStrokeScale(modules, visited);
+        fillScale = createScale(pageId, otherPageIds, fill);
 
         // Font scales
-        let fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
-        let fontColorScale = createScale(pageId, otherPageIds, fontColor);
-        let textTransformScale = createScale(pageId, otherPageIds, textTransform);
+        fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
+        fontColorScale = createScale(pageId, otherPageIds, fontColor);
+        textTransformScale = createScale(pageId, otherPageIds, textTransform);
 
         // Initialized svg
         let svg = d3.select("#Navigation-Chart")
@@ -165,20 +164,20 @@ export default function Navigation({id, modules}) {
 
     useEffect(() => {
 
-        let pageId = lookupPageId(id);
-        let otherPageIds = lookupOtherPages(id);
+        pageId = lookupPageId(id);
+        otherPageIds = lookupOtherPages(id);
 
         if (!modules.includes(pageId)) {
             modules.push(pageId)
         }
 
-        let visited = createVisited(modules);
-        let strokeScale = createStrokeScale(modules, visited);
-        let fillScale = createScale(pageId, otherPageIds, fill);
+        visited = createVisited(modules);
+        strokeScale = createStrokeScale(modules, visited);
+        fillScale = createScale(pageId, otherPageIds, fill);
 
-        let fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
-        let fontColorScale = createScale(pageId, otherPageIds, fontColor);
-        let textTransformScale = createScale(pageId, otherPageIds, textTransform);
+        fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
+        fontColorScale = createScale(pageId, otherPageIds, fontColor);
+        textTransformScale = createScale(pageId, otherPageIds, textTransform);
 
         d3.selectAll(".nav-node")
             .attr("class", d => visited.includes(d.id) ? "nav-node": null)
