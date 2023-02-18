@@ -159,7 +159,6 @@ export default function Classify({config, items, setItems, modules}) {
         setId(isOpen ? "fairness": "calibration");
     }, [isOpen])
 
-
     useEffect(() => {
         fairnessDefinitions();
     }, [])
