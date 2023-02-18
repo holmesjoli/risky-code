@@ -52,6 +52,8 @@ export default function Stakeholders({config, modules}) {
                             onClick={toggleOverlay}
                         />
                     </div>
+                    <p>Many of the algorithms intervening in decisions are considered high-stakes public policy decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions, etc.). However, not all public policy decisions are as high-stakes. The last module showed two examples of when algorithmically informed decision-making has been used. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
+                        <p></p>
                 </div>
             </div>
         </Overlay>:
