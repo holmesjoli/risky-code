@@ -7,49 +7,7 @@
         "": "Data collected by Vermin and Rubin"
     },
     {
-        "fairness_definition": "Conditional statistical parity",
-        "author": "Sam Corbett-Davies, Emma Pierson, Avi Feller, Sharad Goel, and Aziz Huq.",
-        "date": "2017",
-        "link": "https://dl-acm-org.ezproxy.neu.edu/doi/abs/10.1145/3097983.3098095",
-        "": ""
-    },
-    {
-        "fairness_definition": "Predictive parity",
-        "author": "Alexandra Chouldechova.",
-        "date": "2016",
-        "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047",
-        "": ""
-    },
-    {
-        "fairness_definition": "False positive error rate balance",
-        "author": "Alexandra Chouldechova.",
-        "date": "2016",
-        "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047",
-        "": ""
-    },
-    {
-        "fairness_definition": "False negative error rate balance",
-        "author": "Alexandra Chouldechova.",
-        "date": "2016",
-        "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047",
-        "": ""
-    },
-    {
-        "fairness_definition": "Equalised odds",
-        "author": "Moritz Hardt, Eric Price, and Nati Srebro.",
-        "date": "2014",
-        "link": "https://arxiv.org/abs/1610.02413",
-        "": ""
-    },
-    {
         "fairness_definition": "Conditional use accuracy equality",
-        "author": "Richard Berk, Hoda Heidari, Shahin Jabbari, Michael Kearns, Aaron Roth, Richard",
-        "date": "2017",
-        "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533",
-        "": ""
-    },
-    {
-        "fairness_definition": "Overall accuracy equality",
         "author": "Richard Berk, Hoda Heidari, Shahin Jabbari, Michael Kearns, Aaron Roth, Richard",
         "date": "2017",
         "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533",
@@ -63,17 +21,45 @@
         "": ""
     },
     {
-        "fairness_definition": "Test-fairness or calibration",
+        "fairness_definition": "Well calibration",
+        "author": "Jon M. Kleinberg, Sendhil Mullainathan, and Manish Raghavan.",
+        "date": "2017",
+        "link": "https://arxiv.org/abs/1609.05807",
+        "": ""
+    },
+    {
+        "fairness_definition": "Fair inference",
+        "author": "R. Nabi and I. Shpitser.",
+        "date": "2018",
+        "link": "https://arxiv.org/abs/1705.10378",
+        "": ""
+    },
+    {
+        "fairness_definition": "Equalised odds",
+        "author": "Moritz Hardt, Eric Price, and Nati Srebro.",
+        "date": "2014",
+        "link": "https://arxiv.org/abs/1610.02413",
+        "": ""
+    },
+    {
+        "fairness_definition": "Predictive parity",
         "author": "Alexandra Chouldechova.",
         "date": "2016",
         "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047",
         "": ""
     },
     {
-        "fairness_definition": "Well calibration",
-        "author": "Jon M. Kleinberg, Sendhil Mullainathan, and Manish Raghavan.",
+        "fairness_definition": "Overall accuracy equality",
+        "author": "Richard Berk, Hoda Heidari, Shahin Jabbari, Michael Kearns, Aaron Roth, Richard",
         "date": "2017",
-        "link": "https://arxiv.org/abs/1609.05807",
+        "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533",
+        "": ""
+    },
+    {
+        "fairness_definition": "Conditional statistical parity",
+        "author": "Sam Corbett-Davies, Emma Pierson, Avi Feller, Sharad Goel, and Aziz Huq.",
+        "date": "2017",
+        "link": "https://dl-acm-org.ezproxy.neu.edu/doi/abs/10.1145/3097983.3098095",
         "": ""
     },
     {
@@ -91,13 +77,6 @@
         "": ""
     },
     {
-        "fairness_definition": "Causal discrimination",
-        "author": "Sainyam Galhotra, Yuriy Brun, and Alexandra Meliou.",
-        "date": "2017",
-        "link": "https://dl-acm-org.ezproxy.neu.edu/doi/abs/10.1145/3106237.3106277",
-        "": ""
-    },
-    {
         "fairness_definition": "Fairness through unawareness",
         "author": "Matt J. Kusner, Joshua R. Loftus, Chris Russell, and Ricardo Silva.",
         "date": "2017",
@@ -109,6 +88,34 @@
         "author": "Cynthia Dwork, Moritz Hardt, Toniann Pitassi, Omer Reingold, and Richard Zemel",
         "date": "2012",
         "link": "https://dl-acm-org.ezproxy.neu.edu/doi/abs/10.1145/2090236.2090255",
+        "": ""
+    },
+    {
+        "fairness_definition": "False positive error rate balance",
+        "author": "Alexandra Chouldechova.",
+        "date": "2016",
+        "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047",
+        "": ""
+    },
+    {
+        "fairness_definition": "False negative error rate balance",
+        "author": "Alexandra Chouldechova.",
+        "date": "2016",
+        "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047",
+        "": ""
+    },
+    {
+        "fairness_definition": "No proxy discrimination",
+        "author": "N. Kilbertus, M. Rojas-Carulla, G. Parascandolo, M. Hardt, D. Janzing, and B. Schölkopf.",
+        "date": "2017",
+        "link": "https://arxiv.org/abs/1706.02744",
+        "": ""
+    },
+    {
+        "fairness_definition": "Causal discrimination",
+        "author": "Sainyam Galhotra, Yuriy Brun, and Alexandra Meliou.",
+        "date": "2017",
+        "link": "https://dl-acm-org.ezproxy.neu.edu/doi/abs/10.1145/3106237.3106277",
         "": ""
     },
     {
@@ -126,17 +133,10 @@
         "": ""
     },
     {
-        "fairness_definition": "No proxy discrimination",
-        "author": "N. Kilbertus, M. Rojas-Carulla, G. Parascandolo, M. Hardt, D. Janzing, and B. Schölkopf.",
-        "date": "2017",
-        "link": "https://arxiv.org/abs/1706.02744",
-        "": ""
-    },
-    {
-        "fairness_definition": "Fair inference",
-        "author": "R. Nabi and I. Shpitser.",
-        "date": "2018",
-        "link": "https://arxiv.org/abs/1705.10378",
+        "fairness_definition": "Test-fairness or calibration",
+        "author": "Alexandra Chouldechova.",
+        "date": "2016",
+        "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047",
         "": ""
     }
 ]

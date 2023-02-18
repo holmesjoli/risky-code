@@ -104,7 +104,7 @@ function fairnessDefinitions() {
         .attr("cy", d => d.y)
         .attr("r", 10)
         .attr("fill", "#131517")
-        .attr("stroke", "#272B30")
+        .attr("stroke", "#343940")
         .attr("stroke-width", 1.5)
         .attr("class", "shadow");
 
@@ -112,7 +112,7 @@ function fairnessDefinitions() {
         .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)})`)
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "bottom")
-        .attr("fill", "#d8d8d8")
+        .attr("fill", "#b6b6b7")
         .attr("font-size", 11)
         .text(d => d.fairness_definition)
         // .call(wrap, 100);
