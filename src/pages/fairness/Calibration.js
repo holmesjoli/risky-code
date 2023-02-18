@@ -45,7 +45,7 @@ function renderTooltip() {
         tooltip.style("visibility", "visible")
             .style("top", `${y}px`)
             .style("left", `${x}px`)
-            .html(`${d.fairness_definition} <br> ${d.author} ${d.angle}`);
+            .html(`${d.fairness_definition} <br> ${d.author}`);
 
         thisCircle
             .attr("stroke", highlightColor)
