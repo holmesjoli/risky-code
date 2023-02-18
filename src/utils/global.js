@@ -74,8 +74,14 @@ export const config = {
     "COMPAS": {
         "id": "compas",
         "title": "compas",
-        "subtitle": "Learn about the COMPAS recidivsm algorithm and critiques of its use",
+        "subtitle": "Learn about the COMPAS recidivsm algorithm",
         "descr": "In Laundry AID, we looked at different measures of algorithmic accuracy and error across the population of washable items as a whole. However, an important step in algorithmic development is to consider how different measures of algorithmic accuracy may vary across sub-populations. In the case of laundry AID, we could consider if the measures of algorithmic fairness differ by item type or material. The idea of algorithmic bias stems directly from the idea of sub-group comparison. One of the first times algorithmic bias was publically recognized was when the investigative journalism network ProPublica published an article in 2016 titled Machine Bias: There's software used across the country to predict future criminals. It's biased against blacks (Angwin et al. 2016). The article sparked a vibrant debate among many academic disciples about what it meant for an algorithm to be fair. The ProPublica analysis showed that while the calibration rate, the average recidivism rate by risk score, is approximately equal between Black and White, the algorithm's error rates differed substantially. In response to this observation, several mathematicians proved that it is mathematically impossible for multiple definitions of mathematical fairness to simultaneously exist (Kleinberg et al. 2016; Chouldechova 2016) if a population's overall recidivism rates differ. "
+    },
+    "StreetBump": {
+        "id": "street",
+        "title": "street bump",
+        "subtitle": "Learn about the Streep Bump application",
+        "descr": ""
     }
 }
 
@@ -116,8 +122,21 @@ export const navigationData = [ {
         "id": "error",
         "size": "Small",
         "navLink": "/Error"
-    }, {
-        "name": "Case Study - COMPAS",
+    }, 
+    {
+        "name": "Case Studies",
+        "id": "cases",
+        "size": "Large",
+        "navLink": "/StreetBump"
+    }, 
+    {
+        "name": "Street Bump",
+        "id": "street",
+        "size": "Small",
+        "navLink": "/StreetBump"
+    }, 
+    {
+        "name": "COMPAS",
         "id": "compas",
         "size": "Small",
         "navLink": "/COMPAS"
