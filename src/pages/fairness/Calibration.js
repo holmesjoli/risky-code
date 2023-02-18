@@ -16,7 +16,17 @@ import { wrap, highlightColor } from "../../utils/global";
 //     .range()
 
 function textAngle(angle) {
-    return (180/Math.PI)*angle;
+    return (180/Math.PI)*angle; 
+}
+
+function flipText(angle) {
+    
+    if (angle < 4.7 && angle > 1.6) {
+        return 180;
+    } else {
+        return 0;
+    }
+
 }
 
 // Tooltip
@@ -35,7 +45,7 @@ function renderTooltip() {
         tooltip.style("visibility", "visible")
             .style("top", `${y}px`)
             .style("left", `${x}px`)
-            .html(`${d.fairness_definition} <br> ${d.author} <br> ${d.angle}`);
+            .html(`${d.fairness_definition} <br> ${d.author} ${d.angle}`);
 
         thisCircle
             .attr("stroke", highlightColor)
@@ -57,7 +67,7 @@ function fairnessDefinitions() {
     let theta = ((Math.PI*2) / n);
     let width = 650;
     let height = 575;
-    let radius = 125; 
+    let radius = 120;
 
     for (let i in data) {
         data[i].angle = (theta * i);
@@ -170,7 +180,7 @@ export default function Classify({config, items, setItems, modules}) {
                     </div>
                     <p>AI researchers have proposed over 20 mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate the model to optimize for these different definitions and see how optimizing for one definition affects the other definitions.</p>
                     <div className="chart" id="Fairness-Chart"></div>
-                    <h5>Visualization created using data collected by Verma and Rubin (2018).</h5>
+                    <h6>Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
                 </div>
             </div>
         </Overlay>:
