@@ -144,11 +144,6 @@ export default function Navigation({id, modules}) {
 
     useEffect(() => {
 
-        let svg = d3.select("#Navigation-Chart")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height)
-
         let pageId = lookupPageId(id);
         let otherPageIds = lookupOtherPages(id);
 
@@ -166,6 +161,12 @@ export default function Navigation({id, modules}) {
         let fontColor = createFontColor(otherPageIds);
         let textTransform = createTextTransform(otherPageIds);
 
+        // Initialized svg
+        let svg = d3.select("#Navigation-Chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
         svg
             .append("line")
             .attr("x1", margin.left)
@@ -179,12 +180,8 @@ export default function Navigation({id, modules}) {
             .selectAll("circle")
             .data(navigationData)
             .enter()
-            // Add one g element for each data node here.
             .append("g")
-            // Position the g element like the circle element used to be.
             .attr("transform", function(d, i) {
-                // Set d.x and d.y here so that other elements can use it. d is 
-                // expected to be an object here.
                 d.x = margin.left;
                 d.y = i * space + margin.top;
                 return "translate(" + d.x + "," + d.y + ")"; 
@@ -197,7 +194,6 @@ export default function Navigation({id, modules}) {
             .attr("fill", d => fillScale(d.id))
             .attr("stroke", d => strokeScale(d.id));
 
-        // Add a text element to the previously added g element.
         nodes.append("text")
             .attr("x", 30)
             .attr("y", 5)
