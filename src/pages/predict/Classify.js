@@ -49,7 +49,7 @@ export default function Classify({config, items, setItems, modules}) {
             <div className="Containers-Container">
                 <div className="Container">
                     <div className="Overlay-Controls">
-                        <h3>introduction to fairness</h3>
+                        <h3>introduction to predict</h3>
                         <button
                             className="Overlay-Close"
                             type="button"
