@@ -43,36 +43,9 @@ function createStrokeScale(modules, visited) {
     return scale;
 }
 
-function createFillScale(pageId, otherPageIds, scaleRange) {
+function createScale(pageId, otherPageIds, scaleRange) {
 
     let scale = d3.scaleOrdinal()
-        .domain([pageId].concat(otherPageIds))
-        .range(scaleRange);
-
-    return scale;
-}
-
-function createFontWeight(pageId, otherPageIds, scaleRange) {
-
-    const scale = d3.scaleOrdinal()
-        .domain([pageId].concat(otherPageIds))
-        .range(scaleRange);
-
-    return scale;
-}
-
-function createFontColor(pageId, otherPageIds, scaleRange) {
-
-    const scale = d3.scaleOrdinal()
-        .domain([pageId].concat(otherPageIds))
-        .range(scaleRange);
-
-    return scale;
-}
-
-function createTextTransform(pageId, otherPageIds, scaleRange) {
-
-    const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
         .range(scaleRange);
 
@@ -134,12 +107,12 @@ export default function Navigation({id, modules}) {
         // Node scales
         let visited = createVisited(modules);
         let strokeScale = createStrokeScale(modules, visited);
-        let fillScale = createFillScale(pageId, otherPageIds, fill);
+        let fillScale = createScale(pageId, otherPageIds, fill);
 
         // Font scales
-        let fontWeightScale = createFontWeight(pageId, otherPageIds, fontWeight);
-        let fontColorScale = createFontColor(pageId, otherPageIds, fontColor);
-        let textTransformScale = createTextTransform(pageId, otherPageIds, textTransform);
+        let fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
+        let fontColorScale = createScale(pageId, otherPageIds, fontColor);
+        let textTransformScale = createScale(pageId, otherPageIds, textTransform);
 
         // Initialized svg
         let svg = d3.select("#Navigation-Chart")
@@ -201,11 +174,11 @@ export default function Navigation({id, modules}) {
 
         let visited = createVisited(modules);
         let strokeScale = createStrokeScale(modules, visited);
-        let fillScale = createFillScale(pageId, otherPageIds, fill);
+        let fillScale = createScale(pageId, otherPageIds, fill);
 
-        let fontWeightScale = createFontWeight(pageId, otherPageIds, fontWeight);
-        let fontColorScale = createFontColor(pageId, otherPageIds, fontColor);
-        let textTransformScale = createTextTransform(pageId, otherPageIds, textTransform);
+        let fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
+        let fontColorScale = createScale(pageId, otherPageIds, fontColor);
+        let textTransformScale = createScale(pageId, otherPageIds, textTransform);
 
         d3.selectAll(".nav-node")
             .attr("class", d => visited.includes(d.id) ? "nav-node": null)
