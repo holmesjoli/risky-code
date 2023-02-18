@@ -35,7 +35,7 @@ function renderTooltip(chartID) {
 
 // Adapted from https://d3-graph-gallery.com/graph/dendrogram_radial_basic.html
 // and https://observablehq.com/@d3/radial-tree
-export function policyDiagram(chartID) {
+export function policyDiagram(chartID, width = 550, height = 550) {
 
     const colorScale = d3.scaleOrdinal()
         .domain([2, 4, 3, 1, 0])
@@ -55,14 +55,14 @@ export function policyDiagram(chartID) {
         .range(["0px", "12px", "10px"]);
 
     const margin = {top: 50, right: 50, bottom: 50, left: 50},
-        width = 550 - margin.left - margin.right,
-        height = 550 - margin.top - margin.bottom;
+        w = width - margin.left - margin.right,
+        h = height - margin.top - margin.bottom;
 
-    const radius = width / 2;
+    const radius = w / 2;
     const svg = d3.select(`#${chartID}`)
         .append("svg")
-            .attr("width", width)
-            .attr("height", height)
+            .attr("width", w)
+            .attr("height", h)
         .append("g")
             .attr("transform", `translate(${radius},${radius})`);
 
