@@ -125,7 +125,7 @@ export const navigationData = [ {
         "name": "Deliberation",
         "id": "deliberation",
         "size": "Large",
-        "navLink": "/Deliberation"
+        "navLink": "/Stakeholders"
     }, {
         "name": "Stakeholder Mapping",
         "id": "stakeholders",

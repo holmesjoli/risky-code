@@ -70,7 +70,7 @@ export default function Stakeholders({config, modules}) {
                 <div className="Button-Container-Right">
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                 </div>
-                <Navigation id={config.id} modules={modules}/>
+                <Navigation id={id} modules={modules}/>
             </div>
         </div>
         <Footer/>
