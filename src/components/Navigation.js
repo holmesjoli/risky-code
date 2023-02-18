@@ -43,9 +43,7 @@ function createStrokeScale(modules, visited) {
     return scale;
 }
 
-function createFillScale(pageId, otherPageIds) {
-
-    let scaleRange = [highlightColor].concat(Array(otherPageIds.length).fill("#131517"));
+function createFillScale(pageId, otherPageIds, scaleRange) {
 
     let scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
@@ -54,9 +52,7 @@ function createFillScale(pageId, otherPageIds) {
     return scale;
 }
 
-function createFontWeight(pageId, otherPageIds) {
-
-    let scaleRange = [500].concat(Array(otherPageIds.length).fill(400));
+function createFontWeight(pageId, otherPageIds, scaleRange) {
 
     const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
@@ -65,9 +61,7 @@ function createFontWeight(pageId, otherPageIds) {
     return scale;
 }
 
-function createFontColor(pageId, otherPageIds) {
-
-    let scaleRange = ["#cbcbcb"].concat(Array(otherPageIds.length).fill("#868B90"));
+function createFontColor(pageId, otherPageIds, scaleRange) {
 
     const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
@@ -76,9 +70,7 @@ function createFontColor(pageId, otherPageIds) {
     return scale;
 }
 
-function createTextTransform(pageId, otherPageIds) {
-
-    let scaleRange = ["lowercase"].concat(Array(otherPageIds.length).fill("none"));
+function createTextTransform(pageId, otherPageIds, scaleRange) {
 
     const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
@@ -125,6 +117,10 @@ function renderTooltip(pageId, fillScale) {
 export default function Navigation({id, modules}) {
 
     let navigate = useNavigate();
+    const fill = [highlightColor].concat(Array(navigationData.length - 1).fill("#131517"));
+    const fontWeight = [500].concat(Array(navigationData.length - 1).fill(400));
+    const fontColor = ["#cbcbcb"].concat(Array(navigationData.length - 1).fill("#868B90"));
+    const textTransform = ["lowercase"].concat(Array(navigationData.length - 1).fill("none"));
 
     useEffect(() => {
 
@@ -138,12 +134,12 @@ export default function Navigation({id, modules}) {
         // Node scales
         let visited = createVisited(modules);
         let strokeScale = createStrokeScale(modules, visited);
-        let fillScale = createFillScale(pageId, otherPageIds);
+        let fillScale = createFillScale(pageId, otherPageIds, fill);
 
         // Font scales
-        let fontWeight = createFontWeight(pageId, otherPageIds);
-        let fontColor = createFontColor(pageId, otherPageIds);
-        let textTransform = createTextTransform(pageId, otherPageIds);
+        let fontWeightScale = createFontWeight(pageId, otherPageIds, fontWeight);
+        let fontColorScale = createFontColor(pageId, otherPageIds, fontColor);
+        let textTransformScale = createTextTransform(pageId, otherPageIds, textTransform);
 
         // Initialized svg
         let svg = d3.select("#Navigation-Chart")
@@ -183,10 +179,10 @@ export default function Navigation({id, modules}) {
             .attr("y", 5)
             .attr("font-size", 13)
             .attr("class", "nag-text")
-            .attr("font-weight", d => fontWeight(d.name))
-            .attr("text-transform", d => textTransform(d.id))
+            .attr("font-weight", d => fontWeightScale(d.name))
+            .attr("text-transform", d => textTransformScale(d.id))
             .attr("letter-spacing", ".8px")
-            .style("fill", d => fontColor(d.id))
+            .style("fill", d => fontColorScale(d.id))
             .text(d => d.name);
 
         onClickNav(navigate);
@@ -205,11 +201,11 @@ export default function Navigation({id, modules}) {
 
         let visited = createVisited(modules);
         let strokeScale = createStrokeScale(modules, visited);
-        let fillScale = createFillScale(pageId, otherPageIds);
+        let fillScale = createFillScale(pageId, otherPageIds, fill);
 
-        let fontWeight = createFontWeight(pageId, otherPageIds);
-        let fontColor = createFontColor(pageId, otherPageIds);
-        let textTransform = createTextTransform(pageId, otherPageIds);
+        let fontWeightScale = createFontWeight(pageId, otherPageIds, fontWeight);
+        let fontColorScale = createFontColor(pageId, otherPageIds, fontColor);
+        let textTransformScale = createTextTransform(pageId, otherPageIds, textTransform);
 
         d3.selectAll(".nav-node")
             .attr("class", d => visited.includes(d.id) ? "nav-node": null)
@@ -217,9 +213,9 @@ export default function Navigation({id, modules}) {
             .attr("stroke", d => strokeScale(d.id));
 
         d3.selectAll(".nav-text")
-            .attr("font-weight", d => fontWeight(d.id))
-            .attr("text-transform", d => textTransform(d.id))
-            .style("fill", d => fontColor(d.id))
+            .attr("font-weight", d => fontWeightScale(d.id))
+            .attr("text-transform", d => textTransformScale(d.id))
+            .style("fill", d => fontColorScale(d.id))
 
         onClickNav(navigate);
         renderTooltip(pageId, fillScale);
