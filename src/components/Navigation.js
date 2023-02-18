@@ -45,44 +45,44 @@ function createStrokeScale(modules, visited) {
 
 function createFillScale(pageId, otherPageIds) {
 
-    let fill = Array(otherPageIds.length).fill("#131517");
+    let scaleRange = [highlightColor].concat(Array(otherPageIds.length).fill("#131517"));
 
     let scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
-        .range([highlightColor].concat(fill));
+        .range(scaleRange);
 
     return scale;
 }
 
 function createFontWeight(pageId, otherPageIds) {
 
-    let weights = Array(otherPageIds.length).fill(400);
+    let scaleRange = [500].concat(Array(otherPageIds.length).fill(400));
 
     const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
-        .range([500].concat(weights));
+        .range(scaleRange);
 
     return scale;
 }
 
 function createFontColor(pageId, otherPageIds) {
 
-    let colors = Array(otherPageIds.length).fill("#868B90");
+    let scaleRange = ["#cbcbcb"].concat(Array(otherPageIds.length).fill("#868B90"));
 
     const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
-        .range(["#cbcbcb"].concat(colors));
+        .range(scaleRange);
 
     return scale;
 }
 
 function createTextTransform(pageId, otherPageIds) {
 
-    let cases = Array(otherPageIds.length).fill("none");
+    let scaleRange = ["lowercase"].concat(Array(otherPageIds.length).fill("none"));
 
     const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
-        .range(["lowercase"].concat(cases));
+        .range(scaleRange);
 
     return scale;
 }
