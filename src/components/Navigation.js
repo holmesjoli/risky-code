@@ -11,78 +11,160 @@ const width = 260;
 const space = 42;
 const margin = {left: 30, top: 30}
 
+let fillScale;
+
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
-    .range([5, 9])
+    .range([5, 9]);
 
-export default function Navigation({id, modules}) {
+function lookupPageId(id) {
+    const pageId = navigationData.filter(d => d.id === id).map(d => d.id)[0];
+    return pageId;
+}
 
-    let navigate = useNavigate(); 
+function lookupOtherPages(id) {
+    const pageId = navigationData.filter(d => d.id !== id).map(d => d.id);
+    return pageId;
+}
+
+function createVisited(modules) {
+    let visited = navigationData.filter(d => modules.includes(d.id)).map(d => d.id);
+
+    return visited;
+}
+
+function createStrokeScale(modules, visited) {
+ 
+    let notVisited = navigationData.filter(d => !modules.includes(d.id)).map(d => d.id);
+    let visitedColors = Array(visited.length).fill(highlightColor);
+    let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
+
+    let strokeScale = d3.scaleOrdinal()
+        .domain(visited.concat(notVisited))
+        .range(visitedColors.concat(notVisitedStrokes));
+
+    return strokeScale;
+}
+
+function createFillScale(pageId, otherPageIds) {
+
+    otherPageIds.unshift(pageId);
+    let fill = Array(otherPageIds.length).fill("#131517");
+    fill.unshift(highlightColor);
+
+    let fillScale = d3.scaleOrdinal()
+        .domain(otherPageIds)
+        .range(fill);
+
+    return fillScale;
+}
+
+function createFontWeight(pageId, otherPageIds) {
+
+    let bold = pageId;
+    let regular = otherPageIds;
+    regular.unshift(bold);
+
+    let weights = Array(regular.length - 1).fill(400);
+    weights.unshift(500);
+    
+    const fontWeight = d3.scaleOrdinal()
+        .domain(regular)
+        .range(weights);
+
+    return fontWeight;
+}
+
+function createFontColor(otherPageIds) {
+
+    let regular = otherPageIds;
+    // regular.unshift(bold);
+
+    let colors = Array(regular.length - 1).fill("#868B90");
+    colors.unshift("#cbcbcb");
+
+    const fontColor = d3.scaleOrdinal()
+        .domain(regular)
+        .range(colors);
+
+    return fontColor;
+}
+
+function createTextTransform(otherPageIds) {
+
+    let regular = otherPageIds;
+    let cases = Array(regular.length - 1).fill("none");
+    cases.unshift("lowercase");
+
+    const textTransform = d3.scaleOrdinal()
+        .domain(regular)
+        .range(cases);
+
+    return textTransform;
+}
+
+// Click to Navigate to a different page
+function onClickNav(navigate) {
+
     const routeChange = (d) => {
         navigate(d);
     }
 
+    d3.selectAll(".nav-node").on("click", function(e, d) {
+
+        // if(d.id === "predict") {
+        //     modules = modules.filter(item => item !== "predict")
+        // }
+
+        routeChange(d.navLink)
+    })
+}
+
+function renderTooltip(pageId) {
+    
+    d3.selectAll(".nav-node").on("mouseover", function(e, d) {
+
+        let thisCircle = d3.select(this);
+
+        thisCircle
+            .attr("stroke-width", d => d.id !== pageId ? 2: 1)
+            .attr("fill", d => d.id !== pageId ? "rgb(127, 194, 67, .2)": highlightColor);
+
+    }).on("mouseout", function() {
+
+        d3.selectAll('.nav-node')
+            .attr("stroke-width", 1)
+            .attr("fill", d => fillScale(d.id));
+    })
+}
+
+export default function Navigation({id, modules}) {
+
+    let navigate = useNavigate();
+
     useEffect(() => {
 
-        d3.select("#Navigation-Chart")
+        let svg = d3.select("#Navigation-Chart")
             .append("svg")
             .attr("width", width)
             .attr("height", height)
 
-    }, [])
+        let pageId = lookupPageId(id);
+        let otherPageIds = lookupOtherPages(id);
 
-    useEffect(() => {
-
-        let svg = d3.select("#Navigation-Chart svg")
-
-        let highlight = navigationData.filter(d => d.id === id).map(d => d.id)[0];
-        let regularColors = navigationData.filter(d => d.id !== id).map(d => d.id);
-
-        if (!modules.includes(highlight)) {
-            modules.push(highlight)
+        if (!modules.includes(pageId)) {
+            modules.push(pageId)
         }
 
-        let visited = navigationData.filter(d => modules.includes(d.id)).map(d => d.id);
-        let notVisited = navigationData.filter(d => !modules.includes(d.id)).map(d => d.id);
-        let visitedColors = Array(visited.length).fill(highlightColor);
-        let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
+        // Node scales
+        let visited = createVisited(modules);
+        let strokeScale = createStrokeScale(modules, visited);
+        fillScale = createFillScale(pageId, otherPageIds);
 
-        let fill = Array(regularColors.length).fill("#131517");
-        regularColors.unshift(highlight);
-        fill.unshift(highlightColor);
-
-        const fillScale = d3.scaleOrdinal()
-            .domain(regularColors)
-            .range(fill);
-
-        const strokeScale = d3.scaleOrdinal()
-            .domain(visited.concat(notVisited))
-            .range(visitedColors.concat(notVisitedStrokes));
-
-        let bold = navigationData.filter(d => d.id === id).map(d => d.name)[0];
-        let regular = navigationData.filter(d => d.id !== id).map(d => d.name);
-        regular.unshift(bold);
-
-        let weights = Array(regular.length - 1).fill(400);
-        weights.unshift(500);
-
-        const fontWeight = d3.scaleOrdinal()
-            .domain(regular)
-            .range(weights);
-
-        let colors = Array(regular.length - 1).fill("#868B90");
-        colors.unshift("#cbcbcb");
-
-        const fontColor = d3.scaleOrdinal()
-            .domain(regular)
-            .range(colors);
-
-        let cases = Array(regular.length - 1).fill("none");
-        cases.unshift("lowercase");
-
-        const textTransform = d3.scaleOrdinal()
-            .domain(regular)
-            .range(cases);
+        // Font scales
+        let fontWeight = createFontWeight(pageId, otherPageIds);
+        let fontColor = createFontColor(otherPageIds);
+        let textTransform = createTextTransform(otherPageIds);
 
         svg
             .append("line")
@@ -110,7 +192,7 @@ export default function Navigation({id, modules}) {
             .call(wrap, 40);
 
         nodes.append("circle")
-            .attr("class", d => visited.includes(d.id) ? "nav-node shadow2": null)
+            .attr("class", d => visited.includes(d.id) ? "nav-node": null)
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
             .attr("stroke", d => strokeScale(d.id));
@@ -120,36 +202,47 @@ export default function Navigation({id, modules}) {
             .attr("x", 30)
             .attr("y", 5)
             .attr("font-size", 13)
+            .attr("class", "nag-text")
             .attr("font-weight", d => fontWeight(d.name))
             .attr("text-transform", d => textTransform(d.name))
             .attr("letter-spacing", ".8px")
             .style("fill", d => fontColor(d.name))
             .text(d => d.name);
 
-        // Click to Navigate to a different page
-        d3.selectAll(".nav-node").on("click", function(e, d) {
+        onClickNav(navigate);
+        renderTooltip(pageId);
 
-            // if(d.id === "predict") {
-            //     modules = modules.filter(item => item !== "predict")
-            // }
+    }, [])
 
-            routeChange(d.navLink)
-        })
+    useEffect(() => {
 
-        d3.selectAll(".nav-node").on("mouseover", function(e, d) {
+        let pageId = lookupPageId(id);
+        let otherPageIds = lookupOtherPages(id);
 
-            let thisCircle = d3.select(this);
+        if (!modules.includes(pageId)) {
+            modules.push(pageId)
+        }
 
-            thisCircle
-                .attr("stroke-width", d => d.id !== highlight? 2: 1)
-                .attr("fill", d => d.id !== highlight? "rgb(127, 194, 67, .2)": highlightColor);
+        let visited = createVisited(modules);
+        let strokeScale = createStrokeScale(modules, visited);
+        fillScale = createFillScale(pageId, otherPageIds);
 
-        }).on("mouseout", function() {
+        let fontWeight = createFontWeight(pageId, otherPageIds);
+        let fontColor = createFontColor(otherPageIds);
+        let textTransform = createTextTransform(otherPageIds);
 
-            d3.selectAll('.nav-node')
-                .attr("stroke-width", 1)
-                .attr("fill", d => fillScale(d.id));
-        })
+        d3.selectAll(".nav-node")
+            .attr("class", d => visited.includes(d.id) ? "nav-node": null)
+            .attr("fill", d => fillScale(d.id))
+            .attr("stroke", d => strokeScale(d.id));
+
+        d3.selectAll(".nav-text")
+            .attr("font-weight", d => fontWeight(d.name))
+            .attr("text-transform", d => textTransform(d.name))
+            .style("fill", d => fontColor(d.name))
+
+        onClickNav(navigate);
+        renderTooltip(pageId);
 
     }, [modules, id])
 
