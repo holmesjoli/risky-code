@@ -56,7 +56,7 @@ function renderTooltip() {
         tooltip.style("visibility", "hidden");
 
         d3.selectAll("#Fairness-Chart circle")
-            .attr("stroke", "#272B30")
+            .attr("stroke", "#343940")
             .attr("stroke-width", 1);
     });
 }
@@ -105,7 +105,7 @@ function fairnessDefinitions() {
         .attr("r", 10)
         .attr("fill", "#131517")
         .attr("stroke", "#343940")
-        .attr("stroke-width", 1.5)
+        .attr("stroke-width", 1)
         .attr("class", "shadow");
 
     svg.append("text")
