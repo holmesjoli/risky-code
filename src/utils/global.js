@@ -80,8 +80,8 @@ export const config = {
     "StreetBump": {
         "id": "street",
         "title": "street bump",
-        "subtitle": "Learn about the Streep Bump application",
-        "descr": ""
+        "subtitle": "Learn about the Street Bump application",
+        "descr": "Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify problem roads."
     }
 }
 
