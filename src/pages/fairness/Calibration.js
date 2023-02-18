@@ -15,17 +15,6 @@ import { wrap, highlightColor } from "../../utils/global";
 //     .domain()
 //     .range()
 
-function textAnchor(angle) {
-
-    if (angle < 1.2 || angle > 5) {
-        return "start";
-    } else if(angle > 4.5) {
-        return "middle";
-    } else {
-        return "end";
-    }
-}
-
 function textAngle(angle) {
     return (180/Math.PI)*angle;
 }
@@ -67,7 +56,7 @@ function fairnessDefinitions() {
     let n = data.length;
     let theta = ((Math.PI*2) / n);
     let width = 650;
-    let height = 600;
+    let height = 575;
     let radius = 125; 
 
     for (let i in data) {
@@ -171,9 +160,17 @@ export default function Classify({config, items, setItems, modules}) {
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container">
-                    <h3>introduction to fairness</h3>
+                    <div className="Overlay-Controls">
+                        <h3>introduction to fairness</h3>
+                        <button
+                            className="Overlay-Close"
+                            type="button"
+                            onClick={toggleOverlay}
+                        />
+                    </div>
                     <p>AI researchers have proposed over 20 mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate the model to optimize for these different definitions and see how optimizing for one definition affects the other definitions.</p>
                     <div className="chart" id="Fairness-Chart"></div>
+                    <h5>Visualization created using data collected by Verma and Rubin (2018).</h5>
                 </div>
             </div>
         </Overlay>:

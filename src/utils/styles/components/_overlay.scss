@@ -36,8 +36,7 @@
 
 .Overlay-Controls {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: space-between;
 }
   
 .Overlay-Close:after {
@@ -50,8 +49,8 @@
   background-color: transparent;
   cursor: pointer;
   font-family: 'VG5000';
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
-  color: white;
+  color: $appColor;
 }

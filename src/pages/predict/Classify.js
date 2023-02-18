@@ -48,7 +48,14 @@ export default function Classify({config, items, setItems, modules}) {
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container">
-                    <h3>introduction to prediction</h3>
+                    <div className="Overlay-Controls">
+                        <h3>introduction to fairness</h3>
+                        <button
+                            className="Overlay-Close"
+                            type="button"
+                            onClick={toggleOverlay}
+                        />
+                    </div>
                     <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. The classifier we are building is called Laundry AID (Algorithmically Informed Decision-Making). Given a basket of dirty laundry, Laundry AID will predict which laundry items should be added to a hot water laundry load and which items should be saved later. Laundry AID aims to simplify the laundry process by automating the sorting step.</p>
                     <p>The steps to build Laundry AID are <span className='Semi-Bold'>train</span>, <span className='Semi-Bold'>model</span>, and <span className='Semi-Bold'>optimize</span>.</p>
                 </div>
