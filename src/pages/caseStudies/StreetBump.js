@@ -42,7 +42,7 @@ export default function StreetBump({config, modules}) {
     }, [isOpen]);
 
     useEffect(() => {
-        policyDiagram(chartID, 650, 575);
+        policyDiagram(chartID, 575, 575);
     }, []);
 
     return (
@@ -60,6 +60,7 @@ export default function StreetBump({config, modules}) {
                             onClick={toggleOverlay}
                         />
                     </div>
+                    <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of fairness apply.</p>
                     <div id={chartID} className="chart"></div>
                 </div>
             </div>
