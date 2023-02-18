@@ -36,55 +36,55 @@ function createStrokeScale(modules, visited) {
     let visitedColors = Array(visited.length).fill(highlightColor);
     let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
 
-    let strokeScale = d3.scaleOrdinal()
+    let scale = d3.scaleOrdinal()
         .domain(visited.concat(notVisited))
         .range(visitedColors.concat(notVisitedStrokes));
 
-    return strokeScale;
+    return scale;
 }
 
 function createFillScale(pageId, otherPageIds) {
 
     let fill = Array(otherPageIds.length).fill("#131517");
 
-    let fillScale = d3.scaleOrdinal()
+    let scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
         .range([highlightColor].concat(fill));
 
-    return fillScale;
+    return scale;
 }
 
 function createFontWeight(pageId, otherPageIds) {
 
     let weights = Array(otherPageIds.length).fill(400);
-    
-    const fontWeight = d3.scaleOrdinal()
+
+    const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
         .range([500].concat(weights));
 
-    return fontWeight;
+    return scale;
 }
 
 function createFontColor(pageId, otherPageIds) {
 
     let colors = Array(otherPageIds.length).fill("#868B90");
 
-    const fontColor = d3.scaleOrdinal()
+    const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
         .range(["#cbcbcb"].concat(colors));
 
-    return fontColor;
+    return scale;
 }
 
 function createTextTransform(pageId, otherPageIds) {
 
     let cases = Array(otherPageIds.length).fill("none");
 
-    const textTransform = d3.scaleOrdinal()
+    const scale = d3.scaleOrdinal()
         .domain([pageId].concat(otherPageIds))
         .range(["lowercase"].concat(cases));
 
-    return textTransform;
+    return scale;
 }
 
 // Click to Navigate to a different page
@@ -140,9 +140,6 @@ export default function Navigation({id, modules}) {
         let strokeScale = createStrokeScale(modules, visited);
         let fillScale = createFillScale(pageId, otherPageIds);
 
-        console.log(otherPageIds)
-
-
         // Font scales
         let fontWeight = createFontWeight(pageId, otherPageIds);
         let fontColor = createFontColor(pageId, otherPageIds);
@@ -187,9 +184,9 @@ export default function Navigation({id, modules}) {
             .attr("font-size", 13)
             .attr("class", "nag-text")
             .attr("font-weight", d => fontWeight(d.name))
-            .attr("text-transform", d => textTransform(d.name))
+            .attr("text-transform", d => textTransform(d.id))
             .attr("letter-spacing", ".8px")
-            .style("fill", d => fontColor(d.name))
+            .style("fill", d => fontColor(d.id))
             .text(d => d.name);
 
         onClickNav(navigate);
@@ -220,9 +217,9 @@ export default function Navigation({id, modules}) {
             .attr("stroke", d => strokeScale(d.id));
 
         d3.selectAll(".nav-text")
-            .attr("font-weight", d => fontWeight(d.name))
-            .attr("text-transform", d => textTransform(d.name))
-            .style("fill", d => fontColor(d.name))
+            .attr("font-weight", d => fontWeight(d.id))
+            .attr("text-transform", d => textTransform(d.id))
+            .style("fill", d => fontColor(d.id))
 
         onClickNav(navigate);
         renderTooltip(pageId, fillScale);
