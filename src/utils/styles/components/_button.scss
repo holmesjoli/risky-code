@@ -1,11 +1,9 @@
 .Next {
    position: absolute;
-   right: $containerMargin;
 }
 
 .Button-Container {
     position: relative;
-    // border-bottom: 1px solid #272B30;
     padding-right: $containerPadding;
     padding-bottom: $containerPadding;
     padding-left: $containerPadding;
@@ -17,14 +15,12 @@
 
 .Button-Container-Left {
     margin-right: $containerMargin;
-    min-height: 60px;
-    width: 100%;
 }
 
 .Button-Container-Right {
-    margin-left: $containerMargin;
-    margin-right: $containerMargin;
-    min-height: 60px;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: $containerMargin;
+    margin-bottom: $containerMargin;
 }
 

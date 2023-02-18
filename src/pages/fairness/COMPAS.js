@@ -32,14 +32,12 @@ export default function COMPAS({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <div className="Button-Container-Left">
-                            <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                    </div>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
                     <div className="Button-Container-Right">
-                            <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                        <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
                     <Navigation id={config.id} modules={modules}/>
                 </div>
