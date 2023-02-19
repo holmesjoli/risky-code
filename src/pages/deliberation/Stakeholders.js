@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { Button, TextField } from "@material-ui/core";
 import Description from '../../components/Description';
 import Navigation from '../../components/Navigation';
@@ -7,6 +7,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
+import Terminology from '../../components/Terminology';
 
 export function Content() {
     return(
@@ -18,7 +19,7 @@ export function Content() {
                 </div>
             </div>
             <div className="No-Margin-Bottom">
-                <h3 className="Small-Margin">primary stakeholders</h3>
+                <h3 className="Small-Margin">direct stakeholders</h3>
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
@@ -39,7 +40,7 @@ export function Content() {
                 </div>
             </div>
             <div className="No-Margin-Bottom">
-                <h3 className="Small-Margin">secondary stakeholders</h3>
+                <h3 className="Small-Margin">indirect stakeholders</h3>
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
@@ -117,6 +118,12 @@ export default function Stakeholders({config, modules}) {
         <div className="Main">
             <div className="Sidebar-Left">
                 <Description config={config}/>
+                <Terminology>
+                    <div className="Container-Outlined">
+                        <h5>stakeholders</h5>
+                        <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
+                    </div>
+                </Terminology>
             </div>
             <Content />
             <div className="Sidebar-Right">

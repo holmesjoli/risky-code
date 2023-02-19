@@ -163,7 +163,8 @@ h2 {
   font-weight: 400;
 }
 
-h3 {
+h3,
+.Header .Link {
   font-size: 1.05rem;
   letter-spacing: .5px;
   font-variant: small-caps;
@@ -176,10 +177,9 @@ h4 {
   font-weight: 400;
 }
 
-h5,
-.Header .Link {
+h5 {
   margin-bottom: .9rem;
-  font-size: .9rem;
+  font-size: 1rem;
   letter-spacing: .5px;
   font-variant: small-caps;
   font-weight: 400;

@@ -1,0 +1,9 @@
+.Description {
+    border-bottom: 1px solid $containerBorderColor;
+    margin-bottom: $containerMargin;
+}
+
+.Description div {
+    border-top: 1px solid $containerBorderColor;
+    padding-top: $containerPadding;
+}

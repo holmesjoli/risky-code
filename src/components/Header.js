@@ -5,8 +5,8 @@ export default function Header() {
     <div className="Header">
         <h1><NavLink to="/Introduction">Risky Code</NavLink></h1>
         <div className="Links">
-            <NavLink className="Link" to="/Glossary">Glossary</NavLink>
-            <NavLink className="Link" to="/Resources">Resources</NavLink>
+            <NavLink className="Link" to="/Glossary">glossary</NavLink>
+            <NavLink className="Link" to="/Resources">resources</NavLink>
         </div>
     </div>
     )

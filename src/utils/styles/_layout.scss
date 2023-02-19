@@ -84,11 +84,13 @@ ul {
     text-align: left;
 }
 
-.Description {
-    // border-top: 1px solid $containerBorderColor;
-    // padding: 0 $containerPadding;
-    border-bottom: 1px solid $containerBorderColor;
-    margin-bottom: $containerMargin
+.Container-Outlined {
+    // background-color: $containerBackgroundColor;
+    border: 1px solid $containerBorderColor;
+    border-radius: $containerBorderRadius;
+    padding: $containerPadding;
+    margin-bottom: $containerMarginBottom;
+    text-align: left;
 }
 
 .Visualization {
