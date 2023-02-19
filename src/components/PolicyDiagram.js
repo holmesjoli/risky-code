@@ -38,12 +38,24 @@ function adjustY(d) {
 
     if (d.x < 50) {
         return 28;
-    } else if (d.x >= 50 & d.x <= 250) {
+    } else if (d.x >= 50 && d.x <= 250 && d.y < 120) {
         return -25;
+    } else if (d.y > 200) {
+        return 0;
     } else {
         return 25;
     }
+}
 
+function adjustX(d) {
+
+    if (d.x >= 180 && d.x < 250 && d.y >= 180) {
+        return -150;
+    } else if(d.x >= 250 && d.y >= 180) {
+        return -135;
+    }else {
+        return -10;
+    }
 }
 
 function adjustStrokeColor(highlightNodes, style, d) {
@@ -53,9 +65,6 @@ function adjustStrokeColor(highlightNodes, style, d) {
         const scale = d3.scaleOrdinal()
             .domain([true, false])
             .range([visStyles[style]["highlightColor"], visStyles[style]["borderColor"]]);
-
-        
-        console.log(d.data.highlight)
 
         return scale(d.data.highlight);
 
@@ -146,6 +155,8 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
             return `rotate(${d.x-90}) translate(${d.y})`;
         });
 
+    console.log(descendants)
+
     circle
         .append("a")
         .attr("href", d => !d.children ? d.data.link: "none")
@@ -162,7 +173,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .append("text")
         .attr("transform", d => `rotate(${-(d.x-90)})`)
         .attr("dy", "0.32em")
-        .attr("x", d => d.x >= 180 ? -10 : -10)
+        .attr("x", d => adjustX(d))
         .attr("y", d => adjustY(d))
         .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
         .attr("fill", visStyles[style]["textColor"])
