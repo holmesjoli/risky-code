@@ -6,6 +6,7 @@ import Navigation from '../../components/Navigation';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
+import { policyDiagram } from '../../components/PolicyDiagram';
 
 export function Content() {
     return(
@@ -19,6 +20,7 @@ export default function Stakeholders({config, modules}) {
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");
     let navigate = useNavigate();
+    let chartID = "Policy-Chart3";
 
     const routeNext = () => {
         let path = `/Risk`; 
@@ -38,6 +40,10 @@ export default function Stakeholders({config, modules}) {
         setId(isOpen ? "deliberation": "stakeholders");
     }, [isOpen])
 
+    useEffect(() => {
+        policyDiagram(chartID, 490, 490);
+    }, []);
+
     return (
         <div className="App">{
             isOpen ?
@@ -53,7 +59,7 @@ export default function Stakeholders({config, modules}) {
                         />
                     </div>
                     <p>Many of the algorithms intervening in decisions are considered high-stakes public policy decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions, etc.). However, not all public policy decisions are as high-stakes. The last module showed two examples of when algorithmically informed decision-making has been used. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
-                        <p></p>
+                    <div id={chartID} className="chart"></div>
                 </div>
             </div>
         </Overlay>:
