@@ -42,7 +42,7 @@ export default function StreetBump({config, modules}) {
     }, [isOpen]);
 
     useEffect(() => {
-        policyDiagram(chartID, 575, 575);
+        policyDiagram(chartID, 490, 490);
     }, []);
 
     return (

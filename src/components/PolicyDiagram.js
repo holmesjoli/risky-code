@@ -130,8 +130,6 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("stroke", visStyles[style]["borderColor"])
         .attr("stroke-width", visStyles[style]["borderWidth"]);
 
-    console.log(descendants)
-
     circle
         .append("text")
         .attr("transform", d => `rotate(${-(d.x-90)})`)
