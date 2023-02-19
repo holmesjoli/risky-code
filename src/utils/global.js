@@ -241,7 +241,7 @@ export const visStyles = {
     "darkMode": {
         "highlightColor": "#40FF01",
         "textColor": "#cbcbcb",
-        "borderColor": "#343940",
+        "borderColor": "#868B90",
         "borderWidth": 1.5,
         "fillColor": "#131517",
         "fontSize": 12,

@@ -94,8 +94,8 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("d", linksGenerator)
         .style("fill", 'none')
         .attr("class", d => d.source.depth === 0 ? "Hidden": "Visible")
-        .attr("stroke", 'rgb(134, 139, 144)')
-        .attr("stroke-width", .5);
+        .attr("stroke", "#343940")
+        .attr("stroke-width", 1.5);
 
     // Add a circle for each node.
     let circle = svg
@@ -112,7 +112,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("href", d => !d.children ? d.data.link: "none")
         .attr("target", "_blank")
         .append("circle")
-        .attr("class", d => !d.children ? "node": "none")
+        .attr("class", d => !d.children ? "node shadow": "none")
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
         .attr("fill", visStyles[style]["fillColor"])
