@@ -117,7 +117,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("r", ((d) => rScale(d.data.group)))
         .attr("fill", visStyles[style]["fillColor"])
         .attr("stroke", visStyles[style]["borderColor"])
-        .attr("stroke-width", 1.5);
+        .attr("stroke-width", visStyles[style]["borderWidth"]);
 
     circle
         .append("text")
@@ -126,7 +126,8 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("x", d => (d.x < Math.PI) === !d.children ? 10 : -10)
         .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
         .attr("fill", visStyles[style]["textColor"])
-        .attr("font-size", 11)
+        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("letter-spacing", visStyles[style]["letterSpacing"])
         .text((d, i) => d.children ? labels[i]: "");
 
     renderTooltip(chartID);

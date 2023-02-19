@@ -105,7 +105,7 @@ function fairnessDefinitions(style = "darkMode") {
         .attr("r", 10)
         .attr("fill", visStyles[style]["fillColor"])
         .attr("stroke", visStyles[style]["borderColor"])
-        .attr("stroke-width", 1)
+        .attr("stroke-width", visStyles[style]["borderWidth"])
         .attr("class", "shadow");
 
     svg.append("text")
@@ -113,7 +113,8 @@ function fairnessDefinitions(style = "darkMode") {
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "bottom")
         .attr("fill", visStyles[style]["textColor"])
-        .attr("font-size", 11)
+        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("letter-spacing", visStyles[style]["letterSpacing"])
         .text(d => d.fairness_definition)
         // .call(wrap, 100);
 

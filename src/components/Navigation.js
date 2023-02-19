@@ -150,10 +150,10 @@ export default function Navigation({id, modules}) {
             .attr("x", 30)
             .attr("y", 5)
             .attr("font-size", 13)
-            .attr("class", "nag-text")
+            .attr("class", "nav-text")
             .attr("font-weight", d => fontWeightScale(d.id))
             .attr("text-transform", d => textTransformScale(d.id))
-            .attr("letter-spacing", ".7px")
+            .attr("letter-spacing", ".6px")
             .style("fill", d => fontColorScale(d.id))
             .text(d => d.name);
 

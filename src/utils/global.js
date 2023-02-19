@@ -242,7 +242,10 @@ export const visStyles = {
         "highlightColor": "#40FF01",
         "textColor": "#cbcbcb",
         "borderColor": "#343940",
-        "fillColor": "#131517"
+        "borderWidth": 1.5,
+        "fillColor": "#131517",
+        "fontSize": 11,
+        "letterSpacing": ".3px"
     },
     "colorMode": {
 
