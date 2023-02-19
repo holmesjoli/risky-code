@@ -1,0 +1,12 @@
+.Start {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.Start button {
+    margin: $containerMargin;
+    max-width: 50%;
+}

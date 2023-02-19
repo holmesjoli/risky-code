@@ -17,6 +17,7 @@ import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
+import Main from "./pages/Main";
 
 import { config, CARDS, VARIABLES }  from "./utils/global";
 import { useState} from "react";
@@ -30,7 +31,8 @@ export default function App() {
     return(
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Introduction config={config.Introduction} modules={modules}/>} />
+          <Route path="/" element={<Main/>} />
+          <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules}/>} />
