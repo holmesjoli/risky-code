@@ -240,22 +240,28 @@ export const visStyles = {
 
     "darkMode": {
         "highlightColor": "#40FF01",
-        "textColor": "#cbcbcb",
+        "textColor": "#868B90",
+        "textHighlightColor": "#cbcbcb",
         "borderColor": "#868B90",
         "borderWidth": 1.5,
         "fillColor": "#131517",
-        "fontSize": 12,
-        "letterSpacing": ".3px"
+        "fontSize": 13,
+        "fontWeight": 400,
+        "fontHighlightWeight": 500,
+        "letterSpacing": ".4px"
     },
     "colorMode": {
         "colors": ["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#F3C010"],
         "highlightColor": "#FFFFFF",
-        "textColor": "#cbcbcb",
+        "textColor": "#868B90",
+        "textHighlightColor": "#cbcbcb",
         "borderColor": "#868B90",
         "borderWidth": 1.5,
         "fillColor": "#131517",
-        "fontSize": 12,
-        "letterSpacing": ".3px"
+        "fontSize": 13,
+        "fontWeight": 400,
+        "fontHighlightWeight": 500,
+        "letterSpacing": ".4px"
     }
 
 }

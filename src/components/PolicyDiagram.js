@@ -50,9 +50,9 @@ function adjustY(d) {
 function adjustX(d) {
 
     if (d.x >= 180 && d.x < 250 && d.y >= 180) {
-        return -150;
+        return -165;
     } else if(d.x >= 250 && d.y >= 180) {
-        return -135;
+        return -152;
     }else {
         return -10;
     }
@@ -97,6 +97,34 @@ function adjustStrokeColor(highlightNodes, style, d) {
     }
 }
 
+function adjustTextColor(highlightNodes, style, d) {
+
+    if (highlightNodes) {
+
+        const scale = d3.scaleOrdinal()
+            .domain([true, false])
+            .range([visStyles[style]["textHighlightColor"], visStyles[style]["textColor"]]);
+        return scale(d.data.highlight);
+
+    } else {
+        return visStyles[style]["textColor"];
+    }
+}
+
+function adjustFontWeight(highlightNodes, style, d) {
+
+    if (highlightNodes) {
+
+        const scale = d3.scaleOrdinal()
+            .domain([true, false])
+            .range([visStyles[style]["fontHighlightWeight"], visStyles[style]["fontWeight"]]);
+        return scale(d.data.highlight);
+
+    } else {
+        return visStyles[style]["fontWeight"];
+    }
+}
+
 function adjustLabels(highlightNodes, d, labels, i) {
 
     if (highlightNodes) {
@@ -105,7 +133,6 @@ function adjustLabels(highlightNodes, d, labels, i) {
         return d.children ? labels[i]: "";
     }
 }
-
 
 // Adapted from https://d3-graph-gallery.com/graph/dendrogram_radial_basic.html
 // and https://observablehq.com/@d3/radial-tree
@@ -185,15 +212,18 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("x", d => adjustX(d))
         .attr("y", d => adjustY(d))
         .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
-        .attr("fill", visStyles[style]["textColor"])
+        .attr("fill", d => adjustTextColor(highlightNodes, style, d))
         .attr("font-size", visStyles[style]["fontSize"])
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
+        .attr("font-weight", d => adjustFontWeight(highlightNodes, style, d))
         .text((d, i) => adjustLabels(highlightNodes, d, labels, i));
 
     if (style === "colorMode") {
         transitionColor();
     }
 
-    renderTooltip(chartID, style);
+    if (!highlightNodes) {
+        renderTooltip(chartID, style);
+    }
     adjustFillColor(style);
 }
