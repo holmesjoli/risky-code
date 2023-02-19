@@ -58,15 +58,38 @@ function adjustX(d) {
     }
 }
 
-function adjustFillColor(style, d) {
+function randomColor() {
+    let colors = visStyles["colorMode"].colors;
+    const random = Math.floor(Math.random() * colors.length);
+    return colors[random];
+}
+
+
+function adjustFillColor(style) {
 
     if (style === "darkMode") {
         return visStyles[style]["fillColor"];
     } else {
-        let colors = visStyles["colorMode"].colors;
-        const random = Math.floor(Math.random() * colors.length);
-        return colors[random];
+        return randomColor();
     }
+}
+
+function colorCyan() {
+    d3.selectAll(".node")
+        .transition()
+        .ease(d3.easeBounce)
+        .duration(2000)
+        .style("fill", d => randomColor())
+        .on('end', colorMagenta);
+}
+
+function colorMagenta() {
+    d3.selectAll(".node")
+        .transition()
+        .ease(d3.easePoly)
+        .duration(2000)
+        .style("fill", d => randomColor())
+        .on('end', colorCyan);
 }
 
 
@@ -77,7 +100,6 @@ function adjustStrokeColor(highlightNodes, style, d) {
         const scale = d3.scaleOrdinal()
             .domain([true, false])
             .range([visStyles[style]["highlightColor"], visStyles[style]["borderColor"]]);
-
         return scale(d.data.highlight);
 
     } else {
@@ -162,7 +184,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("class", d => !d.children ? "node shadow": "none")
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
-        .attr("fill", d => adjustFillColor(style, d))
+        .attr("fill", d => adjustFillColor(style))
         .attr("stroke", d => adjustStrokeColor(highlightNodes, style, d))
         .attr("stroke-width", visStyles[style]["borderWidth"]);
 
@@ -177,6 +199,13 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("font-size", visStyles[style]["fontSize"])
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
         .text((d, i) => adjustLabels(highlightNodes, d, labels, i));
+
+    d3.selectAll(".node")
+        .transition()
+        .ease(d3.easePoly)
+        .duration(2000)
+        .style("fill", "#ff00ff")
+        .on('end', colorCyan);
 
     renderTooltip(chartID, style);
 
