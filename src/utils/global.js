@@ -69,7 +69,8 @@ export const config = {
     "Stakeholders": {
         "id": "stakeholders",
         "title": "stakeholder mapping",
-        "descr": ""
+        "subtitle": "Brainstorm a policy scenario where algorithmically informed decision-making is or could be implemented.",
+        "descr": "Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box."
     },
     "COMPAS": {
         "id": "compas",

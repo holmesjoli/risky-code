@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Button } from "@material-ui/core";
+import { Button, TextField } from "@material-ui/core";
 import Description from '../../components/Description';
 import Navigation from '../../components/Navigation';
 import Header from '../../components/Header';
@@ -10,7 +10,55 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 
 export function Content() {
     return(
-        <div className="Content">
+        <div className="Content Three-Row">
+            <div className="No-Margin-Bottom">
+                <h3 className="Small-Margin">policy scenario</h3>
+                <div className="Container">
+                    <TextField label="Add your policy scenario here" variant="outlined" />
+                </div>
+            </div>
+            <div className="No-Margin-Bottom">
+                <h3 className="Small-Margin">primary stakeholders</h3>
+                <div className="Four-Column">
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>group</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>values</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>best case scenario</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>worst case scenario</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                </div>
+            </div>
+            <div className="No-Margin-Bottom">
+                <h3 className="Small-Margin">secondary stakeholders</h3>
+                <div className="Four-Column">
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>group</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>values</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>best case scenario</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                    <div className="Container No-Margin-Bottom Column">
+                        <h5>worst case scenario</h5>
+                        <TextField label="edit me" variant="outlined" />
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -25,7 +73,7 @@ export default function Stakeholders({config, modules}) {
     const routeNext = () => {
         let path = `/Risk`; 
         navigate(path);
-      }
+    }
   
     const routeBack = () => {
         let path = `/COMPAS`; 

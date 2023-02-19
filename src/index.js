@@ -72,6 +72,11 @@ const theme = createTheme({
           }
         }
     },
+    MuiFormControl: {
+      root: {
+        width: "100%"
+      }
+    },
     MuiButton: {
       root: {
         borderRadius: "0.25rem",
