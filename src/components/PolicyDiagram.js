@@ -1,5 +1,6 @@
 import data from "../data/processed/policy.json";
 import * as d3 from 'd3';
+import { highlightColor } from "../utils/global";
 
 // Tooltip
 function renderTooltip(chartID) {
@@ -20,7 +21,7 @@ function renderTooltip(chartID) {
             .html(`${d.data.name}`);
 
         thisCircle
-            .attr("stroke", "white")
+            .attr("stroke", highlightColor)
             .attr("stroke-width", 2);
 
     }).on("mouseout", function() {
@@ -28,8 +29,8 @@ function renderTooltip(chartID) {
         tooltip.style("visibility", "hidden");
 
         d3.selectAll('.node')
-            .attr("stroke-width", .5)
-            .attr("stroke", "none"); 
+            .attr("stroke", "#343940")
+            .attr("stroke-width", 1);
     });
 }
 
@@ -44,7 +45,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
 
     const rScale = d3.scaleOrdinal()
         .domain(["Root", "Policy area", "Example"])
-        .range([0, 8, 5])
+        .range([0, 9, 6])
 
     const textColorScale = d3.scaleOrdinal()
         .domain(["Root", "Policy area", "Example"])
@@ -74,7 +75,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
     const root = d3.hierarchy(data, function(d) {
         return d.children;
     });
-    
+
     cluster(root);
 
     let label = d => d.name;
@@ -94,7 +95,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .style("fill", 'none')
         .attr("class", d => d.source.depth === 0 ? "Hidden": "Visible")
         .attr("stroke", 'rgb(134, 139, 144)')
-        .attr("stroke-width", 1);
+        .attr("stroke-width", .5);
 
     // Add a circle for each node.
     let circle = svg
@@ -104,26 +105,28 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("transform", function(d) {
             return `rotate(${d.x-90})
             translate(${d.y})`;
-        })
+        });
 
     circle
         .append("a")
         .attr("href", d => !d.children ? d.data.link: "none")
         .attr("target", "_blank")
         .append("circle")
-        .attr("class", "node")
+        .attr("class", d => !d.children ? "node": "none")
+        .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
-        .style("fill", ((d) => colorScale(d.data.area_id)));
+        .attr("fill", "#131517")
+        .attr("stroke", "#343940")
+        .attr("stroke-width", 1);
 
     circle
         .append("text")
         .attr("transform", d => `rotate(${d.x >= Math.PI ? 180 : 0})`)
         .attr("dy", "0.32em")
-        .attr("x", d => (d.x < Math.PI) === !d.children ? 8 : -8)
-        // .attr("text-anchor", d => (d.x < Math.PI) === !d.children ? "start" : "end")
-        // .attr("paint-order", "stroke")
-        .attr("fill", ((d) => textColorScale(d.data.group)))
-        .attr("font-size", ((d) => textSizeScale(d.data.group)))
+        .attr("x", d => (d.x < Math.PI) === !d.children ? 10 : -10)
+        .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
+        .attr("fill", "#b6b6b7")
+        .attr("font-size", 11)
         .text((d, i) => d.children ? labels[i]: "");
 
     renderTooltip(chartID);
