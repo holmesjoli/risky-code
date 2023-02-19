@@ -41,11 +41,11 @@ export default function Stakeholders({config, modules}) {
     }, [isOpen])
 
     useEffect(() => {
-        policyDiagram(chartID, 490, 490);
+        policyDiagram(chartID, 490, 490, "darkMode", false);
     }, []);
 
     return (
-        <div className="App">{
+        <div className="App"> {
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">

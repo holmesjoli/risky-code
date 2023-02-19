@@ -2,11 +2,13 @@
     "area_id": 0,
     "group": "Root",
     "name": "Algorithmically Informed Decision-Making",
+    "highlight": false,
     "children": [
         {
             "area_id": 1,
             "group": "Policy area",
             "name": "Education",
+            "highlight": false,
             "children": [
                 {
                     "example_id": 1,
@@ -14,6 +16,7 @@
                     "group": "Example",
                     "name": "School Assessment",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -22,6 +25,7 @@
                     "group": "Example",
                     "name": "Teacher Evaluation",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -30,6 +34,7 @@
                     "group": "Example",
                     "name": "School Admissions",
                     "citation": "O'Neil, 2016",
+                    "highlight": false,
                     "link": "https://dl-acm-org.ezproxy.neu.edu/doi/10.5555/3002861"
                 },
                 {
@@ -38,6 +43,7 @@
                     "group": "Example",
                     "name": "School Risk and Violence Assessment",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 }
             ]
@@ -46,6 +52,7 @@
             "area_id": 2,
             "group": "Policy area",
             "name": "Criminal Justice",
+            "highlight": false,
             "children": [
                 {
                     "example_id": 5,
@@ -53,6 +60,7 @@
                     "group": "Example",
                     "name": "Inmate Housing",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -61,6 +69,7 @@
                     "group": "Example",
                     "name": "Surveillance Technology",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -69,6 +78,7 @@
                     "group": "Example",
                     "name": "Predictive Policing",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -77,6 +87,7 @@
                     "group": "Example",
                     "name": "DNA Analysis",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -85,6 +96,7 @@
                     "group": "Example",
                     "name": "Sentencing Risk Assessment",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -93,6 +105,7 @@
                     "group": "Example",
                     "name": "Parole Risk Assessment",
                     "citation": "AINOW",
+                    "highlight": true,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 }
             ]
@@ -101,6 +114,7 @@
             "area_id": 3,
             "group": "Policy area",
             "name": "Human Services",
+            "highlight": false,
             "children": [
                 {
                     "example_id": 11,
@@ -108,6 +122,7 @@
                     "group": "Example",
                     "name": "Homelessness Prioritization",
                     "citation": "Eubanks, 2018",
+                    "highlight": false,
                     "link": "https://virginia-eubanks.com/automating-inequality/"
                 },
                 {
@@ -116,6 +131,7 @@
                     "group": "Example",
                     "name": "Child Risk Assessment",
                     "citation": "Eubanks, 2018",
+                    "highlight": false,
                     "link": "https://virginia-eubanks.com/automating-inequality/"
                 },
                 {
@@ -124,6 +140,7 @@
                     "group": "Example",
                     "name": "Medicaid Eligibility",
                     "citation": "Eubanks, 2018",
+                    "highlight": false,
                     "link": "https://virginia-eubanks.com/automating-inequality/"
                 }
             ]
@@ -132,6 +149,7 @@
             "area_id": 4,
             "group": "Policy area",
             "name": "Public Health",
+            "highlight": false,
             "children": [
                 {
                     "example_id": 14,
@@ -139,6 +157,7 @@
                     "group": "Example",
                     "name": "Disease Treatment",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -147,6 +166,7 @@
                     "group": "Example",
                     "name": "Prescription Drug Monitoring",
                     "citation": "AINOW",
+                    "highlight": false,
                     "link": "https://ainowinstitute.org/aap-toolkit.pdf"
                 },
                 {
@@ -155,6 +175,7 @@
                     "group": "Example",
                     "name": "Identifying Patients with Complex Needs",
                     "citation": "Obermeyer et al., 2019",
+                    "highlight": false,
                     "link": "https://www.science.org/doi/10.1126/science.aax2342"
                 }
             ]
@@ -163,6 +184,7 @@
             "area_id": 5,
             "group": "Policy area",
             "name": "Transportation",
+            "highlight": false,
             "children": [
                 {
                     "example_id": 15,
@@ -170,6 +192,7 @@
                     "group": "Example",
                     "name": "Pothole identification",
                     "citation": "City of Boston",
+                    "highlight": true,
                     "link": "https://www.boston.gov/transportation/street-bump#the-experiment"
                 }
             ]

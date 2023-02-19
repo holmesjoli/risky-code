@@ -46,9 +46,27 @@ function adjustY(d) {
 
 }
 
+function adjustStrokeColor(highlightNodes, style, d) {
+
+    if (highlightNodes) {
+
+        const scale = d3.scaleOrdinal()
+            .domain([true, false])
+            .range([visStyles[style]["highlightColor"], visStyles[style]["borderColor"]]);
+
+        
+        console.log(d.data.highlight)
+
+        return scale(d.data.highlight);
+
+    } else {
+        return visStyles[style]["fillColor"]
+    }
+}
+
 // Adapted from https://d3-graph-gallery.com/graph/dendrogram_radial_basic.html
 // and https://observablehq.com/@d3/radial-tree
-export function policyDiagram(chartID, width = 430, height = 430, style = "darkMode") {
+export function policyDiagram(chartID, width = 430, height = 430, style = "darkMode", highlightNodes = false) {
 
     const colorScale = d3.scaleOrdinal()
         .domain([2, 4, 3, 1, 0, 5])
@@ -127,7 +145,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
         .attr("fill", visStyles[style]["fillColor"])
-        .attr("stroke", visStyles[style]["borderColor"])
+        .attr("stroke", d => adjustStrokeColor(highlightNodes, style, d))
         .attr("stroke-width", visStyles[style]["borderWidth"]);
 
     circle
