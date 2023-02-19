@@ -1,6 +1,6 @@
 import data from "../data/processed/policy.json";
 import * as d3 from 'd3';
-import { highlightColor } from "../utils/global";
+import { highlightColor, textColor } from "../utils/global";
 
 // Tooltip
 function renderTooltip(chartID) {
@@ -117,7 +117,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("r", ((d) => rScale(d.data.group)))
         .attr("fill", "#131517")
         .attr("stroke", "#343940")
-        .attr("stroke-width", 1);
+        .attr("stroke-width", 1.5);
 
     circle
         .append("text")
@@ -125,7 +125,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("dy", "0.32em")
         .attr("x", d => (d.x < Math.PI) === !d.children ? 10 : -10)
         .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
-        .attr("fill", "#b6b6b7")
+        .attr("fill", textColor)
         .attr("font-size", 11)
         .text((d, i) => d.children ? labels[i]: "");
 

@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
-import { wrap, highlightColor } from "../../utils/global";
+import { wrap, highlightColor, textColor } from "../../utils/global";
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -112,7 +112,7 @@ function fairnessDefinitions() {
         .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)})`)
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "bottom")
-        .attr("fill", "#b6b6b7")
+        .attr("fill", textColor)
         .attr("font-size", 11)
         .text(d => d.fairness_definition)
         // .call(wrap, 100);

@@ -237,6 +237,7 @@ export function getModelVariables(variables) {
 }
 
 export const highlightColor = "#40FF01";
+export const textColor = "#cbcbcb";
 
 export function wrap(text, width) {
     text.each(function () {

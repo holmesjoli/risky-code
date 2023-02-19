@@ -4,7 +4,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { navigationData, highlightColor } from "../utils/global";
 import * as d3 from 'd3';
 import { useEffect } from 'react';
-import { wrap } from "../utils/global";
+import { wrap, textColor } from "../utils/global";
 
 const height = 505;
 const width = 260;
@@ -92,7 +92,7 @@ export default function Navigation({id, modules}) {
     let navigate = useNavigate();
     const fill = [highlightColor].concat(Array(navigationData.length - 1).fill("#131517"));
     const fontWeight = [500].concat(Array(navigationData.length - 1).fill(400));
-    const fontColor = ["#cbcbcb"].concat(Array(navigationData.length - 1).fill("#868B90"));
+    const fontColor = [textColor].concat(Array(navigationData.length - 1).fill("#868B90"));
     const textTransform = ["lowercase"].concat(Array(navigationData.length - 1).fill("none"));
     
     let pageId, otherPageIds;
@@ -153,7 +153,7 @@ export default function Navigation({id, modules}) {
             .attr("class", "nag-text")
             .attr("font-weight", d => fontWeightScale(d.name))
             .attr("text-transform", d => textTransformScale(d.id))
-            .attr("letter-spacing", ".8px")
+            .attr("letter-spacing", ".7px")
             .style("fill", d => fontColorScale(d.id))
             .text(d => d.name);
 
