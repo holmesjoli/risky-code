@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
-import { wrap, highlightColor, textColor, borderColor } from "../../utils/global";
+import { wrap, highlightColor, textColor, borderColor, fillColor } from "../../utils/global";
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -103,7 +103,7 @@ function fairnessDefinitions() {
         .attr("cx", d => d.x)
         .attr("cy", d => d.y)
         .attr("r", 10)
-        .attr("fill", "#131517")
+        .attr("fill", fillColor)
         .attr("stroke", borderColor)
         .attr("stroke-width", 1)
         .attr("class", "shadow");
