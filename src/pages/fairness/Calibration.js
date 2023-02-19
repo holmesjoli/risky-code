@@ -93,7 +93,7 @@ function fairnessDefinitions(style = "darkMode") {
 
     svg = svg.selectAll("circle")
         .data(data)
-        .enter()
+        .enter();
 
     svg
         .append("a")
@@ -112,11 +112,10 @@ function fairnessDefinitions(style = "darkMode") {
         .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)})`)
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "bottom")
-        .attr("fill", visStyles[style]["textColor"])
+        .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-size", 12)
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
-        .text(d => d.fairness_definition)
-        // .call(wrap, 100);
+        .text(d => d.fairness_definition);
 
     renderTooltip();
 }

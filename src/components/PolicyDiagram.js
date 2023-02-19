@@ -66,7 +66,6 @@ function randomColor() {
 
 
 function adjustFillColor(style) {
-
     if (style === "darkMode") {
         return visStyles[style]["fillColor"];
     } else {
@@ -107,7 +106,7 @@ function adjustTextColor(highlightNodes, style, d) {
         return scale(d.data.highlight);
 
     } else {
-        return visStyles[style]["textColor"];
+        return visStyles[style]["textHighlightColor"];
     }
 }
 
