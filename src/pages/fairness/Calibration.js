@@ -65,7 +65,7 @@ function fairnessDefinitions(style = "darkMode") {
 
     let n = data.length;
     let theta = ((Math.PI*2) / n);
-    let width = 650;
+    let width = 700;
     let height = 510;
     let radius = 120;
 
@@ -113,7 +113,7 @@ function fairnessDefinitions(style = "darkMode") {
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "bottom")
         .attr("fill", visStyles[style]["textColor"])
-        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("font-size", 12)
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
         .text(d => d.fairness_definition)
         // .call(wrap, 100);

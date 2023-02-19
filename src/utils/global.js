@@ -273,7 +273,7 @@ export function wrap(text, width) {
             word,
             line = [],
             lineNumber = 0,
-            lineHeight = 1.1, // ems
+            lineHeight = 1.4, // ems
             x = text.attr("x"),
             y = text.attr("y"),
             dy = 0, //parseFloat(text.attr("dy")),
