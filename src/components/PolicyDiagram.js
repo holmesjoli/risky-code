@@ -34,6 +34,18 @@ function renderTooltip(chartID, style="darkMode") {
     });
 }
 
+function adjustY(d) {
+
+    if (d.x < 50) {
+        return 28;
+    } else if (d.x >= 50 & d.x <= 250) {
+        return -25;
+    } else {
+        return 25;
+    }
+
+}
+
 // Adapted from https://d3-graph-gallery.com/graph/dendrogram_radial_basic.html
 // and https://observablehq.com/@d3/radial-tree
 export function policyDiagram(chartID, width = 430, height = 430, style = "darkMode") {
@@ -100,11 +112,10 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
     // Add a circle for each node.
     let circle = svg
         .selectAll("g")
-        .data(root.descendants())
+        .data(descendants)
         .join("g")
         .attr("transform", function(d) {
-            return `rotate(${d.x-90})
-            translate(${d.y})`;
+            return `rotate(${d.x-90}) translate(${d.y})`;
         });
 
     circle
@@ -119,11 +130,14 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("stroke", visStyles[style]["borderColor"])
         .attr("stroke-width", visStyles[style]["borderWidth"]);
 
+    console.log(descendants)
+
     circle
         .append("text")
-        .attr("transform", d => `rotate(${d.x >= Math.PI ? 180 : 0})`)
+        .attr("transform", d => `rotate(${-(d.x-90)})`)
         .attr("dy", "0.32em")
-        .attr("x", d => (d.x < Math.PI) === !d.children ? 10 : -10)
+        .attr("x", d => d.x >= 180 ? -10 : -10)
+        .attr("y", d => adjustY(d))
         .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
         .attr("fill", visStyles[style]["textColor"])
         .attr("font-size", visStyles[style]["fontSize"])
