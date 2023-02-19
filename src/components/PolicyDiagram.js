@@ -74,24 +74,14 @@ function adjustFillColor(style) {
     }
 }
 
-function colorCyan() {
-    d3.selectAll(".node")
-        .transition()
-        .ease(d3.easeBounce)
-        .duration(2000)
-        .style("fill", d => randomColor())
-        .on('end', colorMagenta);
-}
-
-function colorMagenta() {
+function transitionColor() {
     d3.selectAll(".node")
         .transition()
         .ease(d3.easePoly)
-        .duration(2000)
+        .duration(1000)
         .style("fill", d => randomColor())
-        .on('end', colorCyan);
+        .on('end', transitionColor);
 }
-
 
 function adjustStrokeColor(highlightNodes, style, d) {
 
@@ -200,14 +190,10 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
         .text((d, i) => adjustLabels(highlightNodes, d, labels, i));
 
-    d3.selectAll(".node")
-        .transition()
-        .ease(d3.easePoly)
-        .duration(2000)
-        .style("fill", "#ff00ff")
-        .on('end', colorCyan);
+    if (style === "colorMode") {
+        transitionColor();
+    }
 
     renderTooltip(chartID, style);
-
     adjustFillColor(style);
 }
