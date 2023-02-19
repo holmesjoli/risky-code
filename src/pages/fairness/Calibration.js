@@ -49,7 +49,7 @@ function renderTooltip() {
 
         thisCircle
             .attr("stroke", highlightColor)
-            .attr("stroke-width", 2);
+            .attr("stroke-width", 1.5);
 
     }).on("mouseout", function() {
 

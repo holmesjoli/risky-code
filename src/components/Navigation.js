@@ -151,7 +151,7 @@ export default function Navigation({id, modules}) {
             .attr("y", 5)
             .attr("font-size", 13)
             .attr("class", "nag-text")
-            .attr("font-weight", d => fontWeightScale(d.name))
+            .attr("font-weight", d => fontWeightScale(d.id))
             .attr("text-transform", d => textTransformScale(d.id))
             .attr("letter-spacing", ".7px")
             .style("fill", d => fontColorScale(d.id))
