@@ -97,10 +97,10 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("stroke-width", 1);
 
     // Add a circle for each node.
-    let circle = svg.append("g")
-        .selectAll("a")
+    let circle = svg
+        .selectAll("g")
         .data(root.descendants())
-        .join("a")
+        .join("g")
         .attr("transform", function(d) {
             return `rotate(${d.x-90})
             translate(${d.y})`;
@@ -119,8 +119,8 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .append("text")
         .attr("transform", d => `rotate(${d.x >= Math.PI ? 180 : 0})`)
         .attr("dy", "0.32em")
-        .attr("x", d => (d.x < Math.PI) === !d.children ? 6 : -6)
-        .attr("text-anchor", d => (d.x < Math.PI) === !d.children ? "start" : "end")
+        .attr("x", d => (d.x < Math.PI) === !d.children ? 8 : -8)
+        // .attr("text-anchor", d => (d.x < Math.PI) === !d.children ? "start" : "end")
         // .attr("paint-order", "stroke")
         .attr("fill", ((d) => textColorScale(d.data.group)))
         .attr("font-size", ((d) => textSizeScale(d.data.group)))
