@@ -42,6 +42,11 @@ const literature = {
         "reference": "Corbett-Davies, Sam, Emma Pierson, Avi Feller, and Sharad Goel. 2016. \"A Computer Program Used for Bail and Sentencing Decisions Was Labeled Biased against Blacks. It\'s Actually Not That Clear: The Tool Called COMPAS May Be Biased. But It's Hard to Tell.\" Washington Post - Blogs.",
         "url": "https://www.washingtonpost.com/news/monkey-cage/wp/2016/10/17/can-an-algorithm-be-racist-our-analysis-is-more-cautious-than-propublicas/"
     },
+    "Eubanks-2018": {
+        "inline-citation": "(Eubanks 2018)",
+        "reference": "Eubanks, Virginia. 2018. \"Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor.\" New York, NY: St. Martin\'s Press.",
+        "url": "https://virginia-eubanks.com/automating-inequality/"
+    },
     "Flores-2016": {
         "inline-citation": "(Flores et al. 2016)",
         "reference": "Flores, Anthony W, Kristin Bechtel, and Christopher T Lowenkamp. 2016. \"False Positives, False Negatives, and False Analyses: A Rejoinder to \'Machine Bias: There\'s Software Used across the Country to Predict Future Criminals, and It\'s Biased against Blacks.\'\" Federal Probation 80 (2): 38-.",
@@ -61,6 +66,16 @@ const literature = {
         "inline-citation": "(Narayanan, 2018)",
         "reference": 'Narayanan, Arvind. 2018. "Tutorial: 21 Fairness Definitions and Their Politics."',
         "url": "https://www.youtube.com/embed/jIXIuYdnyyk"
+    },
+    "Obermeyer-2019": {
+        "inline-citation": "(Obermeyer et al., 2019)",
+        "reference": "Obermeyer, Ziad, Brian Powers, Christine Vogeli, and Sendhil Mullainathan. 2019. \"Dissecting Racial Bias in an Algorithm Used to Manage the Health of Populations.\" Science (American Association for the Advancement of Science) 366 (6464): 447–53.",
+        "url": "https://www.science.org/doi/10.1126/science.aax2342"
+    },
+    "Oneil-2016": {
+        "inline-citation": "(O\'Neil, 2016)",
+        "reference": "O\'Neil, Cathy. 2016. Weapons of Math Destruction: How Big Data Increases Inequality and Threatens Democracy. 1st ed. New York: Penguin Random House LLC.",
+        "url": "https://dl-acm-org.ezproxy.neu.edu/doi/10.5555/3002861"
     },
     "Onuoha-2018": {
         "inline-citation": "(Onuoha and Nucera, 2018)",

@@ -17,7 +17,7 @@ function renderTooltip(chartID) {
         tooltip.style("visibility", "visible")
             .style("top", `${y}px`)
             .style("left", `${x}px`)
-            .html(`${d.data.group}: <b>${d.data.name}</b>`);
+            .html(`${d.data.name}`);
 
         thisCircle
             .attr("stroke", "white")
@@ -35,12 +35,12 @@ function renderTooltip(chartID) {
 
 // Adapted from https://d3-graph-gallery.com/graph/dendrogram_radial_basic.html
 // and https://observablehq.com/@d3/radial-tree
-export function policyDiagram(chartID, width = 550, height = 550) {
+export function policyDiagram(chartID, width = 430, height = 430) {
 
     const colorScale = d3.scaleOrdinal()
-        .domain([2, 4, 3, 1, 0])
+        .domain([2, 4, 3, 1, 0, 5])
         // .range(["#5B1647", "#93063E", "#CA0035", "#FF5627", "#000000"])
-        .range(["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#000000"]);
+        .range(["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#000000", "#F3C010"]);
 
     const rScale = d3.scaleOrdinal()
         .domain(["Root", "Policy area", "Example"])
@@ -54,7 +54,7 @@ export function policyDiagram(chartID, width = 550, height = 550) {
         .domain(["Root", "Policy area", "Example"])
         .range(["0px", "12px", "10px"]);
 
-    const margin = {top: 50, right: 50, bottom: 50, left: 50},
+    const margin = {top:0, right: 0, bottom: 10, left: 0},
         w = width - margin.left - margin.right,
         h = height - margin.top - margin.bottom;
 
@@ -68,7 +68,7 @@ export function policyDiagram(chartID, width = 550, height = 550) {
 
     // Set-up layout
     const cluster = d3.cluster()
-        .size([360, radius - 60]);  // 360 means whole circle. radius - 60 means 60 px of margin around dendrogram
+        .size([360, radius - 20]);  // 360 means whole circle. radius - 60 means 60 px of margin around dendrogram
 
     // Give the data to this cluster layout:
     const root = d3.hierarchy(data, function(d) {
@@ -106,6 +106,9 @@ export function policyDiagram(chartID, width = 550, height = 550) {
         })
 
     circle
+        .append("a")
+        .attr("href", d => !d.children ? d.data.link: "none")
+        .attr("target", "_blank")
         .append("circle")
         .attr("class", "node")
         .attr("r", ((d) => rScale(d.data.group)))
@@ -120,7 +123,7 @@ export function policyDiagram(chartID, width = 550, height = 550) {
         .attr("paint-order", "stroke")
         .attr("fill", ((d) => textColorScale(d.data.group)))
         .attr("font-size", ((d) => textSizeScale(d.data.group)))
-        .text((d, i) => labels[i]);
+        .text((d, i) => d.children ? labels[i]: "");
 
     renderTooltip(chartID);
 }

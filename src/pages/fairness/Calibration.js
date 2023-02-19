@@ -97,7 +97,7 @@ function fairnessDefinitions() {
 
     svg
         .append("a")
-        .attr("href", d=> d.link)
+        .attr("href", d => d.link)
         .attr("target", "_blank")
         .append("circle")
         .attr("cx", d => d.x)
