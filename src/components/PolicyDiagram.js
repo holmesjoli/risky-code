@@ -92,6 +92,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .join('path')
         .attr("d", linksGenerator)
         .style("fill", 'none')
+        .attr("class", d => d.source.depth === 0 ? "Hidden": "Visible")
         .attr("stroke", 'rgb(134, 139, 144)')
         .attr("stroke-width", 1);
 
@@ -120,7 +121,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("dy", "0.32em")
         .attr("x", d => (d.x < Math.PI) === !d.children ? 6 : -6)
         .attr("text-anchor", d => (d.x < Math.PI) === !d.children ? "start" : "end")
-        .attr("paint-order", "stroke")
+        // .attr("paint-order", "stroke")
         .attr("fill", ((d) => textColorScale(d.data.group)))
         .attr("font-size", ((d) => textSizeScale(d.data.group)))
         .text((d, i) => d.children ? labels[i]: "");
