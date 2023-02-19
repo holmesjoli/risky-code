@@ -244,7 +244,7 @@ export const visStyles = {
         "borderColor": "#343940",
         "borderWidth": 1.5,
         "fillColor": "#131517",
-        "fontSize": 11,
+        "fontSize": 12,
         "letterSpacing": ".3px"
     },
     "colorMode": {
@@ -252,11 +252,6 @@ export const visStyles = {
     }
 
 }
-
-export const highlightColor = "#40FF01";
-export const textColor = "#cbcbcb";
-export const borderColor = "#343940";
-export const fillColor = "#131517";
 
 export function wrap(text, width) {
     text.each(function () {

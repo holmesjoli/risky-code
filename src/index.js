@@ -5,7 +5,9 @@ import "./utils/styles/style.scss";
 import { createTheme, ThemeProvider } from "@material-ui/core";
 import reportWebVitals from "./reportWebVitals";
 import App from "./App"
-import { highlightColor } from "./utils/global";
+import { visStyles } from "./utils/global";
+
+const style = "darkMode";
 
 const theme = createTheme({
   typography: {
@@ -37,7 +39,7 @@ const theme = createTheme({
       root: {
         position: "relative",
         paddingLeft: 0,
-        borderColor: highlightColor,
+        borderColor: visStyles[style]["highlightColor"],
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: ".25rem",
@@ -47,7 +49,7 @@ const theme = createTheme({
         }
       },
       content: {
-        color: highlightColor,
+        color: visStyles[style]["highlightColor"],
         margin: 0,
         "&$expanded": {
           margin: 0
@@ -55,7 +57,7 @@ const theme = createTheme({
       },
       expandIcon: {
         position: "relative",
-        color: highlightColor
+        color: visStyles[style]["highlightColor"]
       }
     },
     MuiAccordionDetails: {
@@ -83,11 +85,11 @@ const theme = createTheme({
         fontSize: "1.05rem"
       },
       contained: {
-        backgroundColor: highlightColor
+        backgroundColor: visStyles[style]["highlightColor"]
       },
       outlinedSecondary: {
-        borderColor: highlightColor,
-        color: highlightColor
+        borderColor: visStyles[style]["highlightColor"],
+        color: visStyles[style]["highlightColor"]
       }
     }
   },

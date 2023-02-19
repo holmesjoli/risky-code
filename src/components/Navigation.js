@@ -1,15 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { navigationData, highlightColor } from "../utils/global";
 import * as d3 from 'd3';
 import { useEffect } from 'react';
-import { wrap, textColor } from "../utils/global";
+import { navigationData, wrap, visStyles } from "../utils/global";
 
 const height = 505;
 const width = 260;
 const space = 35;
 const margin = {left: 30, top: 30}
+const style = "darkMode";
 
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
@@ -33,7 +33,7 @@ function createVisited(modules) {
 function createStrokeScale(modules, visited) {
  
     let notVisited = navigationData.filter(d => !modules.includes(d.id)).map(d => d.id);
-    let visitedColors = Array(visited.length).fill(highlightColor);
+    let visitedColors = Array(visited.length).fill(visStyles[style]["highlightColor"]);
     let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
 
     let scale = d3.scaleOrdinal()
@@ -77,7 +77,7 @@ function renderTooltip(pageId, fillScale) {
 
         thisCircle
             .attr("stroke-width", d => d.id !== pageId ? 2: 1)
-            .attr("fill", d => d.id !== pageId ? "rgb(127, 194, 67, .2)": highlightColor);
+            .attr("fill", d => d.id !== pageId ? "rgb(127, 194, 67, .2)": visStyles[style]["highlightColor"]);
 
     }).on("mouseout", function() {
 
@@ -90,9 +90,9 @@ function renderTooltip(pageId, fillScale) {
 export default function Navigation({id, modules}) {
 
     let navigate = useNavigate();
-    const fill = [highlightColor].concat(Array(navigationData.length - 1).fill("#131517"));
+    const fill = [visStyles[style]["highlightColor"]].concat(Array(navigationData.length - 1).fill("#131517"));
     const fontWeight = [500].concat(Array(navigationData.length - 1).fill(400));
-    const fontColor = [textColor].concat(Array(navigationData.length - 1).fill("#868B90"));
+    const fontColor = [visStyles[style]["textColor"]].concat(Array(navigationData.length - 1).fill("#868B90"));
     const textTransform = ["lowercase"].concat(Array(navigationData.length - 1).fill("none"));
     
     let pageId, otherPageIds;
