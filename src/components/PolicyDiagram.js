@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 import { visStyles } from "../utils/global";
 
 // Tooltip
-function renderTooltip(chartID, style="darkMode") {
+function renderTooltip(chartID, style) {
 
     let tooltip = d3.select(`#${chartID}`)
         .append("div")
@@ -58,6 +58,18 @@ function adjustX(d) {
     }
 }
 
+function adjustFillColor(style, d) {
+
+    if (style === "darkMode") {
+        return visStyles[style]["fillColor"];
+    } else {
+        let colors = visStyles["colorMode"].colors;
+        const random = Math.floor(Math.random() * colors.length);
+        return colors[random];
+    }
+}
+
+
 function adjustStrokeColor(highlightNodes, style, d) {
 
     if (highlightNodes) {
@@ -87,22 +99,9 @@ function adjustLabels(highlightNodes, d, labels, i) {
 // and https://observablehq.com/@d3/radial-tree
 export function policyDiagram(chartID, width = 430, height = 430, style = "darkMode", highlightNodes = false) {
 
-    const colorScale = d3.scaleOrdinal()
-        .domain([2, 4, 3, 1, 0, 5])
-        // .range(["#5B1647", "#93063E", "#CA0035", "#FF5627", "#000000"])
-        .range(["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#000000", "#F3C010"]);
-
     const rScale = d3.scaleOrdinal()
         .domain(["Root", "Policy area", "Example"])
-        .range([0, 9, 6])
-
-    const textColorScale = d3.scaleOrdinal()
-        .domain(["Root", "Policy area", "Example"])
-        .range(["#000000", "#ffffff", "#d8d8d8"])
-
-    const textSizeScale = d3.scaleOrdinal()
-        .domain(["Root", "Policy area", "Example"])
-        .range(["0px", "12px", "10px"]);
+        .range([0, 9, 6]);
 
     const margin = {top:0, right: 0, bottom: 10, left: 0},
         w = width - margin.left - margin.right,
@@ -155,8 +154,6 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
             return `rotate(${d.x-90}) translate(${d.y})`;
         });
 
-    console.log(descendants)
-
     circle
         .append("a")
         .attr("href", d => !d.children ? d.data.link: "none")
@@ -165,7 +162,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("class", d => !d.children ? "node shadow": "none")
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
-        .attr("fill", visStyles[style]["fillColor"])
+        .attr("fill", d => adjustFillColor(style, d))
         .attr("stroke", d => adjustStrokeColor(highlightNodes, style, d))
         .attr("stroke-width", visStyles[style]["borderWidth"]);
 
@@ -181,5 +178,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
         .text((d, i) => adjustLabels(highlightNodes, d, labels, i));
 
-    renderTooltip(chartID);
+    renderTooltip(chartID, style);
+
+    adjustFillColor(style);
 }

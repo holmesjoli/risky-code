@@ -41,7 +41,7 @@ export default function Stakeholders({config, modules}) {
     }, [isOpen])
 
     useEffect(() => {
-        policyDiagram(chartID, 490, 490, "darkMode", false);
+        policyDiagram(chartID, 490, 490, "colorMode", false);
     }, []);
 
     return (
