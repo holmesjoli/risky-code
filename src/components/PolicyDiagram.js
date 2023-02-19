@@ -60,9 +60,19 @@ function adjustStrokeColor(highlightNodes, style, d) {
         return scale(d.data.highlight);
 
     } else {
-        return visStyles[style]["fillColor"]
+        return visStyles[style]["borderColor"];
     }
 }
+
+function adjustLabels(highlightNodes, d, labels, i) {
+
+    if (highlightNodes) {
+        return d.children || d.data.highlight ? labels[i]: "";
+    } else {
+        return d.children ? labels[i]: "";
+    }
+}
+
 
 // Adapted from https://d3-graph-gallery.com/graph/dendrogram_radial_basic.html
 // and https://observablehq.com/@d3/radial-tree
@@ -158,7 +168,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("fill", visStyles[style]["textColor"])
         .attr("font-size", visStyles[style]["fontSize"])
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
-        .text((d, i) => d.children ? labels[i]: "");
+        .text((d, i) => adjustLabels(highlightNodes, d, labels, i));
 
     renderTooltip(chartID);
 }
