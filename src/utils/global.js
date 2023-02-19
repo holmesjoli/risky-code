@@ -236,6 +236,20 @@ export function getModelVariables(variables) {
     return m;
 }
 
+export const visStyles = {
+
+    "darkMode": {
+        "highlightColor": "#40FF01",
+        "textColor": "#cbcbcb",
+        "borderColor": "#343940",
+        "fillColor": "#131517"
+    },
+    "colorMode": {
+
+    }
+
+}
+
 export const highlightColor = "#40FF01";
 export const textColor = "#cbcbcb";
 export const borderColor = "#343940";

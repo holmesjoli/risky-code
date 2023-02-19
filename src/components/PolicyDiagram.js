@@ -1,9 +1,9 @@
 import data from "../data/processed/policy.json";
 import * as d3 from 'd3';
-import { borderColor, highlightColor, textColor, fillColor } from "../utils/global";
+import { visStyles } from "../utils/global";
 
 // Tooltip
-function renderTooltip(chartID) {
+function renderTooltip(chartID, style="darkMode") {
 
     let tooltip = d3.select(`#${chartID}`)
         .append("div")
@@ -21,7 +21,7 @@ function renderTooltip(chartID) {
             .html(`${d.data.name}`);
 
         thisCircle
-            .attr("stroke", highlightColor)
+            .attr("stroke", visStyles[style]["highlightColor"])
             .attr("stroke-width", 1.5);
 
     }).on("mouseout", function() {
@@ -29,14 +29,14 @@ function renderTooltip(chartID) {
         tooltip.style("visibility", "hidden");
 
         d3.selectAll('.node')
-            .attr("stroke", borderColor)
+            .attr("stroke", visStyles[style]["borderColor"])
             .attr("stroke-width", 1);
     });
 }
 
 // Adapted from https://d3-graph-gallery.com/graph/dendrogram_radial_basic.html
 // and https://observablehq.com/@d3/radial-tree
-export function policyDiagram(chartID, width = 430, height = 430) {
+export function policyDiagram(chartID, width = 430, height = 430, style = "darkMode") {
 
     const colorScale = d3.scaleOrdinal()
         .domain([2, 4, 3, 1, 0, 5])
@@ -115,8 +115,8 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("class", d => !d.children ? "node": "none")
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
-        .attr("fill", fillColor)
-        .attr("stroke", borderColor)
+        .attr("fill", visStyles[style]["fillColor"])
+        .attr("stroke", visStyles[style]["borderColor"])
         .attr("stroke-width", 1.5);
 
     circle
@@ -125,7 +125,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("dy", "0.32em")
         .attr("x", d => (d.x < Math.PI) === !d.children ? 10 : -10)
         .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
-        .attr("fill", textColor)
+        .attr("fill", visStyles[style]["textColor"])
         .attr("font-size", 11)
         .text((d, i) => d.children ? labels[i]: "");
 

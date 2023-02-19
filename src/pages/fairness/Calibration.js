@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
-import { wrap, highlightColor, textColor, borderColor, fillColor } from "../../utils/global";
+import { wrap, visStyles } from "../../utils/global";
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -30,7 +30,7 @@ function flipText(angle) {
 }
 
 // Tooltip
-function renderTooltip() {
+function renderTooltip(style="darkMode") {
 
     let tooltip = d3.select("#Fairness-Chart")
         .append("div")
@@ -48,7 +48,7 @@ function renderTooltip() {
             .html(`${d.fairness_definition} <br> ${d.author}`);
 
         thisCircle
-            .attr("stroke", highlightColor)
+            .attr("stroke", visStyles[style]["highlightColor"])
             .attr("stroke-width", 1.5);
 
     }).on("mouseout", function() {
@@ -56,12 +56,12 @@ function renderTooltip() {
         tooltip.style("visibility", "hidden");
 
         d3.selectAll("#Fairness-Chart circle")
-            .attr("stroke", borderColor)
+            .attr("stroke", visStyles[style]["borderColor"])
             .attr("stroke-width", 1);
     });
 }
 
-function fairnessDefinitions() {
+function fairnessDefinitions(style = "darkMode") {
 
     let n = data.length;
     let theta = ((Math.PI*2) / n);
@@ -103,8 +103,8 @@ function fairnessDefinitions() {
         .attr("cx", d => d.x)
         .attr("cy", d => d.y)
         .attr("r", 10)
-        .attr("fill", fillColor)
-        .attr("stroke", borderColor)
+        .attr("fill", visStyles[style]["fillColor"])
+        .attr("stroke", visStyles[style]["borderColor"])
         .attr("stroke-width", 1)
         .attr("class", "shadow");
 
@@ -112,7 +112,7 @@ function fairnessDefinitions() {
         .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)})`)
         .attr("text-anchor", "start")
         .attr("alignment-baseline", "bottom")
-        .attr("fill", textColor)
+        .attr("fill", visStyles[style]["textColor"])
         .attr("font-size", 11)
         .text(d => d.fairness_definition)
         // .call(wrap, 100);
