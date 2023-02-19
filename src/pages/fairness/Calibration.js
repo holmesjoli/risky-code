@@ -66,7 +66,7 @@ function fairnessDefinitions() {
     let n = data.length;
     let theta = ((Math.PI*2) / n);
     let width = 650;
-    let height = 575;
+    let height = 510;
     let radius = 120;
 
     for (let i in data) {
@@ -177,9 +177,9 @@ export default function Classify({config, items, setItems, modules}) {
                             onClick={toggleOverlay}
                         />
                     </div>
-                    <p>AI researchers have proposed over 20 mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate the model to optimize for these different definitions and see how optimizing for one definition affects the other definitions.</p>
+                    <p>AI researchers have proposed over 20 mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate the model to optimize for these different definitions.</p>
                     <div className="chart" id="Fairness-Chart"></div>
-                    <h6>Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
+                    <h6 className="Small-Margin-Top">Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
                 </div>
             </div>
         </Overlay>:

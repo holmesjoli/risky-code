@@ -12,10 +12,10 @@
         "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533"
     },
     {
-        "fairness_definition": "Treatment equality",
-        "author": "Richard Berk, Hoda Heidari, Shahin Jabbari, Michael Kearns, Aaron Roth",
+        "fairness_definition": "No proxy discrimination",
+        "author": "N. Kilbertus, M. Rojas-Carulla, G. Parascandolo, M. Hardt, D. Janzing, and B. Schölkopf",
         "date": "2017",
-        "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533"
+        "link": "https://arxiv.org/abs/1706.02744"
     },
     {
         "fairness_definition": "Well calibration",
@@ -40,12 +40,6 @@
         "author": "Alexandra Chouldechova",
         "date": "2016",
         "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047"
-    },
-    {
-        "fairness_definition": "Overall accuracy equality",
-        "author": "Richard Berk, Hoda Heidari, Shahin Jabbari, Michael Kearns, Aaron Roth",
-        "date": "2017",
-        "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533"
     },
     {
         "fairness_definition": "Conditional statistical parity",
@@ -90,10 +84,16 @@
         "link": "https://www-liebertpub-com.ezproxy.neu.edu/doi/full/10.1089/big.2016.0047"
     },
     {
-        "fairness_definition": "No proxy discrimination",
-        "author": "N. Kilbertus, M. Rojas-Carulla, G. Parascandolo, M. Hardt, D. Janzing, and B. Schölkopf",
+        "fairness_definition": "Overall accuracy equality",
+        "author": "Richard Berk, Hoda Heidari, Shahin Jabbari, Michael Kearns, Aaron Roth",
         "date": "2017",
-        "link": "https://arxiv.org/abs/1706.02744"
+        "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533"
+    },
+    {
+        "fairness_definition": "Treatment equality",
+        "author": "Richard Berk, Hoda Heidari, Shahin Jabbari, Michael Kearns, Aaron Roth",
+        "date": "2017",
+        "link": "https://journals-sagepub-com.ezproxy.neu.edu/doi/full/10.1177/0049124118782533"
     },
     {
         "fairness_definition": "Causal discrimination",
