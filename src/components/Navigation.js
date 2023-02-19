@@ -8,12 +8,12 @@ import { wrap } from "../utils/global";
 
 const height = 505;
 const width = 260;
-const space = 42;
+const space = 35;
 const margin = {left: 30, top: 30}
 
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
-    .range([5, 9]);
+    .range([5, 8]);
 
 function lookupPageId(id) {
     const pageId = navigationData.filter(d => d.id === id).map(d => d.id)[0];
