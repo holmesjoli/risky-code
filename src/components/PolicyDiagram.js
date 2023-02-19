@@ -1,6 +1,6 @@
 import data from "../data/processed/policy.json";
 import * as d3 from 'd3';
-import { highlightColor, textColor } from "../utils/global";
+import { borderColor, highlightColor, textColor } from "../utils/global";
 
 // Tooltip
 function renderTooltip(chartID) {
@@ -29,7 +29,7 @@ function renderTooltip(chartID) {
         tooltip.style("visibility", "hidden");
 
         d3.selectAll('.node')
-            .attr("stroke", "#343940")
+            .attr("stroke", borderColor)
             .attr("stroke-width", 1);
     });
 }
@@ -116,7 +116,7 @@ export function policyDiagram(chartID, width = 430, height = 430) {
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
         .attr("fill", "#131517")
-        .attr("stroke", "#343940")
+        .attr("stroke", borderColor)
         .attr("stroke-width", 1.5);
 
     circle

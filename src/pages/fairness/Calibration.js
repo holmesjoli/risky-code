@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
-import { wrap, highlightColor, textColor } from "../../utils/global";
+import { wrap, highlightColor, textColor, borderColor } from "../../utils/global";
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -56,7 +56,7 @@ function renderTooltip() {
         tooltip.style("visibility", "hidden");
 
         d3.selectAll("#Fairness-Chart circle")
-            .attr("stroke", "#343940")
+            .attr("stroke", borderColor)
             .attr("stroke-width", 1);
     });
 }
@@ -104,7 +104,7 @@ function fairnessDefinitions() {
         .attr("cy", d => d.y)
         .attr("r", 10)
         .attr("fill", "#131517")
-        .attr("stroke", "#343940")
+        .attr("stroke", borderColor)
         .attr("stroke-width", 1)
         .attr("class", "shadow");
 
