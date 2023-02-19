@@ -9,7 +9,7 @@ function renderTooltip(chartID, style) {
         .append("div")
         .attr("class", "tooltip");
 
-    d3.selectAll(".node").on("mouseover", function(e, d) {
+    d3.selectAll(".example").on("mouseover", function(e, d) {
 
         let thisCircle = d3.select(this);
         let x = e.layerX + 20;
@@ -28,7 +28,7 @@ function renderTooltip(chartID, style) {
 
         tooltip.style("visibility", "hidden");
 
-        d3.selectAll('.node')
+        d3.selectAll('.example')
             .attr("stroke", visStyles[style]["borderColor"])
             .attr("stroke-width", 1);
     });
@@ -171,7 +171,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("href", d => !d.children ? d.data.link: "none")
         .attr("target", "_blank")
         .append("circle")
-        .attr("class", d => !d.children ? "node shadow": "none")
+        .attr("class", d => !d.children ? "node example shadow": "node")
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
         .attr("fill", d => adjustFillColor(style))
