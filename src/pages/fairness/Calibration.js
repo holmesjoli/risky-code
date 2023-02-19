@@ -22,11 +22,19 @@ function textAngle(angle) {
 function flipText(angle) {
     
     if (angle < 4.7 && angle > 1.6) {
-        return 180;
+        return `-1, -1`;
     } else {
-        return 0;
+        return `1, 1`;
     }
+}
 
+function textAnchor(angle) {
+    
+    if (angle < 4.7 && angle > 1.6) {
+        return "end";
+    } else {
+        return "start";
+    }
 }
 
 // Tooltip
@@ -109,8 +117,8 @@ function fairnessDefinitions(style = "darkMode") {
         .attr("class", "shadow");
 
     svg.append("text")
-        .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)})`)
-        .attr("text-anchor", "start")
+        .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)}) scale(${flipText(d.angle)})`)
+        .attr("text-anchor", d => textAnchor(d.angle))
         .attr("alignment-baseline", "bottom")
         .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-size", 12)
