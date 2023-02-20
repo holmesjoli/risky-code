@@ -90,7 +90,7 @@ export const navigationData = [ {
         "name": "Introduction",
         "id": "introduction",
         "size": "Large",
-        "navLink": "/"
+        "navLink": "/Introduction"
     }, {
         "name": "Predict",
         "id": "predict",
