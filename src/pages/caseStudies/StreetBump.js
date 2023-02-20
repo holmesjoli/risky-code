@@ -7,14 +7,60 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
+import * as d3 from 'd3';
+import coastline from "../../data/processed/Boston/coastline.json";
+import city from "../../data/processed/Boston/city.json";
+import park from "../../data/processed/Boston/park.json";
+
+function drawMap() {
+
+    // console.log(window.innerHeight, window.innerWidth)
+
+    const svg = d3
+        .select("#Boston-Map")
+        .append("svg")
+        .attr("preserveAspectRatio", "xMinYMin meet")
+        .style("background-color", "#fff")
+        .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+        .classed("svg-content", true);
+
+    const projection = d3
+        .geoAlbers()
+        .translate([window.innerWidth / 2, window.innerHeight / 2])
+        .scale(40)
+        .center([0, 50]);
+
+    let geoPathGenerator = d3
+        .geoPath()
+        .projection(projection);
+
+    console.log(coastline)
+    console.log(city)
+    
+    svg
+        .selectAll("path")
+        .data(park.features)
+        .enter()
+        .append("path")
+        // draw each country
+
+        .attr("d", geoPathGenerator)
+        .attr("color", "#eeeeee");
+}
 
 export function Content() {
+
+    // useEffect(() => {
+    //     drawMap();
+    // }, [])
+
     return(
         <div className="Content Two-Column-Three">
             <div className="Container">
             </div>
             <div className="Container">
-                <div className="Map Card-Flat"></div>
+                {/* <div id="Boston-Map" className="chart"></div> */}
+                {/* <h6>Map of Boston</h6> */}
             </div>
         </div>
     )

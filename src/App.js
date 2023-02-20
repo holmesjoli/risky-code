@@ -29,8 +29,6 @@ export default function App() {
     const [modules, setModules] = useState([]);
     const [direct, setDirect] = useState("");
     const [indirect, setIndirect] = useState("");
-    console.log(direct, indirect)
-
   
     return(
       <HashRouter>
