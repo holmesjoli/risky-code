@@ -23,7 +23,7 @@ export default function COMPAS({config, modules}) {
       }
   
     const routeBack = () => {
-        let path = `/Error`; 
+        let path = `/StreetBump`; 
         navigate(path);
     }
 
