@@ -9,7 +9,7 @@ import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 
-export function Content({setDirect, setIndirect}) {
+export function Content({direct, setDirect, indirect, setIndirect}) {
 
     const updateDirectStakeholders = (event) => {
         setDirect(event.target.value)
@@ -24,7 +24,7 @@ export function Content({setDirect, setIndirect}) {
             <div className="No-Margin-Bottom">
                 <h3 className="Small-Margin">policy scenario</h3>
                 <div className="Container">
-                    <TextField label="Add your policy scenario here" variant="outlined" />
+                    <TextField placeholder="Add your policy scenario here" variant="outlined" />
                 </div>
             </div>
             <div className="No-Margin-Bottom">
@@ -32,7 +32,7 @@ export function Content({setDirect, setIndirect}) {
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true} onChange={updateDirectStakeholders}/>
+                        <TextField label={direct} placeholder="edit me" variant="outlined" multiline={true} onChange={updateDirectStakeholders}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>values</h5>
@@ -53,7 +53,7 @@ export function Content({setDirect, setIndirect}) {
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true} onChange={updateIndirectStakeholders}/>
+                        <TextField label={indirect} placeholder="edit me" variant="outlined" multiline={true} onChange={updateIndirectStakeholders}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>values</h5>
