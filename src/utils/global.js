@@ -241,6 +241,7 @@ export const visStyles = {
 
     "darkMode": {
         "highlightColor": "#40FF01",
+        "secondaryHighlightColor": "#cbcbcb",
         "textColor": "#868B90",
         "textHighlightColor": "#cbcbcb",
         "borderColor": "#868B90",
@@ -254,6 +255,7 @@ export const visStyles = {
     "colorMode": {
         "colors": ["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#F3C010"],
         "highlightColor": "#FFFFFF",
+        "secondaryHighlightColor": "#cbcbcb",
         "textColor": "#868B90",
         "textHighlightColor": "#cbcbcb",
         "borderColor": "#868B90",

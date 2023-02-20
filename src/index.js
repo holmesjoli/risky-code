@@ -39,7 +39,7 @@ const theme = createTheme({
       root: {
         position: "relative",
         paddingLeft: 0,
-        borderColor: visStyles[style]["highlightColor"],
+        borderColor: visStyles[style]["secondaryHighlightColor"],
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: ".25rem",
@@ -49,7 +49,7 @@ const theme = createTheme({
         }
       },
       content: {
-        color: visStyles[style]["highlightColor"],
+        color: visStyles[style]["secondaryHighlightColor"],
         margin: 0,
         "&$expanded": {
           margin: 0
@@ -57,7 +57,7 @@ const theme = createTheme({
       },
       expandIcon: {
         position: "relative",
-        color: visStyles[style]["highlightColor"]
+        color: visStyles[style]["secondaryHighlightColor"]
       }
     },
     MuiAccordionDetails: {
@@ -90,11 +90,11 @@ const theme = createTheme({
         fontSize: "1.05rem"
       },
       contained: {
-        backgroundColor: visStyles[style]["highlightColor"]
+        backgroundColor: visStyles[style]["secondaryHighlightColor"]
       },
       outlinedSecondary: {
-        borderColor: visStyles[style]["highlightColor"],
-        color: visStyles[style]["highlightColor"]
+        borderColor: visStyles[style]["secondaryHighlightColor"],
+        color: visStyles[style]["secondaryHighlightColor"]
       }
     }
   },

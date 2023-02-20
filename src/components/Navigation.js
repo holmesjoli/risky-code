@@ -30,15 +30,15 @@ function createVisited(modules) {
     return visited;
 }
 
-function createStrokeScale(modules, visited) {
- 
-    let notVisited = navigationData.filter(d => !modules.includes(d.id)).map(d => d.id);
-    let visitedColors = Array(visited.length).fill(visStyles[style]["highlightColor"]);
+function createStrokeScale(pageId, modules, visited) {
+
+    let notVisited = navigationData.filter(d => !modules.includes(d.id) & d.id !== pageId).map(d => d.id);
+    let visitedColors = Array(visited.length).fill(visStyles[style]["secondaryHighlightColor"]);
     let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
 
     let scale = d3.scaleOrdinal()
-        .domain(visited.concat(notVisited))
-        .range(visitedColors.concat(notVisitedStrokes));
+        .domain([pageId].concat(visited.concat(notVisited)))
+        .range([visStyles[style]["highlightColor"]].concat(visitedColors.concat(notVisitedStrokes)));
 
     return scale;
 }
@@ -105,7 +105,7 @@ export default function Navigation({id, modules}) {
 
         // Node scales
         visited = createVisited(modules);
-        strokeScale = createStrokeScale(modules, visited);
+        strokeScale = createStrokeScale(pageId, modules, visited);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         // Font scales
@@ -172,7 +172,7 @@ export default function Navigation({id, modules}) {
         }
 
         visited = createVisited(modules);
-        strokeScale = createStrokeScale(modules, visited);
+        strokeScale = createStrokeScale(pageId, modules, visited);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
