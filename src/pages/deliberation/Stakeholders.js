@@ -23,19 +23,19 @@ export function Content() {
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>values</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>best case scenario</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>worst case scenario</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                 </div>
             </div>
@@ -44,19 +44,19 @@ export function Content() {
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>values</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>best case scenario</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>worst case scenario</h5>
-                        <TextField label="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" />
                     </div>
                 </div>
             </div>
