@@ -47,7 +47,7 @@ export const config = {
     "Calibration": {
         "id": "calibration",
         "title": "calibration",
-        "subtitle": "Learn about calibration definition of mathematical fairness",
+        "subtitle": "learn about calibration definition of mathematical fairness",
         "descr": ""
     },
     "Error": {
@@ -76,7 +76,7 @@ export const config = {
         "id": "compas",
         "title": "compas",
         "subtitle": "explore different versions of mathematical fairness",
-        "descr": "One of the first times algorithmic bias was publically recognized was when the investigative journalism network ProPublica published an article in 2016 titled Machine Bias: There's software used across the country to predict future criminals. It's biased against blacks (Angwin et al. 2016). The article sparked a vibrant debate among many academic disciples about what it meant for an algorithm to be fair. The ProPublica analysis showed that while the calibration rate, the average recidivism rate by risk score, is approximately equal between Black and White, the algorithm's error rates differed substantially."
+        "descr": "COMPAS is a recidivism algorithm initially designed to inform parole decisions. As of 2020, COMPAS was in use in four states at multiple points in the criminal justice system, including, pretrial release, sentencing, prison programming, parole supervision, and probation supervision (Dipshan and Hudgins, 2020)."
     },
     "StreetBump": {
         "id": "street",

@@ -188,7 +188,7 @@ export default function Classify({config, items, setItems, modules}) {
                     </div>
                     <p>AI researchers have proposed over 20 mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate the model to optimize for these different definitions.</p>
                     <div className="chart" id="Fairness-Chart"></div>
-                    <h6 className="Small-Margin-Top">Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
+                    <h6 className="Small-Margin-Top">Visualization shows 20 definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
                 </div>
             </div>
         </Overlay>:
@@ -199,6 +199,10 @@ export default function Classify({config, items, setItems, modules}) {
             <div className="Sidebar-Left">
                 <Description config={config}/>
                 <Terminology>
+                        <div className="Container-Outlined">
+                            <h5>mathematical fairness</h5>
+                            <p>Formal mathematical constructions of legal concepts such as "equal protection" and "disparate impact" <NavLink to="/Resources">(Movva 2021)</NavLink></p>
+                        </div>
                         <div className="Container-Outlined">
                             <h5>calibration rate</h5>
                             <p></p>

@@ -42,6 +42,11 @@ const literature = {
         "reference": "Corbett-Davies, Sam, Emma Pierson, Avi Feller, and Sharad Goel. 2016. \"A Computer Program Used for Bail and Sentencing Decisions Was Labeled Biased against Blacks. It\'s Actually Not That Clear: The Tool Called COMPAS May Be Biased. But It's Hard to Tell.\" Washington Post - Blogs.",
         "url": "https://www.washingtonpost.com/news/monkey-cage/wp/2016/10/17/can-an-algorithm-be-racist-our-analysis-is-more-cautious-than-propublicas/"
     },
+    "Dipshan-2020": {
+        "inline-citation": "(Dipshan and Hudgins, 2020)",
+        "reference": "Dipshan, Rhys, and Victoria Hudgins. 2020. \"The Most Widely Used Risk Assessment Tool in Each U.S State.\" The Most Widely Used Risk Assessment Tool in Each U.S State (blog). 2020. https://www.law.com/legaltechnews/2020/07/13/the-most-widely-used-risk-assessment-tool-in-each-u-s-state/?slreturn=20230120095740.",
+        "url": "https://www.law.com/legaltechnews/2020/07/13/the-most-widely-used-risk-assessment-tool-in-each-u-s-state/?slreturn=20230120095740"
+    },
     "Eubanks-2018": {
         "inline-citation": "(Eubanks 2018)",
         "reference": "Eubanks, Virginia. 2018. \"Automating Inequality: How High-Tech Tools Profile, Police, and Punish the Poor.\" New York, NY: St. Martin\'s Press.",

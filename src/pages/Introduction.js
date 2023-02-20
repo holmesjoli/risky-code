@@ -21,7 +21,7 @@ export function Content() {
         <div className="Content Two-Column">
             <div className="Container">
                 <div id={chartID} className="chart"></div>
-                <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Visualization created from data in AINOW (2018) and Obermeyer et al. (2019).</h6>
+                <h6 className="Small-Margin">Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
             </div>
             <div className="Container">
                 <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <em>Machine Bias</em>. The article accused Equivant (formerly Northepointe), the developer of COMPAS, a recidivism algorithm, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. The article sparked passionate discourse across industries and disciplines — journalists, lawyers, data scientists, and mathematicians — resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>

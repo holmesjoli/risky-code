@@ -90,7 +90,7 @@ export default function Stakeholders({config, modules}) {
     }, [isOpen])
 
     useEffect(() => {
-        policyDiagram(chartID, 490, 490, "colorMode", false);
+        policyDiagram(chartID, 480, 480, "colorMode", false);
     }, []);
 
     return (
@@ -107,8 +107,9 @@ export default function Stakeholders({config, modules}) {
                             onClick={toggleOverlay}
                         />
                     </div>
-                    <p>Many of the algorithms intervening in decisions are considered high-stakes public policy decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions, etc.). However, not all public policy decisions are as high-stakes. The last module showed two examples of when algorithmically informed decision-making has been used. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
+                    <p>Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The last module showed two examples of algorithmically informed decision-making use cases. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
                     <div id={chartID} className="chart"></div>
+                    <h6 className="Small-Margin">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
                 </div>
             </div>
         </Overlay>:

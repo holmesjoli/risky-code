@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import Description from '../../components/Description';
 import Navigation from '../../components/Navigation';
@@ -62,8 +62,7 @@ export default function StreetBump({config, modules}) {
                     </div>
                     <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of fairness apply.</p>
                     <div id={chartID} className="chart"></div>
-                    <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Visualization created from data in AINOW (2018) and Obermeyer et al. (2019).</h6>
-                </div>
+                    <h6 className="Small-Margin">Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Case studies are highlighed in green. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>                </div>
             </div>
         </Overlay>:
         <></>

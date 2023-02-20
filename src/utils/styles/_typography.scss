@@ -185,7 +185,8 @@ h5 {
   font-weight: 400;
 }
 
-h6 {
+h6,
+h6 > a {
   font-size: .8rem;
   line-height: 1.5;
   margin-bottom: .3rem;
@@ -220,7 +221,12 @@ a:visited {
   color: $appColor;
 }
 
-a:hover {
+h6 > a:visited {
+  color: #868B90;
+}
+
+a:hover,
+h6 > a:hover {
   color: $appColorFocus;
 }
 
