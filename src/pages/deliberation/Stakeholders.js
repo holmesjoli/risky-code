@@ -9,7 +9,21 @@ import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 
-export function Content() {
+export function Content({}) {
+
+    const [direct, setDirect] = useState("");
+    const [indirect, setIndirect] = useState("");
+
+    const updateDirectStakeholders = (event) => {
+        console.log(event.target.value)
+        setDirect(event.target.value)
+    }
+
+    const updateIndirectStakeholders = (event) => {
+        console.log(event.target.value)
+        setIndirect(event.target.value)
+    }
+
     return(
         <div className="Content Three-Row">
             <div className="No-Margin-Bottom">
@@ -23,19 +37,19 @@ export function Content() {
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true} onChange={updateDirectStakeholders}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>values</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>best case scenario</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>worst case scenario</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                 </div>
             </div>
@@ -44,19 +58,19 @@ export function Content() {
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
                         <h5>group</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true} onChange={updateIndirectStakeholders}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>values</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>best case scenario</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h5>worst case scenario</h5>
-                        <TextField placeholder="edit me" variant="outlined" />
+                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                 </div>
             </div>

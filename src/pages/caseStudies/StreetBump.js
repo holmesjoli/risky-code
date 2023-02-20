@@ -10,7 +10,12 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 
 export function Content() {
     return(
-        <div className="Content">
+        <div className="Content Two-Column-Three">
+            <div className="Container">
+            </div>
+            <div className="Container">
+                <div className="Map Card-Flat"></div>
+            </div>
         </div>
     )
 }
