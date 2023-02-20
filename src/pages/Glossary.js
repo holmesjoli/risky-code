@@ -67,6 +67,26 @@ const glossary = {
             }
         }
     },
+    "fnr": {
+        "name": "false negative rate",
+        "definitions": {
+            "def1": {
+                "definition": "",
+                "citation": "",
+                "link": ""
+            }
+        }
+    },
+    "fpr": {
+        "name": "false positive rate",
+        "definitions": {
+            "def1": {
+                "definition": "",
+                "citation": "",
+                "link": ""
+            }
+        }
+    },
     "sociotechnical": {
         "name": "sociotechnical",
         "definitions": {

@@ -29,19 +29,19 @@ export const config = {
     "Classify": {
         "id": "classify",
         "title": "classify",
-        "subtitle": "Classify each item as hot water load or save for later",
+        "subtitle": "classify each item",
         "descr": "In this step of model building, we will classify each item to be run in the hot water load or save for later. For each item click hot water load or save for later. In the next step, we will use this data to train Laundry AID."
     },
     "Optimize": {
         "id": "optimize",
         "title": "optimize",
-        "subtitle": "Optimize model to be as accurate as possible",
+        "subtitle": "optimize the model for accuracy",
         "descr": "In this step of model building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy."
     },
     "Train": {
         "id": "train",
         "title": "train",
-        "subtitle": "Predict which items should be included in the hot water load",
+        "subtitle": "predict which items should be included in the hot water load",
         "descr": "In this step of model building, we will train the Laundry AID to predict whether new items should be added to the hot water load. Drag the data variables from the variable list to the model list to add them to the model. Add or remove variables from the model to see how the predicitive probabilities change."
     },
     "Calibration": {
@@ -52,9 +52,9 @@ export const config = {
     },
     "Error": {
         "id": "error",
-        "title": "error",
-        "subtitle": "Minimize the error rates",
-        "descr": "The false positive rate (FPR) is a measure of algorithmic error. It represents the probability of falsely rejecting the truth. It is calculated as the proportion of negative cases incorrectly predicted by the algorithm as positive cases. The negative cases are referred to as false positives and the positive cases are referred to as true positives. To calculate the false positive rate, we divide the number of false positives by the sum of the false positives and true positives. Adjust the slider to see how the false positive rate changes as you increase or decrease the threshold."
+        "title": "error rates",
+        "subtitle": "minimize the error rates",
+        "descr": "Adjust the slider to see how the false positive rate changes as you increase or decrease the threshold."
     },
     "Decision": {
         "id": "decision",
@@ -69,19 +69,19 @@ export const config = {
     "Stakeholders": {
         "id": "stakeholders",
         "title": "stakeholder mapping",
-        "subtitle": "Brainstorm a policy scenario where algorithmically informed decision-making is or could be implemented.",
+        "subtitle": "brainstorm a policy scenario where algorithmically informed decision-making is or could be implemented.",
         "descr": "Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box."
     },
     "COMPAS": {
         "id": "compas",
         "title": "compas",
-        "subtitle": "Learn about the COMPAS recidivsm algorithm",
+        "subtitle": "learn about the compas recidivsm algorithm",
         "descr": "However, an important step in algorithmic development is to consider how different measures of algorithmic accuracy may vary across sub-populations. One of the first times algorithmic bias was publically recognized was when the investigative journalism network ProPublica published an article in 2016 titled Machine Bias: There's software used across the country to predict future criminals. It's biased against blacks (Angwin et al. 2016). The article sparked a vibrant debate among many academic disciples about what it meant for an algorithm to be fair. The ProPublica analysis showed that while the calibration rate, the average recidivism rate by risk score, is approximately equal between Black and White, the algorithm's error rates differed substantially. In response to this observation, several mathematicians proved that it is mathematically impossible for multiple definitions of mathematical fairness to simultaneously exist (Kleinberg et al. 2016; Chouldechova 2016) if a population's overall recidivism rates differ. "
     },
     "StreetBump": {
         "id": "street",
         "title": "street bump",
-        "subtitle": "Learn about the Street Bump application",
+        "subtitle": "learn about the street bump application",
         "descr": "Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify problem roads."
     }
 }
