@@ -57,6 +57,16 @@ const glossary = {
             }
         }
     },
+    "calibration": {
+        "name": "calibration",
+        "definitions": {
+            "def1": {
+                "definition": "",
+                "citation": "",
+                "link": ""
+            }
+        }
+    },
     "disparate-impact": {
         "name": "disparate impact",
         "definitions": {
@@ -87,6 +97,16 @@ const glossary = {
             }
         }
     },
+    "mathematical-fairness": {
+        "name": "mathematical fairness",
+        "definitions": {
+            "def1": {
+                "definition": "Formal mathematical constructions of legal concepts such as \"equal protection\" and \"disparate impact\"",
+                "citation": "(Movva 2021)",
+                "link": "Movva-2021"
+            }
+        }
+    },
     "sociotechnical": {
         "name": "sociotechnical",
         "definitions": {
@@ -104,16 +124,6 @@ const glossary = {
                 "definition": "People impacted directly or indirectly by a system",
                 "citation": "(Bender and Friedman 2018)",
                 "link": "Bender-Friedman-2018"
-            }
-        }
-    },
-    "mathematical-fairness": {
-        "name": "mathematical fairness",
-        "definitions": {
-            "def1": {
-                "definition": "Formal mathematical constructions of legal concepts such as \"equal protection\" and \"disparate impact\"",
-                "citation": "(Movva 2021)",
-                "link": "Movva-2021"
             }
         }
     }

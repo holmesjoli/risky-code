@@ -4,6 +4,7 @@ import Description from '../../components/Description';
 import Navigation from '../../components/Navigation';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Terminology from '../../components/Terminology';
 
 export function Content() {
     return(
@@ -32,6 +33,12 @@ export default function COMPAS({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                    <Terminology>
+                        <div className="Container-Outlined">
+                            <h5>recidivism</h5>
+                            <p>A criminal reoffense</p>
+                        </div>
+                    </Terminology>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">

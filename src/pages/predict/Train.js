@@ -10,6 +10,7 @@ import { ActualPredicted } from "../../components/Legend";
 import Card from "../../components/Card";
 import Regression from "../../components/Regression";
 import Accuracy from '../../components/Accuracy';
+import Terminology from '../../components/Terminology';
 
 function Information({items, variables}) {
     return (
@@ -53,6 +54,16 @@ export default function Train({config, variables, setVariables, items, setItems,
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                    <Terminology>
+                        <div className="Container-Outlined">
+                            <h5>data variable</h5>
+                            <p>A variable which is recorded in a datasheet</p>
+                        </div>
+                        <div className="Container-Outlined">
+                            <h5>model variable</h5>
+                            <p>A variable which is included in a statistical model</p>
+                        </div>
+                    </Terminology>
                 </div>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
                 <div className="Sidebar-Right">

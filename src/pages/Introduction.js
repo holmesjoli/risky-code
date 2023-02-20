@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import { Button } from "@material-ui/core";
 import { useEffect } from 'react';
 import { policyDiagram } from '../components/PolicyDiagram';
+import Terminology from '../components/Terminology';
 
 export function Content() {
 
@@ -44,6 +45,12 @@ export default function Introduction({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                    <Terminology>
+                        <div className="Container-Outlined">
+                            <h5>algorithmically informed decision-making</h5>
+                            <p>A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans<NavLink to="/Resources"> (AINOW 2018)</NavLink></p>
+                        </div>
+                    </Terminology>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">

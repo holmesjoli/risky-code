@@ -4,6 +4,7 @@ import Description from '../../components/Description';
 import Navigation from '../../components/Navigation';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Terminology from '../../components/Terminology';
 
 export function Content() {
     return(
@@ -32,6 +33,16 @@ export default function Error({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                    <Terminology>
+                        <div className="Container-Outlined">
+                            <h5>false positive rate</h5>
+                            <p>The false positive rate is the probability of falsely rejecting the truth, simply triggering a false alarm</p>
+                        </div>
+                        <div className="Container-Outlined">
+                            <h5>false negative rate</h5>
+                            <p>The false negative rate is the failure to raise a valid alarm</p>
+                        </div>
+                    </Terminology>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">

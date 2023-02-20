@@ -10,6 +10,7 @@ import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
 import { wrap, visStyles } from "../../utils/global";
+import Terminology from '../../components/Terminology';
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -197,6 +198,12 @@ export default function Classify({config, items, setItems, modules}) {
         <div className="Main">
             <div className="Sidebar-Left">
                 <Description config={config}/>
+                <Terminology>
+                        <div className="Container-Outlined">
+                            <h5>calibration rate</h5>
+                            <p></p>
+                        </div>
+                    </Terminology>
             </div>
             <Content items={items} setItems={setItems}/>
             <div className="Sidebar-Right">

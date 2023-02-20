@@ -4,7 +4,7 @@ export const config = {
     "Introduction": {
         "id": "introduction",
         "title": "introduction",
-        "descr": "Welcome to Risky Code, an interactive digital toolkit to facilitate deliberation about algorithmically informed decision-making."
+        "descr": "Welcome to Risky Code, an interactive digital toolkit. Risky Code contains four modules meant to inform and to facilitate deliberation about algorithmically informed decision-making. The first module, Predict"
     },
     "About": {
         "id": "about",
@@ -41,8 +41,8 @@ export const config = {
     "Train": {
         "id": "train",
         "title": "train",
-        "subtitle": "predict which items should be included in the hot water load",
-        "descr": "In this step of model building, we will train the Laundry AID to predict whether new items should be added to the hot water load. Drag the data variables from the variable list to the model list to add them to the model. Add or remove variables from the model to see how the predicitive probabilities change."
+        "subtitle": "train the model to predict the hot water load",
+        "descr": "Drag the data variables from the variable list to the model list to add them to the model. Add or remove variables from the model to see how the predicitive probabilities change."
     },
     "Calibration": {
         "id": "calibration",
@@ -75,8 +75,8 @@ export const config = {
     "COMPAS": {
         "id": "compas",
         "title": "compas",
-        "subtitle": "learn about the compas recidivsm algorithm",
-        "descr": "However, an important step in algorithmic development is to consider how different measures of algorithmic accuracy may vary across sub-populations. One of the first times algorithmic bias was publically recognized was when the investigative journalism network ProPublica published an article in 2016 titled Machine Bias: There's software used across the country to predict future criminals. It's biased against blacks (Angwin et al. 2016). The article sparked a vibrant debate among many academic disciples about what it meant for an algorithm to be fair. The ProPublica analysis showed that while the calibration rate, the average recidivism rate by risk score, is approximately equal between Black and White, the algorithm's error rates differed substantially. In response to this observation, several mathematicians proved that it is mathematically impossible for multiple definitions of mathematical fairness to simultaneously exist (Kleinberg et al. 2016; Chouldechova 2016) if a population's overall recidivism rates differ. "
+        "subtitle": "explore different versions of mathematical fairness",
+        "descr": "One of the first times algorithmic bias was publically recognized was when the investigative journalism network ProPublica published an article in 2016 titled Machine Bias: There's software used across the country to predict future criminals. It's biased against blacks (Angwin et al. 2016). The article sparked a vibrant debate among many academic disciples about what it meant for an algorithm to be fair. The ProPublica analysis showed that while the calibration rate, the average recidivism rate by risk score, is approximately equal between Black and White, the algorithm's error rates differed substantially."
     },
     "StreetBump": {
         "id": "street",
