@@ -9,18 +9,13 @@ import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 
-export function Content({}) {
-
-    const [direct, setDirect] = useState("");
-    const [indirect, setIndirect] = useState("");
+export function Content({setDirect, setIndirect}) {
 
     const updateDirectStakeholders = (event) => {
-        console.log(event.target.value)
         setDirect(event.target.value)
     }
 
     const updateIndirectStakeholders = (event) => {
-        console.log(event.target.value)
         setIndirect(event.target.value)
     }
 
@@ -78,7 +73,7 @@ export function Content({}) {
     )
 }
 
-export default function Stakeholders({config, modules}) {
+export default function Stakeholders({config, modules, direct, setDirect, indirect, setIndirect}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");
@@ -140,7 +135,7 @@ export default function Stakeholders({config, modules}) {
                     </div>
                 </Terminology>
             </div>
-            <Content />
+            <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
             <div className="Sidebar-Right">
                 <div className="Button-Container-Right">
                     <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
