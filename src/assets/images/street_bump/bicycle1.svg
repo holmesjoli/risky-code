@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 508.08 414.74">
-  <g id="Predict_-_Introduction" data-name="Predict - Introduction">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #9A00FF;
+      }
+    </style>
+  </defs>
+  <g class="cls-1" id="Predict_-_Introduction" data-name="Predict - Introduction">
     <g>
       <g>
         <path d="m107.73,343.12C48.35,343.12,0,294.77,0,235.39s48.35-107.73,107.73-107.73,107.73,48.35,107.73,107.73-48.35,107.72-107.73,107.72h0Zm0-200.06c-50.89,0-92.33,41.44-92.33,92.33s41.44,92.33,92.33,92.33c50.89,0,92.33-41.36,92.33-92.33s-41.44-92.33-92.33-92.33h0Z"/>

@@ -3,6 +3,9 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { ReactComponent as Arrow } from '../assets/images/arrow.svg';
+import { importTransitImages } from "./Helper";
+
+const images = importTransitImages();
 
 export const COLUMN_NAMES = {
     TRANSIT: 'transit',
@@ -11,16 +14,25 @@ export const COLUMN_NAMES = {
 }
 
 const {TRANSIT} = COLUMN_NAMES;
-export const tasks = [
+export const transitMethods = [
     {id: 1, name: 'Item 1', column: TRANSIT},
     {id: 2, name: 'Item 2', column: TRANSIT},
     {id: 3, name: 'Item 3', column: TRANSIT},
     {id: 4, name: 'Item 4', column: TRANSIT},
+    {id: 5, name: 'Item 5', column: TRANSIT},
+    {id: 6, name: 'Item 6', column: TRANSIT},
+    {id: 7, name: 'Item 7', column: TRANSIT},
+    {id: 8, name: 'Item 8', column: TRANSIT},
+    {id: 9, name: 'Item 9', column: TRANSIT},
+    {id: 10, name: 'Item 10', column: TRANSIT},
+    {id: 11, name: 'Item 11', column: TRANSIT},
 ];
 
 const MovableItem = ({
+  id,
   name,
   index,
+  item,
   currentColumnName,
   moveCardHandler,
   setItems
@@ -115,7 +127,7 @@ const MovableItem = ({
 
   return (
     <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
-      {name}
+        <img src={images[Object.keys(images)[item.id]]} alt="" width="200"></img>
     </div>
   );
 };
@@ -152,13 +164,15 @@ const Column = ({ children, className, title }) => {
         backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
       <h3 className="Small-Margin" style={{ color: getColor(isOver, canDrop) }}>{title}</h3>
-      {children}
+      <div className="Card-Container">
+        {children}
+      </div>
     </div>
   );
 };
 
 export default function SortBump() {
-  const [items, setItems] = useState(tasks);
+  const [items, setItems] = useState(transitMethods);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -183,11 +197,13 @@ export default function SortBump() {
       .filter((item) => item.column === columnName)
       .map((item, index) => (
         <MovableItem
+          id={item.id}
           key={item.id}
           name={item.name}
           currentColumnName={item.column}
           setItems={setItems}
           index={index}
+          item={item}
           moveCardHandler={moveCardHandler}
         />
       ));
