@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import Navigation from '../../components/Navigation';
+import Progress from '../../components/Progress';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -75,7 +75,7 @@ export default function Classify({config, items, setItems, modules}) {
                             {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
                             <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                         </div>
-                        <Navigation id={id} modules={modules}/>
+                        <Progress id={id} modules={modules}/>
                     </div>
                 </div>
                 <Footer/>

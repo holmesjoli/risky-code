@@ -33,7 +33,7 @@ export default function Decision({config, modules}) {
                     <div className="Button-Container-Right">
                             <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                     </div>
-                    <Navigation id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules}/>
                 </div>
             </div>
             <Footer/>

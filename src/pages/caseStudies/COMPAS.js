@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import Description from '../../components/Description';
-import Navigation from '../../components/Navigation';
+import Progress from '../../components/Progress';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Terminology from '../../components/Terminology';
@@ -46,7 +46,7 @@ export default function COMPAS({config, modules}) {
                         <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
-                    <Navigation id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules}/>
                 </div>
             </div>
             <Footer/>

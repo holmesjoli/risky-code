@@ -1,7 +1,7 @@
 import { useNavigate, NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import Description from '../components/Description';
-import Navigation from '../components/Navigation';
+import Progress from '../components/Progress';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -178,7 +178,7 @@ export default function Resources({config, modules}) {
                     <div className="Button-Container-Right">
                         <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
                     </div>
-                    <Navigation id="resources" modules={modules}/>
+                    <Progress id="resources" modules={modules}/>
                 </div>
             </div>
             <Footer/>

@@ -87,7 +87,7 @@ function renderTooltip(pageId, fillScale) {
     })
 }
 
-export default function Navigation({id, modules}) {
+export default function Progress({id, modules}) {
 
     let navigate = useNavigate();
     const fill = [visStyles[style]["highlightColor"]].concat(Array(navigationData.length - 1).fill("#131517"));
@@ -114,7 +114,7 @@ export default function Navigation({id, modules}) {
         textTransformScale = createScale(pageId, otherPageIds, textTransform);
 
         // Initialized svg
-        let svg = d3.select("#Navigation-Chart")
+        let svg = d3.select("#Progress-Chart")
             .append("svg")
             .attr("width", width)
             .attr("height", height);
@@ -195,7 +195,7 @@ export default function Navigation({id, modules}) {
     }, [modules, id])
 
     return (
-        <div className="Navigation">
+        <div className="Progress">
             <Accordion defaultExpanded>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -203,7 +203,7 @@ export default function Navigation({id, modules}) {
                 <div className="Button">progress</div>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <div id="Navigation-Chart"></div>
+                    <div id="Progress-Chart"></div>
                 </AccordionDetails>
             </Accordion>
         </div>

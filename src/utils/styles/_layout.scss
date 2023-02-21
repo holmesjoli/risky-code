@@ -33,7 +33,6 @@ ul {
     background-color: $appDarkAccent;
 }
 
-// Left navigation
 .Main {
     display: grid;
     grid-template-columns: minmax(150px, 18%) 1fr minmax(150px, 18%);
@@ -56,11 +55,11 @@ ul {
     padding: $appPadding;
 }
 
-.Navigation {
+.Progress {
     margin-bottom: $containerMarginBottom;
 }
 
-.Navigation .Links .Link {
+.Progress .Links .Link {
     margin-bottom: .15rem;
 }
 
@@ -162,7 +161,7 @@ ul {
     margin-bottom: 0;
 }
 
-.Navigation h4 {
+.Progress h4 {
     padding-left: $appPadding;
 }
 

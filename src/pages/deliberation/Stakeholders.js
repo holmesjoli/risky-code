@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
 import { Button, TextField } from "@material-ui/core";
 import Description from '../../components/Description';
-import Navigation from '../../components/Navigation';
+import Progress from '../../components/Progress';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
@@ -141,7 +141,7 @@ export default function Stakeholders({config, modules, direct, setDirect, indire
                     <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                     <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                 </div>
-                <Navigation id={id} modules={modules}/>
+                <Progress id={id} modules={modules}/>
             </div>
         </div>
         <Footer/>

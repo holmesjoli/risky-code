@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import Description from '../components/Description';
-import Navigation from '../components/Navigation';
+import Progress from '../components/Progress';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { NavLink } from "react-router-dom";
@@ -172,7 +172,7 @@ export default function Glossary({config, modules}) {
                     <div className="Button-Container-Right">
                         <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
                     </div>
-                    <Navigation id="glossary" modules={modules}/>
+                    <Progress id="glossary" modules={modules}/>
                 </div>
             </div>
             <Footer/>

@@ -3,7 +3,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import * as d3 from 'd3';
 import Legend from "../../components/Legend";
-import Navigation from '../../components/Navigation';
+import Progress from '../../components/Progress';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -215,7 +215,7 @@ export default function Classify({config, items, setItems, modules}) {
                     <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                     <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                 </div>
-                <Navigation id={id} modules={modules}/>
+                <Progress id={id} modules={modules}/>
             </div>
         </div>
         <Footer/>

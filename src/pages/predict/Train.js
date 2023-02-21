@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import Navigation from '../../components/Navigation';
+import Progress from '../../components/Progress';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -71,7 +71,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                         <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
-                    <Navigation id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules}/>
                 </div>
             </div>
             <Footer/>
