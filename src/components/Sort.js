@@ -117,14 +117,14 @@ const MovableItem = ({
   if(currentColumnName === ITEM_LIST) {
     return (
       <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item" + bigCardClass(currentColumnName)} style={{ opacity }}>
-         <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="200"></img>
+         <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="100"></img>
          <div className="Label">
             <div className="Small-Margin">
-              <h5>Care type</h5>
+              <h5>care type</h5>
               <h6>{item.cleanType}</h6>
             </div>
             <div className="Small-Margin">
-              <h5>Soiled</h5>
+              <h5>soiled</h5>
               <h6>{item.soiled ? "Yes": "No"}</h6>
             </div>
          </div>
