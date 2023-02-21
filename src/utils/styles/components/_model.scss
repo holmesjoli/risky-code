@@ -14,7 +14,6 @@
 
 .Moveable-Items {
     display: grid;
-    // grid-gap: .5rem;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 }
 
