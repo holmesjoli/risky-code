@@ -162,10 +162,8 @@ const Column = ({ children, className, title, nClassified }) => {
 
   
       >{title}</h3>
-        <div className={className === "Container item-list-column"?"": "Card-Container"}>
-          <div className="Moveable-Items">
+        <div className={className === "Container item-list-column"?"": "Card-Container Moveable-Items"}>
             {children.length === 0 ? <p>drop here</p>: children}
-          </div>
           <h6 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h6>
       </div>
     </div>
@@ -251,10 +249,10 @@ export default function Sort({items, setItems, nClassified, setNClassified}) {
             </div>
             <Arrow className="Rotate90"/>
             <div className="Case-Container">
-                <Column title={CASE_TRUE} className="Container Case-True-Column">
+                <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
                   {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
-                <Column title={CASE_FALSE} className="Container Case-False-Column">
+                <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
                   {returnItemsForColumn(items, CASE_FALSE)}
                 </Column>
             </div>

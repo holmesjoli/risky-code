@@ -100,13 +100,14 @@ ul {
 
 .Three-Column {
     display: grid;
-    grid-template-columns: minmax(150px, 27%) minmax(150px, 43%) minmax(150px, 27%);
-    grid-gap: $containerMargin;
+    grid-template-columns: minmax(150px, 23%) minmax(150px, 47%) minmax(150px, 27%);
+    grid-gap: 1rem;
 }
+
 .Three-Column2 {
     display: grid;
     grid-template-columns: minmax(150px, 35%) minmax(30px, 5%) minmax(150px, 57%);
-    grid-gap: $containerMargin;
+    grid-gap: 1rem;
     text-align: center;
 }
 

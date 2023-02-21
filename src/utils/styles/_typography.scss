@@ -191,7 +191,8 @@ h6 > a {
   line-height: 1.5;
   margin-bottom: .3rem;
   margin-top: .6rem;
-  color: #868B90;
+  // color: #868B90;
+  opacity: .7;
 }
 
 .Navigation h4,
@@ -222,7 +223,7 @@ a:visited {
 }
 
 h6 > a:visited {
-  color: #868B90;
+  opacity: .7;
 }
 
 a:hover,
