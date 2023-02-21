@@ -164,8 +164,8 @@ const Column = ({ children, className, title }) => {
         backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
       <h3 className="Small-Margin" style={{ color: getColor(isOver, canDrop) }}>{title}</h3>
-      <div className="Card-Container">
-        {children}
+      <div className="Card-Container Moveable-Items">
+        {children.length === 0 ? <p>drop here</p>: children}
       </div>
     </div>
   );

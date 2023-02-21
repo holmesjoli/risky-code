@@ -74,7 +74,6 @@ const MovableItem = ({
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
 
-
       if (dropResult) {
         const { name } = dropResult;
         const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
@@ -128,6 +127,8 @@ const Column = ({ children, className, title }) => {
     }
   });
 
+  console.log(children.length)
+
   return (
     <div
       ref={drop}
@@ -140,7 +141,7 @@ const Column = ({ children, className, title }) => {
       
       >{title}</h3>
         <div className="Moveable-Items">
-      {children}
+          {children.length === 0 ? <p>drop here</p>: children}
         </div>
     </div>
   );

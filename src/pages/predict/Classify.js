@@ -30,7 +30,7 @@ export default function Classify({config, items, setItems, modules}) {
     }
 
     const routeBack = () => {
-      let path = `/`; 
+      let path = `/Introduction`; 
       navigate(path);
     }
 

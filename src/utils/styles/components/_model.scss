@@ -9,12 +9,16 @@
 }
 
 .Model-Variables {
-    border: 1.5pt dotted #4e5155;
+    // border: 1.5pt dotted #4e5155;
 }
 
 .Moveable-Items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}
+
+.Moveable-Items p {
+    opacity: .5;
 }
 
 .Movable-Item {
