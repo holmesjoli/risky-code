@@ -6,8 +6,11 @@ import Navigation from '../../components/Navigation';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
+import SortBump from "../../components/SortBump";
+
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
+
 import coastline from "../../data/processed/Boston/coastline.json";
 import city from "../../data/processed/Boston/city.json";
 import park from "../../data/processed/Boston/park.json";
@@ -56,7 +59,8 @@ export function Content() {
 
     return(
         <div className="Content Two-Column-Three">
-            <div className="Container">
+            <div>
+                <SortBump/>
             </div>
             <div className="Container">
                 {/* <div id="Boston-Map" className="chart"></div> */}
