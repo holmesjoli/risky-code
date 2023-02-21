@@ -73,7 +73,7 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
     )
 }
 
-export default function Stakeholders({config, modules, direct, setDirect, indirect, setIndirect}) {
+export default function StakeholderMapping({config, modules, direct, setDirect, indirect, setIndirect}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");

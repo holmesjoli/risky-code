@@ -196,7 +196,8 @@ export default function Progress({id, modules}) {
 
     return (
         <div className="Progress">
-            <Accordion defaultExpanded>
+            <Accordion>
+            {/* <Accordion defaultExpanded> */}
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >

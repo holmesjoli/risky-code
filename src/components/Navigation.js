@@ -7,10 +7,10 @@ export default function Navigation({includeNext = true, includeBack = true, rout
             <h5>navigation</h5>
             <div className="Button-Container-Right">
                 {
-                    includeNext ? <Button variant="contained" className="Next" onClick={routeNext}>next</Button> : <></>
+                    includeBack ? <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>: <></>
                 }
                 {
-                    includeBack ? <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>: <></>
+                    includeNext ? <Button variant="contained" className="Next" onClick={routeNext}>next</Button> : <></>
                 }
             </div>
             <Progress id={config.id} modules={modules}/>

@@ -11,7 +11,7 @@ import Error from "./pages/fairness/Error";
 import COMPAS from "./pages/caseStudies/COMPAS";
 import StreetBump from "./pages/caseStudies/StreetBump";
 import Risk from "./pages/deliberation/Risk";
-import Stakeholders from "./pages/deliberation/Stakeholders";
+import StakeholderMapping from "./pages/deliberation/StakeholderMapping";
 import Decision from "./pages/deliberation/Decision";
 import About from "./pages/About";
 import Glossary from "./pages/Glossary";
@@ -41,7 +41,7 @@ export default function App() {
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump}  modules={modules}/>} />
-          <Route path="/Stakeholders" element={<Stakeholders config={config.Stakeholders} modules={modules} direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>} />
+          <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} modules={modules} direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} direct={direct} indirect={indirect}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           <Route path="/About" element={<About config={config.About} modules={modules} />} />
