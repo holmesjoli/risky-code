@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { Button } from "@material-ui/core";
-import Progress from '../../components/Progress';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import Overlay from "../../components/Overlay";
+import Navigation from "../../components/Navigation";
 
 export function Content({items, setItems, nClassified, setNClassified}) {
 
@@ -63,22 +62,18 @@ export default function Classify({config, items, setItems, modules}) {
         </Overlay>:
         <></>
         }
-            <Header/>
-                <div className="Main">
-                    <div className="Sidebar-Left">
-                        <Description config={config}/>
-                    </div>
-                    <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
-                    <div className="Sidebar-Right">
-                        <div className="Button-Container-Right">
-                            <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                            {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
-                            <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                        </div>
-                        <Progress id={id} modules={modules}/>
-                    </div>
+        <Header/>
+            <div className="Main">
+                <div className="Sidebar-Left">
+                    <Description config={config}/>
                 </div>
-                <Footer/>
+                <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+                <div className="Sidebar-Right">
+                    {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
+                    <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
+                </div>
+            </div>
+            <Footer/>
         </div>
     )
 }

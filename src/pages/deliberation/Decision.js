@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@material-ui/core";
 import Description from '../../components/Description';
-import Progress from '../../components/Progress';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Navigation from "../../components/Navigation";
 
 export function Content() {
     return(
@@ -30,10 +29,7 @@ export default function Decision({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <div className="Button-Container-Right">
-                            <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                    </div>
-                    <Progress id={config.id} modules={modules}/>
+                    <Navigation includeNext={false} routeBack={routeBack} config={config} modules={modules}/>
                 </div>
             </div>
             <Footer/>

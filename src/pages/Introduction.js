@@ -1,13 +1,12 @@
 import React from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
 import Description from '../components/Description';
-import Progress from '../components/Progress';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Button } from "@material-ui/core";
 import { useEffect } from 'react';
 import { policyDiagram } from '../components/PolicyDiagram';
 import Terminology from '../components/Terminology';
+import Navigation from "../components/Navigation";
 
 export function Content() {
 
@@ -54,13 +53,7 @@ export default function Introduction({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <div className="Navigation Container-Outlined">
-                        <h5>navigation</h5>
-                        <div className="Button-Container-Right">
-                            <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                        </div>
-                        <Progress id={config.id} modules={modules}/>
-                    </div>
+                    <Navigation includeBack={false} routeNext={routeNext} config={config} modules={modules}/>
                 </div>
             </div>
             <Footer/>

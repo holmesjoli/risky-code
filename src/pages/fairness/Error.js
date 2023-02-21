@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@material-ui/core";
 import Description from '../../components/Description';
-import Progress from '../../components/Progress';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Terminology from '../../components/Terminology';
+import Navigation from "../../components/Navigation";
 
 export function Content() {
     return(
@@ -46,11 +45,7 @@ export default function Error({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <div className="Button-Container-Right">
-                        <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                    </div>
-                    <Progress id={config.id} modules={modules}/>
+                    <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
                 </div>
             </div>
             <Footer/>

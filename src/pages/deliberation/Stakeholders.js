@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import { Button, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import Description from '../../components/Description';
-import Progress from '../../components/Progress';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
+import Navigation from "../../components/Navigation";
 
 export function Content({direct, setDirect, indirect, setIndirect}) {
 
@@ -137,11 +137,7 @@ export default function Stakeholders({config, modules, direct, setDirect, indire
             </div>
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
             <div className="Sidebar-Right">
-                <div className="Button-Container-Right">
-                    <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                    <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                </div>
-                <Progress id={id} modules={modules}/>
+                <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
             </div>
         </div>
         <Footer/>

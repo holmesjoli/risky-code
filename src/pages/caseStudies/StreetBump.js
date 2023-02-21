@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import { Button } from "@material-ui/core";
 import Description from '../../components/Description';
-import Progress from '../../components/Progress';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import SortBump from "../../components/SortBump";
+import Navigation from "../../components/Navigation";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -14,6 +13,8 @@ import * as d3 from 'd3';
 import coastline from "../../data/processed/Boston/coastline.json";
 import city from "../../data/processed/Boston/city.json";
 import park from "../../data/processed/Boston/park.json";
+
+
 
 function drawMap() {
 
@@ -129,11 +130,7 @@ export default function StreetBump({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <div className="Button-Container-Right">
-                        <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                    </div>
-                    <Progress id={id} modules={modules}/>
+                    <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
                 </div>
             </div>
             <Footer/>

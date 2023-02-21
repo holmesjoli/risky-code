@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import { Button } from "@material-ui/core";
 import * as d3 from 'd3';
 import Legend from "../../components/Legend";
-import Progress from '../../components/Progress';
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -11,6 +9,7 @@ import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
 import { wrap, visStyles } from "../../utils/global";
 import Terminology from '../../components/Terminology';
+import Navigation from "../../components/Navigation";
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -211,11 +210,7 @@ export default function Classify({config, items, setItems, modules}) {
             </div>
             <Content items={items} setItems={setItems}/>
             <div className="Sidebar-Right">
-                <div className="Button-Container-Right">
-                    <Button variant="outlined" color="secondary" onClick={routeBack}>back</Button>
-                    <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                </div>
-                <Progress id={id} modules={modules}/>
+                <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
             </div>
         </div>
         <Footer/>
