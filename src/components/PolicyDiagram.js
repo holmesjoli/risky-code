@@ -64,7 +64,6 @@ function randomColor() {
     return colors[random];
 }
 
-
 function adjustFillColor(style) {
     if (style === "darkMode") {
         return visStyles[style]["fillColor"];
@@ -80,6 +79,26 @@ function transitionColor() {
         .duration(1000)
         .style("fill", d => randomColor())
         .on('end', transitionColor);
+}
+
+function transitionHighlightBack(style) {
+    d3.selectAll(".highlight")
+        .transition()
+        .ease(d3.easePoly)
+        .delay((d, i) => i*1000)
+        .duration(1000)
+        .style("fill", visStyles[style]["fillColor"])
+        .on('end', function() {transitionHighlight(style)});
+}
+
+function transitionHighlight(style) {
+    d3.selectAll(".highlight")
+        .transition()
+        .ease(d3.easePoly)
+        .delay((d, i) => i*1000)
+        .duration(1000)
+        .style("fill", visStyles[style]["highlightColor"])
+        .on('end', function() {transitionHighlightBack(style)});
 }
 
 function adjustStrokeColor(highlightNodes, style, d) {
@@ -121,6 +140,17 @@ function adjustFontWeight(highlightNodes, style, d) {
 
     } else {
         return visStyles[style]["fontWeight"];
+    }
+}
+
+function highlightClass(d) {
+
+    if (!d.children && d.data.highlight) {
+        return "node example shadow highlight";
+    } else if(!d.children) {
+        return "node example shadow";
+    } else {
+        return "node"
     }
 }
 
@@ -197,7 +227,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         .attr("href", d => !d.children ? d.data.link: "none")
         .attr("target", "_blank")
         .append("circle")
-        .attr("class", d => !d.children ? "node example shadow": "node")
+        .attr("class", d => highlightClass(d))
         .attr("cursor", d => !d.children ? "auto": "none")
         .attr("r", ((d) => rScale(d.data.group)))
         .attr("fill", d => adjustFillColor(style))
@@ -224,5 +254,10 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
     if (!highlightNodes) {
         renderTooltip(chartID, style);
     }
+
+    if (highlightNodes) {
+        transitionHighlight(style);
+    }
+
     adjustFillColor(style);
 }
