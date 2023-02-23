@@ -6,6 +6,8 @@ import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import SortBump from "../../components/SortBump";
 import Navigation from "../../components/Navigation";
+import Stakeholders from "../../components/Stakeholders";
+import Terminology from '../../components/Terminology';
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -13,8 +15,6 @@ import * as d3 from 'd3';
 import coastline from "../../data/processed/Boston/coastline.json";
 import city from "../../data/processed/Boston/city.json";
 import park from "../../data/processed/Boston/park.json";
-
-
 
 function drawMap() {
 
@@ -127,10 +127,17 @@ export default function StreetBump({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                        <Terminology>
+                        <div className="Container-Outlined">
+                            <h5>stakeholders</h5>
+                            <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
+                        </div>
+                        </Terminology>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
                     <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
+                    <Stakeholders/>
                 </div>
             </div>
             <Footer/>

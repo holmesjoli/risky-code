@@ -3,6 +3,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import Description from '../components/Description';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import Progress from '../components/Progress';
 import { useEffect } from 'react';
 import { policyDiagram } from '../components/PolicyDiagram';
 import Terminology from '../components/Terminology';
@@ -43,9 +44,10 @@ export default function Introduction({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
+                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
                     <Terminology>
-                        <div className="Container-Outlined">
+                        <div className="Container-Rule">
                             <h5>algorithmically informed decision-making</h5>
                             <p>A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans<NavLink to="/Resources"> (AINOW 2018)</NavLink></p>
                         </div>

@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import Overlay from "../../components/Overlay";
+import Progress from "../../components/Progress";
 import Navigation from "../../components/Navigation";
 
 export function Content({items, setItems, nClassified, setNClassified}) {
@@ -65,6 +66,7 @@ export default function Classify({config, items, setItems, modules}) {
         <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
+                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
                 </div>
                 <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>

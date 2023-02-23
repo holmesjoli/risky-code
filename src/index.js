@@ -39,7 +39,7 @@ const theme = createTheme({
       root: {
         position: "relative",
         paddingLeft: 0,
-        borderColor: visStyles[style]["secondaryHighlightColor"],
+        borderColor: visStyles[style]["borderColorPrimary"],
         borderWidth: "1px",
         borderStyle: "solid",
         borderRadius: ".25rem",
@@ -62,7 +62,8 @@ const theme = createTheme({
     },
     MuiAccordionDetails: {
       root: {
-        padding: 0
+        padding: 0,
+        flexDirection: "column"
       }
     },
     Mui: {
@@ -75,6 +76,11 @@ const theme = createTheme({
     MuiFormControl: {
       root: {
         width: "100%"
+      }
+    },
+    MuiOutlinedInput: {
+      root: {
+        borderRadius: ".25rem"
       }
     },
     MuiButton: {

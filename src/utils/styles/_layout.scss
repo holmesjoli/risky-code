@@ -87,6 +87,18 @@ ul {
     text-align: left;
 }
 
+.Container-Rule {
+    // border-top: 1px solid $containerBorderColor;
+    border-radius: $containerBorderRadius;
+    padding: $containerPadding;
+    margin-bottom: $containerMarginBottom;
+    text-align: left;
+}
+
+.Container-Rule p {
+    color: $appColor;
+}
+
 .Visualization {
     display: grid;
     grid-gap: 10px;
@@ -169,4 +181,12 @@ ul {
 
 .Column {
     height: 100;
+}
+
+.Margin-Top {
+    margin-top: $containerMargin;
+}
+
+.Margin-Bottom {
+    margin-bottom: $containerMargin;
 }

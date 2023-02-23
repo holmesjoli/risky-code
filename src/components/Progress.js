@@ -87,14 +87,14 @@ function renderTooltip(pageId, fillScale) {
     })
 }
 
-export default function Progress({id, modules}) {
+export default function Progress({id, modules, pageName}) {
 
     let navigate = useNavigate();
     const fill = [visStyles[style]["highlightColor"]].concat(Array(navigationData.length - 1).fill("#131517"));
     const fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(navigationData.length - 1).fill(visStyles[style]["fontWeight"]));
     const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(navigationData.length - 1).fill("#868B90"));
     const textTransform = ["lowercase"].concat(Array(navigationData.length - 1).fill("none"));
-    
+
     let pageId, otherPageIds;
     let visited, strokeScale, fillScale, fontWeightScale, fontColorScale, textTransformScale;
 
@@ -201,7 +201,7 @@ export default function Progress({id, modules}) {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                <div className="Button">progress</div>
+                <div className="Button">{pageName}</div>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div id="Progress-Chart"></div>

@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Terminology from '../../components/Terminology';
 import Navigation from "../../components/Navigation";
+import Stakeholders from "../../components/Stakeholders";
 
 export function Content() {
     return(
@@ -34,14 +35,19 @@ export default function COMPAS({config, modules}) {
                     <Description config={config}/>
                     <Terminology>
                         <div className="Container-Outlined">
-                            <h5>recidivism</h5>
-                            <p>A criminal reoffense</p>
+                                <h5>recidivism</h5>
+                                <p>A criminal reoffense</p>
+                        </div>
+                        <div className="Container-Outlined">
+                            <h5>stakeholders</h5>
+                            <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                         </div>
                     </Terminology>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
                     <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
+                    <Stakeholders/>
                 </div>
             </div>
             <Footer/>
