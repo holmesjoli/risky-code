@@ -110,7 +110,7 @@ export default function StreetBump({config, modules}) {
             <div className="Containers-Container">
                 <div className="Container">
                     <div className="Overlay-Controls">
-                        <h3>introduction to case studies</h3>
+                        <h3 className="Page-Title">introduction to case studies</h3>
                         <button
                             className="Overlay-Close"
                             type="button"

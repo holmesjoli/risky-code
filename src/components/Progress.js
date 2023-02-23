@@ -201,7 +201,7 @@ export default function Progress({id, modules, pageName}) {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                <div className="Expand">{pageName}</div>
+                <div className="Expand Page-Title">{pageName}</div>
                 </AccordionSummary>
                 <AccordionDetails>
                     <div id="Progress-Chart"></div>

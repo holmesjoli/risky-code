@@ -110,7 +110,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
             <div className="Containers-Container">
                 <div className="Container">
                     <div className="Overlay-Controls">
-                        <h3>introduction to deliberation</h3>
+                        <h3 className="Page-Title">introduction to deliberation</h3>
                         <button
                             className="Overlay-Close"
                             type="button"
