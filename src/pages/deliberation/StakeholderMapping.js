@@ -8,6 +8,7 @@ import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Navigation from "../../components/Navigation";
+import Progress from "../../components/Progress";
 
 export function Content({direct, setDirect, indirect, setIndirect}) {
 
@@ -127,6 +128,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
         <Header/>
         <div className="Main">
             <div className="Sidebar-Left">
+                <Progress id={config.id} modules={modules} pageName={config.title}/>
                 <Description config={config}/>
                 <Terminology>
                     <div className="Container-Outlined">

@@ -3,6 +3,7 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Navigation from "../../components/Navigation";
+import Progress from "../../components/Progress";
 
 export function Content() {
     return(
@@ -25,6 +26,7 @@ export default function Decision({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
+                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
                 </div>
                 <Content />

@@ -8,6 +8,7 @@ import SortBump from "../../components/SortBump";
 import Navigation from "../../components/Navigation";
 import Stakeholders from "../../components/Stakeholders";
 import Terminology from '../../components/Terminology';
+import Progress from "../../components/Progress";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -126,13 +127,14 @@ export default function StreetBump({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
+                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
-                        <Terminology>
-                        <div className="Container-Outlined">
-                            <h5>stakeholders</h5>
-                            <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
-                        </div>
-                        </Terminology>
+                    <Terminology>
+                    <div className="Container-Outlined">
+                        <h5>stakeholders</h5>
+                        <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
+                    </div>
+                    </Terminology>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">

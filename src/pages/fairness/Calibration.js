@@ -10,6 +10,7 @@ import data from "../../data/processed/mathematical_fairness.json"
 import { wrap, visStyles } from "../../utils/global";
 import Terminology from '../../components/Terminology';
 import Navigation from "../../components/Navigation";
+import Progress from "../../components/Progress";
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -196,6 +197,7 @@ export default function Classify({config, items, setItems, modules}) {
         <Header/>
         <div className="Main">
             <div className="Sidebar-Left">
+                <Progress id={config.id} modules={modules} pageName={config.title}/>
                 <Description config={config}/>
                 <Terminology>
                         <div className="Container-Outlined">

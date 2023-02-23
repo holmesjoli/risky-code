@@ -10,6 +10,7 @@ import Regression from "../../components/Regression";
 import Accuracy from '../../components/Accuracy';
 import Terminology from '../../components/Terminology';
 import Navigation from "../../components/Navigation";
+import Progress from "../../components/Progress";
 
 function Information({items, variables}) {
     return (
@@ -52,6 +53,7 @@ export default function Train({config, variables, setVariables, items, setItems,
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
+                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
                     <Terminology>
                         <div className="Container-Outlined">
