@@ -10,10 +10,10 @@ export function ActualPredicted() {
             <h3>legend</h3>
             <div className="my-grid">
                 <div>
-                    <h5 className="section-title0">Predicted Hot Water Load</h5>
+                    <h5 className="section-title0">predicted hot water load</h5>
                 </div>
                 <div>
-                    <h5 className="section-title2">Actual Hot Water Load</h5>
+                    <h5 className="section-title2">actual hot water load</h5>
                     <div className="my-grid">
                         <h6 className="section-title">Correctly</h6>
                         <div className="my-grid2">
