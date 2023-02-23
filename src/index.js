@@ -97,12 +97,20 @@ const theme = createTheme({
         fontSize: "1.05rem"
       },
       contained: {
-        backgroundColor: visStyles[style]["secondaryHighlightColor"]
+        backgroundColor: visStyles[style]["secondaryHighlightColor"],
+        '&:hover': {
+          backgroundColor: visStyles[style]["highlightColor"],
+          color: "#fff"
+       }
       },
       outlinedSecondary: {
         borderColor: visStyles[style]["borderColorPrimary"],
         color: visStyles[style]["secondaryHighlightColor"],
-        backgroundColor: "#131517"
+        backgroundColor: "#131517",
+        '&:hover': {
+          borderColor: visStyles[style]["highlightColor"],
+          color: visStyles[style]["highlightColor"]
+       }
       }
     }
   },

@@ -240,7 +240,7 @@ export function getModelVariables(variables) {
 export const visStyles = {
 
     "darkMode": {
-        "highlightColor": "#40FF01",
+        "highlightColor": "#9A00FF",
         "secondaryHighlightColor": "#cbcbcb",
         "textColor": "#868B90",
         "textHighlightColor": "#cbcbcb",
