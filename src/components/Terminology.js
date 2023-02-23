@@ -10,7 +10,7 @@ export default function Terminology({children}) {
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
-                <div className="Button">terminology</div>
+                <div className="Expand">terminology</div>
                 </AccordionSummary>
                 <AccordionDetails>
                     {children}
