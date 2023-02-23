@@ -46,7 +46,8 @@ const theme = createTheme({
         minHeight: "none",
         "&$expanded": {
           minHeight: "none"
-        }
+        },
+        backgroundColor: "black"
       },
       content: {
         color: visStyles[style]["secondaryHighlightColor"],
@@ -99,8 +100,9 @@ const theme = createTheme({
         backgroundColor: visStyles[style]["secondaryHighlightColor"]
       },
       outlinedSecondary: {
-        borderColor: visStyles[style]["secondaryHighlightColor"],
-        color: visStyles[style]["secondaryHighlightColor"]
+        borderColor: visStyles[style]["borderColorPrimary"],
+        color: visStyles[style]["secondaryHighlightColor"],
+        backgroundColor: "black"
       }
     }
   },

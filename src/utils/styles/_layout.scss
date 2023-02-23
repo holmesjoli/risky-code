@@ -70,13 +70,21 @@ ul {
     padding: $appPadding;
 }
 
-.Container {
-    background-color: $containerBackgroundColor;
+.Container,
+.Container-Fill-Secondary {
     border: 1px solid $containerBorderColor;
     border-radius: $containerBorderRadius;
     padding: $containerPadding;
     margin-bottom: $containerMarginBottom;
     text-align: left;
+}
+
+.Container {
+    background-color: black;
+}
+
+.Container-Fill-Secondary {
+    background-color: $containerBackgroundColor;
 }
 
 .Container-Outlined {
@@ -85,6 +93,11 @@ ul {
     padding: $containerPadding;
     margin-bottom: $containerMarginBottom;
     text-align: left;
+    background-color: black;
+}
+
+.Progress {
+    margin-bottom: $containerMarginBottom;
 }
 
 .Container-Rule {

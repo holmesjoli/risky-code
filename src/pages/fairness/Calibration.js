@@ -177,7 +177,7 @@ export default function Classify({config, items, setItems, modules}) {
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
-                <div className="Container">
+                <div className="Container-Fill-Secondary">
                     <div className="Overlay-Controls">
                         <h3 className="Page-Title">introduction to mathematical fairness</h3>
                         <button
@@ -197,8 +197,8 @@ export default function Classify({config, items, setItems, modules}) {
         <Header/>
         <div className="Main">
             <div className="Sidebar-Left">
-                <Progress id={config.id} modules={modules} pageName={config.title}/>
                 <Description config={config}/>
+                <Progress id={config.id} modules={modules}/>
                 <Terminology>
                         <div className="Container-Outlined">
                             <h5>mathematical fairness</h5>

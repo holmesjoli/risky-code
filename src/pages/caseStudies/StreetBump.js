@@ -108,7 +108,7 @@ export default function StreetBump({config, modules}) {
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
-                <div className="Container">
+                <div className="Container-Fill-Secondary">
                     <div className="Overlay-Controls">
                         <h3 className="Page-Title">introduction to case studies</h3>
                         <button

@@ -32,8 +32,8 @@ export default function Error({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
+                    <Progress id={config.id} modules={modules} />
                     <Terminology>
                         <div className="Container-Outlined">
                             <h5>false positive rate</h5>

@@ -29,7 +29,8 @@
   place-items: center;
 }
 
-.Overlay-Container .Container {
+.Overlay-Container .Container,
+.Overlay-Container .Container-Fill-Secondary {
   opacity: 1;
   max-width: 55%;
 }

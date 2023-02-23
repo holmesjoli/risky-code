@@ -53,8 +53,8 @@ export default function Train({config, variables, setVariables, items, setItems,
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
+                    <Progress id={config.id} modules={modules}/>
                     <Terminology>
                         <div className="Container-Outlined">
                             <h5>data variable</h5>
