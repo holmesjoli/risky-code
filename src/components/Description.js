@@ -5,7 +5,7 @@ export default function Card({config}) {
             <h2 className="Title">{config.title}</h2>
             {/* <h4 className="Goal">Module goal</h4> */}
             <div className="Container-Outlined">
-                <h5 className="Subtitle">{config.subtitle}</h5>
+                <h3 className="Subtitle">{config.subtitle}</h3>
                 <p>{config.descr}</p>
             </div>
         </div>
