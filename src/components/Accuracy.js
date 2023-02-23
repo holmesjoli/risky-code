@@ -27,7 +27,7 @@ export default function Accuracy({items, variables}) {
 
     return(
         <div className="Accuracy Container Hidden">
-            <h4 className="Small-Margin">Model accuracy</h4>
+            <h3 className="Small-Margin">model accuracy</h3>
             <div className="Accuracy-Percent Small-Margin"></div>
             <p>Accuracy is a percent of how many predicted values match the actual values.</p>
         </div>
