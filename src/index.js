@@ -54,11 +54,19 @@ const theme = createTheme({
         margin: 0,
         "&$expanded": {
           margin: 0
-        }
+        },
+        '&:hover': {
+          borderColor: visStyles[style]["highlightColor"],
+          color: visStyles[style]["highlightColor"]
+       }
       },
       expandIcon: {
         position: "relative",
-        color: visStyles[style]["secondaryHighlightColor"]
+        color: visStyles[style]["secondaryHighlightColor"],
+        '&:hover': {
+          borderColor: visStyles[style]["highlightColor"],
+          color: visStyles[style]["highlightColor"]
+       }
       }
     },
     MuiAccordionDetails: {
@@ -82,6 +90,14 @@ const theme = createTheme({
     MuiOutlinedInput: {
       root: {
         borderRadius: ".25rem"
+      }
+    },
+    MuiButtonBase: {
+      root: {
+        '&:hover': {
+          borderColor: visStyles[style]["highlightColor"],
+          color: visStyles[style]["highlightColor"]
+       }
       }
     },
     MuiButton: {

@@ -266,6 +266,10 @@ h1 .active {
   font-size: 1.05rem;
   letter-spacing: .6px;
 }
+.Expand:hover {
+  border-Color: $appColorFocus;
+  color: $appColorFocus;
+}
 
 .Semi-Bold {
   font-weight: 500;
