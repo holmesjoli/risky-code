@@ -2,8 +2,8 @@ import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
-import { ReactComponent as Arrow } from '../assets/images/arrow.svg';
 import { importTransitImages } from "./Helper";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const images = importTransitImages();
 
@@ -217,7 +217,7 @@ export default function SortBump() {
         <Column title={TRANSIT} className="Container Variables-Column">
           {returnItemsForColumn(TRANSIT)}
         </Column>
-        <Arrow/>
+        <ExpandMoreIcon className="Scale200"/>
         <div className="Two-Column">
             <Column title={BUMP} className="Container Variables-Column">
             {returnItemsForColumn(BUMP)}

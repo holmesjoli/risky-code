@@ -5,7 +5,7 @@ import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
-import { ReactComponent as Arrow } from '../assets/images/arrow.svg';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -247,7 +247,7 @@ export default function Sort({items, setItems, nClassified, setNClassified}) {
                   {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
             </div>
-            <Arrow className="Rotate90"/>
+            <ExpandMoreIcon className="Rotate90 Scale200"/>
             <div className="Case-Container">
                 <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
                   {returnItemsForColumn(items, CASE_TRUE)}

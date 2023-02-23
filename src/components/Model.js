@@ -3,7 +3,7 @@ import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { MODEL_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
-import { ReactComponent as Arrow } from '../assets/images/arrow.svg';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
@@ -190,7 +190,7 @@ export default function Model({variables, setVariables}) {
         <Column title={DATA_VARIABLES} className="Container Variables-Column Data-Variables">
           {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
-        <Arrow/>
+        <ExpandMoreIcon className="Scale200"/>
         <Column title={MODEL_VARIABLES} className="Container Variables-Column Model-Variables">
           {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
