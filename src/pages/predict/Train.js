@@ -56,11 +56,11 @@ export default function Train({config, variables, setVariables, items, setItems,
                     <Description config={config}/>
                     <Progress id={config.id} modules={modules}/>
                     <Terminology>
-                        <div className="Container-Outlined">
+                        <div className="Container-Rule">
                             <h5>data variable</h5>
                             <p>A variable which is recorded in a datasheet</p>
                         </div>
-                        <div className="Container-Outlined">
+                        <div className="Container-Rule">
                             <h5>model variable</h5>
                             <p>A variable which is included in a statistical model</p>
                         </div>

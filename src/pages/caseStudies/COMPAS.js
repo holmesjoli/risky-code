@@ -33,14 +33,14 @@ export default function COMPAS({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Description config={config}/>
+                    <Progress id={config.id} modules={modules}/>
                     <Terminology>
-                        <div className="Container-Outlined">
+                        <div className="Container-Rule">
                                 <h5>recidivism</h5>
                                 <p>A criminal reoffense</p>
                         </div>
-                        <div className="Container-Outlined">
+                        <div className="Container-Rule">
                             <h5>stakeholders</h5>
                             <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                         </div>

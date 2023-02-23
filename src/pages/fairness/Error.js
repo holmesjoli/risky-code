@@ -35,11 +35,11 @@ export default function Error({config, modules}) {
                     <Description config={config}/>
                     <Progress id={config.id} modules={modules} />
                     <Terminology>
-                        <div className="Container-Outlined">
+                        <div className="Container-Rule">
                             <h5>false positive rate</h5>
                             <p>The false positive rate is the probability of falsely rejecting the truth, simply triggering a false alarm</p>
                         </div>
-                        <div className="Container-Outlined">
+                        <div className="Container-Rule">
                             <h5>false negative rate</h5>
                             <p>The false negative rate is the failure to raise a valid alarm</p>
                         </div>

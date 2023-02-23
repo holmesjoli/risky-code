@@ -101,11 +101,12 @@ ul {
 }
 
 .Container-Rule {
-    // border-top: 1px solid $containerBorderColor;
+    border-bottom: 1px solid $containerBorderColor;
     border-radius: $containerBorderRadius;
     padding: $containerPadding;
     margin-bottom: $containerMarginBottom;
     text-align: left;
+    background-color: none;
 }
 
 .Container-Rule p {

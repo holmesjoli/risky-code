@@ -131,7 +131,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
                 <Description config={config}/>
                 <Progress id={config.id} modules={modules}/>
                 <Terminology>
-                    <div className="Container-Outlined">
+                    <div className="Container-Rule">
                         <h5>stakeholders</h5>
                         <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                     </div>
