@@ -17,7 +17,7 @@ const theme = createTheme({
   palette: {
     type: "dark",
     background: {
-      paper: "#131517"
+      paper: "#000000"
     },
     primary: {
       main: "#03afbf"
@@ -47,7 +47,7 @@ const theme = createTheme({
         "&$expanded": {
           minHeight: "none"
         },
-        backgroundColor: "black"
+        backgroundColor: "#131517"
       },
       content: {
         color: visStyles[style]["secondaryHighlightColor"],
@@ -102,7 +102,7 @@ const theme = createTheme({
       outlinedSecondary: {
         borderColor: visStyles[style]["borderColorPrimary"],
         color: visStyles[style]["secondaryHighlightColor"],
-        backgroundColor: "black"
+        backgroundColor: "#131517"
       }
     }
   },

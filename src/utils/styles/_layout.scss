@@ -30,7 +30,7 @@ ul {
 }
 
 .App {
-    background-color: $appDarkAccent;
+    background-color: #000;
 }
 
 .Main {
@@ -80,7 +80,7 @@ ul {
 }
 
 .Container {
-    background-color: black;
+    background-color: $appDarkAccent;
 }
 
 .Container-Fill-Secondary {
@@ -93,7 +93,7 @@ ul {
     padding: $containerPadding;
     margin-bottom: $containerMarginBottom;
     text-align: left;
-    background-color: black;
+    background-color: $appDarkAccent;
 }
 
 .Progress {
