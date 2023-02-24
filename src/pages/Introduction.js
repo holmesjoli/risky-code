@@ -45,7 +45,6 @@ export default function Introduction({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Terminology>
                         <div className="Container-Rule">
                             <h5>algorithmically informed decision-making</h5>
@@ -55,6 +54,7 @@ export default function Introduction({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
+                    <Progress id={config.id} modules={modules} pageName={config.title}/>
                     <Navigation includeBack={false} routeNext={routeNext} config={config} modules={modules}/>
                 </div>
             </div>

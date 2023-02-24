@@ -166,12 +166,12 @@ export default function Glossary({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                    <div className="Button-Container-Left">
+                        <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
+                    </div>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <div className="Button-Container-Right">
-                        <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
-                    </div>
                     <Progress id="glossary" modules={modules}/>
                 </div>
             </div>
