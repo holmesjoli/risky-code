@@ -45,14 +45,23 @@ function addStakeholder() {
             <div className="Card-Group">
                 <h4>check values</h4>
                 <FormGroup>
-                    <FormControlLabel control={<Checkbox />} label="Freedom" />
-                    <FormControlLabel control={<Checkbox />} label="Autonomy" />
-                    <FormControlLabel control={<Checkbox />} label="Privacy" />
-                    <FormControlLabel control={<Checkbox />} label="Security" />
-                    <FormControlLabel control={<Checkbox />} label="Safety" />
+                    <div>
+                        <FormControlLabel control={<Checkbox />} label="Freedom" />
+                        <FormControlLabel control={<Checkbox />} label="Autonomy" />
+                        <FormControlLabel control={<Checkbox />} label="Privacy" />
+                        <FormControlLabel control={<Checkbox />} label="Security" />
+                        <FormControlLabel control={<Checkbox />} label="Safety" />
+                        <FormControlLabel control={<Checkbox />} label="Anonymity" />
+                        <FormControlLabel control={<Checkbox />} label="Reliability" />
+                        <FormControlLabel control={<Checkbox />} label="Trust" />
+                        <FormControlLabel control={<Checkbox />} label="Ownership and property" />
+                        <FormControlLabel control={<Checkbox />} label="Informed consent" />
+                        <FormControlLabel control={<Checkbox />} label="Identity" />
+                        <FormControlLabel control={<Checkbox />} label="Environment sustainability" />
+                    </div>
                 </FormGroup>
             </div>
-            <Button variant="outlined" color="secondary" size="small" onClick={submit}>submit</Button>
+            <Button variant="outlined" color="secondary" size="small" onClick={submit}>add stakeholder to diagram</Button>
         </div>
     )
 }

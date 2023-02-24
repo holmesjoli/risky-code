@@ -35,6 +35,12 @@ const theme = createTheme({
         marginBottom: 0
       }
     },
+    MuiFormGroup: {
+      root: {
+        display: "grid",
+        gridGap: "15px"
+      }
+    },
     MuiAccordionSummary: {
       root: {
         position: "relative",
