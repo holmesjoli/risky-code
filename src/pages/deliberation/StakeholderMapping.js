@@ -9,6 +9,20 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import { Button } from "@material-ui/core";
+import { Fab } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+
+
+function addStakeholder() {
+
+    return(
+        <div className="Add-Stakeholder">
+         <Fab color="primary" aria-label="add" size="small">
+            <AddIcon />
+        </Fab>
+        </div>
+    )
+}
 
 export function Content({direct, setDirect, indirect, setIndirect}) {
 
@@ -18,35 +32,14 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
 
     const updateIndirectStakeholders = (event) => {
         setIndirect(event.target.value)
-    }
+    }  
 
     return(
-        <div className="Content Three-Row">
-            <div className="No-Margin-Bottom">
-                <h3 className="Small-Margin">direct stakeholders</h3>
-                <div className="Four-Column">
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>group</h4>
-                        <TextField label={direct} placeholder="edit me" variant="outlined" multiline={true} onChange={updateDirectStakeholders}/>
-                    </div>
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>values</h4>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-                    </div>
-                </div>
+        <div className="Content One-Column-Three">
+            <div className="Container">
+                {addStakeholder()}
             </div>
-            <div className="No-Margin-Bottom">
-                <h3 className="Small-Margin">indirect stakeholders</h3>
-                <div className="Four-Column">
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>group</h4>
-                        <TextField label={indirect} placeholder="edit me" variant="outlined" multiline={true} onChange={updateIndirectStakeholders}/>
-                    </div>
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>values</h4>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-                    </div>
-                </div>
+            <div className="Container">
             </div>
         </div>
     )
@@ -114,7 +107,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
                     </div>
                 </Terminology>
                 <div className="Button-Container-Left">
-                        <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
+                    <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
                 </div>
             </div>
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>

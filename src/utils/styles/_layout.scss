@@ -143,8 +143,15 @@ ul {
 .Two-Column-Three {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(300px, 60%) minmax(200px, 40%);
+    grid-template-columns: minmax(300px, 66%) minmax(200px, 33%);
 }
+
+.One-Column-Three {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(300px, 33%) minmax(200px, 67%);
+}
+
 
 .One-Column {
     display: grid;
