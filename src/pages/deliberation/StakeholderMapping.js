@@ -8,18 +8,50 @@ import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
-import { Button } from "@material-ui/core";
-import { Fab } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox } from '@material-ui/core';
 
+function stakeholderNetwork() {
+
+    return(
+        <div className="Container">
+            <h3>stakeholder mapping</h3>
+        </div>
+    )
+}
+
+const submit = () => {
+}
 
 function addStakeholder() {
 
     return(
-        <div className="Add-Stakeholder">
-         <Fab color="primary" aria-label="add" size="small">
-            <AddIcon />
-        </Fab>
+        <div className="Stakeholder-Attr Container">
+            <h3>add stakeholder</h3>
+            <div className="Card-Group">
+                <FormControl>
+                    <h4>stakeholder group</h4>
+                    <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        defaultValue="primary"
+                        name="radio-buttons-group"
+                    >
+                        <FormControlLabel value="primary" control={<Radio />} label="Primary" />
+                        <FormControlLabel value="secondary" control={<Radio />} label="Secondary" />
+                        <FormControlLabel value="tertiary" control={<Radio />} label="Tertiary" />
+                    </RadioGroup>
+                </FormControl>
+            </div>
+            <div className="Card-Group">
+                <h3>check values</h3>
+                <FormGroup>
+                    <FormControlLabel control={<Checkbox />} label="Freedom" />
+                    <FormControlLabel control={<Checkbox />} label="Autonomy" />
+                    <FormControlLabel control={<Checkbox />} label="Privacy" />
+                    <FormControlLabel control={<Checkbox />} label="Security" />
+                    <FormControlLabel control={<Checkbox />} label="Safety" />
+                </FormGroup>
+            </div>
+            <Button variant="outlined" color="secondary" size="small" onClick={submit}>submit</Button>
         </div>
     )
 }
@@ -36,10 +68,11 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
 
     return(
         <div className="Content One-Column-Three">
-            <div className="Container">
+            <div className="">
                 {addStakeholder()}
             </div>
-            <div className="Container">
+            <div className="">
+                {stakeholderNetwork()}
             </div>
         </div>
     )
@@ -112,11 +145,11 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
             </div>
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
             <div className="Sidebar-Right">
-                <Progress id={config.id} modules={modules}/>
+                <Progress id={id} modules={modules}/>
                 <div className="No-Margin-Bottom">
                     <h3 className="Small-Margin">policy scenario</h3>
                         <div className="Container">
-                            <TextField placeholder="Add your policy scenario here" variant="outlined" multiline rows={20} />
+                            <TextField placeholder="Add your policy scenario here" variant="outlined" multiline minRows={20} />
                         </div>
                     </div>
                 <div className="Button-Container-Right">
