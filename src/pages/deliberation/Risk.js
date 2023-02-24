@@ -40,10 +40,15 @@ export default function Risk({config, modules, direct, indirect}) {
                 <div className="Sidebar-Left">
                     <Description config={config}/>
                     <Progress id={config.id} modules={modules}/>
+                    <div className="Button-Container-Left">
+                        <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
+                    </div>
                 </div>
                 <Content direct={direct} indirect={indirect}/>
                 <div className="Sidebar-Right">
-                    <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
+                    <div className="Button-Container-Right">
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                    </div>
                 </div>
             </div>
             <Footer/>

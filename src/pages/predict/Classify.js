@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
-import Navigation from "../../components/Navigation";
+import { Button } from "@material-ui/core";
 
 export function Content({items, setItems, nClassified, setNClassified}) {
 
@@ -68,11 +68,16 @@ export default function Classify({config, items, setItems, modules}) {
                 <div className="Sidebar-Left">
                     <Description config={config}/>
                     <Progress id={config.id} modules={modules}/>
+                    <div className="Button-Container-Left">
+                        <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
+                    </div>
                 </div>
                 <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
                 <div className="Sidebar-Right">
+                    <div className="Button-Container-Right">
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                    </div>
                     {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
-                    <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
                 </div>
             </div>
             <Footer/>

@@ -113,19 +113,20 @@ const theme = createTheme({
         fontSize: "1.05rem"
       },
       contained: {
-        backgroundColor: visStyles[style]["secondaryHighlightColor"],
+        backgroundColor: visStyles[style]["highlightColor"],
+        color: "#fff",
         '&:hover': {
-          backgroundColor: visStyles[style]["highlightColor"],
-          color: "#fff"
+          backgroundColor: visStyles[style]["secondaryHighlightColor"],
+          color: "#131517"
        }
       },
       outlinedSecondary: {
-        borderColor: visStyles[style]["borderColorPrimary"],
-        color: visStyles[style]["secondaryHighlightColor"],
+        borderColor: visStyles[style]["highlightColor"],
+        color: visStyles[style]["highlightColor"],
         backgroundColor: "#131517",
         '&:hover': {
-          borderColor: visStyles[style]["highlightColor"],
-          color: visStyles[style]["highlightColor"]
+          borderColor: visStyles[style]["textHighlightColor"],
+          color: visStyles[style]["secondaryHighlightColor"]
        }
       }
     }

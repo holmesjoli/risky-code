@@ -39,15 +39,18 @@ ul {
     min-height: 80vh;
 }
 
-.Sidebar-Left {
+.Sidebar-Left,
+.Sidebar-Right {
     flex: 0 1 18vw;
     padding: $appPadding $appPadding 0 $appPadding;
+    position: relative;
+}
+
+.Sidebar-Left {
     border-right: 1px solid $containerBorderColor;
 }
 
 .Sidebar-Right {
-    flex: 0 1 18vw;
-    padding: $appPadding $appPadding 0 $appPadding;
     border-left: 1px solid $containerBorderColor;
 }
 

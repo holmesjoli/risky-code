@@ -16,6 +16,7 @@ import * as d3 from 'd3';
 import coastline from "../../data/processed/Boston/coastline.json";
 import city from "../../data/processed/Boston/city.json";
 import park from "../../data/processed/Boston/park.json";
+import { Button } from "@material-ui/core";
 
 function drawMap() {
 
@@ -135,11 +136,16 @@ export default function StreetBump({config, modules}) {
                         <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                     </div>
                     </Terminology>
+                    <div className="Button-Container-Left">
+                        <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
+                    </div>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
                     <Stakeholders/>
+                    <div className="Button-Container-Right">
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                    </div>
                 </div>
             </div>
             <Footer/>

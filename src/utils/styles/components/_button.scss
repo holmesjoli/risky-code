@@ -1,4 +1,5 @@
-.Next {
+.Next,
+.Back {
    position: absolute;
 }
 
@@ -14,16 +15,21 @@
 }
 
 .Button-Container-Left {
-    margin-right: $containerMargin;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    position: absolute;
+    bottom: 15px;
+    width: 90%;
+    left: 15px;
 }
 
 .Button-Container-Right {
     display: flex;
     justify-content: space-between;
-    gap: $containerMargin;
-    margin-bottom: $containerMargin;
-}
-
-button {
-    // max-width: 25%;
+    gap: 15px;
+    position: absolute;
+    bottom: 15px;
+    width: 90%;
+    right: 15px;
 }

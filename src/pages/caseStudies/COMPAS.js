@@ -6,6 +6,7 @@ import Terminology from '../../components/Terminology';
 import Navigation from "../../components/Navigation";
 import Stakeholders from "../../components/Stakeholders";
 import Progress from "../../components/Progress";
+import { Button } from "@material-ui/core";
 
 export function Content() {
     return(
@@ -45,11 +46,16 @@ export default function COMPAS({config, modules}) {
                             <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                         </div>
                     </Terminology>
+                    <div className="Button-Container-Left">
+                        <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
+                    </div>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <Navigation routeNext={routeNext} routeBack={routeBack} config={config} modules={modules}/>
                     <Stakeholders/>
+                    <div className="Button-Container-Right">
+                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                    </div>
                 </div>
             </div>
             <Footer/>
