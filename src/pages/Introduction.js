@@ -58,7 +58,7 @@ export default function Introduction({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
-                    <Progress id={config.id} modules={modules} pageName={config.title}/>
+                    <Progress id={config.id} modules={modules} defaultExpanded={true}/>
                     <Navigation includeBack={false} routeNext={routeNext} config={config} modules={modules}/>
                 </div>
             </div>

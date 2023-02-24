@@ -87,7 +87,7 @@ function renderTooltip(pageId, fillScale) {
     })
 }
 
-export default function Progress({id, modules}) {
+export default function Progress({id, modules, defaultExpanded = false}) {
 
     let navigate = useNavigate();
     const fill = [visStyles[style]["highlightColor"]].concat(Array(navigationData.length - 1).fill("#131517"));
@@ -196,7 +196,7 @@ export default function Progress({id, modules}) {
 
     return (
         <div className="Progress">
-            <Accordion>
+            <Accordion defaultExpanded={defaultExpanded}>
             {/* <Accordion defaultExpanded> */}
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
