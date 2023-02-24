@@ -206,7 +206,7 @@ export default function Classify({config, items, setItems, modules}) {
                         </div>
                         <div className="Container-Rule">
                             <h4>calibration rate</h4>
-                            <p></p>
+                            <p> The percentage of people at each risk score who are in the positive is approximately equal for different demographics.</p>
                         </div>
                     </Terminology>
                 <div className="Button-Container-Left">
