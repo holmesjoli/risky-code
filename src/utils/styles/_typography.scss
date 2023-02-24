@@ -185,11 +185,13 @@ h4 {
 }
 
 h5 {
-  margin-bottom: .9rem;
-  font-size: 1rem;
-  letter-spacing: .5px;
-  font-variant: small-caps;
-  font-weight: 400;
+  font-size: .8rem;
+  line-height: 1.5;
+  margin-bottom: .3rem;
+  margin-top: .6rem;
+  opacity: .7;
+  font-weight: 500;
+  color: white;
 }
 
 h6,
@@ -199,8 +201,6 @@ h6 > a {
   margin-bottom: .3rem;
   margin-top: .6rem;
   opacity: .7;
-  font-weight: 500;
-  color: white;
 }
 
 .Progress h4,

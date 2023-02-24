@@ -164,7 +164,7 @@ const Column = ({ children, className, title, nClassified }) => {
       >{title}</h3>
         <div className={className === "Container item-list-column"?"": "Card-Container Moveable-Items"}>
             {children.length === 0 ? <p>drop here</p>: children}
-          <h6 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h6>
+          <h5 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
     </div>
   );
