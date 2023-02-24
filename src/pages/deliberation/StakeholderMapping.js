@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import { TextField } from "@material-ui/core";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -8,7 +7,8 @@ import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
-import { Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox } from '@material-ui/core';
+import PolicyScenario from "../../components/PolicyScenario";
+import { Button, TextField, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox } from '@material-ui/core';
 
 function stakeholderNetwork() {
 
@@ -20,7 +20,7 @@ function stakeholderNetwork() {
 }
 
 const submit = () => {
-    
+
 }
 
 function addStakeholder() {
@@ -43,7 +43,7 @@ function addStakeholder() {
                 </FormControl>
             </div>
             <div className="Card-Group">
-                <h3>check values</h3>
+                <h4>check values</h4>
                 <FormGroup>
                     <FormControlLabel control={<Checkbox />} label="Freedom" />
                     <FormControlLabel control={<Checkbox />} label="Autonomy" />
@@ -79,7 +79,7 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
     )
 }
 
-export default function StakeholderMapping({config, modules, direct, setDirect, indirect, setIndirect}) {
+export default function StakeholderMapping({config, modules, direct, setDirect, indirect, setIndirect, policy, setPolicy}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");
@@ -147,12 +147,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
             <div className="Sidebar-Right">
                 <Progress id={id} modules={modules}/>
-                <div className="No-Margin-Bottom">
-                    <h3 className="Small-Margin">policy scenario</h3>
-                        <div className="Container">
-                            <TextField placeholder="Add your policy scenario here" variant="outlined" multiline minRows={20} />
-                        </div>
-                    </div>
+                <PolicyScenario policy={policy} setPolicy={setPolicy}/>
                 <div className="Button-Container-Right">
                     <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                 </div>

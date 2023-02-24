@@ -3,8 +3,8 @@ import { Button } from "@material-ui/core";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Navigation from "../../components/Navigation";
 import Progress from "../../components/Progress";
+import PolicyScenario from "../../components/PolicyScenario";
 
 export function Content({direct, indirect}) {
     return(
@@ -19,7 +19,7 @@ export function Content({direct, indirect}) {
     )
 }
 
-export default function Risk({config, modules, direct, indirect}) {
+export default function Risk({config, modules, direct, indirect, policy, setPolicy}) {
 
     let navigate = useNavigate();
 
@@ -46,6 +46,7 @@ export default function Risk({config, modules, direct, indirect}) {
                 <Content direct={direct} indirect={indirect}/>
                 <div className="Sidebar-Right">
                     <Progress id={config.id} modules={modules}/>
+                    <PolicyScenario policy={policy} setPolicy={setPolicy}/>
                     <div className="Button-Container-Right">
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
