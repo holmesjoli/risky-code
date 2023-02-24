@@ -7,7 +7,7 @@ import Progress from '../components/Progress';
 import { useEffect } from 'react';
 import { policyDiagram } from '../components/PolicyDiagram';
 import Terminology from '../components/Terminology';
-import Navigation from "../components/Navigation";
+import { NextButton } from '../components/Button';
 
 export function Content() {
 
@@ -59,7 +59,7 @@ export default function Introduction({config, modules}) {
                 <Content />
                 <div className="Sidebar-Right">
                     <Progress id={config.id} modules={modules} defaultExpanded={true}/>
-                    <Navigation includeBack={false} routeNext={routeNext} config={config} modules={modules}/>
+                    <NextButton routeNext={routeNext}/>
                 </div>
             </div>
             <Footer/>

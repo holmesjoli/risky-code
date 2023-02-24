@@ -2,9 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Navigation from "../../components/Navigation";
 import Progress from "../../components/Progress";
-import { Button } from "@material-ui/core";
+import { BackButton } from '../../components/Button';
 
 export function Content() {
     return(
@@ -28,9 +27,7 @@ export default function Decision({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <div className="Button-Container-Left">
-                        <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
-                    </div>
+                    <BackButton routeBack={routeBack}/>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">

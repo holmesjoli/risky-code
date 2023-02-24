@@ -12,6 +12,7 @@ import Terminology from '../../components/Terminology';
 import Navigation from "../../components/Navigation";
 import Progress from "../../components/Progress";
 import { Button } from "@material-ui/core";
+import { BackButton, NextButton } from '../../components/Button';
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -208,17 +209,13 @@ export default function Classify({config, items, setItems, modules}) {
                             <h4>calibration rate</h4>
                             <p> The percentage of people at each risk score who are in the positive is approximately equal for different demographics.</p>
                         </div>
-                    </Terminology>
-                <div className="Button-Container-Left">
-                    <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
-                </div>
+                </Terminology>
+                <BackButton routeBack={routeBack}/>
             </div>
             <Content items={items} setItems={setItems}/>
             <div className="Sidebar-Right">
                 <Progress id={config.id} modules={modules}/>
-                <div className="Button-Container-Right">
-                    <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                </div>
+                <NextButton routeNext={routeNext}/>
             </div>
         </div>
         <Footer/>

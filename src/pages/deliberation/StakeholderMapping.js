@@ -8,19 +8,27 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import PolicyScenario from "../../components/PolicyScenario";
-import { Button, TextField, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox } from '@material-ui/core';
+import { Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox } from '@material-ui/core';
+import * as d3 from 'd3';
+import { BackButton, NextButton } from '../../components/Button';
+
+let data = []
 
 function stakeholderNetwork() {
 
     return(
         <div className="Container">
             <h3>stakeholder mapping</h3>
+            <svg id="Stakeholder-Mapping-Diagram"></svg>
         </div>
     )
 }
 
 const submit = () => {
 
+    d3.select("#Stakeholder-Mapping-Diagram")
+        .attr("width", 500)
+        .attt("height", 500)
 }
 
 function addStakeholder() {
@@ -68,13 +76,13 @@ function addStakeholder() {
 
 export function Content({direct, setDirect, indirect, setIndirect}) {
 
-    const updateDirectStakeholders = (event) => {
-        setDirect(event.target.value)
-    }
+    // const updateDirectStakeholders = (event) => {
+    //     setDirect(event.target.value)
+    // }
 
-    const updateIndirectStakeholders = (event) => {
-        setIndirect(event.target.value)
-    }  
+    // const updateIndirectStakeholders = (event) => {
+    //     setIndirect(event.target.value)
+    // }  
 
     return(
         <div className="Content One-Column-Three">
@@ -91,6 +99,7 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
 export default function StakeholderMapping({config, modules, direct, setDirect, indirect, setIndirect, policy, setPolicy}) {
 
     const [isOpen, setIsOpen] = useState(true);
+    const [data, setData] = useState([]);
     const [id, setId] = useState("deliberation");
     let navigate = useNavigate();
     let chartID = "Policy-Chart3";
@@ -149,17 +158,13 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
                         <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                     </div>
                 </Terminology>
-                <div className="Button-Container-Left">
-                    <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
-                </div>
+                <BackButton routeBack={routeBack}/>
             </div>
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
             <div className="Sidebar-Right">
                 <Progress id={id} modules={modules}/>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                <div className="Button-Container-Right">
-                    <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                </div>
+                <NextButton routeNext={routeNext}/>
             </div>
         </div>
         <Footer/>

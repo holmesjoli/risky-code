@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import PolicyScenario from "../../components/PolicyScenario";
+import { BackButton, NextButton } from '../../components/Button';
 
 export function Content({direct, indirect}) {
     return(
@@ -39,17 +40,13 @@ export default function Risk({config, modules, direct, indirect, policy, setPoli
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <div className="Button-Container-Left">
-                        <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
-                    </div>
+                    <BackButton routeBack={routeBack}/>
                 </div>
                 <Content direct={direct} indirect={indirect}/>
                 <div className="Sidebar-Right">
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                    <div className="Button-Container-Right">
-                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                    </div>
+                    <NextButton routeNext={routeNext}/>
                 </div>
             </div>
             <Footer/>
