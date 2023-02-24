@@ -33,19 +33,19 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
                 <h3 className="Small-Margin">direct stakeholders</h3>
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>group</h5>
+                        <h4>group</h4>
                         <TextField label={direct} placeholder="edit me" variant="outlined" multiline={true} onChange={updateDirectStakeholders}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>values</h5>
+                        <h4>values</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>best case scenario</h5>
+                        <h4>best case scenario</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>worst case scenario</h5>
+                        <h4>worst case scenario</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                 </div>
@@ -54,19 +54,19 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
                 <h3 className="Small-Margin">indirect stakeholders</h3>
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>group</h5>
+                        <h4>group</h4>
                         <TextField label={indirect} placeholder="edit me" variant="outlined" multiline={true} onChange={updateIndirectStakeholders}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>values</h5>
+                        <h4>values</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>best case scenario</h5>
+                        <h4>best case scenario</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                     <div className="Container No-Margin-Bottom Column">
-                        <h5>worst case scenario</h5>
+                        <h4>worst case scenario</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
                 <Description config={config}/>
                 <Terminology>
                     <div className="Container-Rule">
-                        <h5>stakeholders</h5>
+                        <h4>stakeholders</h4>
                         <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                     </div>
                 </Terminology>

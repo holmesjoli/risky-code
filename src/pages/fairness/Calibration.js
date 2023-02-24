@@ -201,11 +201,11 @@ export default function Classify({config, items, setItems, modules}) {
                 <Description config={config}/>
                 <Terminology>
                         <div className="Container-Rule">
-                            <h5>mathematical fairness</h5>
+                            <h4>mathematical fairness</h4>
                             <p>Formal mathematical constructions of legal concepts such as "equal protection" and "disparate impact" <NavLink to="/Resources">(Movva 2021)</NavLink></p>
                         </div>
                         <div className="Container-Rule">
-                            <h5>calibration rate</h5>
+                            <h4>calibration rate</h4>
                             <p></p>
                         </div>
                     </Terminology>

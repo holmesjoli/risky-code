@@ -57,11 +57,11 @@ export default function Train({config, variables, setVariables, items, setItems,
                     <Description config={config}/>
                     <Terminology>
                         <div className="Container-Rule">
-                            <h5>data variable</h5>
+                            <h4>data variable</h4>
                             <p>A variable which is recorded in a datasheet</p>
                         </div>
                         <div className="Container-Rule">
-                            <h5>model variable</h5>
+                            <h4>model variable</h4>
                             <p>A variable which is included in a statistical model</p>
                         </div>
                     </Terminology>

@@ -47,7 +47,7 @@ export default function Introduction({config, modules}) {
                     <Description config={config}/>
                     <Terminology>
                         <div className="Container-Rule">
-                            <h5>algorithmically informed decision-making</h5>
+                            <h4>algorithmically informed decision-making</h4>
                             <p>A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans<NavLink to="/Resources"> (AINOW 2018)</NavLink></p>
                         </div>
                     </Terminology>

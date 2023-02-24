@@ -131,7 +131,7 @@ export default function StreetBump({config, modules}) {
                     <Description config={config}/>
                     <Terminology>
                     <div className="Container-Rule">
-                        <h5>stakeholders</h5>
+                        <h4>stakeholders</h4>
                         <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
                     </div>
                     </Terminology>

@@ -5,11 +5,11 @@ export default function Stakeholders() {
         <div className="Stakeholders Container-Outlined">
             <h3>stakeholders</h3>
             <div className="Margin-Bottom Column">
-                <h5>direct</h5>
+                <h4>direct</h4>
                 <TextField placeholder="edit me" variant="outlined" multiline={true}/>
             </div>
             <div className="No-Margin-Bottom Column">
-                <h5>indirect</h5>
+                <h4>indirect</h4>
                 <TextField placeholder="edit me" variant="outlined" multiline={true}/>
             </div>
         </div>

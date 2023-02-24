@@ -6,7 +6,6 @@ export default function Terminology({children}) {
     return(
         <div className="Terminology">
             <Accordion>
-            {/* <h4>Terminology</h4> */}
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >

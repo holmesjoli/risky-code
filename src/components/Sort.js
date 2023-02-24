@@ -120,11 +120,11 @@ const MovableItem = ({
          <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="100"></img>
          <div className="Label">
             <div className="Small-Margin">
-              <h5>care type</h5>
+              <h4>care type</h4>
               <h6>{item.cleanType}</h6>
             </div>
             <div className="Small-Margin">
-              <h5>soiled</h5>
+              <h4>soiled</h4>
               <h6>{item.soiled ? "Yes": "No"}</h6>
             </div>
          </div>

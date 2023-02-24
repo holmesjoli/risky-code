@@ -10,10 +10,10 @@ export function ActualPredicted() {
             <h3>legend</h3>
             <div className="my-grid">
                 <div>
-                    <h5 className="section-title0">model predicted</h5>
+                    <h4 className="section-title0">model predicted</h4>
                 </div>
                 <div>
-                    <h5 className="section-title2">actual hot water load</h5>
+                    <h4 className="section-title2">actual hot water load</h4>
                     <div className="my-grid">
                         <h6 className="section-title">Correctly</h6>
                         <div className="my-grid2">
@@ -43,11 +43,11 @@ function Actual() {
             <h4 className="Small-Margin">Classified</h4>
             <div className="Row">
                 <div className="Group">
-                    <h5 className="Small-Margin">Hot water load</h5>
+                    <h4 className="Small-Margin">Hot water load</h4>
                     <div className="Card"></div>
                 </div>
                 <div className="Group">
-                    <h5 className="Small-Margin">Save for later load</h5>
+                    <h4 className="Small-Margin">Save for later load</h4>
                     <div className="Card"></div>
                 </div>
             </div>
