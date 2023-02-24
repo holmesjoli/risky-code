@@ -6,6 +6,7 @@ import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import PolicyScenario from "../../components/PolicyScenario";
 import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 export function Content({direct, indirect}) {
     return(
@@ -38,16 +39,16 @@ export default function Risk({config, modules, direct, indirect, policy, setPoli
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
+                <LeftSideBar>
                     <Description config={config}/>
                     <BackButton routeBack={routeBack}/>
-                </div>
+                </LeftSideBar>
                 <Content direct={direct} indirect={indirect}/>
-                <div className="Sidebar-Right">
+                <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
                     <NextButton routeNext={routeNext}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

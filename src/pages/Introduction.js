@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { policyDiagram } from '../components/PolicyDiagram';
 import Terminology from '../components/Terminology';
 import { NextButton } from '../components/Button';
+import { LeftSideBar, RightSideBar } from "../components/Sidebar";
 
 export function Content() {
 
@@ -47,7 +48,7 @@ export default function Introduction({config, modules}) {
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
+                <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
                         <div className="Container-Rule">
@@ -55,12 +56,12 @@ export default function Introduction({config, modules}) {
                             <p>A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans<NavLink to="/Resources"> (AINOW 2018)</NavLink></p>
                         </div>
                     </Terminology>
-                </div>
+                </LeftSideBar>
                 <Content />
-                <div className="Sidebar-Right">
+                <RightSideBar>
                     <Progress id={config.id} modules={modules} defaultExpanded={true}/>
                     <NextButton routeNext={routeNext}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

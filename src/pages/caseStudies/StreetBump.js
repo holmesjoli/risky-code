@@ -5,11 +5,11 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import SortBump from "../../components/SortBump";
-import Navigation from "../../components/Navigation";
 import Stakeholders from "../../components/Stakeholders";
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -127,7 +127,7 @@ export default function StreetBump({config, modules}) {
         }
             <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
+                <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
                     <div className="Container-Rule">
@@ -136,13 +136,13 @@ export default function StreetBump({config, modules}) {
                     </div>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
-                </div>
+                </LeftSideBar>
                 <Content />
-                <div className="Sidebar-Right">
-                    <Progress id={config.id} modules={modules}/>
+                <RightSideBar>
+                <Progress id={config.id} modules={modules}/>
                     <Stakeholders/>
                     <NextButton routeNext={routeNext}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

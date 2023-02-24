@@ -4,6 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { BackButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 export function Content() {
     return(
@@ -25,14 +26,14 @@ export default function Decision({config, modules}) {
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
+                <LeftSideBar>
                     <Description config={config}/>
                     <BackButton routeBack={routeBack}/>
-                </div>
+                </LeftSideBar>
                 <Content />
-                <div className="Sidebar-Right">
+                <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

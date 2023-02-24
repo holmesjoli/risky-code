@@ -7,6 +7,7 @@ import Navigation from "../../components/Navigation";
 import Stakeholders from "../../components/Stakeholders";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 export function Content() {
     return(
@@ -33,8 +34,7 @@ export default function COMPAS({config, modules}) {
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
-                    <Description config={config}/>
+                <LeftSideBar>
                     <Terminology>
                         <div className="Container-Rule">
                                 <h4>recidivism</h4>
@@ -46,13 +46,13 @@ export default function COMPAS({config, modules}) {
                         </div>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
-                </div>
+                </LeftSideBar>
                 <Content />
-                <div className="Sidebar-Right">
-                    <Progress id={config.id} modules={modules}/>
+                <RightSideBar>
+                <Progress id={config.id} modules={modules}/>
                     <Stakeholders/>
                     <NextButton routeNext={routeNext}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

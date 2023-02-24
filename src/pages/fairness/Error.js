@@ -5,6 +5,7 @@ import Footer from '../../components/Footer';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 export function Content() {
     return(
@@ -31,7 +32,7 @@ export default function Error({config, modules}) {
         <div className="App">
             <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
+                <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
                         <div className="Container-Rule">
@@ -44,12 +45,12 @@ export default function Error({config, modules}) {
                         </div>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
-                </div>
+                </LeftSideBar>
                 <Content />
-                <div className="Sidebar-Right">
-                    <Progress id={config.id} modules={modules} />
+                <RightSideBar>
+                <Progress id={config.id} modules={modules} />
                     <NextButton routeNext={routeNext}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

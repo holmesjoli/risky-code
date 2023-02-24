@@ -11,6 +11,7 @@ import PolicyScenario from "../../components/PolicyScenario";
 import { Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox } from '@material-ui/core';
 import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 let data = []
 
@@ -150,7 +151,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
         }
         <Header/>
         <div className="Main">
-            <div className="Sidebar-Left">
+            <LeftSideBar>
                 <Description config={config}/>
                 <Terminology>
                     <div className="Container-Rule">
@@ -159,13 +160,13 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
                     </div>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
-            </div>
+            </LeftSideBar>
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
-            <div className="Sidebar-Right">
+            <RightSideBar>
                 <Progress id={id} modules={modules}/>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
                 <NextButton routeNext={routeNext}/>
-            </div>
+            </RightSideBar>
         </div>
         <Footer/>
     </div>

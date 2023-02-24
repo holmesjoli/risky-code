@@ -9,10 +9,9 @@ import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
 import { wrap, visStyles } from "../../utils/global";
 import Terminology from '../../components/Terminology';
-import Navigation from "../../components/Navigation";
 import Progress from "../../components/Progress";
-import { Button } from "@material-ui/core";
 import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 // const fillScale = d3.scaleOrdinal()
 //     .domain()
@@ -198,7 +197,7 @@ export default function Classify({config, items, setItems, modules}) {
         }
         <Header/>
         <div className="Main">
-            <div className="Sidebar-Left">
+            <LeftSideBar>
                 <Description config={config}/>
                 <Terminology>
                         <div className="Container-Rule">
@@ -211,12 +210,12 @@ export default function Classify({config, items, setItems, modules}) {
                         </div>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
-            </div>
+            </LeftSideBar>
             <Content items={items} setItems={setItems}/>
-            <div className="Sidebar-Right">
+            <RightSideBar>
                 <Progress id={config.id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>
-            </div>
+            </RightSideBar>
         </div>
         <Footer/>
     </div>
