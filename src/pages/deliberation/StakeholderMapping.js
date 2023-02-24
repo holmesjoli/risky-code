@@ -20,6 +20,7 @@ function stakeholderNetwork() {
 }
 
 const submit = () => {
+    
 }
 
 function addStakeholder() {
