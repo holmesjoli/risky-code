@@ -42,8 +42,8 @@ const theme = createTheme({
     },
     MuiFormGroup: {
       root: {
-        display: "grid"
-        // gridGap: "15px"
+        display: "flex",
+        flexDirection: "row"
       }
     },
     MuiAccordionSummary: {
@@ -103,7 +103,8 @@ const theme = createTheme({
         borderRadius: ".25rem"
       },
       input: {
-        fontSize: ".85rem"
+        fontSize: ".85rem",
+        padding: "14px"
       }
     },
     MuiButtonBase: {
@@ -112,6 +113,11 @@ const theme = createTheme({
           borderColor: visStyles[style]["highlightColor"],
           color: visStyles[style]["highlightColor"]
        }
+      }
+    },
+    PrivateSwitchBase: {
+      root: {
+          padding: "7px"
       }
     },
     MuiButton: {
