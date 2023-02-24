@@ -12,7 +12,7 @@ const style = "darkMode";
 const theme = createTheme({
   typography: {
     fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
-    fontSize: 12
+    fontSize: "12px"
   },
   palette: {
     type: "dark",
@@ -35,10 +35,15 @@ const theme = createTheme({
         marginBottom: 0
       }
     },
+    MuiTypography: {
+      root: {
+        fontSize: ".85rem"
+      }
+    },
     MuiFormGroup: {
       root: {
-        display: "grid",
-        gridGap: "15px"
+        display: "grid"
+        // gridGap: "15px"
       }
     },
     MuiAccordionSummary: {
@@ -96,6 +101,9 @@ const theme = createTheme({
     MuiOutlinedInput: {
       root: {
         borderRadius: ".25rem"
+      },
+      input: {
+        fontSize: ".85rem"
       }
     },
     MuiButtonBase: {

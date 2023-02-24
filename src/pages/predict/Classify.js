@@ -49,7 +49,7 @@ export default function Classify({config, items, setItems, modules}) {
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
                     <div className="Overlay-Controls">
-                        <h3 className="Page-Title">introduction to predict</h3>
+                        <h3 className="Page-Title">introduction to predictive algorithms</h3>
                         <button
                             className="Overlay-Close"
                             type="button"
@@ -71,7 +71,7 @@ export default function Classify({config, items, setItems, modules}) {
                 </div>
                 <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
                 <div className="Sidebar-Right">
-                    <Progress id={config.id} modules={modules}/>
+                    <Progress id={id} modules={modules}/>
                     <NextButton routeNext={routeNext}/>
                 </div>
             </div>

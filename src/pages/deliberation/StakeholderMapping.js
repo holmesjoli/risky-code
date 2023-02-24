@@ -8,7 +8,7 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import PolicyScenario from "../../components/PolicyScenario";
-import { Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox } from '@material-ui/core';
+import { Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
 import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
@@ -27,19 +27,34 @@ function stakeholderNetwork() {
 
 const submit = () => {
 
-    d3.select("#Stakeholder-Mapping-Diagram")
-        .attr("width", 500)
-        .attt("height", 500)
+
+
+    // d3.select("#Stakeholder-Mapping-Diagram")
+    //     .attr("width", 500)
+    //     .attt("height", 500)
 }
 
 function addStakeholder() {
 
+    let stakeholder = []
+
+
+    // handleChange = ev => {
+
+    //     stakeholder
+    //     this.setState({ selected: ev.target.value });
+    // };
+
     return(
         <div className="Stakeholder-Attr Container">
-            <h3>add stakeholder</h3>
+            {/* <h3>add stakeholder</h3> */}
+            <div className="Card-Group">
+                <h4>stakeholder group</h4>
+                <TextField placeholder="add the stakeholder group name" variant="outlined"/>
+            </div>
             <div className="Card-Group">
                 <FormControl>
-                    <h4>stakeholder group</h4>
+                    <h4>stakeholder type</h4>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="primary"
@@ -52,7 +67,7 @@ function addStakeholder() {
                 </FormControl>
             </div>
             <div className="Card-Group">
-                <h4>check values</h4>
+                <h4>stakeholder values</h4>
                 <FormGroup>
                     <div>
                         <FormControlLabel control={<Checkbox />} label="Freedom" />
@@ -100,7 +115,7 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
 export default function StakeholderMapping({config, modules, direct, setDirect, indirect, setIndirect, policy, setPolicy}) {
 
     const [isOpen, setIsOpen] = useState(true);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([{"id": "root", "children": []}]);
     const [id, setId] = useState("deliberation");
     let navigate = useNavigate();
     let chartID = "Policy-Chart3";
