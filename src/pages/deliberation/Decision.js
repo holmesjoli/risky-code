@@ -28,13 +28,13 @@ export default function Decision({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <Progress id={config.id} modules={modules}/>
                     <div className="Button-Container-Left">
                         <Button variant="outlined" color="secondary" className="Back" onClick={routeBack}>back</Button>
                     </div>
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
+                    <Progress id={config.id} modules={modules}/>
                 </div>
             </div>
             <Footer/>

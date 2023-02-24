@@ -35,7 +35,6 @@ export default function COMPAS({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <Progress id={config.id} modules={modules}/>
                     <Terminology>
                         <div className="Container-Rule">
                                 <h5>recidivism</h5>
@@ -52,6 +51,7 @@ export default function COMPAS({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
+                    <Progress id={config.id} modules={modules}/>
                     <Stakeholders/>
                     <div className="Button-Container-Right">
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>

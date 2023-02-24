@@ -34,7 +34,6 @@ export default function Error({config, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <Progress id={config.id} modules={modules} />
                     <Terminology>
                         <div className="Container-Rule">
                             <h5>false positive rate</h5>
@@ -51,6 +50,7 @@ export default function Error({config, modules}) {
                 </div>
                 <Content />
                 <div className="Sidebar-Right">
+                    <Progress id={config.id} modules={modules} />
                     <div className="Button-Container-Right">
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>

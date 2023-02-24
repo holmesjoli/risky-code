@@ -199,7 +199,6 @@ export default function Classify({config, items, setItems, modules}) {
         <div className="Main">
             <div className="Sidebar-Left">
                 <Description config={config}/>
-                <Progress id={config.id} modules={modules}/>
                 <Terminology>
                         <div className="Container-Rule">
                             <h5>mathematical fairness</h5>
@@ -216,9 +215,10 @@ export default function Classify({config, items, setItems, modules}) {
             </div>
             <Content items={items} setItems={setItems}/>
             <div className="Sidebar-Right">
-                    <div className="Button-Container-Right">
-                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                    </div>
+                <Progress id={config.id} modules={modules}/>
+                <div className="Button-Container-Right">
+                    <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                </div>
             </div>
         </div>
         <Footer/>

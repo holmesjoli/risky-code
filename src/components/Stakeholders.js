@@ -2,7 +2,7 @@ import { TextField } from "@material-ui/core";
 
 export default function Stakeholders() {
     return(
-        <div className="Stakeholders Container-Outlined Margin-Top">
+        <div className="Stakeholders Container-Outlined">
             <h3>stakeholders</h3>
             <div className="Margin-Bottom Column">
                 <h5>direct</h5>

@@ -130,7 +130,6 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
         <div className="Main">
             <div className="Sidebar-Left">
                 <Description config={config}/>
-                <Progress id={config.id} modules={modules}/>
                 <Terminology>
                     <div className="Container-Rule">
                         <h5>stakeholders</h5>
@@ -143,9 +142,10 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
             </div>
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
             <div className="Sidebar-Right">
-                    <div className="Button-Container-Right">
-                        <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
-                    </div>
+                <Progress id={config.id} modules={modules}/>
+                <div className="Button-Container-Right">
+                    <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+                </div>
             </div>
         </div>
         <Footer/>

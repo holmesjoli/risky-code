@@ -55,7 +55,6 @@ export default function Train({config, variables, setVariables, items, setItems,
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <Progress id={config.id} modules={modules}/>
                     <Terminology>
                         <div className="Container-Rule">
                             <h5>data variable</h5>
@@ -72,6 +71,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                 </div>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
                 <div className="Sidebar-Right">
+                    <Progress id={config.id} modules={modules}/>
                     <div className="Button-Container-Right">
                         <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                     </div>
