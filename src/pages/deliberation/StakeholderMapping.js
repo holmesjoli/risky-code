@@ -38,19 +38,20 @@ function addStakeholder() {
 
     let stakeholder = []
 
+    const setStakeholder = ev => {
+        console.log(ev)
+    }
 
     // handleChange = ev => {
-
-    //     stakeholder
-    //     this.setState({ selected: ev.target.value });
+    //     // this.setState({ selected: ev.target.value });
     // };
 
     return(
         <div className="Stakeholder-Attr Container">
-            {/* <h3>add stakeholder</h3> */}
+            <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4>stakeholder group</h4>
-                <TextField placeholder="add the stakeholder group name" variant="outlined"/>
+                <TextField placeholder="add the stakeholder group name" variant="outlined" onClick={setStakeholder}/>
             </div>
             <div className="Card-Group">
                 <FormControl>

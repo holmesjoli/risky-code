@@ -12,7 +12,7 @@ const style = "darkMode";
 const theme = createTheme({
   typography: {
     fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
-    fontSize: "12px"
+    fontSize: 13
   },
   palette: {
     type: "dark",
@@ -37,7 +37,10 @@ const theme = createTheme({
     },
     MuiTypography: {
       root: {
-        fontSize: ".85rem"
+        fontSize: 13,
+      },
+      body1: {
+        fontSize: 13,
       }
     },
     MuiFormGroup: {
@@ -103,7 +106,7 @@ const theme = createTheme({
         borderRadius: ".25rem"
       },
       input: {
-        fontSize: ".85rem",
+        fontSize: 13,
         padding: "14px"
       }
     },
