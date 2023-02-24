@@ -37,9 +37,22 @@ const submit = () => {
 function addStakeholder() {
 
     let stakeholder = []
+    let stakeholderName;
+    let stakeholderGroup = 'primary';
+    let stakeholderValues = [];
 
     const setStakeholder = ev => {
-        console.log(ev)
+        stakeholderName = ev.target.value;
+    }
+
+    const setStakeholderGroup = ev => {
+        stakeholderGroup = ev.target.value;
+        console.log(stakeholderGroup)
+    }
+
+    const setStakeholderValues = ev => {
+        stakeholderValues.push(ev.target.value);
+        console.log(stakeholderValues)
     }
 
     // handleChange = ev => {
@@ -51,7 +64,7 @@ function addStakeholder() {
             <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4>stakeholder group</h4>
-                <TextField placeholder="add the stakeholder group name" variant="outlined" onClick={setStakeholder}/>
+                <TextField placeholder="add the stakeholder group name" variant="outlined" onChange={setStakeholder}/>
             </div>
             <div className="Card-Group">
                 <FormControl>
@@ -60,6 +73,7 @@ function addStakeholder() {
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="primary"
                         name="radio-buttons-group"
+                        onChange={setStakeholderGroup}
                     >
                         <FormControlLabel value="primary" control={<Radio />} label="Primary" />
                         <FormControlLabel value="secondary" control={<Radio />} label="Secondary" />
@@ -69,7 +83,7 @@ function addStakeholder() {
             </div>
             <div className="Card-Group">
                 <h4>stakeholder values</h4>
-                <FormGroup>
+                <FormGroup onChange={setStakeholderValues}>
                     <div>
                         <FormControlLabel control={<Checkbox />} label="Freedom" />
                         <FormControlLabel control={<Checkbox />} label="Autonomy" />
