@@ -7,7 +7,6 @@ import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
-import Navigation from "../../components/Navigation";
 import Progress from "../../components/Progress";
 import { Button } from "@material-ui/core";
 
@@ -24,12 +23,6 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
     return(
         <div className="Content Three-Row">
             <div className="No-Margin-Bottom">
-                <h3 className="Small-Margin">policy scenario</h3>
-                <div className="Container">
-                    <TextField placeholder="Add your policy scenario here" variant="outlined" />
-                </div>
-            </div>
-            <div className="No-Margin-Bottom">
                 <h3 className="Small-Margin">direct stakeholders</h3>
                 <div className="Four-Column">
                     <div className="Container No-Margin-Bottom Column">
@@ -38,14 +31,6 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h4>values</h4>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-                    </div>
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>best case scenario</h4>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-                    </div>
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>worst case scenario</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                 </div>
@@ -59,14 +44,6 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
                     </div>
                     <div className="Container No-Margin-Bottom Column">
                         <h4>values</h4>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-                    </div>
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>best case scenario</h4>
-                        <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-                    </div>
-                    <div className="Container No-Margin-Bottom Column">
-                        <h4>worst case scenario</h4>
                         <TextField placeholder="edit me" variant="outlined" multiline={true}/>
                     </div>
                 </div>
@@ -143,6 +120,12 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
             <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
             <div className="Sidebar-Right">
                 <Progress id={config.id} modules={modules}/>
+                <div className="No-Margin-Bottom">
+                    <h3 className="Small-Margin">policy scenario</h3>
+                        <div className="Container">
+                            <TextField placeholder="Add your policy scenario here" variant="outlined" multiline rows={20} />
+                        </div>
+                    </div>
                 <div className="Button-Container-Right">
                     <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
                 </div>
