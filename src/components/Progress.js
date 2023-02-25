@@ -76,8 +76,8 @@ function renderTooltip(pageId, fillScale) {
         let thisCircle = d3.select(this);
 
         thisCircle
-            .attr("stroke-width", d => d.id !== pageId ? 2: 1)
-            .attr("fill", d => d.id !== pageId ? "rgb(127, 194, 67, .2)": visStyles[style]["highlightColor"]);
+            .attr("stroke-width", d => d.id === pageId ? 1: 2)
+            .attr("fill", d => d.id === pageId ? visStyles[style]["highlightColor"]: "rgb(154, 0, 255, .5)");
 
     }).on("mouseout", function() {
 
@@ -93,7 +93,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
     const fill = [visStyles[style]["highlightColor"]].concat(Array(navigationData.length - 1).fill("#131517"));
     const fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(navigationData.length - 1).fill(visStyles[style]["fontWeight"]));
     const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(navigationData.length - 1).fill("#868B90"));
-    const textTransform = ["lowercase"].concat(Array(navigationData.length - 1).fill("none"));
 
     let pageId, otherPageIds;
     let visited, strokeScale, fillScale, fontWeightScale, fontColorScale, textTransformScale;
@@ -111,7 +110,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
         // Font scales
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
         fontColorScale = createScale(pageId, otherPageIds, fontColor);
-        textTransformScale = createScale(pageId, otherPageIds, textTransform);
 
         // Initialized svg
         let svg = d3.select("#Progress-Chart")
@@ -152,7 +150,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
             .attr("font-size", 13)
             .attr("class", "nav-text")
             .attr("font-weight", d => fontWeightScale(d.id))
-            .attr("text-transform", d => textTransformScale(d.id))
             .attr("letter-spacing", ".6px")
             .style("fill", d => fontColorScale(d.id))
             .text(d => d.name);
@@ -177,7 +174,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
 
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
         fontColorScale = createScale(pageId, otherPageIds, fontColor);
-        textTransformScale = createScale(pageId, otherPageIds, textTransform);
 
         d3.selectAll(".nav-node")
             .attr("class", d => visited.includes(d.id) ? "nav-node": null)
@@ -186,7 +182,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
 
         d3.selectAll(".nav-text")
             .attr("font-weight", d => fontWeightScale(d.id))
-            .attr("text-transform", d => textTransformScale(d.id))
             .style("fill", d => fontColorScale(d.id))
 
         onClickNav(navigate);

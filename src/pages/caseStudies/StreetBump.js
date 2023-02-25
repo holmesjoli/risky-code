@@ -139,7 +139,7 @@ export default function StreetBump({config, modules}) {
                 </LeftSideBar>
                 <Content />
                 <RightSideBar>
-                <Progress id={config.id} modules={modules}/>
+                <Progress id={id} modules={modules}/>
                     <Stakeholders/>
                     <NextButton routeNext={routeNext}/>
                 </RightSideBar>

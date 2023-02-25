@@ -213,7 +213,7 @@ export default function Classify({config, items, setItems, modules}) {
             </LeftSideBar>
             <Content items={items} setItems={setItems}/>
             <RightSideBar>
-                <Progress id={config.id} modules={modules}/>
+                <Progress id={id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>
             </RightSideBar>
         </div>
