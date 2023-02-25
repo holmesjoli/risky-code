@@ -24,7 +24,7 @@ export default function COMPAS({config, modules}) {
         let path = `/Stakeholders`; 
         navigate(path);
       }
-  
+
     const routeBack = () => {
         let path = `/StreetBump`; 
         navigate(path);

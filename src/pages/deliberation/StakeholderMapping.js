@@ -18,7 +18,7 @@ let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity
 "Informed consent", "Identity", "Environment sustainability", "Other"]
 
 let chartId = "Stakeholder-Mapping-Diagram";
-let width = 300;
+let width = 650;
 let height = 400;
 
 function initNetwork() {
@@ -26,7 +26,7 @@ function initNetwork() {
         .append("svg")
         .attr("width", width)
         .attr("height", height)
-        .append("g");
+        .attr("border")
 }
 
 function renderNetwork() {

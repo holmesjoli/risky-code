@@ -4,35 +4,36 @@
     grid-template-columns: repeat(auto-fit, minmax(75px, 90px));
 }
 
+
+
 .Card,
 .Card-Flat,
 .Card-Big,
-.Card-Group {
+.Card-Group,
+#Stakeholder-Mapping-Diagram {
     background-color: $cardBackgroundColor;
     border-radius: $containerBorderRadius;
     border: 1px solid #2e3238;
-    min-height: 100px;
-    max-height: 100px;
-    max-width: 75px;
     position: relative;
     padding: 5px;
     text-align: center;
     flex: 1 1 150px; /*  Stretching: */
-    // flex: 0 1 150px; /*  No stretching: */
     margin: 5px;
 }
 
+.Card {
+    min-height: 100px;
+    max-height: 100px;
+    max-width: 75px;
+}
+
 .Card-Big {
-    max-height: none;
-    max-width: none;
     display: flex;
     flex-direction: row;
     padding: $containerPadding;
 }
 
 .Card-Group {
-    max-height: none;
-    max-width: none;
     margin-bottom: $containerMarginBottom;
     padding: $containerPadding;
     text-align: left;
