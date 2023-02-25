@@ -35,6 +35,7 @@ export default function COMPAS({config, modules}) {
             <Header/>
             <div className="Main">
                 <LeftSideBar>
+                    <Description config={config}/>
                     <Terminology>
                         <div className="Container-Rule">
                                 <h4>recidivism</h4>
