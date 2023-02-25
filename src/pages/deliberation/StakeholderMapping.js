@@ -28,7 +28,7 @@ function initNetwork() {
         .append("svg")
         .attr("width", width)
         .attr("height", height)
-        .attr("border")
+        .append("g");
 }
 
 const rScale = d3.scaleOrdinal()
@@ -37,17 +37,19 @@ const rScale = d3.scaleOrdinal()
 
 function renderNetwork(nodes, links) {
 
+    let svg = d3.select(`#${chartId} svg`);
+    d3.select(`#${chartId} svg g`).remove();
+    svg = svg.append("g");
+
     console.log(nodes, links)
 
-    let svg = d3.select(`#${chartId} svg`)
-
-    var simulation = d3.forceSimulation(nodes)
+    let simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(function (d) { return d.id; }).distance(10).strength(2))
         .force("charge", d3.forceManyBody().strength(-20))
         .force("center", d3.forceCenter(width / 2, height / 2))
         .force("collide", d3.forceCollide().radius(15));
 
-    var link = svg.append("g")
+    let link = svg.append("g")
         .selectAll("line")
         .data(links)
         .enter()
@@ -55,7 +57,7 @@ function renderNetwork(nodes, links) {
         .attr("stroke", visStyles[style]["linkColor"])
         .attr("stroke-width", visStyles[style]["linkWidth"]);
 
-    var node = svg.append("g")
+    let node = svg.append("g")
         .selectAll("circle")
         .data(nodes)
         .enter()
@@ -64,7 +66,7 @@ function renderNetwork(nodes, links) {
         .attr("stroke", visStyles[style]["linkColor"])
         .attr("stroke-width", visStyles[style]["linkWidth"]);
 
-    var text = svg.append("g")
+    let text = svg.append("g")
         .selectAll("text")
         .data(nodes)
         .enter()
@@ -77,20 +79,15 @@ function renderNetwork(nodes, links) {
         link.attr("x1", function (d) { return d.source.x; })
             .attr("y1", function (d) { return d.source.y; })
             .attr("x2", function (d) { return d.target.x; })
-            .attr("y2", function (d) { return d.target.y; })
-
-            // .attr("stroke-width", function(d) {return strokeScale(d.weight); });
+            .attr("y2", function (d) { return d.target.y; });
 
         node
             .attr("cx", function (d) { return d.x; })
-            .attr("cy", function (d) { return d.y; })
-            // .attr("fill", function(d) { return colorScale(d.zone); })
-            // .attr("r", function(d) { return sizeScale(d.influence); })
-            // .attr("stroke", "grey");
+            .attr("cy", function (d) { return d.y; });
 
         text
             .attr("x", function (d) { return d.x + 20; })
-            .attr("y", function (d) { return d.y - 10; })
+            .attr("y", function (d) { return d.y - 10; });
     });
 }
 
@@ -152,16 +149,17 @@ function AddStakeholder(nodes, links) {
                            "name": stakeholderName,
                            "group": "stakeholder"};
 
-        nodes.push(stakeholder);
+        // nodes.push(stakeholder);
+        // links.push({"source": "stakeholders", "target": stakeholderName})
 
-        for (let i of stakeholderValues) {
+        // for (let i of stakeholderValues) {
 
-            nodes.push({"id": i,
-                        "name": i,
-                        "group": "value"});
+        //     nodes.push({"id": i,
+        //                 "name": i,
+        //                 "group": "value"});
 
-            links.push({"source": stakeholderName, "target": i});
-        }
+        //     links.push({"source": stakeholderName, "target": i});
+        // }
 
         updateStakeholderName("");
         updateStakeholderGroup("primary");
