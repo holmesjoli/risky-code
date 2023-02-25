@@ -15,6 +15,9 @@ import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 let data = []
 
+let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
+"Informed consent", "Identity", "Environment sustainability", "Other"]
+
 function stakeholderNetwork() {
 
     return(
@@ -32,6 +35,7 @@ function AddStakeholder() {
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
+    const [selectedBoxes, setSelectedBoxes] = useState([]);
 
     const setStakeholder = ev => {
         updateStakeholderName(ev.target.value);
@@ -50,10 +54,11 @@ function AddStakeholder() {
             stakeholderValues.push(value)
         } else if(!checked) {
             const index = stakeholderValues.indexOf(value);
-            if (index > -1) { // only splice array when item is found
-                stakeholderValues.splice(index, 1); // 2nd parameter means remove one item only
+            if (index > -1) {
+                stakeholderValues.splice(index, 1);
             }
         }
+        setSelectedBoxes([...selectedBoxes, e.target.value]);
     }
 
     const add = () => {
@@ -69,7 +74,7 @@ function AddStakeholder() {
         updateStakeholderValues([]);
     }
 
-    console.log(stakeholderName)
+    // console.log(stakeholderName)
 
     useEffect(() => {
 
@@ -104,19 +109,10 @@ function AddStakeholder() {
                 <h4>stakeholder values</h4>
                 <FormGroup>
                     <div>
-                        <FormControlLabel control={<Checkbox value="Freedom" onClick={setStakeholderValues}/>} label="Freedom" />
-                        <FormControlLabel control={<Checkbox value="Autonomy" onClick={setStakeholderValues}/>} label="Autonomy" />
-                        <FormControlLabel control={<Checkbox value="Privacy" onClick={setStakeholderValues}/>} label="Privacy" />
-                        <FormControlLabel control={<Checkbox value="Security" onClick={setStakeholderValues}/>} label="Security" />
-                        <FormControlLabel control={<Checkbox value="Safety" onClick={setStakeholderValues}/>} label="Safety" />
-                        <FormControlLabel control={<Checkbox value="Anonymity" onClick={setStakeholderValues}/>} label="Anonymity" />
-                        <FormControlLabel control={<Checkbox value="Reliability" onClick={setStakeholderValues}/>} label="Reliability" />
-                        <FormControlLabel control={<Checkbox value="Trust" onClick={setStakeholderValues}/>} label="Trust" />
-                        <FormControlLabel control={<Checkbox value="Ownership and property" onClick={setStakeholderValues}/>} label="Ownership and property" />
-                        <FormControlLabel control={<Checkbox value="Informed consent" onClick={setStakeholderValues}/>} label="Informed consent" />
-                        <FormControlLabel control={<Checkbox value="Identity" onClick={setStakeholderValues}/>} label="Identity" />
-                        <FormControlLabel control={<Checkbox value="Environment sustainability" onClick={setStakeholderValues}/>} label="Environment sustainability" />
-                        <FormControlLabel control={<Checkbox value="Other" onClick={setStakeholderValues}/>} label="Other" />
+                        {values.map(el => <FormControlLabel key={el} 
+                            control={<Checkbox value={el} 
+                                                onClick={setStakeholderValues}
+                                                empty={checkedArray.length === 0}/>} label={el} />)}
                     </div>
                 </FormGroup>
             </div>
