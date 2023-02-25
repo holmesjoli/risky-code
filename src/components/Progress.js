@@ -59,7 +59,7 @@ function onClickNav(navigate) {
         navigate(d);
     }
 
-    d3.selectAll(".nav-node").on("click", function(e, d) {
+    d3.selectAll(".visited-node").on("click", function(e, d) {
 
         // if(d.id === "predict") {
         //     modules = modules.filter(item => item !== "predict")
@@ -71,7 +71,7 @@ function onClickNav(navigate) {
 
 function renderTooltip(pageId, fillScale) {
     
-    d3.selectAll(".nav-node").on("mouseover", function(e, d) {
+    d3.selectAll(".visited-node").on("mouseover", function(e, d) {
 
         let thisCircle = d3.select(this);
 
@@ -83,7 +83,7 @@ function renderTooltip(pageId, fillScale) {
 
         d3.selectAll('.nav-node')
             .attr("stroke-width", 1)
-            .attr("fill", d => fillScale(d.id));
+            // .attr("fill", d => fillScale(d.id));
     })
 }
 
@@ -139,10 +139,11 @@ export default function Progress({id, modules, defaultExpanded = false}) {
             .call(wrap, 40);
 
         nodes.append("circle")
-            .attr("class", d => visited.includes(d.id) ? "nav-node": null)
+            .attr("class", "nav-node")
+            // .attr("class", d => visited.includes(d.id) ? "nav-node visited-node": "nav-node")
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
-            .attr("stroke", d => strokeScale(d.id));
+            // .attr("stroke", d => strokeScale(d.id));
 
         nodes.append("text")
             .attr("x", 30)
@@ -175,10 +176,12 @@ export default function Progress({id, modules, defaultExpanded = false}) {
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
         fontColorScale = createScale(pageId, otherPageIds, fontColor);
 
+        // console.log(d3.selectAll(".nav-node"))
+
         d3.selectAll(".nav-node")
-            .attr("class", d => visited.includes(d.id) ? "nav-node": null)
+        //     .attr("class", d => visited.includes(d.id) ? "nav-node": null)
             .attr("fill", d => fillScale(d.id))
-            .attr("stroke", d => strokeScale(d.id));
+        //     .attr("stroke", d => strokeScale(d.id));
 
         d3.selectAll(".nav-text")
             .attr("font-weight", d => fontWeightScale(d.id))
