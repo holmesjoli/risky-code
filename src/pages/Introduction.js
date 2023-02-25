@@ -50,7 +50,7 @@ export default function Introduction({config, modules}) {
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}/>
-                    <Terminology>
+                    <Terminology defaultExpanded={true}>
                         <div className="Container-Rule">
                             <h4>algorithmically informed decision-making</h4>
                             <p>A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans<NavLink to="/Resources"> (AINOW 2018)</NavLink></p>

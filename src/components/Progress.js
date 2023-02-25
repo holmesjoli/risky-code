@@ -8,7 +8,7 @@ import { navigationData, wrap, visStyles } from "../utils/global";
 const height = 505;
 const width = 260;
 const space = 35;
-const margin = {left: 30, top: 30}
+const margin = {left: 30, top: 25}
 const style = "darkMode";
 
 const rScale = d3.scaleOrdinal()
