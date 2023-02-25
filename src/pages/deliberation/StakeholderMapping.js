@@ -34,26 +34,51 @@ const submit = () => {
     //     .attt("height", 500)
 }
 
-function addStakeholder() {
+function AddStakeholder() {
 
-    let stakeholder = []
-    let stakeholderName;
-    let stakeholderGroup = 'primary';
-    let stakeholderValues = [];
+
+    const [stakeholderName, updateStakeholder] = useState("");
+    const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
+    const [stakeholderValues, updateStakeholderValues] = useState([]);
 
     const setStakeholder = ev => {
-        stakeholderName = ev.target.value;
+        updateStakeholder(ev.target.value);
     }
 
     const setStakeholderGroup = ev => {
-        stakeholderGroup = ev.target.value;
-        console.log(stakeholderGroup)
+        updateStakeholderGroup(ev.target.value);
     }
 
     const setStakeholderValues = ev => {
-        stakeholderValues.push(ev.target.value);
+
+        let value = ev.target.value;
+        let checked = ev.target.checked;
+
+        // console.log(stakeholderValues.includes(value))
+        if(!stakeholderValues.includes(value) && checked) {
+            stakeholderValues.push(value)
+        } else if(!checked) {
+            const index = stakeholderValues.indexOf(value);
+            if (index > -1) { // only splice array when item is found
+                stakeholderValues.splice(index, 1); // 2nd parameter means remove one item only
+            }
+        }
+
         console.log(stakeholderValues)
     }
+
+    useEffect(() => {
+        console.log(stakeholderValues)
+
+
+    }, [stakeholderName, stakeholderGroup, stakeholderValues])
+
+    let stakeholder = {"name": stakeholderName,
+                        "group": stakeholderGroup,
+                        "values": stakeholderValues};
+
+    console.log(stakeholder)
+
 
     // handleChange = ev => {
     //     // this.setState({ selected: ev.target.value });
@@ -83,20 +108,21 @@ function addStakeholder() {
             </div>
             <div className="Card-Group">
                 <h4>stakeholder values</h4>
-                <FormGroup onChange={setStakeholderValues}>
+                <FormGroup>
                     <div>
-                        <FormControlLabel control={<Checkbox />} label="Freedom" />
-                        <FormControlLabel control={<Checkbox />} label="Autonomy" />
-                        <FormControlLabel control={<Checkbox />} label="Privacy" />
-                        <FormControlLabel control={<Checkbox />} label="Security" />
-                        <FormControlLabel control={<Checkbox />} label="Safety" />
-                        <FormControlLabel control={<Checkbox />} label="Anonymity" />
-                        <FormControlLabel control={<Checkbox />} label="Reliability" />
-                        <FormControlLabel control={<Checkbox />} label="Trust" />
-                        <FormControlLabel control={<Checkbox />} label="Ownership and property" />
-                        <FormControlLabel control={<Checkbox />} label="Informed consent" />
-                        <FormControlLabel control={<Checkbox />} label="Identity" />
-                        <FormControlLabel control={<Checkbox />} label="Environment sustainability" />
+                        <FormControlLabel control={<Checkbox value="Freedom" onClick={setStakeholderValues}/>} label="Freedom" />
+                        <FormControlLabel control={<Checkbox value="Autonomy" onClick={setStakeholderValues}/>} label="Autonomy" />
+                        <FormControlLabel control={<Checkbox value="Privacy" onClick={setStakeholderValues}/>} label="Privacy" />
+                        <FormControlLabel control={<Checkbox value="Security" onClick={setStakeholderValues}/>} label="Security" />
+                        <FormControlLabel control={<Checkbox value="Safety" onClick={setStakeholderValues}/>} label="Safety" />
+                        <FormControlLabel control={<Checkbox value="Anonymity" onClick={setStakeholderValues}/>} label="Anonymity" />
+                        <FormControlLabel control={<Checkbox value="Reliability" onClick={setStakeholderValues}/>} label="Reliability" />
+                        <FormControlLabel control={<Checkbox value="Trust" onClick={setStakeholderValues}/>} label="Trust" />
+                        <FormControlLabel control={<Checkbox value="Ownership and property" onClick={setStakeholderValues}/>} label="Ownership and property" />
+                        <FormControlLabel control={<Checkbox value="Informed consent" onClick={setStakeholderValues}/>} label="Informed consent" />
+                        <FormControlLabel control={<Checkbox value="Identity" onClick={setStakeholderValues}/>} label="Identity" />
+                        <FormControlLabel control={<Checkbox value="Environment sustainability" onClick={setStakeholderValues}/>} label="Environment sustainability" />
+                        <FormControlLabel control={<Checkbox value="Other" onClick={setStakeholderValues}/>} label="Other" />
                     </div>
                 </FormGroup>
             </div>
@@ -118,7 +144,7 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
     return(
         <div className="Content One-Column-Three">
             <div className="">
-                {addStakeholder()}
+                {AddStakeholder()}
             </div>
             <div className="">
                 {stakeholderNetwork()}
