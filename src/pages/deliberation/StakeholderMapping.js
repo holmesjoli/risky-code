@@ -35,7 +35,6 @@ function AddStakeholder() {
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
-    const [selectedBoxes, setSelectedBoxes] = useState([]);
 
     const setStakeholder = ev => {
         updateStakeholderName(ev.target.value);
@@ -58,7 +57,6 @@ function AddStakeholder() {
                 stakeholderValues.splice(index, 1);
             }
         }
-        setSelectedBoxes([...selectedBoxes, e.target.value]);
     }
 
     const add = () => {
@@ -110,9 +108,7 @@ function AddStakeholder() {
                 <FormGroup>
                     <div>
                         {values.map(el => <FormControlLabel key={el} 
-                            control={<Checkbox value={el} 
-                                                onClick={setStakeholderValues}
-                                                empty={checkedArray.length === 0}/>} label={el} />)}
+                            control={<Checkbox value={el} onClick={setStakeholderValues} />} label={el} />)}
                     </div>
                 </FormGroup>
             </div>
