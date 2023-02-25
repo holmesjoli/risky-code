@@ -23,6 +23,12 @@ let width = 650;
 let height = 400;
 let style = "darkMode";
 
+let simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id(function(d) { return d.id; }))
+        .force("charge", d3.forceManyBody().strength(-1.5))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collide", d3.forceCollide().strength(2).radius(8));
+
 function initNetwork() {
     d3.select(`#${chartId}`)
         .append("svg")
@@ -41,7 +47,7 @@ function renderNetwork(nodes, links) {
     d3.select(`#${chartId} svg g`).remove();
     svg = svg.append("g");
 
-    console.log(nodes, links)
+    // console.log(nodes, links)
 
     let simulation = d3.forceSimulation(nodes)
         .force("link", d3.forceLink(links).id(function (d) { return d.id; }).distance(10).strength(2))
@@ -52,19 +58,27 @@ function renderNetwork(nodes, links) {
     let link = svg.append("g")
         .selectAll("line")
         .data(links)
-        .enter()
-        .append("line")
-        .attr("stroke", visStyles[style]["linkColor"])
-        .attr("stroke-width", visStyles[style]["linkWidth"]);
+        .join(
+            enter  => enter
+                .append("line")
+                .attr("stroke", visStyles[style]["linkColor"])
+                .attr("stroke-width", visStyles[style]["linkWidth"]),
+            update => update,             
+            exit   => exit.remove()
+        );
 
     let node = svg.append("g")
         .selectAll("circle")
         .data(nodes)
-        .enter()
-        .append("circle")
-        .attr("r", d => rScale(d.group))
-        .attr("stroke", visStyles[style]["linkColor"])
-        .attr("stroke-width", visStyles[style]["linkWidth"]);
+        .join(
+            enter  => enter
+                .append("circle")
+                .attr("r", d => rScale(d.group))
+                .attr("stroke", visStyles[style]["linkColor"])
+                .attr("stroke-width", visStyles[style]["linkWidth"]),
+            update => update,             
+            exit   => exit.remove()
+        );
 
     let text = svg.append("g")
         .selectAll("text")
@@ -119,6 +133,7 @@ function AddStakeholder(nodes, links) {
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
+    let checkedValues = []
 
     const setStakeholder = ev => {
         updateStakeholderName(ev.target.value);
@@ -133,6 +148,8 @@ function AddStakeholder(nodes, links) {
         let value = ev.target.value;
         let checked = ev.target.checked;
 
+        checkedValues.push(value)
+
         if(!stakeholderValues.includes(value) && checked) {
             stakeholderValues.push(value)
         } else if(!checked) {
@@ -142,6 +159,18 @@ function AddStakeholder(nodes, links) {
             }
         }
     }
+
+    // const checkCheckedValue = el => {
+
+    //     console.log(el)
+
+    //     // if (checkedValues.includes(el)) {
+    //     //     return true;
+    //     // } else {
+    //     //     return false;
+    //     // }
+    // }
+
 
     const add = () => {
 
@@ -164,6 +193,9 @@ function AddStakeholder(nodes, links) {
         updateStakeholderName("");
         updateStakeholderGroup("primary");
         updateStakeholderValues([]);
+
+        // d3.selectAll(".Value-Check input")
+        //     .attr("checked", false)
     }
 
     return(
@@ -194,7 +226,7 @@ function AddStakeholder(nodes, links) {
                 <FormGroup>
                     <div>
                         {values.map(el => <FormControlLabel key={el} 
-                            control={<Checkbox value={el} onClick={setStakeholderValues} />} label={el} />)}
+                            control={<Checkbox value={el} className="Value-Check" onClick={setStakeholderValues} />} label={el} />)}
                     </div>
                 </FormGroup>
             </div>
