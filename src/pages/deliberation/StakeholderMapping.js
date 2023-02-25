@@ -13,25 +13,45 @@ import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
-let data = []
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
 "Informed consent", "Identity", "Environment sustainability", "Other"]
 
-function stakeholderNetwork() {
+function StakeholderNetwork(nodes, links) {
+
+    useEffect(() => {
+
+        d3.select("#Stakeholder-Mapping-Diagram")
+            .append("svg")
+    }, [])
+
+    useEffect(() => {
+
+        let width = 300;
+        let height = 400;
+
+        let graph = {"nodes": nodes,
+                     "links": links}
+
+        console.log(graph)
+
+        let svg = d3.select("#Stakeholder-Mapping-Diagram svg")
+            .attr("width", width)
+            .attr("height", height);
+
+    }, [nodes, links])
 
     return(
         <div className="Container">
             <h3>stakeholder mapping</h3>
-            <svg id="Stakeholder-Mapping-Diagram"></svg>
+            <div id="Stakeholder-Mapping-Diagram"></div>
         </div>
     )
 }
 
-function AddStakeholder() {
+function AddStakeholder(nodes, links) {
 
     // [{"id": "root", "children": []}]
-    const [data, setData] = useState([]);
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
@@ -61,11 +81,18 @@ function AddStakeholder() {
 
     const add = () => {
 
-        let stakeholder = {"name": stakeholderName,
-                           "group": stakeholderGroup,
-                           "values": stakeholderValues};
+        let v = []
+        for (let i of stakeholderValues) {
+            v.push({"id": i, "name": i})
+            links.push({"target": "stakeholders", "source": i})
+        }
 
-        data.push(stakeholder);
+        let stakeholder = {"id": stakeholderName,
+                           "name": stakeholderName,
+                           "group": stakeholderGroup,
+                           "children": v};
+
+        nodes.push(stakeholder);
 
         updateStakeholderName("");
         updateStakeholderGroup("primary");
@@ -74,11 +101,11 @@ function AddStakeholder() {
 
     // console.log(stakeholderName)
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        console.log(data)
+    //     // console.log(nodes)
 
-    }, [stakeholderName, stakeholderGroup, stakeholderValues]);
+    // }, [stakeholderName, stakeholderGroup, stakeholderValues]);
 
     return(
         <div className="Stakeholder-Attr Container">
@@ -125,15 +152,19 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
 
     // const updateIndirectStakeholders = (event) => {
     //     setIndirect(event.target.value)
-    // }  
+    // }
+
+    const [links, setLinks] = useState([]);
+    const [nodes, setNodes] = useState({"id": "stakeholders", 
+                                        "children": [{"id": "test"}]});
 
     return(
         <div className="Content One-Column-Three">
             <div className="">
-                {AddStakeholder()}
+                {AddStakeholder(nodes, links)}
             </div>
             <div className="">
-                {stakeholderNetwork()}
+                {StakeholderNetwork(nodes, links)}
             </div>
         </div>
     )
