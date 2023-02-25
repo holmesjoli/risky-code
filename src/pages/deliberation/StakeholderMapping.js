@@ -8,37 +8,44 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import PolicyScenario from "../../components/PolicyScenario";
-import { Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
+import { Fab, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
 import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
-
+import AddIcon from '@material-ui/icons/Add';
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
 "Informed consent", "Identity", "Environment sustainability", "Other"]
 
+let chartId = "Stakeholder-Mapping-Diagram";
+let width = 300;
+let height = 400;
+
+function initNetwork() {
+    d3.select(`#${chartId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height)
+        .append("g");
+}
+
+function renderNetwork() {
+
+    var simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id(function(d) { return d.id; }))
+        .force("charge", d3.forceManyBody().strength(-1.5))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collide", d3.forceCollide().strength(2).radius(8));
+}
+
 function StakeholderNetwork(nodes, links) {
 
     useEffect(() => {
-
-        d3.select("#Stakeholder-Mapping-Diagram")
-            .append("svg")
+        initNetwork();
     }, [])
 
     useEffect(() => {
-
-        let width = 300;
-        let height = 400;
-
-        let graph = {"nodes": nodes,
-                     "links": links}
-
-        console.log(graph)
-
-        let svg = d3.select("#Stakeholder-Mapping-Diagram svg")
-            .attr("width", width)
-            .attr("height", height);
-
+        renderNetwork();
     }, [nodes, links])
 
     return(
@@ -92,7 +99,7 @@ function AddStakeholder(nodes, links) {
                            "group": stakeholderGroup,
                            "children": v};
 
-        nodes.push(stakeholder);
+        nodes.children.push(stakeholder);
 
         updateStakeholderName("");
         updateStakeholderGroup("primary");
@@ -139,7 +146,12 @@ function AddStakeholder(nodes, links) {
                     </div>
                 </FormGroup>
             </div>
-            <Button variant="outlined" color="secondary" size="small" onClick={add}>add stakeholder to diagram</Button>
+            <div className="Add-Stakeholder-Button">
+                <h4>add stakeholder to diagram</h4>
+                <Fab color="primary" onClick={add}>
+                    <AddIcon />
+                </Fab>
+            </div>
         </div>
     )
 }
