@@ -33,22 +33,18 @@ function initNetwork() {
 function renderNetwork(nodes, links) {
 
     console.log(nodes, links)
-    // console.log(links)
 
     let svg = d3.select(`#${chartId} svg`)
 
-    var simulation = d3.forceSimulation(data.nodes)
-        .force("link", d3.forceLink(data.links).id(function (d) { return d.id; }).distance(10).strength(2))
-        // .force('y', d3.forceY().y(function (d) {
-        //     return height/2;
-        // }).strength(3))
+    var simulation = d3.forceSimulation(nodes)
+        .force("link", d3.forceLink(links).id(function (d) { return d.id; }).distance(10).strength(2))
         .force("charge", d3.forceManyBody().strength(-20))
         .force("center", d3.forceCenter(width / 2, height / 2))
         .force("collide", d3.forceCollide().radius(15));
 
     var link = svg.append("g")
         .selectAll("line")
-        .data(data.links)
+        .data(links)
         .enter()
         .append("line")
         .attr("stroke", "#343940")
@@ -56,7 +52,7 @@ function renderNetwork(nodes, links) {
 
     var node = svg.append("g")
         .selectAll("circle")
-        .data(data.nodes)
+        .data(nodes)
         .enter()
         .append("circle")
         .attr("r", 5)
