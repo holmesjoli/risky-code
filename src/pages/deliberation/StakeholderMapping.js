@@ -49,12 +49,6 @@ function renderNetwork(nodes, links) {
 
     // console.log(nodes, links)
 
-    let simulation = d3.forceSimulation(nodes)
-        .force("link", d3.forceLink(links).id(function (d) { return d.id; }).distance(10).strength(2))
-        .force("charge", d3.forceManyBody().strength(-20))
-        .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collide", d3.forceCollide().radius(15));
-
     let link = svg.append("g")
         .selectAll("line")
         .data(links)
@@ -83,12 +77,21 @@ function renderNetwork(nodes, links) {
     let text = svg.append("g")
         .selectAll("text")
         .data(nodes)
-        .enter()
-        .append("text")
-        .attr("fill", visStyles[style]["textColor"])
-        .attr("font-size", visStyles[style]["fontSize"])
-        .text(d => d.name);
-        
+        .join(
+            enter  => enter
+                .append("text")
+                .attr("fill", visStyles[style]["textColor"])
+                .attr("font-size", visStyles[style]["fontSize"])
+                .text(d => d.name),
+            update => update,             
+            exit   => exit.remove()
+        );
+    
+    simulation
+        .alpha(1).restart()
+        .nodes(nodes)
+        .force("link").links(links);
+
     simulation.on("tick", function () {
         link.attr("x1", function (d) { return d.source.x; })
             .attr("y1", function (d) { return d.source.y; })
