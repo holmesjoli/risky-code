@@ -93,9 +93,9 @@ function renderTooltip(pageId, fillScale) {
 
     }).on("mouseout", function() {
 
-        d3.selectAll('.nav-node')
+        d3.selectAll('.visited-node')
             .attr("stroke-width", 1)
-            // .attr("fill", d => fillScale(d.id));
+            .attr("fill", d => fillScale(d.id));
     })
 }
 
@@ -151,8 +151,7 @@ export default function Progress({id, modules, defaultExpanded = false}) {
             .call(wrap, 40);
 
         nodes.append("circle")
-            .attr("class", "nav-node")
-            // .attr("class", d => visited.includes(d.id) ? "nav-node visited-node": "nav-node")
+            .attr("class", d => d.id === pageId ? "nav-node visited-node": "nav-node")
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
             .attr("stroke", d => strokeScale(d.id));
@@ -188,10 +187,8 @@ export default function Progress({id, modules, defaultExpanded = false}) {
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
         fontColorScale = createScale(pageId, otherPageIds, fontColor);
 
-        // console.log(d3.selectAll(".nav-node"))
-
         d3.selectAll(".nav-node")
-        //     .attr("class", d => visited.includes(d.id) ? "nav-node": null)
+            .attr("class", d => d.id === pageId || visited.includes(d.id) ? "nav-node visited-node": "nav-node")
             .attr("fill", d => fillScale(d.id))
             .attr("stroke", d => strokeScale(d.id));
 
