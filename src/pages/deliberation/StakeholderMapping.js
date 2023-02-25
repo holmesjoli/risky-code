@@ -31,6 +31,10 @@ function initNetwork() {
         .attr("border")
 }
 
+const rScale = d3.scaleOrdinal()
+    .domain(["stakeholders", "stakeholder", "value"])
+    .range([10, 8, 5])
+
 function renderNetwork(nodes, links) {
 
     console.log(nodes, links)
@@ -56,7 +60,7 @@ function renderNetwork(nodes, links) {
         .data(nodes)
         .enter()
         .append("circle")
-        .attr("r", 5)
+        .attr("r", d => rScale(d.group))
         .attr("stroke", visStyles[style]["linkColor"])
         .attr("stroke-width", visStyles[style]["linkWidth"]);
 
@@ -65,7 +69,7 @@ function renderNetwork(nodes, links) {
         .data(nodes)
         .enter()
         .append("text")
-        .attr("fill", "#FFFFFF")
+        .attr("fill", visStyles[style]["textColor"])
         .attr("font-size", visStyles[style]["fontSize"])
         .text(d => d.name);
         
@@ -85,8 +89,8 @@ function renderNetwork(nodes, links) {
             // .attr("stroke", "grey");
 
         text
-            .attr("x", function (d) { return d.x + 10; })
-            .attr("y", function (d) { return d.y + 10; })
+            .attr("x", function (d) { return d.x + 20; })
+            .attr("y", function (d) { return d.y - 10; })
     });
 }
 
@@ -144,17 +148,20 @@ function AddStakeholder(nodes, links) {
 
     const add = () => {
 
-        let v = []
-        for (let i of stakeholderValues) {
-            v.push({"id": i, "name": i})
-            links.push({"target": "stakeholders", "source": i})
-        }
-
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
-                           "group": stakeholderGroup};
+                           "group": "stakeholder"};
 
-        // nodes.children.push(stakeholder);
+        nodes.push(stakeholder);
+
+        for (let i of stakeholderValues) {
+
+            nodes.push({"id": i,
+                        "name": i,
+                        "group": "value"});
+
+            links.push({"source": stakeholderName, "target": i});
+        }
 
         updateStakeholderName("");
         updateStakeholderGroup("primary");
@@ -214,7 +221,7 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
     // }
 
     const [links, setLinks] = useState([]);
-    const [nodes, setNodes] = useState([{"id": "stakeholders", "name": "stakeholders", "group": "root"}]);
+    const [nodes, setNodes] = useState([{"id": "stakeholders", "name": "Stakeholders", "group": "root"}]);
 
     return(
         <div className="Content One-Column-Three">
