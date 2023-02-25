@@ -51,19 +51,17 @@ function renderNetwork(nodes, links) {
         .data(data.links)
         .enter()
         .append("line")
-        .attr("stroke", "#FFFFFF");
+        .attr("stroke", "#343940")
+        .attr("stroke-width", 1);
 
     var node = svg.append("g")
         .selectAll("circle")
         .data(data.nodes)
         .enter()
         .append("circle")
-        // .attr("stroke", "#fff")
-        // .attr("stroke-width", 0.5)
-        // .attr("fill", function(d) { return colorScale(d.zone); })
         .attr("r", 5)
-        .attr("stroke", "grey")
-        .attr("stroke-width", 2);
+        .attr("stroke", "#343940")
+        .attr("stroke-width", 1);
 
     simulation.on("tick", function () {
         link.attr("x1", function (d) { return d.source.x; })
@@ -96,12 +94,11 @@ function StakeholderNetwork(nodes, links) {
         renderNetwork(nodes, links);
     }, [nodes, links])
 
-
     return(
         <div className="Container">
             <h3>stakeholder mapping</h3>
             <div id="Stakeholder-Mapping-Diagram"></div>
-            <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset</Button>
+            <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset network</Button>
         </div>
     )
 }
