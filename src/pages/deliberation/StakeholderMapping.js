@@ -25,24 +25,16 @@ function stakeholderNetwork() {
     )
 }
 
-const submit = () => {
-
-
-
-    // d3.select("#Stakeholder-Mapping-Diagram")
-    //     .attr("width", 500)
-    //     .attt("height", 500)
-}
-
 function AddStakeholder() {
 
-
-    const [stakeholderName, updateStakeholder] = useState("");
+    // [{"id": "root", "children": []}]
+    const [data, setData] = useState([]);
+    const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
 
     const setStakeholder = ev => {
-        updateStakeholder(ev.target.value);
+        updateStakeholderName(ev.target.value);
     }
 
     const setStakeholderGroup = ev => {
@@ -54,7 +46,6 @@ function AddStakeholder() {
         let value = ev.target.value;
         let checked = ev.target.checked;
 
-        // console.log(stakeholderValues.includes(value))
         if(!stakeholderValues.includes(value) && checked) {
             stakeholderValues.push(value)
         } else if(!checked) {
@@ -63,33 +54,35 @@ function AddStakeholder() {
                 stakeholderValues.splice(index, 1); // 2nd parameter means remove one item only
             }
         }
-
-        console.log(stakeholderValues)
     }
 
+    const add = () => {
+
+        let stakeholder = {"name": stakeholderName,
+                           "group": stakeholderGroup,
+                           "values": stakeholderValues};
+
+        data.push(stakeholder);
+
+        updateStakeholderName("");
+        updateStakeholderGroup("primary");
+        updateStakeholderValues([]);
+    }
+
+    console.log(stakeholderName)
+
     useEffect(() => {
-        console.log(stakeholderValues)
 
+        console.log(data)
 
-    }, [stakeholderName, stakeholderGroup, stakeholderValues])
-
-    let stakeholder = {"name": stakeholderName,
-                        "group": stakeholderGroup,
-                        "values": stakeholderValues};
-
-    console.log(stakeholder)
-
-
-    // handleChange = ev => {
-    //     // this.setState({ selected: ev.target.value });
-    // };
+    }, [stakeholderName, stakeholderGroup, stakeholderValues]);
 
     return(
         <div className="Stakeholder-Attr Container">
             <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4>stakeholder group</h4>
-                <TextField placeholder="add the stakeholder group name" variant="outlined" onChange={setStakeholder}/>
+                <TextField value={stakeholderName} placeholder="add the stakeholder group name" variant="outlined" onChange={setStakeholder}/>
             </div>
             <div className="Card-Group">
                 <FormControl>
@@ -126,7 +119,7 @@ function AddStakeholder() {
                     </div>
                 </FormGroup>
             </div>
-            <Button variant="outlined" color="secondary" size="small" onClick={submit}>add stakeholder to diagram</Button>
+            <Button variant="outlined" color="secondary" size="small" onClick={add}>add stakeholder to diagram</Button>
         </div>
     )
 }
@@ -156,7 +149,6 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
 export default function StakeholderMapping({config, modules, direct, setDirect, indirect, setIndirect, policy, setPolicy}) {
 
     const [isOpen, setIsOpen] = useState(true);
-    const [data, setData] = useState([{"id": "root", "children": []}]);
     const [id, setId] = useState("deliberation");
     let navigate = useNavigate();
     let chartID = "Policy-Chart3";
