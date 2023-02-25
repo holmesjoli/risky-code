@@ -8,7 +8,7 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import PolicyScenario from "../../components/PolicyScenario";
-import { Fab, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
+import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
 import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
@@ -40,6 +40,10 @@ function renderNetwork() {
 
 function StakeholderNetwork(nodes, links) {
 
+    const resetNetwork = () => {
+
+    }
+
     useEffect(() => {
         initNetwork();
     }, [])
@@ -48,10 +52,12 @@ function StakeholderNetwork(nodes, links) {
         renderNetwork();
     }, [nodes, links])
 
+
     return(
         <div className="Container">
             <h3>stakeholder mapping</h3>
             <div id="Stakeholder-Mapping-Diagram"></div>
+            <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset</Button>
         </div>
     )
 }
