@@ -13,6 +13,7 @@ import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import AddIcon from '@material-ui/icons/Add';
+import data from "../../data/processed/miserables.json";
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
 "Informed consent", "Identity", "Environment sustainability", "Other"]
@@ -29,13 +30,56 @@ function initNetwork() {
         .attr("border")
 }
 
-function renderNetwork() {
+function renderNetwork(nodes, links) {
 
-    var simulation = d3.forceSimulation()
-        .force("link", d3.forceLink().id(function(d) { return d.id; }))
-        .force("charge", d3.forceManyBody().strength(-1.5))
+    // console.log(nodes, links)
+    console.log(links)
+
+    let svg = d3.select(`#${chartId} svg`)
+
+    var simulation = d3.forceSimulation(data.nodes)
+        .force("link", d3.forceLink(data.links).id(function (d) { return d.id; }).distance(10).strength(2))
+        // .force('y', d3.forceY().y(function (d) {
+        //     return height/2;
+        // }).strength(3))
+        .force("charge", d3.forceManyBody().strength(-20))
         .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collide", d3.forceCollide().strength(2).radius(8));
+        .force("collide", d3.forceCollide().radius(15));
+
+    var link = svg.append("g")
+        .selectAll("line")
+        .data(data.links)
+        .enter()
+        .append("line")
+        .attr("stroke", "#FFFFFF");
+
+    var node = svg.append("g")
+        .selectAll("circle")
+        .data(data.nodes)
+        .enter()
+        .append("circle")
+        // .attr("stroke", "#fff")
+        // .attr("stroke-width", 0.5)
+        // .attr("fill", function(d) { return colorScale(d.zone); })
+        .attr("r", 5)
+        .attr("stroke", "grey")
+        .attr("stroke-width", 2);
+
+    simulation.on("tick", function () {
+        link.attr("x1", function (d) { return d.source.x; })
+            .attr("y1", function (d) { return d.source.y; })
+            .attr("x2", function (d) { return d.target.x; })
+            .attr("y2", function (d) { return d.target.y; })
+
+            // .attr("stroke-width", function(d) {return strokeScale(d.weight); });
+
+        node
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; })
+            // .attr("fill", function(d) { return colorScale(d.zone); })
+            // .attr("r", function(d) { return sizeScale(d.influence); })
+            // .attr("stroke", "grey");
+    });
 }
 
 function StakeholderNetwork(nodes, links) {
@@ -49,7 +93,7 @@ function StakeholderNetwork(nodes, links) {
     }, [])
 
     useEffect(() => {
-        renderNetwork();
+        renderNetwork(nodes, links);
     }, [nodes, links])
 
 
@@ -112,14 +156,6 @@ function AddStakeholder(nodes, links) {
         updateStakeholderValues([]);
     }
 
-    // console.log(stakeholderName)
-
-    // useEffect(() => {
-
-    //     // console.log(nodes)
-
-    // }, [stakeholderName, stakeholderGroup, stakeholderValues]);
-
     return(
         <div className="Stakeholder-Attr Container">
             <h3>add stakeholder</h3>
@@ -172,7 +208,7 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
     //     setIndirect(event.target.value)
     // }
 
-    const [links, setLinks] = useState([]);
+    const [links, setLinks] = useState([{"source": "stakeholders", "target": "test"}]);
     const [nodes, setNodes] = useState({"id": "stakeholders", 
                                         "children": [{"id": "test"}]});
 
