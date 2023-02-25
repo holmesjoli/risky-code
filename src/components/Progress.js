@@ -32,13 +32,25 @@ function createVisited(modules) {
 
 function createStrokeScale(pageId, modules, visited) {
 
-    let notVisited = navigationData.filter(d => !modules.includes(d.id) & d.id !== pageId).map(d => d.id);
-    let visitedColors = Array(visited.length).fill(visStyles[style]["secondaryHighlightColor"]);
+    let notVisited = navigationData.filter(d => !modules.includes(d.id) && d.id !== pageId).map(d => d.id);
     let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
+    let colors;
+
+    if (visited.length > 1) {
+        let visitedStrokes = Array(visited.length - 1).fill(visStyles[style]["secondaryHighlightColor"]);
+        colors = [visStyles[style]["highlightColor"]].concat(visitedStrokes.concat(notVisitedStrokes))
+    } else {
+        colors = [visStyles[style]["highlightColor"]].concat(notVisitedStrokes);
+    }
+
+    const index = visited.indexOf(pageId);
+    if (index > -1) {
+        visited.splice(index, 1);
+    }
 
     let scale = d3.scaleOrdinal()
         .domain([pageId].concat(visited.concat(notVisited)))
-        .range([visStyles[style]["highlightColor"]].concat(visitedColors.concat(notVisitedStrokes)));
+        .range(colors);
 
     return scale;
 }
@@ -143,7 +155,7 @@ export default function Progress({id, modules, defaultExpanded = false}) {
             // .attr("class", d => visited.includes(d.id) ? "nav-node visited-node": "nav-node")
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
-            // .attr("stroke", d => strokeScale(d.id));
+            .attr("stroke", d => strokeScale(d.id));
 
         nodes.append("text")
             .attr("x", 30)
@@ -181,7 +193,7 @@ export default function Progress({id, modules, defaultExpanded = false}) {
         d3.selectAll(".nav-node")
         //     .attr("class", d => visited.includes(d.id) ? "nav-node": null)
             .attr("fill", d => fillScale(d.id))
-        //     .attr("stroke", d => strokeScale(d.id));
+            .attr("stroke", d => strokeScale(d.id));
 
         d3.selectAll(".nav-text")
             .attr("font-weight", d => fontWeightScale(d.id))
