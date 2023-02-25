@@ -32,8 +32,8 @@ function initNetwork() {
 
 function renderNetwork(nodes, links) {
 
-    // console.log(nodes, links)
-    console.log(links)
+    console.log(nodes, links)
+    // console.log(links)
 
     let svg = d3.select(`#${chartId} svg`)
 
@@ -105,7 +105,6 @@ function StakeholderNetwork(nodes, links) {
 
 function AddStakeholder(nodes, links) {
 
-    // [{"id": "root", "children": []}]
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
@@ -143,10 +142,9 @@ function AddStakeholder(nodes, links) {
 
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
-                           "group": stakeholderGroup,
-                           "children": v};
+                           "group": stakeholderGroup};
 
-        nodes.children.push(stakeholder);
+        // nodes.children.push(stakeholder);
 
         updateStakeholderName("");
         updateStakeholderGroup("primary");
@@ -205,9 +203,8 @@ export function Content({direct, setDirect, indirect, setIndirect}) {
     //     setIndirect(event.target.value)
     // }
 
-    const [links, setLinks] = useState([{"source": "stakeholders", "target": "test"}]);
-    const [nodes, setNodes] = useState({"id": "stakeholders", 
-                                        "children": [{"id": "test"}]});
+    const [links, setLinks] = useState([]);
+    const [nodes, setNodes] = useState([{"id": "stakeholders", "name": "stakeholders", "group": "root"}]);
 
     return(
         <div className="Content One-Column-Three">
