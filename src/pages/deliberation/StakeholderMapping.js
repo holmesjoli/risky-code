@@ -13,14 +13,15 @@ import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import AddIcon from '@material-ui/icons/Add';
-import data from "../../data/processed/miserables.json";
+import { visStyles } from "../../utils/global";
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
-"Informed consent", "Identity", "Environment sustainability", "Other"]
+"Informed consent", "Identity", "Environment sustainability", "Other"];
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let width = 650;
 let height = 400;
+let style = "darkMode";
 
 function initNetwork() {
     d3.select(`#${chartId}`)
@@ -47,8 +48,8 @@ function renderNetwork(nodes, links) {
         .data(links)
         .enter()
         .append("line")
-        .attr("stroke", "#343940")
-        .attr("stroke-width", 1);
+        .attr("stroke", visStyles[style]["linkColor"])
+        .attr("stroke-width", visStyles[style]["linkWidth"]);
 
     var node = svg.append("g")
         .selectAll("circle")
@@ -56,9 +57,18 @@ function renderNetwork(nodes, links) {
         .enter()
         .append("circle")
         .attr("r", 5)
-        .attr("stroke", "#343940")
-        .attr("stroke-width", 1);
+        .attr("stroke", visStyles[style]["linkColor"])
+        .attr("stroke-width", visStyles[style]["linkWidth"]);
 
+    var text = svg.append("g")
+        .selectAll("text")
+        .data(nodes)
+        .enter()
+        .append("text")
+        .attr("fill", "#FFFFFF")
+        .attr("font-size", visStyles[style]["fontSize"])
+        .text(d => d.name);
+        
     simulation.on("tick", function () {
         link.attr("x1", function (d) { return d.source.x; })
             .attr("y1", function (d) { return d.source.y; })
@@ -73,6 +83,10 @@ function renderNetwork(nodes, links) {
             // .attr("fill", function(d) { return colorScale(d.zone); })
             // .attr("r", function(d) { return sizeScale(d.influence); })
             // .attr("stroke", "grey");
+
+        text
+            .attr("x", function (d) { return d.x + 10; })
+            .attr("y", function (d) { return d.y + 10; })
     });
 }
 

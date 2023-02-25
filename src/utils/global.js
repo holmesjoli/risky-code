@@ -251,7 +251,9 @@ export const visStyles = {
         "fontSize": 13,
         "fontWeight": 400,
         "fontHighlightWeight": 500,
-        "letterSpacing": ".4px"
+        "letterSpacing": ".4px",
+        "linkColor": "#343940",
+        "linkWidth": 1
     },
     "colorMode": {
         "colors": ["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#F3C010"],
@@ -266,7 +268,9 @@ export const visStyles = {
         "fontSize": 13,
         "fontWeight": 400,
         "fontHighlightWeight": 500,
-        "letterSpacing": ".4px"
+        "letterSpacing": ".4px",
+        "linkColor": "#343940",
+        "linkWidth": 1
     }
 
 }
