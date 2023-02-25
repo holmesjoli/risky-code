@@ -92,6 +92,7 @@ function AddStakeholder() {
                         defaultValue="primary"
                         name="radio-buttons-group"
                         onChange={setStakeholderGroup}
+                        value={stakeholderGroup}
                     >
                         <FormControlLabel value="primary" control={<Radio />} label="Primary" />
                         <FormControlLabel value="secondary" control={<Radio />} label="Secondary" />
