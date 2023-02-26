@@ -158,11 +158,11 @@ const Column = ({ children, className, title, nClassified }) => {
       style={{ border: getBorder(isOver, canDrop),
         backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h3 className="Small-Margin"
+      <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
 
   
-      >{title}</h3>
+      >{title}</h4>
         <div className={className === "Container item-list-column"?"": "Card-Container Moveable-Items"}>
             {children.length === 0 ? <p>drop here</p>: children}
           <h5 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h5>
@@ -252,7 +252,7 @@ export default function SortLaundry({ nClassified, setNClassified}) {
             </div>
             <ExpandMoreIcon className="Rotate90 Scale200"/>
             <div className="Case-Container">
-                <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
+                <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column Margin-Bottom">
                   {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
                 <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
