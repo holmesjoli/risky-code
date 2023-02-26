@@ -8,42 +8,60 @@ import Stakeholders from "../../components/Stakeholders";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
-import { Slider } from '@material-ui/core' ;
+import { Slider, MenuItem, FormControl, Select } from '@material-ui/core' ;
 import * as d3 from 'd3';
 import data from "../../data/processed/compas.json";
 
-let chartId = "COMPAS-Chart"
-let width = 650;
-let height = 500;
+let chartIdBlack = "COMPAS-Chart-Black"
+let chartIdWhite = "COMPAS-Chart-White"
+let width = 570;
+let height = 275;
 let style = "darkMode";
 
 function initGraph(data) {
-    d3.select(`#${chartId}`)
+    d3.select(`#${chartIdBlack}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    // renderNetwork(data);
+    d3.select(`#${chartIdWhite}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    renderGraph(data);
+}
+
+function renderGraph(data) {
+
 }
 
 export function Content() {
 
     const [predictiveProbability, setPredictiveProbability] = useState(40);
+    const [definition, setDefinition] = useState("fpr");
 
     const updateSlider = (event, value) => {
         setPredictiveProbability(value/10)
     }
 
-    console.log(predictiveProbability)
+    const updateDefinition = (event) => {
+        setDefinition(event.target.value)
+    }
+
     useEffect(() => {
         initGraph(data);
     }, []);
+
+    useEffect(() => {
+        renderGraph(data);
+    }, [predictiveProbability]);
 
     return(
         <div className="Content">
             <div className="Three-Column3">
                 <div>
-                    <div className="Container">
+                    <div className="Container Margin-Bottom">
                         <h3>predicted probability of reoffense</h3>
                         <p>Use the slider to adjust at what threshold defendants should be considered high-risk of reoffense.</p>
                         <Slider
@@ -57,11 +75,30 @@ export function Content() {
                             onChange={updateSlider}
                             />
                     </div>
+                    <div className="Container">
+                        <FormControl variant="outlined" size="small">
+                            <Select
+                                value="fpr"
+                                onChange={updateDefinition}
+                            >
+                                <MenuItem value="fpr">False Positive Rate</MenuItem>
+                                <MenuItem value="fnr">False Negative Rate</MenuItem>
+                                <MenuItem value="calibration">Calibration Rate</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </div>
                 </div>
                 <div>
                     <div className="Container">
                         <h3>the compas algorithm's recidivism predictions</h3>
-                        <div id={chartId}></div>
+                        <div>
+                            <h4>black</h4>
+                            <div id={chartIdBlack}></div>
+                        </div>
+                        <div>
+                            <h4>white</h4>
+                            <div id={chartIdWhite}></div>
+                        </div>
                     </div>
                 </div>
                 <div>
