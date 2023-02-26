@@ -174,7 +174,13 @@ function StakeholderNetwork(data, setData) {
         <div className="Container">
             <h3>stakeholder mapping</h3>
             <div id="Stakeholder-Mapping-Diagram"></div>
-            <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset network</Button>
+            <div>
+                <div className="Three-Column-Equal Margin-Top">
+                    <div></div>
+                    <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset network</Button>
+                    <div></div>
+                </div>
+            </div>
         </div>
     )
 }
@@ -263,7 +269,7 @@ function AddStakeholder(data, setData) {
             <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4>stakeholder group</h4>
-                <TextField value={stakeholderName} placeholder="add the stakeholder group name" variant="outlined" onChange={setStakeholder}/>
+                <TextField value={stakeholderName} placeholder="stakeholder group name" variant="outlined" onChange={setStakeholder}/>
             </div>
             <div className="Card-Group">
                 <FormControl>

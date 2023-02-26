@@ -120,7 +120,7 @@ const theme = createTheme({
     },
     PrivateSwitchBase: {
       root: {
-          padding: "7px"
+          padding: "5px"
       }
     },
     MuiButton: {

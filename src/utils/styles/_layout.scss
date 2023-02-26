@@ -171,6 +171,12 @@ ul {
     grid-template-rows: 125px 1fr 1fr;
 }
 
+.Three-Column-Equal {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 .Four-Row {
     display: grid;
     grid-gap: 1rem;
