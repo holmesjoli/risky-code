@@ -170,7 +170,7 @@ const Column = ({ children, className, title, nClassified }) => {
   );
 };
 
-export default function Sort({items, setItems, nClassified, setNClassified}) {
+export default function SortLaundry({items, setItems, nClassified, setNClassified}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];

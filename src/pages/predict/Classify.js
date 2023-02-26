@@ -3,7 +3,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Sort from "../../components/Sort";
+import SortLaundry from "../../components/SortLaundry";
 import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import Terminology from '../../components/Terminology';
@@ -13,7 +13,7 @@ export function Content({items, setItems, nClassified, setNClassified}) {
 
     return(
         <div className="Content">
-            <Sort items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+            <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
         </div>
     )
 }
@@ -57,8 +57,8 @@ export default function Classify({config, items, setItems, modules}) {
                             onClick={toggleOverlay}
                         />
                     </div>
-                    <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. The classifier we are building is called Laundry AID (Algorithmically Informed Decision-Making). Given a basket of dirty laundry, Laundry AID will predict which laundry items should be added to a hot water laundry load and which items should be saved later. Laundry AID aims to simplify the laundry process by automating the sorting step.</p>
-                    <p>The steps to build Laundry AID are <span className='Semi-Bold'>train</span>, <span className='Semi-Bold'>model</span>, and <span className='Semi-Bold'>optimize</span>.</p>
+                    <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
+                    <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
                 </div>
             </div>
         </Overlay>:
@@ -70,8 +70,8 @@ export default function Classify({config, items, setItems, modules}) {
                     <Description config={config}/>
                     <Terminology>
                         <div className="Container-Rule">
-                            <h4>Algorithm</h4>
-                            <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Onuoha and Nucera 2018)</NavLink></p>
+                            <h4>algorithm</h4>
+                            <p>A series of steps that allow you to perform a particular task <NavLink to="/Resources">(Onuoha and Nucera 2018)</NavLink></p>
                         </div>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
