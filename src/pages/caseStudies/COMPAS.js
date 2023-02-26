@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
@@ -7,10 +8,60 @@ import Stakeholders from "../../components/Stakeholders";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { Slider } from '@material-ui/core' ;
+import * as d3 from 'd3';
+import data from "../../data/processed/compas.json";
+
+let chartId = "COMPAS-Chart"
+let width = 650;
+let height = 500;
+let style = "darkMode";
+
+function initGraph(data) {
+    d3.select(`#${chartId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    // renderNetwork(data);
+}
 
 export function Content() {
+
+    useEffect(() => {
+        initGraph(data);
+    }, [])
+
     return(
         <div className="Content">
+            <div className="Three-Column3">
+                <div>
+                    <div className="Container">
+                        <h3>predicted probability of reoffense</h3>
+                        <p>Use the slider to adjust at what threshold defendants should be considered high-risk of reoffense.</p>
+                        <Slider
+                            size="small"
+                            defaultValue={40}
+                            min={10}
+                            max={100}
+                            step={10}
+                            aria-label="Small"
+                            valueLabelDisplay="auto"
+                            />
+                    </div>
+                </div>
+                <div>
+                    <div className="Container">
+                        <h3>the compas algorithm's recidivism predictions</h3>
+                        <div id={chartId}></div>
+                    </div>
+                </div>
+                <div>
+                    <div className="Container">
+                        <h3>legend</h3>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

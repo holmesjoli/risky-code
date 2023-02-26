@@ -134,6 +134,13 @@ ul {
     text-align: center;
 }
 
+.Three-Column3 {
+    display: grid;
+    grid-template-columns: minmax(150px, 20%) minmax(150px, 60%) minmax(150px, 20%);
+    grid-gap: 1rem;
+    text-align: center;
+}
+
 .Two-Column {
     display: grid;
     grid-gap: 1rem;
