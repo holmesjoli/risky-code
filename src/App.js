@@ -42,7 +42,7 @@ export default function App() {
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump}  modules={modules}/>} />
-          <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} modules={modules} direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect} policy={policy} setPolicy={setPolicy}/>} />
+          <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} direct={direct} indirect={indirect} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           <Route path="/About" element={<About config={config.About} modules={modules} />} />

@@ -22,6 +22,7 @@ let chartId = "Stakeholder-Mapping-Diagram";
 let width = 650;
 let height = 400;
 let style = "darkMode";
+let link, node, text;
 
 let simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -29,29 +30,28 @@ let simulation = d3.forceSimulation()
         .force("center", d3.forceCenter(width / 2, height / 2))
         .force("collide", d3.forceCollide().strength(2).radius(8));
 
-function initNetwork() {
+function initNetwork(data) {
     d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
-        .attr("height", height)
-        .append("g");
+        .attr("height", height);
+
+    renderNetwork(data)
 }
 
 const rScale = d3.scaleOrdinal()
     .domain(["stakeholders", "stakeholder", "value"])
-    .range([10, 8, 5])
+    .range([10, 8, 5]);
 
-function renderNetwork(nodes, links) {
+function renderNetwork(data) {
 
-    let svg = d3.select(`#${chartId} svg`);
-    d3.select(`#${chartId} svg g`).remove();
-    svg = svg.append("g");
+    var svg = d3.select(`#${chartId} svg`);
+    
+    svg.append("g").attr("class", "links");
+    svg.append("g").attr("class", "nodes");
 
-    // console.log(nodes, links)
-
-    let link = svg.append("g")
-        .selectAll("line")
-        .data(links)
+    var link = svg.select(".links").selectAll(".link")
+        .data(data.links, function (d) { return d.source.id + "-" + d.target.id; })
         .join(
             enter  => enter
                 .append("line")
@@ -61,9 +61,9 @@ function renderNetwork(nodes, links) {
             exit   => exit.remove()
         );
 
-    let node = svg.append("g")
+    var node = svg
         .selectAll("circle")
-        .data(nodes)
+        .data(data.nodes, d => d.id)
         .join(
             enter  => enter
                 .append("circle")
@@ -74,9 +74,9 @@ function renderNetwork(nodes, links) {
             exit   => exit.remove()
         );
 
-    let text = svg.append("g")
+    var text = svg
         .selectAll("text")
-        .data(nodes)
+        .data(data.nodes)
         .join(
             enter  => enter
                 .append("text")
@@ -86,41 +86,48 @@ function renderNetwork(nodes, links) {
             update => update,             
             exit   => exit.remove()
         );
-    
+
+    simulation.alpha(1).restart();
+
     simulation
-        .alpha(1).restart()
-        .nodes(nodes)
-        .force("link").links(links);
+        .nodes(data.nodes)
+        .on("tick", ticked);
 
-    simulation.on("tick", function () {
-        link.attr("x1", function (d) { return d.source.x; })
-            .attr("y1", function (d) { return d.source.y; })
-            .attr("x2", function (d) { return d.target.x; })
-            .attr("y2", function (d) { return d.target.y; });
+    simulation.force("link")
+        .links(data.links);
 
-        node
-            .attr("cx", function (d) { return d.x; })
-            .attr("cy", function (d) { return d.y; });
+    function transform(d) {
+        return "translate(" + d.x + "," + d.y + ")";
+    }
+
+    function ticked() {
+        link
+            .attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("transform", transform);
 
         text
             .attr("x", function (d) { return d.x + 20; })
             .attr("y", function (d) { return d.y - 10; });
-    });
+    }
 }
 
-function StakeholderNetwork(nodes, links) {
+function StakeholderNetwork(data) {
 
     const resetNetwork = () => {
 
     }
 
     useEffect(() => {
-        initNetwork();
+        initNetwork(data);
     }, [])
 
     useEffect(() => {
-        renderNetwork(nodes, links);
-    }, [nodes, links])
+        renderNetwork(data);
+    }, [data])
 
     return(
         <div className="Container">
@@ -131,7 +138,24 @@ function StakeholderNetwork(nodes, links) {
     )
 }
 
-function AddStakeholder(nodes, links) {
+export function Content() {
+
+    const [data, setData] = useState({"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root"}], "links": []});
+
+    return(
+        <div className="Content One-Column-Three">
+            <div className="">
+                {AddStakeholder(data)}
+            </div>
+            <div className="">
+                {StakeholderNetwork(data)}
+            </div>
+        </div>
+    )
+}
+
+
+function AddStakeholder(data) {
 
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
@@ -243,32 +267,7 @@ function AddStakeholder(nodes, links) {
     )
 }
 
-export function Content({direct, setDirect, indirect, setIndirect}) {
-
-    // const updateDirectStakeholders = (event) => {
-    //     setDirect(event.target.value)
-    // }
-
-    // const updateIndirectStakeholders = (event) => {
-    //     setIndirect(event.target.value)
-    // }
-
-    const [links, setLinks] = useState([]);
-    const [nodes, setNodes] = useState([{"id": "stakeholders", "name": "Stakeholders", "group": "root"}]);
-
-    return(
-        <div className="Content One-Column-Three">
-            <div className="">
-                {AddStakeholder(nodes, links)}
-            </div>
-            <div className="">
-                {StakeholderNetwork(nodes, links)}
-            </div>
-        </div>
-    )
-}
-
-export default function StakeholderMapping({config, modules, direct, setDirect, indirect, setIndirect, policy, setPolicy}) {
+export default function StakeholderMapping({config, modules, policy, setPolicy}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");
@@ -331,7 +330,7 @@ export default function StakeholderMapping({config, modules, direct, setDirect, 
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <Content direct={direct} setDirect={setDirect} indirect={indirect} setIndirect={setIndirect}/>
+            <Content />
             <RightSideBar>
                 <Progress id={id} modules={modules}/>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
