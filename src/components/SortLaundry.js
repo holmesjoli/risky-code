@@ -118,15 +118,15 @@ const MovableItem = ({
   if(currentColumnName === ITEM_LIST) {
     return (
       <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item" + bigCardClass(currentColumnName)} style={{ opacity }}>
-         <img src={images[Object.keys(images)[item.id]]} alt="" height="200" width="100"></img>
+         <img src={images[Object.keys(images)[item.id]]} alt="" height="100" width="100"></img>
          <div className="Label">
             <div className="Small-Margin">
-              <h4>care type</h4>
-              <h6>{item.cleanType}</h6>
+              <h4 className="Small-Margin">care type</h4>
+              <h6 className="Small-Margin">{item.cleanType}</h6>
             </div>
             <div className="Small-Margin">
-              <h4>soiled</h4>
-              <h6>{item.soiled ? "Yes": "No"}</h6>
+              <h4 className="Small-Margin">soiled</h4>
+              <h6 className="Small-Margin">{item.soiled ? "Yes": "No"}</h6>
             </div>
          </div>
       </div>
@@ -151,6 +151,8 @@ const Column = ({ children, className, title, nClassified }) => {
     })
   });
 
+  let instructions = title === ITEM_LIST? "Congrats you just created an algorithm!" : "drop here";
+
   return (
     <div
       ref={drop}
@@ -160,11 +162,10 @@ const Column = ({ children, className, title, nClassified }) => {
     >
       <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
-
   
       >{title}</h4>
         <div className={className === "Container item-list-column"?"": "Card-Container Moveable-Items"}>
-            {children.length === 0 ? <p>drop here</p>: children}
+            {children.length === 0 ? <p>{instructions}</p>: children}
           <h5 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
     </div>
