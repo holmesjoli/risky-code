@@ -4,7 +4,7 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
-import PolicyScenario from "../../components/PolicyScenario";
+import { PolicyScenario } from "../../components/PolicyScenario";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 

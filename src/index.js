@@ -108,6 +108,10 @@ const theme = createTheme({
       input: {
         fontSize: 13,
         padding: "14px"
+      },
+      multiline: {
+        fontSize: 13,
+        padding: "14px"
       }
     },
     MuiButtonBase: {

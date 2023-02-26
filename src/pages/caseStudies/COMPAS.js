@@ -4,10 +4,10 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Terminology from '../../components/Terminology';
-import Stakeholders from "../../components/Stakeholders";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { Consequence, Stakeholders } from "../../components/PolicyScenario";
 import { Slider, MenuItem, FormControl, Select } from '@material-ui/core' ;
 import * as d3 from 'd3';
 import data from "../../data/processed/compas.json";
@@ -28,6 +28,8 @@ function initGraph(data) {
         .append("svg")
         .attr("width", width)
         .attr("height", height);
+
+    console.log(data)
 
     renderGraph(data);
 }
@@ -147,6 +149,7 @@ export default function COMPAS({config, modules}) {
                 <RightSideBar>
                 <Progress id={config.id} modules={modules}/>
                     <Stakeholders/>
+                    <Consequence/>
                     <NextButton routeNext={routeNext}/>
                 </RightSideBar>
             </div>

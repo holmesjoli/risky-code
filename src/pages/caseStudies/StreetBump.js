@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import SortBump from "../../components/SortBump";
-import Stakeholders from "../../components/Stakeholders";
+import { Consequence, Stakeholders } from "../../components/PolicyScenario";
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
@@ -141,6 +141,7 @@ export default function StreetBump({config, modules}) {
                 <RightSideBar>
                 <Progress id={id} modules={modules}/>
                     <Stakeholders/>
+                    <Consequence/>
                     <NextButton routeNext={routeNext}/>
                 </RightSideBar>
             </div>

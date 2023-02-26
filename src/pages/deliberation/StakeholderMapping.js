@@ -7,7 +7,7 @@ import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
 import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
-import PolicyScenario from "../../components/PolicyScenario";
+import { PolicyScenario } from "../../components/PolicyScenario";
 import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
 import * as d3 from 'd3';
 import { BackButton, NextButton } from '../../components/Button';
