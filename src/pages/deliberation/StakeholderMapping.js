@@ -24,10 +24,10 @@ let height = 400;
 let style = "darkMode";
 
 let simulation = d3.forceSimulation()
-        .force("link", d3.forceLink().id(function(d) { return d.id; }))
-        .force("charge", d3.forceManyBody().strength(-1.5))
+        .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(2))
+        .force("charge", d3.forceManyBody().strength(1))
         .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collide", d3.forceCollide().strength(2).radius(8));
+        .force("collide", d3.forceCollide().strength(2).radius(8).strength(1));
 
 function initNetwork(data) {
     d3.select(`#${chartId}`)
@@ -50,7 +50,7 @@ function renderNetwork(data) {
     svg.append("g").attr("class", "nodes");
 
     let link = svg.select(".links").selectAll(".link")
-        .data(data.links, function (d) { return d.source.id + "-" + d.target.id; })
+        .data(data.links, function (d) { return d.source.id === undefined && d.target.id === undefined ? d.source + "-" + d.target : d.source.id + "-" + d.target.id ; })
         .join(
             enter  => enter
                 .append("line")
@@ -68,14 +68,15 @@ function renderNetwork(data) {
                 .append("circle")
                 .attr("r", d => rScale(d.group))
                 .attr("stroke", visStyles[style]["linkColor"])
-                .attr("stroke-width", visStyles[style]["linkWidth"]),
+                .attr("stroke-width", visStyles[style]["linkWidth"])
+                .attr("fill", visStyles[style]["fillColor"]),
             update => update,             
             exit   => exit.remove()
         );
 
     let text = svg
         .selectAll("text")
-        .data(data.nodes)
+        .data(data.nodes, d => d.id)
         .join(
             enter  => enter
                 .append("text")
@@ -95,10 +96,6 @@ function renderNetwork(data) {
     simulation.force("link")
         .links(data.links);
 
-    function transform(d) {
-        return "translate(" + d.x + "," + d.y + ")";
-    }
-
     function ticked() {
         link
             .attr("x1", function(d) { return d.source.x; })
@@ -106,7 +103,9 @@ function renderNetwork(data) {
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
 
-        node.attr("transform", transform);
+        node
+            .attr("cx", function (d) { return d.x; })
+            .attr("cy", function (d) { return d.y; })
 
         text
             .attr("x", function (d) { return d.x + 20; })
@@ -114,10 +113,10 @@ function renderNetwork(data) {
     }
 }
 
-function StakeholderNetwork(data) {
+function StakeholderNetwork(data, setData) {
 
     const resetNetwork = () => {
-
+        setData({"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root"}], "links": []})
     }
 
     useEffect(() => {
@@ -147,7 +146,7 @@ export function Content() {
                 {AddStakeholder(data, setData)}
             </div>
             <div className="">
-                {StakeholderNetwork(data)}
+                {StakeholderNetwork(data, setData)}
             </div>
         </div>
     )
