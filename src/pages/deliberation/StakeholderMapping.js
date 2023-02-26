@@ -27,13 +27,13 @@ let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "
 
 let simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(2))
-        .force("charge", d3.forceManyBody().strength(1))
+        // .force("charge", d3.forceManyBody().strength(1))
         .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
-        .force("collide", d3.forceCollide().strength(2).radius(8).strength(1));
+        .force("collide", d3.forceCollide().strength(10).radius(8));
 
 const rScale = d3.scaleOrdinal()
     .domain(["stakeholders", "stakeholder", "value"])
-    .range([10, 8, 5]);
+    .range([15, 8, 5]);
 
 const fillScale = d3.scaleOrdinal()
     .domain(["none", "primary", "secondary", "tertiary"])
@@ -46,6 +46,38 @@ function initNetwork(data) {
         .attr("height", height);
 
     renderNetwork(data);
+}
+
+function stakeholderType(d) {
+
+    if(d.type !== "none" && d.group === "value") {
+        return `Value: ${d.name}`;
+    } else if(d.type !== "none" && d.group === "stakeholder") {
+        return `${d.id}: ${d.type} stakeholder`;
+    } else {
+        return "";
+    }
+}
+
+function renderTooltip() {
+    var tooltip = d3.select(`#${chartId}`)
+        .append("div")
+        .attr("class", "tooltip");
+
+    d3.selectAll(".nodes").on("mouseover", function (e, d) {
+        var cx = d.x + 20;
+        var cy = d.y - 10;
+
+        let type = stakeholderType(d);
+
+        tooltip.style("visibility", "visible")
+            .style("left", cx + "px")
+            .style("top", cy + "px")
+            .html(type);
+
+    }).on("mouseout", function () {
+        tooltip.style("visibility", "hidden");
+    });
 }
 
 function renderNetwork(data) {
@@ -66,17 +98,17 @@ function renderNetwork(data) {
             exit   => exit.remove()
         );
 
-    console.log(data)
-
     let node = svg
         .selectAll("circle")
         .data(data.nodes, d => d.id)
         .join(
             enter  => enter
                 .append("circle")
+                .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
                 .attr("r", d => rScale(d.group))
                 .attr("stroke", visStyles[style]["linkColor"])
                 .attr("stroke-width", visStyles[style]["linkWidth"])
+                .attr("cursor", "default")
                 .attr("fill", d => fillScale(d.type)),
             update => update,             
             exit   => exit.remove()
@@ -90,7 +122,8 @@ function renderNetwork(data) {
                 .append("text")
                 .attr("fill", visStyles[style]["textColor"])
                 .attr("font-size", visStyles[style]["fontSize"])
-                .text(d => d.name),
+                .attr("cursor", "default")
+                .text(d => d.group !== "value" ? d.name: ""),
             update => update,             
             exit   => exit.remove()
         );
@@ -119,6 +152,8 @@ function renderNetwork(data) {
             .attr("x", function (d) { return d.x + 20; })
             .attr("y", function (d) { return d.y - 10; });
     }
+
+    renderTooltip();
 }
 
 function StakeholderNetwork(data, setData) {
