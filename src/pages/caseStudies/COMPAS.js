@@ -15,7 +15,7 @@ import data from "../../data/processed/compas.json";
 let chartIdBlack = "COMPAS-Chart-Black"
 let chartIdWhite = "COMPAS-Chart-White"
 let width = 570;
-let height = 275;
+let height = 250;
 let style = "darkMode";
 
 function initGraph(data) {
