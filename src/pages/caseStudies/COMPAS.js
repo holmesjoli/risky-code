@@ -28,9 +28,16 @@ function initGraph(data) {
 
 export function Content() {
 
+    const [predictiveProbability, setPredictiveProbability] = useState(40);
+
+    const updateSlider = (event, value) => {
+        setPredictiveProbability(value/10)
+    }
+
+    console.log(predictiveProbability)
     useEffect(() => {
         initGraph(data);
-    }, [])
+    }, []);
 
     return(
         <div className="Content">
@@ -47,6 +54,7 @@ export function Content() {
                             step={10}
                             aria-label="Small"
                             valueLabelDisplay="auto"
+                            onChange={updateSlider}
                             />
                     </div>
                 </div>
