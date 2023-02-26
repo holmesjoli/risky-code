@@ -10,13 +10,33 @@ import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import { Consequence, Stakeholders } from "../../components/PolicyScenario";
 import { Slider, MenuItem, FormControl, Select } from '@material-ui/core' ;
 import * as d3 from 'd3';
-import data from "../../data/processed/compas.json";
+import data from "../../data/processed/error.json";
 
 let chartIdBlack = "COMPAS-Chart-Black"
 let chartIdWhite = "COMPAS-Chart-White"
 let width = 570;
 let height = 250;
 let style = "darkMode";
+
+// Title Create Grid
+function grid(data) {
+
+    const cols = 25;
+    const colW = width / cols;
+    const rows = Math.round(data.length/cols)
+    const rowH = height / rows;
+
+    for (let i = 0; i < data.length; i++) {
+
+        let col = i % cols;
+        let row = Math.floor(i / cols);
+        data[i].x = (colW * col)
+        data[i].y = (rowH * row)
+
+    }
+
+    return data;
+}
 
 function initGraph(data) {
     d3.select(`#${chartIdBlack}`)
@@ -29,12 +49,15 @@ function initGraph(data) {
         .attr("width", width)
         .attr("height", height);
 
-    console.log(data)
-
     renderGraph(data);
 }
 
 function renderGraph(data) {
+
+    let dataFiltered = data.filter(d => d.race == "black");
+    dataFiltered = grid(dataFiltered)
+
+    console.log(dataFiltered)
 
 }
 
@@ -64,6 +87,19 @@ export function Content() {
             <div className="Three-Column3">
                 <div>
                     <div className="Container Margin-Bottom">
+                        <h3>mathematical fairness definition</h3>
+                        <FormControl variant="outlined" size="small">
+                            <Select
+                                value="fpr"
+                                onChange={updateDefinition}
+                            >
+                                <MenuItem value="fpr">False Positive Rate</MenuItem>
+                                <MenuItem value="fnr">False Negative Rate</MenuItem>
+                                <MenuItem value="calibration">Calibration Rate</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </div>
+                    <div className="Container">
                         <h3>predicted probability of reoffense</h3>
                         <p>Use the slider to adjust at what threshold defendants should be considered high-risk of reoffense.</p>
                         <Slider
@@ -76,18 +112,6 @@ export function Content() {
                             valueLabelDisplay="auto"
                             onChange={updateSlider}
                             />
-                    </div>
-                    <div className="Container">
-                        <FormControl variant="outlined" size="small">
-                            <Select
-                                value="fpr"
-                                onChange={updateDefinition}
-                            >
-                                <MenuItem value="fpr">False Positive Rate</MenuItem>
-                                <MenuItem value="fnr">False Negative Rate</MenuItem>
-                                <MenuItem value="calibration">Calibration Rate</MenuItem>
-                            </Select>
-                        </FormControl>
                     </div>
                 </div>
                 <div>

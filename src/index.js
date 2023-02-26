@@ -49,6 +49,16 @@ const theme = createTheme({
         flexDirection: "row"
       }
     },
+    MuiMenuItem: {
+      root: {
+        fontSize: 13,
+      }
+    },
+    MuiListItem: {
+      root: {
+        fontSize: 13,
+      }
+    },
     MuiAccordionSummary: {
       root: {
         position: "relative",
