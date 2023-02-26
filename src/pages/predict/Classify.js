@@ -13,7 +13,7 @@ export function Content({items, setItems, nClassified, setNClassified}) {
 
     return(
         <div className="Content">
-            <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+            <SortLaundry nClassified={nClassified} setNClassified={setNClassified}/>
         </div>
     )
 }
@@ -59,6 +59,7 @@ export default function Classify({config, items, setItems, modules}) {
                     </div>
                     <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
                     <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
+                    <SortLaundry nClassified={nClassified} setNClassified={setNClassified}/>
                 </div>
             </div>
         </Overlay>:

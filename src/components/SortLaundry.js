@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
@@ -6,6 +6,7 @@ import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { CARDS }  from "../utils/global";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -170,7 +171,9 @@ const Column = ({ children, className, title, nClassified }) => {
   );
 };
 
-export default function SortLaundry({items, setItems, nClassified, setNClassified}) {
+export default function SortLaundry({ nClassified, setNClassified}) {
+
+  const [items, setItems] = useState(CARDS);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
