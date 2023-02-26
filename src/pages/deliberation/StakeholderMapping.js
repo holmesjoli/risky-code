@@ -22,7 +22,6 @@ let chartId = "Stakeholder-Mapping-Diagram";
 let width = 650;
 let height = 400;
 let style = "darkMode";
-let link, node, text;
 
 let simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { return d.id; }))
@@ -45,12 +44,12 @@ const rScale = d3.scaleOrdinal()
 
 function renderNetwork(data) {
 
-    var svg = d3.select(`#${chartId} svg`);
+    let svg = d3.select(`#${chartId} svg`);
     
     svg.append("g").attr("class", "links");
     svg.append("g").attr("class", "nodes");
 
-    var link = svg.select(".links").selectAll(".link")
+    let link = svg.select(".links").selectAll(".link")
         .data(data.links, function (d) { return d.source.id + "-" + d.target.id; })
         .join(
             enter  => enter
@@ -61,7 +60,7 @@ function renderNetwork(data) {
             exit   => exit.remove()
         );
 
-    var node = svg
+    let node = svg
         .selectAll("circle")
         .data(data.nodes, d => d.id)
         .join(
@@ -74,7 +73,7 @@ function renderNetwork(data) {
             exit   => exit.remove()
         );
 
-    var text = svg
+    let text = svg
         .selectAll("text")
         .data(data.nodes)
         .join(
@@ -145,7 +144,7 @@ export function Content() {
     return(
         <div className="Content One-Column-Three">
             <div className="">
-                {AddStakeholder(data)}
+                {AddStakeholder(data, setData)}
             </div>
             <div className="">
                 {StakeholderNetwork(data)}
@@ -154,8 +153,7 @@ export function Content() {
     )
 }
 
-
-function AddStakeholder(data) {
+function AddStakeholder(data, setData) {
 
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
@@ -187,35 +185,26 @@ function AddStakeholder(data) {
         }
     }
 
-    // const checkCheckedValue = el => {
-
-    //     console.log(el)
-
-    //     // if (checkedValues.includes(el)) {
-    //     //     return true;
-    //     // } else {
-    //     //     return false;
-    //     // }
-    // }
-
-
     const add = () => {
+
+        let dataNew = Object.assign({}, data);
 
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
                            "group": "stakeholder"};
 
-        // nodes.push(stakeholder);
-        // links.push({"source": "stakeholders", "target": stakeholderName})
+        dataNew.nodes.push(stakeholder);
+        dataNew.links.push({"source": "stakeholders", "target": stakeholderName})
 
-        // for (let i of stakeholderValues) {
+        for (let i of stakeholderValues) {
 
-        //     nodes.push({"id": i,
-        //                 "name": i,
-        //                 "group": "value"});
+            dataNew.nodes.push({"id": i,
+                        "name": i,
+                        "group": "value"});
 
-        //     links.push({"source": stakeholderName, "target": i});
-        // }
+            dataNew.links.push({"source": stakeholderName, "target": i});
+        }
+        setData(dataNew)
 
         updateStakeholderName("");
         updateStakeholderGroup("primary");
