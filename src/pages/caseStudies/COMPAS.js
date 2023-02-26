@@ -3,7 +3,6 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Terminology from '../../components/Terminology';
-import Navigation from "../../components/Navigation";
 import Stakeholders from "../../components/Stakeholders";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';

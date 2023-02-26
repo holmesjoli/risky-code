@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Sort from "../../components/Sort";
 import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
+import Terminology from '../../components/Terminology';
 import { BackButton, NextButton } from '../../components/Button';
 
 export function Content({items, setItems, nClassified, setNClassified}) {
@@ -67,6 +68,12 @@ export default function Classify({config, items, setItems, modules}) {
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
+                    <Terminology>
+                        <div className="Container-Rule">
+                            <h4>Algorithm</h4>
+                            <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Onuoha and Nucera 2018)</NavLink></p>
+                        </div>
+                    </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </div>
                 <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>

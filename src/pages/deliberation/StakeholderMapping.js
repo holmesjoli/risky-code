@@ -363,8 +363,8 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
                 <Description config={config}/>
                 <Terminology>
                     <div className="Container-Rule">
-                        <h4>stakeholders</h4>
-                        <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
+                        <h4>algorithm</h4>
+                        <p>A series of steps that allow you to perform a particular task. <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink>.</p>
                     </div>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>

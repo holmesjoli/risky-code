@@ -21,7 +21,7 @@ const glossary = {
                 "link": "AINOW-2021"
             },
             "def3": {
-                "definition": "Aa series of steps that allow you to perform a particular task.",
+                "definition": "A series of steps that allow you to perform a particular task.",
                 "citation": "(Onuoha and Nucera 2018)",
                 "link": "Peoples-Guide-2018"
             }
