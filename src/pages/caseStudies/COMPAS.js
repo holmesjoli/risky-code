@@ -93,10 +93,10 @@ export function Content() {
                         <h3>the compas algorithm's recidivism predictions</h3>
                         <div>
                             <h4>black</h4>
-                            <div id={chartIdBlack}></div>
+                            <div id={chartIdBlack} className="Margin-Bottom Bottom-Rule"></div>
                         </div>
                         <div>
-                            <h4>white</h4>
+                            <h4 className="Margin-Top">white</h4>
                             <div id={chartIdWhite}></div>
                         </div>
                     </div>
