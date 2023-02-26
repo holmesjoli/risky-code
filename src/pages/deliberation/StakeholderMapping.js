@@ -23,11 +23,21 @@ let width = 650;
 let height = 400;
 let style = "darkMode";
 
+let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root", "type": "none"}], "links": []};
+
 let simulation = d3.forceSimulation()
         .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(2))
         .force("charge", d3.forceManyBody().strength(1))
-        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
         .force("collide", d3.forceCollide().strength(2).radius(8).strength(1));
+
+const rScale = d3.scaleOrdinal()
+    .domain(["stakeholders", "stakeholder", "value"])
+    .range([10, 8, 5]);
+
+const fillScale = d3.scaleOrdinal()
+    .domain(["none", "primary", "secondary", "tertiary"])
+    .range([ visStyles[style]["fillColor"], "#9A00FF", "#F50141", "#FE4002"])
 
 function initNetwork(data) {
     d3.select(`#${chartId}`)
@@ -35,12 +45,8 @@ function initNetwork(data) {
         .attr("width", width)
         .attr("height", height);
 
-    renderNetwork(data)
+    renderNetwork(data);
 }
-
-const rScale = d3.scaleOrdinal()
-    .domain(["stakeholders", "stakeholder", "value"])
-    .range([10, 8, 5]);
 
 function renderNetwork(data) {
 
@@ -60,6 +66,8 @@ function renderNetwork(data) {
             exit   => exit.remove()
         );
 
+    console.log(data)
+
     let node = svg
         .selectAll("circle")
         .data(data.nodes, d => d.id)
@@ -69,7 +77,7 @@ function renderNetwork(data) {
                 .attr("r", d => rScale(d.group))
                 .attr("stroke", visStyles[style]["linkColor"])
                 .attr("stroke-width", visStyles[style]["linkWidth"])
-                .attr("fill", visStyles[style]["fillColor"]),
+                .attr("fill", d => fillScale(d.type)),
             update => update,             
             exit   => exit.remove()
         );
@@ -116,7 +124,7 @@ function renderNetwork(data) {
 function StakeholderNetwork(data, setData) {
 
     const resetNetwork = () => {
-        setData({"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root"}], "links": []})
+        setData(defaultNetwork)
     }
 
     useEffect(() => {
@@ -138,7 +146,7 @@ function StakeholderNetwork(data, setData) {
 
 export function Content() {
 
-    const [data, setData] = useState({"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root"}], "links": []});
+    const [data, setData] = useState(defaultNetwork);
 
     return(
         <div className="Content One-Column-Three">
@@ -190,7 +198,8 @@ function AddStakeholder(data, setData) {
 
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
-                           "group": "stakeholder"};
+                           "group": "stakeholder",
+                           "type": stakeholderGroup};
 
         dataNew.nodes.push(stakeholder);
         dataNew.links.push({"source": "stakeholders", "target": stakeholderName})
@@ -198,8 +207,9 @@ function AddStakeholder(data, setData) {
         for (let i of stakeholderValues) {
 
             dataNew.nodes.push({"id": i,
-                        "name": i,
-                        "group": "value"});
+                                "name": i,
+                                "group": "value",
+                                "type": stakeholderGroup});
 
             dataNew.links.push({"source": stakeholderName, "target": i});
         }
