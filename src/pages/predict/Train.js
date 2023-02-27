@@ -6,8 +6,7 @@ import Footer from '../../components/Footer';
 import Model from "../../components/Model";
 import { ActualPredicted } from "../../components/Legend";
 import Card from "../../components/Card";
-import Regression from "../../components/Regression";
-import Accuracy from '../../components/Accuracy';
+import { Regression } from "../../components/Regression";
 import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Overlay from "../../components/Overlay";
@@ -19,7 +18,6 @@ function Information({items, variables}) {
     return (
         <div>
             <ActualPredicted/>
-            <Accuracy items={items} variables={variables}/>
         </div>
     )
 }

@@ -8,9 +8,8 @@ import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import { BackButton, NextButton } from '../../components/Button';
 import Card from "../../components/Card";
-import Regression from "../../components/Regression";
+import { Regression, Accuracy } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
-import Accuracy from '../../components/Accuracy';
 import Model from "../../components/Model";
 
 function Information({items, variables}) {
