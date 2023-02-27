@@ -57,15 +57,6 @@ const fillScale = d3.scaleOrdinal()
     .domain(["none", "primary", "secondary", "tertiary"])
     .range([ visStyles[style]["fillColor"], "#9A00FF", "#F50141", "#FE4002"])
 
-function initNetwork(data) {
-    d3.select(`#${chartId}`)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    renderNetwork(data);
-}
-
 function stakeholderType(d) {
 
     if(d.type !== "none" && d.group === "value") {
@@ -108,12 +99,21 @@ function renderTooltip() {
     });
 }
 
+function initNetwork(data) {
+    let svg = d3.select(`#${chartId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    svg.append("g").attr("class", "links");
+    svg.append("g").attr("class", "nodes");
+
+    renderNetwork(data);
+}
+
 function renderNetwork(data) {
 
     let svg = d3.select(`#${chartId} svg`);
-    
-    svg.append("g").attr("class", "links");
-    svg.append("g").attr("class", "nodes");
 
     let link = svg.select(".links").selectAll(".link")
         .data(data.links, function (d) { return d.source.id === undefined && d.target.id === undefined ? d.source + "-" + d.target : d.source.id + "-" + d.target.id ; })
@@ -122,7 +122,7 @@ function renderNetwork(data) {
                 .append("line")
                 .attr("stroke", visStyles[style]["linkColor"])
                 .attr("stroke-width", visStyles[style]["linkWidth"]),
-            update => update,             
+            update => update,
             exit   => exit.remove()
         );
 
@@ -138,7 +138,7 @@ function renderNetwork(data) {
                 .attr("stroke-width", visStyles[style]["linkWidth"])
                 .attr("cursor", "default")
                 .attr("fill", d => fillScale(d.type)),
-            update => update,             
+            update => update,
             exit   => exit.remove()
         )
         // .call(d3.drag()
