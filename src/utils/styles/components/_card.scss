@@ -26,6 +26,10 @@
     max-width: 75px;
 }
 
+.Card:hover {
+    border: 1px solid #cbcbcb;
+}
+
 .Card-Big {
     display: flex;
     flex-direction: row;
