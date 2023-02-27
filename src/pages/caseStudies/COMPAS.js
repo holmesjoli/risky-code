@@ -16,6 +16,8 @@ import { Points } from "../../components/Legend";
 
 let chartIdBlack = "COMPAS-Chart-Black";
 let chartIdWhite = "COMPAS-Chart-White";
+let textIdBlack = "COMPAS-text-Black";
+let textIdWhite = "COMPAS-text-White";
 let width = 570;
 let height = 250;
 let style = "darkMode";
@@ -78,7 +80,7 @@ function confusion(i) {
     } else {
         return "FP";
     }
- }
+}
 
 function renderGraph(data, definition, predictiveProbability) {
 
@@ -94,13 +96,13 @@ function renderGraph(data, definition, predictiveProbability) {
     console.log(data)
 
     let recidn = definition === "fpr"? "Negative": "Positive";
+    let text = definition === "fpr"? "were predicted to reoffend, but did not reoffend": "were not predicted to reoffend, but did reoffend"
+
     let dataFilteredBlack = data.filter(d => d.race === "black" && d.recidn === recidn);
     dataFilteredBlack = grid(dataFilteredBlack);
 
     let dataFilteredWhite = data.filter(d => d.race === "white" && d.recidn === recidn);
     dataFilteredWhite = grid(dataFilteredWhite);
-
-    console.log(dataFilteredBlack)
 
     svgBlack
         .selectAll("circle")
@@ -131,6 +133,26 @@ function renderGraph(data, definition, predictiveProbability) {
                 .attr("fill", d => fillScale(d.confusion)),
             exit   => exit.remove()
         );
+
+    let incorrectWhite = dataFilteredWhite.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
+    let incorrectBlack = dataFilteredBlack.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
+    let incorrectBlackPct = Math.round((incorrectBlack/500)*100);
+    let incorrectWhitePct = Math.round((incorrectWhite/500)*100);
+
+    document.getElementById(textIdBlack).textContent="";
+
+    d3.select(`#${textIdBlack}`)
+        .append("p")
+        .text(`At a threshold of ${predictiveProbability}, ${incorrectBlack} out of 500 people Black people (${incorrectBlackPct}%) ${text}` );
+
+
+    document.getElementById(textIdWhite).textContent="";
+
+    d3.select(`#${textIdWhite}`)
+        .append("p")
+        .text(`At a threshold of ${predictiveProbability}, ${incorrectWhite} out of 500 people white people (${incorrectWhitePct}%) ${text}` )
+
+    // console.log(dataFilteredBlack)
 }
 
 export function Content() {
@@ -167,7 +189,7 @@ export function Content() {
                             >
                                 <MenuItem value="fpr">False Positive Rate</MenuItem>
                                 <MenuItem value="fnr">False Negative Rate</MenuItem>
-                                <MenuItem value="calibration">Calibration Rate</MenuItem>
+                                {/* <MenuItem value="calibration">Calibration Rate</MenuItem> */}
                             </Select>
                         </FormControl>
                     </div>
@@ -194,14 +216,14 @@ export function Content() {
                             <h4>black</h4>
                             <div className="One-Column-Three3">
                                 <div id={chartIdBlack} className="Card-Group"></div>
-                                <div className="Card-Group"></div>
+                                <div id={textIdBlack} className="Card-Group"></div>
                             </div>
                         </div>
                         <div>
                             <h4>white</h4>
                             <div className="One-Column-Three3">
                                 <div id={chartIdWhite} className="Card-Group"></div>
-                                <div className="Card-Group"></div>
+                                <div id={textIdWhite} className="Card-Group"></div>
                             </div>
                         </div>
                     </div>
