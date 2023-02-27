@@ -106,9 +106,6 @@ function renderGraph(data, definition) {
             update => update,             
             exit   => exit.remove()
         );
-
-    console.log(dataFilteredBlack)
-
 }
 
 export function Content() {
@@ -140,7 +137,7 @@ export function Content() {
                         <h3>mathematical fairness definition</h3>
                         <FormControl variant="outlined" size="small">
                             <Select
-                                value="fpr"
+                                value={definition}
                                 onChange={updateDefinition}
                             >
                                 <MenuItem value="fpr">False Positive Rate</MenuItem>
