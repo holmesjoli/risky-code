@@ -12,9 +12,10 @@ import { Slider, MenuItem, FormControl, Select } from '@material-ui/core' ;
 import * as d3 from 'd3';
 import data from "../../data/processed/error.json";
 import { visStyles } from "../../utils/global";
+import { Points } from "../../components/Legend";
 
-let chartIdBlack = "COMPAS-Chart-Black"
-let chartIdWhite = "COMPAS-Chart-White"
+let chartIdBlack = "COMPAS-Chart-Black";
+let chartIdWhite = "COMPAS-Chart-White";
 let width = 570;
 let height = 250;
 let style = "darkMode";
@@ -178,7 +179,7 @@ export function Content() {
                 </div>
                 <div>
                     <div className="Container">
-                        <h3>legend</h3>
+                        <Points/>
                     </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from "d3";
 import { useEffect } from 'react';
-import { colors } from "../utils/global"
+import { visStyles } from "../utils/global"
 
 export function ActualPredicted() {
 
@@ -55,16 +55,17 @@ function Actual() {
     )
 }
 
-function Points() {
+export function Points() {
 
     const width = window.width, height = 40;
 
     const data = [{x: 10, y:10, name: "Correct"},
                   {x: 10, y:30, name: "Incorrect"}]
 
+    const style = "darkMode";
     const scaleFill = d3.scaleOrdinal()
         .domain(["Correct", "Incorrect"])
-        .range(["#FFFFFF", colors.warning.primaryColor])
+        .range(["#FFFFFF", visStyles[style]["warningColor"]])
 
     useEffect(() => {
         const svg = d3.select("#Legend-Visualization")
@@ -79,7 +80,7 @@ function Points() {
             .append("circle")
             .attr("cx", ((d) => d.x))
             .attr("cy", ((d) => d.y))
-            .attr("r", 5)
+            .attr("r", 4)
             .attr("fill", ((d) => scaleFill(d.name)))
 
         // TODO Center Text with circle
@@ -91,15 +92,17 @@ function Points() {
             .attr("x", ((d) => d.x + 20))
             .attr("y", ((d) => d.y))
             .text(((d) => d.name))
-            .style("fill", colors.text.primaryColor)
+            .style("fill", visStyles[style]["textColor"])
             .style("font-size", "12px")
+            // .attr("text-anchor", "left")
+            // .attr("alignment-baseline", "bottom")
 
     }, [])
 
     return(
         <div className="Legend">
-            <h3 className="Small-Margin">Legend</h3>
-            <h4 className="Small-Margin">Predicted</h4>
+            <h3 className="Small-Margin">legend</h3>
+            <h4 className="Small-Margin">predicted</h4>
             <div id='Legend-Visualization'></div>
         </div>
     )
