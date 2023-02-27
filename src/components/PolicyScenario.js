@@ -22,7 +22,7 @@ export function Consequence() {
         <div className="No-Margin-Bottom">
             <div className="Container">
                 <h3 className="Medium-Margin">consequence</h3>
-                <TextField placeholder="add your policy scenario here" variant="outlined" multiline minRows={12} />
+                <TextField placeholder="write a reflection on the consequences of using this algorithm in this policy setting" variant="outlined" multiline minRows={12} />
             </div>
         </div>
     )

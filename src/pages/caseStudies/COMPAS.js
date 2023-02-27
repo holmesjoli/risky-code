@@ -151,8 +151,6 @@ function renderGraph(data, definition, predictiveProbability) {
     d3.select(`#${textIdWhite}`)
         .append("p")
         .text(`At a threshold of ${predictiveProbability}, ${incorrectWhite} out of 500 people white people (${incorrectWhitePct}%) ${text}` )
-
-    // console.log(dataFilteredBlack)
 }
 
 export function Content() {
