@@ -53,7 +53,7 @@ function grid(data) {
     return data;
 }
 
-function initGraph(data, definition) {
+function initGraph(data, definition, predictiveProbability) {
     d3.select(`#${chartIdBlack}`)
         .append("svg")
         .attr("width", width)
@@ -64,22 +64,43 @@ function initGraph(data, definition) {
         .attr("width", width)
         .attr("height", height);
 
-    renderGraph(data, definition);
+    renderGraph(data, definition, predictiveProbability);
 }
 
-function renderGraph(data, definition) {
+function confusion(i) {
 
-    let recidn = definition === "fpr"? "Negative": "Positive";
+    if (!i.predicted && i.recid) {
+        return "FN";
+    } else if(!i.predicted && !i.recid) {
+        return "TN";
+    } else if(i.predicted && i.recid) {
+        return "TP";
+    } else {
+        return "FP";
+    }
+ }
+
+function renderGraph(data, definition, predictiveProbability) {
 
     let svgBlack = d3.select(`#${chartIdBlack} svg`);
-    let svgWhite = d3.select(`#${chartIdWhite} svg`)
+    let svgWhite = d3.select(`#${chartIdWhite} svg`);
+
+    for (let i of data) {
+        i.predicted = i.decile > predictiveProbability;
+        i.recid = i.redidn === "Positive" ? true: false;
+        i.confusion = confusion(i);
+    }
+
+    console.log(data)
+
+    let recidn = definition === "fpr"? "Negative": "Positive";
     let dataFilteredBlack = data.filter(d => d.race === "black" && d.recidn === recidn);
     dataFilteredBlack = grid(dataFilteredBlack);
 
     let dataFilteredWhite = data.filter(d => d.race === "white" && d.recidn === recidn);
     dataFilteredWhite = grid(dataFilteredWhite);
 
-    let blackNode = svgBlack
+    svgBlack
         .selectAll("circle")
         .data(dataFilteredBlack, d => d.id)
         .join(
@@ -93,7 +114,7 @@ function renderGraph(data, definition) {
             exit   => exit.remove()
         );
 
-    let whiteNode = svgWhite
+    svgWhite
         .selectAll("circle")
         .data(dataFilteredWhite, d => d.id)
         .join(
@@ -110,7 +131,7 @@ function renderGraph(data, definition) {
 
 export function Content() {
 
-    const [predictiveProbability, setPredictiveProbability] = useState(40);
+    const [predictiveProbability, setPredictiveProbability] = useState(4);
     const [definition, setDefinition] = useState("fpr");
 
     const updateSlider = (event, value) => {
@@ -122,11 +143,11 @@ export function Content() {
     }
 
     useEffect(() => {
-        initGraph(data, definition);
+        initGraph(data, definition, predictiveProbability);
     }, []);
 
     useEffect(() => {
-        renderGraph(data, definition);
+        renderGraph(data, definition, predictiveProbability);
     }, [predictiveProbability, definition]);
 
     return(
