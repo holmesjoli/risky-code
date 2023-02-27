@@ -100,6 +100,8 @@ function renderGraph(data, definition, predictiveProbability) {
     let dataFilteredWhite = data.filter(d => d.race === "white" && d.recidn === recidn);
     dataFilteredWhite = grid(dataFilteredWhite);
 
+    console.log(dataFilteredBlack)
+
     svgBlack
         .selectAll("circle")
         .data(dataFilteredBlack, d => d.id)
@@ -110,7 +112,8 @@ function renderGraph(data, definition, predictiveProbability) {
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
                 .attr("fill", d => fillScale(d.confusion)),
-            update => update,             
+            update => update
+                .attr("fill", d => fillScale(d.confusion)),
             exit   => exit.remove()
         );
 
@@ -124,7 +127,8 @@ function renderGraph(data, definition, predictiveProbability) {
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
                 .attr("fill", d => fillScale(d.confusion)),
-            update => update,             
+            update => update
+                .attr("fill", d => fillScale(d.confusion)),
             exit   => exit.remove()
         );
 }

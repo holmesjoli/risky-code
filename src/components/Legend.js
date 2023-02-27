@@ -65,7 +65,7 @@ export function Points() {
     const style = "darkMode";
     const scaleFill = d3.scaleOrdinal()
         .domain(["Correct", "Incorrect"])
-        .range(["#FFFFFF", visStyles[style]["warningColor"]])
+        .range(["#272B30", visStyles[style]["warningColor"]])
 
     useEffect(() => {
         const svg = d3.select("#Legend-Visualization")
