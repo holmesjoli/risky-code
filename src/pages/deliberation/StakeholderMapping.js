@@ -26,10 +26,28 @@ let style = "darkMode";
 let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root", "type": "none"}], "links": []};
 
 let simulation = d3.forceSimulation()
-        .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(2))
+        .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(30).strength(.1))
         // .force("charge", d3.forceManyBody().strength(1))
         .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
         .force("collide", d3.forceCollide().strength(10).radius(8));
+
+// dragging functions
+// function dragstarted(d) {
+//     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+//         d.fx = d.x;
+//         d.fy = d.y;
+// }
+
+// function dragged(d) {
+//     d.fx = d3.event.x;
+//     d.fy = d3.event.y;
+// }
+
+// function dragended(d) {
+//     if (!d3.event.active) simulation.alphaTarget(0);
+//     d.fx = null;
+//     d.fy = null;
+// }
 
 const rScale = d3.scaleOrdinal()
     .domain(["stakeholders", "stakeholder", "value"])
@@ -108,7 +126,7 @@ function renderNetwork(data) {
             exit   => exit.remove()
         );
 
-    let node = svg
+    let node = svg.select(".nodes")
         .selectAll("circle")
         .data(data.nodes, d => d.id)
         .join(
@@ -122,7 +140,11 @@ function renderNetwork(data) {
                 .attr("fill", d => fillScale(d.type)),
             update => update,             
             exit   => exit.remove()
-        );
+        )
+        // .call(d3.drag()
+        // .on("start", dragstarted)
+        // .on("drag", dragged)
+        // .on("end", dragended))
 
     let text = svg
         .selectAll("text")
