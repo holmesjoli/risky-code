@@ -68,6 +68,12 @@ function renderTooltip() {
         var cx = d.x + 20;
         var cy = d.y - 10;
 
+        let thisCircle = d3.select(this);
+
+        thisCircle
+            .attr("stroke-width", 2)
+            .attr("stroke", visStyles[style]["secondaryHighlightColor"]);
+
         let type = stakeholderType(d);
 
         tooltip.style("visibility", "visible")
@@ -77,6 +83,10 @@ function renderTooltip() {
 
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
+
+        d3.selectAll(".nodes")
+            .attr("stroke", "none");
+
     });
 }
 
