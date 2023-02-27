@@ -29,14 +29,14 @@ export const config = {
     "Optimize": {
         "id": "optimize",
         "title": "optimize",
-        "subtitle": "optimize the model for accuracy",
-        "descr": "In this step of model building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy."
+        "subtitle": "optimize the algorithm for accuracy",
+        "descr": "In this step of algorithm building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy."
     },
     "Train": {
         "id": "train",
         "title": "train",
-        "subtitle": "train the model to predict the hot water load",
-        "descr": "Drag the data variables from the variable list to the model list to add them to the model. Add or remove variables from the model to see how the predicitive probabilities change."
+        "subtitle": "train the algorithm to predict the hot water load",
+        "descr": "Drag the data variables from the variable list to the model list to add them to the algorithm. Add or remove variables from the model to see how the predicitive probabilities change."
     },
     "Calibration": {
         "id": "calibration",

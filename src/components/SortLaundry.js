@@ -6,7 +6,6 @@ import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { CARDS }  from "../utils/global";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -245,16 +244,16 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
       <DndProvider backend={HTML5Backend}>
         <div className="Three-Column2">
             <div className="Classify-Container">
-                <Column title={ITEM_LIST} className="Card-Group item-list-column" nClassified={nClassified}>
-                  {returnSingleItemForColumn(items, ITEM_LIST)}
-                </Column>
+              <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
+                {returnSingleItemForColumn(items, ITEM_LIST)}
+              </Column>
             </div>
             <ExpandMoreIcon className="Rotate90 Scale200"/>
             <div className="Case-Container">
-                <Column title={CASE_TRUE} className="Card-Group Case-True-Column Move-Column Margin-Bottom">
+                <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column Margin-Bottom">
                   {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
-                <Column title={CASE_FALSE} className="Card-Group Case-False-Column Move-Column">
+                <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
                   {returnItemsForColumn(items, CASE_FALSE)}
                 </Column>
             </div>

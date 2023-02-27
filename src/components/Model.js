@@ -184,7 +184,7 @@ export default function Model({variables, setVariables}) {
 
   return (
     <div className="Container">
-      <h3>statistical model</h3>
+      <h3>algorithmic model</h3>
       <p>Drag data variables to model variables to add them to the statistical model</p>
       <div className="Model-Container">
         <DndProvider backend={HTML5Backend}>
