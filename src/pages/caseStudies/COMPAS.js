@@ -218,14 +218,18 @@ export function Content() {
                             <h4>black</h4>
                             <div className="One-Column-Three3">
                                 <div id={chartIdBlack} className="Card-Group"></div>
-                                <div id={textIdBlack} className="Card-Group"></div>
+                                <div>
+                                    <div id={textIdBlack} className="Card-Group"></div>
+                                </div>
                             </div>
                         </div>
                         <div>
                             <h4>white</h4>
                             <div className="One-Column-Three3">
                                 <div id={chartIdWhite} className="Card-Group"></div>
-                                <div id={textIdWhite} className="Card-Group"></div>
+                                <div>
+                                    <div id={textIdWhite} className="Card-Group"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
