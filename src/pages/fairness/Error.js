@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Terminology from '../../components/Terminology';
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
@@ -35,14 +36,9 @@ export default function Error({config, modules}) {
                 <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
-                        <div className="Container-Rule">
-                            <h4>false positive rate</h4>
-                            <p>The false positive rate is the probability of falsely rejecting the truth, simply triggering a false alarm</p>
-                        </div>
-                        <div className="Container-Rule">
-                            <h4>false negative rate</h4>
-                            <p>The false negative rate is the failure to raise a valid alarm</p>
-                        </div>
+                        <Term term={terms['mathematical-fairness']}/>
+                        <Term term={terms['fpr']}/>
+                        <Term term={terms['fnr']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>

@@ -6,7 +6,8 @@ import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import SortBump from "../../components/SortBump";
 import { Consequence, Stakeholders } from "../../components/PolicyScenario";
-import Terminology from '../../components/Terminology';
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
@@ -130,10 +131,8 @@ export default function StreetBump({config, modules}) {
                 <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
-                    <div className="Container-Rule">
-                        <h4>stakeholders</h4>
-                        <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
-                    </div>
+                        <Term term={terms['stakeholders']}/>
+                        <Term term={terms['fpr']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>

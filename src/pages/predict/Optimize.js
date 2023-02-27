@@ -4,7 +4,8 @@ import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
-import Terminology from '../../components/Terminology';
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 import { BackButton, NextButton } from '../../components/Button';
 
 export function Content({items, setItems}) {
@@ -36,10 +37,10 @@ export default function Optimize({config, items, setItems, modules}) {
                 <div className="Sidebar-Left">
                     <Description config={config}/>
                     <Terminology>
-                        <div className="Container-Rule">
-                            <h4>algorithm</h4>
-                            <p>A series of steps that allow you to perform a particular task <NavLink to="/Resources">(Onuoha and Nucera 2018)</NavLink></p>
-                        </div>
+                        <Term term={terms['algorithm']}/>
+                        <Term term={terms['stat-model']}/>
+                        <Term term={terms['data-variable']}/>
+                        <Term term={terms['model-variable']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </div>

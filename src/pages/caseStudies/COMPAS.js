@@ -3,7 +3,8 @@ import { useNavigate, NavLink } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Terminology from '../../components/Terminology';
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
@@ -255,14 +256,8 @@ export default function COMPAS({config, modules}) {
                 <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
-                        <div className="Container-Rule">
-                                <h4>recidivism</h4>
-                                <p>A criminal reoffense</p>
-                        </div>
-                        <div className="Container-Rule">
-                            <h4>stakeholders</h4>
-                            <p>People impacted directly or indirectly by a system <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink></p>
-                        </div>
+                        <Term term={terms['recidivism']}/>
+                        <Term term={terms['stakeholders']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>

@@ -5,7 +5,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
-import Terminology from '../../components/Terminology';
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/PolicyScenario";
 import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
@@ -394,10 +395,7 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
             <LeftSideBar>
                 <Description config={config}/>
                 <Terminology>
-                    <div className="Container-Rule">
-                        <h4>algorithm</h4>
-                        <p>A series of steps that allow you to perform a particular task. <NavLink to="/Resources">(Bender and Friedman 2018)</NavLink>.</p>
-                    </div>
+                    <Term term={terms['stakeholders']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>

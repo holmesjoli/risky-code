@@ -7,21 +7,23 @@ import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/PolicyScenario";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 
-export function Content({direct, indirect}) {
+export function Content() {
     return(
         <div className="Content">
             <div className="Container">
-                <h3>{direct}</h3>
+                {/* <h3>{direct}</h3> */}
             </div>
             <div className="Container">
-                <h3>{indirect}</h3>
+                {/* <h3>{indirect}</h3> */}
             </div>
         </div>
     )
 }
 
-export default function Risk({config, modules, direct, indirect, policy, setPolicy}) {
+export default function Risk({config, modules, policy, setPolicy}) {
 
     let navigate = useNavigate();
 
@@ -43,7 +45,7 @@ export default function Risk({config, modules, direct, indirect, policy, setPoli
                     <Description config={config}/>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content direct={direct} indirect={indirect}/>
+                <Content />
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>

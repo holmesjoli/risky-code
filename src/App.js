@@ -27,9 +27,10 @@ export default function App() {
     const [items, setItems] = useState(CARDS);
     const [variables, setVariables] = useState(VARIABLES);
     const [modules, setModules] = useState([]);
-    const [direct, setDirect] = useState("");
-    const [indirect, setIndirect] = useState("");
     const [policy, setPolicy] = useState("");
+
+    // console.log(items)
+    // items.sort((a, b) => a.column - b.column)
   
     return(
       <HashRouter>
@@ -43,7 +44,7 @@ export default function App() {
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump}  modules={modules}/>} />
           <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
-          <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} direct={direct} indirect={indirect} policy={policy} setPolicy={setPolicy}/>} />
+          <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           <Route path="/About" element={<About config={config.About} modules={modules} />} />
           <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules}/>} />

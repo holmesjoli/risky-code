@@ -6,9 +6,10 @@ import Footer from '../components/Footer';
 import Progress from '../components/Progress';
 import { useEffect } from 'react';
 import { policyDiagram } from '../components/PolicyDiagram';
-import Terminology from '../components/Terminology';
+import { Terminology, Term } from '../components/Terminology';
 import { NextButton } from '../components/Button';
 import { LeftSideBar, RightSideBar } from "../components/Sidebar";
+import { terms } from '../utils/global';
 
 export function Content() {
 
@@ -51,10 +52,7 @@ export default function Introduction({config, modules}) {
                 <LeftSideBar>
                     <Description config={config}/>
                     <Terminology defaultExpanded={true}>
-                        <div className="Container-Rule">
-                            <h4>algorithmically informed decision-making</h4>
-                            <p>A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans<NavLink to="/Resources"> (AINOW 2018)</NavLink></p>
-                        </div>
+                        <Term term={terms.aidm}></Term>
                     </Terminology>
                 </LeftSideBar>
                 <Content />

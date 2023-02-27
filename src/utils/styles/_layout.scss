@@ -106,13 +106,14 @@ ul {
     border-bottom: 1px solid $containerBorderColor;
     border-radius: $containerBorderRadius;
     padding: $containerPadding;
-    margin-bottom: $containerMarginBottom;
+    // margin-bottom: $containerMarginBottom;
     text-align: left;
     background-color: none;
 }
 
 .Container-Rule p {
     color: $appColor;
+    margin-bottom: 0;
 }
 
 .Visualization {

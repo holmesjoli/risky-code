@@ -8,7 +8,8 @@ import { ActualPredicted } from "../../components/Legend";
 import Card from "../../components/Card";
 import Regression from "../../components/Regression";
 import Accuracy from '../../components/Accuracy';
-import Terminology from '../../components/Terminology';
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
@@ -93,14 +94,10 @@ export default function Train({config, variables, setVariables, items, setItems,
                 <div className="Sidebar-Left">
                     <Description config={config}/>
                     <Terminology>
-                        <div className="Container-Rule">
-                            <h4>data variable</h4>
-                            <p>A variable which is recorded in a datasheet</p>
-                        </div>
-                        <div className="Container-Rule">
-                            <h4>model variable</h4>
-                            <p>A variable which is included in a statistical model</p>
-                        </div>
+                        <Term term={terms['algorithm']}/>
+                        <Term term={terms['stat-model']}/>
+                        <Term term={terms['data-variable']}/>
+                        <Term term={terms['model-variable']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </div>

@@ -308,3 +308,54 @@ export function wrap(text, width) {
         }
     });
 }
+
+export const terms = {
+
+    "aidm": {
+        "title": "algorithmically informed decision-making",
+        "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans (AINOW 2018)"
+    },
+    "stat-model": {
+        "title": "statistical model",
+        "definition": "A mathematical representation for making predictions based on data"
+    },
+    "data-variable": {
+        "title": "data variable",
+        "definition": "A variable which is recorded in a datasheet"
+    },
+    "model-variable": {
+        "title": "model variable",
+        "definition": "A variable which is included in a statistical model"
+    },
+    "algorithm": {
+        "title": "algorithm",
+        "definition": "A series of steps that allow you to perform a particular task (Onuoha and Nucera 2018)"
+    },
+    "mathematical-fairness": {
+        "title": "mathematical-fairness",
+        "definition": 'Formal mathematical constructions of legal concepts such as "equal protection" and "disparate impact" (Movva 2021)'
+    },
+    "calibration": {
+        "title": "calibration",
+        "definition": "The percentage of people at each risk score who are in the positive is approximately equal for different demographics."
+    },
+    "fpr": {
+        "title": "false positive rate",
+        "definition": "The false positive rate is the probability of falsely rejecting the truth, simply triggering a false alarm expressed as a statistical rate"
+    },
+    "fnr": {
+        "title": "false negative rate",
+        "definition": "The false negative rate is the failure to raise a valid alarm expressed as a statistical rate"
+    },
+    "stakeholders": {
+        "title": "stakeholders",
+        "definition": "People impacted directly or indirectly by a system (Bender and Friedman 2018)"
+    },
+    "recidivism": {
+        "title": "recidivism",
+        "definition": "A criminal reoffense"
+    }
+
+
+
+}

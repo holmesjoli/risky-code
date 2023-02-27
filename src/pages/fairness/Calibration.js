@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
 import * as d3 from 'd3';
-import Legend from "../../components/Legend";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
 import { wrap, visStyles } from "../../utils/global";
-import Terminology from '../../components/Terminology';
+import { Terminology, Term } from '../../components/Terminology';
+import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
@@ -200,14 +200,8 @@ export default function Classify({config, items, setItems, modules}) {
             <LeftSideBar>
                 <Description config={config}/>
                 <Terminology>
-                        <div className="Container-Rule">
-                            <h4>mathematical fairness</h4>
-                            <p>Formal mathematical constructions of legal concepts such as "equal protection" and "disparate impact" <NavLink to="/Resources">(Movva 2021)</NavLink></p>
-                        </div>
-                        <div className="Container-Rule">
-                            <h4>calibration rate</h4>
-                            <p> The percentage of people at each risk score who are in the positive is approximately equal for different demographics.</p>
-                        </div>
+                    <Term term={terms['mathematical-fairness']}/>
+                    <Term term={terms['calibration']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
