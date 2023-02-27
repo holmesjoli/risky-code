@@ -31,7 +31,8 @@
     flex-direction: row;
     padding: $containerPadding;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
+    margin-bottom: $containerMarginBottom;
 }
 
 .Card-Group {
