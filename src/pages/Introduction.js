@@ -40,7 +40,7 @@ export default function Introduction({config, modules}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/Classify`; 
+      let path = `/Train`; 
       navigate(path);
     }
 

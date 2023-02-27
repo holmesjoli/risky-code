@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Description from '../../components/Description';
 import Header from '../../components/Header';
@@ -9,10 +9,10 @@ import Card from "../../components/Card";
 import Regression from "../../components/Regression";
 import Accuracy from '../../components/Accuracy';
 import Terminology from '../../components/Terminology';
-import Navigation from "../../components/Navigation";
+import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
-import { Button } from "@material-ui/core";
 import { BackButton, NextButton } from '../../components/Button';
+import SortLaundry from "../../components/SortLaundry";
 
 function Information({items, variables}) {
     return (
@@ -39,19 +39,55 @@ export function Content({variables, setVariables, items, setItems}) {
 
 export default function Train({config, variables, setVariables, items, setItems, modules}) {
 
-    let navigate = useNavigate(); 
+    const [id, setId] = useState("predict");
+    const [isOpen, setIsOpen] = useState(true);
+    const [nClassified, setNClassified] = useState(0);
+
+    let navigate = useNavigate();
     const routeNext = () => {
-      let path = `/Calibration`; 
+      let path = `/Optimize`; 
       navigate(path);
     }
 
     const routeBack = () => {
-      let path = `/Classify`; 
+      let path = `/Introduction`; 
       navigate(path);
     }
 
+    const toggleOverlay = () => {
+        setIsOpen(!isOpen);
+    };
+
+    useEffect(() => {
+        setId(isOpen ? "predict": "train");
+    }, [isOpen])
+
     return (
         <div className="App">
+            {
+                isOpen ?
+                <Overlay isOpen={isOpen} onClose={toggleOverlay}>
+                <div className="Containers-Container">
+                    <div className="Container-Fill-Secondary">
+                        <div className="Overlay-Controls">
+                            <h3 className="Page-Title">introduction to predictive algorithms</h3>
+                            <button
+                                className="Overlay-Close"
+                                type="button"
+                                onClick={toggleOverlay}
+                            />
+                        </div>
+                        <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
+                        <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
+                        <div>
+                            <h3>sort each item into the correct category</h3>
+                            <SortLaundry nClassified={nClassified} setNClassified={setNClassified}/>
+                        </div>
+                    </div>
+                </div>
+            </Overlay>:
+            <></>
+            }
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
@@ -70,7 +106,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                 </div>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
                 <div className="Sidebar-Right">
-                    <Progress id={config.id} modules={modules}/>
+                    <Progress id={id} modules={modules}/>
                     <NextButton routeNext={routeNext}/>
                 </div>
             </div>

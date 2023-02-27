@@ -4,7 +4,7 @@ import {
     HashRouter,
   } from "react-router-dom";
 import Introduction from "./pages/Introduction";
-import Classify from "./pages/predict/Classify";
+import Optimize from "./pages/predict/Optimize";
 import Train from "./pages/predict/Train";
 import Calibration from "./pages/fairness/Calibration";
 import Error from "./pages/fairness/Error";
@@ -36,7 +36,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
-          <Route path="/Classify" element={<Classify config={config.Classify} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
+          <Route path="/Optimize" element={<Optimize config={config.Optimize} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />

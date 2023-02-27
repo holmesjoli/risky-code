@@ -26,12 +26,6 @@ export const config = {
         "title": "Contact",
         "descr": "Contact page"
     },
-    "Classify": {
-        "id": "classify",
-        "title": "classify",
-        "subtitle": "classify each item",
-        "descr": "In this step of model building, we will classify each item to be run in the hot water load or save for later. For each item click hot water load or save for later. In the next step, we will use this data to train Laundry AID."
-    },
     "Optimize": {
         "id": "optimize",
         "title": "optimize",
@@ -91,23 +85,27 @@ export const navigationData = [ {
         "id": "introduction",
         "size": "Large",
         "navLink": "/Introduction"
-    }, {
+    },
+    {
         "name": "Predict",
         "id": "predict",
         "size": "Large",
-        "navLink": "/Classify"
-    }, {
-        "name": "Classify",
-        "id": "classify",
-        "size": "Small",
-        "navLink": "/Classify"
-    }, {
+        "navLink": "/Train"
+    }, 
+    {
         "name": "Train",
         "id": "train",
         "size": "Small",
         "navLink": "/Train"
         
-    }, {
+    },
+    {
+        "name": "Optimize",
+        "id": "optimize",
+        "size": "Small",
+        "navLink": "/Optimize"
+    },
+    {
         "name": "Mathematical Fairness",
         "id": "fairness",
         "size": "Large",
