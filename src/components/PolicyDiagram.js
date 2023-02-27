@@ -87,7 +87,9 @@ export function transitionHighlightBack(style) {
         .ease(d3.easePoly)
         .delay((d, i) => i*1000)
         .duration(1000)
-        .style("fill", visStyles[style]["fillColor"])
+        .attr("fill", visStyles[style]["fillColor"])
+        .attr("stroke", visStyles[style]["borderColor"])
+        .attr("fill-opacity", 1)
         .on('end', function() {transitionHighlight(style)});
 }
 
@@ -97,7 +99,9 @@ export function transitionHighlight(style) {
         .ease(d3.easePoly)
         .delay((d, i) => i*1000)
         .duration(1000)
-        .style("fill", visStyles[style]["highlightColor"])
+        .attr("fill", visStyles[style]["highlightColor"])
+        .attr("fill-opacity", .5)
+        .attr("stroke", visStyles[style]["highlightColor"])
         .on('end', function() {transitionHighlightBack(style)});
 }
 
@@ -224,28 +228,28 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
 
     circle
         .append("a")
-        .attr("href", d => !d.children ? d.data.link: "none")
-        .attr("target", "_blank")
+            .attr("href", d => !d.children ? d.data.link: "none")
+            .attr("target", "_blank")
         .append("circle")
-        .attr("class", d => highlightClass(d))
-        .attr("cursor", d => !d.children ? "auto": "none")
-        .attr("r", ((d) => rScale(d.data.group)))
-        .attr("fill", d => adjustFillColor(style))
-        .attr("stroke", d => adjustStrokeColor(highlightNodes, style, d))
-        .attr("stroke-width", visStyles[style]["borderWidth"]);
+            .attr("class", d => highlightClass(d))
+            .attr("cursor", d => !d.children ? "auto": "none")
+            .attr("r", ((d) => rScale(d.data.group)))
+            .attr("fill", d => adjustFillColor(style))
+            .attr("stroke", d => adjustStrokeColor(highlightNodes, style, d))
+            .attr("stroke-width", visStyles[style]["borderWidth"]);
 
     circle
         .append("text")
-        .attr("transform", d => `rotate(${-(d.x-90)})`)
-        .attr("dy", "0.32em")
-        .attr("x", d => adjustX(d))
-        .attr("y", d => adjustY(d))
-        .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
-        .attr("fill", d => adjustTextColor(highlightNodes, style, d))
-        .attr("font-size", visStyles[style]["fontSize"])
-        .attr("letter-spacing", visStyles[style]["letterSpacing"])
-        .attr("font-weight", d => adjustFontWeight(highlightNodes, style, d))
-        .text((d, i) => adjustLabels(highlightNodes, d, labels, i));
+            .attr("transform", d => `rotate(${-(d.x-90)})`)
+            .attr("dy", "0.32em")
+            .attr("x", d => adjustX(d))
+            .attr("y", d => adjustY(d))
+            .attr("class", d => d.data.area_id === 0 ? "Hidden": "Visible")
+            .attr("fill", d => adjustTextColor(highlightNodes, style, d))
+            .attr("font-size", visStyles[style]["fontSize"])
+            .attr("letter-spacing", visStyles[style]["letterSpacing"])
+            .attr("font-weight", d => adjustFontWeight(highlightNodes, style, d))
+            .text((d, i) => adjustLabels(highlightNodes, d, labels, i));
 
     if (style === "colorMode") {
         transitionColor();
