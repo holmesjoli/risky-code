@@ -8991,6 +8991,18 @@
       "race": "white",
       "recidn": "Negative",
       "decile": 10,
+      "id": 499
+    },
+    {
+      "race": "white",
+      "recidn": "Negative",
+      "decile": 10,
+      "id": 500
+    },
+    {
+      "race": "white",
+      "recidn": "Positive",
+      "decile": 10,
       "id": 1
     },
     {
@@ -11974,5 +11986,17 @@
       "recidn": "Positive",
       "decile": 10,
       "id": 498
+    },
+    {
+      "race": "white",
+      "recidn": "Positive",
+      "decile": 10,
+      "id": 499
+    },
+    {
+      "race": "white",
+      "recidn": "Positive",
+      "decile": 10,
+      "id": 500
     }
   ]
