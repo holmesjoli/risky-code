@@ -49,7 +49,7 @@ export function Accuracy({items, variables}) {
 export function PredictiveOutcomes() {
 
     return(
-        <div className="Container">
+        <div className="Container Margin-Bottom">
             <h3>predictive probability</h3>
             <div className="Row">
                 <div className="Card-Flat Example-Card">
