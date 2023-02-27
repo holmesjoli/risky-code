@@ -11,6 +11,7 @@ import { Consequence, Stakeholders } from "../../components/PolicyScenario";
 import { Slider, MenuItem, FormControl, Select } from '@material-ui/core' ;
 import * as d3 from 'd3';
 import data from "../../data/processed/error.json";
+import { visStyles } from "../../utils/global";
 
 let chartIdBlack = "COMPAS-Chart-Black"
 let chartIdWhite = "COMPAS-Chart-White"
@@ -24,9 +25,12 @@ const xScale = d3.scaleLinear()
     .range([margin.left, width-margin.right]);
 
 const yScale = d3.scaleLinear()
-.domain([0, height])
-.range([height-margin.bottom, margin.top]);
+    .domain([0, height])
+    .range([height-margin.bottom, margin.top]);
 
+const fillScale = d3.scaleOrdinal()
+    .domain(["FP", "FN", "TP", "TN"])
+    .range(["#F50141", "#F50141", "#272B30", "#272B30"])
 
 // Title Create Grid
 function grid(data) {
@@ -48,7 +52,7 @@ function grid(data) {
     return data;
 }
 
-function initGraph(data) {
+function initGraph(data, definition) {
     d3.select(`#${chartIdBlack}`)
         .append("svg")
         .attr("width", width)
@@ -59,45 +63,45 @@ function initGraph(data) {
         .attr("width", width)
         .attr("height", height);
 
-    renderGraph(data);
+    renderGraph(data, definition);
 }
 
-function renderGraph(data) {
+function renderGraph(data, definition) {
+
+    let recidn = definition === "fpr"? "Negative": "Positive";
 
     let svgBlack = d3.select(`#${chartIdBlack} svg`);
     let svgWhite = d3.select(`#${chartIdWhite} svg`)
-    let dataFilteredBlack = data.filter(d => d.race === "black");
+    let dataFilteredBlack = data.filter(d => d.race === "black" && d.recidn === recidn);
     dataFilteredBlack = grid(dataFilteredBlack);
 
-    let dataFilteredWhite = data.filter(d => d.race === "white");
+    let dataFilteredWhite = data.filter(d => d.race === "white" && d.recidn === recidn);
     dataFilteredWhite = grid(dataFilteredWhite);
 
     let blackNode = svgBlack
         .selectAll("circle")
-        // .data(dataFilteredWhite, d => d.id)
-        .data(dataFilteredBlack)
+        .data(dataFilteredBlack, d => d.id)
         .join(
             enter  => enter
                 .append("circle")
                 .attr("cx", function(d) { return xScale(d.x); })
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
-                .attr("fill","steelblue"),
+                .attr("fill", d => fillScale(d.confusion)),
             update => update,             
             exit   => exit.remove()
         );
 
     let whiteNode = svgWhite
         .selectAll("circle")
-        // .data(dataFilteredWhite, d => d.id)
-        .data(dataFilteredWhite)
+        .data(dataFilteredWhite, d => d.id)
         .join(
             enter  => enter
                 .append("circle")
                 .attr("cx", function(d) { return xScale(d.x); })
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
-                .attr("fill","steelblue"),
+                .attr("fill", d => fillScale(d.confusion)),
             update => update,             
             exit   => exit.remove()
         );
@@ -120,11 +124,11 @@ export function Content() {
     }
 
     useEffect(() => {
-        initGraph(data);
+        initGraph(data, definition);
     }, []);
 
     useEffect(() => {
-        renderGraph(data);
+        renderGraph(data, definition);
     }, [predictiveProbability, definition]);
 
     return(
