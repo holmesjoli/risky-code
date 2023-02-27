@@ -4,6 +4,7 @@ import { getModelVariables } from "../utils/global";
 import { useEffect } from 'react';
 import * as d3 from 'd3';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import LaundryItem from '../assets/images/laundry/svg/Asset 25.svg';
 
 var logistic = new LogisticRegression({
     alpha: 0.001,
@@ -50,7 +51,13 @@ export function PredictiveOutcomes() {
     return(
         <div className="Container">
             <h3>predictive probability</h3>
-            <p>The probability of an observation belonging to the positive class (e.g., hot water load class).</p>
+            <div className="Row">
+                <div className="Card-Flat Example-Card">
+                    <img src={LaundryItem} alt="Dirty laundry item" />
+                    <div>.68</div>
+                </div>
+                <p className="Margin-Left">The probability of an observation belonging to the positive class (e.g., hot water load class).</p>
+            </div>
         </div>
     )
 }

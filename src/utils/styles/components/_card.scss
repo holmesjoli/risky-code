@@ -21,7 +21,7 @@
 .Card,
 .Card-Flat {
     // min-height: 100px;
-    max-height: 100px;
+    // max-height: 100px;
     min-height: 80px;
     max-width: 75px;
 }
@@ -74,4 +74,17 @@
 
 .Predicted-False {
     border: 2px solid $warningColor;
+}
+
+.Example-Card img {
+    opacity: .2;
+}
+
+.Example-Card div {
+    font-weight: 500;
+    color: #fff;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid #fff;
+    border-radius: 25px;
 }

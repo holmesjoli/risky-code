@@ -122,6 +122,11 @@ ul {
     overflow: hidden;
 }
 
+.Row {
+    display: flex;
+    flex-direction: row;
+}
+
 .Three-Column {
     display: grid;
     grid-template-columns: minmax(150px, 25%) 1fr minmax(150px, 25%);
@@ -237,6 +242,10 @@ ul {
 
 .Margin-Bottom {
     margin-bottom: $containerMargin;
+}
+
+.Margin-Left {
+    margin-left: $containerMargin;
 }
 
 .Add-Stakeholder-Button {
