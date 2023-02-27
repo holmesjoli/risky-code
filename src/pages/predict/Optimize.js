@@ -56,10 +56,8 @@ export default function Optimize({config, variables, setVariables, items, setIte
                 <div className="Sidebar-Left">
                     <Description config={config}/>
                     <Terminology>
-                        <Term term={terms['algorithm']}/>
+                        <Term term={terms['accuracy']}/>
                         <Term term={terms['stat-model']}/>
-                        <Term term={terms['data-variable']}/>
-                        <Term term={terms['model-variable']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </div>

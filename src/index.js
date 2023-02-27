@@ -59,6 +59,11 @@ const theme = createTheme({
         fontSize: 13,
       }
     },
+    MuiSvgIcon: {
+      root: {
+        fill: visStyles[style]["textHighlightColor"]
+      }
+    },
     MuiAccordionSummary: {
       root: {
         position: "relative",

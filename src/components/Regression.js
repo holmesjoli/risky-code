@@ -3,6 +3,7 @@ import laundry from "../data/processed/laundry.json";
 import { getModelVariables } from "../utils/global";
 import { useEffect } from 'react';
 import * as d3 from 'd3';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 var logistic = new LogisticRegression({
     alpha: 0.001,
@@ -35,9 +36,19 @@ export function Accuracy({items, variables}) {
 
     return(
         <div className="Accuracy Container Hidden">
-            <h3 className="Small-Margin">model accuracy</h3>
+            <div className="Overlay-Controls">
+                <h3 className="Small-Margin">model accuracy</h3>
+                <InfoOutlinedIcon/>
+            </div>
             <div className="Accuracy-Percent Small-Margin"></div>
-            <p>Accuracy is a percent of how many predicted values match the actual values.</p>
+        </div>
+    )
+}
+
+export function predictiveOutcomes() {
+
+    return(
+        <div>
         </div>
     )
 }
