@@ -158,13 +158,13 @@ const Column = ({ children, className, title, nClassified }) => {
       ref={drop}
       className={className}
       style={{ border: getBorder(isOver, canDrop),
-        backgroundColor: getBackgroundColor(isOver, canDrop) }}
+               backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
       <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
-  
+
       >{title}</h4>
-        <div className={className === "Container item-list-column"?"": "Card-Container Moveable-Items"}>
+        <div>
             {children.length === 0 ? <p>{instructions}</p>: children}
           <h5 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
@@ -245,16 +245,16 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
       <DndProvider backend={HTML5Backend}>
         <div className="Three-Column2">
             <div className="Classify-Container">
-                <Column title={ITEM_LIST} className="Container item-list-column" nClassified={nClassified}>
+                <Column title={ITEM_LIST} className="Card-Group item-list-column" nClassified={nClassified}>
                   {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
             </div>
             <ExpandMoreIcon className="Rotate90 Scale200"/>
             <div className="Case-Container">
-                <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column Margin-Bottom">
+                <Column title={CASE_TRUE} className="Card-Group Case-True-Column Move-Column Margin-Bottom">
                   {returnItemsForColumn(items, CASE_TRUE)}
                 </Column>
-                <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
+                <Column title={CASE_FALSE} className="Card-Group Case-False-Column Move-Column">
                   {returnItemsForColumn(items, CASE_FALSE)}
                 </Column>
             </div>
