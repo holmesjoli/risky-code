@@ -126,7 +126,7 @@ const MovableItem = ({
             </div>
             <div className="Small-Margin">
               <h4 className="Small-Margin">soiled</h4>
-              <h6 className="Small-Margin">{item.soiled ? "Yes": "No"}</h6>
+              <h6 className="No-Margin-Bottom">{item.soiled ? "Yes": "No"}</h6>
             </div>
          </div>
       </div>
