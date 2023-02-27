@@ -37,8 +37,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
-          <Route path="/Optimize" element={<Optimize config={config.Optimize} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
+          <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />
