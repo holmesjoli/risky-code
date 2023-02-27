@@ -6,7 +6,7 @@ import { visStyles } from "../utils/global"
 export function ActualPredicted() {
 
     return(
-        <div className="Legend Container">
+        <div className="Legend Container Margin-Bottom">
             <h3>legend</h3>
             <div className="my-grid">
                 <div>

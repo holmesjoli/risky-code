@@ -40,12 +40,11 @@
     border: 1px solid $appColor;
 }
 
-// #131517
 .Variable {
     border-radius: $containerBorderRadius;
     border: 1px solid #2e3238;
-    background-color: #d5d5d5; 
-    width: 100px;
+    background-color: #131517; 
+    max-width: 85px;
     min-height: 30px;
     display: flex;
     justify-content: center;
@@ -53,8 +52,11 @@
     padding-bottom: 7px;
     padding-top: 2px;
     margin: 8px;
-    color: #131517;
+    color: #cbcbcb;
     margin-left: 0;
+    font-size: .85rem;
+    font-weight: 500;
+    font-variant: small-caps;
 }
 
 #Arrow {

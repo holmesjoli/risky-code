@@ -127,8 +127,6 @@ const Column = ({ children, className, title }) => {
     }
   });
 
-  console.log(children.length)
-
   return (
     <div
       ref={drop}
@@ -185,16 +183,20 @@ export default function Model({variables, setVariables}) {
   const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
 
   return (
-    <div className="Model-Container">
-      <DndProvider backend={HTML5Backend}>
-        <Column title={DATA_VARIABLES} className="Container Variables-Column Data-Variables">
-          {returnItemsForColumn(variables, DATA_VARIABLES)}
-        </Column>
-        <ExpandMoreIcon className="Scale200"/>
-        <Column title={MODEL_VARIABLES} className="Container Variables-Column Model-Variables">
-          {returnItemsForColumn(variables,MODEL_VARIABLES)}
-        </Column>
-      </DndProvider>
+    <div className="Container">
+      <h3>statistical model</h3>
+      <p>Drag data variables to model variables to add them to the statistical model</p>
+      <div className="Model-Container">
+        <DndProvider backend={HTML5Backend}>
+          <Column title={DATA_VARIABLES} className="Card-Group Variables-Column Data-Variables">
+            {returnItemsForColumn(variables, DATA_VARIABLES)}
+          </Column>
+          <ExpandMoreIcon className="Scale200"/>
+          <Column title={MODEL_VARIABLES} className="Card-Group Variables-Column Model-Variables">
+            {returnItemsForColumn(variables,MODEL_VARIABLES)}
+          </Column>
+        </DndProvider>
+      </div>
     </div>
   );
 };
