@@ -17,6 +17,16 @@ let chartIdWhite = "COMPAS-Chart-White"
 let width = 570;
 let height = 250;
 let style = "darkMode";
+let margin = {left: 10, right: 10, top: 10, bottom: 10}
+
+const xScale = d3.scaleLinear()
+    .domain([0, width])
+    .range([margin.left, width-margin.right]);
+
+const yScale = d3.scaleLinear()
+.domain([0, height])
+.range([height-margin.bottom, margin.top]);
+
 
 // Title Create Grid
 function grid(data) {
@@ -54,10 +64,45 @@ function initGraph(data) {
 
 function renderGraph(data) {
 
-    let dataFiltered = data.filter(d => d.race == "black");
-    dataFiltered = grid(dataFiltered)
+    let svgBlack = d3.select(`#${chartIdBlack} svg`);
+    let svgWhite = d3.select(`#${chartIdWhite} svg`)
+    let dataFilteredBlack = data.filter(d => d.race === "black");
+    dataFilteredBlack = grid(dataFilteredBlack);
 
-    console.log(dataFiltered)
+    let dataFilteredWhite = data.filter(d => d.race === "white");
+    dataFilteredWhite = grid(dataFilteredWhite);
+
+    let blackNode = svgBlack
+        .selectAll("circle")
+        // .data(dataFilteredWhite, d => d.id)
+        .data(dataFilteredBlack)
+        .join(
+            enter  => enter
+                .append("circle")
+                .attr("cx", function(d) { return xScale(d.x); })
+                .attr("cy", function(d) { return yScale(d.y); })
+                .attr("r", 4)
+                .attr("fill","steelblue"),
+            update => update,             
+            exit   => exit.remove()
+        );
+
+    let whiteNode = svgWhite
+        .selectAll("circle")
+        // .data(dataFilteredWhite, d => d.id)
+        .data(dataFilteredWhite)
+        .join(
+            enter  => enter
+                .append("circle")
+                .attr("cx", function(d) { return xScale(d.x); })
+                .attr("cy", function(d) { return yScale(d.y); })
+                .attr("r", 4)
+                .attr("fill","steelblue"),
+            update => update,             
+            exit   => exit.remove()
+        );
+
+    console.log(dataFilteredBlack)
 
 }
 
@@ -80,7 +125,7 @@ export function Content() {
 
     useEffect(() => {
         renderGraph(data);
-    }, [predictiveProbability]);
+    }, [predictiveProbability, definition]);
 
     return(
         <div className="Content">
