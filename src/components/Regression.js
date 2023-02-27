@@ -45,10 +45,11 @@ export function Accuracy({items, variables}) {
     )
 }
 
-export function predictiveOutcomes() {
+export function PredictiveOutcomes() {
 
     return(
-        <div>
+        <div className="Container">
+            <h3>predictive probability</h3>
         </div>
     )
 }

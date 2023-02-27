@@ -8,7 +8,7 @@ import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import { BackButton, NextButton } from '../../components/Button';
 import Card from "../../components/Card";
-import { Regression, Accuracy } from "../../components/Regression";
+import { Regression, Accuracy, PredictiveOutcomes } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
 import Model from "../../components/Model";
 
@@ -16,6 +16,7 @@ function Information({items, variables}) {
     return (
         <div>
             <ActualPredicted/>
+            <PredictiveOutcomes/>
             <Accuracy items={items} variables={variables}/>
         </div>
     )
