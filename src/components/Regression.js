@@ -50,6 +50,7 @@ export function PredictiveOutcomes() {
     return(
         <div className="Container">
             <h3>predictive probability</h3>
+            <p>The probability of an observation belonging to the positive class (e.g., hot water load class).</p>
         </div>
     )
 }
