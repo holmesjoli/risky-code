@@ -172,9 +172,7 @@ const Column = ({ children, className, title, nClassified }) => {
   );
 };
 
-export default function SortLaundry({ nClassified, setNClassified}) {
-
-  const [items, setItems] = useState(CARDS);
+export default function SortLaundry({ items, setItems, nClassified, setNClassified}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];

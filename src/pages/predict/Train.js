@@ -81,7 +81,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                         <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
                         <div>
                             <h3>sort each item into the correct category</h3>
-                            <SortLaundry nClassified={nClassified} setNClassified={setNClassified}/>
+                            <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
                         </div>
                     </div>
                 </div>
