@@ -205,7 +205,7 @@ function StakeholderNetwork(data, setData) {
     return(
         <div className="Container">
             <h3>stakeholder mapping</h3>
-            <div id="Stakeholder-Mapping-Diagram"></div>
+            <div id="Stakeholder-Mapping-Diagram" className='Card-Group'></div>
             <div>
                 <div className="Three-Column-Equal Margin-Top">
                     <div></div>

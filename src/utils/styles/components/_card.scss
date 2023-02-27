@@ -7,10 +7,7 @@
 .Card,
 .Card-Flat,
 .Card-Big,
-.Card-Group,
-#Stakeholder-Mapping-Diagram,
-#COMPAS-Chart-White,
-#COMPAS-Chart-Black {
+.Card-Group {
     background-color: $cardBackgroundColor;
     border-radius: $containerBorderRadius;
     border: 1px solid #2e3238;

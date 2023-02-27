@@ -100,10 +100,12 @@ export function Points() {
     }, [])
 
     return(
-        <div className="Legend">
-            <h3 className="Small-Margin">legend</h3>
-            <h4 className="Small-Margin">predicted</h4>
-            <div id='Legend-Visualization'></div>
+        <div className="Container">
+            <div className="Legend">
+                <h3 className="Small-Margin">legend</h3>
+                <h4 className="Small-Margin">predicted</h4>
+                <div id='Legend-Visualization'></div>
+            </div>
         </div>
     )
 }

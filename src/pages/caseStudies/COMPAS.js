@@ -156,7 +156,7 @@ export function Content() {
 
     return(
         <div className="Content">
-            <div className="Three-Column3">
+            <div className="One-Column-Three2">
                 <div>
                     <div className="Container Margin-Bottom">
                         <h3>mathematical fairness definition</h3>
@@ -171,7 +171,7 @@ export function Content() {
                             </Select>
                         </FormControl>
                     </div>
-                    <div className="Container">
+                    <div className="Container Margin-Bottom">
                         <h3>predicted probability of reoffense</h3>
                         <p>Use the slider to adjust at what threshold defendants should be considered high-risk of reoffense.</p>
                         <Slider
@@ -185,23 +185,25 @@ export function Content() {
                             onChange={updateSlider}
                             />
                     </div>
+                    <Points/>
                 </div>
                 <div>
                     <div className="Container">
                         <h3>the compas algorithm's recidivism predictions</h3>
                         <div>
                             <h4>black</h4>
-                            <div id={chartIdBlack} className="Margin-Bottom Bottom-Rule"></div>
+                            <div className="One-Column-Three3">
+                                <div id={chartIdBlack} className="Card-Group"></div>
+                                <div className="Card-Group"></div>
+                            </div>
                         </div>
                         <div>
-                            <h4 className="Margin-Top">white</h4>
-                            <div id={chartIdWhite}></div>
+                            <h4>white</h4>
+                            <div className="One-Column-Three3">
+                                <div id={chartIdWhite} className="Card-Group"></div>
+                                <div className="Card-Group"></div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div>
-                    <div className="Container">
-                        <Points/>
                     </div>
                 </div>
             </div>
