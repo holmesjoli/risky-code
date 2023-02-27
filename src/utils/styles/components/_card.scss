@@ -18,9 +18,11 @@
     margin: 5px;
 }
 
-.Card {
+.Card,
+.Card-Flat {
     // min-height: 100px;
     max-height: 100px;
+    min-height: 80px;
     max-width: 75px;
 }
 
