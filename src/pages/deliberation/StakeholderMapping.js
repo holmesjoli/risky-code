@@ -302,7 +302,7 @@ function AddStakeholder(data, setData) {
             <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4>stakeholder group</h4>
-                <TextField value={stakeholderName} placeholder="stakeholder group name" variant="outlined" onChange={setStakeholder}/>
+                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={setStakeholder}/>
             </div>
             <div className="Card-Group">
                 <FormControl>

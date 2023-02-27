@@ -151,7 +151,7 @@ const Column = ({ children, className, title, nClassified }) => {
     })
   });
 
-  let instructions = title === ITEM_LIST? "Congrats you just created an algorithm!" : "drop here";
+  let instructions = title === ITEM_LIST? "Congrats you just created an algorithm!" : "Drop here";
 
   return (
     <div

@@ -22,7 +22,7 @@ export function Consequence() {
         <div className="No-Margin-Bottom">
             <div className="Container">
                 <h3 className="Medium-Margin">consequence</h3>
-                <TextField placeholder="write a reflection on the consequences of using this algorithm in this policy setting" variant="outlined" multiline minRows={12} />
+                <TextField placeholder="Write a reflection on the consequences of using this algorithm in this policy setting" variant="outlined" multiline minRows={12} />
             </div>
         </div>
     )
@@ -34,11 +34,11 @@ export function Stakeholders() {
             <h3>stakeholders</h3>
             <div className="Column Margin-Bottom">
                 <h4>primary</h4>
-                <TextField placeholder="edit me" variant="outlined" multiline={true}/>
+                <TextField placeholder="Edit me" variant="outlined" multiline={true}/>
             </div>
             <div className="Column Margin-Bottom">
                 <h4>secondary</h4>
-                <TextField placeholder="edit me" variant="outlined" multiline={true}/>
+                <TextField placeholder="Edit me" variant="outlined" multiline={true}/>
             </div>
         </div>
     )
