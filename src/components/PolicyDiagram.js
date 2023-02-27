@@ -81,7 +81,7 @@ function transitionColor() {
         .on('end', transitionColor);
 }
 
-function transitionHighlightBack(style) {
+export function transitionHighlightBack(style) {
     d3.selectAll(".highlight")
         .transition()
         .ease(d3.easePoly)
@@ -91,7 +91,7 @@ function transitionHighlightBack(style) {
         .on('end', function() {transitionHighlight(style)});
 }
 
-function transitionHighlight(style) {
+export function transitionHighlight(style) {
     d3.selectAll(".highlight")
         .transition()
         .ease(d3.easePoly)
@@ -169,7 +169,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
 
     const rScale = d3.scaleOrdinal()
         .domain(["Root", "Policy area", "Example"])
-        .range([0, 9, 6]);
+        .range([0, 8, 5]);
 
     const margin = {top:0, right: 0, bottom: 10, left: 0},
         w = width - margin.left - margin.right,

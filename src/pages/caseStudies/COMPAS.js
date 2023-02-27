@@ -93,8 +93,6 @@ function renderGraph(data, definition, predictiveProbability) {
         i.confusion = confusion(i);
     }
 
-    console.log(data)
-
     let recidn = definition === "fpr"? "Negative": "Positive";
     let text = definition === "fpr"? "were predicted to reoffend, but did not reoffend": "were not predicted to reoffend, but did reoffend"
 
@@ -114,9 +112,12 @@ function renderGraph(data, definition, predictiveProbability) {
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
                 .attr("fill", d => fillScale(d.confusion)),
+                // .attr("class", d => d.confusion),
             update => update
-                .attr("fill", d => fillScale(d.confusion)),
-            exit   => exit.remove()
+                .attr("fill", d => fillScale(d.confusion))
+                .attr("class", d => d.confusion),
+            exit   => exit
+                .remove()
         );
 
     svgWhite
@@ -128,7 +129,9 @@ function renderGraph(data, definition, predictiveProbability) {
                 .attr("cx", function(d) { return xScale(d.x); })
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
-                .attr("fill", d => fillScale(d.confusion)),
+                .attr("fill", d => fillScale(d.confusion))
+                .attr("class", d => d.confusion)
+                .attr("class", d => d.confusion),
             update => update
                 .attr("fill", d => fillScale(d.confusion)),
             exit   => exit.remove()

@@ -12,10 +12,7 @@ import Terminology from '../../components/Terminology';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
-
-// const fillScale = d3.scaleOrdinal()
-//     .domain()
-//     .range()
+import { transitionHighlight, transitionHighlightBack } from '../../components/PolicyDiagram';
 
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
@@ -38,6 +35,8 @@ function textAnchor(angle) {
         return "start";
     }
 }
+
+
 
 // Tooltip
 function renderTooltip(style="darkMode") {
@@ -112,11 +111,11 @@ function fairnessDefinitions(style = "darkMode") {
         .append("circle")
         .attr("cx", d => d.x)
         .attr("cy", d => d.y)
-        .attr("r", 10)
+        .attr("r", 8)
         .attr("fill", visStyles[style]["fillColor"])
         .attr("stroke", visStyles[style]["borderColor"])
         .attr("stroke-width", visStyles[style]["borderWidth"])
-        .attr("class", "shadow");
+        .attr("class", d => d.highlight? "shadow highlight": "shadow");
 
     svg.append("text")
         .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)}) scale(${flipText(d.angle)})`)
@@ -128,6 +127,7 @@ function fairnessDefinitions(style = "darkMode") {
         .text(d => d.fairness_definition);
 
     renderTooltip();
+    transitionHighlight(style);
 }
 
 function Information() {
