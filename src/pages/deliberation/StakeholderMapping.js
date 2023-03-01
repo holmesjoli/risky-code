@@ -116,7 +116,7 @@ function renderNetwork(data) {
 
     let svg = d3.select(`#${chartId} svg`);
 
-    let link = svg.select(".links").selectAll(".link")
+    let links = svg.select(".links").selectAll(".link")
         .data(data.links, function (d) { return d.source.id === undefined && d.target.id === undefined ? d.source + "-" + d.target : d.source.id + "-" + d.target.id ; })
         .join(
             enter  => enter
@@ -127,7 +127,7 @@ function renderNetwork(data) {
             exit   => exit.remove()
         );
 
-    let node = svg.select(".nodes")
+    let nodes = svg.select(".nodes")
         .selectAll("circle")
         .data(data.nodes, d => d.id)
         .join(
@@ -171,13 +171,13 @@ function renderNetwork(data) {
         .links(data.links);
 
     function ticked() {
-        link
+        links
             .attr("x1", function(d) { return d.source.x; })
             .attr("y1", function(d) { return d.source.y; })
             .attr("x2", function(d) { return d.target.x; })
             .attr("y2", function(d) { return d.target.y; });
 
-        node
+        nodes
             .attr("cx", function (d) { return d.x; })
             .attr("cy", function (d) { return d.y; })
 
