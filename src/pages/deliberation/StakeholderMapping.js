@@ -87,7 +87,7 @@ function stakeholderType(d) {
 function renderTooltip() {
     var tooltip = d3.select(`#${chartId} .tooltip`);
 
-    d3.selectAll(".nodes").on("mouseover", function (e, d) {
+    d3.selectAll(".network-nodes").on("mouseover", function (e, d) {
 
         var cx = d.x + 20;
         var cy = d.y - 10;
@@ -108,7 +108,7 @@ function renderTooltip() {
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
 
-        d3.selectAll(".nodes")
+        d3.selectAll(".network-nodes")
             .attr("stroke", "none");
 
     });
@@ -169,7 +169,7 @@ function updateNetwork(data) {
     node = node
       .data(data.nodes, d => d.id)
       .join(enter => enter.append("path")
-                .attr("class", "node nodes")
+                .attr("class", "network-nodes")
                 .attr("fill", d => fillScale(d.type)))
                 .attr("d", d3.symbol()
                 .type(((d) => symbolType(d)))
