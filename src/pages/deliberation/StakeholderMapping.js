@@ -35,7 +35,7 @@ export function symbolType(d) {
     } else if(d.group === "stakeholder") {
         return d3.symbolTriangle;
     } else {
-        return d3.symbolStar;
+        return d3.symbolSquare;
     }
 }
 
@@ -63,10 +63,6 @@ function drag() {
         .on("drag", dragged)
         .on("end", dragended);
 }
-
-const rScale = d3.scaleOrdinal()
-    .domain(["stakeholders", "stakeholder", "value"])
-    .range([15, 8, 5]);
 
 const fillScale = d3.scaleOrdinal()
     .domain(["none", "primary", "secondary", "tertiary"])
@@ -145,8 +141,6 @@ function initNetwork(data) {
         .on("tick", ticked);
 
     function ticked() {
-        // node.attr("cx", d => d.x)
-        //     .attr("cy", d => d.y)
 
         node.attr("transform", transform)
 
@@ -232,11 +226,12 @@ function StakeholderNetwork(data, setData) {
 export function Content() {
 
     const [data, setData] = useState(defaultNetwork);
+    const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(
         <div className="Content One-Column-Three">
             <div className="">
-                {AddStakeholder(data, setData)}
+                {AddStakeholder(data, setData, stakeholderIdArray)}
             </div>
             <div className="">
                 {StakeholderNetwork(data, setData)}
@@ -245,7 +240,7 @@ export function Content() {
     )
 }
 
-function AddStakeholder(data, setData) {
+function AddStakeholder(data, setData, stakeholderIdArray) {
 
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
@@ -287,17 +282,22 @@ function AddStakeholder(data, setData) {
                            "type": stakeholderGroup};
 
         dataNew.nodes.push(stakeholder);
-        dataNew.links.push({"source": "stakeholders", "target": stakeholderName})
 
         for (let i of stakeholderValues) {
 
-            dataNew.nodes.push({"id": i,
-                                "name": i,
-                                "group": "value",
-                                "type": stakeholderGroup});
+            if (!stakeholderIdArray.includes(i)) {
+                stakeholderIdArray.push(i)
+                dataNew.nodes.push({"id": i,
+                                    "name": i,
+                                    "group": "value",
+                                    "type": stakeholderGroup});
 
-            dataNew.links.push({"source": stakeholderName, "target": i});
+                dataNew.links.push({"source": "stakeholders", "target": i});
+            }
+
+            dataNew.links.push({"source": i, "target": stakeholderName});
         }
+
         setData(dataNew)
 
         updateStakeholderName("");
