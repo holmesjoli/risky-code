@@ -227,9 +227,9 @@ function drawShapeLegend() {
                 .type(((d) => symbolType(d)))
                     .size(100))
                 .attr("transform", function(d, i) {
-                    return 'translate(' + 10 + ', ' + (i*25 + 15) + ')';
+                    return 'translate(' + (i*50 + 15) + ', ' + 10 + ')';
                 })
-                .attr("fill", "white")
+                .attr("fill", visStyles[style]["textColor"])
         );
 
     svg
@@ -238,9 +238,9 @@ function drawShapeLegend() {
         .join(
             enter  => enter
                 .append("text")
-                .attr("x", 25)
-                .attr("y", ((d, i) => i*25 + 20))
-                .attr("fill", "white")
+                .attr("y", 25)
+                .attr("x", ((d, i) => i*50 + 20))
+                .attr("fill", visStyles[style]["textColor"])
                 .text((d) => d.group)
         );
 }
