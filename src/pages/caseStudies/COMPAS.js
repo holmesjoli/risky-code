@@ -262,9 +262,11 @@ export default function COMPAS({config, modules}) {
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}/>
-                    <Terminology>
+                    <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['recidivism']}/>
                         <Term term={terms['stakeholders']}/>
+                        <Term term={terms['fpr']}/>
+                        <Term term={terms['fnr']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
