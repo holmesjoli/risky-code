@@ -26,11 +26,11 @@ let style = "darkMode";
 
 let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root", "type": "none"}], "links": []};
 
-let simulation = d3.forceSimulation()
-        .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(30).strength(.1))
-        // .force("charge", d3.forceManyBody().strength(1))
-        .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
-        .force("collide", d3.forceCollide().strength(10).radius(8));
+// let simulation = d3.forceSimulation()
+//         .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(30).strength(.1))
+//         // .force("charge", d3.forceManyBody().strength(1))
+//         .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
+//         .force("collide", d3.forceCollide().strength(10).radius(8));
 
 // dragging functions
 // function dragstarted(d) {
@@ -116,75 +116,152 @@ function renderNetwork(data) {
 
     let svg = d3.select(`#${chartId} svg`);
 
-    let links = svg.select(".links").selectAll(".link")
-        .data(data.links, function (d) { return d.source.id === undefined && d.target.id === undefined ? d.source + "-" + d.target : d.source.id + "-" + d.target.id ; })
-        .join(
-            enter  => enter
-                .append("line")
-                .attr("stroke", visStyles[style]["linkColor"])
-                .attr("stroke-width", visStyles[style]["linkWidth"]),
-            update => update,
-            exit   => exit.remove()
-        );
-
-    let nodes = svg.select(".nodes")
-        .selectAll("circle")
-        .data(data.nodes, d => d.id)
-        .join(
-            enter  => enter
-                .append("circle")
-                .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
-                .attr("r", d => rScale(d.group))
-                .attr("stroke", visStyles[style]["linkColor"])
-                .attr("stroke-width", visStyles[style]["linkWidth"])
-                .attr("cursor", "default")
-                .attr("fill", d => fillScale(d.type)),
-            update => update,
-            exit   => exit.remove()
-        )
-        // .call(d3.drag()
-        // .on("start", dragstarted)
-        // .on("drag", dragged)
-        // .on("end", dragended))
-
-    let text = svg
-        .selectAll("text")
-        .data(data.nodes, d => d.id)
-        .join(
-            enter  => enter
-                .append("text")
-                .attr("fill", visStyles[style]["textColor"])
-                .attr("font-size", visStyles[style]["fontSize"])
-                .attr("cursor", "default")
-                .text(d => d.group !== "value" ? d.name: ""),
-            update => update,             
-            exit   => exit.remove()
-        );
-
-    simulation.alpha(1).restart();
-
-    simulation
-        .nodes(data.nodes)
+    let simulation = d3.forceSimulation()
+        // .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(30).strength(.1))
+        // .force("charge", d3.forceManyBody().strength(1))
+        .force("charge", d3.forceManyBody().strength(-1000))
+        .force("link", d3.forceLink().id(d => d.id).distance(30))
+        .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
+        .force("collide", d3.forceCollide().strength(10).radius(8))
         .on("tick", ticked);
 
-    simulation.force("link")
-        .links(data.links);
+
+    let link = svg.append("g")
+        .attr("stroke", visStyles[style]["linkColor"])
+        .attr("stroke-width", visStyles[style]["linkWidth"])
+        .selectAll("line");
+
+    let node = svg.append("g")
+        // .attr("r", d => rScale(d.group))
+        // .attr("stroke", visStyles[style]["linkColor"])
+        // .attr("stroke-width", visStyles[style]["linkWidth"])
+        // .attr("cursor", "default")
+        // .attr("fill", d => fillScale(d.type))
+        .selectAll("circle");
+
+    let text = svg.append("g")
+        .selectAll("text");
 
     function ticked() {
-        links
-            .attr("x1", function(d) { return d.source.x; })
-            .attr("y1", function(d) { return d.source.y; })
-            .attr("x2", function(d) { return d.target.x; })
-            .attr("y2", function(d) { return d.target.y; });
+        node.attr("cx", d => d.x)
+            .attr("cy", d => d.y)
 
-        nodes
-            .attr("cx", function (d) { return d.x; })
-            .attr("cy", function (d) { return d.y; })
+        link.attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
 
         text
             .attr("x", function (d) { return d.x + 20; })
             .attr("y", function (d) { return d.y - 10; });
     }
+
+    const old = new Map(node.data().map(d => [d.id, d]));
+    let nodes = data.nodes.map(d => Object.assign(old.get(d.id) || {}, d));
+    let links = data.links.map(d => Object.assign({}, d));
+
+    simulation.nodes(nodes);
+    simulation.force("link").links(links);
+    simulation.alpha(1).restart();
+
+    node = node
+      .data(nodes, d => d.id)
+      .join(enter => enter.append("circle")
+                .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
+                .attr("r", d => rScale(d.group))
+                .attr("stroke", visStyles[style]["linkColor"])
+                .attr("stroke-width", visStyles[style]["linkWidth"])
+                .attr("cursor", "default")
+                .attr("fill", d => fillScale(d.type)));
+
+    link = link
+        .data(links, d => `${d.source.id}\t${d.target.id}`)
+        .join("line");
+
+    text = svg
+        .selectAll("text")
+        .data(data.nodes, d => d.id)
+        .join(
+            enter  => enter.append("text")
+                .attr("fill", visStyles[style]["textColor"])
+                .attr("font-size", visStyles[style]["fontSize"])
+                .attr("cursor", "default")
+                .text(d => d.group !== "value" ? d.name: "")
+    );
+
+
+    // let links = svg.append("g").selectAll("line")
+
+    // links
+    //     .data(data.links, function (d) { return d.source.id === undefined && d.target.id === undefined ? d.source + "-" + d.target : d.source.id + "-" + d.target.id ; })
+    //     .join(
+    //         enter  => enter
+    //             .append("line")
+    //             .attr("stroke", visStyles[style]["linkColor"])
+    //             .attr("stroke-width", visStyles[style]["linkWidth"]),
+    //         update => update,
+    //         exit   => exit.remove()
+    //     );
+
+    // let nodes = svg.append("g").selectAll("circle")
+
+    // nodes
+    //     .data(data.nodes, d => d.id)
+    //     .join(
+    //         enter  => enter
+    //             .append("circle")
+    //             .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
+    //             .attr("r", d => rScale(d.group))
+    //             .attr("stroke", visStyles[style]["linkColor"])
+    //             .attr("stroke-width", visStyles[style]["linkWidth"])
+    //             .attr("cursor", "default")
+    //             .attr("fill", d => fillScale(d.type)),
+    //         update => update,
+    //         exit   => exit.remove()
+    //     )
+    //     // .call(d3.drag()
+    //     // .on("start", dragstarted)
+    //     // .on("drag", dragged)
+    //     // .on("end", dragended))
+
+    // let text = svg
+    //     .selectAll("text")
+    //     .data(data.nodes, d => d.id)
+    //     .join(
+    //         enter  => enter
+    //             .append("text")
+    //             .attr("fill", visStyles[style]["textColor"])
+    //             .attr("font-size", visStyles[style]["fontSize"])
+    //             .attr("cursor", "default")
+    //             .text(d => d.group !== "value" ? d.name: ""),
+    //         update => update,             
+    //         exit   => exit.remove()
+    //     );
+
+    // simulation.alpha(1).restart();
+
+    // simulation
+    //     .nodes(data.nodes)
+    //     .on("tick", ticked);
+
+    // simulation.force("link")
+    //     .links(data.links);
+
+    // function ticked() {
+    //     links
+    //         .attr("x1", function(d) { return d.source.x; })
+    //         .attr("y1", function(d) { return d.source.y; })
+    //         .attr("x2", function(d) { return d.target.x; })
+    //         .attr("y2", function(d) { return d.target.y; });
+
+    //     nodes
+    //         .attr("cx", function (d) { return d.x; })
+    //         .attr("cy", function (d) { return d.y; })
+
+    //     text
+    //         .attr("x", function (d) { return d.x + 20; })
+    //         .attr("y", function (d) { return d.y - 10; });
+    // }
 
     renderTooltip();
 }
