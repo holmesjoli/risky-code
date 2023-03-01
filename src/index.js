@@ -12,7 +12,8 @@ const style = "darkMode";
 const theme = createTheme({
   typography: {
     fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
-    fontSize: 13
+    fontSize: 13,
+    lineHeight: 1.3
   },
   palette: {
     type: "dark",
@@ -122,7 +123,8 @@ const theme = createTheme({
       },
       input: {
         fontSize: 13,
-        padding: "14px"
+        padding: "14px",
+        lineHeight: 1.3
       },
       multiline: {
         fontSize: 13,
