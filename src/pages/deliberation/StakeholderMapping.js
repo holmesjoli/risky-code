@@ -114,9 +114,12 @@ function initNetwork(data) {
         .selectAll("line");
 
     node = svg.append("g")
-            .attr("stroke", visStyles[style]["linkColor"])
-            .attr("stroke-width", visStyles[style]["linkWidth"])
-            .attr("cursor", "default")
+        .attr("stroke", visStyles[style]["linkColor"])
+        .attr("stroke-width", visStyles[style]["linkWidth"])
+        .attr("cursor", "default")
+        .attr("class", "node nodes")
+        .attr("r", d => rScale("root"))
+        .attr("fill", d => fillScale("none"))
         .selectAll("circle");
 
     text = svg.append("g")
@@ -148,10 +151,6 @@ function initNetwork(data) {
 
 function updateNetwork(data) {
 
-    simulation.nodes(data.nodes);
-    simulation.force("link").links(data.links);
-    simulation.alpha(1).restart();
-
     let svg = d3.select(`#${chartId} svg`);
 
     node = node
@@ -159,8 +158,7 @@ function updateNetwork(data) {
       .join(enter => enter.append("circle")
                 .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
                 .attr("r", d => rScale(d.group))
-                .attr("fill", d => fillScale(d.type)),
-            exit => exit.remove());
+                .attr("fill", d => fillScale(d.type)));
 
     link = link
         .data(data.links, d => `${d.source.id}\t${d.target.id}`)
@@ -176,6 +174,10 @@ function updateNetwork(data) {
                 .attr("cursor", "default")
                 .text(d => d.group !== "value" ? d.name: "")
     );
+
+    simulation.nodes(data.nodes);
+    simulation.force("link").links(data.links);
+    simulation.alpha(1).restart();
 
     renderTooltip();
 }
