@@ -227,17 +227,17 @@ export const TRANSIT_COLUMN_NAMES = {
 const {TRANSIT} = TRANSIT_COLUMN_NAMES;
 
 export const transitMethods = [
-    {id: 1, name: 'Item 1', column: TRANSIT},
-    {id: 2, name: 'Item 2', column: TRANSIT},
-    {id: 3, name: 'Item 3', column: TRANSIT},
-    {id: 4, name: 'Item 4', column: TRANSIT},
-    {id: 5, name: 'Item 5', column: TRANSIT},
-    {id: 6, name: 'Item 6', column: TRANSIT},
-    {id: 7, name: 'Item 7', column: TRANSIT},
-    {id: 8, name: 'Item 8', column: TRANSIT},
-    {id: 9, name: 'Item 9', column: TRANSIT},
-    {id: 10, name: 'Item 10', column: TRANSIT},
-    {id: 11, name: 'Item 11', column: TRANSIT},
+    {id: 1, name: 'Item 1', column: TRANSIT, bump: true, previous_bump_recorded: true},
+    {id: 2, name: 'Item 2', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 3, name: 'Item 3', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 4, name: 'Item 4', column: TRANSIT, bump: true, previous_bump_recorded: true},
+    {id: 5, name: 'Item 5', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 6, name: 'Item 6', column: TRANSIT, bump: false, previous_bump_recorded: true},
+    {id: 7, name: 'Item 7', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 8, name: 'Item 8', column: TRANSIT, bump: true, previous_bump_recorded: true},
+    {id: 9, name: 'Item 9', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 10, name: 'Item 10', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 11, name: 'Item 11', column: TRANSIT, bump: true, previous_bump_recorded: true},
 ];
 
 // Creates a colorScales for different types of variables
