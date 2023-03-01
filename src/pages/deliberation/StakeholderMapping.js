@@ -20,6 +20,7 @@ let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity
 "Informed consent", "Identity", "Environment sustainability", "Other"];
 
 let chartId = "Stakeholder-Mapping-Diagram";
+let legendId = "Stakeholder-Mapping-Legend";
 let width = 650;
 let height = 400;
 let style = "darkMode";
@@ -27,6 +28,10 @@ let style = "darkMode";
 let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root", "type": "none"}], "links": []};
 let link, node, text;
 let simulation;
+
+const shapeData = [{"group": "root"},
+                    {"group": "stakeholder"},
+                    {"group": "value"}]
 
 export function symbolType(d) {
 
@@ -196,6 +201,50 @@ function updateNetwork(data) {
     renderTooltip();
 }
 
+function initShapeLegend() {
+
+    let height = 100;
+
+    d3.select(`#${legendId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    drawShapeLegend();
+}
+
+function drawShapeLegend() {
+
+    let svg = d3.select(`#${legendId} svg`)
+
+    svg
+        .selectAll("path")
+        .data(shapeData, d => d.type)
+        .join(
+            enter  => enter
+                .append("path")
+                .attr("d", d3.symbol()
+                .type(((d) => symbolType(d)))
+                    .size(100))
+                .attr("transform", function(d, i) {
+                    return 'translate(' + 10 + ', ' + (i*25 + 15) + ')';
+                })
+                .attr("fill", "white")
+        );
+
+    svg
+        .selectAll("text")
+        .data(shapeData, d => d.type)
+        .join(
+            enter  => enter
+                .append("text")
+                .attr("x", 25)
+                .attr("y", ((d, i) => i*25 + 20))
+                .attr("fill", "white")
+                .text((d) => d.group)
+        );
+}
+
 function StakeholderNetwork(data, setData) {
 
     const resetNetwork = () => {
@@ -204,6 +253,7 @@ function StakeholderNetwork(data, setData) {
 
     useEffect(() => {
         initNetwork(data);
+        initShapeLegend();
     }, [])
 
     useEffect(() => {
@@ -213,7 +263,8 @@ function StakeholderNetwork(data, setData) {
     return(
         <div className="Container">
             <h3>stakeholder mapping</h3>
-            <div id="Stakeholder-Mapping-Diagram" className='Card-Group'></div>
+            <div id={chartId} className='Card-Group'></div>
+            <div id={legendId} className='Card-Group'></div>
             <div>
                 <div className="Three-Column-Equal Margin-Top">
                     <div></div>
