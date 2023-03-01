@@ -28,6 +28,21 @@ let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "
 let link, node, text;
 let simulation;
 
+export function symbolType(d) {
+
+    if (d.group === "root") {
+        return d3.symbolCircle;
+    } else if(d.group === "stakeholder") {
+        return d3.symbolTriangle;
+    } else {
+        return d3.symbolStar;
+    }
+}
+
+function transform(d) {
+    return "translate(" + d.x + "," + d.y + ")";
+}
+
 // dragging functions
 function drag() {
 
@@ -117,9 +132,6 @@ function initNetwork(data) {
         .attr("stroke", visStyles[style]["linkColor"])
         .attr("stroke-width", visStyles[style]["linkWidth"])
         .attr("cursor", "default")
-        .attr("class", "node nodes")
-        .attr("r", d => rScale("root"))
-        .attr("fill", d => fillScale("none"))
         .selectAll("circle");
 
     text = svg.append("g")
@@ -133,8 +145,10 @@ function initNetwork(data) {
         .on("tick", ticked);
 
     function ticked() {
-        node.attr("cx", d => d.x)
-            .attr("cy", d => d.y)
+        // node.attr("cx", d => d.x)
+        //     .attr("cy", d => d.y)
+
+        node.attr("transform", transform)
 
         link.attr("x1", d => d.source.x)
             .attr("y1", d => d.source.y)
@@ -155,10 +169,13 @@ function updateNetwork(data) {
 
     node = node
       .data(data.nodes, d => d.id)
-      .join(enter => enter.append("circle")
+      .join(enter => enter.append("path")
                 .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
-                .attr("r", d => rScale(d.group))
                 .attr("fill", d => fillScale(d.type)))
+                .attr("d", d3.symbol()
+                .type(((d) => symbolType(d)))
+                .size(d => d.group === "root"?350: 100)
+                )
         .call(drag);
 
     link = link
@@ -173,7 +190,7 @@ function updateNetwork(data) {
                 .attr("fill", visStyles[style]["textColor"])
                 .attr("font-size", visStyles[style]["fontSize"])
                 .attr("cursor", "default")
-                .text(d => d.group !== "value" ? d.name: "")
+                .text(d => d.group !== "value" ? d.name: `${d.name}`)
     );
 
     simulation.nodes(data.nodes);
