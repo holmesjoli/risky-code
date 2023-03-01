@@ -238,7 +238,18 @@ export const transitMethods = [
     {id: 9, name: 'Item 9', column: TRANSIT, bump: false, previous_bump_recorded: false},
     {id: 10, name: 'Item 10', column: TRANSIT, bump: false, previous_bump_recorded: false},
     {id: 11, name: 'Item 11', column: TRANSIT, bump: true, previous_bump_recorded: true},
+    {id: 12, name: 'Item 12', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 13, name: 'Item 13', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 14, name: 'Item 14', column: TRANSIT, bump: true, previous_bump_recorded: true},
+    {id: 15, name: 'Item 15', column: TRANSIT, bump: false, previous_bump_recorded: true},
+    {id: 16, name: 'Item 16', column: TRANSIT, bump: true, previous_bump_recorded: true},
+    {id: 17, name: 'Item 17', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 18, name: 'Item 18', column: TRANSIT, bump: false, previous_bump_recorded: false},
+    {id: 19, name: 'Item 19', column: TRANSIT, bump: false, previous_bump_recorded: true},
+    {id: 20, name: 'Item 20', column: TRANSIT, bump: true, previous_bump_recorded: false},
+    {id: 11, name: 'Item 21', column: TRANSIT, bump: false, previous_bump_recorded: true},
 ];
+
 
 // Creates a colorScales for different types of variables
 export function colorScale() {
