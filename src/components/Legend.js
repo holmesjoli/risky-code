@@ -80,7 +80,7 @@ export function Points() {
             .append("circle")
             .attr("cx", ((d) => d.x))
             .attr("cy", ((d) => d.y))
-            .attr("r", 4)
+            .attr("r", 5)
             .attr("fill", ((d) => scaleFill(d.name)))
 
         // TODO Center Text with circle

@@ -12,7 +12,6 @@ import { Consequence, Stakeholders } from "../../components/PolicyScenario";
 import { Slider, MenuItem, FormControl, Select } from '@material-ui/core' ;
 import * as d3 from 'd3';
 import data from "../../data/processed/error.json";
-import { visStyles } from "../../utils/global";
 import { Points } from "../../components/Legend";
 
 let chartIdBlack = "COMPAS-Chart-Black";
@@ -111,12 +110,14 @@ function renderGraph(data, definition, predictiveProbability) {
                 .attr("cx", function(d) { return xScale(d.x); })
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
-                .attr("fill", d => fillScale(d.confusion)),
-                // .attr("class", d => d.confusion),
+                .attr("fill", d => fillScale(d.confusion))
+                .attr("class", d => d.confusion),
             update => update
                 .attr("fill", d => fillScale(d.confusion))
                 .attr("class", d => d.confusion),
             exit   => exit
+                .attr("fill", d => fillScale(d.confusion))
+                .attr("class", d => d.confusion)
                 .remove()
         );
 
@@ -130,11 +131,14 @@ function renderGraph(data, definition, predictiveProbability) {
                 .attr("cy", function(d) { return yScale(d.y); })
                 .attr("r", 4)
                 .attr("fill", d => fillScale(d.confusion))
-                .attr("class", d => d.confusion)
                 .attr("class", d => d.confusion),
             update => update
-                .attr("fill", d => fillScale(d.confusion)),
-            exit   => exit.remove()
+                .attr("fill", d => fillScale(d.confusion))
+                .attr("class", d => d.confusion),
+            exit   => exit
+                .attr("fill", d => fillScale(d.confusion))
+                .attr("class", d => d.confusion)
+                .remove()
         );
 
     let incorrectWhite = dataFilteredWhite.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
