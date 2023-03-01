@@ -267,7 +267,7 @@ export default function COMPAS({config, modules}) {
                 </LeftSideBar>
                 <Content />
                 <RightSideBar>
-                <Progress id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules}/>
                     <Stakeholders/>
                     <Consequence/>
                     <NextButton routeNext={routeNext}/>

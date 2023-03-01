@@ -99,7 +99,7 @@ export default function Train({config, variables, setVariables, items, setItems,
             <div className="Main">
                 <div className="Sidebar-Left">
                     <Description config={config}/>
-                    <Terminology>
+                    <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['data-variable']}/>
                         <Term term={terms['model-variable']}/>

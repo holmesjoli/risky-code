@@ -140,7 +140,7 @@ export default function StreetBump({config, modules}) {
                 <RightSideBar>
                 <Progress id={id} modules={modules}/>
                     <Stakeholders/>
-                    <Consequence/>
+                    <Consequence margin="Margin-Large-Bottom"/>
                     <NextButton routeNext={routeNext}/>
                 </RightSideBar>
             </div>

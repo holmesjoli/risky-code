@@ -1,10 +1,10 @@
 import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-export function Terminology({children, defaultExpanded=false}) {
+export function Terminology({children, margin, defaultExpanded=false}) {
 
     return(
-        <div className="Terminology">
+        <div className={"Terminology " + margin}>
             <Accordion defaultExpanded={defaultExpanded}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}

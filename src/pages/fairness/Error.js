@@ -35,7 +35,7 @@ export default function Error({config, modules}) {
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}/>
-                    <Terminology>
+                    <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['mathematical-fairness']}/>
                         <Term term={terms['fpr']}/>
                         <Term term={terms['fnr']}/>

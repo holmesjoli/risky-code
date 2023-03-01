@@ -16,10 +16,10 @@ export function PolicyScenario({policy, setPolicy}) {
     )
 }
 
-export function Consequence() {
+export function Consequence({margin}) {
 
     return(
-        <div className="No-Margin-Bottom">
+        <div className={margin}>
             <div className="Container">
                 <h3 className="Medium-Margin">consequence</h3>
                 <TextField placeholder="Write a reflection on the consequences of using this algorithm in this policy setting" variant="outlined" multiline minRows={12} />
