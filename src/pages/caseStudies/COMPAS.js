@@ -76,7 +76,7 @@ function confusion(i) {
         return "TN";
     } else if(i.predicted && i.recid) {
         return "TP";
-    } else {
+    } else if(i.predicted && !i.recid) {
         return "FP";
     }
 }
@@ -88,7 +88,7 @@ function renderGraph(data, definition, predictiveProbability) {
 
     for (let i of data) {
         i.predicted = i.decile > predictiveProbability;
-        i.recid = i.redidn === "Positive" ? true: false;
+        i.recid = i.recidn === "Positive" ? true: false;
         i.confusion = confusion(i);
     }
 
