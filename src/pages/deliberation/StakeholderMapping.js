@@ -203,7 +203,7 @@ function updateNetwork(data) {
 
 function initShapeLegend() {
 
-    let height = 100;
+    let height = 50;
 
     d3.select(`#${legendId}`)
         .append("svg")
@@ -216,33 +216,28 @@ function initShapeLegend() {
 function drawShapeLegend() {
 
     let svg = d3.select(`#${legendId} svg`)
+    let h = 50;
 
-    svg
-        .selectAll("path")
-        .data(shapeData, d => d.type)
-        .join(
-            enter  => enter
-                .append("path")
-                .attr("d", d3.symbol()
-                .type(((d) => symbolType(d)))
-                    .size(100))
-                .attr("transform", function(d, i) {
-                    return 'translate(' + (i*50 + 15) + ', ' + 10 + ')';
-                })
-                .attr("fill", visStyles[style]["textColor"])
-        );
+    let n = svg.append("g")
+           .selectAll("circle")
+           .data(shapeData, d => d.group)
+           .enter()
+           .append("g")
+           .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 2})`)
 
-    svg
-        .selectAll("text")
-        .data(shapeData, d => d.type)
-        .join(
-            enter  => enter
-                .append("text")
-                .attr("y", 25)
-                .attr("x", ((d, i) => i*50 + 20))
-                .attr("fill", visStyles[style]["textColor"])
-                .text((d) => d.group)
-        );
+    n.append("path")
+        .attr("d", d3.symbol()
+            .type(((d) => symbolType(d)))
+            .size(100))
+        .attr("fill", visStyles[style]["textColor"]);
+
+    // Add a text element to the previously added g element.
+    n.append("text")
+          .attr("text-anchor", "middle")
+          .attr("y", 20)
+          .text(d => d.group)
+          .attr("fill", visStyles[style]["textColor"])
+          .attr("font-size", visStyles[style]["fontSize"]);
 }
 
 function StakeholderNetwork(data, setData) {
