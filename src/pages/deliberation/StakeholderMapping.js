@@ -33,6 +33,10 @@ const shapeData = [{"group": "root"},
                     {"group": "stakeholder"},
                     {"group": "value"}]
 
+const fillData = [{"group": "primary"},
+                  {"group": "secondary"},
+                  {"group": "tertiary"}]
+
 export function symbolType(d) {
 
     if (d.group === "root") {
@@ -169,7 +173,7 @@ function updateNetwork(data) {
     node = node
       .data(data.nodes, d => d.id)
       .join(enter => enter.append("path")
-                .attr("class", "network-nodes")
+                .attr("class", d => d.group === "root"? "network-nodes node": "network-nodes")
                 .attr("fill", d => fillScale(d.type)))
                 .attr("d", d3.symbol()
                 .type(((d) => symbolType(d)))
@@ -203,7 +207,7 @@ function updateNetwork(data) {
 
 function initShapeLegend() {
 
-    let height = 50;
+    let height = 40;
 
     d3.select(`#${legendId}`)
         .append("svg")
@@ -216,28 +220,48 @@ function initShapeLegend() {
 function drawShapeLegend() {
 
     let svg = d3.select(`#${legendId} svg`)
-    let h = 50;
+    let h = 40;
 
-    let n = svg.append("g")
+    let shape = svg.append("g")
            .selectAll("circle")
            .data(shapeData, d => d.group)
            .enter()
            .append("g")
-           .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 2})`)
+           .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
 
-    n.append("path")
+    shape.append("path")
         .attr("d", d3.symbol()
             .type(((d) => symbolType(d)))
             .size(100))
         .attr("fill", visStyles[style]["textColor"]);
 
     // Add a text element to the previously added g element.
-    n.append("text")
+    shape.append("text")
           .attr("text-anchor", "middle")
           .attr("y", 20)
           .text(d => d.group)
           .attr("fill", visStyles[style]["textColor"])
           .attr("font-size", visStyles[style]["fontSize"]);
+
+    let color = svg.append("g")
+          .selectAll("circle")
+          .data(fillData, d => d.group)
+          .enter()
+          .append("g")
+          .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
+
+    color.append("path")
+       .attr("d", d3.symbol()
+           .type(d3.symbolTriangle)
+           .size(100))
+       .attr("fill", d => fillScale(d.group));
+
+    color.append("text")
+       .attr("text-anchor", "middle")
+       .attr("y", 20)
+       .text(d => d.group)
+       .attr("fill", visStyles[style]["textColor"])
+       .attr("font-size", visStyles[style]["fontSize"]);
 }
 
 function StakeholderNetwork(data, setData) {
@@ -259,7 +283,9 @@ function StakeholderNetwork(data, setData) {
         <div className="Container">
             <h3>stakeholder mapping</h3>
             <div id={chartId} className='Card-Group'></div>
-            <div id={legendId} className='Card-Group'></div>
+            <div id={legendId} className='Card-Group'>
+                <h4>legend</h4>
+            </div>
             <div>
                 <div className="Three-Column-Equal Margin-Top">
                     <div></div>
