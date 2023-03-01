@@ -150,7 +150,7 @@ function initNetwork(data) {
             .attr("y2", d => d.target.y);
 
         text
-            .attr("x", function (d) { return d.x + 20; })
+            .attr("x", function (d) { return d.x + 10; })
             .attr("y", function (d) { return d.y - 10; });
     }
 
