@@ -11,6 +11,7 @@ import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { Button } from '@material-ui/core';
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -61,10 +62,18 @@ export function Content() {
     //     drawMap();
     // }, [])
 
+    const showResults = () => {
+    }
+
     return(
         <div className="Content Two-Column-Three">
             <div>
                 <SortBump/>
+                <div className="Three-Column-Equal Margin-Top">
+                    <div></div>
+                    <Button variant="outlined" color="secondary" onClick={showResults}>show results</Button>
+                    <div></div>
+                </div>
             </div>
             <div className="Container">
                 {/* <div id="Boston-Map" className="chart"></div> */}
