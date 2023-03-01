@@ -115,7 +115,7 @@ function initNetwork(data) {
         .attr("width", width)
         .attr("height", height);
 
-    var tooltip = d3.select(`#${chartId}`)
+    d3.select(`#${chartId}`)
         .append("div")
         .attr("class", "tooltip");
 
@@ -164,11 +164,11 @@ function updateNetwork(data) {
     node = node
       .data(data.nodes, d => d.id)
       .join(enter => enter.append("path")
-                .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
+                .attr("class", "node nodes")
                 .attr("fill", d => fillScale(d.type)))
                 .attr("d", d3.symbol()
                 .type(((d) => symbolType(d)))
-                .size(d => d.group === "root"?350: 100)
+                .size(d => d.group === "root"? 350: 100)
                 )
         .call(drag);
 
@@ -181,9 +181,11 @@ function updateNetwork(data) {
         .data(data.nodes, d => d.id)
         .join(
             enter  => enter.append("text")
-                .attr("fill", visStyles[style]["textColor"])
+                .attr("fill", d => d.group === "value"? visStyles[style]["textColor"]: visStyles[style]["textHighlightColor"])
                 .attr("font-size", visStyles[style]["fontSize"])
+                .attr("font-weight", d => d.group === "value"? visStyles[style]["fontWeight"]: visStyles[style]["fontHighlightWeight"])
                 .attr("cursor", "default")
+                .attr("letter-spacing", ".6px")
                 .text(d => d.group !== "value" ? d.name: `${d.name}`)
     );
 
