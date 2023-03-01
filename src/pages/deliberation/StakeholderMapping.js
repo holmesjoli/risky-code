@@ -28,29 +28,26 @@ let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "
 let link, node, text;
 let simulation;
 
-// let simulation = d3.forceSimulation()
-//         .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(30).strength(.1))
-//         // .force("charge", d3.forceManyBody().strength(1))
-//         .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
-//         .force("collide", d3.forceCollide().strength(10).radius(8));
-
 // dragging functions
-// function dragstarted(d) {
-//     if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-//         d.fx = d.x;
-//         d.fy = d.y;
-// }
+function drag() {
 
-// function dragged(d) {
-//     d.fx = d3.event.x;
-//     d.fy = d3.event.y;
-// }
-
-// function dragended(d) {
-//     if (!d3.event.active) simulation.alphaTarget(0);
-//     d.fx = null;
-//     d.fy = null;
-// }
+    function dragstarted(event, d) {
+      d3.select(this).raise().attr("stroke", "black");
+    }
+  
+    function dragged(event, d) {
+      d3.select(this).attr("cx", d.x = event.x).attr("cy", d.y = event.y);
+    }
+  
+    function dragended(event, d) {
+      d3.select(this).attr("stroke", null);
+    }
+  
+    return d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended);
+}
 
 const rScale = d3.scaleOrdinal()
     .domain(["stakeholders", "stakeholder", "value"])
@@ -72,11 +69,10 @@ function stakeholderType(d) {
 }
 
 function renderTooltip() {
-    var tooltip = d3.select(`#${chartId}`)
-        .append("div")
-        .attr("class", "tooltip");
+    var tooltip = d3.select(`#${chartId} .tooltip`);
 
     d3.selectAll(".nodes").on("mouseover", function (e, d) {
+
         var cx = d.x + 20;
         var cy = d.y - 10;
 
@@ -107,6 +103,10 @@ function initNetwork(data) {
         .append("svg")
         .attr("width", width)
         .attr("height", height);
+
+    var tooltip = d3.select(`#${chartId}`)
+        .append("div")
+        .attr("class", "tooltip");
 
     link = svg.append("g")
         .attr("stroke", visStyles[style]["linkColor"])
@@ -158,7 +158,8 @@ function updateNetwork(data) {
       .join(enter => enter.append("circle")
                 .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
                 .attr("r", d => rScale(d.group))
-                .attr("fill", d => fillScale(d.type)));
+                .attr("fill", d => fillScale(d.type)))
+        .call(drag);
 
     link = link
         .data(data.links, d => `${d.source.id}\t${d.target.id}`)
