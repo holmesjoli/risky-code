@@ -168,13 +168,13 @@ ul {
 .One-Column-Three2 {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(250px, 22%) 1fr;
+    grid-template-columns: minmax(250px, 22%) minmax(700px, 78%);
 }
 
 .One-Column-Three3 {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: 1fr minmax(250px, 22%);
+    grid-template-columns: minmax(570px, 78%) minmax(175px, 22%);
 }
 
 .One-Column {

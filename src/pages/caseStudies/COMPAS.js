@@ -19,9 +19,8 @@ let chartIdBlack = "COMPAS-Chart-Black";
 let chartIdWhite = "COMPAS-Chart-White";
 let textIdBlack = "COMPAS-text-Black";
 let textIdWhite = "COMPAS-text-White";
-let width = 570;
+let width = 550;
 let height = 250;
-let style = "darkMode";
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 
 const xScale = d3.scaleLinear()
