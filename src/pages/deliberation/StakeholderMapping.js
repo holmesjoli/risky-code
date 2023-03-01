@@ -129,6 +129,9 @@ function renderNetwork(data) {
         .selectAll("line");
 
     let node = svg.append("g")
+            .attr("stroke", visStyles[style]["linkColor"])
+            .attr("stroke-width", visStyles[style]["linkWidth"])
+            .attr("cursor", "default")
         .selectAll("circle");
 
     let text = svg.append("g")
@@ -161,9 +164,6 @@ function renderNetwork(data) {
       .join(enter => enter.append("circle")
                 .attr("class", d => d.group === "root"? "node nodes": "network-node nodes")
                 .attr("r", d => rScale(d.group))
-                .attr("stroke", visStyles[style]["linkColor"])
-                .attr("stroke-width", visStyles[style]["linkWidth"])
-                .attr("cursor", "default")
                 .attr("fill", d => fillScale(d.type)),
             exit => exit.remove());
 
