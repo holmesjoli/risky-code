@@ -4,29 +4,9 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { importTransitImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { TRANSIT_COLUMN_NAMES, transitMethods } from "../utils/global";
 
 const images = importTransitImages();
-
-export const COLUMN_NAMES = {
-    TRANSIT: 'transit',
-    BUMP: 'bump',
-    NO_BUMP: 'no bump'
-}
-
-const {TRANSIT} = COLUMN_NAMES;
-export const transitMethods = [
-    {id: 1, name: 'Item 1', column: TRANSIT},
-    {id: 2, name: 'Item 2', column: TRANSIT},
-    {id: 3, name: 'Item 3', column: TRANSIT},
-    {id: 4, name: 'Item 4', column: TRANSIT},
-    {id: 5, name: 'Item 5', column: TRANSIT},
-    {id: 6, name: 'Item 6', column: TRANSIT},
-    {id: 7, name: 'Item 7', column: TRANSIT},
-    {id: 8, name: 'Item 8', column: TRANSIT},
-    {id: 9, name: 'Item 9', column: TRANSIT},
-    {id: 10, name: 'Item 10', column: TRANSIT},
-    {id: 11, name: 'Item 11', column: TRANSIT},
-];
 
 const MovableItem = ({
   id,
@@ -100,7 +80,7 @@ const MovableItem = ({
 
       if (dropResult) {
         const { name } = dropResult;
-        const { TRANSIT, BUMP, NO_BUMP } = COLUMN_NAMES;
+        const { TRANSIT, BUMP, NO_BUMP } = TRANSIT_COLUMN_NAMES;
         switch (name) {
           case BUMP:
             changeItemColumn(item, BUMP);
@@ -142,7 +122,7 @@ const Column = ({ children, className, title }) => {
     }),
     // Override monitor.canDrop() function
     canDrop: (item) => {
-      const { TRANSIT, BUMP, NO_BUMP } = COLUMN_NAMES;
+      const { TRANSIT, BUMP, NO_BUMP } = TRANSIT_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
         currentColumnName === title ||
@@ -209,7 +189,7 @@ export default function SortBump() {
       ));
   };
 
-  const { TRANSIT, BUMP, NO_BUMP } = COLUMN_NAMES;
+  const { TRANSIT, BUMP, NO_BUMP } = TRANSIT_COLUMN_NAMES;
 
   return (
     <div className="Model-Container">

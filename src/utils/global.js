@@ -218,6 +218,28 @@ export const CARDS = [
     {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, soiled: false, item_color: "white", cleanType: "Machine wash cold", white: true}
 ];
 
+export const TRANSIT_COLUMN_NAMES = {
+    TRANSIT: 'transit',
+    BUMP: 'bump',
+    NO_BUMP: 'no bump'
+}
+
+const {TRANSIT} = TRANSIT_COLUMN_NAMES;
+
+export const transitMethods = [
+    {id: 1, name: 'Item 1', column: TRANSIT},
+    {id: 2, name: 'Item 2', column: TRANSIT},
+    {id: 3, name: 'Item 3', column: TRANSIT},
+    {id: 4, name: 'Item 4', column: TRANSIT},
+    {id: 5, name: 'Item 5', column: TRANSIT},
+    {id: 6, name: 'Item 6', column: TRANSIT},
+    {id: 7, name: 'Item 7', column: TRANSIT},
+    {id: 8, name: 'Item 8', column: TRANSIT},
+    {id: 9, name: 'Item 9', column: TRANSIT},
+    {id: 10, name: 'Item 10', column: TRANSIT},
+    {id: 11, name: 'Item 11', column: TRANSIT},
+];
+
 // Creates a colorScales for different types of variables
 export function colorScale() {
 
