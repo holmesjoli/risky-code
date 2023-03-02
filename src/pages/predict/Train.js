@@ -69,7 +69,6 @@ export default function Train({config, variables, setVariables, items, setItems,
                 <Overlay isOpen={isOpen} onClose={toggleOverlay}>
                 <div className="Containers-Container">
                     <div className="Container-Fill-Secondary">
-                        <h3 className="Page-Title">introduction to predictive algorithms</h3>
                         <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} toggleOverlay={toggleOverlay}/>                      
                     </div>
                 </div>

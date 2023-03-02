@@ -6,7 +6,7 @@ import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import { NextButtonOverlay } from './Button';
-import { LeftSideBar } from "./Sidebar";
+import { RightSideBar } from "./Sidebar";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -247,26 +247,32 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   return (
       <DndProvider backend={HTML5Backend}>
         <div>
-          <div className="Two-Column">
-            <LeftSideBar>
-              <div className="Classify-Container">
-                <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
-                <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
+          <h3 className="Page-Title">introduction to predictive algorithms</h3>
+          <div className="Two-Column-Three">
+            <div>
+              <div>
+                <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
+                  {returnSingleItemForColumn(items, ITEM_LIST)}
+                </Column>
               </div>
-              <h4>sort each item into the correct category</h4>
-              <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
-                {returnSingleItemForColumn(items, ITEM_LIST)}
-              </Column>
-              {toggleOverlay? <NextButtonOverlay disabled={disabled} toggleOverlay={toggleOverlay}/>: <></>}
-            </LeftSideBar>
-            <div className="Case-Container">
-              <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column Margin-Bottom">
-                {returnItemsForColumn(items, CASE_TRUE)}
-              </Column>
-              <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
-                {returnItemsForColumn(items, CASE_FALSE)}
-              </Column>
+              <div className="Two-Column">
+                <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
+                  {returnItemsForColumn(items, CASE_TRUE)}
+                </Column>
+                <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
+                  {returnItemsForColumn(items, CASE_FALSE)}
+                </Column>
+              </div>
             </div>
+            <RightSideBar>
+                <h4>sort each item into the correct category</h4>
+                <div>
+                  <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
+                  <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm.</p>
+                  <p>And what do you do with gray clothes anyway?</p>
+                </div>
+                {toggleOverlay? <NextButtonOverlay disabled={disabled} toggleOverlay={toggleOverlay}/>: <></>}
+            </RightSideBar>
           </div>
         </div>
       </DndProvider>
