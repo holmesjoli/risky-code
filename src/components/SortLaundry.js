@@ -5,7 +5,7 @@ import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { NextButtonOverlay } from './Button';
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -150,8 +150,9 @@ const Column = ({ children, className, title, nClassified }) => {
     })
   });
 
-  let instructions = title === ITEM_LIST? "Congrats you just created an algorithm!" : "Drop here";
-
+  let instructions = title === ITEM_LIST?  "Congrats you created an algorithm!" : "Drop here";
+  
+  console.log(children)
   return (
     <div
       ref={drop}
@@ -171,7 +172,7 @@ const Column = ({ children, className, title, nClassified }) => {
   );
 };
 
-export default function SortLaundry({ items, setItems, nClassified, setNClassified}) {
+export default function SortLaundry({ items, setItems, nClassified, setNClassified, toggleOverlay}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -242,20 +243,27 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
 
   return (
       <DndProvider backend={HTML5Backend}>
-        <div className="Three-Column2">
-            <div className="Classify-Container">
-              <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
-                {returnSingleItemForColumn(items, ITEM_LIST)}
-              </Column>
-            </div>
-            <ExpandMoreIcon className="Rotate90 Scale200"/>
-            <div className="Case-Container">
-                <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column Margin-Bottom">
-                  {returnItemsForColumn(items, CASE_TRUE)}
+        <div>
+          <div className="Two-Column">
+              <div className="Classify-Container">
+                <div className="">
+                  <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
+                  <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
+                </div>
+                <h4>sort each item into the correct category</h4>
+                <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
+                  {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
-                <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
-                  {returnItemsForColumn(items, CASE_FALSE)}
-                </Column>
+                {toggleOverlay? <NextButtonOverlay toggleOverlay={toggleOverlay}/>: <></>}
+              </div>
+              <div className="Case-Container">
+                  <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column Margin-Bottom">
+                    {returnItemsForColumn(items, CASE_TRUE)}
+                  </Column>
+                  <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
+                    {returnItemsForColumn(items, CASE_FALSE)}
+                  </Column>
+              </div>
             </div>
         </div>
       </DndProvider>
