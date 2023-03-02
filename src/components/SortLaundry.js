@@ -151,8 +151,7 @@ const Column = ({ children, className, title, nClassified }) => {
   });
 
   let instructions = title === ITEM_LIST?  "Congrats you created an algorithm!" : "Drop here";
-  
-  console.log(children)
+
   return (
     <div
       ref={drop}
@@ -166,7 +165,7 @@ const Column = ({ children, className, title, nClassified }) => {
       >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
             {children.length === 0 ? <p>{instructions}</p>: children}
-          <h5 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h5>
+          <h5 className="Small-Margin">{className === "Container item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
     </div>
   );
