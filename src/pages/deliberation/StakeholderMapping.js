@@ -321,7 +321,9 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
-    let checkedValues = []
+    let checkedValues = [];
+
+    console.log(checkedValues)
 
     const setStakeholder = ev => {
         updateStakeholderName(ev.target.value);

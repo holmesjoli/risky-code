@@ -173,6 +173,8 @@ const Column = ({ children, className, title, nClassified }) => {
 
 export default function SortLaundry({ items, setItems, nClassified, setNClassified, toggleOverlay}) {
 
+  const [disabled, setDisabled] = useState(true);
+
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
 
@@ -237,6 +239,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   useEffect(() => {
 
     setNClassified(totalClassify - items.filter((d) => d.column === CLASSIFY_COLUMN_NAMES.ITEM_LIST).length);
+    nClassified === totalClassify? setDisabled(false): setDisabled(true);
 
   }, [nClassified, items])
 
@@ -253,7 +256,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
                 <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
                   {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
-                {toggleOverlay? <NextButtonOverlay toggleOverlay={toggleOverlay}/>: <></>}
+                {toggleOverlay? <NextButtonOverlay disabled={disabled} toggleOverlay={toggleOverlay}/>: <></>}
               </div>
               <div className="Case-Container">
                   <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column Margin-Bottom">
