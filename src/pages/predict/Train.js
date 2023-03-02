@@ -82,10 +82,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                                 <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
                                 <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
                             </div>
-                            <Terminology>
-                                <Term term={terms['algorithm']}/>
-                            </Terminology>
-                            </div>
+                        </div>
                         <div>
                             <h3>sort each item into the correct category</h3>
                             <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
