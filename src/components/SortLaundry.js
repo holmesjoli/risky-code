@@ -163,7 +163,7 @@ const Column = ({ children, className, title, nClassified }) => {
       style={{ color: getColor(isOver, canDrop) }}
 
       >{title}</h4>
-        <div>
+        <div className={title !== ITEM_LIST? "Card-Container": ""}>
             {children.length === 0 ? <p>{instructions}</p>: children}
           <h5 className="Small-Margin">{className === "Container item-list-column"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
