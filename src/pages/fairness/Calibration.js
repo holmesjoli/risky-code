@@ -10,9 +10,9 @@ import { wrap, visStyles } from "../../utils/global";
 import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
-import { BackButton, NextButton } from '../../components/Button';
+import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
-import { transitionHighlight, transitionHighlightBack } from '../../components/PolicyDiagram';
+import { transitionHighlight } from '../../components/PolicyDiagram';
 
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
@@ -74,7 +74,7 @@ function fairnessDefinitions(style = "darkMode") {
 
     let n = data.length;
     let theta = ((Math.PI*2) / n);
-    let width = 700;
+    let width = 650;
     let height = 510;
     let radius = 120;
 
@@ -179,17 +179,17 @@ export default function Classify({config, items, setItems, modules}) {
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <div className="Overlay-Controls">
-                        <h3 className="Page-Title">introduction to mathematical fairness</h3>
-                        <button
-                            className="Overlay-Close"
-                            type="button"
-                            onClick={toggleOverlay}
-                        />
+                    <h3 className="Page-Title">introduction to mathematical fairness</h3>
+                    <div className="Two-Column-Three">
+                        <div>
+                            <div className="chart" id="Fairness-Chart"></div>
+                            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
+                        </div>
+                        <div>
+                            <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate the model to optimize for these different definitions.</p>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                        </div>
                     </div>
-                    <p>AI researchers have proposed over 20 mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate the model to optimize for these different definitions.</p>
-                    <div className="chart" id="Fairness-Chart"></div>
-                    <h6 className="Small-Margin-Top">Visualization shows 20 definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
                 </div>
             </div>
         </Overlay>:
