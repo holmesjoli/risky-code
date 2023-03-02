@@ -150,19 +150,19 @@ ul {
 .Two-Column {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(300px, 50%) minmax(300px, 50%);
+    grid-template-columns: minmax(200px, 50%) minmax(200px, 50%);
 }
 
 .One-Column-Three {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(300px, 33%) minmax(200px, 66%);
+    grid-template-columns: minmax(200px, 33%) minmax(300px, 66%);
 }
 
 .Two-Column-Three {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(200px, 50%) 1fr;
+    grid-template-columns: minmax(300px, 66%) minmax(200px, 33%);
 }
 
 .One-Column-Three2 {
@@ -240,6 +240,10 @@ ul {
     margin-top: $containerMargin;
 }
 
+.Padding-Top {
+    padding-top: $containerPadding;
+}
+
 .Margin-Bottom {
     margin-bottom: $containerMargin;
 }
@@ -251,6 +255,7 @@ ul {
 .Margin-Large-Bottom {
     margin-bottom: 70px;
 }
+
 .Add-Stakeholder-Button {
     text-align: center;
 }

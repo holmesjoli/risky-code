@@ -10,10 +10,19 @@ export function BackButton({routeBack}) {
 
 export function NextButton({routeNext}) {
 
-      {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
     return(
         <div className="Button-Container-Right">
             <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
         </div>
     )
+}
+
+export function NextButtonOverlay({toggleOverlay}) {
+
+    {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
+  return(
+      <div className="">
+          <Button variant="contained" className="Next" onClick={toggleOverlay}>next</Button>
+      </div>
+  )
 }

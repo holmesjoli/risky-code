@@ -8,7 +8,7 @@ export function Overlay({ isOpen, onClose, children }) {
         <div className="Overlay">
           <div className="Overlay-Background" onClick={onClose} />
           <div className="Overlay-Container">
-            {children} 
+            {children}
           </div>
         </div>
       )}

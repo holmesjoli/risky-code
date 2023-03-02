@@ -11,7 +11,7 @@ import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
-import { BackButton, NextButton } from '../../components/Button';
+import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import SortLaundry from "../../components/SortLaundry";
 
 function Information({items, variables}) {
@@ -69,23 +69,21 @@ export default function Train({config, variables, setVariables, items, setItems,
                 <Overlay isOpen={isOpen} onClose={toggleOverlay}>
                 <div className="Containers-Container">
                     <div className="Container-Fill-Secondary">
-                        <div className="Overlay-Controls">
-                            <h3 className="Page-Title">introduction to predictive algorithms</h3>
-                            <button
-                                className="Overlay-Close"
-                                type="button"
-                                onClick={toggleOverlay}
-                            />
-                        </div>
+                        <h3 className="Page-Title">introduction to predictive algorithms</h3>
                         <div className="Two-Column-Three">
                             <div>
+                                <h4>sort each item into the correct category</h4>
+                                <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+                            </div>
+                            <div className="Margin-Top Padding-Top">
                                 <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
                                 <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?</p>
                             </div>
                         </div>
-                        <div>
-                            <h3>sort each item into the correct category</h3>
-                            <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified}/>
+                        <div className="Three-Column-Equal Margin-Top">
+                            <div></div>
+                            <div></div>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </div>
                     </div>
                 </div>
