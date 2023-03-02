@@ -469,11 +469,11 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
                             <div className="chart" id={chartID}></div>
                             <h6 className="Small-Margin">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
                         </div>
-                        <div>
+                        <RightSideBar>
                             <h4>situating algorithmically informed-decision making</h4>
                             <p>Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The last module showed two examples of algorithmically informed decision-making use cases. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
-                        </div>
+                        </RightSideBar>
                     </div>
                 </div>
             </div>

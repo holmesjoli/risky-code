@@ -185,11 +185,11 @@ export default function Classify({config, items, setItems, modules}) {
                             <div className="chart" id="Fairness-Chart"></div>
                             <h6 className="Small-Margin-Top">Visualization shows twenty definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
                         </div>
-                        <div>
-                            <h4>mathematical fairness' many definitions</h4>
+                        <RightSideBar>
+                            <h4 className="No-Margin-Top">mathematical fairness' many definitions</h4>
                             <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Semi-Bold">calibration rate</span>, <span className="Semi-Bold">false positive rate</span>, and <span className="Semi-Bold">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
-                        </div>
+                        </RightSideBar>
                     </div>
                 </div>
             </div>

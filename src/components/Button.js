@@ -20,7 +20,7 @@ export function NextButton({routeNext}) {
 export function NextButtonOverlay({toggleOverlay, disabled}) {
 
   return(
-      <div className="">
+      <div className="Button-Container-Right">
           <Button variant="outlined" color="secondary" className="Next" onClick={toggleOverlay} disabled={disabled}>next</Button>
       </div>
   )
