@@ -19,10 +19,9 @@ export function NextButton({routeNext}) {
 
 export function NextButtonOverlay({toggleOverlay, disabled}) {
 
-    {/* <Button variant="contained" className="Next" disabled={nClassified !== items.length} onClick={routeNext}>next</Button> */}
   return(
       <div className="">
-          <Button variant="contained" className="Next" onClick={toggleOverlay} disabled={disabled}>next</Button>
+          <Button variant="outlined" color="secondary" className="Next" onClick={toggleOverlay} disabled={disabled}>next</Button>
       </div>
   )
 }
