@@ -73,9 +73,9 @@ function drag() {
         .on("end", dragended);
 }
 
-const fillScale = d3.scaleOrdinal()
+const opacityScale = d3.scaleOrdinal()
     .domain(["none", "primary", "secondary", "tertiary"])
-    .range([ visStyles[style]["fillColor"], "#9A00FF", "#F50141", "#FE4002"])
+    .range([1, 1, .7, .5])
 
 function stakeholderType(d) {
 
@@ -174,7 +174,8 @@ function updateNetwork(data) {
       .data(data.nodes, d => d.id)
       .join(enter => enter.append("path")
                 .attr("class", d => d.group === "root"? "network-nodes node": "network-nodes")
-                .attr("fill", d => fillScale(d.type)))
+                .attr("opacity", d => opacityScale(d.type)))
+                .attr("fill", visStyles[style]["warningColor"])
                 .attr("d", d3.symbol()
                 .type(((d) => symbolType(d)))
                 .size(d => d.group === "root"? 350: 100)
@@ -254,7 +255,8 @@ function drawShapeLegend() {
        .attr("d", d3.symbol()
            .type(d3.symbolTriangle)
            .size(100))
-       .attr("fill", d => fillScale(d.group));
+       .attr("fill", visStyles[style]["warningColor"])
+       .attr("opacity", d => opacityScale(d.group));
 
     color.append("text")
        .attr("text-anchor", "middle")
