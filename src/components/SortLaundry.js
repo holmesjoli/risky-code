@@ -7,6 +7,7 @@ import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import { NextButtonOverlay } from './Button';
 import { RightSideBar } from "./Sidebar";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -249,11 +250,12 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
         <div>
           <h3 className="Page-Title">introduction to predictive algorithms</h3>
           <div className="Two-Column-Three">
-            <div>
+            <div className="Text-Align-Center">
               <div>
                 <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
                   {returnSingleItemForColumn(items, ITEM_LIST)}
                 </Column>
+                <ExpandMoreIcon/>
               </div>
               <div className="Two-Column">
                 <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
