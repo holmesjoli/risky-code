@@ -44,6 +44,11 @@ const glossary = {
                 "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans... All automated decision systems are designed by humans and involve some degree of human involvement in their operation. Humans are ultimately responsible for how a system receives its inputs (e.g. who collects the data that feeds into a system), how the system is used, and how a system's outputs are interpreted and acted on",
                 "citation": "(AINOW 2018)",
                 "link": "AINOW-2018"
+            },
+            "def2": {
+                "definition": "Any computerized system or process that aims to automate, aid, or replace human decision-making.",
+                "citation": "(AEKIT 2020)",
+                "link": "AEKIT-2020"
             }
         }
     },
