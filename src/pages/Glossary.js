@@ -24,6 +24,11 @@ const glossary = {
                 "definition": "A series of steps that allow you to perform a particular task.",
                 "citation": "(Onuoha and Nucera 2018)",
                 "link": "Peoples-Guide-2018"
+            },
+            "def4": {
+                "definition": "A precise and detailed set of steps or instructions that a computer follows to accomplish a task or function.",
+                "citation": "(AINOW 2018)",
+                "link": "AINOW-2018"
             }
         }
     },
