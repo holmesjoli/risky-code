@@ -43,7 +43,7 @@ const glossary = {
         }
     },
     "automated-decision-making": {
-        "name": "automated decision-making",
+        "name": "algorithmic/automated decision-making",
         "definitions": {
             "def1": {
                 "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans... All automated decision systems are designed by humans and involve some degree of human involvement in their operation. Humans are ultimately responsible for how a system receives its inputs (e.g. who collects the data that feeds into a system), how the system is used, and how a system's outputs are interpreted and acted on",
@@ -54,6 +54,11 @@ const glossary = {
                 "definition": "Any computerized system or process that aims to automate, aid, or replace human decision-making.",
                 "citation": "(AEKIT 2020)",
                 "link": "AEKIT-2020"
+            },
+            "def3": {
+                "definition": "The processing of input data to produce a score or a choice that is used to support decisions such as prioritization, classification, associated, and filtering.",
+                "citation": "(Cheng et al., 2019)",
+                "link": "Cheng-2019"
             }
         }
     },
@@ -62,7 +67,7 @@ const glossary = {
         "definitions": {
             "def1": {
                 "definition": "Bias to refer to cases where computer systems 'systematically and unfairly discriminate against certain individuals or groups of individuals in favor of others'",
-                "citation": "(Friedman and Nissenbaum 1996)",
+                "citation": "(Friedman and Nissenbaum 1996, 332)",
                 "link": "Friedman-Nissenbaum-1996"
             }
         }

@@ -17,7 +17,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../../utils/global";
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
-"Informed consent", "Identity", "Environment sustainability", "Other"];
+"Informed consent", "Identity", "Environment sustainability", "Dignity", "Peace", "Transparency", "Efficiency", "Other"];
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";

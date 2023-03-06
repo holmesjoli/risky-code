@@ -37,6 +37,11 @@ const literature = {
         "reference": "Benjamin, Ruha. 2019. Race After Technology: Abolitionist Tools for the New Jim Crow. Medford, MA: Polity Press.",
         "url": "https://www.ruhabenjamin.com/race-after-technology"
     },
+    "Cheng-2019": {
+        "inline-citation": "(Cheng et al. 2019)",
+        "reference": "Cheng, Hao-Fei, Ruotong Wang, Zheng Zhang, Fiona O’Connell, Terrance Gray, F Harper, and Haiyi Zhu. 2019. \"Explaining Decision-Making Algorithms through UI: Strategies to Help Non-Expert Stakeholders.\" In Proceedings of the 2019 CHI Conference on Human Factors in Computing Systems, 1-12. CHI \'19. ACM.",
+        "url": "https://dl-acm-org.ezproxy.neu.edu/doi/10.1145/3290605.3300789"
+    },
     "Corbett-Davies-2016": {
         "inline-citation": "(Corbett-Davies et al. 2016)",
         "reference": "Corbett-Davies, Sam, Emma Pierson, Avi Feller, and Sharad Goel. 2016. \"A Computer Program Used for Bail and Sentencing Decisions Was Labeled Biased against Blacks. It\'s Actually Not That Clear: The Tool Called COMPAS May Be Biased. But It's Hard to Tell.\" Washington Post - Blogs.",
