@@ -85,7 +85,7 @@ export function Content() {
     )
 }
 
-export default function StreetBump({config, modules}) {
+export default function StreetBump({config, modules, disableCaseStudyNext, setDisableCaseStudyNext}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("cases");
@@ -133,11 +133,11 @@ export default function StreetBump({config, modules}) {
                                 <h4>algorithms in use</h4>
                                 <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of mathematical fairness apply.</p>
                             </div>
-                            <Timer>
+                            <Timer setDisableNext={setDisableCaseStudyNext}>
                                 <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>
                                 <p>Pick one scenario and brainstorm some potential consequences (positive and negative) of that example.</p>
                             </Timer>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                            {toggleOverlay? <NextButtonOverlay disabled={disableCaseStudyNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>
                     </div>
                 </div>

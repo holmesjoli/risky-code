@@ -48,8 +48,8 @@ export default function App() {
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />
-          <Route path="/StreetBump" element={<StreetBump config={config.StreetBump}  modules={modules}/>} />
-          <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
+          <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} disableCaseStudyNext={disableCaseStudyNext} setDisableCaseStudyNext={setDisableCaseStudyNext} modules={modules}/>} />
+          <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           <Route path="/About" element={<About config={config.About} modules={modules} />} />
