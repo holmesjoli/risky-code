@@ -159,7 +159,7 @@ ul {
 .Two-Column-Three {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(300px, 66%) minmax(200px, 33%);
+    grid-template-columns: minmax(300px, 65%) minmax(200px, 35%);
 }
 
 .One-Column-Three2 {
@@ -271,6 +271,10 @@ ul {
 
 .No-Padding-Top {
     padding-top: 0;
+}
+
+.No-Padding-Right {
+    padding-right: 0;
 }
 
 .Text-Align-Center {

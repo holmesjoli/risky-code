@@ -181,7 +181,7 @@ export default function Calibration({config, user, modules}) {
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
-                <div className="Container-Fill-Secondary">
+                <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
                             <h3 className="Page-Title Center">introduction to mathematical fairness</h3>

@@ -462,7 +462,7 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
-                <div className="Container-Fill-Secondary">
+                <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
                             <h3 className="Page-Title Center">introduction to  deliberation</h3>

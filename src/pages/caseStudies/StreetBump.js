@@ -12,6 +12,7 @@ import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import { Button } from '@material-ui/core';
+import Timer from "../../components/Timer";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -19,6 +20,7 @@ import * as d3 from 'd3';
 import coastline from "../../data/processed/Boston/coastline.json";
 import city from "../../data/processed/Boston/city.json";
 import park from "../../data/processed/Boston/park.json";
+
 
 function drawMap() {
 
@@ -119,7 +121,7 @@ export default function StreetBump({config, modules}) {
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
-                <div className="Container-Fill-Secondary">
+                <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
                             <h3 className="Page-Title Center">introduction to case studies</h3>
@@ -128,9 +130,13 @@ export default function StreetBump({config, modules}) {
                         </div>
                         <RightSideBar>
                             <div className="Card-Group">
-                                <h4>algorithmically informed decision-making in use</h4>
-                                <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of mathematical fairness may apply.</p>
+                                <h4>algorithms in use</h4>
+                                <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of mathematical fairness apply.</p>
                             </div>
+                            <Timer>
+                                <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>
+                                <p>Pick one scenario and brainstorm some potential consequences (positive and negative) of that example.</p>
+                            </Timer>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
