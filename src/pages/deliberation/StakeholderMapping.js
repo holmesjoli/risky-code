@@ -324,7 +324,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const [stakeholderValues, updateStakeholderValues] = useState([]);
     let checkedValues = [];
 
-    console.log(checkedValues)
+    // console.log(checkedValues)
 
     const setStakeholder = ev => {
         updateStakeholderName(ev.target.value);
@@ -475,7 +475,7 @@ export default function StakeholderMapping({config, disableDeliberationNext, set
                                 <h4>situating risk</h4>
                                 <p className="No-Margin-Bottom">Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
                             </div>
-                            <Timer setDisableNext={setDisableDeliberationNext}>
+                            <Timer disableNext={disableDeliberationNext} setDisableNext={setDisableDeliberationNext}>
                                 <p>Do you think algorithmic decision-making should be used to inform all types of policy decisions? Why or why not?</p>
                                 <p className="Small-Margin">Do you think algorithmic decision-making is more risky in certain scenarios?</p>
                             </Timer>

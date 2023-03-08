@@ -34,6 +34,8 @@ export default function App() {
     const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
 
+    console.log(disableFairnessNext)
+
     // console.log(items)
     // items.sort((a, b) => a.column - b.column)
   
