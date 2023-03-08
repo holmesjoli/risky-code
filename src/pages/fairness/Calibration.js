@@ -13,6 +13,7 @@ import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import { transitionHighlight } from '../../components/PolicyDiagram';
+import Timer from "../../components/Timer";
 
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
@@ -137,7 +138,7 @@ function Information() {
     )
 }
 
-export function Content({items, setItems}) {
+export function Content() {
     return(
         <div className="Content Three-Column">
             <Information/>
@@ -145,7 +146,7 @@ export function Content({items, setItems}) {
     )
 }
 
-export default function Classify({config, items, setItems, modules}) {
+export default function Calibration({config, user, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("fairness");
@@ -189,6 +190,7 @@ export default function Classify({config, items, setItems, modules}) {
                             <h4 className="No-Margin-Top">mathematical fairness' many definitions</h4>
                             <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
                             <p>The purple fill on specific nodes is used to indicate which definitions of mathematical fairness are reviewed in the next module.</p>
+                            <Timer/>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
@@ -207,7 +209,7 @@ export default function Classify({config, items, setItems, modules}) {
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <Content items={items} setItems={setItems}/>
+            <Content/>
             <RightSideBar>
                 <Progress id={id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>
