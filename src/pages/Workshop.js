@@ -21,7 +21,7 @@ export default function Workshop() {
             <h3>risky code is designed to be use in a group setting to facilitate discussion and deliberation. however, risky code can also be used by individuals.</h3>
             <div className="Container">
                 <FormControl>
-                <p>Please indicate if you intend to use <span className="Title">Risky Code</span> as a <span className="Emphasis">group</span> or an <span className="Emphasis">individual</span></p>
+                <p>Indicate if you intend to use <span className="Title">Risky Code</span> as a <span className="Emphasis">group</span> or an <span className="Emphasis">individual</span>.</p>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="group"
@@ -32,6 +32,7 @@ export default function Workshop() {
                         <FormControlLabel value="group" control={<Radio />} label="Group" />
                         <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                     </RadioGroup>
+                {user==="group"?<p className="Margin-Top Emphasis">Identify a group leader who will navigate the application.</p>:<></>}
                 </FormControl>
             </div>
             <Button variant="outlined" color="secondary" onClick={routeNext}>next</Button>
