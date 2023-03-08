@@ -248,9 +248,9 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   return (
       <DndProvider backend={HTML5Backend}>
         <div>
-          <h3 className="Page-Title">introduction to predictive algorithms</h3>
           <div className="Two-Column-Three">
             <div className="Text-Align-Center">
+              <h3 className="Page-Title">introduction to predictive algorithms</h3>
               <div>
                 <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
                   {returnSingleItemForColumn(items, ITEM_LIST)}
@@ -267,13 +267,15 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
               </div>
             </div>
             <RightSideBar>
+              <div className="Card-Group">
                 <h4>sort each item into the correct category</h4>
                 <div>
                   <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
                   <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm.</p>
-                  <p>And what do you do with gray clothes anyway?</p>
+                  <p className="No-Margin-Bottom">And what do you do with gray clothes anyway?</p>
                 </div>
-                {toggleOverlay? <NextButtonOverlay disabled={disabled} toggleOverlay={toggleOverlay}/>: <></>}
+              </div>
+              {toggleOverlay? <NextButtonOverlay disabled={disabled} toggleOverlay={toggleOverlay}/>: <></>}
             </RightSideBar>
           </div>
         </div>
