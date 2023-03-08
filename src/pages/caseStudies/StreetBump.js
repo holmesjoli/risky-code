@@ -128,7 +128,7 @@ export default function StreetBump({config, modules}) {
                         </div>
                         <RightSideBar>
                             <h4>algorithmically informed decision-making in use</h4>
-                            <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of mathematical fairness may qapply.</p>
+                            <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of mathematical fairness may apply.</p>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
