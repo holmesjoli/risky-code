@@ -30,6 +30,9 @@ export default function App() {
     const [modules, setModules] = useState([]);
     const [policy, setPolicy] = useState("");
     const [user, updateUser] = useState("group");
+    const [disableFairnessNext, setDisableFairnessNext] = useState(true);
+    const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
+    const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
 
     // console.log(items)
     // items.sort((a, b) => a.column - b.column)
@@ -42,7 +45,7 @@ export default function App() {
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
-          <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} modules={modules}/>} />
+          <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump}  modules={modules}/>} />
