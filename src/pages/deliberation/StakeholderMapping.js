@@ -15,6 +15,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../../utils/global";
+import Timer from "../../components/Timer";
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
 "Informed consent", "Identity", "Environment sustainability", "Dignity", "Peace", "Transparency", "Efficiency", "Other"];
@@ -471,9 +472,13 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
                         </div>
                         <RightSideBar>
                             <div className="Card-Group">
-                                <h4>situating algorithmically informed-decision making</h4>
-                                <p className="No-Margin-Bottom">Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The last module showed two examples of algorithmically informed decision-making use cases. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
+                                <h4>situating risk</h4>
+                                <p className="No-Margin-Bottom">Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
                             </div>
+                            <Timer>
+                                <p>Do you think algorithmic decision-making should be used to inform all types of policy decisions? Why or why not?</p>
+                                <p className="Small-Margin">Do you think algorithmic decision-making is more risky in certain scenarios?</p>
+                            </Timer>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
