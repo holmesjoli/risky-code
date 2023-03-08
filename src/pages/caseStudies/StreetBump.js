@@ -124,12 +124,11 @@ export default function StreetBump({config, modules}) {
                     <div className="Two-Column-Three">
                         <div>
                             <div id={chartID} className="chart Margin-Bottom"></div>
-                            <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Case studies are highlighed in purple. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
+                            <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of mathematical fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6>
                         </div>
                         <RightSideBar>
                             <h4>algorithmically informed decision-making in use</h4>
                             <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of mathematical fairness may apply.</p>
-                            <p>The purple fill on specific nodes is used to indicate which examples of algorithmically informed decision-making are reviewed in the next module.</p>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>

@@ -184,13 +184,17 @@ export default function Calibration({config, user, modules}) {
                     <div className="Two-Column-Three">
                         <div>
                             <div className="chart" id="Fairness-Chart"></div>
-                            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink></h6>
+                            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Purple nodes indicate which definitions of mathematical fairness are reviewed in the next module.</h6>
                         </div>
                         <RightSideBar>
-                            <h4 className="No-Margin-Top">mathematical fairness' many definitions</h4>
-                            <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
-                            <p>The purple fill on specific nodes is used to indicate which definitions of mathematical fairness are reviewed in the next module.</p>
-                            <Timer/>
+                            <div className="Card-Group">
+                                <h4 className="No-Margin-Top">mathematical fairness' many definitions</h4>
+                                <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
+                            </div>
+                            <Timer>
+                                <p>Have you heard of any of these definitions before?</p>
+                                <p>Have you used or come across any of these definitions in your work before?</p>
+                            </Timer>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
