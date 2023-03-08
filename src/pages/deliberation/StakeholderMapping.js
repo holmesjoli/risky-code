@@ -433,7 +433,7 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");
     let navigate = useNavigate();
-    let chartID = "Policy-Chart3";
+    let chartId = "Policy-Chart3";
 
     const routeNext = () => {
         let path = `/Risk`; 
@@ -454,7 +454,7 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
     }, [isOpen])
 
     useEffect(() => {
-        policyDiagram(chartID, 480, 480, "colorMode", false);
+        policyDiagram(chartId, 480, 480, "colorMode", false);
     }, []);
 
     return (
@@ -463,15 +463,17 @@ export default function StakeholderMapping({config, modules, policy, setPolicy})
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title">introduction to deliberation</h3>
                     <div className="Two-Column-Three">
                         <div>
-                            <div className="chart" id={chartID}></div>
+                            <h3 className="Page-Title Center">introduction to  deliberation</h3>
+                            <div className="chart" id={chartId}></div>
                             <h6 className="Small-Margin">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
                         </div>
                         <RightSideBar>
-                            <h4>situating algorithmically informed-decision making</h4>
-                            <p>Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The last module showed two examples of algorithmically informed decision-making use cases. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
+                            <div className="Card-Group">
+                                <h4>situating algorithmically informed-decision making</h4>
+                                <p className="No-Margin-Bottom">Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The last module showed two examples of algorithmically informed decision-making use cases. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
+                            </div>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>

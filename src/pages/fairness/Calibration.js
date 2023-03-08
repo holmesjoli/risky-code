@@ -15,6 +15,8 @@ import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 
+let chartId="Fairness-Chart"
+
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
 }
@@ -42,11 +44,11 @@ function textAnchor(angle) {
 // Tooltip
 function renderTooltip(style="darkMode") {
 
-    let tooltip = d3.select("#Fairness-Chart")
+    let tooltip = d3.select(`${chartId}`)
         .append("div")
         .attr("class", "tooltip");
 
-    d3.selectAll("#Fairness-Chart circle").on("mouseover", function(e, d) {
+    d3.selectAll(`${chartId} circle`).on("mouseover", function(e, d) {
 
         let thisCircle = d3.select(this);
         let x = e.layerX + 20;
@@ -65,7 +67,7 @@ function renderTooltip(style="darkMode") {
 
         tooltip.style("visibility", "hidden");
 
-        d3.selectAll("#Fairness-Chart circle")
+        d3.selectAll(`${chartId} circle`)
             .attr("stroke", visStyles[style]["borderColor"])
             .attr("stroke-width", 1);
     });
@@ -87,7 +89,7 @@ function fairnessDefinitions(style = "darkMode") {
         data[i].yLabel = (radius*1.17 * Math.sin(data[i].angle)) + height/2;
     }
 
-    let svg = d3.select("#Fairness-Chart")
+    let svg = d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
@@ -180,15 +182,15 @@ export default function Calibration({config, user, modules}) {
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title">introduction to mathematical fairness</h3>
                     <div className="Two-Column-Three">
                         <div>
-                            <div className="chart" id="Fairness-Chart"></div>
+                            <h3 className="Page-Title Center">introduction to mathematical fairness</h3>
+                            <div className="chart" id={chartId}></div>
                             <h6 className="Small-Margin-Top">Visualization shows twenty definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Purple nodes indicate which definitions of mathematical fairness are reviewed in the next module.</h6>
                         </div>
                         <RightSideBar>
                             <div className="Card-Group">
-                                <h4 className="No-Margin-Top">mathematical fairness' many definitions</h4>
+                                <h4>mathematical fairness' many definitions</h4>
                                 <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
                             </div>
                             <Timer>

@@ -120,15 +120,17 @@ export default function StreetBump({config, modules}) {
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title">introduction to case studies</h3>
                     <div className="Two-Column-Three">
                         <div>
+                            <h3 className="Page-Title Center">introduction to case studies</h3>
                             <div id={chartID} className="chart Margin-Bottom"></div>
                             <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of mathematical fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6>
                         </div>
                         <RightSideBar>
-                            <h4>algorithmically informed decision-making in use</h4>
-                            <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of mathematical fairness may apply.</p>
+                            <div className="Card-Group">
+                                <h4>algorithmically informed decision-making in use</h4>
+                                <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two different algorithmic case studies and explain how different definitions of mathematical fairness may apply.</p>
+                            </div>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
