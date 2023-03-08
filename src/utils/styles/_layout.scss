@@ -1,8 +1,8 @@
 body {
     color: $appColor;
-    background-color: $appBackground;
     margin: 0;
     padding: 0;
+    background-color: #000;
 }
  
 ul {
@@ -29,9 +29,9 @@ ul {
     padding: $appPadding;
 }
 
-.App {
-    background-color: #000;
-}
+// .App {
+//     background-color: #000;
+// }
 
 .Main {
     display: grid;

@@ -4,6 +4,7 @@ import {
     HashRouter,
   } from "react-router-dom";
 import Introduction from "./pages/Introduction";
+import Workshop from "./pages/Workshop";
 import Optimize from "./pages/predict/Optimize";
 import Train from "./pages/predict/Train";
 import Calibration from "./pages/fairness/Calibration";
@@ -36,6 +37,7 @@ export default function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Main/>} />
+          <Route path="/Workshop" element={<Workshop/>} />
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />

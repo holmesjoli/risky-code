@@ -5,7 +5,7 @@ export default function Main() {
 
     let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/Introduction`; 
+      let path = `/Workshop`; 
       navigate(path);
     }
 
