@@ -8,7 +8,7 @@ import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 export function Content() {
     return(
-        <div className="Content">
+        <div className="Content No-Padding-Top">
         </div>
     )
 }

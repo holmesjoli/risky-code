@@ -68,7 +68,7 @@ export function Content() {
     }
 
     return(
-        <div className="Content Two-Column-Three">
+        <div className="Content Two-Column-Three No-Padding-Top">
             <div>
                 <SortBump/>
                 <div className="Three-Column-Equal Margin-Top">

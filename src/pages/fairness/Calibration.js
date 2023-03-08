@@ -142,7 +142,7 @@ function Information() {
 
 export function Content() {
     return(
-        <div className="Content Three-Column">
+        <div className="Content Three-Column No-Padding-Top">
             <Information/>
         </div>
     )

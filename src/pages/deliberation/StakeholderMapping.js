@@ -306,7 +306,7 @@ export function Content() {
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(
-        <div className="Content One-Column-Three">
+        <div className="Content One-Column-Three No-Padding-Top">
             <div className="">
                 {AddStakeholder(data, setData, stakeholderIdArray)}
             </div>

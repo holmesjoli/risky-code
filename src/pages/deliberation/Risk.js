@@ -12,7 +12,7 @@ import { terms } from '../../utils/global';
 
 export function Content() {
     return(
-        <div className="Content">
+        <div className="Content No-Padding-Top">
             <div className="Container">
                 {/* <h3>{direct}</h3> */}
             </div>

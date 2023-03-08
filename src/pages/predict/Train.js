@@ -13,6 +13,7 @@ import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import SortLaundry from "../../components/SortLaundry";
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 function Information({items, variables}) {
     return (
@@ -26,7 +27,7 @@ function Information({items, variables}) {
 export function Content({variables, setVariables, items, setItems}) {
 
     return(
-        <div className="Content">
+        <div className="Content No-Padding-Top">
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Regression items={items} setItems={setItems} variables={variables}/>
@@ -77,7 +78,7 @@ export default function Train({config, variables, setVariables, items, setItems,
             }
             <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
+                <LeftSideBar>
                     <Description config={config}/>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
@@ -85,12 +86,12 @@ export default function Train({config, variables, setVariables, items, setItems,
                         <Term term={terms['model-variable']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
-                </div>
+                </LeftSideBar>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
-                <div className="Sidebar-Right">
+                <RightSideBar>
                     <Progress id={id} modules={modules}/>
                     <NextButton routeNext={routeNext}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

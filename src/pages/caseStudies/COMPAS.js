@@ -182,7 +182,7 @@ export function Content() {
     }, [predictiveProbability, definition]);
 
     return(
-        <div className="Content">
+        <div className="Content No-Padding-Top">
             <div className="One-Column-Three2">
                 <div>
                     <div className="Container Margin-Bottom">

@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export default function Timer({user, disableNext, setDisableNext, children}) {
 
     const [minutes, setMinutes ] = useState(0);
-    const [seconds, setSeconds ] =  useState(5);
+    const [seconds, setSeconds ] =  useState(2);
     useEffect(()=> {
 
         if (disableNext) {

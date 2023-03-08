@@ -11,6 +11,7 @@ import Card from "../../components/Card";
 import { Regression, Accuracy, PredictiveOutcomes } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
 import Model from "../../components/Model";
+import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 
 function Information({items, variables}) {
     return (
@@ -25,7 +26,7 @@ function Information({items, variables}) {
 export function Content({variables, setVariables, items, setItems}) {
 
     return(
-        <div className="Content">
+        <div className="Content No-Padding-Top">
             <div className="Three-Column">
                 <Model variables={variables} setVariables={setVariables}/>
                 <Regression items={items} setItems={setItems} variables={variables}/>
@@ -54,19 +55,19 @@ export default function Optimize({config, variables, setVariables, items, setIte
         <div className="App">
         <Header/>
             <div className="Main">
-                <div className="Sidebar-Left">
+                <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
                         <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
-                </div>
+                </LeftSideBar>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
-                <div className="Sidebar-Right">
+                <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <NextButton routeNext={routeNext}/>
-                </div>
+                </RightSideBar>
             </div>
             <Footer/>
         </div>

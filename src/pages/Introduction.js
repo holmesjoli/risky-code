@@ -20,7 +20,7 @@ export function Content() {
     }, [])
 
     return(
-        <div className="Content Two-Column-Three">
+        <div className="Content Two-Column-Three No-Padding-Top">
             <div>
                 <div className="Container">
                     <div id={chartID} className="chart"></div>
