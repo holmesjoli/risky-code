@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react';
 export default function Timer({children}) {
 
     // const {initialMinute = 0,initialSeconds = 0} = props;
-    const [minutes, setMinutes ] = useState(60);
-    const [seconds, setSeconds ] =  useState(10);
+    const [minutes, setMinutes ] = useState(5);
+    const [seconds, setSeconds ] =  useState(0);
     useEffect(()=>{
     let myInterval = setInterval(() => {
             if (seconds > 0) {
