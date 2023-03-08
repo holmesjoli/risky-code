@@ -193,7 +193,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
                                 <h4>mathematical fairness' many definitions</h4>
                                 <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
                             </div>
-                            <Timer disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
+                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
                                 <p>Have you heard of any of these definitions before?</p>
                                 <p>Have you used or come across any of these definitions in your work before?</p>
                             </Timer>
