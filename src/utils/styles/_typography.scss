@@ -159,17 +159,12 @@ h1 > a:focus {
 }
 
 h2 {
-  // font-family: "ocr-a-std", monospace;
   font-size: 1.4rem;
-  // line-height: 1.3;
-  text-transform: uppercase;
-  // font-variant: small-caps;
+  line-height: 1.3;
+  font-variant: small-caps;
   letter-spacing: 3px;
   font-weight: 600;
-  // padding-bottom: $containerPadding;
-  // margin-bottom:  $containerMargin;
-  // margin-left: $containerMargin;
-  // margin-top: -10px;
+  margin-bottom: 1rem;
 }
 
 h3,
