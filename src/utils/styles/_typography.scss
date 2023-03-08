@@ -193,12 +193,14 @@ h5 {
   color: white;
 }
 
-h6,
-h6 > a {
+h6, h6 > a {
   font-size: .8rem;
   line-height: 1.5;
   margin-bottom: .3rem;
   margin-top: .6rem;
+}
+
+h6 {
   opacity: .7;
 }
 

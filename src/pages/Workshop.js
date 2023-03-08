@@ -3,8 +3,7 @@ import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { FormControl, RadioGroup, FormControlLabel, Radio, FormGroup } from '@material-ui/core';
 
-export default function Workshop() {
-    const [user, updateUser] = useState("group");
+export default function Workshop({user, updateUser}) {
 
     const setUser = ev => {
         updateUser(ev.target.value);

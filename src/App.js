@@ -29,6 +29,7 @@ export default function App() {
     const [variables, setVariables] = useState(VARIABLES);
     const [modules, setModules] = useState([]);
     const [policy, setPolicy] = useState("");
+    const [user, updateUser] = useState("group");
 
     // console.log(items)
     // items.sort((a, b) => a.column - b.column)
@@ -37,7 +38,7 @@ export default function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Main/>} />
-          <Route path="/Workshop" element={<Workshop/>} />
+          <Route path="/Workshop" element={<Workshop user={user} updateUser={updateUser}/>} />
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />

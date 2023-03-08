@@ -4,7 +4,7 @@ export const config = {
     "Introduction": {
         "id": "introduction",
         "title": "introduction",
-        "descr": "Welcome to Risky Code, an interactive digital toolkit. Risky Code contains four modules meant to inform and to facilitate deliberation about algorithmically informed decision-making. The first module, Predict"
+        "descr": "Welcome to Risky Code, an interactive digital toolkit. Risky Code contains four modules meant to inform and to facilitate deliberation about algorithmically informed decision-making."
     },
     "About": {
         "id": "about",
