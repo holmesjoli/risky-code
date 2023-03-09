@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Model from "../../components/Model";
@@ -10,9 +9,8 @@ import { Regression, PredictiveOutcomes } from "../../components/Regression";
 import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
-import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import SortLaundry from "../../components/SortLaundry";
-import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
 
 function Information({items, variables}) {
     return (

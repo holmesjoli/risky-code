@@ -1,6 +1,5 @@
-import React, {  useState } from 'react';
+import React from 'react';
 import { useNavigate } from "react-router-dom";
-import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
@@ -11,7 +10,7 @@ import Card from "../../components/Card";
 import { Regression, Accuracy, PredictiveOutcomes } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
 import Model from "../../components/Model";
-import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
 
 function Information({items, variables}) {
     return (

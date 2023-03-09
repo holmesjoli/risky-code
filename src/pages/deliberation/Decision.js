@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { BackButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
 
 export function Content() {
     return(

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import { Terminology, Term } from '../../components/Terminology';
@@ -9,29 +8,13 @@ import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import SortLaundry from "../../components/SortLaundry";
-import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { TextField } from "@material-ui/core";
 
-function Stakeholders() {
-    return(
-        <div className="Stakeholders Container-Outlined">
-            <h3>stakeholders</h3>
-            <div className="Column Margin-Bottom">
-                <h4>primary</h4>
-                <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-            </div>
-            <div className="Column Margin-Bottom">
-                <h4>secondary</h4>
-                <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-            </div>
-            <div className="Column Margin-Bottom">
-                <h4>tertiary</h4>
-                <TextField placeholder="edit me" variant="outlined" multiline={true}/>
-            </div>
-        </div>
-    )
-}
+let chartId = "brainstorm-terms"
+const algoTerms = ["automated", "rule", "objective", "subjective", "neutral", "unbiased", "biased", "instructions", "program", "machine learning", "artificial intelligence (AI)", "step", "calculation", "task", "function"];
+
 
 export function Content({items, setItems, nClassified, setNClassified, setDisabled}) {
 
@@ -69,6 +52,10 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
         setId(isOpen ? "predict": "classify");
     }, [isOpen])
 
+    useEffect(() => {
+        // policyDiagram(chartId, 480, 480, "colorMode", false);
+    }, []);
+
     return (
         <div className="App">
             {isOpen ?
@@ -80,13 +67,15 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                                 <h3 className="Page-Title">introduction to predictive algorithms</h3>
                                 <div className="Card-Group">
                                     <h4>what's in an algorithm?</h4>
-                                    <TextField placeholder="edit me" variant="outlined" multiline={true} row={10}/>
+                                    <div className="chart" id={chartId}></div>
+                                    <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8}/>
                                 </div>
                             </div>
                             <RightSideBar>
                                 <div className="Card-Group">
                                     <h4>algorithmically informed decision-making</h4>
                                     <p className="Small-Margin">This research defines algorithmically informed decision making as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span></p>
+                                    <p>Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
                                 </div>
                                 <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
                                     <p>How do you define the term algorithm?</p>

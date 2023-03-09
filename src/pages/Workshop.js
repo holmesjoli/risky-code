@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-import { FormControl, RadioGroup, FormControlLabel, Radio, FormGroup } from '@material-ui/core';
+import { FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 
 export default function Workshop({user, updateUser}) {
 

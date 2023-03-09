@@ -1,14 +1,13 @@
 import { useNavigate } from "react-router-dom";
-import { Button } from "@material-ui/core";
-import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/PolicyScenario";
 import { BackButton, NextButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
 import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
+
 
 export function Content() {
     return(

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import Description from '../../components/Description';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
@@ -12,10 +11,10 @@ import { PolicyScenario } from "../../components/PolicyScenario";
 import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
 import * as d3 from 'd3';
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar } from "../../components/Sidebar";
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../../utils/global";
 import Timer from "../../components/Timer";
+import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Ownership and property", "Peace", 
 "Informed consent", "Identity", "Environment sustainability", "Dignity", "Transparency", "Efficiency"];

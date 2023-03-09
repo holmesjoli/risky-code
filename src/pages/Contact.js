@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import Description from '../components/Description';
 import Progress from '../components/Progress';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Description } from "../components/Sidebar";
 
 export function Content() {
     return(

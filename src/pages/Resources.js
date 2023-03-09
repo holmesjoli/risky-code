@@ -1,6 +1,6 @@
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import Description from '../components/Description';
+import { Description } from '../components/Sidebar';
 import Progress from '../components/Progress';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
