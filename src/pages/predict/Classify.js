@@ -13,8 +13,8 @@ import { TextField } from "@material-ui/core";
 import { visStyles, terms } from "../../utils/global";
 
 let chartId = "brainstorm-terms";
-let width = 650;
-let height = 400;
+let width = 600;
+let height = 300;
 let style = "darkMode";
 
 const algoTerms = [{"term": "automated"}, 
@@ -127,8 +127,9 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                                 <h3 className="Page-Title">introduction to predictive algorithms</h3>
                                 <div className="Card-Group">
                                     <h4>what's in an algorithm?</h4>
+                                    <p>Use these terms to get started brainstorming.</p>
                                     <div className="chart" id={chartId}></div>
-                                    <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8}/>
+                                    <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={12}/>
                                 </div>
                             </div>
                             <RightSideBar>
