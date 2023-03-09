@@ -81,8 +81,8 @@ function logisticData(iterateData, modelVars) {
             row.push(i.print ? 1: 0)
         }
 
-        if (modelVars.includes("soiled")) {
-            row.push(i.soiled ? 1: 0)
+        if (modelVars.includes("delicate")) {
+            row.push(i.delicate ? 1: 0)
         }
 
         if (modelVars.includes("white")) {

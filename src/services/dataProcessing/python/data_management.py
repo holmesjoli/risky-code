@@ -44,7 +44,7 @@ def laundry_data(df):
         row = {
             "id": int(i),
             "cleanType": df.iloc[i].clean_type,
-            "soiled": bool(df.iloc[i].soiled),
+            "delicate": bool(df.iloc[i].delicate),
             "clothes": bool(df.iloc[i].clothes),
             "hotWaterLoad": bool(df.iloc[i].how_water_load),
             "print": bool(df.iloc[i].prints),

@@ -1,4 +1,4 @@
-color,pastel,prints,item_type,clean_type,soiled,clothes,how_water_load,white
+color,pastel,prints,item_type,clean_type,delicate,clothes,how_water_load,white
 white,FALSE,FALSE,pants,machine,FALSE,TRUE,TRUE,TRUE
 blue,FALSE,FALSE,shorts,machine,FALSE,TRUE,FALSE,FALSE
 blue,FALSE,FALSE,hat,machine,FALSE,TRUE,FALSE,FALSE
