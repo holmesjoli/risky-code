@@ -147,7 +147,7 @@ export function Content() {
         <div id="Resources">
             <div className="Content One-Column">
                 <div className="Literature-Container Container">
-                    <h3>Literature</h3>
+                    <h3>literature</h3>
                     <div>
                         {Object.keys(literature).map((index) => {
                             return(
@@ -159,7 +159,7 @@ export function Content() {
                     </div>
                 </div>
                 <div className="Resources-Container Container">
-                    <h3>AI Explainability Resources</h3>
+                    <h3>ai explainability resources</h3>
                     <ul>
                         {Object.keys(aiExplainability).map((index) => {
                             return(
