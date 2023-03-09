@@ -40,8 +40,35 @@ const algoTerms = [{"term": "automated"},
                    {"term": "mathematics"},
                    {"term": "system"}];
 
-function transform(d) {
-    return "translate(" + d.x + "," + d.y + ")";
+function transitionColor() {
+    d3.selectAll(".brainstorm-term")
+        .transition()
+        .ease(d3.easePoly)
+        .duration(1000)
+        .style("fill", d => [""])
+        .on('end', transitionColor);
+}
+
+export function transitionHighlightBack() {
+    d3.selectAll(".brainstorm-term")
+        .transition()
+        .ease(d3.easePoly)
+        .delay((d, i) => i*1000)
+        .duration(1000)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-weight", visStyles[style]["fontWeight"])
+        .on('end', transitionHighlight);
+}
+
+export function transitionHighlight() {
+    d3.selectAll(".brainstorm-term")
+        .transition()
+        .ease(d3.easePoly)
+        .delay((d, i) => i*1000)
+        .duration(1000)
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-weight", 500)
+        .on('end', transitionHighlightBack);
 }
 
 function initNetwork() {
@@ -74,8 +101,9 @@ function initNetwork() {
                 .attr("font-weight", visStyles[style]["fontWeight"])
                 .attr("cursor", "default")
                 .attr("letter-spacing", ".6px")
+                .attr("class", "brainstorm-term")
                 .text(d => d.term)
-        );
+    );
 
     function ticked() {
 
@@ -86,6 +114,8 @@ function initNetwork() {
 
     simulation.nodes(algoTerms);
     simulation.alpha(1).restart();
+
+    transitionHighlight();
 }
 
 export function Content({items, setItems, nClassified, setNClassified, setDisabled}) {
