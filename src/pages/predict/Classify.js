@@ -29,6 +29,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
     const [disabled, setDisabled] = useState(true);
 
     let navigate = useNavigate();
+
     const routeNext = () => {
       let path = `/Train`; 
       navigate(path);
@@ -44,7 +45,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
     };
 
     useEffect(() => {
-        setId(isOpen ? "predict": "train");
+        setId(isOpen ? "predict": "classify");
     }, [isOpen])
 
     return (
@@ -88,7 +89,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                 <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
                 <RightSideBar>
                     <Progress id={id} modules={modules}/>
-                    <NextButtonOverlay disabled={disabled} toggleOverlay={toggleOverlay}/>
+                    <NextButton routeNext={routeNext} disabled={disabled}/>
                 </RightSideBar>
             </div>
             <Footer/>

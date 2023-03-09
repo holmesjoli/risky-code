@@ -8,16 +8,16 @@ export function BackButton({routeBack}) {
     )
 }
 
-export function NextButton({routeNext}) {
+export function NextButton({routeNext, disabled=false}) {
 
     return(
         <div className="Button-Container-Right">
-            <Button variant="contained" className="Next" onClick={routeNext}>next</Button>
+            <Button variant="contained" className="Next" onClick={routeNext} disabled={disabled}>next</Button>
         </div>
     )
 }
 
-export function NextButtonOverlay({toggleOverlay, disabled}) {
+export function NextButtonOverlay({toggleOverlay, disabled=false}) {
 
   return(
       <div className="Button-Container-Right">
