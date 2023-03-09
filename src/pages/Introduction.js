@@ -5,9 +5,8 @@ import Footer from '../components/Footer';
 import Progress from '../components/Progress';
 import { useEffect } from 'react';
 import { policyDiagram } from '../components/PolicyDiagram';
-import { Terminology, Term } from '../components/Terminology';
 import { NextButton } from '../components/Button';
-import { LeftSideBar, RightSideBar, Description } from "../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../components/Sidebar";
 import { terms } from '../utils/global';
 
 export function Content() {

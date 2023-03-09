@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
+import { Slider, MenuItem, FormControl, Select } from '@material-ui/core';
+import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { Terminology, Term } from '../../components/Terminology';
-import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { terms } from '../../utils/global';
 import { Consequence, Stakeholders } from "../../components/PolicyScenario";
-import { Slider, MenuItem, FormControl, Select } from '@material-ui/core' ;
-import * as d3 from 'd3';
-import data from "../../data/processed/error.json";
 import { Points } from "../../components/Legend";
+
+import data from "../../data/processed/error.json";
 
 let chartIdBlack = "COMPAS-Chart-Black";
 let chartIdWhite = "COMPAS-Chart-White";

@@ -3,7 +3,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { BackButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
 export function Content() {
     return(

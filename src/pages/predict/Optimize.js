@@ -3,14 +3,13 @@ import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
-import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import { BackButton, NextButton } from '../../components/Button';
 import Card from "../../components/Card";
 import { Regression, Accuracy, PredictiveOutcomes } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
 import Model from "../../components/Model";
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
 function Information({items, variables}) {
     return (

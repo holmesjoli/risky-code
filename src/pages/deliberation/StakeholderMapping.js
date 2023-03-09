@@ -4,7 +4,6 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import { policyDiagram } from '../../components/PolicyDiagram';
-import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/PolicyScenario";
@@ -14,7 +13,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../../utils/global";
 import Timer from "../../components/Timer";
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Ownership and property", "Peace", 
 "Informed consent", "Identity", "Environment sustainability", "Dignity", "Transparency", "Efficiency"];

@@ -4,10 +4,8 @@ import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/PolicyScenario";
 import { BackButton, NextButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
-import { Terminology, Term } from '../../components/Terminology';
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
-
 
 export function Content() {
     return(

@@ -5,11 +5,10 @@ import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import SortBump from "../../components/SortBump";
 import { Consequence, Stakeholders } from "../../components/PolicyScenario";
-import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { Button } from '@material-ui/core';
 import Timer from "../../components/Timer";
 

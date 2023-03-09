@@ -6,11 +6,10 @@ import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import data from "../../data/processed/mathematical_fairness.json"
 import { wrap, visStyles } from "../../utils/global";
-import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 

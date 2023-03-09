@@ -6,11 +6,10 @@ import Model from "../../components/Model";
 import { ActualPredicted } from "../../components/Legend";
 import Card from "../../components/Card";
 import { Regression, PredictiveOutcomes } from "../../components/Regression";
-import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
 function Information({items, variables}) {
     return (
