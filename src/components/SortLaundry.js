@@ -5,8 +5,6 @@ import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
-import { NextButtonOverlay } from './Button';
-import { RightSideBar } from "./Sidebar";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const images = importImages();
@@ -173,9 +171,7 @@ const Column = ({ children, className, title, nClassified }) => {
   );
 };
 
-export default function SortLaundry({ items, setItems, nClassified, setNClassified, toggleOverlay}) {
-
-  const [disabled, setDisabled] = useState(true);
+export default function SortLaundry({ items, setItems, nClassified, setNClassified, setDisabled}) {
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -250,7 +246,6 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
         <div>
           <div className="Two-Column-Three">
             <div className="Text-Align-Center">
-              <h3 className="Page-Title">introduction to predictive algorithms</h3>
               <div>
                 <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
                   {returnSingleItemForColumn(items, ITEM_LIST)}
@@ -266,17 +261,6 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
                 </Column>
               </div>
             </div>
-            <RightSideBar>
-              <div className="Card-Group">
-                <h4>sort each item into the correct category</h4>
-                <div>
-                  <p>In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified.</p>
-                  <p>One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm.</p>
-                  <p className="No-Margin-Bottom">And what do you do with gray clothes anyway?</p>
-                </div>
-              </div>
-              {toggleOverlay? <NextButtonOverlay disabled={disabled} toggleOverlay={toggleOverlay}/>: <></>}
-            </RightSideBar>
           </div>
         </div>
       </DndProvider>

@@ -9,7 +9,6 @@ import Card from "../../components/Card";
 import { Regression, PredictiveOutcomes } from "../../components/Regression";
 import { Terminology, Term } from '../../components/Terminology';
 import { terms } from '../../utils/global';
-import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import SortLaundry from "../../components/SortLaundry";
@@ -51,13 +50,9 @@ export default function Train({config, variables, setVariables, items, setItems,
     }
 
     const routeBack = () => {
-      let path = `/Introduction`; 
+      let path = `/Classify`; 
       navigate(path);
     }
-
-    const toggleOverlay = () => {
-        setIsOpen(!isOpen);
-    };
 
     useEffect(() => {
         setId(isOpen ? "predict": "train");
@@ -65,17 +60,6 @@ export default function Train({config, variables, setVariables, items, setItems,
 
     return (
         <div className="App">
-            {
-                isOpen ?
-                <Overlay isOpen={isOpen} onClose={toggleOverlay}>
-                <div className="Containers-Container">
-                    <div className="Container-Fill-Secondary">
-                        <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} toggleOverlay={toggleOverlay}/>                      
-                    </div>
-                </div>
-            </Overlay>:
-            <></>
-            }
             <Header/>
             <div className="Main">
                 <LeftSideBar>

@@ -26,6 +26,12 @@ export const config = {
         "title": "Contact",
         "descr": "Contact page"
     },
+    "Classify": {
+        "id": "classify",
+        "title": "classify",
+        "subtitle": "sort each item into the correct category",
+        "descr": "In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. Simply, an algorithm is a series of steps that allow you to perform a particular task. One analogy here is laundry. You have an sorting algorithm for how laundry items get classified. One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?"
+    },
     "Optimize": {
         "id": "optimize",
         "title": "optimize",
@@ -80,7 +86,8 @@ export const config = {
     }
 }
 
-export const navigationData = [ {
+export const navigationData = [ 
+    {
         "name": "Introduction",
         "id": "introduction",
         "size": "Large",
@@ -90,14 +97,19 @@ export const navigationData = [ {
         "name": "Predict",
         "id": "predict",
         "size": "Large",
-        "navLink": "/Train"
+        "navLink": "/Classify"
+    },
+    {
+        "name": "Classify",
+        "id": "classify",
+        "size": "Small",
+        "navLink": "/Classify"
     }, 
     {
         "name": "Train",
         "id": "train",
         "size": "Small",
-        "navLink": "/Train"
-        
+        "navLink": "/Train" 
     },
     {
         "name": "Optimize",

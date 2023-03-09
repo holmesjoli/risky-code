@@ -5,8 +5,9 @@ import {
   } from "react-router-dom";
 import Introduction from "./pages/Introduction";
 import Workshop from "./pages/Workshop";
-import Optimize from "./pages/predict/Optimize";
+import Classify from "./pages/predict/Classify";
 import Train from "./pages/predict/Train";
+import Optimize from "./pages/predict/Optimize";
 import Calibration from "./pages/fairness/Calibration";
 import Error from "./pages/fairness/Error";
 import COMPAS from "./pages/caseStudies/COMPAS";
@@ -30,6 +31,7 @@ export default function App() {
     const [modules, setModules] = useState([]);
     const [policy, setPolicy] = useState("");
     const [user, updateUser] = useState("group");
+    const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
@@ -46,6 +48,7 @@ export default function App() {
           <Route path="/Workshop" element={<Workshop user={user} updateUser={updateUser}/>} />
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
+          <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
