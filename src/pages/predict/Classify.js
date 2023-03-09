@@ -40,23 +40,16 @@ const algoTerms = [{"term": "automated"},
                    {"term": "mathematics"},
                    {"term": "system"}];
 
-function transitionColor() {
-    d3.selectAll(".brainstorm-term")
-        .transition()
-        .ease(d3.easePoly)
-        .duration(1000)
-        .style("fill", d => [""])
-        .on('end', transitionColor);
-}
-
 export function transitionHighlightBack() {
     d3.selectAll(".brainstorm-term")
         .transition()
         .ease(d3.easePoly)
-        .delay((d, i) => i*1000)
+        // .delay((d, i) => i*2000)
         .duration(1000)
+        .delay(function(i){return(i*1000)})
+        // .duration((d, i) => i*1000)
         .attr("fill", visStyles[style]["textColor"])
-        .attr("font-weight", visStyles[style]["fontWeight"])
+        .attr("font-weight", 400)
         .on('end', transitionHighlight);
 }
 
@@ -64,11 +57,11 @@ export function transitionHighlight() {
     d3.selectAll(".brainstorm-term")
         .transition()
         .ease(d3.easePoly)
-        .delay((d, i) => i*1000)
         .duration(1000)
+        .delay(function(d, i) {return(i*1000)})
         .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-weight", 500)
-        .on('end', transitionHighlightBack);
+        // .on('end', transitionHighlightBack);
 }
 
 function initNetwork() {
@@ -98,7 +91,7 @@ function initNetwork() {
             enter  => enter.append("text")
                 .attr("fill", visStyles[style]["textColor"])
                 .attr("font-size", visStyles[style]["fontSize"])
-                .attr("font-weight", visStyles[style]["fontWeight"])
+                .attr("font-weight", 400)
                 .attr("cursor", "default")
                 .attr("letter-spacing", ".6px")
                 .attr("class", "brainstorm-term")
