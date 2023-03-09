@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
+import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import { terms } from '../../utils/global';
 import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
@@ -10,10 +10,71 @@ import SortLaundry from "../../components/SortLaundry";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { TextField } from "@material-ui/core";
+import { visStyles, terms } from "../../utils/global";
 
-let chartId = "brainstorm-terms"
-const algoTerms = ["automated", "rule", "objective", "subjective", "neutral", "unbiased", "biased", "instructions", "program", "machine learning", "artificial intelligence (AI)", "step", "calculation", "task", "function"];
+let chartId = "brainstorm-terms";
+let width = 650;
+let height = 400;
+let style = "darkMode";
 
+const algoTerms = [{"term": "automated"}, 
+                   {"term": "rule"}, 
+                   {"term": "objective"}, 
+                   {"term": "subjective"}, 
+                   {"term": "neutral"}, 
+                   {"term": "unbiased"},
+                   {"term": "biased"}, 
+                   {"term": "instructions"}, 
+                   {"term": "program"}, 
+                   {"term": "machine learning"}, 
+                   {"term": "artificial intelligence (AI)"}, 
+                   {"term": "step"}, 
+                   {"term": "calculation"}, 
+                   {"term": "task"}, 
+                   {"term": "function"}];
+
+function transform(d) {
+    return "translate(" + d.x + "," + d.y + ")";
+}
+
+function initNetwork() {
+    let svg = d3.select(`#${chartId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    let simulation = d3.forceSimulation()
+        // .force("charge", d3.forceManyBody().strength(-300))
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("collide", d3.forceCollide().strength(10).radius(8))
+        .on("tick", ticked);
+
+    let text = svg.append("g")
+        .selectAll("text");
+
+        text = svg
+        .selectAll("text")
+        .data(algoTerms, d => d.term)
+        .join(
+            enter  => enter.append("text")
+                .attr("fill", visStyles[style]["textColor"])
+                .attr("font-size", visStyles[style]["fontSize"])
+                .attr("font-weight", visStyles[style]["fontWeight"])
+                .attr("cursor", "default")
+                .attr("letter-spacing", ".6px")
+                .text(d => d.term)
+        );
+
+    function ticked() {
+
+        text
+            .attr("x", function (d) { return d.x + 10; })
+            .attr("y", function (d) { return d.y - 10; });
+    }
+
+    simulation.nodes(algoTerms);
+    simulation.alpha(1).restart();
+}
 
 export function Content({items, setItems, nClassified, setNClassified, setDisabled}) {
 
@@ -52,7 +113,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
     }, [isOpen])
 
     useEffect(() => {
-        // policyDiagram(chartId, 480, 480, "colorMode", false);
+        initNetwork();
     }, []);
 
     return (
@@ -73,8 +134,8 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                             <RightSideBar>
                                 <div className="Card-Group">
                                     <h4>algorithmically informed decision-making</h4>
-                                    <p className="Small-Margin">This research defines algorithmically informed decision making as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span></p>
-                                    <p>Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
+                                    <p>This research defines algorithmically informed decision making as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span></p>
+                                    <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
                                 </div>
                                 <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
                                     <p>How do you define the term algorithm?</p>
