@@ -46,7 +46,7 @@ export function transitionHighlightBack() {
         .ease(d3.easePoly)
         // .delay((d, i) => i*2000)
         .duration(1000)
-        .delay(function(i){return(i*1000)})
+        .delay(function(d, i){return(i*1000 + 1000)})
         // .duration((d, i) => i*1000)
         .attr("fill", visStyles[style]["textColor"])
         .attr("font-weight", 400)
@@ -58,10 +58,10 @@ export function transitionHighlight() {
         .transition()
         .ease(d3.easePoly)
         .duration(1000)
-        .delay(function(d, i) {return(i*1000)})
+        .delay(function(d, i) {return(i*1000 + 2000)})
         .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-weight", 500)
-        // .on('end', transitionHighlightBack);
+        .on('end', transitionHighlightBack);
 }
 
 function initNetwork() {
