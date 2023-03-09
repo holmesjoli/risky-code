@@ -31,7 +31,14 @@ const algoTerms = [{"term": "automated"},
                    {"term": "step"}, 
                    {"term": "calculation"}, 
                    {"term": "task"}, 
-                   {"term": "function"}];
+                   {"term": "function"},
+                   {"term": "code"},
+                   {"term": "manual"},
+                   {"term": "analog"},
+                   {"term": "process"},
+                   {"term": "procedure"},
+                   {"term": "mathematics"},
+                   {"term": "system"}];
 
 function transform(d) {
     return "translate(" + d.x + "," + d.y + ")";
@@ -44,9 +51,14 @@ function initNetwork() {
         .attr("height", height);
 
     let simulation = d3.forceSimulation()
-        // .force("charge", d3.forceManyBody().strength(-300))
         .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collide", d3.forceCollide().strength(10).radius(8))
+        .force("collision", d3.forceCollide().strength(4).radius(15))
+        // .force('x', d3.forceX().x(function (d) {
+        //     return width/2;
+        // }).strength(.03))
+        .force('y', d3.forceY().y(function (d) {
+            return height/2;
+        }).strength(.03))
         .on("tick", ticked);
 
     let text = svg.append("g")
