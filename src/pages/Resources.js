@@ -22,6 +22,11 @@ const literature = {
         "reference": 'Angwin, Julia, Jeff Larson, Surya Mattu, and Lauren Kirchner. 2016. \"Machine Bias: There\'s Software Used across the Country to Predict Future Criminals. It\'s Biased against Blacks.\" ProPublica, May 23, 2016.',
         "url": "https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing"
     },
+    "Ballard-2019": {
+        "inline-citation": "(Ballard et al. 2019)",
+        "reference": "Ballard, Stephanie, Karen M. Chappell, and Kristen Kennedy. 2019. \"Judgment Call the Game: Using Value Sensitive Design and Design Fiction to Surface Ethical Concerns Related to Technology.\" In Proceedings of the 2019 on Designing Interactive Systems Conference, 421-33. DIS \'19. New York, NY, USA: Association for Computing Machinery. https://doi.org/10.1145/3322276.3323697.",
+        "url": "http://houseofmethods.com/pdf/microsoft-judgment-call.pdf"
+    },
     "Barocas-Selbst-2016": {
         "inline-citation": "(Barocas and Selbst 2016)",
         "reference": "Barocas, Solon, and Andrew D Selbst. 2016. \"Big Data's Disparate Impact.\" California Law Review 104 (3): 671-732.",
@@ -115,10 +120,6 @@ const aiExplainability = {
         "name": "AI Blindspot Workshop",
         "link": "https://aiblindspot.media.mit.edu/"
     },
-    "Peoples-Guide-AI": {
-        "name": "A People's Guide to AI",
-        "link": "https://mimionuoha.com/a-peoples-guide-to-ai"
-    },
     "AI-Equity-Toolkit": {
         "name": "AI Equity Toolkit",
         "link": "https://www.aclu-wa.org/AEKit#:~:text=WHAT%20IS%20THE%20AEKit%3F,impacts%2C%20effectiveness%2C%20and%20oversight."
@@ -126,6 +127,14 @@ const aiExplainability = {
     "AI-Fairer-Than-A-Judge": {
         "name": "Can you make AI fairer than a judge? Play our courtroom algorithm game",
         "link": "https://www.technologyreview.com/2019/10/17/75285/ai-fairer-than-judge-criminal-risk-assessment-algorithm/amp/"
+    },
+    "Judgement Call": {
+        "name": "Judgement Call",
+        "link": "http://houseofmethods.com/pdf/microsoft-judgment-call.pdf"
+    },
+    "Peoples-Guide-AI": {
+        "name": "A People's Guide to AI",
+        "link": "https://mimionuoha.com/a-peoples-guide-to-ai"
     },
     "Survival-of-Best-Fit": {
         "name": "Survival of Best Fit",
