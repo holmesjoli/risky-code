@@ -15,25 +15,28 @@ export default function Workshop({user, updateUser}) {
     }
 
     return(
-        <div className="Start">
-            <h3>risky code is designed to be use in a group setting to facilitate discussion and deliberation. however, risky code can also be used by individuals.</h3>
-            <div className="Container">
+        <div className="Workshop">
+            <div className="Container Margin-Bottom">
                 <FormControl>
-                <p>Indicate if you intend to use <span className="Title">Risky Code</span> as a <span className="Emphasis">group</span> or an <span className="Emphasis">individual</span>.</p>
+                <h3>risky code orientation</h3>
+                <p className="Margin-Bottom">Risky Code is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly.</p>
+                {/* <div className="Card-Group"> */}
+                    <h4 className="No-Margin-Bottom">indicate how you intend to use risky code</h4>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
-                        defaultValue="group"
+                        // defaultValue="group"
                         name="radio-buttons-group"
                         onChange={setUser}
                         value={user}
+                        className="Margin"
                     >
                         <FormControlLabel value="group" control={<Radio />} label="Group" />
                         <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                     </RadioGroup>
-                {user==="group"?<p className="Margin-Top Emphasis">Identify a group leader who will navigate the application.</p>:<></>}
+                    {user === "group"?<p className="Margin-Top">First, identify a group leader who will facilitate the discussion and navigate the application. Group leader, please share your screen. Great, let's get started! Click <span className="Emphasis">Next</span> to begin.</p>:<p>Welcome, we're happing you're here! Click <span className="Emphasis">Next</span> to begin.</p>}
                 </FormControl>
+                <Button variant="outlined" color="secondary" onClick={routeNext}>next</Button>
             </div>
-            <Button variant="outlined" color="secondary" onClick={routeNext}>next</Button>
         </div>
     )
 }

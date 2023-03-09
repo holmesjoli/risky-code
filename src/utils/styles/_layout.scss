@@ -233,12 +233,12 @@ ul {
     height: 100;
 }
 
-.Margin-Top {
-    margin-top: $containerMargin;
+.Margin {
+    margin: $containerMargin;
 }
 
-.Padding-Top {
-    padding-top: $containerPadding;
+.Margin-Top {
+    margin-top: $containerMargin;
 }
 
 .Margin-Bottom {
@@ -251,6 +251,14 @@ ul {
 
 .Margin-Large-Bottom {
     margin-bottom: 70px;
+}
+
+.Padding-Top {
+    padding-top: $containerPadding;
+}
+
+.Padding {
+    padding: $containerPadding;
 }
 
 .Add-Stakeholder-Button {

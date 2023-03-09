@@ -1,14 +1,26 @@
-.Start {
+.Start,
+.Workshop {
   position: absolute;
-  top: 35%;
   left: 35%;
   // transform: translate(-50%, -50%);
   text-align: center;
   max-width: 30%;
 }
 
+.Start {
+  top: 35%;
+}
+
+.Workshop {
+  top: 20%;
+}
+
 .Start button {
     margin: $containerMargin;
     max-width: 30%;
+}
+
+.Workshop {
+  text-align: left;
 }
 

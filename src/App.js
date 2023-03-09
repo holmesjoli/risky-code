@@ -30,7 +30,7 @@ export default function App() {
     const [variables, setVariables] = useState(VARIABLES);
     const [modules, setModules] = useState([]);
     const [policy, setPolicy] = useState("");
-    const [user, updateUser] = useState("group");
+    const [user, updateUser] = useState("none");
     const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
