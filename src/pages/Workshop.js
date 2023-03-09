@@ -1,18 +1,26 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import { FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import * as React from 'react';
+import Box from "@material-ui/core/Box";
+import Stepper from '@material-ui/core/Stepper';
+import Step from '@material-ui/core/Step';
+import StepLabel from '@material-ui/core/StepLabel';
+import Typography from '@material-ui/core/Typography';
 
-export default function Workshop({user, updateUser}) {
+const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+
+function SelectUser({user, updateUser}) {
 
     const setUser = ev => {
         updateUser(ev.target.value);
     }
 
-    let navigate = useNavigate(); 
-    const routeNext = () => {
-      let path = `/Introduction`;
-      navigate(path);
-    }
+    // let navigate = useNavigate(); 
+    // const routeNext = () => {
+    //   let path = `/Introduction`;
+    //   navigate(path);
+    // }
 
     return(
         <div className="Workshop">
@@ -35,8 +43,78 @@ export default function Workshop({user, updateUser}) {
                     </RadioGroup>
                     {user === "group"?<p className="Margin-Top">First, identify a group leader who will facilitate the discussion and navigate the application. Group leader, please share your screen. Great, let's get started! Click <span className="Emphasis">Next</span> to begin.</p>:<p>Welcome, we're happing you're here! Click <span className="Emphasis">Next</span> to begin.</p>}
                 </FormControl>
-                <Button variant="outlined" color="secondary" onClick={routeNext}>next</Button>
+                {/* <Button variant="outlined" color="secondary" onClick={routeNext}>next</Button> */}
             </div>
         </div>
     )
+}
+
+export default function Orientation() {
+  const [activeStep, setActiveStep] = React.useState(0);
+  const isStepOptional = (step) => {
+    return step === 1;
+  };
+
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
+  return (
+    <Box sx={{ width: '100%' }}>
+      <Stepper activeStep={activeStep}>
+        {steps.map((label, index) => {
+          const stepProps = {};
+          const labelProps = {};
+          if (isStepOptional(index)) {
+            labelProps.optional = (
+              <Typography variant="caption">Optional</Typography>
+            );
+          }
+
+          return (
+            <Step key={label} {...stepProps}>
+              <StepLabel {...labelProps}>{label}</StepLabel>
+            </Step>
+          );
+        })}
+      </Stepper>
+      {activeStep === steps.length ? (
+        <React.Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>
+            All steps completed - you&apos;re finished
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Box sx={{ flex: '1 1 auto' }} />
+            <Button onClick={handleReset}>Reset</Button>
+          </Box>
+        </React.Fragment>
+      ) : (
+        <React.Fragment>
+          <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+            <Button
+              color="inherit"
+              disabled={activeStep === 0}
+              onClick={handleBack}
+              sx={{ mr: 1 }}
+            >
+              Back
+            </Button>
+            <Box sx={{ flex: '1 1 auto' }} />
+            <Button onClick={handleNext}>
+              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+            </Button>
+          </Box>
+        </React.Fragment>
+      )}
+    </Box>
+  );
 }
