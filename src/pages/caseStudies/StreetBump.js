@@ -21,7 +21,6 @@ import coastline from "../../data/processed/Boston/coastline.json";
 import city from "../../data/processed/Boston/city.json";
 import park from "../../data/processed/Boston/park.json";
 
-
 function drawMap() {
 
     // console.log(window.innerHeight, window.innerWidth)

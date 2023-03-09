@@ -17,8 +17,8 @@ import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../../utils/global";
 import Timer from "../../components/Timer";
 
-let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Ownership and property",
-"Informed consent", "Identity", "Environment sustainability", "Dignity", "Peace", "Transparency", "Efficiency", "Other"];
+let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Ownership and property", "Peace", 
+"Informed consent", "Identity", "Environment sustainability", "Dignity", "Transparency", "Efficiency"];
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
@@ -34,9 +34,9 @@ const shapeData = [{"group": "root"},
                     {"group": "stakeholder"},
                     {"group": "value"}]
 
-const fillData = [{"group": "primary"},
-                  {"group": "secondary"},
-                  {"group": "tertiary"}]
+const fillData = [{"group": "direct"},
+                  {"group": "indirect"},
+                  {"group": "excluded"}]
 
 export function symbolType(d) {
 
@@ -75,7 +75,7 @@ function drag() {
 }
 
 const opacityScale = d3.scaleOrdinal()
-    .domain(["none", "primary", "secondary", "tertiary"])
+    .domain(["none", "direct", "indirect", "excluded"])
     .range([1, 1, .7, .5])
 
 function stakeholderType(d) {
@@ -320,7 +320,7 @@ export function Content() {
 function AddStakeholder(data, setData, stakeholderIdArray) {
 
     const [stakeholderName, updateStakeholderName] = useState("");
-    const [stakeholderGroup, updateStakeholderGroup] = useState("primary");
+    const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
     let checkedValues = [];
 
@@ -380,7 +380,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         setData(dataNew)
 
         updateStakeholderName("");
-        updateStakeholderGroup("primary");
+        updateStakeholderGroup("direct");
         updateStakeholderValues([]);
 
         // d3.selectAll(".Value-Check input")
@@ -399,14 +399,14 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                     <h4>stakeholder type</h4>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
-                        defaultValue="primary"
+                        defaultValue="direct"
                         name="radio-buttons-group"
                         onChange={setStakeholderGroup}
                         value={stakeholderGroup}
                     >
-                        <FormControlLabel value="primary" control={<Radio />} label="Primary" />
-                        <FormControlLabel value="secondary" control={<Radio />} label="Secondary" />
-                        <FormControlLabel value="tertiary" control={<Radio />} label="Tertiary" />
+                        <FormControlLabel value="direct" control={<Radio />} label="Direct" />
+                        <FormControlLabel value="indirect" control={<Radio />} label="Indirect" />
+                        <FormControlLabel value="excluded" control={<Radio />} label="Excluded" />
                     </RadioGroup>
                 </FormControl>
             </div>
@@ -440,7 +440,7 @@ export default function StakeholderMapping({config, user, disableDeliberationNex
         let path = `/Risk`; 
         navigate(path);
     }
-  
+
     const routeBack = () => {
         let path = `/COMPAS`; 
         navigate(path);
@@ -491,8 +491,10 @@ export default function StakeholderMapping({config, user, disableDeliberationNex
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}/>
-                <Terminology>
-                    <Term term={terms['stakeholders']}/>
+                <Terminology margin="Margin-Large-Bottom">
+                    <Term term={terms['direct stakeholders']}/>
+                    <Term term={terms['indirect stakeholders']}/>
+                    <Term term={terms['excluded stakeholders']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>

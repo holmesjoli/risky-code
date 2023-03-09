@@ -394,7 +394,19 @@ export const terms = {
     },
     "stakeholders": {
         "title": "stakeholders",
-        "definition": "People impacted directly or indirectly by a system (Bender and Friedman 2018)"
+        "definition": "People, individuals or groups, impacted directly or indirectly by a system (Bender and Friedman 2018)."
+    },
+    "direct stakeholders": {
+        "title": "direct stakeholders",
+        "definition": "Directly interact with the algorithmic system. Examples include end users, designers, engineers, hackers, or administrators (Ballard et al. 2019)."
+    },
+    "indirect stakeholders": {
+        "title": "indirect stakeholders",
+        "definition": "Do not directly interact with the algorithmic system, but are impacted by its use. Examples include advocacy groups, families of end users, regulators, society at large (Ballard et al. 2019)."
+    },
+    "excluded stakeholders": {
+        "title": "excluded stakeholders",
+        "definition": "Those who cannot interact with the algorithmic system. Reasons include physical, cognitive, social, or situational constraints. Examples include low-vision users of a technology which is primarily accessed through vision (Ballard et al. 2019)."
     },
     "recidivism": {
         "title": "recidivism",
