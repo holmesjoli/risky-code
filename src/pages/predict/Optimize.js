@@ -56,8 +56,8 @@ export default function Optimize({config, variables, setVariables, items, setIte
                 <LeftSideBar>
                     <Description config={config}/>
                     <Terminology>
-                        <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>
+                        <Term term={terms['accuracy']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>

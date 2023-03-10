@@ -413,7 +413,7 @@ export const terms = {
         "definition": "A criminal reoffense"
     },
     "accuracy": {
-        "title": "accuracy",
+        "title": "model accuracy",
         "definition": "Accuracy is a percent of how many predicted values match the actual values"
     }
 }
