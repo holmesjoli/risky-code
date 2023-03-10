@@ -150,7 +150,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
 
     useEffect(() => {
         setId(isOpen ? "predict": "classify");
-    }, [isOpen])
+    }, [isOpen]);
 
     useEffect(() => {
         initNetwork();

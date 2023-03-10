@@ -67,6 +67,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['data-variable']}/>
                         <Term term={terms['model-variable']}/>
+                        <Term term={terms['predictive-probability']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>

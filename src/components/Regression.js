@@ -56,7 +56,7 @@ export function PredictiveOutcomes() {
                     <img src={LaundryItem} alt="Dirty laundry item" />
                     <div>.68</div>
                 </div>
-                <p className="Margin-Left">The probability of belonging to the positive class. For example, this shirt has a 68% probability of belonging in the hot water load.</p>
+                <p className="Margin-Left">This shirt has a 68% probability of belonging in the hot water load.</p>
             </div>
         </div>
     )
