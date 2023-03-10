@@ -29,8 +29,8 @@ export const config = {
     "Classify": {
         "id": "classify",
         "title": "classify",
-        "subtitle": "sort each item into the correct category",
-        "descr": "In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. This research defines an algorithm is a series of steps that allow you to perform a particular task. The analogy used here is laundry. You have an sorting algorithm for how laundry items get classified. One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?"
+        "subtitle": "classify each item into the correct category",
+        "descr": "In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. This research defines an algorithm is a series of steps that allow you to perform a particular task. The analogy used here is laundry. You have a sorting algorithm for how laundry items get classified. One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?"
     },
     "Optimize": {
         "id": "optimize",

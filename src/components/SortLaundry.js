@@ -159,10 +159,10 @@ const Column = ({ children, className, title, nClassified }) => {
       style={{ border: getBorder(isOver, canDrop),
                backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h4 className="Small-Margin"
+      <h3 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
 
-      >{title}</h4>
+      >{title}</h3>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
             {children.length === 0 ? <p>{instructions}</p>: children}
           <h5 className="Small-Margin">{className === "Container item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
@@ -243,15 +243,12 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="Two-Column-Three">
-        <div className="Text-Align-Center">
-          <div>
-            <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
-              {returnSingleItemForColumn(items, ITEM_LIST)}
-            </Column>
-            <ExpandMoreIcon/>
-          </div>
-          <div className="Two-Column">
+      <div className="One-Column-Three">
+          <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
+            {returnSingleItemForColumn(items, ITEM_LIST)}
+          </Column>
+          {/* <ExpandMoreIcon/> */}
+          <div className="Two-Row">
             <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
               {returnItemsForColumn(items, CASE_TRUE)}
             </Column>
@@ -259,7 +256,6 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
               {returnItemsForColumn(items, CASE_FALSE)}
             </Column>
           </div>
-        </div>
       </div>
     </DndProvider>
   );

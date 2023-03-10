@@ -159,7 +159,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                     <div className="Container-Fill-Secondary">
                         <div className="Two-Column-Three">
                             <div>
-                                <h3 className="Page-Title">introduction to predictive algorithms</h3>
+                                <h3 className="Page-Title">introduction to algorithmic decision-making</h3>
                                 <div className="Card-Group">
                                     <h4>what's in an algorithm?</h4>
                                     <p>Use these terms to get started brainstorming.</p>
