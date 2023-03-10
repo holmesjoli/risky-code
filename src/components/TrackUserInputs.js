@@ -16,6 +16,20 @@ export function PolicyScenario({policy, setPolicy}) {
     )
 }
 
+export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition}) {
+
+    const updateAlgorithmDefinition = (event) => {
+        setAlgorithmDefinition(event.target.value)
+    }
+
+    return(
+        <div className="No-Margin-Bottom Card-Group">
+            <h4 className="Medium-Margin">algorithm definition</h4>
+            <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
+        </div>
+    )
+}
+
 export function Consequence({margin}) {
 
     return(

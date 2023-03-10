@@ -9,12 +9,12 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import SortLaundry from "../../components/SortLaundry";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
-import { TextField } from "@material-ui/core";
 import { visStyles, terms } from "../../utils/global";
+import { AlgorithmDefinition } from '../../components/TrackUserInputs';
 
 let chartId = "brainstorm-terms";
 let width = 600;
-let height = 300;
+let height = 275;
 let style = "darkMode";
 
 const algoTerms = [{"term": "automated"}, 
@@ -72,10 +72,10 @@ function initNetwork() {
 
     let simulation = d3.forceSimulation()
         .force("center", d3.forceCenter(width / 2, height / 2))
-        .force("collision", d3.forceCollide().strength(4).radius(15))
-        // .force('x', d3.forceX().x(function (d) {
-        //     return width/2;
-        // }).strength(.03))
+        .force("collision", d3.forceCollide().strength(5.5).radius(20))
+        .force('x', d3.forceX().x(function (d) {
+            return width/2;
+        }).strength(.03))
         .force('y', d3.forceY().y(function (d) {
             return height/2;
         }).strength(.03))
@@ -120,7 +120,7 @@ export function Content({items, setItems, nClassified, setNClassified, setDisabl
     )
 }
 
-export default function Classify({config, user, disablePredictionNext, setDisablePredictionNext, items, setItems, modules}) {
+export default function Classify({config, user, disablePredictionNext, setDisablePredictionNext, items, setItems, modules, algorithmDefinition, setAlgorithmDefinition}) {
 
     const [id, setId] = useState("predict");
     const [isOpen, setIsOpen] = useState(true);
@@ -164,8 +164,8 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                                     <h4>what's in an algorithm?</h4>
                                     <p>Use these terms to get started brainstorming.</p>
                                     <div className="chart" id={chartId}></div>
-                                    <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={12}/>
                                 </div>
+                                <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
                             </div>
                             <RightSideBar>
                                 <div className="Card-Group">

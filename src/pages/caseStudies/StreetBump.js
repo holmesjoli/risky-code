@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import SortBump from "../../components/SortBump";
-import { Consequence, Stakeholders } from "../../components/PolicyScenario";
+import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';

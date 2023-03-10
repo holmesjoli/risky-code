@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
-import { PolicyScenario } from "../../components/PolicyScenario";
+import { PolicyScenario } from "../../components/TrackUserInputs";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from '../../utils/global';

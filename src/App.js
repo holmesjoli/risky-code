@@ -30,6 +30,7 @@ export default function App() {
     const [variables, setVariables] = useState(VARIABLES);
     const [modules, setModules] = useState([]);
     const [policy, setPolicy] = useState("");
+    const [algorithmDefinition, setAlgorithmDefinition] = useState("");
     const [user, updateUser] = useState("none");
     const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
@@ -46,7 +47,7 @@ export default function App() {
           <Route path="/Orientation" element={<Orientation user={user} updateUser={updateUser}/>} />
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
-          <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext} setItems={setItems} modules={modules} setModules={setModules}/>} />
+          <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext} setItems={setItems} modules={modules} setModules={setModules} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />

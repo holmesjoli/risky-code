@@ -8,7 +8,7 @@ import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
-import { Consequence, Stakeholders } from "../../components/PolicyScenario";
+import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
 import { Points } from "../../components/Legend";
 
 import data from "../../data/processed/error.json";
