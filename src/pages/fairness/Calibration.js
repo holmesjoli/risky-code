@@ -207,8 +207,9 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
+                    <p>COMPAS was designed to help judges decide whether to set bail and release an individual prior to trial and sentencing (Hao and Stray 2019). The decision to keep an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships. As of 2020, COMPAS was in use in four states at multiple points in the criminal justice system <NavLink to="/Resources">(Dipshan and Hudgins, 2020)</NavLink></p>
                 </Description>
-                <Terminology>
+                <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['mathematical-fairness']}/>
                     <Term term={terms['calibration']}/>
                 </Terminology>
