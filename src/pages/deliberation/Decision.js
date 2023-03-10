@@ -26,7 +26,8 @@ export default function Decision({config, modules}) {
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                    <Description config={config}>
+                    </Description>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
                 <Content />

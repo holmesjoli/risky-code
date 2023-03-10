@@ -180,7 +180,9 @@ export default function Glossary({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Description config={config}/>
+                    <Description config={config}>
+                        <p>Glossary of terms related to algorithmically informed decision-making. For some terms, more than one definition is given to show variety and similarity across term definition.</p>
+                    </Description>
                     <div className="Button-Container-Left">
                         <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
                     </div>

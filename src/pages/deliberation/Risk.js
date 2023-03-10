@@ -39,7 +39,8 @@ export default function Risk({config, modules, policy, setPolicy}) {
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                    <Description config={config}>
+                    </Description>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
                 <Content />

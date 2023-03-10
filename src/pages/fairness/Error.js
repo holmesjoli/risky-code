@@ -32,7 +32,9 @@ export default function Error({config, modules}) {
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                    <Description config={config}>
+                        <p>Adjust the slider to see how the false positive rate changes as you increase or decrease the threshold.</p>
+                    </Description>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['mathematical-fairness']}/>
                         <Term term={terms['fpr']}/>

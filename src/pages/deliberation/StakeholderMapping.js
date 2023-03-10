@@ -488,7 +488,9 @@ export default function StakeholderMapping({config, user, disableDeliberationNex
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description config={config}/>
+                <Description config={config}>
+                    <p>Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box.</p>
+                </Description>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>

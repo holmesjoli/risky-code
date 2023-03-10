@@ -206,7 +206,8 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description config={config}/>
+                <Description config={config}>
+                </Description>
                 <Terminology>
                     <Term term={terms['mathematical-fairness']}/>
                     <Term term={terms['calibration']}/>

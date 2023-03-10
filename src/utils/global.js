@@ -3,8 +3,7 @@ import * as d3 from 'd3';
 export const config = {
     "Introduction": {
         "id": "introduction",
-        "title": "introduction",
-        "descr": "Welcome to Risky Code, an interactive digital toolkit. Risky Code contains four modules meant to inform and to facilitate deliberation about algorithmically informed decision-making."
+        "title": "introduction"
     },
     "About": {
         "id": "about",
@@ -13,13 +12,11 @@ export const config = {
     },
     "Glossary": {
         "id": "glossary",
-        "title": "glossary",
-        "descr": "Glossary of terms related to algorithmically informed decision-making. For some terms, more than one definition is given to show variety and similarity across term definition."
+        "title": "glossary"
     },
     "Resources": {
         "id": "resources",
-        "title": "resources",
-        "descr": "This design builds on extensive research in the algorithmic fairness literature to help policymakers better understand the implications of having a just AI. A list of literature and precedent artifacts are referenced here for those interested in learning more."
+        "title": "resources"
     },
     "Contact": {
         "id": "contact",
@@ -29,20 +26,17 @@ export const config = {
     "Classify": {
         "id": "classify",
         "title": "classify",
-        "subtitle": "classify each item into the correct category",
-        "descr": "In this module, we will build a simple predictive algorithm to demonstrate how predictive modeling works. This research defines an algorithm is a series of steps that allow you to perform a particular task. The analogy used here is laundry. You have a sorting algorithm for how laundry items get classified. One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm. And what do you do with gray clothes anyway?"
+        "subtitle": "classify each item",
     },
     "Optimize": {
         "id": "optimize",
         "title": "optimize",
-        "subtitle": "optimize the algorithm for accuracy",
-        "descr": "In this step of algorithm building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy."
+        "subtitle": "optimize the algorithm for accuracy"
     },
     "Train": {
         "id": "train",
         "title": "train",
-        "subtitle": "train the algorithm to predict the hot water load",
-        "descr": "Drag the data variables from the variable list to the model list to add them to the algorithm. Add or remove variables from the model to see how the predicitive probabilities change."
+        "subtitle": "train the algorithm to predict the hot water load"
     },
     "Calibration": {
         "id": "calibration",
@@ -53,36 +47,30 @@ export const config = {
     "Error": {
         "id": "error",
         "title": "error rates",
-        "subtitle": "minimize the error rates",
-        "descr": "Adjust the slider to see how the false positive rate changes as you increase or decrease the threshold."
+        "subtitle": "minimize the error rates"
     },
     "Decision": {
         "id": "decision",
-        "title": "decision aid",
-        "descr": ""
+        "title": "decision aid"
     },
     "Risk": {
         "id": "risk",
-        "title": "risk framework",
-        "descr": ""
+        "title": "risk framework"
     },
     "Stakeholders": {
         "id": "stakeholders",
         "title": "stakeholder mapping",
-        "subtitle": "brainstorm a policy scenario where algorithmically informed decision-making is or could be implemented.",
-        "descr": "Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box."
+        "subtitle": "brainstorm a policy scenario where algorithmically informed decision-making is or could be implemented."
     },
     "COMPAS": {
         "id": "compas",
         "title": "compas",
         "subtitle": "explore different versions of mathematical fairness",
-        "descr": "COMPAS was designed to help judges decide whether to set bail and release an individual prior to trial and sentencing (Hao and Stray 2019). The decision to keep an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships. As of 2020, COMPAS was in use in four states at multiple points in the criminal justice system (Dipshan and Hudgins, 2020)."
     },
     "StreetBump": {
         "id": "street",
         "title": "street bump",
-        "subtitle": "learn about the street bump application",
-        "descr": "Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify problem roads."
+        "subtitle": "learn about the street bump application"
     }
 }
 

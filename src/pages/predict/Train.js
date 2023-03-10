@@ -60,7 +60,9 @@ export default function Train({config, variables, setVariables, items, setItems,
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                    <Description config={config}>
+                        <p>Drag the data variables from the variable list to the model list to add them to the algorithm. Add or remove variables from the model to see how the predicitive probabilities change</p>
+                    </Description>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['data-variable']}/>

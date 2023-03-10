@@ -49,7 +49,9 @@ export default function Introduction({config, modules}) {
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                <Description config={config}>
+                    <p>Welcome to Risky Code, an interactive digital toolkit. Risky Code contains four modules meant to inform and to facilitate deliberation about algorithmically informed decision-making.</p>
+                </Description>
                     <Terminology defaultExpanded={true}>
                         <Term term={terms.aidm}></Term>
                     </Terminology>

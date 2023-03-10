@@ -188,7 +188,11 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                    <Description config={config}>
+                        <p>This research defines an algorithm as a series of steps that allow you to perform a particular task.</p>
+                        <p>The analogy used here is laundry. You have a sorting algorithm for how laundry items get classified. One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm.</p>
+                        <p>And what do you do with gray clothes anyway?</p>
+                    </Description>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['data-variable']}/>

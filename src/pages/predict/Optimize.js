@@ -54,7 +54,9 @@ export default function Optimize({config, variables, setVariables, items, setIte
         <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                    <Description config={config}>
+                        <p>In this step of algorithm building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy</p>
+                    </Description>
                     <Terminology>
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['accuracy']}/>

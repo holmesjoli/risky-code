@@ -145,7 +145,9 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}/>
+                    <Description config={config}>
+                        <p>Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify problem roads.</p>
+                    </Description>
                     <Terminology>
                         <Term term={terms['stakeholders']}/>
                         <Term term={terms['fpr']}/>
