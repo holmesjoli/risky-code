@@ -26,7 +26,7 @@ export const config = {
     "Classify": {
         "id": "classify",
         "title": "classify",
-        "subtitle": "classify each item",
+        "subtitle": "",
     },
     "Optimize": {
         "id": "optimize",

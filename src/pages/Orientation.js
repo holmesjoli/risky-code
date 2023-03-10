@@ -41,7 +41,7 @@ export default function Orientation({user, updateUser}) {
                         <FormControlLabel value="group" control={<Radio />} label="Group" />
                         <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                     </RadioGroup>
-                    {user === "group"?<p className="Margin-Top">First, identify a group leader who will facilitate the discussion and navigate the application. Group leader, please share your screen. Great, let's get started! Click <span className="Emphasis">Next</span> to begin.</p>:<p>Welcome, we're happing you're here! Click <span className="Emphasis">Next</span> to begin.</p>}
+                    {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen. Great, let's get started! Click <span className="Emphasis">Next</span> to begin.</p>:<p>Welcome, we're happing you're here! Click <span className="Emphasis">Next</span> to begin.</p>}
                 </FormControl>
                 <Button variant="outlined" color="secondary" onClick={routeNext}>next</Button>
             </div>

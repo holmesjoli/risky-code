@@ -190,8 +190,9 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                 <LeftSideBar>
                     <Description config={config}>
                         <p>This research defines an algorithm as a series of steps that allow you to perform a particular task.</p>
-                        <p>The analogy used here is laundry. You have a sorting algorithm for how laundry items get classified. One variable in this algorithm is probably color. But variables such as type of machine load (e.g. regular wash, dry clean only), pastel, or print could impact your laundry sorting algorithm.</p>
-                        <p>And what do you do with gray clothes anyway?</p>
+                        <p>One analogy is laundry. <span className="Emphasis">How do you sort laundry for different load types?</span></p>
+                        <p>One indicator many people is color. However, other indicators such as type of machine load (e.g. regular wash, dry clean only), pastel, delicates, or print could impact your laundry sorting algorithm. And what does one do with gray clothes anyway?</p>
+                        {user==="group"? <p>Group facilitator, consult your group and come up with a set of rules to sort your laundry.</p>:<p>What are some rules you use to sort your laundry?</p>}
                     </Description>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
