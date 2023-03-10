@@ -111,12 +111,14 @@ function initNetwork() {
     transitionHighlight();
 }
 
-export function Content({items, setItems, nClassified, setNClassified, setDisabled}) {
+export function Content({items, setItems, nClassified, setNClassified, setDisabled, user}) {
 
     return(
         <div className="Content No-Padding-Top">
             <div className="One-Column-Three">
-                <LaundryRules/>
+                <LaundryRules user={user}>
+                    {user==="group"? <p>Group facilitator, consult your group and come up with a set of rules to sort your laundry.</p>:<p>What are some rules you use to sort your laundry?</p>}
+                </LaundryRules>
                 <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
             </div>
         </div>
@@ -195,16 +197,13 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                         <p>This research defines an algorithm as a series of steps that allow you to perform a particular task.</p>
                         <p>One analogy is laundry. <span className="Emphasis">How do you sort laundry for different load types?</span></p>
                         <p>One indicator many people is color. However, other indicators such as type of machine load (e.g. regular wash, dry clean only), pastel, delicates, or print could impact your laundry sorting algorithm. And what does one do with gray clothes anyway?</p>
-                        {user==="group"? <p>Group facilitator, consult your group and come up with a set of rules to sort your laundry.</p>:<p>What are some rules you use to sort your laundry?</p>}
                     </Description>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
-                        <Term term={terms['data-variable']}/>
-                        <Term term={terms['model-variable']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
+                <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user}/>
                 <RightSideBar>
                     <Progress id={id} modules={modules}/>
                     <NextButton routeNext={routeNext} disabled={disabled}/>

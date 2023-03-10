@@ -30,12 +30,13 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
     )
 }
 
-export function LaundryRules() {
+export function LaundryRules({children}) {
 
     return(
         <div>
             <div className="No-Margin-Bottom Container">
             <h4 className="Medium-Margin">laundry rules</h4>
+            {children}
             <div className="Margin-Bottom">
                 <TextField placeholder="add rule" variant="outlined"/>
             </div>
