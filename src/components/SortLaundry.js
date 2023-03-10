@@ -6,6 +6,7 @@ import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { TextField } from "@material-ui/core";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -242,13 +243,13 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   }, [nClassified, items])
 
   return (
-    <DndProvider backend={HTML5Backend}>
-      <div className="One-Column-Three">
+      <DndProvider backend={HTML5Backend}>
+        <div className='Text-Align-Center'>
           <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
             {returnSingleItemForColumn(items, ITEM_LIST)}
           </Column>
-          {/* <ExpandMoreIcon/> */}
-          <div className="Two-Row">
+          <ExpandMoreIcon/>
+          <div className="Two-Column">
             <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
               {returnItemsForColumn(items, CASE_TRUE)}
             </Column>
@@ -256,7 +257,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
               {returnItemsForColumn(items, CASE_FALSE)}
             </Column>
           </div>
-      </div>
-    </DndProvider>
+        </div>
+      </DndProvider>
   );
 };

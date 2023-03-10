@@ -10,7 +10,7 @@ import SortLaundry from "../../components/SortLaundry";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { visStyles, terms } from "../../utils/global";
-import { AlgorithmDefinition } from '../../components/TrackUserInputs';
+import { AlgorithmDefinition, LaundryRules } from '../../components/TrackUserInputs';
 
 let chartId = "brainstorm-terms";
 let width = 600;
@@ -115,7 +115,10 @@ export function Content({items, setItems, nClassified, setNClassified, setDisabl
 
     return(
         <div className="Content No-Padding-Top">
-            <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
+            <div className="One-Column-Three">
+                <LaundryRules/>
+                <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
+            </div>
         </div>
     )
 }
