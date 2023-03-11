@@ -198,7 +198,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                     <Description config={config}>
                         <p>This research defines an algorithm as a series of steps that allow you to perform a particular task.</p>
                         <p>One analogy is laundry. <span className="Emphasis">How do you sort laundry for different load types?</span></p>
-                        <p>One indicator many people is color. However, other indicators such as type of machine load (e.g. regular wash, dry clean only), pastel, delicates, or print could impact your laundry sorting algorithm.</p>
+                        <p>One indicator many people is color. However, other indicators such as item type or type of machine load (e.g. regular wash, dry clean only) could impact your laundry sorting decision.</p>
                         <p>What does one do with gray clothes anyway?</p>
                     </Description>
                     <Terminology margin="Margin-Large-Bottom">

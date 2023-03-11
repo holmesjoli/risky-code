@@ -8,8 +8,9 @@ import Card from "../../components/Card";
 import { Regression, PredictiveOutcomes } from "../../components/Regression";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
-import { BackButton, NextButton } from '../../components/Button';
+import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import Overlay from "../../components/Overlay";
 
 function Information() {
     return (
@@ -39,19 +40,47 @@ export function Content({variables, setVariables, items, setItems}) {
 
 export default function Train({config, variables, setVariables, items, setItems, modules}) {
 
+    const [isOpen, setIsOpen] = useState(true);
+
     let navigate = useNavigate();
     const routeNext = () => {
       let path = `/Optimize`; 
       navigate(path);
-    }
+    };
 
     const routeBack = () => {
       let path = `/Classify`; 
       navigate(path);
-    }
+    };
+
+    const toggleOverlay = () => {
+        setIsOpen(!isOpen);
+    };
 
     return (
         <div className="App">
+            {isOpen ?
+            <Overlay isOpen={isOpen} onClose={toggleOverlay}>
+            <div className="Containers-Container">
+                <div className="Container-Fill-Secondary">
+                    <div className="Two-Column-Three">
+                        <div>
+                            <h2 className="Page-Title">pause</h2>
+                            <div className="Card-Group">
+                                <h3>laundry aid</h3>
+                                <p>Sorting laundry takes a lot of time, I would if there's an easier way to do it?</p>
+                                <p>My friend told me about a new techology called Laundry AID (algorithmically informed decision-making) which automates the sorting process.</p>
+                            </div>
+                        </div>
+                        <RightSideBar>
+                            {toggleOverlay? <NextButtonOverlay toggleOverlay={toggleOverlay}/>: <></>}
+                        </RightSideBar>
+                    </div>
+                </div>
+            </div>
+        </Overlay>:
+        <></>
+        }
             <Header/>
             <div className="Main">
                 <LeftSideBar>
