@@ -6,11 +6,17 @@
     flex-direction: row;
 }
 
+.item-list-column > div {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .Label {
     background-color: #272B30;
     border-radius: $containerBorderRadius;
     padding: 10px;
-    margin: 10px;
+    margin-left: 10px;
     border: 1px solid $cardBorderSecondary;
 }
 

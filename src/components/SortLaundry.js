@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
@@ -6,7 +6,6 @@ import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { TextField } from "@material-ui/core";
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
@@ -165,8 +164,10 @@ const Column = ({ children, className, title, nClassified }) => {
 
       >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
+          <div>
             {children.length === 0 ? <p>{instructions}</p>: children}
-          <h5 className="Small-Margin">{className === "Container item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
+            <h5 className="Small-Margin">{className === "Text-Align-Center item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
+        </div>
       </div>
     </div>
   );
@@ -248,7 +249,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
           <h3 className="Medium-Margin">experiment</h3>
           <p>Classify each item by dragging and dropping them in the hot water load or save for later load</p>
           <div className="Text-Align-Center">
-            <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
+            <Column title={ITEM_LIST} className="Text-Align-Center item-list-column Margin-Bottom" nClassified={nClassified}>
               {returnSingleItemForColumn(items, ITEM_LIST)}
             </Column>
             <ExpandMoreIcon/>
