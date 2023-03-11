@@ -47,8 +47,8 @@ export default function Card({items, variables}) {
                     return predictedCorrectly!== undefined ? addClass(column) + " Card Card-Flat" + " " + addPredicted(predictedCorrectly): "";
                 })
 
-            d3.selectAll("#Predicted-Container")
-                .attr("class", "my-grid Visible")
+            // d3.selectAll("#Predicted-Container")
+            //     .attr("class", "my-grid Visible")
 
         } else {
             d3.selectAll(".predicted")
@@ -61,8 +61,8 @@ export default function Card({items, variables}) {
                     return addClass(column) + " Card Card-Flat";
                 })
 
-            d3.selectAll("#Predicted-Container")
-                .attr("class", "my-grid Hidden")
+            // d3.selectAll("#Predicted-Container")
+            //     .attr("class", "my-grid Hidden")
         }
     }, [items, variables])
 
