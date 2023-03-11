@@ -35,17 +35,17 @@ export function LaundryRules({user, rules, setRules, children}) {
 
     const updateRule1 = (event) => {
         rules.rule1 = event.target.value;
-        setRules(rules)
+        setRules(rules);
     }
 
     const updateRule2 = (event) => {
         rules.rule2 = event.target.value;
-        setRules(rules)
+        setRules(rules);
     }
 
     const updateRule3 = (event) => {
         rules.rule3 = event.target.value;
-        setRules(rules)
+        setRules(rules);
     }
 
     return(

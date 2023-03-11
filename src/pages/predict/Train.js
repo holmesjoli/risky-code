@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Model from "../../components/Model";
-import { ActualPredicted } from "../../components/Legend";
+import { Actual } from "../../components/Legend";
 import Card from "../../components/Card";
 import { Regression, PredictiveOutcomes } from "../../components/Regression";
 import { terms } from '../../utils/global';
@@ -15,7 +15,7 @@ import Overlay from "../../components/Overlay";
 function Information() {
     return (
         <div>
-            <ActualPredicted/>
+            <Actual/>
             <PredictiveOutcomes/>
         </div>
     )
