@@ -50,7 +50,7 @@ export function PredictiveOutcomes() {
 
     return(
         <div className="Container Margin-Bottom">
-            <h3>predictive probability</h3>
+            <h4 className="Small-Margin">predictive probability</h4>
             <div className="Row">
                 <div className="Card-Flat Example-Card">
                     <img src={LaundryItem} alt="Dirty laundry item" />
