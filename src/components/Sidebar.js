@@ -4,7 +4,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 export function Terminology({children, margin, defaultExpanded=false}) {
 
     return(
-        <div className={"Terminology " + margin}>
+        <div className={"Terminology Margin-Top " + margin}>
             <Accordion defaultExpanded={defaultExpanded}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
@@ -30,12 +30,10 @@ export function Term({term}) {
 
 export function Description({config, children}) {
     return(
-        <div className="Description">
+        <div className="Description Bottom-Rule">
             <div className="">
-                <h2 className="Title">{config.title}</h2>
-                {/* <h3 className="Subtitle">{config.subtitle}</h3> */}
+                <h2 className="Title Padding-Bottom">{config.title}</h2>
                 {children}
-                {/* <p>{config.descr}</p> */}
             </div>
         </div>
     )
