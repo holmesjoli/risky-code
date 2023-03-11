@@ -16,7 +16,7 @@ export function PolicyScenario({policy, setPolicy}) {
     )
 }
 
-export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition}) {
+export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition, children}) {
 
     const updateAlgorithmDefinition = (event) => {
         setAlgorithmDefinition(event.target.value)
@@ -25,28 +25,43 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
     return(
         <div className="No-Margin-Bottom Card-Group">
             <h3 className="Medium-Margin">conceptualize</h3>
-            <p>What's your definition of an algorithm?</p>
+            <p>{children}</p>
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>
     )
 }
 
-export function LaundryRules({children}) {
+export function LaundryRules({user, rules, setRules, children}) {
+
+    const updateRule1 = (event) => {
+        rules.rule1 = event.target.value;
+        setRules(rules)
+    }
+
+    const updateRule2 = (event) => {
+        rules.rule2 = event.target.value;
+        setRules(rules)
+    }
+
+    const updateRule3 = (event) => {
+        rules.rule3 = event.target.value;
+        setRules(rules)
+    }
 
     return(
         <div>
             <div className="No-Margin-Bottom Container">
-            <h3 className="Medium-Margin">conceptualize</h3>
-            {children}
-            <div className="Margin-Bottom">
-                <TextField placeholder="add rule" variant="outlined"/>
-            </div>
-            <div className="Margin-Bottom">
-                <TextField placeholder="add rule" variant="outlined"/>
-            </div>
-            <div>
-                <TextField placeholder="add rule" variant="outlined"/>
-            </div>
+                <h3 className="Medium-Margin">conceptualize</h3>
+                {children}
+                <div className="Margin-Bottom">
+                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule1}/>
+                </div>
+                <div className="Margin-Bottom">
+                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule2}/>
+                </div>
+                <div>
+                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule3}/>
+                </div>
             </div>
         </div>
     )

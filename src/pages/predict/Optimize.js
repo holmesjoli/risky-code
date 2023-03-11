@@ -12,6 +12,7 @@ import { Regression, Accuracy, PredictiveOutcomes } from "../../components/Regre
 import { ActualPredicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
+import { AlgorithmDefinition } from '../../components/TrackUserInputs';
 
 function Information({items, variables}) {
     return (
@@ -28,7 +29,7 @@ export function Content({variables, setVariables, items, setItems}) {
     return(
         <div className="Content No-Padding-Top">
             <div>
-                <h3>experience</h3>
+                <h3>experiment</h3>
                 <div className="Three-Column">
                     <Model variables={variables} setVariables={setVariables}/>
                     <Regression items={items} setItems={setItems} variables={variables}/>
@@ -40,7 +41,7 @@ export function Content({variables, setVariables, items, setItems}) {
     )
 }
 
-export default function Optimize({config, user, variables, setVariables, items, setItems, modules, disablePredictionNext2, setDisablePredictionNext2}) {
+export default function Optimize({config, user, variables, setVariables, items, setItems, modules, disablePredictionNext2, setDisablePredictionNext2, algorithmDefinition, setAlgorithmDefinition, rules}) {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -59,6 +60,8 @@ export default function Optimize({config, user, variables, setVariables, items, 
         setIsOpen(!isOpen);
     };
 
+    console.log(rules.rule1)
+
     return (
         <div className="App">{isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
@@ -66,20 +69,23 @@ export default function Optimize({config, user, variables, setVariables, items, 
                 <div className="Container-Fill-Secondary">
                     <div className="Two-Column-Three">
                         <div>
-                            <h3 className="Page-Title">reflect</h3>
+                            <h2 className="Page-Title">reflect</h2>
                             <div className="Card-Group">
-                                <h4>what's in an algorithm?</h4>
+                                <h3>laundry rules</h3>
+                                <p>{rules.rule1}</p>
+                                <p>{rules.rule2}</p>
+                                <p>{rules.rule3}</p>
                             </div>
+                            <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}>
+                                <p>Would you make any updates to your definition of an algorithm?</p>
+                            </AlgorithmDefinition>
                         </div>
                         <RightSideBar>
-                            <div className="Card-Group">
-                                <h4>algorithmically informed decision-making</h4>
-                                <p>This research defines algorithmically informed decision making as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span></p>
-                                <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
-                            </div>
                             <Timer user={user} disableNext={disablePredictionNext2} setDisableNext={setDisablePredictionNext2}>
-                                <p>How do you define the term algorithm?</p>
-                                <p>Brainstorm multiple examples of algorithms in use in your life.</p>
+                                <p>Would you collect any other variables to use in the statistical model?</p>
+                                <p>Were there any rules that didn't fit the statistical model was not able to accomodate?</p>
+                                {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
+                                <p>What are the consequences of when Laundry AID made an incorrect prediction?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disablePredictionNext2} toggleOverlay={routeNext}/>: <></>}
                         </RightSideBar>

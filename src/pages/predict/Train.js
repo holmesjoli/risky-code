@@ -25,7 +25,7 @@ export function Content({variables, setVariables, items, setItems}) {
     return(
         <div className="Content No-Padding-Top">
             <div>
-                <h3>experience</h3>
+                <h3>experiment</h3>
                 <div className="Three-Column">
                     <Model variables={variables} setVariables={setVariables}/>
                     <Regression items={items} setItems={setItems} variables={variables}/>
@@ -56,9 +56,9 @@ export default function Train({config, variables, setVariables, items, setItems,
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}>
-                        <p>A predictive model is a computational interpretation of the rules.</p>
-                        <p>On this page, we will create a predictive model that attempts to replicate the sorting algorithm from the previous page.</p>
-                        <p>Drag the data variables from the variable list to the model list to add them to the algorithm. Add or remove variables from the model to see how the predictive probabilities change.</p>
+                        <p>On this page, we will train a predictive model, Laundry AID (Algorithmically Informed Decision), to guess if an item should belong in the hot water load according to your classification.</p>
+                        <p>A predictive model is a computational interpretation of an algorithm's rules.</p>
+                        <p>To train Laundry AID, drag one or more data variables from the variable list to the model list. This will automatically run a statistical model to predict the results. Add or remove variables from the model to see how the predictive probabilities change.</p>
                     </Description>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
