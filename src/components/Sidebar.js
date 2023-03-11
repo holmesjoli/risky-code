@@ -33,7 +33,7 @@ export function Description({config, children}) {
         <div className="Description">
             <div className="Container-Outlined">
                 <h2 className="Title">{config.title}</h2>
-                <h3 className="Subtitle">{config.subtitle}</h3>
+                {/* <h3 className="Subtitle">{config.subtitle}</h3> */}
                 {children}
                 {/* <p>{config.descr}</p> */}
             </div>

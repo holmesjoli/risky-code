@@ -166,16 +166,16 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                             <div>
                                 <h3 className="Page-Title">introduction to algorithmic decision-making</h3>
                                 <div className="Card-Group">
-                                    <h4>what's in an algorithm?</h4>
-                                    <p>Use these terms to get started brainstorming.</p>
+                                    <h4>brainstorm</h4>
+                                    <p>What's in an algorithm? Use these terms to get started brainstorming.</p>
                                     <div className="chart" id={chartId}></div>
                                 </div>
                                 <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
                             </div>
                             <RightSideBar>
                                 <div className="Card-Group">
-                                    <h4>algorithmically informed decision-making</h4>
-                                    <p>This research defines algorithmically informed decision making as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span></p>
+                                    <h4>learn</h4>
+                                    <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p>
                                     <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
                                 </div>
                                 <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>

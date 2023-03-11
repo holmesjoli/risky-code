@@ -192,7 +192,7 @@ export default function SortBump() {
   const { TRANSIT, BUMP, NO_BUMP } = TRANSIT_COLUMN_NAMES;
 
   return (
-    <div className="Model-Container">
+    <div className="Text-Align-Center">
       <DndProvider backend={HTML5Backend}>
         <Column title={TRANSIT} className="Container Variables-Column">
           {returnItemsForColumn(TRANSIT)}

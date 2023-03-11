@@ -33,6 +33,7 @@ export default function App() {
     const [algorithmDefinition, setAlgorithmDefinition] = useState("");
     const [user, updateUser] = useState("none");
     const [disablePredictionNext, setDisablePredictionNext] = useState(true);
+    const [disablePredictionNext2, setDisablePredictionNext2] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
@@ -48,7 +49,7 @@ export default function App() {
           <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext} setItems={setItems} modules={modules} setModules={setModules} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>} />
-          <Route path="/Optimize" element={<Optimize config={config.Optimize} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
+          <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />

@@ -11,7 +11,7 @@ import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
-function Information({items, variables}) {
+function Information() {
     return (
         <div>
             <ActualPredicted/>
@@ -36,10 +36,6 @@ export function Content({variables, setVariables, items, setItems}) {
 
 export default function Train({config, variables, setVariables, items, setItems, modules}) {
 
-    const [id, setId] = useState("predict");
-    const [isOpen, setIsOpen] = useState(true);
-    const [nClassified, setNClassified] = useState(0);
-
     let navigate = useNavigate();
     const routeNext = () => {
       let path = `/Optimize`; 
@@ -50,10 +46,6 @@ export default function Train({config, variables, setVariables, items, setItems,
       let path = `/Classify`; 
       navigate(path);
     }
-
-    useEffect(() => {
-        setId(isOpen ? "predict": "train");
-    }, [isOpen])
 
     return (
         <div className="App">
@@ -73,7 +65,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                 </LeftSideBar>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
                 <RightSideBar>
-                    <Progress id={id} modules={modules}/>
+                    <Progress id={config.id} modules={modules}/>
                     <NextButton routeNext={routeNext}/>
                 </RightSideBar>
             </div>

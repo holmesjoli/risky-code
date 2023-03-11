@@ -160,10 +160,10 @@ const Column = ({ children, className, title, nClassified }) => {
       style={{ border: getBorder(isOver, canDrop),
                backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h3 className="Small-Margin"
+      <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
 
-      >{title}</h3>
+      >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
             {children.length === 0 ? <p>{instructions}</p>: children}
           <h5 className="Small-Margin">{className === "Container item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
@@ -244,18 +244,22 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
 
   return (
       <DndProvider backend={HTML5Backend}>
-        <div className='Text-Align-Center'>
-          <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
-            {returnSingleItemForColumn(items, ITEM_LIST)}
-          </Column>
-          <ExpandMoreIcon/>
-          <div className="Two-Column">
-            <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
-              {returnItemsForColumn(items, CASE_TRUE)}
+        <div className='Container'>
+          <h3 className="Medium-Margin">experiment</h3>
+          <p>Classify each item by dragging and dropping them in the hot water load or save for later load</p>
+          <div className="Text-Align-Center">
+            <Column title={ITEM_LIST} className="Container item-list-column Margin-Bottom" nClassified={nClassified}>
+              {returnSingleItemForColumn(items, ITEM_LIST)}
             </Column>
-            <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
-              {returnItemsForColumn(items, CASE_FALSE)}
-            </Column>
+            <ExpandMoreIcon/>
+            <div className="Two-Column">
+              <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
+                {returnItemsForColumn(items, CASE_TRUE)}
+              </Column>
+              <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
+                {returnItemsForColumn(items, CASE_FALSE)}
+              </Column>
+            </div>
           </div>
         </div>
       </DndProvider>

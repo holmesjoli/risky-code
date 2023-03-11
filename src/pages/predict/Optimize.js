@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate, NavLink } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
@@ -7,10 +7,11 @@ import Overlay from "../../components/Overlay";
 import Card from "../../components/Card";
 import Model from "../../components/Model";
 import { terms } from '../../utils/global';
-import { BackButton, NextButton } from '../../components/Button';
+import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { Regression, Accuracy, PredictiveOutcomes } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import Timer from "../../components/Timer";
 
 function Information({items, variables}) {
     return (
@@ -36,8 +37,9 @@ export function Content({variables, setVariables, items, setItems}) {
     )
 }
 
+export default function Optimize({config, user, variables, setVariables, items, setItems, modules, disablePredictionNext2, setDisablePredictionNext2}) {
 
-export default function Optimize({config, variables, setVariables, items, setItems, modules}) {
+    const [isOpen, setIsOpen] = useState(false);
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -50,8 +52,40 @@ export default function Optimize({config, variables, setVariables, items, setIte
       navigate(path);
     }
 
+    const toggleOverlay = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className="App">
+        <div className="App">{isOpen ?
+            <Overlay isOpen={isOpen} onClose={toggleOverlay}>
+            <div className="Containers-Container">
+                <div className="Container-Fill-Secondary">
+                    <div className="Two-Column-Three">
+                        <div>
+                            <h3 className="Page-Title">reflect</h3>
+                            <div className="Card-Group">
+                                <h4>what's in an algorithm?</h4>
+                            </div>
+                        </div>
+                        <RightSideBar>
+                            <div className="Card-Group">
+                                <h4>algorithmically informed decision-making</h4>
+                                <p>This research defines algorithmically informed decision making as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span></p>
+                                <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
+                            </div>
+                            <Timer user={user} disableNext={disablePredictionNext2} setDisableNext={setDisablePredictionNext2}>
+                                <p>How do you define the term algorithm?</p>
+                                <p>Brainstorm multiple examples of algorithms in use in your life.</p>
+                            </Timer>
+                            {toggleOverlay? <NextButtonOverlay disabled={disablePredictionNext2} toggleOverlay={routeNext}/>: <></>}
+                        </RightSideBar>
+                    </div>
+                </div>
+            </div>
+        </Overlay>:
+        <></>
+        }
         <Header/>
             <div className="Main">
                 <LeftSideBar>
@@ -67,7 +101,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                    <NextButton routeNext={routeNext}/>
+                    <NextButton routeNext={toggleOverlay}/>
                 </RightSideBar>
             </div>
             <Footer/>

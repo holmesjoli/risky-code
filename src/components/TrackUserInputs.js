@@ -24,7 +24,8 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
 
     return(
         <div className="No-Margin-Bottom Card-Group">
-            <h4 className="Medium-Margin">algorithm definition</h4>
+            <h4 className="Medium-Margin">conceptualize</h4>
+            <p>What's your definition of an algorithm?</p>
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>
     )
@@ -35,7 +36,7 @@ export function LaundryRules({children}) {
     return(
         <div>
             <div className="No-Margin-Bottom Container">
-            <h4 className="Medium-Margin">laundry rules</h4>
+            <h3 className="Medium-Margin">conceptualize</h3>
             {children}
             <div className="Margin-Bottom">
                 <TextField placeholder="add rule" variant="outlined"/>

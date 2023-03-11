@@ -184,9 +184,9 @@ export default function Model({variables, setVariables}) {
 
   return (
     <div className="Container">
-      <h3>algorithmic model</h3>
-      <p>Drag data variables to model variables to add them to the statistical model</p>
-      <div className="Model-Container">
+      <h3>experience</h3>
+      <p>Drag data variables to model variables to run the statistical model</p>
+      <div className="Text-Align-Center">
         <DndProvider backend={HTML5Backend}>
           <Column title={DATA_VARIABLES} className="Card-Group Variables-Column Data-Variables">
             {returnItemsForColumn(variables, DATA_VARIABLES)}
