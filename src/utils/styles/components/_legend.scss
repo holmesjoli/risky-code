@@ -13,6 +13,15 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.my-grid3 {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.my-grid3 h5 {
+  text-align: left;
+}
+
 .section-title0,
 .section-title1,
 .section-title {

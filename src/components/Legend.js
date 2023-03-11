@@ -40,20 +40,18 @@ export function Actual() {
     return(
         <div className="Legend Container Margin-Bottom">
             <h4 className="Small-Margin">legend</h4>
-            <div className="my-grid2">
-                <div>
-                    <h5 className="section-title2 No-Margin-Top">Actual hot water load</h5>
-                    <div className="my-grid">
-                        <h6 className="section-title">Yes</h6>
-                        <div className="my-grid2">
-                            <div className="Card-Flat "></div>
-                        </div>
+            <div className="my-grid3">
+                <h5 className="section-title2 No-Margin-Top">Actual hot water load</h5>
+                <div className="my-grid">
+                    <h6 className="section-title">Yes</h6>
+                    <div className="my-grid2">
+                        <div className="Card-Flat "></div>
                     </div>
-                    <div id="Predicted-Container" className="my-grid">
-                        <h6 className="section-title1">No</h6>
-                        <div className="my-grid2">
-                            <div className="Card-Flat Case-False "></div>
-                        </div>
+                </div>
+                <div id="Predicted-Container" className="my-grid">
+                    <h6 className="section-title1">No</h6>
+                    <div className="my-grid2">
+                        <div className="Card-Flat Case-False "></div>
                     </div>
                 </div>
             </div>
