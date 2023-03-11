@@ -54,13 +54,13 @@ export function LaundryRules({user, rules, setRules, children}) {
                 <h3 className="Medium-Margin">conceptualize</h3>
                 {children}
                 <div className="Margin-Bottom">
-                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule1}/>
+                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule1} defaultValue={rules.rule1}/>
                 </div>
                 <div className="Margin-Bottom">
-                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule2}/>
+                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule2} defaultValue={rules.rule2}/>
                 </div>
                 <div>
-                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule3}/>
+                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule3} defaultValue={rules.rule3}/>
                 </div>
             </div>
         </div>

@@ -38,7 +38,7 @@ export function Content({variables, setVariables, items, setItems}) {
     )
 }
 
-export default function Train({config, variables, setVariables, items, setItems, modules}) {
+export default function Train({config, variables, setVariables, items, setItems, modules, rules}) {
 
     const [isOpen, setIsOpen] = useState(true);
 
@@ -85,9 +85,15 @@ export default function Train({config, variables, setVariables, items, setItems,
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}>
-                        <p>On this page, we will train a predictive model, Laundry AID (Algorithmically Informed Decision), to guess if an item should belong in the hot water load according to your classification.</p>
-                        <p>A predictive model is a computational interpretation of an algorithm's rules.</p>
-                        <p>To train Laundry AID, drag one or more data variables from the variable list to the model list. This will automatically run a statistical model to predict the results. Add or remove variables from the model to see how the predictive probabilities change.</p>
+                        <p>On this page, we will train a predictive model, Laundry AID, to guess if an item should belong in the hot water load according to your classification.</p>
+                        <p>A predictive model is a computational interpretation of an algorithm's rules. Here are the rules you defined in the last module:</p>
+                        <ul className="Margin-Bottom">
+                            <li className="Emphasis">{rules.rule1}</li>
+                            <li className="Emphasis">{rules.rule2}</li>
+                            <li className="Emphasis">{rules.rule3}</li>
+                        </ul>
+                        <p>To train Laundry AID, drag one or more data variables from the variable list to the model list. This will automatically run a statistical model to predict the results.</p>
+                        <p>Add or remove variables from the model to see how the predictive probabilities change.</p>
                     </Description>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>

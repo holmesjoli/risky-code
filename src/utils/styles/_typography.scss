@@ -211,12 +211,18 @@ h6 {
 }
 
 p,
+li,
 li > a,
 p > a {
   margin: 0;
   font-size: .85rem;
   line-height: 140%;
   margin-bottom: 1rem;
+}
+
+li {
+  margin-left: 10px;
+  margin-bottom: .5rem;
 }
 
 b, strong {
