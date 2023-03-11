@@ -38,7 +38,7 @@ export function Accuracy({items, variables}) {
     return(
         <div className="Accuracy Container Hidden">
             <div className="Overlay-Controls">
-                <h3 className="Small-Margin">model accuracy</h3>
+                <h4 className="Small-Margin">model accuracy</h4>
                 <InfoOutlinedIcon/>
             </div>
             <div className="Accuracy-Percent Small-Margin"></div>

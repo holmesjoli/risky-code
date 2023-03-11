@@ -1,13 +1,7 @@
-
-
 .Variables-Column {
     height: max-content;
     min-height: 150px;
     padding: $containerPadding;
-}
-
-.Model-Variables {
-    // border: 1.5pt dotted #4e5155;
 }
 
 .Moveable-Items {
@@ -41,7 +35,7 @@
 .Variable {
     border-radius: $containerBorderRadius;
     border: 1px solid #2e3238;
-    background-color: #131517; 
+    background-color: $cardBackgroundColor;
     max-width: 85px;
     min-height: 30px;
     display: flex;

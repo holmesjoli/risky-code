@@ -27,11 +27,14 @@ export function Content({variables, setVariables, items, setItems}) {
 
     return(
         <div className="Content No-Padding-Top">
-            <div className="Three-Column">
-                <Model variables={variables} setVariables={setVariables}/>
-                <Regression items={items} setItems={setItems} variables={variables}/>
-                <Card items={items} variables={variables}/>
-                <Information items={items} variables={variables}/>
+            <div>
+                <h3>experience</h3>
+                <div className="Three-Column">
+                    <Model variables={variables} setVariables={setVariables}/>
+                    <Regression items={items} setItems={setItems} variables={variables}/>
+                    <Card items={items} variables={variables}/>
+                    <Information items={items} variables={variables}/>
+                </div>
             </div>
         </div>
     )
