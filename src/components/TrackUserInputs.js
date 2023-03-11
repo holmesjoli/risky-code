@@ -24,7 +24,7 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
 
     return(
         <div className="No-Margin-Bottom Card-Group">
-            <h4 className="Medium-Margin">conceptualize</h4>
+            <h3 className="Medium-Margin">conceptualize</h3>
             <p>What's your definition of an algorithm?</p>
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>

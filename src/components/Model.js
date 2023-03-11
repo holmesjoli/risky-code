@@ -139,7 +139,7 @@ const Column = ({ children, className, title }) => {
       
       >{title}</h4>
         <div className="Moveable-Items">
-          {children.length === 0 ? <p>Drop here</p>: children}
+          {children.length === 0 ? <p className="Opacity">drop here</p>: children}
         </div>
     </div>
   );

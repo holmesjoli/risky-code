@@ -150,7 +150,7 @@ const Column = ({ children, className, title, nClassified }) => {
     })
   });
 
-  let instructions = title === ITEM_LIST?  "congrats you created an algorithm!" : "Drop here";
+  let instructions = title === ITEM_LIST?  "congrats you created an algorithm!" : "drop here";
 
   return (
     <div
@@ -164,7 +164,7 @@ const Column = ({ children, className, title, nClassified }) => {
 
       >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
-          {children.length === 0 ? <h4 className="Instructions">{instructions}</h4>: children}
+          {children.length === 0 ? <p className="Instructions Opacity">{instructions}</p>: children}
           <h5 className="Small-Margin">{className === "Text-Align-Center item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
     </div>

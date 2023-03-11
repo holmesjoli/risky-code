@@ -164,9 +164,9 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                     <div className="Container-Fill-Secondary">
                         <div className="Two-Column-Three">
                             <div>
-                                <h3 className="Page-Title">introduction to algorithmic decision-making</h3>
+                                <h2 className="Page-Title">introduction to algorithmic decision-making</h2>
                                 <div className="Card-Group">
-                                    <h4>brainstorm</h4>
+                                    <h3>brainstorm</h3>
                                     <p>What's in an algorithm? Use these terms to get started brainstorming.</p>
                                     <div className="chart" id={chartId}></div>
                                 </div>
@@ -174,7 +174,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                             </div>
                             <RightSideBar>
                                 <div className="Card-Group">
-                                    <h4>learn</h4>
+                                    <h3>learn</h3>
                                     <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p>
                                     <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
                                 </div>
