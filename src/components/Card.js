@@ -79,7 +79,7 @@ export default function Card({items, variables}) {
 
     return(
         <div className="Cards-Container Container">
-            <h3 className="Small-Margin">items</h3>
+            <h4 className="Small-Margin">items</h4>
             <div className="Card-Container">
                    {createCard(items)}
             </div>

@@ -404,6 +404,10 @@ export const terms = {
         "title": "model accuracy",
         "definition": "Accuracy is a percent of how many predicted values match the actual values"
     },
+    "predictive-model": {
+        "title": "predictive model",
+        "definition": "A computational interpretation of an algorithm's rules."
+    },
     "predictive-probability": {
         "title": "predictive probability",
         "definition": "The probability of belonging to the positive class"

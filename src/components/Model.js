@@ -134,10 +134,10 @@ const Column = ({ children, className, title }) => {
       style={{ border: getBorder(isOver, canDrop),
         backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h3 className="Small-Margin"
+      <h4 className="Small-Margin"
       style={{ color: getColor(isOver, canDrop) }}
       
-      >{title}</h3>
+      >{title}</h4>
         <div className="Moveable-Items">
           {children.length === 0 ? <p>Drop here</p>: children}
         </div>
@@ -183,20 +183,16 @@ export default function Model({variables, setVariables}) {
   const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
 
   return (
-    <div className="Container">
-      <h3>experience</h3>
-      <p>Drag data variables to model variables to run the statistical model</p>
-      <div className="Text-Align-Center">
-        <DndProvider backend={HTML5Backend}>
-          <Column title={DATA_VARIABLES} className="Card-Group Variables-Column Data-Variables">
-            {returnItemsForColumn(variables, DATA_VARIABLES)}
-          </Column>
-          <ExpandMoreIcon className="Scale200"/>
-          <Column title={MODEL_VARIABLES} className="Card-Group Variables-Column Model-Variables">
-            {returnItemsForColumn(variables,MODEL_VARIABLES)}
-          </Column>
-        </DndProvider>
-      </div>
+    <div className="Text-Align-Center">
+      <DndProvider backend={HTML5Backend}>
+        <Column title={DATA_VARIABLES} className="Container Variables-Column Data-Variables">
+          {returnItemsForColumn(variables, DATA_VARIABLES)}
+        </Column>
+        <ExpandMoreIcon className="Scale200"/>
+        <Column title={MODEL_VARIABLES} className="Container Variables-Column Model-Variables">
+          {returnItemsForColumn(variables,MODEL_VARIABLES)}
+        </Column>
+      </DndProvider>
     </div>
   );
 };

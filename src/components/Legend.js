@@ -7,13 +7,13 @@ export function ActualPredicted() {
 
     return(
         <div className="Legend Container Margin-Bottom">
-            <h3 className="Small-Margin">legend</h3>
+            <h4 className="Small-Margin">legend</h4>
             <div className="my-grid">
                 <div>
-                    <h4 className="section-title0">model predicted</h4>
+                    <h5 className="section-title0">Model predicted</h5>
                 </div>
                 <div>
-                    <h4 className="section-title2 No-Margin-Bottom">actual hot water load</h4>
+                    <h5 className="section-title2 No-Margin-Bottom">Actual hot water load</h5>
                     <div className="my-grid">
                         <h6 className="section-title">Correctly</h6>
                         <div className="my-grid2">
@@ -39,8 +39,8 @@ export function ActualPredicted() {
 function Actual() {
     return(
         <div className="Legend Actual">
-            <h3 className="Small-Margin">Legend</h3>
-            <h4 className="Small-Margin">Classified</h4>
+            <h4 className="Small-Margin">Legend</h4>
+            <h5 className="Small-Margin">Classified</h5>
             <div className="Row">
                 <div className="Group">
                     <h4 className="Small-Margin">Hot water load</h4>
@@ -102,8 +102,8 @@ export function Points() {
     return(
         <div className="Container">
             <div className="Legend">
-                <h3 className="Small-Margin">legend</h3>
-                <h4 className="Small-Margin">predicted</h4>
+                <h4 className="Small-Margin">legend</h4>
+                <h5 className="Small-Margin">predicted</h5>
                 <div id='Legend-Visualization'></div>
             </div>
         </div>
