@@ -13,12 +13,12 @@ export function ActualPredicted() {
                     <h5 className="section-title0">Actual hot water load</h5>
                 </div>
                 <div>
-                    <h5 className="section-title2 No-Margin-Bottom No-Margin-Top">Model predicted</h5>
+                    <h5 className="section-title2 No-Margin-Top">Model predicted</h5>
                     <div className="my-grid">
                         <h6 className="section-title">Yes</h6>
                         <div className="my-grid2">
-                            <h6 className="section-title2">Correctly</h6>
-                            <h6 className="section-title2">Incorrectly</h6>
+                            <h6 className="section-title2 No-Margin-Top">Correctly</h6>
+                            <h6 className="section-title2 No-Margin-Top">Incorrectly</h6>
                             <div className="Card-Flat "></div>
                             <div className="Card-Flat Predicted-False "></div>
                         </div>
