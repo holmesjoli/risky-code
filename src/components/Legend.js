@@ -41,7 +41,7 @@ export function Actual() {
         <div className="Legend Container Margin-Bottom">
             <h4 className="Small-Margin">legend</h4>
             <div className="my-grid3">
-                <h5 className="section-title2 No-Margin-Top">Actual hot water load</h5>
+                <h5 className="section-title2 No-Margin-Top">Hot water load</h5>
                 <div className="my-grid">
                     <h6 className="section-title">Yes</h6>
                     <div className="my-grid2">
