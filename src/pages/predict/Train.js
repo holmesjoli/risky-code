@@ -30,7 +30,7 @@ export function Content({variables, setVariables, items, setItems}) {
                 <div className="Three-Column">
                     <Model variables={variables} setVariables={setVariables}/>
                     <Regression items={items} setItems={setItems} variables={variables}/>
-                    <Card items={items} variables={variables}/>
+                    <Card items={items} variables={variables} addIncorrect={false}/>
                     <Information items={items} variables={variables}/>
                 </div>
             </div>

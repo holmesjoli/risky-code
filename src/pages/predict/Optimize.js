@@ -33,7 +33,7 @@ export function Content({variables, setVariables, items, setItems}) {
                 <div className="Three-Column">
                     <Model variables={variables} setVariables={setVariables}/>
                     <Regression items={items} setItems={setItems} variables={variables}/>
-                    <Card items={items} variables={variables}/>
+                    <Card items={items} variables={variables} addIncorrect={true}/>
                     <Information items={items} variables={variables}/>
                 </div>
             </div>
@@ -59,8 +59,6 @@ export default function Optimize({config, user, variables, setVariables, items, 
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
-
-    console.log(rules.rule1)
 
     return (
         <div className="App">{isOpen ?

@@ -25,7 +25,7 @@ export function addPredicted(predicted) {
     }
 }
 
-export default function Card({items, variables}) {
+export default function Card({items, variables, addIncorrect}) {
 
     const images = importImages();
     const modelVars = getModelVariables(variables);
@@ -37,32 +37,28 @@ export default function Card({items, variables}) {
                 .text(function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let predictedProbability = items.find((d) => d.id === id).predictedProbability;
-                    return predictedProbability !== undefined ? Math.round(predictedProbability*100)/100: ""})
+                    return predictedProbability !== undefined ? Math.round(predictedProbability*100)/100: ""});
 
-            d3.selectAll(".Card")
+            if (addIncorrect) {
+                d3.selectAll(".Card")
                 .attr("class", function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let predictedCorrectly = items.find((d) => d.id === id).predictedCorrectly;
                     let column = items.find((d) => d.id === id).column;
                     return predictedCorrectly!== undefined ? addClass(column) + " Card Card-Flat" + " " + addPredicted(predictedCorrectly): "";
-                })
-
-            // d3.selectAll("#Predicted-Container")
-            //     .attr("class", "my-grid Visible")
+                });
+            }
 
         } else {
             d3.selectAll(".predicted")
-                .text("")
+                .text("");
 
             d3.selectAll(".Card")
                 .attr("class", function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let column = items.find((d) => d.id === id).column;
                     return addClass(column) + " Card Card-Flat";
-                })
-
-            // d3.selectAll("#Predicted-Container")
-            //     .attr("class", "my-grid Hidden")
+                });
         }
     }, [items, variables])
 
