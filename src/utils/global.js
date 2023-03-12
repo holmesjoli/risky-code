@@ -406,10 +406,14 @@ export const terms = {
     },
     "predictive-model": {
         "title": "predictive model",
-        "definition": "A computational interpretation of an algorithm's rules."
+        "definition": "A computational interpretation of an algorithm's rules"
     },
     "predictive-probability": {
         "title": "predictive probability",
         "definition": "The probability of belonging to the positive class"
+    },
+    "decision-threshold": {
+        "title": "decision threshold",
+        "definition": "A threshold to turn a predictive probability into a decision"
     }
 }

@@ -189,7 +189,7 @@ export default function Model({variables, setVariables}) {
           {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
         <ExpandMoreIcon className="Scale200"/>
-        <Column title={MODEL_VARIABLES} className="Container Variables-Column Model-Variables">
+        <Column title={MODEL_VARIABLES} className="Container Variables-Column Model-Variables Margin-Bottom">
           {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
       </DndProvider>

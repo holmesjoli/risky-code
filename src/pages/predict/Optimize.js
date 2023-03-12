@@ -13,6 +13,26 @@ import { ActualPredicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/TrackUserInputs';
+import { Slider } from '@material-ui/core';
+
+function Threshold({predictiveProbability, updateSlider}) {
+    return(
+        <div className="Container Margin-Bottom">
+            <h4>decision threshold</h4>
+            <p>Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the hot water load.</p>
+            <Slider
+                size="small"
+                defaultValue={predictiveProbability}
+                min={10}
+                max={100}
+                step={5}
+                aria-label="Small"
+                valueLabelDisplay="auto"
+                onChange={updateSlider}
+                />
+        </div>
+    )
+}
 
 function Information({items, variables}) {
     return (
@@ -24,14 +44,17 @@ function Information({items, variables}) {
     )
 }
 
-export function Content({variables, setVariables, items, setItems}) {
+export function Content({variables, setVariables, items, setItems, predictiveProbability, updateSlider}) {
 
     return(
         <div className="Content No-Padding-Top">
             <div>
                 <h3>experiment</h3>
                 <div className="Three-Column">
-                    <Model variables={variables} setVariables={setVariables}/>
+                    <div>
+                        <Model variables={variables} setVariables={setVariables}/>
+                        <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
+                    </div>
                     <Regression items={items} setItems={setItems} variables={variables}/>
                     <Card items={items} variables={variables} addIncorrect={true}/>
                     <Information items={items} variables={variables}/>
@@ -44,6 +67,11 @@ export function Content({variables, setVariables, items, setItems}) {
 export default function Optimize({config, user, variables, setVariables, items, setItems, modules, disablePredictionNext2, setDisablePredictionNext2, algorithmDefinition, setAlgorithmDefinition, rules}) {
 
     const [isOpen, setIsOpen] = useState(false);
+    const [predictiveProbability, setPredictiveProbability] = useState(50);
+
+    const updateSlider = (event, value) => {
+        setPredictiveProbability(value)
+    };
 
     let navigate = useNavigate(); 
     const routeNext = () => {
@@ -97,15 +125,17 @@ export default function Optimize({config, user, variables, setVariables, items, 
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}>
+                        <p>This page builds on the statistical model explored in the previous page, <span className="Emphasis">Train</span>.</p>
                         <p>In this step of algorithm building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy</p>
                     </Description>
                     <Terminology>
-                        <Term term={terms['algorithm']}/>
                         <Term term={terms['accuracy']}/>
+                        <Term term={terms['algorithm']}/>
+                        <Term term={terms['decision-threshold']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
+                <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <NextButton routeNext={toggleOverlay}/>

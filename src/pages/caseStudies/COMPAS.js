@@ -166,11 +166,11 @@ export function Content() {
 
     const updateSlider = (event, value) => {
         setPredictiveProbability(value/10)
-    }
+    };
 
     const updateDefinition = (event) => {
         setDefinition(event.target.value)
-    }
+    };
 
     useEffect(() => {
         initGraph(data, definition, predictiveProbability);
@@ -198,7 +198,7 @@ export function Content() {
                         </FormControl>
                     </div>
                     <div className="Container Margin-Bottom">
-                        <h3>predicted probability of reoffense</h3>
+                        <h3>decision threshold</h3>
                         <p>Use the slider to adjust at what threshold defendants should be considered high-risk of reoffense.</p>
                         <Slider
                             size="small"
