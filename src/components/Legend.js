@@ -43,7 +43,7 @@ export function Actual() {
             <div className="my-grid3">
                 <h5 className="section-title2 No-Margin-Top">Hot water load</h5>
                 <div className="my-grid">
-                    <h6 className="section-title">Yes</h6>
+                    <h6 className="section-title1">Yes</h6>
                     <div className="my-grid2">
                         <div className="Card-Flat "></div>
                     </div>
