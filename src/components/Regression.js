@@ -89,7 +89,7 @@ function logisticData(iterateData, modelVars) {
         var row = [];
 
         if (modelVars.includes("cleanType")) {
-            row.push(i.cleanType === "Machine wash cold"? 1: 0)
+            row.push(i.cleanType === "Machine wash"? 1: 0)
         }
 
         if (modelVars.includes("pastel")) {
@@ -109,7 +109,7 @@ function logisticData(iterateData, modelVars) {
         }
 
         if (i.hotWaterLoad === undefined) {
-            row.push(i.column === "Hot water load" ? 1: 0)
+            row.push(i.column === "hot water load" ? 1: 0)
         } else {
             row.push(i.hotWaterLoad ? 1: 0)
         }
@@ -142,7 +142,7 @@ export function Regression({items, setItems, variables, predictiveProbability}) 
 
                 items[i].predicted = predicted;
                 items[i].predictedProbability = pp;
-                items[i].actual = items[i].column === "Hot water load"? 1: 0;
+                items[i].actual = items[i].column === "hot water load"? 1: 0;
                 items[i].predictedCorrectly = items[i].actual === items[i].predicted;
             }
 
