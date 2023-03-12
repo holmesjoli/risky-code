@@ -1,5 +1,4 @@
 import { LogisticRegression } from  './JsRegression'; 
-import laundry from "../data/processed/laundry.json";
 import { getModelVariables } from "../utils/global";
 import { useEffect } from 'react';
 import * as d3 from 'd3';
@@ -131,12 +130,10 @@ export function Regression({items, setItems, variables, predictiveProbability}) 
 
         if (modelVars.length > 0) {
 
-            var trainingData = logisticData(laundry, modelVars);
             var testingData = logisticData(items, modelVars);
 
             // === Train the logistic regression === //
-            var model = logistic.fit(trainingData);
-            var threshold = .6;
+            var model = logistic.fit(testingData);
 
             // // // === Testing the trained logistic regression === //
             for(var i=0; i < testingData.length; ++i){
