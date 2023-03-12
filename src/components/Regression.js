@@ -5,12 +5,32 @@ import { useEffect } from 'react';
 import * as d3 from 'd3';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import LaundryItem from '../assets/images/laundry/svg/Asset 25.svg';
+import { Slider } from '@material-ui/core';
 
 var logistic = new LogisticRegression({
     alpha: 0.001,
     iterations: 1000,
     lambda: 0.0
 });
+
+export function Threshold({predictiveProbability, updateSlider}) {
+    return(
+        <div className="Container Margin-Bottom">
+            <h4>decision threshold</h4>
+            <p>Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the hot water load.</p>
+            <Slider
+                size="small"
+                defaultValue={predictiveProbability}
+                min={10}
+                max={100}
+                step={5}
+                aria-label="Small"
+                valueLabelDisplay="auto"
+                onChange={updateSlider}
+            />
+        </div>
+    )
+}
 
 export function Accuracy({items, variables}) {
 
@@ -103,7 +123,7 @@ function logisticData(iterateData, modelVars) {
     return data;
 }
 
-export function Regression({items, setItems, variables}) {
+export function Regression({items, setItems, variables, predictiveProbability}) {
 
     var modelVars = getModelVariables(variables);
 
@@ -121,7 +141,7 @@ export function Regression({items, setItems, variables}) {
             // // // === Testing the trained logistic regression === //
             for(var i=0; i < testingData.length; ++i){
                 var pp = logistic.transform(testingData[i]);
-                var predicted = pp >= model.threshold? 1: 0;
+                var predicted = pp >= predictiveProbability? 1: 0;
 
                 items[i].predicted = predicted;
                 items[i].predictedProbability = pp;
@@ -133,5 +153,5 @@ export function Regression({items, setItems, variables}) {
 
             setItems(items)
         }
-    }, [items, variables])
+    }, [items, variables, predictiveProbability])
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
@@ -8,31 +8,11 @@ import Card from "../../components/Card";
 import Model from "../../components/Model";
 import { terms } from '../../utils/global';
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { Regression, Accuracy, PredictiveOutcomes } from "../../components/Regression";
+import { Regression, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/TrackUserInputs';
-import { Slider } from '@material-ui/core';
-
-function Threshold({predictiveProbability, updateSlider}) {
-    return(
-        <div className="Container Margin-Bottom">
-            <h4>decision threshold</h4>
-            <p>Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the hot water load.</p>
-            <Slider
-                size="small"
-                defaultValue={predictiveProbability}
-                min={10}
-                max={100}
-                step={5}
-                aria-label="Small"
-                valueLabelDisplay="auto"
-                onChange={updateSlider}
-                />
-        </div>
-    )
-}
 
 function Information({items, variables}) {
     return (
@@ -52,10 +32,10 @@ export function Content({variables, setVariables, items, setItems, predictivePro
                 <h3>experiment</h3>
                 <div className="Three-Column">
                     <div>
-                        <Model variables={variables} setVariables={setVariables}/>
+                        <Model variables={variables} setVariables={setVariables} />
                         <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                     </div>
-                    <Regression items={items} setItems={setItems} variables={variables}/>
+                    <Regression items={items} setItems={setItems} variables={variables} predictiveProbability={predictiveProbability}/>
                     <Card items={items} variables={variables} addIncorrect={true}/>
                     <Information items={items} variables={variables}/>
                 </div>
@@ -128,7 +108,7 @@ export default function Optimize({config, user, variables, setVariables, items, 
                         <p>This page builds on the statistical model explored in the previous page, <span className="Emphasis">Train</span>.</p>
                         <p>In this step of algorithm building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy</p>
                     </Description>
-                    <Terminology>
+                    <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['decision-threshold']}/>
