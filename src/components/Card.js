@@ -25,7 +25,7 @@ export function addPredicted(predicted) {
     }
 }
 
-export default function Card({items, variables, addIncorrect}) {
+export default function Card({items, variables, addIncorrect, predictiveProbability}) {
 
     const images = importImages();
     const modelVars = getModelVariables(variables);
@@ -60,7 +60,7 @@ export default function Card({items, variables, addIncorrect}) {
                     return addClass(column) + " Card Card-Flat";
                 });
         }
-    }, [items, variables])
+    }, [items, variables, predictiveProbability])
 
     const createCard = (items) => {
         return items.map((item) => {

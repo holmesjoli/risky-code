@@ -147,7 +147,6 @@ export function Regression({items, setItems, variables, predictiveProbability}) 
             }
 
             items.sort((a, b) => b.predicted - a.predicted);
-
             setItems(items)
         }
     }, [items, variables, predictiveProbability])

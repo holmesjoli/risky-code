@@ -36,7 +36,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
                         <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                     </div>
                     <Regression items={items} setItems={setItems} variables={variables} predictiveProbability={predictiveProbability}/>
-                    <Card items={items} variables={variables} addIncorrect={true}/>
+                    <Card items={items} variables={variables} addIncorrect={true} predictiveProbability={predictiveProbability}/>
                     <Information items={items} variables={variables}/>
                 </div>
             </div>
