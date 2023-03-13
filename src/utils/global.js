@@ -346,11 +346,11 @@ export const terms = {
 
     "aidm": {
         "title": "algorithmically informed decision-making",
-        "definition": "A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans (AINOW 2018)"
+        "definition": "A system that uses automated reasoning to aid or replace a decision-making process that humans would otherwise perform (AINOW 2018)."
     },
     "stat-model": {
         "title": "statistical model",
-        "definition": "A mathematical representation for making predictions based on data"
+        "definition": "A mathematical representation for making predictions based on data."
     },
     "data-variable": {
         "title": "data variable",
@@ -362,11 +362,11 @@ export const terms = {
     },
     "algorithm": {
         "title": "algorithm",
-        "definition": "A series of steps that allow you to perform a particular task (Onuoha and Nucera 2018)"
+        "definition": "A series of steps that allow you to perform a particular task (Onuoha and Nucera 2018)."
     },
     "mathematical-fairness": {
         "title": "mathematical-fairness",
-        "definition": 'Formal mathematical constructions of legal concepts such as "equal protection" and "disparate impact" (Movva 2021)'
+        "definition": 'Formal mathematical constructions of legal concepts such as "equal protection" and "disparate impact" (Movva 2021).'
     },
     "calibration": {
         "title": "calibration",
@@ -374,11 +374,11 @@ export const terms = {
     },
     "fpr": {
         "title": "false positive rate",
-        "definition": "The false positive rate is the probability of falsely rejecting the truth, simply triggering a false alarm expressed as a statistical rate"
+        "definition": "The false positive rate is the probability of falsely rejecting the truth, simply triggering a false alarm expressed as a statistical rate."
     },
     "fnr": {
         "title": "false negative rate",
-        "definition": "The false negative rate is the failure to raise a valid alarm expressed as a statistical rate"
+        "definition": "The false negative rate is the failure to raise a valid alarm expressed as a statistical rate."
     },
     "stakeholders": {
         "title": "stakeholders",
@@ -398,22 +398,22 @@ export const terms = {
     },
     "recidivism": {
         "title": "recidivism",
-        "definition": "A criminal reoffense"
+        "definition": "A criminal reoffense."
     },
     "accuracy": {
         "title": "model accuracy",
-        "definition": "Accuracy is a percent of how many predicted values match the actual values"
+        "definition": "Accuracy is a percent of how many predicted values match the actual values."
     },
     "predictive-model": {
         "title": "predictive model",
-        "definition": "A computational interpretation of an algorithm's rules"
+        "definition": "A computational interpretation of an algorithm's rules."
     },
     "predictive-probability": {
         "title": "predictive probability",
-        "definition": "The probability of belonging to the positive class"
+        "definition": "The probability of belonging to the positive class."
     },
     "decision-threshold": {
         "title": "decision threshold",
-        "definition": "A threshold to turn a predictive probability into a decision"
+        "definition": "A threshold to turn a predictive probability into a decision/classification."
     }
 }

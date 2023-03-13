@@ -76,7 +76,7 @@ const glossary = {
         "name": "calibration",
         "definitions": {
             "def1": {
-                "definition": "",
+                "definition": "The percentage of people at each risk score who are in the positive is approximately equal for different demographics.",
                 "citation": "",
                 "link": ""
             }
@@ -96,7 +96,7 @@ const glossary = {
         "name": "false negative rate",
         "definitions": {
             "def1": {
-                "definition": "",
+                "definition": "The false negative rate is the failure to raise a valid alarm expressed as a statistical rate",
                 "citation": "",
                 "link": ""
             }
@@ -106,7 +106,7 @@ const glossary = {
         "name": "false positive rate",
         "definitions": {
             "def1": {
-                "definition": "",
+                "definition": "The false positive rate is the probability of falsely rejecting the truth, simply triggering a false alarm expressed as a statistical rate",
                 "citation": "",
                 "link": ""
             }
