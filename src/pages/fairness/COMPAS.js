@@ -156,16 +156,19 @@ function ImpossibilityTheorem({baseRatesBrainstorm, setBaseRatesBrainstorm}) {
 function Model() {
     return(
         <div>
-            <p>ProPublic's research showed that the COMPAS recidivism algorithm used a 137 variables in their statistical model. Example variables are shown below.</p>
+            <p>ProPublic's research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below.</p>
             <div className="Text-Align-Center">
             <div className="Container Variables-Column Margin-Bottom">
                 <h4>model variables</h4>
-                <div className="Variable-Flat">zip code</div>
-                <div className="Variable-Flat">incarcerated parent</div>
-                <div className="Variable-Flat">zip code</div>
-                <div className="Variable-Flat">zip code</div>
-                <div className="Variable-Flat">zip code</div>
-                <div className="Variable-Flat">zip code</div>
+                <div className="Variable-Flat">moved frequently</div>
+                <div className="Variable-Flat">gang membership</div>
+                <div className="Variable-Flat">parents separated</div>
+                <div className="Variable-Flat">family members incarcerated</div>
+                <div className="Variable-Flat">family member substance abuse</div>
+                <div className="Variable-Flat">friend incarceration</div>
+                <div className="Variable-Flat">high school education/ged</div>
+                <div className="Variable-Flat">current employment</div>
+                <div className="Variable-Flat">age of first arrest</div>
             </div>
             <ExpandMoreIcon className="Scale200"/>
             <div className="Container Margin-Bottom">
