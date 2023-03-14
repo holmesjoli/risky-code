@@ -10,6 +10,7 @@ import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
 import { Terminology, Term } from "../components/Sidebar";
 import { terms } from '../utils/global';
+import Progress from "../components/Progress";
 
 export default function Orientation({user, updateUser}) {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -63,11 +64,18 @@ export default function Orientation({user, updateUser}) {
             </Terminology>
         )
     }
+
+    const progressExample = () => {
+
+        return(
+            <Progress id="Classify" modules={[]}/>
+        )
+    }
     
     const steps = [
       {
         label: 'welcome to risky code',
-        description: `Risky Code is an interactive digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.`,
+        description: `Risky Code is an interactive digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.`
       },
       {
         label: 'indicate user type',
@@ -76,7 +84,7 @@ export default function Orientation({user, updateUser}) {
       },
       {
         label: 'modules',
-        description: `Risky Code contains four modules Predict, Fairness, Case Studies, Deliberation.`,
+        description: `Risky Code contains four modules Predict, Fairness, Case Studies, Deliberation.`
       },
       {
         label: 'user interface orientation | terminology',
@@ -86,6 +94,7 @@ export default function Orientation({user, updateUser}) {
       {
         label: 'user interface orientation | progress',
         description: `In the right sidebar you will dind a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.`,
+        children: progressExample()
       }
     ];
 
@@ -102,21 +111,7 @@ export default function Orientation({user, updateUser}) {
                     </StepLabel>
                     <StepContent>
                         <p>{step.description}</p>
-                        {step.children}
-                        {/* <div>
-                            <RadioGroup
-                                aria-labelledby="demo-radio-buttons-group-label"
-                                // defaultValue="group"
-                                name="radio-buttons-group"
-                                onChange={setUser}
-                                value={user}
-                                className="Margin"
-                            >
-                                <FormControlLabel value="group" control={<Radio />} label="Group" />
-                                <FormControlLabel value="individual" control={<Radio />} label="Individual" />
-                            </RadioGroup>   
-                            {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen.</p>:<></>}
-                        </div> */}
+                        {step.children}                      
                         <Box sx={{ mb: 2 }}>
                             <div className="Row">
                                 <Button
