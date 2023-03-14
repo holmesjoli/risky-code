@@ -56,15 +56,15 @@ import { Pagination, PaginationItem } from '@material-ui/lab/';
 
 const steps = [
   {
-    label: 'Welcome to Risky Code',
+    label: 'welcome to risky code',
     description: `Risky Code is an interactive digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.`,
   },
   {
-    label: 'Indicate user type',
+    label: 'indicate user type',
     description: 'Risky Code is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly. Please indicate how you intend to use Risky Code.',
   },
   {
-    label: 'Create an ad',
+    label: 'user interface orientation',
     description: `Try out different ad text to see what brings in the most customers,
               and learn how to enhance your ads using features like ad extensions.
               If you run into any problems with your ads, find out how to tell if
@@ -98,24 +98,18 @@ export default function Orientation({user, updateUser}) {
     }
 
   return (
-    <div className="Orientation">
+    <div className="Risky Code Orientation">
         <div className="Container Margin-Bottom">
-        <h2>risky code orientation</h2>
+        <h3>orientation</h3>
             <Box sx={{ maxWidth: 400 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel
-                    optional={
-                        index === 2 ? (
-                        <Typography variant="caption">Last step</Typography>
-                        ) : null
-                    }
-                    >
-                    {step.label}
+                    <StepLabel>
+                    <h4 className="Small-Margin">{step.label}</h4>
                     </StepLabel>
                     <StepContent>
-                        <Typography >{step.description}</Typography>
+                        <p>{step.description}</p>
                         <Box sx={{ mb: 2 }}>
                             <div>
                             <Button
@@ -144,7 +138,7 @@ export default function Orientation({user, updateUser}) {
             </Stepper>
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
-                <Typography>All steps completed - you&apos;re finished</Typography>
+                    <p>Let's get started!</p>
                 <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
                     next
                 </Button>
