@@ -128,6 +128,8 @@ export default function Orientation({user, updateUser}) {
                             </Button>
                             <Button
                                 size="small"
+                                variant="outlined" 
+                                color="secondary"
                                 disabled={index === 0}
                                 onClick={handleBack}
                                 sx={{ mt: 1, mr: 1 }}
@@ -143,8 +145,8 @@ export default function Orientation({user, updateUser}) {
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                 <Typography>All steps completed - you&apos;re finished</Typography>
-                <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }}>
-                    reset
+                <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
+                    next
                 </Button>
                 </Paper>
             )}
