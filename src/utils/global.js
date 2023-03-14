@@ -419,5 +419,9 @@ export const terms = {
     "outcome-variable": {
         "title": "outcome variable",
         "definition": "The variable that is being predicted by a predictive model."
+    },
+    "proxy-variable": {
+        "title": "proxy variable",
+        "definition": "A variable that is used as a proxy for another variable. For example, to arrests is often used as a proxy for reoffense."
     }
 }

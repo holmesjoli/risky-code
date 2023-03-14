@@ -19,7 +19,7 @@ let chartIdWhite = "COMPAS-Chart-White";
 let textIdBlack = "COMPAS-text-Black";
 let textIdWhite = "COMPAS-text-White";
 let width = 550;
-let height = 250;
+let height = 225;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 
 const xScale = d3.scaleLinear()
@@ -218,18 +218,18 @@ export function Content() {
                     <div className="Container">
                         <h3>the compas algorithm's recidivism predictions</h3>
                         <div>
-                            <h4>black</h4>
+                            <h4 className="Small-Margin">black</h4>
                             <div className="One-Column-Three3">
-                                <div id={chartIdBlack} className="Card-Group"></div>
+                                <div id={chartIdBlack}></div>
                                 <div>
                                     <div id={textIdBlack} className="Card-Group"></div>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <h4>white</h4>
+                            <h4 className="Small-Margin Margin-Top">white</h4>
                             <div className="One-Column-Three3">
-                                <div id={chartIdWhite} className="Card-Group"></div>
+                                <div id={chartIdWhite}></div>
                                 <div>
                                     <div id={textIdWhite} className="Card-Group"></div>
                                 </div>
@@ -268,7 +268,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                 <div className="Container-Fill-Secondary">
                     <div className="Two-Column-Three">
                         <div>
-                            <h2 className="Page-Title">reflect</h2>
+                            <h3 className="Page-Title">reflect</h3>
                             <div className="Card-Group">
                                 {/* <h3>laundry rules</h3> */}
                             </div>

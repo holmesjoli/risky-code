@@ -165,7 +165,7 @@ const Column = ({ children, className, title, nClassified }) => {
       >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
           {children.length === 0 ? <p className="Instructions Opacity">{instructions}</p>: children}
-          <h5 className="Small-Margin">{className === "Text-Align-Center item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
+          <h5 className="Small-Margin Semi-Bold">{className === "Text-Align-Center item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
     </div>
   );

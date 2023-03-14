@@ -75,9 +75,9 @@ export default function Optimize({config, user, variables, setVariables, items, 
                 <div className="Container-Fill-Secondary">
                     <div className="Two-Column-Three">
                         <div>
-                            <h2 className="Page-Title">reflect</h2>
+                            <h3 className="Page-Title">reflect</h3>
                             <div className="Card-Group">
-                                <h3>laundry rules</h3>
+                                <h4>laundry rules</h4>
                                 <p>{rules.rule1}</p>
                                 <p>{rules.rule2}</p>
                                 <p>{rules.rule3}</p>

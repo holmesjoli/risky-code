@@ -440,7 +440,7 @@ export default function StakeholderMapping({config, user, disableDeliberationNex
     }
 
     const routeBack = () => {
-        let path = `/COMPAS`; 
+        let path = `/Health`; 
         navigate(path);
     }
 

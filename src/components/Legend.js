@@ -107,7 +107,7 @@ export function Points() {
         <div className="Container">
             <div className="Legend">
                 <h4 className="Small-Margin">legend</h4>
-                <h5 className="Small-Margin">predicted</h5>
+                <h5 className="Small-Margin">Predicted</h5>
                 <div id='Legend-Visualization'></div>
             </div>
         </div>

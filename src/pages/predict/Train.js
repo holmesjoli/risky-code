@@ -65,7 +65,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                 <div className="Container-Fill-Secondary">
                     <div className="Two-Column-Three">
                         <div>
-                            <h2 className="Page-Title">pause</h2>
+                            <h3 className="Page-Title">pause</h3>
                             <div className="Card-Group">
                                 <p>Wow that took you awhile! Approximately 5 minutes and 21 seconds, seems like there is a more efficient way to do this.</p>
                                 <p>My friend told me about a new techology called Laundry AID (algorithmically informed decision-making) which automates the laundry sorting process.</p>

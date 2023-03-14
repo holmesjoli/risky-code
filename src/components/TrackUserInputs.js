@@ -9,7 +9,7 @@ export function PolicyScenario({policy, setPolicy}) {
     return(
         <div className="No-Margin-Bottom">
             <div className="Container">
-                <h3 className="Medium-Margin">policy scenario</h3>
+                <h4 className="Medium-Margin">policy scenario</h4>
                 <TextField placeholder="Add your policy scenario here" variant="outlined" multiline minRows={20} defaultValue={policy} onChange={updatePolicy}/>
             </div>
         </div>
@@ -24,7 +24,7 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
 
     return(
         <div className="No-Margin-Bottom Card-Group">
-            <h3 className="Medium-Margin">conceptualize</h3>
+            <h4 className="Medium-Margin">conceptualize</h4>
             <p>{children}</p>
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>
@@ -51,7 +51,7 @@ export function LaundryRules({user, rules, setRules, children}) {
     return(
         <div>
             <div className="No-Margin-Bottom Container">
-                <h3 className="Medium-Margin">conceptualize</h3>
+                <h4 className="Medium-Margin">conceptualize</h4>
                 {children}
                 <div className="Margin-Bottom">
                     <TextField placeholder="add rule" variant="outlined" onChange={updateRule1} defaultValue={rules.rule1}/>
@@ -72,7 +72,7 @@ export function Consequence({margin}) {
     return(
         <div className={"Consequence " + margin}>
             <div className="Container">
-                <h3 className="Medium-Margin">consequences</h3>
+                <h4 className="Medium-Margin">consequences</h4>
                 <TextField placeholder="Write a reflection on the consequences (positive and negative) of using this algorithm in this policy setting" variant="outlined" multiline minRows={12} />
             </div>
         </div>
