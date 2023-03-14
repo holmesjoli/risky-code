@@ -146,10 +146,10 @@ export const navigationData = [
         "navLink": "/StreetBump"
     }, 
     {
-        "name": "COMPAS",
-        "id": "compas",
+        "name": "Health",
+        "id": "health",
         "size": "Small",
-        "navLink": "/COMPAS"
+        "navLink": "/Health"
     }, {
         "name": "Deliberation",
         "id": "deliberation",
