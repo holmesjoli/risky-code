@@ -71,6 +71,11 @@ export const config = {
         "id": "street",
         "title": "street bump",
         "subtitle": "learn about the street bump application"
+    },
+    "Health": {
+        "id": "health",
+        "title": "health",
+        "subtitle": "learn about the street bump application"
     }
 }
 
@@ -109,7 +114,13 @@ export const navigationData = [
         "name": "Mathematical Fairness",
         "id": "fairness",
         "size": "Large",
-        "navLink": "/Calibration"
+        "navLink": "/COMPAS"
+    },
+    {
+        "name": "COMPAS",
+        "id": "compas",
+        "size": "small",
+        "navLink": "/COMPAS"
     },
     {
         "name": "Calibration",

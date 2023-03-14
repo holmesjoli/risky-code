@@ -55,7 +55,7 @@ export default function Optimize({config, user, variables, setVariables, items, 
 
     let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/Calibration`; 
+      let path = `/COMPAS`; 
       navigate(path);
     }
 

@@ -185,7 +185,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
     }
 
     const routeBack = () => {
-      let path = `/Train`; 
+      let path = `/Optimize`; 
       navigate(path);
     }
 
