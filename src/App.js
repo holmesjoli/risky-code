@@ -3,7 +3,6 @@ import {
     Route,
     HashRouter,
   } from "react-router-dom";
-import Introduction from "./pages/Introduction";
 import Orientation from "./pages/Orientation";
 import Classify from "./pages/predict/Classify";
 import Train from "./pages/predict/Train";
@@ -52,7 +51,6 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/Orientation" element={<Orientation user={user} updateUser={updateUser}/>} />
-          <Route path="/Introduction" element={<Introduction config={config.Introduction} modules={modules}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext} setItems={setItems} modules={modules} setModules={setModules} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules}/>} />
