@@ -51,7 +51,7 @@ export default function Orientation({user, updateUser}) {
                     <FormControlLabel value="group" control={<Radio />} label="Group" />
                     <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                 </RadioGroup>   
-                {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen. Great, let's get started! Click <span className="Emphasis">Next</span> to begin.</p>:<p>Welcome, we're happing you're here! Click <span className="Emphasis">Next</span> to begin.</p>}
+                {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen. </p>:<></>}
             </div>
         )
     }
@@ -79,7 +79,7 @@ export default function Orientation({user, updateUser}) {
       },
       {
         label: 'indicate user type',
-        description: 'Risky Code is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly. Please indicate how you intend to use Risky Code.',
+        description: 'Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly. Please indicate how you intend to use Risky Code.',
         children: userGroup(user, setUser)
       },
       {
