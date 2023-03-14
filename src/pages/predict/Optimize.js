@@ -29,7 +29,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
     return(
         <div className="Content No-Padding-Top">
             <div>
-                <h3>interact</h3>
+                <h3 className="Small-Margin">interact</h3>
                 <div className="Three-Column">
                     <div>
                         <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
