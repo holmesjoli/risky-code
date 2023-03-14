@@ -141,14 +141,33 @@ function Information() {
     )
 }
 
-function ImpossibilityTheorem({baseRatesBrainstorm, setBaseRatesBrainstorm}) {
+function ImpossibilityTheorem({user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm}) {
     // select one
     return(
         <div>
             <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-            <p><NavLink to="/Resources">Chouldechova's (2017) </NavLink>research demonstrates that it is impossible to meet multiple definitions of mathematical fairness if there are discrepancies in the underlying base rates in a population.</p>
-            <p>Population base rate is XX</p>
-            <p>Brainstorm why the base rate between different races may differ in the space below</p>
+                <p><NavLink to="/Resources">Chouldechova's (2017) </NavLink>research demonstrates that it is impossible to meet multiple definitions of mathematical fairness if there are discrepancies in the underlying base rates in a population.</p>
+                <p>Population base rate is XX</p>
+                <p>Brainstorm why the base rate between different races may differ in the space below</p>
+                <div>
+                <div className="chart" id={chartId}></div>
+                <h6 className="Small-Margin-Top">Visualization shows twenty definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Purple nodes indicate which definitions of mathematical fairness are reviewed in the next module.</h6>
+                <div className="Card-Group">
+                    <h4>learn</h4>
+                    <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
+                </div>
+                <div className="Card-Group">
+                    <h4>consider</h4>
+                    <p>Have you heard of any of these definitions before?</p>
+                    <p>Have you used or come across any of these definitions in your work before?</p>
+                </div>
+
+                <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
+                        <p>Have you heard of any of these definitions before?</p>
+                        <p>Have you used or come across any of these definitions in your work before?</p>
+                    </Timer>
+                {/* {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>} */}
+            </div>
             </BaseRates>
         </div>
     )
@@ -196,13 +215,13 @@ function Model() {
     )
 }
 
-export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm}) {
+export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext}) {
     return(
         <div className="Content No-Padding-Top">
             <h3>learn</h3>
             <div className="Three-Column">
                 <Model/>
-                <ImpossibilityTheorem baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}/>
+                <ImpossibilityTheorem baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
                 <Information/>
             </div>
         </div>
@@ -243,22 +262,22 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
+                <h3 className="Page-Title Center">introduction to mathematical fairness</h3>
                     <div className="Two-Column-Three">
                         <div>
-                            <h3 className="Page-Title Center">introduction to mathematical fairness</h3>
-                            <div className="chart" id={chartId}></div>
-                            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of mathematical fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Purple nodes indicate which definitions of mathematical fairness are reviewed in the next module.</h6>
+
                         </div>
                         <RightSideBar>
                             <div className="Card-Group">
-                                <h4>learn</h4>
-                                <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p>
+                                <h4 className="Small-Margin">role: data scientist</h4>
+                                <p>Over the next module, <span className="Emphasis">Mathematical Fairness</span> you will assume the role of a data scientist.</p>
                             </div>
-                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
-                                <p>Have you heard of any of these definitions before?</p>
-                                <p>Have you used or come across any of these definitions in your work before?</p>
-                            </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>}
+                            <div className="Card-Group">
+                                <h4 className="Small-Margin">learn</h4>
+                                <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p>
+                                <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
+                            </div>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -282,7 +301,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}/>
+            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext}/>
             <RightSideBar>
                 <Progress id={id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>

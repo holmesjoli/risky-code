@@ -12,7 +12,7 @@ import { Terminology, Term } from "../components/Sidebar";
 import { terms } from '../utils/global';
 import Progress from "../components/Progress";
 
-export default function Orientation({user, updateUser}) {
+export default function Orientation({user, updateUser, type}) {
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
 
@@ -42,7 +42,6 @@ export default function Orientation({user, updateUser}) {
             <div>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
-                    // defaultValue="group"
                     name="radio-buttons-group"
                     onChange={setUser}
                     value={user}
@@ -52,6 +51,22 @@ export default function Orientation({user, updateUser}) {
                     <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                 </RadioGroup>   
                 {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen. </p>:<></>}
+            </div>
+        )
+    }
+
+    const role = (type) => {
+
+        return(
+            <div>
+                <p>Risky Code contains four modules <span className="Emphasis">Algorithmic Prediction</span>, <span className="Emphasis">Algorithmic Fairness</span>, <span className="Emphasis">Case Studies</span>, and <span className="Emphasis">Deliberation</span>. In each of these modules {type}</p>
+                <ul>
+                    <li><span className="Semi-Bold">Algorithmic Prediction</span> — <span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making</li>
+                    <li><span className="Semi-Bold">Algorithmic Fairness</span> — A socially aware <span className="Emphasis">data scientist</span>.</li>
+                    <li><span className="Semi-Bold">Case Studies</span> — A socially aware <span className="Emphasis">designer</span> interested in bring design methods to algorithmic decision-making.</li>
+                    <li><span className="Semi-Bold">Deliberation</span> — A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</li>
+                </ul>
+                <p>Don't worry you won't have to remember these roles!</p>
             </div>
         )
     }
@@ -83,8 +98,9 @@ export default function Orientation({user, updateUser}) {
         children: userGroup(user, setUser)
       },
       {
-        label: 'modules',
-        description: `Risky Code contains four modules Predict, Fairness, Case Studies, Deliberation.`
+        label: 'role',
+        description: ``,
+        children: role(type)
       },
       {
         label: 'user interface orientation | terminology',

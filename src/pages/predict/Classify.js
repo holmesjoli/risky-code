@@ -140,7 +140,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
     }
 
     const routeBack = () => {
-      let path = `/Introduction`; 
+      let path = `/Orientation`; 
       navigate(path);
     }
 
@@ -162,7 +162,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                 <Overlay isOpen={isOpen} onClose={toggleOverlay}>
                 <div className="Containers-Container">
                     <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title Small-Margin">introduction to algorithmic decision-making</h3>
+                    <h3 className="Page-Title Small-Margin">introduction to algorithmic predicition</h3>
                         <div className="Two-Column-Three">
                             <div>
                                 <div className="Card-Group">
@@ -176,9 +176,8 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                             </div>
                             <RightSideBar>
                                 <div className="Card-Group">
-                                    <h4 className="Small-Margin">learn</h4>
-                                    <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p>
-                                    <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
+                                    <h4 className="Small-Margin">role: you</h4>
+                                    <p>Over the next module, <span className="Emphasis">Algorithmic Prediction</span> you will assume the role of a you, a busy individual who is interested in learning more about algorithmic decision-making.</p>
                                 </div>
                                 <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
                                     <p>How do you define the term algorithm?</p>
