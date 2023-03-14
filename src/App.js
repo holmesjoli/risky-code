@@ -38,6 +38,7 @@ export default function App() {
     const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disablePredictionNext2, setDisablePredictionNext2] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
+    const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);
     const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
 
@@ -54,7 +55,7 @@ export default function App() {
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
-          <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
+          <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS}  modules={modules}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} disableCaseStudyNext={disableCaseStudyNext} setDisableCaseStudyNext={setDisableCaseStudyNext} modules={modules}/>} />
           <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />

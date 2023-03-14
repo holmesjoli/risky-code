@@ -5,11 +5,12 @@ import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
-import { BackButton, NextButton } from '../../components/Button';
+import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
-import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
 import { Points } from "../../components/Legend";
+import Overlay from "../../components/Overlay";
+import Timer from "../../components/Timer";
 
 import data from "../../data/processed/error.json";
 
@@ -241,9 +242,10 @@ export function Content() {
     )
 }
 
-export default function Error({config, modules}) {
+export default function Error({config, modules, user, disableFairnessNext2, setDisableFairnessNext2}) {
 
     let navigate = useNavigate();
+    const [isOpen, setIsOpen] = useState(false);
 
     const routeNext = () => {
         let path = `/StreetBump`; 
@@ -255,8 +257,37 @@ export default function Error({config, modules}) {
         navigate(path);
     }
 
+    const toggleOverlay = () => {
+        setIsOpen(!isOpen);
+    };
+
     return (
-        <div className="App">
+        <div className="App">{isOpen ?
+            <Overlay isOpen={isOpen} onClose={toggleOverlay}>
+            <div className="Containers-Container">
+                <div className="Container-Fill-Secondary">
+                    <div className="Two-Column-Three">
+                        <div>
+                            <h2 className="Page-Title">reflect</h2>
+                            <div className="Card-Group">
+                                <h3>laundry rules</h3>
+                            </div>
+                        </div>
+                        <RightSideBar>
+                            <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2}>
+                                <p>Would you collect any other variables to use in the statistical model?</p>
+                                <p>Were there any rules that didn't fit the statistical model was not able to accomodate?</p>
+                                {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
+                                <p>What are the consequences of when Laundry AID made an incorrect prediction?</p>
+                            </Timer>
+                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext}/>: <></>}
+                        </RightSideBar>
+                    </div>
+                </div>
+            </div>
+        </Overlay>:
+        <></>
+        }
             <Header/>
             <div className="Main">
                 <LeftSideBar>
@@ -274,7 +305,7 @@ export default function Error({config, modules}) {
                 <Content />
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                    <NextButton routeNext={routeNext}/>
+                    <NextButton routeNext={toggleOverlay}/>
                 </RightSideBar>
             </div>
             <Footer/>

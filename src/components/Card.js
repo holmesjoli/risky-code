@@ -48,7 +48,6 @@ export default function Card({items, variables, addIncorrect, predictiveProbabil
                     return predictedCorrectly!== undefined ? addClass(column) + " Card Card-Flat" + " " + addPredicted(predictedCorrectly): "";
                 });
             }
-
         } else {
             d3.selectAll(".predicted")
                 .text("");

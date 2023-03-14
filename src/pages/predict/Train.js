@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -79,36 +79,36 @@ export default function Train({config, variables, setVariables, items, setItems,
         </Overlay>:
         <></>
         }
-            <Header/>
-            <div className="Main">
-                <LeftSideBar>
-                    <Description config={config}>
-                        <p>On this page, we will train a predictive model, Laundry AID, to guess if an item should belong in the hot water load according to your classification.</p>
-                        <p>A predictive model is a computational interpretation of an algorithm's rules. Here are the rules you defined in the last module:</p>
-                        <ul className="Margin-Bottom">
-                            <li className="Emphasis">{rules.rule1}</li>
-                            <li className="Emphasis">{rules.rule2}</li>
-                            <li className="Emphasis">{rules.rule3}</li>
-                        </ul>
-                        <p>To train Laundry AID, drag one or more data variables from the variable list to the model list. This will automatically run a statistical model to predict the results.</p>
-                        <p>Add or remove variables from the model to see how the predictive probabilities change.</p>
-                    </Description>
-                    <Terminology margin="Margin-Large-Bottom">
-                        <Term term={terms['algorithm']}/>
-                        <Term term={terms['data-variable']}/>
-                        <Term term={terms['model-variable']}/>
-                        <Term term={terms['predictive-model']}/>
-                        <Term term={terms['predictive-probability']}/>
-                    </Terminology>
-                    <BackButton routeBack={routeBack}/>
-                </LeftSideBar>
-                <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
-                <RightSideBar>
-                    <Progress id={config.id} modules={modules}/>
-                    <NextButton routeNext={routeNext}/>
-                </RightSideBar>
-            </div>
-            <Footer/>
+        <Header/>
+        <div className="Main">
+            <LeftSideBar>
+                <Description config={config}>
+                    <p>On this page, we will train a predictive model, Laundry AID, to guess if an item should belong in the hot water load according to your classification.</p>
+                    <p>A predictive model is a computational interpretation of an algorithm's rules. Here are the rules you defined in the last module:</p>
+                    <ul className="Margin-Bottom">
+                        <li className="Emphasis">{rules.rule1}</li>
+                        <li className="Emphasis">{rules.rule2}</li>
+                        <li className="Emphasis">{rules.rule3}</li>
+                    </ul>
+                    <p>To train Laundry AID, drag one or more data variables from the variable list to the model list. This will automatically run a statistical model to predict the results.</p>
+                    <p>Add or remove variables from the model to see how the predictive probabilities change.</p>
+                </Description>
+                <Terminology margin="Margin-Large-Bottom">
+                    <Term term={terms['algorithm']}/>
+                    <Term term={terms['data-variable']}/>
+                    <Term term={terms['model-variable']}/>
+                    <Term term={terms['predictive-model']}/>
+                    <Term term={terms['predictive-probability']}/>
+                </Terminology>
+                <BackButton routeBack={routeBack}/>
+            </LeftSideBar>
+            <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
+            <RightSideBar>
+                <Progress id={config.id} modules={modules}/>
+                <NextButton routeNext={routeNext}/>
+            </RightSideBar>
         </div>
+        <Footer/>
+    </div>
     )
 }
