@@ -67,14 +67,12 @@ export default function Train({config, variables, setVariables, items, setItems,
                         <div>
                             <h2 className="Page-Title">pause</h2>
                             <div className="Card-Group">
-                                <h3>laundry aid</h3>
-                                <p>Sorting laundry takes a lot of time, I would if there's an easier way to do it?</p>
-                                <p>My friend told me about a new techology called Laundry AID (algorithmically informed decision-making) which automates the sorting process.</p>
+                                <p>Wow that took you awhile! Approximately 5 minutes and 21 seconds, seems like there is a more efficient way to do this.</p>
+                                <p>My friend told me about a new techology called Laundry AID (algorithmically informed decision-making) which automates the laundry sorting process.</p>
+                                <p>Laundry AID needs to be trained to your laundry preferences, but its easy to do! Once you set-up Laundry AID, you'll never have to sort laundry again.</p>
                             </div>
+                            {toggleOverlay? <NextButtonOverlay toggleOverlay={toggleOverlay} label={"try laundry aid"}/>: <></>}
                         </div>
-                        <RightSideBar>
-                            {toggleOverlay? <NextButtonOverlay toggleOverlay={toggleOverlay}/>: <></>}
-                        </RightSideBar>
                     </div>
                 </div>
             </div>

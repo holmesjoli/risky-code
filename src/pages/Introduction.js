@@ -29,8 +29,6 @@ export function Content() {
             <div>
                 <div className="Container">
                     <h3 className="Medium-Margin">learn</h3>
-                    <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <em>Machine Bias</em>. The article accused Equivant (formerly Northepointe), the developer of COMPAS, a recidivism algorithm, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. The article sparked passionate discourse across industries and disciplines — journalists, lawyers, data scientists, and mathematicians — resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
-                    <p>However, the discourse did not result in a consensus supporting claims made by the authors of Machine Bias or a complete vindication of Equivant. Instead, it sparked several new questions enshroud with complexity about algorithmically informed decision-making — what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
                     <p>Hover over nodes on the visualization to the left to explore different examples where algorithmically informed decision-making is currently in use in public policy.</p>
                 </div>
             </div>
@@ -52,7 +50,9 @@ export default function Introduction({config, modules}) {
             <div className="Main">
                 <LeftSideBar>
                 <Description config={config}>
-                    <p>Welcome to Risky Code, an interactive digital toolkit. Risky Code contains four modules meant to inform and to facilitate deliberation about algorithmically informed decision-making.</p>
+                    <p>Welcome to <span className="Emphasis">Risky Code</span>, an interactive digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.</p>
+                    <p><span className="Emphasis">Risky Code</span> contains four modules <span className="Emphasis">Predict</span>, <span className="Emphasis">Fairness</span>, <span className="Emphasis">Case Studies</span>, <span className="Emphasis">Deliberation</span>.</p>
+                    <p>When you're ready, click <span className="Emphasis">Next</span> to get started.</p>
                 </Description>
                     <Terminology defaultExpanded={true}>
                         <Term term={terms.aidm}></Term>

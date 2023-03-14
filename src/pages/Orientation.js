@@ -26,8 +26,9 @@ export default function Orientation({user, updateUser}) {
         <div className="Orientation">
             <div className="Container Margin-Bottom">
                 <FormControl>
-                <h3>risky code orientation</h3>
-                <p className="Margin-Bottom">Risky Code is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly.</p>
+                <h2>risky code orientation</h2>
+                <h3>welcome to <span className="Emphasis">risky code</span></h3>
+                <p className="Margin-Bottom"><span className="Emphasis">Risky Code</span> is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try <span className="Emphasis">Risky Code</span>, the experience is designed to differ slightly.</p>
                 {/* <div className="Card-Group"> */}
                     <h4 className="No-Margin-Bottom">indicate how you intend to use risky code</h4>
                     <RadioGroup
