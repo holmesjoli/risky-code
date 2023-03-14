@@ -111,13 +111,13 @@ function initNetwork() {
     transitionHighlight();
 }
 
-export function Content({items, setItems, nClassified, setNClassified, setDisabled, user, rules, setRules}) {
+export function Content({items, setItems, nClassified, setNClassified, setDisabled, user, rules, setRules, name}) {
 
     return(
         <div className="Content No-Padding-Top">
             <div className="One-Column-Three">
                 <LaundryRules user={user} rules={rules} setRules={setRules}>
-                    {user==="group"? <p>Group facilitator, consult your group and come up with a set of rules to sort your laundry.</p>:<p>What are some rules you use to sort your laundry?</p>}
+                    {user==="group"? <p>{name} consult your group and come up with a set of rules to sort your laundry.</p>:<p>What are some rules you use to sort your laundry?</p>}
                 </LaundryRules>
                 <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
             </div>
@@ -125,7 +125,7 @@ export function Content({items, setItems, nClassified, setNClassified, setDisabl
     )
 }
 
-export default function Classify({config, user, disablePredictionNext, setDisablePredictionNext, items, setItems, modules, algorithmDefinition, setAlgorithmDefinition, rules, setRules}) {
+export default function Classify({config, user, disablePredictionNext, setDisablePredictionNext, items, setItems, modules, algorithmDefinition, setAlgorithmDefinition, rules, setRules, name}) {
 
     const [id, setId] = useState("predict");
     const [isOpen, setIsOpen] = useState(true);
@@ -202,7 +202,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules}/>
+                <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name}/>
                 <RightSideBar>
                     <Progress id={id} modules={modules}/>
                     <NextButton routeNext={routeNext} disabled={disabled}/>

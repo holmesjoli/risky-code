@@ -61,21 +61,22 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
                         <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                     </RadioGroup>   
                 </div>
-                {/* {user === "group"?
+                {user === "group"?
                 <div>
                     <div className="Card-Group">
-                        <p className="Small-Margin">Please identify a group faciliator who will navigate the application. </p>
+                        <p className="Small-Margin">Identify a group faciliator who will navigate the application. </p>
                         <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
-                        {{name} !== "" ? <p className="Margin-Top No-Margin-Bottom">Please share your screen.</p>: <p className="Margin-Top No-Margin-Bottom">{name}, please share your screen.</p>}
+                        <p className="Margin-Top No-Margin-Bottom"><span className="Emphasis">{name}</span>, please share your screen with your team.</p>
                     </div>
-                    <div className="Card-Group">
+                    {/* <div className="Card-Group">
                         <p className="Small-Margin">{name}, does your team have a team name?</p>
                         <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
-                    </div>
+                    </div> */}
                 </div>:
                 <div>
-                    <p className="Margin-Top">Welcome {}</p>
-                </div>} */}
+                    <TextField placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
+                    <p className="Margin-Top">Welcome,<span className="Emphasis"> {name}!</span> We're glad you're here.</p>
+                </div>}
             </div>
         )
     }
