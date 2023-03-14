@@ -93,7 +93,7 @@ export default function Orientation({user, updateUser}) {
     }
 
     const routeNext = () => {
-        let path = `/Introduction`;
+        let path = `/Classify`;
         navigate(path);
     }
 
@@ -115,25 +115,27 @@ export default function Orientation({user, updateUser}) {
                     {step.label}
                     </StepLabel>
                     <StepContent>
-                    <Typography>{step.description}</Typography>
-                    <Box sx={{ mb: 2 }}>
-                        <div>
-                        <Button
-                            variant="contained"
-                            onClick={handleNext}
-                            sx={{ mt: 1, mr: 1 }}
-                        >
-                            {index === steps.length - 1 ? 'finish' : 'continue'}
-                        </Button>
-                        <Button
-                            disabled={index === 0}
-                            onClick={handleBack}
-                            sx={{ mt: 1, mr: 1 }}
-                        >
-                            back
-                        </Button>
-                        </div>
-                    </Box>
+                        <Typography >{step.description}</Typography>
+                        <Box sx={{ mb: 2 }}>
+                            <div>
+                            <Button
+                                variant="contained"
+                                onClick={handleNext}
+                                size="small"
+                                sx={{ mt: 1, mr: 1 }}
+                            >
+                                {index === steps.length - 1 ? 'finish' : 'continue'}
+                            </Button>
+                            <Button
+                                size="small"
+                                disabled={index === 0}
+                                onClick={handleBack}
+                                sx={{ mt: 1, mr: 1 }}
+                            >
+                                back
+                            </Button>
+                            </div>
+                        </Box>
                     </StepContent>
                 </Step>
                 ))}
@@ -141,7 +143,7 @@ export default function Orientation({user, updateUser}) {
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                 <Typography>All steps completed - you&apos;re finished</Typography>
-                <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+                <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }}>
                     reset
                 </Button>
                 </Paper>
