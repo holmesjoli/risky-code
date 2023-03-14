@@ -1,10 +1,6 @@
 import * as d3 from 'd3';
 
 export const config = {
-    "Introduction": {
-        "id": "introduction",
-        "title": "introduction"
-    },
     "About": {
         "id": "about",
         "title": "about",
@@ -80,12 +76,6 @@ export const config = {
 }
 
 export const navigationData = [ 
-    {
-        "name": "Introduction",
-        "id": "introduction",
-        "size": "Large",
-        "navLink": "/Introduction"
-    },
     {
         "name": "Predict",
         "id": "predict",
