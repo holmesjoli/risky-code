@@ -64,12 +64,13 @@ const steps = [
     description: 'Risky Code is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly. Please indicate how you intend to use Risky Code.',
   },
   {
-    label: 'user interface orientation',
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
+    label: 'user interface orientation | terminology',
+    description: `In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.`,
   },
+  {
+    label: 'user interface orientation | progress',
+    description: `In the right sidebar you will dind a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.`,
+  }
 ];
 
 export default function Orientation({user, updateUser}) {
@@ -97,6 +98,25 @@ export default function Orientation({user, updateUser}) {
         navigate(path);
     }
 
+    const userGroup = () => {
+        return(
+            <div>
+                <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    // defaultValue="group"
+                    name="radio-buttons-group"
+                    onChange={setUser}
+                    value={user}
+                    className="Margin"
+                >
+                    <FormControlLabel value="group" control={<Radio />} label="Group" />
+                    <FormControlLabel value="individual" control={<Radio />} label="Individual" />
+                </RadioGroup>   
+                {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen. Great, let's get started! Click <span className="Emphasis">Next</span> to begin.</p>:<p>Welcome, we're happing you're here! Click <span className="Emphasis">Next</span> to begin.</p>}
+            </div>
+        )
+    }
+
   return (
     <div className="Risky Code Orientation">
         <div className="Container Margin-Bottom">
@@ -110,26 +130,40 @@ export default function Orientation({user, updateUser}) {
                     </StepLabel>
                     <StepContent>
                         <p>{step.description}</p>
+                        <div>
+                            <RadioGroup
+                                aria-labelledby="demo-radio-buttons-group-label"
+                                // defaultValue="group"
+                                name="radio-buttons-group"
+                                onChange={setUser}
+                                value={user}
+                                className="Margin"
+                            >
+                                <FormControlLabel value="group" control={<Radio />} label="Group" />
+                                <FormControlLabel value="individual" control={<Radio />} label="Individual" />
+                            </RadioGroup>   
+                            {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen.</p>:<></>}
+                        </div>
                         <Box sx={{ mb: 2 }}>
-                            <div>
-                            <Button
-                                variant="contained"
-                                onClick={handleNext}
-                                size="small"
-                                sx={{ mt: 1, mr: 1 }}
-                            >
-                                {index === steps.length - 1 ? 'finish' : 'continue'}
-                            </Button>
-                            <Button
-                                size="small"
-                                variant="outlined" 
-                                color="secondary"
-                                disabled={index === 0}
-                                onClick={handleBack}
-                                sx={{ mt: 1, mr: 1 }}
-                            >
-                                back
-                            </Button>
+                            <div className="Row">
+                                <Button
+                                    size="small"
+                                    variant="outlined" 
+                                    color="secondary"
+                                    disabled={index === 0}
+                                    onClick={handleBack}
+                                    sx={{ mt: 1, mr: 1 }}
+                                >
+                                    back
+                                </Button>
+                                <Button
+                                    variant="contained"
+                                    onClick={handleNext}
+                                    size="small"
+                                    sx={{ mt: 1, mr: 1 }}
+                                >
+                                    {index === steps.length - 1 ? 'finish' : 'continue'}
+                                </Button>
                             </div>
                         </Box>
                     </StepContent>
@@ -139,9 +173,9 @@ export default function Orientation({user, updateUser}) {
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                     <p>Let's get started!</p>
-                <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                    next
-                </Button>
+                    <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
+                        next
+                    </Button>
                 </Paper>
             )}
             </Box>
