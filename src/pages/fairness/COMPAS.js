@@ -170,14 +170,11 @@ function Model() {
                 <Tooltip title="Farents separateed">
                     <div className="Variable-Flat">parents separated</div>
                 </Tooltip>
-                <Tooltip title="Father, mother, sister, brother ever arrested and was your father or mother ever arrested">
-                    <div className="Variable-Flat">family members incarceration</div>
+                <Tooltip title="Father, mother, sister, brother, or friend ever arrested and was your father or mother ever arrested">
+                    <div className="Variable-Flat">family and friend incarceration</div>
                 </Tooltip>
                 <Tooltip title="Parent or parential figure drug or alcohol problem">
                     <div className="Variable-Flat">family member substance abuse</div>
-                </Tooltip>
-                <Tooltip title="Friend or acquaintance arrested or incarcerated">
-                    <div className="Variable-Flat">friend incarceration</div>
                 </Tooltip>
                 <Tooltip title="Completion of a high school education or GED">
                     <div className="Variable-Flat">high school education/ged</div>
