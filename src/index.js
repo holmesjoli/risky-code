@@ -117,6 +117,13 @@ const theme = createTheme({
         width: "100%"
       }
     },
+    MuiInputBase: {
+      input: {
+        fontSize: 13,
+        padding: "14px",
+        lineHeight: 1.3
+      }
+    },
     MuiOutlinedInput: {
       root: {
         borderRadius: ".25rem"

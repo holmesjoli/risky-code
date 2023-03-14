@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-import { FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { FormControl, RadioGroup, FormControlLabel, Radio, TextField } from '@material-ui/core';
 import * as React from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
@@ -12,7 +12,7 @@ import { Terminology, Term } from "../components/Sidebar";
 import { terms } from '../utils/global';
 import Progress from "../components/Progress";
 
-export default function Orientation({user, updateUser, type}) {
+export default function Orientation({user, setUser, type, name, setName, groupName, setGroupName}) {
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
 
@@ -28,8 +28,8 @@ export default function Orientation({user, updateUser, type}) {
         setActiveStep(0);
     };
 
-    const setUser = ev => {
-        updateUser(ev.target.value);
+    const updateUser = ev => {
+        setUser(ev.target.value);
     }
 
     const routeNext = () => {
@@ -37,20 +37,45 @@ export default function Orientation({user, updateUser, type}) {
         navigate(path);
     }
 
-    const userGroup = (user, setUser) => {
+    const updateName = (event) => {
+        setName(event.target.value)
+    };
+
+    const updateGroupName = (event) => {
+        setGroupName(event.target.value)
+    };
+
+    const userGroup = (user, updateUser, name, setName, groupName, setGroupName) => {
         return(
             <div>
-                <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    name="radio-buttons-group"
-                    onChange={setUser}
-                    value={user}
-                    className="Margin"
-                >
-                    <FormControlLabel value="group" control={<Radio />} label="Group" />
-                    <FormControlLabel value="individual" control={<Radio />} label="Individual" />
-                </RadioGroup>   
-                {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen. </p>:<></>}
+                <div className="Card-Group">
+                    <p>Indicate how you intend to use Risky Code.</p>
+                    <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        name="radio-buttons-group"
+                        onChange={updateUser}
+                        value={user}
+                        className="No-Margin-Bottom"
+                    >
+                        <FormControlLabel value="group" control={<Radio />} label="Group" />
+                        <FormControlLabel value="individual" control={<Radio />} label="Individual" />
+                    </RadioGroup>   
+                </div>
+                {user === "group"?
+                <div>
+                    <div className="Card-Group">
+                        <p>Please identify a group faciliator who will navigate the application. </p>
+                        <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
+                        <p className="Margin-Top No-Margin-Bottom">{name}, please share your screen.</p>
+                    </div>
+                    <div className="Card-Group">
+                        <p>{name}, does your team have a team name?</p>
+                        <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
+                    </div>
+                </div>:
+                <div>
+                    <p className="Margin-Top">Welcome {}</p>
+                </div>}
             </div>
         )
     }
@@ -86,7 +111,7 @@ export default function Orientation({user, updateUser, type}) {
             <Progress id="Classify" modules={[]}/>
         )
     }
-    
+
     const steps = [
       {
         label: 'welcome to risky code',
@@ -94,8 +119,8 @@ export default function Orientation({user, updateUser, type}) {
       },
       {
         label: 'indicate user type',
-        description: 'Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly. Please indicate how you intend to use Risky Code.',
-        children: userGroup(user, setUser)
+        description: 'Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, however, the experience is designed to differ slightly.',
+        children: userGroup(user, setUser, name, setName, groupName, setGroupName)
       },
       {
         label: 'role',

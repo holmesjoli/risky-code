@@ -36,8 +36,10 @@ export default function App() {
     const [rules, setRules] = useState({"rule1": "",
                                         "rule2": "",
                                         "rule3": ""});
-    const [user, updateUser] = useState("group");
-    const [type, updateType] = useState("your group will assume a team of these roles.");
+    const [user, setUser] = useState("group");
+    const [name, setName] = useState("");
+    const [groupName, setGroupName] = useState("");
+    const [type, setType] = useState("your group will assume a team of these roles.");
     const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disablePredictionNext2, setDisablePredictionNext2] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
@@ -47,7 +49,7 @@ export default function App() {
 
     useEffect(() => {
       let t = user === "group"? "your group will assume a team of these roles." : "you will assume a different role.";
-      updateType(t);
+      setType(t);
     }, [user]);
 
     console.log(type)
@@ -57,7 +59,7 @@ export default function App() {
       <HashRouter>
         <Routes>
           <Route path="/" element={<Main/>} />
-          <Route path="/Orientation" element={<Orientation user={user} updateUser={updateUser} type={type}/>} />
+          <Route path="/Orientation" element={<Orientation user={user} setUser={setUser} type={type} name={name} setName={setName} groupName={groupName} setGroupName={setGroupName}/>} />
           <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext} setItems={setItems} modules={modules} setModules={setModules} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules}/>} />
