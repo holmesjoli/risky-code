@@ -13,6 +13,7 @@ import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../..
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Tooltip from '@material-ui/core/Tooltip';
 import { BaseRates } from "../../components/TrackUserInputs";
 
 let chartId = "Fairness-Chart";
@@ -160,15 +161,33 @@ function Model() {
             <div className="Text-Align-Center">
             <div className="Container Variables-Column Margin-Bottom">
                 <h4>model variables</h4>
-                <div className="Variable-Flat">moved frequently</div>
-                <div className="Variable-Flat">gang membership</div>
-                <div className="Variable-Flat">parents separated</div>
-                <div className="Variable-Flat">family members incarcerated</div>
-                <div className="Variable-Flat">family member substance abuse</div>
-                <div className="Variable-Flat">friend incarceration</div>
-                <div className="Variable-Flat">high school education/ged</div>
-                <div className="Variable-Flat">current employment</div>
-                <div className="Variable-Flat">age of first arrest</div>
+                <Tooltip title="Frequency of moving homes in the last twelve months">
+                    <div className="Variable-Flat">moved frequently</div>
+                </Tooltip>
+                <Tooltip title="Suspected or admitted gang membership or affiliation with gang members">
+                    <div className="Variable-Flat">gang membership</div>
+                </Tooltip>
+                <Tooltip title="Farents separateed">
+                    <div className="Variable-Flat">parents separated</div>
+                </Tooltip>
+                <Tooltip title="Father, mother, sister, brother ever arrested and was your father or mother ever arrested">
+                    <div className="Variable-Flat">family members incarceration</div>
+                </Tooltip>
+                <Tooltip title="Parent or parential figure drug or alcohol problem">
+                    <div className="Variable-Flat">family member substance abuse</div>
+                </Tooltip>
+                <Tooltip title="Friend or acquaintance arrested or incarcerated">
+                    <div className="Variable-Flat">friend incarceration</div>
+                </Tooltip>
+                <Tooltip title="Completion of a high school education or GED">
+                    <div className="Variable-Flat">high school education/ged</div>
+                </Tooltip>
+                <Tooltip title="Employment">
+                    <div className="Variable-Flat">current employment</div>
+                </Tooltip>
+                <Tooltip title="Age of first arrest">
+                    <div className="Variable-Flat">age of first arrest</div>
+                </Tooltip>
             </div>
             <ExpandMoreIcon className="Scale200"/>
             <div className="Container Margin-Bottom">
