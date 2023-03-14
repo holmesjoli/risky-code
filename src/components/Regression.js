@@ -14,7 +14,7 @@ var logistic = new LogisticRegression({
 
 export function Threshold({predictiveProbability, updateSlider}) {
     return(
-        <div className="Container Margin-Bottom">
+        <div className="Container Margin-Bottom Padding-Bottom Bottom-Rule">
             <h4 className="Small-Margin">decision threshold</h4>
             <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the hot water load.</p>
             <Slider
@@ -58,9 +58,9 @@ export function Accuracy({items, variables}) {
         <div className="Accuracy Container Hidden">
             <div className="Overlay-Controls">
                 <h4 className="Small-Margin">model accuracy</h4>
-                <InfoOutlinedIcon/>
+                {/* <InfoOutlinedIcon/> */}
             </div>
-            <div className="Accuracy-Percent Small-Margin"></div>
+            <h5 className="Accuracy-Percent Small-Margin No-Margin-Top Semi-Bold"></h5>
         </div>
     )
 }
@@ -73,9 +73,9 @@ export function PredictiveOutcomes() {
             <div className="Row">
                 <div className="Card-Flat Example-Card">
                     <img src={LaundryItem} alt="Dirty laundry item" />
-                    <div>.68</div>
+                    <h5 className="Semi-Bold">0.68</h5>
                 </div>
-                <p className="Margin-Left">This shirt has a 68% probability of belonging in the hot water load.</p>
+                <p className="Margin-Left">This shirt has a <span className="Semi-Bold">68%</span> probability of belonging in the hot water load.</p>
             </div>
         </div>
     )

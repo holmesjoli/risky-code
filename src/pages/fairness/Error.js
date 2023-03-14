@@ -274,14 +274,10 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                             </div>
                         </div>
                         <RightSideBar>
-                            <div className="Card-Group">
-                                <h4>learn</h4>
-                                <p></p>
-                            </div>
                             <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2}>
-                                <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
                                 <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
                                 <p>Can you think of any reasons why the data would be skewed?</p>
+                                <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext}/>: <></>}
                         </RightSideBar>

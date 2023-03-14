@@ -97,7 +97,7 @@ export const navigationData = [
         "id": "classify",
         "size": "Small",
         "navLink": "/Classify"
-    }, 
+    },
     {
         "name": "Train",
         "id": "train",
@@ -127,24 +127,25 @@ export const navigationData = [
         "id": "calibration",
         "size": "Small",
         "navLink": "/Calibration"
-    }, {
+    },
+    {
         "name": "Error Rates",
         "id": "error",
         "size": "Small",
         "navLink": "/Error"
-    }, 
+    },
     {
         "name": "Case Studies",
         "id": "cases",
         "size": "Large",
         "navLink": "/StreetBump"
-    }, 
+    },
     {
         "name": "Street Bump",
         "id": "street",
         "size": "Small",
         "navLink": "/StreetBump"
-    }, 
+    },
     {
         "name": "Health",
         "id": "health",
@@ -434,5 +435,9 @@ export const terms = {
     "proxy-variable": {
         "title": "proxy variable",
         "definition": "A variable that is used as a proxy for another variable. For example, to arrests is often used as a proxy for reoffense."
+    },
+    "population-base-rate": {
+        "title": "population base rare",
+        "definition": "TODO."
     }
 }

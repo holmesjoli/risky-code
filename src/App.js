@@ -32,6 +32,7 @@ export default function App() {
     const [modules, setModules] = useState([]);
     const [policy, setPolicy] = useState("");
     const [algorithmDefinition, setAlgorithmDefinition] = useState("");
+    const [baseRatesBrainstorm, setBaseRatesBrainstorm] = useState("");
     const [rules, setRules] = useState({"rule1": "",
                                         "rule2": "",
                                         "rule3": ""});
@@ -56,7 +57,7 @@ export default function App() {
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
-          <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}  modules={modules}/>}></Route>
+          <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} modules={modules}/>}></Route>
           <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} disableCaseStudyNext={disableCaseStudyNext} setDisableCaseStudyNext={setDisableCaseStudyNext} modules={modules}/>} />
           <Route path="/Health" element={<Health config={config.Health} modules={modules}/>} />

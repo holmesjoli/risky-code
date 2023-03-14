@@ -13,6 +13,7 @@ import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../..
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { BaseRates } from "../../components/TrackUserInputs";
 
 let chartId = "Fairness-Chart";
 
@@ -139,11 +140,23 @@ function Information() {
     )
 }
 
+function ImpossibilityTheorem({baseRatesBrainstorm, setBaseRatesBrainstorm}) {
+    // select one
+    return(
+        <div>
+            <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
+            <p><NavLink to="/Resources">Chouldechova's (2017) </NavLink>research demonstrates that it is impossible to meet multiple definitions of mathematical fairness if there are discrepancies in the underlying base rates in a population.</p>
+            <p>Population base rate is XX</p>
+            <p>Brainstorm why the base rate between different races may differ in the space below</p>
+            </BaseRates>
+        </div>
+    )
+}
+
 function Model() {
     return(
         <div>
-            <h3>learn</h3>
-            <p>ProPublic's research showed that the COMPAS recidivism algorithm used a 137 variables in their statistical model. Examples variables are visualized below.</p>
+            <p>ProPublic's research showed that the COMPAS recidivism algorithm used a 137 variables in their statistical model. Example variables are shown below.</p>
             <div className="Text-Align-Center">
             <div className="Container Variables-Column Margin-Bottom">
                 <h4>model variables</h4>
@@ -164,16 +177,20 @@ function Model() {
     )
 }
 
-export function Content() {
+export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm}) {
     return(
-        <div className="Content Three-Column No-Padding-Top">
-            <Model/>
-            <Information/>
+        <div className="Content No-Padding-Top">
+            <h3>learn</h3>
+            <div className="Three-Column">
+                <Model/>
+                <ImpossibilityTheorem baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}/>
+                <Information/>
+            </div>
         </div>
     )
 }
 
-export default function Calibration({config, user, disableFairnessNext, setDisableFairnessNext, modules}) {
+export default function COMPAS({config, user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("fairness");
@@ -240,12 +257,13 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
                 </Description>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['mathematical-fairness']}/>
+                    <Term term={terms['population-base-rate']}/>
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <Content/>
+            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}/>
             <RightSideBar>
                 <Progress id={id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>

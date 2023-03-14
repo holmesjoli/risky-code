@@ -31,6 +31,20 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
     )
 }
 
+export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children}) {
+
+    const updateBaseRates = (event) => {
+        setBaseRatesBrainstorm(event.target.value)
+    }
+
+    return(
+        <div className="No-Margin-Bottom Container">
+            <h4 className="Medium-Margin">brainstorm</h4>
+            <p>{children}</p>
+            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={8} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
+        </div>
+    )
+}
 export function LaundryRules({user, rules, setRules, children}) {
 
     const updateRule1 = (event) => {

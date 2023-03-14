@@ -33,7 +33,7 @@ export default function Card({items, variables, addIncorrect, predictiveProbabil
     useEffect(() => {
 
         if (modelVars.length > 0 ) {
-            d3.selectAll(".predicted")
+            d3.selectAll(".predicted.Semi-Bold")
                 .text(function() {
                     let id = +this.getAttribute("id").match(/\d+/)[0];
                     let predictedProbability = items.find((d) => d.id === id).predictedProbability;
@@ -49,7 +49,7 @@ export default function Card({items, variables, addIncorrect, predictiveProbabil
                 });
             }
         } else {
-            d3.selectAll(".predicted")
+            d3.selectAll(".predicted.Semi-Bold")
                 .text("");
 
             d3.selectAll(".Card")
@@ -66,7 +66,7 @@ export default function Card({items, variables, addIncorrect, predictiveProbabil
             return( 
                 <div key={item.id+"Card-Id"} id={item.id+"Card-Id"} className={addClass(item.column) + " Card Card-Flat"}>
                     <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                        <span id={item.id + "-predicted"} className="predicted"></span>
+                        <h5 id={item.id + "-predicted"} className="predicted Semi-Bold"></h5>
                 </div>
             )
         })
