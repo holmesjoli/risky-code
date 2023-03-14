@@ -24,7 +24,7 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
 
     return(
         <div className="No-Margin-Bottom Card-Group">
-            <h4 className="Medium-Margin">conceptualize</h4>
+            <h4 className="Small-Margin">conceptualize</h4>
             {children}
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>
@@ -39,7 +39,7 @@ export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children
 
     return(
         <div className="No-Margin-Bottom Container">
-            <h4 className="Medium-Margin">brainstorm</h4>
+            <h4 className="Small-Margin">brainstorm</h4>
             {children}
             <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={8} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
         </div>
