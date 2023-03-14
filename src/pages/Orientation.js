@@ -87,7 +87,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
                 <p>Risky Code contains four modules <span className="Emphasis">Algorithmic Prediction</span>, <span className="Emphasis">Algorithmic Fairness</span>, <span className="Emphasis">Case Studies</span>, and <span className="Emphasis">Deliberation</span>. In each of these modules {type}</p>
                 <ul>
                     <li><span className="Semi-Bold">Algorithmic Prediction</span> — <span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making</li>
-                    <li><span className="Semi-Bold">Algorithmic Fairness</span> — A socially aware <span className="Emphasis">data scientist</span>.</li>
+                    <li><span className="Semi-Bold">Algorithmic Fairness</span> — A socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness.</li>
                     <li><span className="Semi-Bold">Case Studies</span> — A socially aware <span className="Emphasis">designer</span> interested in bring design methods to algorithmic decision-making.</li>
                     <li><span className="Semi-Bold">Deliberation</span> — A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</li>
                 </ul>

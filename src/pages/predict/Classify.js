@@ -7,7 +7,7 @@ import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import SortLaundry from "../../components/SortLaundry";
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { visStyles, terms } from "../../utils/global";
 import { AlgorithmDefinition, LaundryRules } from '../../components/TrackUserInputs';
@@ -175,10 +175,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                                 </AlgorithmDefinition>
                             </div>
                             <RightSideBar>
-                                <div className="Card-Group">
-                                    <h4 className="Small-Margin">role: you</h4>
-                                    <p>Over the next module, <span className="Emphasis">Algorithmic Prediction</span> you will assume the role of a you, a busy individual who is interested in learning more about algorithmic decision-making.</p>
-                                </div>
+                                <Role moduleName="prediction"/>
                                 <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
                                     <p>How do you define the term algorithm?</p>
                                     <p className="No-Margin-Bottom">Brainstorm multiple examples of algorithms in use in your life.</p>
