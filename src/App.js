@@ -51,8 +51,6 @@ export default function App() {
       let t = user === "group"? "your group will assume a team of these roles." : "you will assume a different role.";
       setType(t);
     }, [user]);
-
-    console.log(type)
     // items.sort((a, b) => a.column - b.column)
   
     return(

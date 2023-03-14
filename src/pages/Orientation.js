@@ -16,6 +16,11 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
 
+    const routeNext = () => {
+        let path = `/Classify`;
+        navigate(path);
+    }
+
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
@@ -32,11 +37,6 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
         setUser(ev.target.value);
     }
 
-    const routeNext = () => {
-        let path = `/Classify`;
-        navigate(path);
-    }
-
     const updateName = (event) => {
         setName(event.target.value)
     };
@@ -45,11 +45,11 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
         setGroupName(event.target.value)
     };
 
-    const userGroup = (user, updateUser, name, setName, groupName, setGroupName) => {
+    const userGroup = (user, updateUser, name, updateName, groupName, updateGroupName) => {
         return(
             <div>
                 <div className="Card-Group">
-                    <p>Indicate how you intend to use Risky Code.</p>
+                    <p className="Small-Margin">Indicate how you intend to use Risky Code.</p>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
                         name="radio-buttons-group"
@@ -61,21 +61,21 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
                         <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                     </RadioGroup>   
                 </div>
-                {user === "group"?
+                {/* {user === "group"?
                 <div>
                     <div className="Card-Group">
-                        <p>Please identify a group faciliator who will navigate the application. </p>
+                        <p className="Small-Margin">Please identify a group faciliator who will navigate the application. </p>
                         <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
-                        <p className="Margin-Top No-Margin-Bottom">{name}, please share your screen.</p>
+                        {{name} !== "" ? <p className="Margin-Top No-Margin-Bottom">Please share your screen.</p>: <p className="Margin-Top No-Margin-Bottom">{name}, please share your screen.</p>}
                     </div>
                     <div className="Card-Group">
-                        <p>{name}, does your team have a team name?</p>
+                        <p className="Small-Margin">{name}, does your team have a team name?</p>
                         <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
                     </div>
                 </div>:
                 <div>
                     <p className="Margin-Top">Welcome {}</p>
-                </div>}
+                </div>} */}
             </div>
         )
     }
@@ -120,7 +120,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
       {
         label: 'indicate user type',
         description: 'Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, however, the experience is designed to differ slightly.',
-        children: userGroup(user, setUser, name, setName, groupName, setGroupName)
+        children: userGroup(user, updateUser, name, updateName, groupName, updateGroupName)
       },
       {
         label: 'role',
