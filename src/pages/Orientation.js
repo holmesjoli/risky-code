@@ -6,72 +6,8 @@ import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Typography from '@material-ui/core/Typography';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
-import { Pagination, PaginationItem } from '@material-ui/lab/';
-
-// const steps = ['User', 'Terminology', 'Progress'];
-
-// export default function Orientation({user, updateUser}) {
-
-//     const setUser = ev => {
-//         updateUser(ev.target.value);
-//     }
-
-//     let navigate = useNavigate(); 
-//     const routeNext = () => {
-//       let path = `/Introduction`;
-//       navigate(path);
-//     }
-
-//     return(
-//         <div className="Orientation">
-//             <div className="Container Margin-Bottom">
-//                 <FormControl>
-//                 <h2>risky code orientation</h2>
-//                 <h3>welcome to <span className="Emphasis">risky code</span></h3>
-//                 <p className="Margin-Bottom"><span className="Emphasis">Risky Code</span> is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try <span className="Emphasis">Risky Code</span>, the experience is designed to differ slightly.</p>
-//                 {/* <div className="Card-Group"> */}
-//                     <h4 className="No-Margin-Bottom">indicate how you intend to use risky code</h4>
-//                     <RadioGroup
-//                         aria-labelledby="demo-radio-buttons-group-label"
-//                         // defaultValue="group"
-//                         name="radio-buttons-group"
-//                         onChange={setUser}
-//                         value={user}
-//                         className="Margin"
-//                     >
-//                         <FormControlLabel value="group" control={<Radio />} label="Group" />
-//                         <FormControlLabel value="individual" control={<Radio />} label="Individual" />
-//                     </RadioGroup>   
-//                     {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen. Great, let's get started! Click <span className="Emphasis">Next</span> to begin.</p>:<p>Welcome, we're happing you're here! Click <span className="Emphasis">Next</span> to begin.</p>}
-//                 </FormControl>
-//                 {/* <Button variant="outlined" color="secondary" onClick={routeNext}>next</Button> */}
-//                 {/* <Pagination count={3} variant="outlined" size="small" shape="rounded" color="primary" /> */}
-//             </div>
-//         </div>
-//     )
-// }
-
-const steps = [
-  {
-    label: 'welcome to risky code',
-    description: `Risky Code is an interactive digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.`,
-  },
-  {
-    label: 'indicate user type',
-    description: 'Risky Code is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly. Please indicate how you intend to use Risky Code.',
-  },
-  {
-    label: 'user interface orientation | terminology',
-    description: `In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.`,
-  },
-  {
-    label: 'user interface orientation | progress',
-    description: `In the right sidebar you will dind a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.`,
-  }
-];
 
 export default function Orientation({user, updateUser}) {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -98,7 +34,7 @@ export default function Orientation({user, updateUser}) {
         navigate(path);
     }
 
-    const userGroup = () => {
+    const userGroup = (user, setUser) => {
         return(
             <div>
                 <RadioGroup
@@ -116,6 +52,30 @@ export default function Orientation({user, updateUser}) {
             </div>
         )
     }
+    
+    const steps = [
+      {
+        label: 'welcome to risky code',
+        description: `Risky Code is an interactive digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.`,
+      },
+      {
+        label: 'indicate user type',
+        description: 'Risky Code is designed to be use in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, the experience is designed to differ slightly. Please indicate how you intend to use Risky Code.',
+        children: userGroup(user, setUser)
+      },
+      {
+        label: 'modules',
+        description: `Risky Code contains four modules Predict, Fairness, Case Studies, Deliberation.`,
+      },
+      {
+        label: 'user interface orientation | terminology',
+        description: `In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.`,
+      },
+      {
+        label: 'user interface orientation | progress',
+        description: `In the right sidebar you will dind a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.`,
+      }
+    ];
 
   return (
     <div className="Risky Code Orientation">
@@ -130,7 +90,8 @@ export default function Orientation({user, updateUser}) {
                     </StepLabel>
                     <StepContent>
                         <p>{step.description}</p>
-                        <div>
+                        {step.children}
+                        {/* <div>
                             <RadioGroup
                                 aria-labelledby="demo-radio-buttons-group-label"
                                 // defaultValue="group"
@@ -143,7 +104,7 @@ export default function Orientation({user, updateUser}) {
                                 <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                             </RadioGroup>   
                             {user === "group"?<p className="Margin-Top">First, identify a group faciliator who will navigate the application. Group faciliator, please share your screen.</p>:<></>}
-                        </div>
+                        </div> */}
                         <Box sx={{ mb: 2 }}>
                             <div className="Row">
                                 <Button
