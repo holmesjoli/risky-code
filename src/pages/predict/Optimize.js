@@ -77,7 +77,7 @@ export default function Optimize({config, user, variables, setVariables, items, 
                         <div>
                             <h3 className="Page-Title">reflect</h3>
                             <div className="Card-Group">
-                                <h4>laundry rules</h4>
+                                <h4>algorithm rules</h4>
                                 <p>{rules.rule1}</p>
                                 <p>{rules.rule2}</p>
                                 <p>{rules.rule3}</p>
