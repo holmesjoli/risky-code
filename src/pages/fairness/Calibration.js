@@ -12,6 +12,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 let chartId = "Fairness-Chart";
 
@@ -138,9 +139,35 @@ function Information() {
     )
 }
 
+function Model() {
+    return(
+        <div>
+            <h3>learn</h3>
+            <p>ProPublic's research showed that the COMPAS recidivism algorithm used a 137 variables in their statistical model. Examples variables are visualized below.</p>
+            <div className="Text-Align-Center">
+            <div className="Container Variables-Column Margin-Bottom">
+                <h4>model variables</h4>
+                <div className="Variable-Flat">zip code</div>
+                <div className="Variable-Flat">incarcerated parent</div>
+                <div className="Variable-Flat">zip code</div>
+                <div className="Variable-Flat">zip code</div>
+                <div className="Variable-Flat">zip code</div>
+                <div className="Variable-Flat">zip code</div>
+            </div>
+            <ExpandMoreIcon className="Scale200"/>
+            <div className="Container Margin-Bottom">
+                <h4>outcome variable</h4>
+                <div className="Variable-Flat">arrests</div>
+            </div>
+        </div>
+    </div>
+    )
+}
+
 export function Content() {
     return(
         <div className="Content Three-Column No-Padding-Top">
+            <Model/>
             <Information/>
         </div>
     )

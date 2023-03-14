@@ -270,15 +270,18 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                         <div>
                             <h2 className="Page-Title">reflect</h2>
                             <div className="Card-Group">
-                                <h3>laundry rules</h3>
+                                {/* <h3>laundry rules</h3> */}
                             </div>
                         </div>
                         <RightSideBar>
+                            <div className="Card-Group">
+                                <h4>learn</h4>
+                                <p></p>
+                            </div>
                             <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2}>
-                                <p>Would you collect any other variables to use in the statistical model?</p>
-                                <p>Were there any rules that didn't fit the statistical model was not able to accomodate?</p>
-                                {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
-                                <p>What are the consequences of when Laundry AID made an incorrect prediction?</p>
+                                <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
+                                <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
+                                <p>Can you think of any reasons why the data would be skewed?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext}/>: <></>}
                         </RightSideBar>

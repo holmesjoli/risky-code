@@ -415,5 +415,9 @@ export const terms = {
     "decision-threshold": {
         "title": "decision threshold",
         "definition": "A threshold to turn a predictive probability into a decision/classification."
+    },
+    "outcome-variable": {
+        "title": "outcome variable",
+        "definition": "The variable that is being predicted by a predictive model."
     }
 }

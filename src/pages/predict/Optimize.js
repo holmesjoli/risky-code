@@ -29,11 +29,11 @@ export function Content({variables, setVariables, items, setItems, predictivePro
     return(
         <div className="Content No-Padding-Top">
             <div>
-                <h3>experiment</h3>
+                <h3>interact</h3>
                 <div className="Three-Column">
                     <div>
-                        <Model variables={variables} setVariables={setVariables} />
                         <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
+                        <Model variables={variables} setVariables={setVariables} />
                     </div>
                     <Regression items={items} setItems={setItems} variables={variables} predictiveProbability={predictiveProbability}/>
                     <Card items={items} variables={variables} addIncorrect={true} predictiveProbability={predictiveProbability}/>

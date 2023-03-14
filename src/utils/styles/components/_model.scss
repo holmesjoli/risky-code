@@ -2,6 +2,7 @@
     height: max-content;
     min-height: 150px;
     padding: $containerPadding;
+    // border: 2px dotted $appColorSecondary;
 }
 
 .Moveable-Items {
@@ -32,15 +33,15 @@
     border: 1px solid $appColor;
 }
 
-.Variable {
+.Variable,
+.Variable-Flat {
     border-radius: $containerBorderRadius;
     border: 1px solid #2e3238;
     background-color: $cardBackgroundColor;
-    max-width: 85px;
+    max-width: 100%;
     min-height: 30px;
     display: flex;
     justify-content: center;
-    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 6px 6px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
     padding-bottom: 7px;
     padding-top: 2px;
     margin: 8px;
@@ -51,15 +52,10 @@
     font-variant: small-caps;
 }
 
-#Arrow {
-    max-height: 50px;
-    max-width: 50px;
-    fill: $appColor;
+.Variable {
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 6px 6px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    border: 1px solid $appColorSecondary;
 }
-
-// .Scale200 {
-//     width: 200%;
-// }
 
 .Rotate90 {
     transform: rotate(-90deg);
