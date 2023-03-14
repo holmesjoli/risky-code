@@ -8,6 +8,8 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
+import { Terminology, Term } from "../components/Sidebar";
+import { terms } from '../utils/global';
 
 export default function Orientation({user, updateUser}) {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -52,6 +54,15 @@ export default function Orientation({user, updateUser}) {
             </div>
         )
     }
+
+    const terminologyExample = () => {
+
+        return(
+            <Terminology defaultExpanded={true}  margin="Margin-Bottom">
+                <Term term={terms.aidm}></Term>
+            </Terminology>
+        )
+    }
     
     const steps = [
       {
@@ -70,6 +81,7 @@ export default function Orientation({user, updateUser}) {
       {
         label: 'user interface orientation | terminology',
         description: `In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.`,
+        children: terminologyExample()
       },
       {
         label: 'user interface orientation | progress',
