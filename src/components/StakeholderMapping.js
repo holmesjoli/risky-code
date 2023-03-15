@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, NavLink } from "react-router-dom";
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Overlay from "../../components/Overlay";
-import { policyDiagram } from '../../components/PolicyDiagram';
-import { terms } from '../../utils/global';
-import Progress from "../../components/Progress";
-import { PolicyScenario } from "../../components/TrackUserInputs";
 import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
 import * as d3 from 'd3';
-import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import AddIcon from '@material-ui/icons/Add';
-import { visStyles } from "../../utils/global";
-import Timer from "../../components/Timer";
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, RoleAccordion, Role } from "../../components/Sidebar";
+import { visStyles } from "../utils/global";
 
-let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Ownership and property", "Peace", 
-"Informed consent", "Identity", "Environment sustainability", "Dignity", "Transparency", "Efficiency"];
+let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Dignity", "Ownership and property", "Peace", 
+"Informed consent", "Identity", "Environment sustainability",  "Transparency", "Efficiency"];
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
@@ -410,7 +399,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     )
 }
 
-export function StakeholderMapping() {
+export default function StakeholderMapping() {
 
     const [data, setData] = useState(defaultNetwork);
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
