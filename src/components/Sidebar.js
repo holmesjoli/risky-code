@@ -103,27 +103,19 @@ export function RoleAccordion({moduleName}) {
     function definition(moduleName) {
         if (moduleName === "prediction") {
             return(
-                <div className="Container-Rule">
-                    <p className="No-Margin-Bottom"><span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making</p>
-                </div>
+                <span className="Emphasis">You</span>
             )
         } else if (moduleName === "fairness") {
             return(
-                <div className="Container-Rule">
-                     <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness</p>
-                </div>
+                <span className="Emphasis">data scientist</span>
             )
         } else if (moduleName === "caseStudies") {
             return(
-                <div className="Container-Rule">
-                     <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">designer</span> interested in bring design methods to algorithmic decision-making</p>
-                </div>
+                <span className="Emphasis">designer</span>
             )
         } else if (moduleName === "deliberation") {
             return(
-                <div className="Container-Rule">
-                     <p className="No-Margin-Bottom">A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making</p>
-                </div>
+                <span className="Emphasis">public policymaker</span>
             )
         }
     }
@@ -131,15 +123,8 @@ export function RoleAccordion({moduleName}) {
     let children = definition(moduleName);
 
     return(
-        <Accordion className="Margin-Top">
-            <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-            >
-            <div className="Expand">role</div>
-            </AccordionSummary>
-            <AccordionDetails>
-                {children}
-            </AccordionDetails>
-        </Accordion>
+        <div className="Margin-Top Container">
+            <h3 className="No-Margin-Bottom">role:  {children}</h3>
+        </div>
     )
 }

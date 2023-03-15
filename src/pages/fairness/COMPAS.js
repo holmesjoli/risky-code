@@ -262,18 +262,15 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
-                <h3 className="Page-Title Center">introduction to mathematical fairness</h3>
+                <h3 className="Page-Title">introduction to mathematical fairness</h3>
                     <div className="Two-Column-Three">
                         <div>
 
                         </div>
                         <RightSideBar>
+                          <Role moduleName="fairness"/>
                             <div className="Card-Group">
-                                <h4 className="Small-Margin">role: data scientist</h4>
-                                <p>Over the next module, <span className="Emphasis">Mathematical Fairness</span> you will assume the role of a data scientist.</p>
-                            </div>
-                            <div className="Card-Group">
-                                <h4 className="Small-Margin">learn</h4>
+                                <h3 className="Small-Margin">learn</h3>
                                 <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p>
                                 <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
                             </div>
