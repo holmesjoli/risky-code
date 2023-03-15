@@ -14,7 +14,7 @@ import COMPAS from "./pages/fairness/COMPAS";
 import Health from "./pages/caseStudies/Health";
 import StreetBump from "./pages/caseStudies/StreetBump";
 import Risk from "./pages/deliberation/Risk";
-import StakeholderMapping from "./pages/deliberation/StakeholderMapping";
+import Policy from "./pages/deliberation/Policy";
 import Decision from "./pages/deliberation/Decision";
 import About from "./pages/About";
 import Glossary from "./pages/Glossary";
@@ -66,7 +66,7 @@ export default function App() {
           <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} disableCaseStudyNext={disableCaseStudyNext} setDisableCaseStudyNext={setDisableCaseStudyNext} modules={modules}/>} />
           <Route path="/Health" element={<Health config={config.Health} modules={modules}/>} />
-          <Route path="/Stakeholders" element={<StakeholderMapping config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
+          <Route path="/Stakeholders" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           <Route path="/About" element={<About config={config.About} modules={modules} />} />
