@@ -184,7 +184,7 @@ export default function Model({variables, setVariables}) {
 
   return (
     <div>
-      <h3 className="Small-Margin">predictive model</h3>
+      <h4 className="Small-Margin">predictive model</h4>
       <div className="Text-Align-Center Padding-Top Top-Rule">
         <DndProvider backend={HTML5Backend}>
           <Column title={DATA_VARIABLES} className="Container Variables-Column">

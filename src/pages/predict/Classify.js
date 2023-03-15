@@ -162,11 +162,11 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                 <Overlay isOpen={isOpen} onClose={toggleOverlay}>
                 <div className="Containers-Container">
                     <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title Small-Margin">introduction to algorithmic predicition</h3>
+                    <h2 className="Page-Title Small-Margin">introduction to algorithmic prediction</h2>
                         <div className="Two-Column-Three">
                             <div>
                                 <div className="Card-Group">
-                                    <h4 className="Small-Margin">brainstorm</h4>
+                                    <h3 className="Small-Margin">brainstorm</h3>
                                     <p>What's in an algorithm? Use these terms to get started brainstorming.</p>
                                     <div className="chart" id={chartId}></div>
                                 </div>

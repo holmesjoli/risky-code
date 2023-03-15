@@ -9,7 +9,7 @@ export function PolicyScenario({policy, setPolicy}) {
     return(
         <div className="No-Margin-Bottom">
             <div className="Container">
-                <h4 className="Medium-Margin">policy scenario</h4>
+                <h3 className="Medium-Margin">policy scenario</h3>
                 <TextField placeholder="Add your policy scenario here" variant="outlined" multiline minRows={20} defaultValue={policy} onChange={updatePolicy}/>
             </div>
         </div>
@@ -24,7 +24,7 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
 
     return(
         <div className="No-Margin-Bottom Card-Group">
-            <h4 className="Small-Margin">conceptualize</h4>
+            <h3 className="Small-Margin">conceptualize</h3>
             {children}
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>
@@ -39,7 +39,7 @@ export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children
 
     return(
         <div className="No-Margin-Bottom Container">
-            <h4 className="Small-Margin">brainstorm</h4>
+            <h3 className="Small-Margin">brainstorm</h3>
             {children}
             <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={8} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
         </div>
@@ -65,7 +65,7 @@ export function LaundryRules({user, rules, setRules, children}) {
     return(
         <div>
             <div className="No-Margin-Bottom Container">
-                <h4 className="Medium-Margin">conceptualize</h4>
+                <h3 className="Medium-Margin">conceptualize</h3>
                 {children}
                 <div className="Margin-Bottom">
                     <TextField placeholder="add rule" variant="outlined" onChange={updateRule1} defaultValue={rules.rule1}/>
@@ -86,7 +86,7 @@ export function Consequence({margin}) {
     return(
         <div className={"Consequence " + margin}>
             <div className="Container">
-                <h4 className="Medium-Margin">consequences</h4>
+                <h3 className="Medium-Margin">consequences</h3>
                 <TextField placeholder="Write a reflection on the consequences (positive and negative) of using this algorithm in this policy setting" variant="outlined" multiline minRows={12} />
             </div>
         </div>

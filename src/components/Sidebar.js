@@ -61,28 +61,28 @@ export function Role({moduleName}) {
     if (moduleName === "prediction") {
         return(
             <div className="Card-Group">
-                <h4 className="Small-Margin">role in algorithmic prediction</h4>
+                <h3 className="Small-Margin">role in algorithmic prediction</h3>
                 <p><span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making</p>
             </div>
         )
     } else if (moduleName === "fairness") {
         return(
             <div className="Card-Group">
-                <h4 className="Small-Margin">role in algorithmic fairness</h4>
+                <h3 className="Small-Margin">role in algorithmic fairness</h3>
                 <p>A socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness</p>
             </div>
         )
     } else if (moduleName === "caseStudies") {
         return(
             <div className="Card-Group">
-                <h4 className="Small-Margin">role in case studies</h4>
+                <h3 className="Small-Margin">role in case studies</h3>
                 <p>A socially aware <span className="Emphasis">designer</span> interested in bring design methods to algorithmic decision-making</p>
             </div>
         )
     } else if (moduleName === "deliberation") {
         return(
             <div className="Card-Group">
-                <h4 className="Small-Margin">role  in deliberation</h4>
+                <h3 className="Small-Margin">role  in deliberation</h3>
                 <p>A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making</p>
             </div>
         )

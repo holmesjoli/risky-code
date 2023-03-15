@@ -244,7 +244,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   return (
       <DndProvider backend={HTML5Backend}>
         <div className='Container'>
-          <h4 className="Medium-Margin">interact</h4>
+          <h3 className="Medium-Margin">interact</h3>
           <p>Classify each item by dragging and dropping them in the hot water load or save for later load</p>
           <div className="Text-Align-Center">
             <Column title={ITEM_LIST} className="Text-Align-Center item-list-column Margin-Bottom" nClassified={nClassified}>
