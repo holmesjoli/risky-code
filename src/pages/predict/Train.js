@@ -9,7 +9,7 @@ import { Regression, PredictiveOutcomes } from "../../components/Regression";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 import Overlay from "../../components/Overlay";
 
 function Information() {
@@ -92,6 +92,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                     <p>To train Laundry AID, drag one or more data variables from the variable list to the model list. This will automatically run a statistical model to predict the results.</p>
                     <p>Add or remove variables from the model to see how the predictive probabilities change.</p>
                 </Description>
+                <Role moduleName="prediction" addTitle={false}/>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['algorithm']}/>
                     <Term term={terms['data-variable']}/>

@@ -6,7 +6,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
 import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
 
@@ -46,6 +46,7 @@ export default function Health({config, modules}) {
                 <LeftSideBar>
                     <Description config={config}>
                     </Description>
+                    <Role moduleName="caseStudies" addTitle={false}/>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['direct stakeholders']}/>
                         <Term term={terms['indirect stakeholders']}/>

@@ -13,7 +13,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../../utils/global";
 import Timer from "../../components/Timer";
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 
 let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Ownership and property", "Peace", 
 "Informed consent", "Identity", "Environment sustainability", "Dignity", "Transparency", "Efficiency"];
@@ -491,6 +491,7 @@ export default function StakeholderMapping({config, user, disableDeliberationNex
                 <Description config={config}>
                     <p>Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box.</p>
                 </Description>
+                <Role moduleName="deliberation" addTitle={false}/>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>

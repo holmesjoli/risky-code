@@ -9,7 +9,7 @@ import { wrap, visStyles } from "../../utils/global";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 
@@ -48,6 +48,7 @@ export default function Calibration({config, modules}) {
             <LeftSideBar>
                 <Description config={config}>
                 </Description>
+                <Role moduleName="fairness" addTitle={false}/>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['calibration']}/>
                     <Term term={terms['mathematical-fairness']}/>

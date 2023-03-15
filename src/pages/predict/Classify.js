@@ -17,8 +17,8 @@ let width = 600;
 let height = 275;
 let style = "darkMode";
 
-const algoTerms = [{"term": "automated"}, 
-                   {"term": "rule"}, 
+const algoTerms = [{"term": "automated"},
+                   {"term": "rule"},
                    {"term": "objective"}, 
                    {"term": "subjective"}, 
                    {"term": "neutral"}, 
@@ -194,9 +194,10 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                     <Description config={config}>
                         <p>This research defines an algorithm as a series of steps that allow you to perform a particular task.</p>
                         <p>One analogy is laundry. <span className="Emphasis">How do you sort laundry for different load types?</span></p>
-                        <p>One indicator many people is color. However, other indicators such as item type or type of machine load (e.g. regular wash, dry clean only) could impact your laundry sorting decision.</p>
-                        <p>What does one do with gray clothes anyway?</p>
+                        <p>One rule many people use is color. However, other indicators such as item type or type of machine load could impact your laundry sorting decision.</p>
+                        <p>And What does one do with gray clothes anyway?</p>
                     </Description>
+                    <Role moduleName="prediction" addTitle={false}/>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
                     </Terminology>

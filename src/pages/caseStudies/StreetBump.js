@@ -8,7 +8,7 @@ import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 import { Button } from '@material-ui/core';
 import Timer from "../../components/Timer";
 
@@ -148,6 +148,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                     <Description config={config}>
                         <p>Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify problem roads.</p>
                     </Description>
+                    <Role moduleName="caseStudies" addTitle={false}/>
                     <Terminology>
                         <Term term={terms['direct stakeholders']}/>
                         <Term term={terms['indirect stakeholders']}/>

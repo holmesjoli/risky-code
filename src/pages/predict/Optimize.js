@@ -10,7 +10,7 @@ import { terms } from '../../utils/global';
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { Regression, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
 import { ActualPredicted } from "../../components/Legend";
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/TrackUserInputs';
 
@@ -108,6 +108,7 @@ export default function Optimize({config, user, variables, setVariables, items, 
                         <p>This page builds on the statistical model explored in the previous page, <span className="Emphasis">Train</span>.</p>
                         <p>In this step of algorithm building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy</p>
                     </Description>
+                    <Role moduleName="prediction" addTitle={false}/>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>

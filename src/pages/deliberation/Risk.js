@@ -4,7 +4,7 @@ import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/TrackUserInputs";
 import { BackButton, NextButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
 
 export function Content() {
@@ -41,6 +41,7 @@ export default function Risk({config, modules, policy, setPolicy}) {
                 <LeftSideBar>
                     <Description config={config}>
                     </Description>
+                    <Role moduleName="deliberation" addTitle={false}/>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
                 <Content />
