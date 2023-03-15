@@ -427,7 +427,7 @@ export const terms = {
         "definition": "A variable that is used as a proxy for another variable. For example, to arrests is often used as a proxy for reoffense."
     },
     "population-base-rate": {
-        "title": "population base rare",
-        "definition": "TODO."
+        "title": "equal base rates",
+        "definition": "Two groups have the same fraction of members in the positive class (Kleinberg et al., 2016)"
     }
 }

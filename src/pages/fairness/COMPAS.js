@@ -40,8 +40,6 @@ function textAnchor(angle) {
     }
 }
 
-
-
 // Tooltip
 function renderTooltip(style="darkMode") {
 
@@ -139,8 +137,7 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
     return(
         <div>
             <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-                <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Chouldechova's (2017) </NavLink>research demonstrates that it is impossible to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates in a population.</p>
-                <p>Population base rate is XX</p>
+                <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is impossible to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates in a population.</p>
                 <p>Brainstorm why the base rate between different races may differ in the space below</p>
             </BaseRates>
             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
@@ -207,10 +204,12 @@ function Model() {
 export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext}) {
     return(
         <div className="Content No-Padding-Top">
-            <h3>learn</h3>
-            <div className="Two-Column-Three">
-                <ImpossibilityTheorem/>
-                <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
+            <div className="Container">
+                <h3 className="">learn</h3>
+                <div className="Two-Column-Three">
+                    <ImpossibilityTheorem/>
+                    <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
+                </div>
             </div>
         </div>
     )
