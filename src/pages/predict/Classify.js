@@ -7,7 +7,7 @@ import Overlay from "../../components/Overlay";
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import SortLaundry from "../../components/SortLaundry";
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role, RoleAccordion } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { visStyles, terms } from "../../utils/global";
 import { AlgorithmDefinition, LaundryRules } from '../../components/TrackUserInputs';
@@ -197,7 +197,7 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                         <p>One rule many people use is color. However, other indicators such as item type or type of machine load could impact your laundry sorting decision.</p>
                         <p>And What does one do with gray clothes anyway?</p>
                     </Description>
-                    <Role moduleName="prediction" addTitle={false}/>
+                    <RoleAccordion moduleName="prediction"/>
                     <Terminology margin="Margin-Large-Bottom">
                         <Term term={terms['algorithm']}/>
                     </Terminology>

@@ -9,7 +9,7 @@ import { Regression, PredictiveOutcomes } from "../../components/Regression";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role, RoleAccordion } from "../../components/Sidebar";
 import Overlay from "../../components/Overlay";
 
 function Information() {
