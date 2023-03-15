@@ -60,7 +60,7 @@ export const config = {
     },
     "COMPAS": {
         "id": "compas",
-        "title": "compas",
+        "title": "compas and mathematical fairness",
         "subtitle": "explore different versions of algorithmic fairness",
     },
     "StreetBump": {

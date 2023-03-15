@@ -137,7 +137,7 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
     return(
         <div>
             <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-                <p>Brainstorm why the base rate between different races may differ in the space below</p>
+                <p>Brainstorm why the base rate between different races (e.g., Black vs. White) may differ in the space below.</p>
             </BaseRates>
             <div className="Card-Group">
                 <h3 className="Small-Margin">discuss</h3>
@@ -286,7 +286,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             <LeftSideBar>
                 <Description config={config}>
                     <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates (prevalence) in a population.</p>
-                    <p>In this dataset, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should not be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
+                    <p>In the dataset used to train COMPAS, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should not be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
                 </Description>
                 <RoleAccordion moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">
