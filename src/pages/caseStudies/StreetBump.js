@@ -8,7 +8,7 @@ import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, RoleAccordion } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role, RoleAccordion } from "../../components/Sidebar";
 import { Button } from '@material-ui/core';
 import Timer from "../../components/Timer";
 
@@ -121,13 +121,14 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
-                            <h3 className="Page-Title Center">introduction to case studies</h3>
+                            <h3 className="Page-Title">introduction to case studies</h3>
                             <div id={chartID} className="chart Margin-Bottom"></div>
                             <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6>
                         </div>
                         <RightSideBar>
+                            <Role moduleName="caseStudies"/>
                             <div className="Card-Group">
-                                <h4>algorithms in use</h4>
+                                <h3>algorithms in use</h3>
                                 <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of algorithmic fairness apply.</p>
                             </div>
                             <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>

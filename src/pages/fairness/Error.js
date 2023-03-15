@@ -278,7 +278,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                                 <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
                                 <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
                                 <p>When may it be optimal to minimize the false positive error rate?</p>
-                                <p>When may it be optimal to minimize the false negative error rate?</p>
+                                <p className="No-Margin-Bottom">When may it be optimal to minimize the false negative error rate?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext}/>: <></>}
                         </RightSideBar>
