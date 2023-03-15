@@ -59,39 +59,30 @@ export function RightSideBar({children}) {
 export function Role({moduleName, addTitle = true}) {
 
     if (moduleName === "prediction") {
-        const title = " in algorithmic prediction";
-
         return(
-            
-            <div className={addTitle ? "Card-Group": "Container Margin-Top"}>
-                <h3 className="Small-Margin">role{addTitle? title: ""}</h3>
+            <div className="Card-Group">
+                <h3 className="Small-Margin">role: <span className="Emphasis">you</span></h3>
                 <p className="No-Margin-Bottom"><span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making</p>
             </div>
         )
     } else if (moduleName === "fairness") {
-        const title = " in algorithmic fairness";
-
         return(
-            <div className={addTitle ? "Card-Group": "Container Margin-Top"}>
-                <h3 className="Small-Margin">role{addTitle? title: ""}</h3>
+            <div className="Card-Group">
+                <h3 className="Small-Margin">role: <span className="Emphasis">data scientist</span></h3>
                 <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness</p>
             </div>
         )
     } else if (moduleName === "caseStudies") {
-        const title = " in case studies";
-
         return(
-            <div className={addTitle ? "Card-Group": "Container Margin-Top"}>
-                <h3 className="Small-Margin">role{addTitle? title: ""}</h3>
+            <div className="Card-Group">
+                <h3 className="Small-Margin">role: <span className="Emphasis">designer</span></h3>
                 <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">designer</span> interested in bring design methods to algorithmic decision-making</p>
             </div>
         )
     } else if (moduleName === "deliberation") {
-        const title = " in deliberation";
-
         return(
-            <div className={addTitle ? "Card-Group": "Container Margin-Top"}>
-                <h3 className="Small-Margin">role{addTitle? title: ""}</h3>
+            <div className="Card-Group">
+                <h3 className="Small-Margin">role: <span className="Emphasis">public policymaker</span></h3>
                 <p className="No-Margin-Bottom">A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making</p>
             </div>
         )
@@ -103,7 +94,7 @@ export function RoleAccordion({moduleName}) {
     function definition(moduleName) {
         if (moduleName === "prediction") {
             return(
-                <span className="Emphasis">You</span>
+                <span className="Emphasis">you</span>
             )
         } else if (moduleName === "fairness") {
             return(
@@ -124,7 +115,7 @@ export function RoleAccordion({moduleName}) {
 
     return(
         <div className="Margin-Top Container">
-            <h3 className="No-Margin-Bottom">role:  {children}</h3>
+            <h3 className="No-Margin-Bottom">role: {children}</h3>
         </div>
     )
 }

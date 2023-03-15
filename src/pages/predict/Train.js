@@ -92,7 +92,7 @@ export default function Train({config, variables, setVariables, items, setItems,
                     <p>To train Laundry AID, drag one or more data variables from the variable list to the model list. This will automatically run a statistical model to predict the results.</p>
                     <p>Add or remove variables from the model to see how the predictive probabilities change.</p>
                 </Description>
-                <Role moduleName="prediction" addTitle={false}/>
+                <RoleAccordion moduleName="prediction"/>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['algorithm']}/>
                     <Term term={terms['data-variable']}/>

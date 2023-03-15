@@ -142,7 +142,7 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
             </BaseRates>
             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
                     <p>Have you heard of any of these definitions before?</p>
-                    <p>Have you used or come across any of these definitions in your work before?</p>
+                    <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
             </Timer>
             {/* {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>} */}
         </div>
