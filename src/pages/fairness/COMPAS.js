@@ -137,10 +137,10 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
     return(
         <div>
             <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-                <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is impossible to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates in a population.</p>
                 <p>Brainstorm why the base rate between different races may differ in the space below</p>
             </BaseRates>
             <div className="Card-Group">
+                <h3 className="Small-Margin">discuss</h3>
                 <p>Have you heard of any of these definitions before?</p>
                 <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
             </div>
@@ -149,12 +149,12 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
     )
 }
 
-function ImpossibilityTheorem({user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm}) {
+function ImpossibilityTheorem() {
     // select one
     return(
         <div>
             <div className="chart" id={chartId}></div>
-            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module.</h6>
+            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Purple nodes indicate which definitions of algorithmic fairness are reviewed in this module.</h6>
         </div>
     )
 }
@@ -162,7 +162,7 @@ function ImpossibilityTheorem({user, disableFairnessNext, setDisableFairnessNext
 function Model() {
     return(
         <div className="Card-Group Model">
-            <h3 classNaME="Small-Margin">explore</h3>
+            <h3 className="Small-Margin">explore</h3>
             <div className="Text-Align-Center">
                 <div className="Bottom-Rule Margin-Bottom">
                     <h4 className="Text-Align-Left">model variables</h4>
@@ -205,7 +205,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
     return(
         <div className="Content No-Padding-Top">
             <div className="Container">
-                <h3 className="">learn</h3>
+                <h3 className="No-Margin-Bottom">explore</h3>
                 <div className="Two-Column-Three">
                     <ImpossibilityTheorem/>
                     <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
@@ -285,6 +285,8 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
+                    <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates (prevalence) in a population.</p>
+                    <p>In this dataset, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should not be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
                 </Description>
                 <RoleAccordion moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">

@@ -400,7 +400,7 @@ export const terms = {
     },
     "recidivism": {
         "title": "recidivism",
-        "definition": "A criminal reoffense."
+        "definition": "A tendency to relapse into a previous condition or mode of behavior, especially relapse into criminal behavior."
     },
     "accuracy": {
         "title": "model accuracy",
