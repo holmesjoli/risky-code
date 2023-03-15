@@ -4,8 +4,8 @@ import * as d3 from 'd3';
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../utils/global";
 
-let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Dignity", "Ownership and property", "Peace", 
-"Informed consent", "Identity", "Environment sustainability",  "Transparency", "Efficiency"];
+let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Ownership and property", "Dignity",
+"Informed consent", "Identity", "Environment sustainability", "Peace", "Transparency", "Efficiency"];
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
