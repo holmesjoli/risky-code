@@ -64,22 +64,10 @@ function Content() {
     // const showResults = () => {
     // }
 
-    // return(
-    //     <div className="Content Two-Column-Three No-Padding-Top">
-    //         <div>
-    //             <SortBump/>
-    //             <div className="Three-Column-Equal Margin-Top">
-    //                 <div></div>
-    //                 <Button variant="outlined" color="secondary" onClick={showResults}>show results</Button>
-    //                 <div></div>
-    //             </div>
-    //         </div>
-    //         <div className="Container">
-    //             {/* <div id="Boston-Map" className="chart"></div> */}
-    //             {/* <h6>Map of Boston</h6> */}
-    //         </div>
-    //     </div>
-    // )
+    return(
+        <div className="Content Two-Column-Three No-Padding-Top">
+        </div>
+    )
 }
 
 export default function StreetBump({config, user, modules, disableCaseStudyNext, setDisableCaseStudyNext}) {
