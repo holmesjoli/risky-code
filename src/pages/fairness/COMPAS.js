@@ -252,15 +252,19 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                 <h3 className="Page-Title">introduction to algorithmic fairness</h3>
                     <div className="Two-Column-Three">
                         <div className="Two-Column">
-                            <div className="Card-Group">
-                                <h3 className="Small-Margin">learn</h3>
-                                <p>In this module, <span className="Emphasis">Algorithmic Fairness</span>, we will look as the COMPAS recidivism, or reoffense, model. Algorithmic decision-making systems like COMPAS are trying to predict whether a defendant will commit another crime if released.</p>
-                                <p>However, the dataset reports whether a defendant was charged with another crime (arrests). In statistical modeling, arrests is called a proxy variable.</p>
-                                <p>Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below.</p>
-                                {/* <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p> */}
-                                {/* <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p> */}
-                                {/* <p>Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p> */}
-                            </div>
+                            <div>
+                                <div className="Card-Group">
+                                    <h3 className="Small-Margin">learn</h3>
+                                    <p>In this module, <span className="Emphasis">Algorithmic Fairness</span>, we will look as the COMPAS recidivism algorithm. Algorithmic decision-making systems like COMPAS are trying to predict whether a defendant will commit another crime if released.</p>
+                                    {/* <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p> */}
+                                    <p>However, the dataset used to train COMPAS only reports whether a defendant was charged with another crime (arrests). In statistical modeling, arrests is called a proxy variable.</p>
+                                    <p className="No-Margin-Bottom">Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
+                                </div>
+                                <div className="Card-Group">
+                                    <h3 className="Small-Margin">define</h3>
+                                    <p className="No-Margin-Bottom">The term <span className="Semi-Bold">algorithmic decision-making system</span> is defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>.</p>
+                                </div>
+                           </div>
                             <Model/>
                         </div>
                         <RightSideBar>
