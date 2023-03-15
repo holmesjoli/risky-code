@@ -140,10 +140,10 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
                 <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is impossible to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates in a population.</p>
                 <p>Brainstorm why the base rate between different races may differ in the space below</p>
             </BaseRates>
-            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
-                    <p>Have you heard of any of these definitions before?</p>
-                    <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
-            </Timer>
+            <div className="Card-Group">
+                <p>Have you heard of any of these definitions before?</p>
+                <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
+            </div>
             {/* {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>} */}
         </div>
     )
@@ -161,39 +161,39 @@ function ImpossibilityTheorem({user, disableFairnessNext, setDisableFairnessNext
 
 function Model() {
     return(
-        <div>
-            <p>ProPublic's research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below.</p>
+        <div className="Card-Group Model">
+            <h3 classNaME="Small-Margin">explore</h3>
             <div className="Text-Align-Center">
-            <div className="Container Variables-Column Margin-Bottom">
-                <h4>model variables</h4>
-                <Tooltip title="Frequency of moving homes in the last twelve months">
-                    <div className="Variable-Flat">moved frequently</div>
-                </Tooltip>
-                <Tooltip title="Suspected or admitted gang membership or affiliation with gang members">
-                    <div className="Variable-Flat">gang membership</div>
-                </Tooltip>
-                <Tooltip title="Farents separateed">
-                    <div className="Variable-Flat">parents separated</div>
-                </Tooltip>
-                <Tooltip title="Father, mother, sister, brother, or friend ever arrested and was your father or mother ever arrested">
-                    <div className="Variable-Flat">family and friend incarceration</div>
-                </Tooltip>
-                <Tooltip title="Parent or parential figure drug or alcohol problem">
-                    <div className="Variable-Flat">family member substance abuse</div>
-                </Tooltip>
-                <Tooltip title="Completion of a high school education or GED">
-                    <div className="Variable-Flat">high school education/ged</div>
-                </Tooltip>
-                <Tooltip title="Employment">
-                    <div className="Variable-Flat">current employment</div>
-                </Tooltip>
-                <Tooltip title="Age of first arrest">
-                    <div className="Variable-Flat">age of first arrest</div>
-                </Tooltip>
-            </div>
+                <div className="Bottom-Rule Margin-Bottom">
+                    <h4 className="Text-Align-Left">model variables</h4>
+                    <Tooltip title="Frequency of moving homes in the last twelve months">
+                        <div className="Variable-Flat">moved frequently</div>
+                    </Tooltip>
+                    <Tooltip title="Suspected or admitted gang membership or affiliation with gang members">
+                        <div className="Variable-Flat">gang membership</div>
+                    </Tooltip>
+                    <Tooltip title="Farents separateed">
+                        <div className="Variable-Flat">parents separated</div>
+                    </Tooltip>
+                    <Tooltip title="Father, mother, sister, brother, or friend ever arrested and was your father or mother ever arrested">
+                        <div className="Variable-Flat">family and friend incarceration</div>
+                    </Tooltip>
+                    <Tooltip title="Parent or parential figure drug or alcohol problem">
+                        <div className="Variable-Flat">family member substance abuse</div>
+                    </Tooltip>
+                    <Tooltip title="Completion of a high school education or GED">
+                        <div className="Variable-Flat">high school education/ged</div>
+                    </Tooltip>
+                    <Tooltip title="Employment">
+                        <div className="Variable-Flat">current employment</div>
+                    </Tooltip>
+                    <Tooltip title="Age of first arrest">
+                        <div className="Variable-Flat">age of first arrest</div>
+                    </Tooltip>
+                </div>
             <ExpandMoreIcon className="Scale200"/>
-            <div className="Container Margin-Bottom">
-                <h4>outcome variable</h4>
+            <div className="Margin-Bottom">
+                <h4 className="Text-Align-Left">outcome variable</h4>
                 <div className="Variable-Flat">arrests</div>
             </div>
         </div>
@@ -251,18 +251,25 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                 <div className="Container-Fill-Secondary No-Padding-Right">
                 <h3 className="Page-Title">introduction to algorithmic fairness</h3>
                     <div className="Two-Column-Three">
-                        <div>
+                        <div className="Two-Column">
+                            <div className="Card-Group">
+                                <h3 className="Small-Margin">learn</h3>
+                                <p>In this module, <span className="Emphasis">Algorithmic Fairness</span>, we will look as the COMPAS recidivism, or reoffense, model. Algorithmic decision-making systems like COMPAS are trying to predict whether a defendant will commit another crime if released.</p>
+                                <p>However, the dataset reports whether a defendant was charged with another crime (arrests). In statistical modeling, arrests is called a proxy variable.</p>
+                                <p>Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below.</p>
+                                {/* <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p> */}
+                                {/* <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p> */}
+                                {/* <p>Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p> */}
+                            </div>
                             <Model/>
                         </div>
                         <RightSideBar>
-                          <Role moduleName="fairness"/>
-                            <div className="Card-Group">
-                                <h3 className="Small-Margin">learn</h3>
-                                <p>The term algorithmically informed decision-making defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>, is important to this research.</p>
-                                <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p>
-                                {/* <p>Specifically, this module will review the <span className="Emphasis">calibration rate</span>, <span className="Emphasis">false positive rate</span>, and <span className="Emphasis">false negative rate</span>. In this module, we will learn how to calibrate a model to optimize for these different definitions.</p> */}
-                            </div>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                            <Role moduleName="fairness"/>
+                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
+                                <p>Does everyone who commits a crime get charged with that crime? What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
+                                <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
+                            </Timer>
+                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>
                     </div>
                 </div>
@@ -274,9 +281,6 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, a recidivism algorithm, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. </p>
-                    <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
-                    <p>However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
                 </Description>
                 <RoleAccordion moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">

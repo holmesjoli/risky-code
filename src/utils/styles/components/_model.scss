@@ -57,6 +57,11 @@
     border: 1px solid $appColorSecondary;
 }
 
+.Variable-Flat {
+    // max-width: 50%;
+    background-color: $appDarkAccent;
+}
+
 .Rotate90 {
     transform: rotate(-90deg);
 }
