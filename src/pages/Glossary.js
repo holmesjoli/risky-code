@@ -112,8 +112,8 @@ const glossary = {
             }
         }
     },
-    "mathematical-fairness": {
-        "name": "mathematical fairness",
+    "algorithmic-fairness": {
+        "name": "algorithmic fairness",
         "definitions": {
             "def1": {
                 "definition": "Formal mathematical constructions of legal concepts such as \"equal protection\" and \"disparate impact\"",

@@ -123,12 +123,12 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                         <div>
                             <h3 className="Page-Title Center">introduction to case studies</h3>
                             <div id={chartID} className="chart Margin-Bottom"></div>
-                            <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of mathematical fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6>
+                            <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6>
                         </div>
                         <RightSideBar>
                             <div className="Card-Group">
                                 <h4>algorithms in use</h4>
-                                <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of mathematical fairness apply.</p>
+                                <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of algorithmic fairness apply.</p>
                             </div>
                             <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>
                                 <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>

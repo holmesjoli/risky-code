@@ -37,7 +37,7 @@ export const config = {
     "Calibration": {
         "id": "calibration",
         "title": "calibration",
-        "subtitle": "learn about calibration definition of mathematical fairness",
+        "subtitle": "learn about calibration definition of algorithmic fairness",
         "descr": ""
     },
     "Error": {
@@ -61,7 +61,7 @@ export const config = {
     "COMPAS": {
         "id": "compas",
         "title": "compas",
-        "subtitle": "explore different versions of mathematical fairness",
+        "subtitle": "explore different versions of algorithmic fairness",
     },
     "StreetBump": {
         "id": "street",
@@ -101,7 +101,7 @@ export const navigationData = [
         "navLink": "/Optimize"
     },
     {
-        "name": "Mathematical Fairness",
+        "name": "Algorithmic Fairness",
         "id": "fairness",
         "size": "Large",
         "navLink": "/COMPAS"

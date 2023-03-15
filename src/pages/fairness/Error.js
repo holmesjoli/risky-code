@@ -186,7 +186,7 @@ export function Content() {
             <div className="One-Column-Three2">
                 <div>
                     <div className="Container Margin-Bottom">
-                        <h3>mathematical fairness definition</h3>
+                        <h3>algorithmic fairness definition</h3>
                         <FormControl variant="outlined" size="small">
                             <Select
                                 value={definition}
