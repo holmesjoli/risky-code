@@ -261,6 +261,10 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                                     <p className="No-Margin-Bottom">Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
                                 </div>
                                 <div className="Card-Group">
+                                    <h3>algorithms in use</h3>
+                                    <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of algorithmic fairness apply.</p>
+                                </div>
+                                <div className="Card-Group">
                                     <h3 className="Small-Margin">define</h3>
                                     <p className="No-Margin-Bottom">The term <span className="Semi-Bold">algorithmic decision-making system</span> is defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>.</p>
                                 </div>

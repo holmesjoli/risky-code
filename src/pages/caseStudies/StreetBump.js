@@ -117,8 +117,8 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                         <RightSideBar>
                             <Role moduleName="caseStudies"/>
                             <div className="Card-Group">
-                                <h3>algorithms in use</h3>
-                                <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of algorithmic fairness apply.</p>
+                                <h3>stakeholder mapping</h3>
+                                <p className="No-Margin-Bottom">In this next module, <span className="Emphasis">Case Studies</span> we will explore two different examples of algorithmically informed decision-making. We will brainstorm different stakeholder groups that would be impacted if algorithmically-informed decision-making was implemented.</p>
                             </div>
                             <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>
                                 <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>
