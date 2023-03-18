@@ -1,11 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
+import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField, Box } from '@material-ui/core';
 import * as d3 from 'd3';
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../utils/global";
 
-let values = ["Freedom", "Autonomy", "Privacy", "Security", "Safety", "Anonymity", "Reliability", "Trust", "Fairness", "Accountability", "Inclusion", "Ownership and property", "Dignity",
-"Informed consent", "Identity", "Environment sustainability", "Peace", "Transparency", "Efficiency"];
+let values = [{"value": "Freedom", "checked": false}, 
+              {"value": "Autonomy", "checked": false}, 
+              {"value": "Privacy", "checked": false}, 
+              {"value": "Security", "checked": false}, 
+              {"value": "Safety", "checked": false}, 
+              {"value": "Anonymity", "checked": false}, 
+              {"value": "Reliability", "checked": false}, 
+              {"value": "Trust", "checked": false}, 
+              {"value": "Fairness", "checked": false}, 
+              {"value": "Accountability", "checked": false}, 
+              {"value": "Inclusion", "checked": false}, 
+              {"value": "Ownership and property", "checked": false}, 
+              {"value": "Dignity", "checked": false},
+              {"value": "Informed consent", "checked": false}, 
+              {"value": "Identity", "checked": false}, 
+              {"value": "Environment sustainability", "checked": false}, 
+              {"value": "Peace", "checked": false}, 
+              {"value": "Transparency", "checked": false}, 
+              {"value": "Efficiency", "checked": false}];
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
@@ -163,7 +180,6 @@ function updateNetwork(data) {
       .join(enter => enter.append("path")
                 .attr("class", "network-nodes")
                 .attr("fill", d => fillScale(d.fill))
-                // .attr("stroke", visStyles[style]["warningColor"])
                 .attr("d", d3.symbol()
                     .type(((d) => symbolType(d)))
                     .size(d => sizeScale(d.shape)))
@@ -290,7 +306,17 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
-    const [stakeholderValues, updateStakeholderValues] = useState([]);
+    const [checked, setChecked] = useState([false, false]);
+
+    const handleChange2 = (event) => {
+      setChecked([event.target.checked, checked[1]]);
+    };
+
+    const handleChange3 = (event) => {
+      setChecked([checked[0], event.target.checked]);
+    };  
+
+    let checkedValues = [];
 
     const setStakeholder = ev => {
         updateStakeholderName(ev.target.value);
@@ -300,20 +326,20 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         updateStakeholderGroup(ev.target.value);
     }
 
-    const setStakeholderValues = ev => {
+    // const setStakeholderValues = ev => {
 
-        let value = ev.target.value;
-        let checked = ev.target.checked;
+    //     let value = ev.target.value;
+    //     let checked = ev.target.checked;
 
-        if(!stakeholderValues.includes(value) && checked) {
-            stakeholderValues.push(value)
-        } else if(!checked) {
-            const index = stakeholderValues.indexOf(value);
-            if (index > -1) {
-                stakeholderValues.splice(index, 1);
-            }
-        }
-    }
+    //     if(!checkedValues.includes(value) && checked) {
+    //         checkedValues.push(value)
+    //     } else if(!checked) {
+    //         const index = checkedValues.indexOf(value);
+    //         if (index > -1) {
+    //             checkedValues.splice(index, 1);
+    //         }
+    //     }
+    // }
 
     const add = () => {
 
@@ -326,7 +352,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
         dataNew.nodes.push(stakeholder);
 
-        for (let i of stakeholderValues) {
+        for (let i of checkedValues) {
 
             if (!stakeholderIdArray.includes(i)) {
                 stakeholderIdArray.push(i)
@@ -342,15 +368,28 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         setData(dataNew);
         updateStakeholderName("");
         updateStakeholderGroup("direct");
-        updateStakeholderValues([]);
+        setChecked([false, false]);
     }
+
+    const children = (
+        <div>
+          <FormControlLabel
+            label="Child 1"
+            control={<Checkbox checked={checked[0]} onChange={handleChange2} />}
+          />
+          <FormControlLabel
+            label="Child 2"
+            control={<Checkbox checked={checked[1]} onChange={handleChange3} />}
+          />
+          </div>
+    );
 
     return(
         <div className="Stakeholder-Attr Container">
             <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4 className="Small-Margin">stakeholder group</h4>
-                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={setStakeholder}/>
+                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={setStakeholder} checked={checked[0]} />
             </div>
             <div className="Card-Group">
                 <FormControl>
@@ -370,12 +409,15 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
             </div>
             <div className="Card-Group">
                 <h4 className="Small-Margin">stakeholder values</h4>
-                <FormGroup>
+                <div>
+                {children}
+                </div>
+                {/* <FormGroup>
                     <div>
-                        {values.map(el => <FormControlLabel key={el} 
-                            control={<Checkbox value={el} className="Value-Check" onClick={setStakeholderValues} />} label={el} />)}
+                        {values.map(el => <FormControlLabel key={el.value} 
+                            control={<Checkbox value={el.value} className="Value-Check" onClick={setStakeholderValues} checked={el.checked}/>} label={el.value} />)}
                     </div>
-                </FormGroup>
+                </FormGroup> */}
             </div>
             <div className="Add-Stakeholder-Button">
                 <h4 className="Small-Margin">add stakeholder to diagram</h4>
