@@ -192,7 +192,7 @@ export default function SortStakeholders() {
           {returnItemsForColumn(STAKEHOLDER)}
         </Column>
         <ExpandMoreIcon className="Scale200"/>
-        <div className="Two-Column">
+        <div className="Three-Column-Equal">
           <Column title={DIRECT} className="Container Variables-Column">
             {returnItemsForColumn(DIRECT)}
           </Column>
