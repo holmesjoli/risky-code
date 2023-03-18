@@ -322,9 +322,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         )
 
         setStakeholderValues(v)
-    };  
-
-    let checkedValues = [];
+    };
 
     const updateStakeholder = ev => {
         setStakeholderName(ev.target.value);
@@ -364,19 +362,6 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         setStakeholderValues(defaultValues);
     }
 
-    const children = (
-        <div>
-          <FormControlLabel
-            label={values[0].value}
-            control={<Checkbox value={values[0].value} checked={stakeholderValues[0].checked} onChange={updateStakeholderValues} />}
-          />
-          <FormControlLabel
-            label={values[1].value}
-            control={<Checkbox value={values[1].value} checked={stakeholderValues[1].checked} onChange={updateStakeholderValues} />}
-          />
-          </div>
-    );
-
     return(
         <div className="Stakeholder-Attr Container">
             <h3>add stakeholder</h3>
@@ -403,14 +388,15 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
             <div className="Card-Group">
                 <h4 className="Small-Margin">stakeholder values</h4>
                 <div>
-                {children}
                 </div>
-                {/* <FormGroup>
-                    <div>
-                        {values.map(el => <FormControlLabel key={el.value} 
-                            control={<Checkbox value={el.value} className="Value-Check" onClick={setStakeholderValues} checked={el.checked}/>} label={el.value} />)}
-                    </div>
-                </FormGroup> */}
+                <FormGroup>
+                        {stakeholderValues.map(el => 
+                            <FormControlLabel key={el.value}
+                            label={el.value}
+                            control={<Checkbox className="Value-Check" value={el.value} checked={el.checked} onChange={updateStakeholderValues} />}
+                            />
+                        )}
+                </FormGroup>
             </div>
             <div className="Add-Stakeholder-Button">
                 <h4 className="Small-Margin">add stakeholder to diagram</h4>
