@@ -334,21 +334,6 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         setStakeholderGroup(ev.target.value);
     }
 
-    // const setStakeholderValues = ev => {
-
-    //     let value = ev.target.value;
-    //     let checked = ev.target.checked;
-
-    //     if(!checkedValues.includes(value) && checked) {
-    //         checkedValues.push(value)
-    //     } else if(!checked) {
-    //         const index = checkedValues.indexOf(value);
-    //         if (index > -1) {
-    //             checkedValues.splice(index, 1);
-    //         }
-    //     }
-    // }
-
     const add = () => {
 
         let dataNew = Object.assign({}, data);
@@ -360,17 +345,17 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
         dataNew.nodes.push(stakeholder);
 
-        for (let i of checkedValues) {
+        for (let i of stakeholderValues.filter(d => d.checked)) {
 
-            if (!stakeholderIdArray.includes(i)) {
-                stakeholderIdArray.push(i)
-                dataNew.nodes.push({"id": i,
-                                    "name": i,
+            if (!stakeholderIdArray.includes(i.value)) {
+                stakeholderIdArray.push(i.value)
+                dataNew.nodes.push({"id": i.value,
+                                    "name": i.value,
                                     "shape": "value",
                                     "fill": stakeholderGroup});
             }
 
-            dataNew.links.push({"source": i, "target": stakeholderName});
+            dataNew.links.push({"source": i.value, "target": stakeholderName});
         }
 
         setData(dataNew);
