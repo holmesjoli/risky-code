@@ -25,6 +25,8 @@ let values = [{"value": "Freedom", "checked": false},
             //   {"value": "Efficiency", "checked": false}
         ];
 
+const defaultValues = values;
+
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
 let width = 650;
@@ -307,12 +309,16 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
-    const [checked, setChecked] = useState([{"value": "Freedom", "checked": false}, 
-                                            {"value": "Autonomy", "checked": false}]);
+    const [checked, setChecked] = useState(values);
 
     const handleChange2 = (event) => {
-      setChecked([{"value": "Freedom", "checked": event.target.checked}, 
-                 {"value": "Autonomy", "checked": checked[1].checked}])
+
+        values.filter(d => d.value === event.target.value).checked = event.target.checked;
+
+        console.log(values)
+
+        setChecked([{"value": "Freedom", "checked": event.target.checked}, 
+                    {"value": "Autonomy", "checked": checked[1].checked}])
     };
 
     const handleChange3 = (event) => {
@@ -373,8 +379,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         setData(dataNew);
         updateStakeholderName("");
         updateStakeholderGroup("direct");
-        setChecked([{"value": "Freedom", "checked": false}, 
-                    {"value": "Autonomy", "checked": false}]);
+        setChecked(defaultValues);
     }
 
 
@@ -384,11 +389,11 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         <div>
           <FormControlLabel
             label={values[0].value}
-            control={<Checkbox checked={checked[0].checked} onChange={handleChange2} />}
+            control={<Checkbox value={values[0].value} checked={checked[0].checked} onChange={handleChange2} />}
           />
           <FormControlLabel
             label={values[1].value}
-            control={<Checkbox checked={checked[1].checked} onChange={handleChange3} />}
+            control={<Checkbox value={values[1].value} checked={checked[1].checked} onChange={handleChange3} />}
           />
           </div>
     );
