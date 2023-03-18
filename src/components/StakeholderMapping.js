@@ -17,25 +17,24 @@ let defaultNetwork = {"nodes": [], "links": []};
 let link, node, text;
 let simulation;
 
-const shapeData = [{"group": "stakeholder"},
-                    {"group": "value"}]
+const shapeData = [{"shape": "stakeholder"},
+                    {"shape": "value"}]
 
-const fillData = [{"type": "direct"},
-                  {"type": "indirect"},
-                  {"type": "excluded"}]
+const fillData = [{"fill": "direct"},
+                  {"fill": "indirect"},
+                  {"fill": "excluded"}]
 
-const opacityScale = d3.scaleOrdinal()
+const fillScale = d3.scaleOrdinal()
     .domain(["direct", "indirect", "excluded"])
-    .range([1, .7, .1])
+    .range(["#F50141", "#FD7B03", "#F3C010"])
 
 const sizeScale = d3.scaleOrdinal()
     .domain(["stakeholder", "value"])
-    .range([300, 75])
-              
+    .range([300, 75]);
 
 export function symbolType(d) {
 
-    if(d.group === "stakeholder") {
+    if(d.shape === "stakeholder") {
         return d3.symbolCircle;
     } else {
         return d3.symbolSquare;
@@ -69,10 +68,10 @@ function drag() {
 
 function stakeholderType(d) {
 
-    if(d.type !== "none" && d.group === "value") {
+    if(d.shape === "value") {
         return `Value: ${d.name}`;
-    } else if(d.type !== "none" && d.group === "stakeholder") {
-        return `${d.id}: ${d.type} stakeholder`;
+    } else if(d.shape === "stakeholder") {
+        return `${d.id}: ${d.fill} stakeholder`;
     } else {
         return "";
     }
@@ -163,13 +162,11 @@ function updateNetwork(data) {
       .data(data.nodes, d => d.id)
       .join(enter => enter.append("path")
                 .attr("class", "network-nodes")
-                .attr("fill-opacity", d => opacityScale(d.type))
-                .attr("fill", visStyles[style]["warningColor"])
-                .attr("stroke-opacity", 1)
-                .attr("stroke", visStyles[style]["warningColor"])
+                .attr("fill", d => fillScale(d.fill))
+                // .attr("stroke", visStyles[style]["warningColor"])
                 .attr("d", d3.symbol()
-                .type(((d) => symbolType(d)))
-                .size(d => sizeScale(d.group)))
+                    .type(((d) => symbolType(d)))
+                    .size(d => sizeScale(d.shape)))
             );
 
     link = link
@@ -181,12 +178,12 @@ function updateNetwork(data) {
         .data(data.nodes, d => d.id)
         .join(
             enter  => enter.append("text")
-                .attr("fill", d => d.group === "value"? visStyles[style]["textColor"]: visStyles[style]["textHighlightColor"])
+                .attr("fill", d => d.shape === "value"? visStyles[style]["textColor"]: visStyles[style]["textHighlightColor"])
                 .attr("font-size", visStyles[style]["fontSize"])
                 .attr("font-weight", d => d.group === "value"? visStyles[style]["fontWeight"]: visStyles[style]["fontHighlightWeight"])
                 .attr("cursor", "default")
                 .attr("letter-spacing", ".6px")
-                .text(d => d.group !== "value" ? d.name: `${d.name}`)
+                .text(d => d.shape !== "value" ? d.name: `${d.name}`)
     );
 
     simulation.nodes(data.nodes);
@@ -216,7 +213,7 @@ function drawShapeLegend() {
 
     let shape = svg.append("g")
            .selectAll("circle")
-           .data(shapeData, d => d.group)
+           .data(shapeData, d => d.shape)
            .enter()
            .append("g")
            .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
@@ -231,13 +228,13 @@ function drawShapeLegend() {
     shape.append("text")
           .attr("text-anchor", "middle")
           .attr("y", 20)
-          .text(d => d.group)
           .attr("fill", visStyles[style]["textColor"])
-          .attr("font-size", visStyles[style]["fontSize"]);
+          .attr("font-size", visStyles[style]["fontSize"])
+          .text(d => d.shape);
 
     let color = svg.append("g")
           .selectAll("circle")
-          .data(fillData, d => d.type)
+          .data(fillData, d => d.fill)
           .enter()
           .append("g")
           .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
@@ -246,15 +243,14 @@ function drawShapeLegend() {
        .attr("d", d3.symbol()
            .type(d3.symbolCircle)
            .size(100))
-       .attr("fill", visStyles[style]["warningColor"])
-       .attr("opacity", d => opacityScale(d.type));
+        .attr("fill", d => fillScale(d.fill))
 
     color.append("text")
        .attr("text-anchor", "middle")
        .attr("y", 20)
-       .text(d => d.group)
        .attr("fill", visStyles[style]["textColor"])
-       .attr("font-size", visStyles[style]["fontSize"]);
+       .attr("font-size", visStyles[style]["fontSize"])
+       .text(d => d.fill);
 }
 
 function StakeholderNetwork(data, setData) {
@@ -330,8 +326,8 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
-                           "group": "stakeholder",
-                           "type": stakeholderGroup};
+                           "shape": "stakeholder",
+                           "fill": stakeholderGroup};
 
         dataNew.nodes.push(stakeholder);
 
@@ -341,8 +337,8 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                 stakeholderIdArray.push(i)
                 dataNew.nodes.push({"id": i,
                                     "name": i,
-                                    "group": "value",
-                                    "type": stakeholderGroup});
+                                    "shape": "value",
+                                    "fill": stakeholderGroup});
 
                 // dataNew.links.push({"source": "stakeholders", "target": i});
             }
