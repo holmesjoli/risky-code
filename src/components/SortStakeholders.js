@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
-import { importTransitImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { STAKEHOLDER_COLUMN_NAMES, stakeholderGroups } from "../utils/global";
 
@@ -109,8 +108,8 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
-        {/* <img src={images[Object.keys(images)[item.id]]} alt="" width="200"></img> */}
+    <div ref={ref} className="Movable-Item Card Variable" style={{ opacity }}>
+      {item.name}
     </div>
   );
 };
@@ -128,7 +127,7 @@ const Column = ({ children, className, title }) => {
       const { STAKEHOLDERS, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
-        currentColumnName === title || currentColumnName === DIRECT || title === INDIRECT || title === EXCLUDED || title === STAKEHOLDERS
+        currentColumnName === title || title === DIRECT || title === INDIRECT || title === EXCLUDED || title === STAKEHOLDERS
       );
     }
   });
@@ -140,7 +139,7 @@ const Column = ({ children, className, title }) => {
       style={{ border: getBorder(isOver, canDrop),
         backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h3 className="Small-Margin" style={{ color: getColor(isOver, canDrop) }}>{title}</h3>
+      <h4 className="Small-Margin" style={{ color: getColor(isOver, canDrop) }}>{title}</h4>
       <div className="Card-Container Moveable-Items">
         {children.length === 0 ? <p className="Opacity">drop here</p>: children}
       </div>
@@ -148,7 +147,7 @@ const Column = ({ children, className, title }) => {
   );
 };
 
-export default function SortBump() {
+export default function SortStakeholders() {
   const [items, setItems] = useState(stakeholderGroups);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
@@ -205,7 +204,6 @@ export default function SortBump() {
             <Column title={EXCLUDED} className="Container Variables-Column">
             {returnItemsForColumn(EXCLUDED)}
             </Column>
-
         </div>
       </DndProvider>
     </div>

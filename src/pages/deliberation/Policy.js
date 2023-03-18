@@ -62,8 +62,10 @@ export default function Policy({config, user, disableDeliberationNext, setDisabl
                                 <p className="No-Margin-Bottom">Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
                             </div>
                             <Timer user={user} disableNext={disableDeliberationNext} setDisableNext={setDisableDeliberationNext}>
-                                <p>Do you think algorithmic decision-making should be used to inform all types of policy decisions? Why or why not?</p>
-                                <p className="Small-Margin">Do you think algorithmic decision-making is more risky in certain scenarios?</p>
+                                <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>
+                                <p>Pick one scenario and brainstorm some potential consequences (positive and negative) of that example.</p>
+                                {/* <p>Do you think algorithmic decision-making should be used to inform all types of policy decisions? Why or why not?</p> */}
+                                {/* <p className="Small-Margin">Do you think algorithmic decision-making is more risky in certain scenarios?</p> */}
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableDeliberationNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>

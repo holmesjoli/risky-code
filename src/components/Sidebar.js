@@ -62,28 +62,28 @@ export function Role({moduleName, addTitle = true}) {
         return(
             <div className="Card-Group">
                 <h3 className="Small-Margin">role: <span className="Emphasis">you</span></h3>
-                <p className="No-Margin-Bottom"><span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making.</p>
+                <p className="No-Margin-Bottom">Your role in this module is <span className="Emphasis">you</span>, a busy individual who wants to learn more about algorithmic decision-making.</p>
             </div>
         )
     } else if (moduleName === "fairness") {
         return(
             <div className="Card-Group">
                 <h3 className="Small-Margin">role: <span className="Emphasis">data scientist</span></h3>
-                <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness.</p>
+                <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness.</p>
             </div>
         )
     } else if (moduleName === "caseStudies") {
         return(
             <div className="Card-Group">
                 <h3 className="Small-Margin">role: <span className="Emphasis">designer</span></h3>
-                <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">designer</span> interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>
+                <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Emphasis">designer</span> interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>
             </div>
         )
     } else if (moduleName === "deliberation") {
         return(
             <div className="Card-Group">
                 <h3 className="Small-Margin">role: <span className="Emphasis">public policymaker</span></h3>
-                <p className="No-Margin-Bottom">A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</p>
+                <p className="No-Margin-Bottom">Your role in this module is a <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</p>
             </div>
         )
     }

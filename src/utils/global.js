@@ -218,27 +218,14 @@ export const STAKEHOLDER_COLUMN_NAMES = {
 const {STAKEHOLDER} = STAKEHOLDER_COLUMN_NAMES;
 
 export const stakeholderGroups = [
-    {id: 1, name: 'Item 1', column: STAKEHOLDER, bump: true, previous_bump_recorded: true},
-    {id: 2, name: 'Item 2', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 3, name: 'Item 3', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 4, name: 'Item 4', column: STAKEHOLDER, bump: true, previous_bump_recorded: true},
-    {id: 5, name: 'Item 5', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 6, name: 'Item 6', column: STAKEHOLDER, bump: false, previous_bump_recorded: true},
-    {id: 7, name: 'Item 7', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 8, name: 'Item 8', column: STAKEHOLDER, bump: true, previous_bump_recorded: true},
-    {id: 9, name: 'Item 9', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 10, name: 'Item 10', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 11, name: 'Item 11', column: STAKEHOLDER, bump: true, previous_bump_recorded: true},
-    {id: 12, name: 'Item 12', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 13, name: 'Item 13', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 14, name: 'Item 14', column: STAKEHOLDER, bump: true, previous_bump_recorded: true},
-    {id: 15, name: 'Item 15', column: STAKEHOLDER, bump: false, previous_bump_recorded: true},
-    {id: 16, name: 'Item 16', column: STAKEHOLDER, bump: true, previous_bump_recorded: true},
-    {id: 17, name: 'Item 17', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 18, name: 'Item 18', column: STAKEHOLDER, bump: false, previous_bump_recorded: false},
-    {id: 19, name: 'Item 19', column: STAKEHOLDER, bump: false, previous_bump_recorded: true},
-    {id: 20, name: 'Item 20', column: STAKEHOLDER, bump: true, previous_bump_recorded: false},
-    {id: 11, name: 'Item 21', column: STAKEHOLDER, bump: false, previous_bump_recorded: true},
+    {id: 1, name: 'end user', column: STAKEHOLDER, group: 'direct'},
+    {id: 2, name: 'advocacy groups', column: STAKEHOLDER, group: 'indirect'},
+    {id: 3, name: 'designer', column: STAKEHOLDER, group: 'direct'},
+    {id: 4, name: 'engineer', column: STAKEHOLDER, group: 'direct'},
+    {id: 5, name: 'families of end users', column: STAKEHOLDER, group: 'indirect'},
+    {id: 6, name: 'regulators', column: STAKEHOLDER, group: 'indirect'},
+    {id: 7, name: 'administrators', column: STAKEHOLDER, group: 'direct'},
+    {id: 8, name: 'society at large', group: 'indirect'}
 ];
 
 
@@ -373,7 +360,7 @@ export const terms = {
     },
     "stakeholders": {
         "title": "stakeholders",
-        "definition": "People, individuals or groups, impacted directly or indirectly by a system (Bender and Friedman 2018)."
+        "definition": "People, individuals or groups, impacted directly, indirectly, or excluded from an algorithmic system (Bender and Friedman 2018)."
     },
     "direct stakeholders": {
         "title": "direct stakeholders",

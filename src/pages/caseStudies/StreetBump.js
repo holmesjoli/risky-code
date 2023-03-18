@@ -13,6 +13,8 @@ import StakeholderMapping from "../../components/StakeholderMapping";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
+import SortStakeholders from "../../components/SortStakeholders";
+
 
 // import coastline from "../../data/processed/Boston/coastline.json";
 // import city from "../../data/processed/Boston/city.json";
@@ -94,18 +96,24 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                     <div className="Two-Column-Three">
                         <div>
                             <h3 className="Page-Title">introduction to stakeholder mapping</h3>
-                            <div id={chartID} className="chart Margin-Bottom"></div>
-                            <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6>
+                            <p>The next module explores a common design-thinking methodology called <span className='Emphasis'>Stakeholder Mapping</span>. This section will lead you through a stakeholder mapping exercise for two public policy cases where algorithmically-informed decision-making was implemented.</p>
+                            <h3>sort stakeholders</h3>
+                            <SortStakeholders/>
+                            {/* <div id={chartID} className="chart Margin-Bottom"></div> */}
+                            {/* <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6> */}
                         </div>
                         <RightSideBar>
                             <Role moduleName="caseStudies"/>
                             <div className="Card-Group">
-                                <h3>stakeholder mapping</h3>
-                                <p className="No-Margin-Bottom">The next module explores a common design-thinking methodology called <span className='Emphasis'>Stakeholder Mapping</span>. This section will lead you through a stakeholder mapping excerise for two public policy cases where algorithmically-informed decision-making was implemented.</p>
+                                <h3>stakeholder groups</h3>
+                                <ul>
+                                    <li><span className="Emphasis">Direct</span> stakeholders are those who directly interact with the algorithmic system</li>
+                                    <li><span className="Emphasis">Indirect</span> stakeholders do not directly interact with the algorithmic system, but are impacted by its use</li>
+                                    <li className="No-Margin-Bottom"><span className="Emphasis">Excluded</span> stakeholders are those who cannot interact with the algorithmic system</li>
+                                </ul>
                             </div>
                             <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>
-                                <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>
-                                <p>Pick one scenario and brainstorm some potential consequences (positive and negative) of that example.</p>
+                                <p className="No-Margin-Bottom">Stakeholder mapping is an important step in the design-thinking process. Why do you think its important to identify stakeholders?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableCaseStudyNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>
@@ -127,7 +135,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
                     <Term term={terms['excluded stakeholders']}/>
-                    <Term term={terms['fpr']}/>
+                    {/* <Term term={terms['fpr']}/> */}
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
