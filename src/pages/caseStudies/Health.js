@@ -8,7 +8,7 @@ import Progress from "../../components/Progress";
 import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term, RoleAccordion } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
-import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
+import { Consequence } from "../../components/TrackUserInputs";
 import StakeholderMapping from "../../components/StakeholderMapping";
 
 export default function Health({config, modules}) {
@@ -40,7 +40,7 @@ export default function Health({config, modules}) {
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Stakeholders/>
+                <StakeholderMapping/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <Consequence/>

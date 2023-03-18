@@ -118,7 +118,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                                 </ul>
                             </div>
                             <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>
-                                <p className="No-Margin-Bottom">Stakeholder mapping is an important step in the design-thinking exercize. Why do you think its important to identify stakeholders?</p>
+                                <p>Stakeholder mapping is an important step in the design-thinking exercize. Why do you think its important to identify stakeholders?</p>
                                 <p className="No-Margin-Bottom">When might it be important to conduct stakeholder mapping?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableCaseStudyNext} toggleOverlay={toggleOverlay}/>: <></>}
@@ -133,11 +133,12 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify problem roads.</p>
-                    <p>Brainstorm who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
+                    <p>Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify road problems.</p>
+                    <p>Create a stakeholder map for stakeholders of the Street Bump application. Start by brainstorming who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
+                    <p>Then add your brainstorm to the map to see how the stakeholders value overlap.</p>
                 </Description>
                 <RoleAccordion moduleName="caseStudies"/>
-                <Terminology>
+                <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
                     <Term term={terms['excluded stakeholders']}/>

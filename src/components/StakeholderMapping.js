@@ -288,7 +288,7 @@ function StakeholderNetwork(data, setData) {
 
     return(
         <div className="Container">
-            <h3>stakeholder mapping</h3>
+            <h3>visualize</h3>
             <div id={chartId} className='Card-Group'></div>
             <div id={legendId} className='Card-Group'>
                 <h4>legend</h4>
@@ -363,7 +363,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
     return(
         <div className="Stakeholder-Attr Container">
-            <h3>add stakeholder</h3>
+            <h3>interact</h3>
             <div className="Card-Group">
                 <h4 className="Small-Margin">stakeholder group</h4>
                 <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={updateStakeholder} />
