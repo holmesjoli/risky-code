@@ -5,8 +5,6 @@ import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { STAKEHOLDER_COLUMN_NAMES, stakeholderGroups } from "../utils/global";
 
-// const images = importTransitImages();
-
 const MovableItem = ({
   id,
   name,
@@ -79,10 +77,10 @@ const MovableItem = ({
 
       if (dropResult) {
         const { name } = dropResult;
-        const { STAKEHOLDERS, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
+        const { STAKEHOLDER, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
         switch (name) {
-          case STAKEHOLDERS:
-            changeItemColumn(item, STAKEHOLDERS);
+          case STAKEHOLDER:
+            changeItemColumn(item, STAKEHOLDER);
             break;
           case DIRECT:
             changeItemColumn(item, DIRECT);
@@ -124,10 +122,10 @@ const Column = ({ children, className, title }) => {
     }),
     // Override monitor.canDrop() function
     canDrop: (item) => {
-      const { STAKEHOLDERS, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
+      const { STAKEHOLDER, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
-        currentColumnName === title || title === DIRECT || title === INDIRECT || title === EXCLUDED || title === STAKEHOLDERS
+        currentColumnName === title || title === DIRECT || title === INDIRECT || title === EXCLUDED || title === STAKEHOLDER
       );
     }
   });
@@ -185,13 +183,13 @@ export default function SortStakeholders() {
       ));
   };
 
-  const { STAKEHOLDERS, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
+  const { STAKEHOLDER, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
 
   return (
     <div className="Text-Align-Center">
       <DndProvider backend={HTML5Backend}>
-        <Column title={STAKEHOLDERS} className="Container Variables-Column">
-          {returnItemsForColumn(STAKEHOLDERS)}
+        <Column title={STAKEHOLDER} className="Container Variables-Column">
+          {returnItemsForColumn(STAKEHOLDER)}
         </Column>
         <ExpandMoreIcon className="Scale200"/>
         <div className="Two-Column">

@@ -225,7 +225,7 @@ export const stakeholderGroups = [
     {id: 5, name: 'families of end users', column: STAKEHOLDER, group: 'indirect'},
     {id: 6, name: 'regulators', column: STAKEHOLDER, group: 'indirect'},
     {id: 7, name: 'administrators', column: STAKEHOLDER, group: 'direct'},
-    {id: 8, name: 'society at large', group: 'indirect'}
+    {id: 8, name: 'society at large', column: STAKEHOLDER, group: 'indirect'}
 ];
 
 
