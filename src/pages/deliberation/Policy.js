@@ -40,7 +40,7 @@ export default function Policy({config, user, disableDeliberationNext, setDisabl
     }, [isOpen])
 
     useEffect(() => {
-        policyDiagram(chartId, 480, 480, "colorMode", false);
+        policyDiagram(chartId, 450, 450, "colorMode", false);
     }, []);
 
     return (
@@ -51,14 +51,17 @@ export default function Policy({config, user, disableDeliberationNext, setDisabl
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
-                            <h3 className="Page-Title Center">introduction to  deliberation</h3>
-                            <div className="chart" id={chartId}></div>
-                            <h6 className="Small-Margin">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
+                            <h3 className="Page-Title">introduction to  deliberation</h3>
+                            <div className="Card-Group">
+                                <h3 className="Small-Margin Text-Align-Left">explore</h3>
+                                <div className="chart" id={chartId}></div>
+                                <h6 className="Small-Margin Text-Align-Left">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
+                            </div>
                         </div>
                         <RightSideBar>
                             <Role moduleName="deliberation"/>
                             <div className="Card-Group">
-                                <h4>situating risk</h4>
+                                <h3>situating risk</h3>
                                 <p className="No-Margin-Bottom">Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are. The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
                             </div>
                             <Timer user={user} disableNext={disableDeliberationNext} setDisableNext={setDisableDeliberationNext}>
