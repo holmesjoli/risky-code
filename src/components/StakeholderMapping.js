@@ -6,23 +6,24 @@ import { visStyles } from "../utils/global";
 
 let values = [{"value": "Freedom", "checked": false}, 
               {"value": "Autonomy", "checked": false}, 
-              {"value": "Privacy", "checked": false}, 
-              {"value": "Security", "checked": false}, 
-              {"value": "Safety", "checked": false}, 
-              {"value": "Anonymity", "checked": false}, 
-              {"value": "Reliability", "checked": false}, 
-              {"value": "Trust", "checked": false}, 
-              {"value": "Fairness", "checked": false}, 
-              {"value": "Accountability", "checked": false}, 
-              {"value": "Inclusion", "checked": false}, 
-              {"value": "Ownership and property", "checked": false}, 
-              {"value": "Dignity", "checked": false},
-              {"value": "Informed consent", "checked": false}, 
-              {"value": "Identity", "checked": false}, 
-              {"value": "Environment sustainability", "checked": false}, 
-              {"value": "Peace", "checked": false}, 
-              {"value": "Transparency", "checked": false}, 
-              {"value": "Efficiency", "checked": false}];
+            //   {"value": "Privacy", "checked": false}, 
+            //   {"value": "Security", "checked": false}, 
+            //   {"value": "Safety", "checked": false}, 
+            //   {"value": "Anonymity", "checked": false}, 
+            //   {"value": "Reliability", "checked": false}, 
+            //   {"value": "Trust", "checked": false}, 
+            //   {"value": "Fairness", "checked": false}, 
+            //   {"value": "Accountability", "checked": false}, 
+            //   {"value": "Inclusion", "checked": false}, 
+            //   {"value": "Ownership and property", "checked": false}, 
+            //   {"value": "Dignity", "checked": false},
+            //   {"value": "Informed consent", "checked": false}, 
+            //   {"value": "Identity", "checked": false}, 
+            //   {"value": "Environment sustainability", "checked": false}, 
+            //   {"value": "Peace", "checked": false}, 
+            //   {"value": "Transparency", "checked": false}, 
+            //   {"value": "Efficiency", "checked": false}
+        ];
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
@@ -374,11 +375,11 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const children = (
         <div>
           <FormControlLabel
-            label="Child 1"
+            label={values[0].value}
             control={<Checkbox checked={checked[0]} onChange={handleChange2} />}
           />
           <FormControlLabel
-            label="Child 2"
+            label={values[1].value}
             control={<Checkbox checked={checked[1]} onChange={handleChange3} />}
           />
           </div>
