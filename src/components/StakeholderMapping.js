@@ -309,11 +309,11 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
-    const [checked, setChecked] = useState(values);
+    const [stakeholderValues, setStakeholderValues] = useState(values);
 
-    const updateChecked = (ev) => {
+    const updateStakeholderValues = (ev) => {
 
-        const v = checked.map(obj => {
+        const v = stakeholderValues.map(obj => {
             if (obj.value == ev.target.value) {
                 return {...obj, checked: ev.target.checked}
             }
@@ -321,7 +321,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
             }
         )
 
-        setChecked(v)
+        setStakeholderValues(v)
     };  
 
     let checkedValues = [];
@@ -376,18 +376,18 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         setData(dataNew);
         updateStakeholderName("");
         updateStakeholderGroup("direct");
-        setChecked(defaultValues);
+        updateStakeholderValues(defaultValues);
     }
 
     const children = (
         <div>
           <FormControlLabel
             label={values[0].value}
-            control={<Checkbox value={values[0].value} checked={checked[0].checked} onChange={updateChecked} />}
+            control={<Checkbox value={values[0].value} checked={stakeholderValues[0].checked} onChange={updateStakeholderValues} />}
           />
           <FormControlLabel
             label={values[1].value}
-            control={<Checkbox value={values[1].value} checked={checked[1].checked} onChange={updateChecked} />}
+            control={<Checkbox value={values[1].value} checked={stakeholderValues[1].checked} onChange={updateStakeholderValues} />}
           />
           </div>
     );
@@ -397,7 +397,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
             <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4 className="Small-Margin">stakeholder group</h4>
-                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={setStakeholder} checked={checked[0]} />
+                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={setStakeholder} />
             </div>
             <div className="Card-Group">
                 <FormControl>
