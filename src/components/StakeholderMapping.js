@@ -291,9 +291,6 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const [stakeholderName, updateStakeholderName] = useState("");
     const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
     const [stakeholderValues, updateStakeholderValues] = useState([]);
-    let checkedValues = [];
-
-    // console.log(checkedValues)
 
     const setStakeholder = ev => {
         updateStakeholderName(ev.target.value);
@@ -307,8 +304,6 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
         let value = ev.target.value;
         let checked = ev.target.checked;
-
-        checkedValues.push(value)
 
         if(!stakeholderValues.includes(value) && checked) {
             stakeholderValues.push(value)
@@ -339,21 +334,15 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                                     "name": i,
                                     "shape": "value",
                                     "fill": stakeholderGroup});
-
-                // dataNew.links.push({"source": "stakeholders", "target": i});
             }
 
             dataNew.links.push({"source": i, "target": stakeholderName});
         }
 
-        setData(dataNew)
-
+        setData(dataNew);
         updateStakeholderName("");
         updateStakeholderGroup("direct");
         updateStakeholderValues([]);
-
-        // d3.selectAll(".Value-Check input")
-        //     .attr("checked", false)
     }
 
     return(
