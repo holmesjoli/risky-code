@@ -21,7 +21,7 @@ export function NextButtonOverlay({toggleOverlay, disabled=false, label="next"})
 
   return(
       <div className="Button-Container-Right-Overlay Margin-Top">
-          <Button variant="outlined" color="secondary" className="Next" onClick={toggleOverlay} disabled={disabled}>{label}</Button>
+          <Button variant="contained" className="Next" onClick={toggleOverlay} disabled={disabled}>{label}</Button>
       </div>
   )
 }

@@ -9,21 +9,7 @@ import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term, RoleAccordion } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
 import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
-
-function Information() {
-    return (
-        <div className="Information">
-        </div>
-    )
-}
-
-export function Content() {
-    return(
-        <div className="Content Three-Column No-Padding-Top">
-            <Information/>
-        </div>
-    )
-}
+import StakeholderMapping from "../../components/StakeholderMapping";
 
 export default function Health({config, modules}) {
 
@@ -54,10 +40,9 @@ export default function Health({config, modules}) {
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content />
+                <Stakeholders/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                    <Stakeholders/>
                     <Consequence/>
                     <NextButton routeNext={routeNext}/>
                 </RightSideBar>

@@ -259,9 +259,9 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
         renderTooltip(chartID, style);
     }
 
-    if (highlightNodes) {
-        transitionHighlight(style);
-    }
+    // if (highlightNodes) {
+    //     transitionHighlight(style);
+    // }
 
     adjustFillColor(style);
 }

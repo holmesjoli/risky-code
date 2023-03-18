@@ -11,6 +11,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role, RoleAccordion } from "../../components/Sidebar";
 import { Button } from '@material-ui/core';
 import Timer from "../../components/Timer";
+import StakeholderMapping from "../../components/StakeholderMapping";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -146,10 +147,9 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <Content />
+            <StakeholderMapping />
             <RightSideBar>
             <Progress id={id} modules={modules}/>
-                <Stakeholders/>
                 <Consequence margin="Margin-Large-Bottom"/>
                 <NextButton routeNext={routeNext}/>
             </RightSideBar>

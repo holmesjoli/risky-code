@@ -129,7 +129,7 @@ function fairnessDefinitions(style = "darkMode") {
         .text(d => d.fairness_definition);
 
     renderTooltip();
-    transitionHighlight(style);
+    // transitionHighlight(style);
 }
 
 function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm}) {
