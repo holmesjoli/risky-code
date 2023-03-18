@@ -113,8 +113,8 @@ export const navigationData = [
         "navLink": "/Error"
     },
     {
-        "name": "Case Studies",
-        "id": "cases",
+        "name": "Stakeholder Mapping",
+        "id": "stakeholderMapping",
         "size": "Large",
         "navLink": "/StreetBump"
     },

@@ -93,7 +93,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
-                            <h3 className="Page-Title">introduction to case studies</h3>
+                            <h3 className="Page-Title">introduction to stakeholder mapping</h3>
                             <div id={chartID} className="chart Margin-Bottom"></div>
                             <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6>
                         </div>
@@ -101,7 +101,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                             <Role moduleName="caseStudies"/>
                             <div className="Card-Group">
                                 <h3>stakeholder mapping</h3>
-                                <p className="No-Margin-Bottom">In this next module, <span className="Emphasis">Case Studies</span> we will explore two different examples of algorithmically informed decision-making. We will brainstorm different stakeholder groups that would be impacted if algorithmically-informed decision-making was implemented.</p>
+                                <p className="No-Margin-Bottom">The next module explores a common design-thinking methodology called <span className='Emphasis'>Stakeholder Mapping</span>. This section will lead you through a stakeholder mapping excerise for two public policy cases where algorithmically-informed decision-making was implemented.</p>
                             </div>
                             <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>
                                 <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>
