@@ -311,20 +311,17 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
     const [checked, setChecked] = useState(values);
 
-    const handleChange2 = (event) => {
-
-        values.filter(d => d.value === event.target.value).checked = event.target.checked;
-
-        console.log(values)
-
-        setChecked([{"value": "Freedom", "checked": event.target.checked}, 
-                    {"value": "Autonomy", "checked": checked[1].checked}])
-    };
-
     const handleChange3 = (event) => {
 
-    setChecked([{"value": "Freedom", "checked": checked[0].checked}, 
-                 {"value": "Autonomy", "checked": event.target.checked}])
+        const v = checked.map(obj => {
+            if (obj.value == event.target.value) {
+                return {...obj, checked: event.target.checked}
+            }
+            return obj;
+            }
+        )
+
+        setChecked(v)
     };  
 
     let checkedValues = [];
@@ -382,14 +379,11 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         setChecked(defaultValues);
     }
 
-
-    console.log(checked)
-
     const children = (
         <div>
           <FormControlLabel
             label={values[0].value}
-            control={<Checkbox value={values[0].value} checked={checked[0].checked} onChange={handleChange2} />}
+            control={<Checkbox value={values[0].value} checked={checked[0].checked} onChange={handleChange3} />}
           />
           <FormControlLabel
             label={values[1].value}
