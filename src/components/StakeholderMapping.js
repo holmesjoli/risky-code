@@ -360,12 +360,12 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         <div className="Stakeholder-Attr Container">
             <h3>add stakeholder</h3>
             <div className="Card-Group">
-                <h4>stakeholder group</h4>
+                <h4 className="Small-Margin">stakeholder group</h4>
                 <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={setStakeholder}/>
             </div>
             <div className="Card-Group">
                 <FormControl>
-                    <h4>stakeholder type</h4>
+                    <h4 className="Small-Margin">stakeholder type</h4>
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="direct"
@@ -380,7 +380,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                 </FormControl>
             </div>
             <div className="Card-Group">
-                <h4>stakeholder values</h4>
+                <h4 className="Small-Margin">stakeholder values</h4>
                 <FormGroup>
                     <div>
                         {values.map(el => <FormControlLabel key={el} 
@@ -389,7 +389,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                 </FormGroup>
             </div>
             <div className="Add-Stakeholder-Button">
-                <h4>add stakeholder to diagram</h4>
+                <h4 className="Small-Margin">add stakeholder to diagram</h4>
                 <Fab color="primary" onClick={add}>
                     <AddIcon />
                 </Fab>
