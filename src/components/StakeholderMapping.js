@@ -307,8 +307,8 @@ function StakeholderNetwork(data, setData) {
 
 function AddStakeholder(data, setData, stakeholderIdArray) {
 
-    const [stakeholderName, updateStakeholderName] = useState("");
-    const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
+    const [stakeholderName, setStakeholderName] = useState("");
+    const [stakeholderGroup, setStakeholderGroup] = useState("direct");
     const [stakeholderValues, setStakeholderValues] = useState(values);
 
     const updateStakeholderValues = (ev) => {
@@ -326,12 +326,12 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
     let checkedValues = [];
 
-    const setStakeholder = ev => {
-        updateStakeholderName(ev.target.value);
+    const updateStakeholder = ev => {
+        setStakeholderName(ev.target.value);
     }
 
-    const setStakeholderGroup = ev => {
-        updateStakeholderGroup(ev.target.value);
+    const updateStakeholderGroup = ev => {
+        setStakeholderGroup(ev.target.value);
     }
 
     // const setStakeholderValues = ev => {
@@ -374,9 +374,9 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         }
 
         setData(dataNew);
-        updateStakeholderName("");
-        updateStakeholderGroup("direct");
-        updateStakeholderValues(defaultValues);
+        setStakeholderName("");
+        setStakeholderGroup("direct");
+        setStakeholderValues(defaultValues);
     }
 
     const children = (
@@ -397,7 +397,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
             <h3>add stakeholder</h3>
             <div className="Card-Group">
                 <h4 className="Small-Margin">stakeholder group</h4>
-                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={setStakeholder} />
+                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={updateStakeholder} />
             </div>
             <div className="Card-Group">
                 <FormControl>
@@ -406,7 +406,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                         aria-labelledby="demo-radio-buttons-group-label"
                         defaultValue="direct"
                         name="radio-buttons-group"
-                        onChange={setStakeholderGroup}
+                        onChange={updateStakeholderGroup}
                         value={stakeholderGroup}
                     >
                         <FormControlLabel value="direct" control={<Radio />} label="Direct" />
