@@ -86,8 +86,16 @@ export function Consequence({margin}) {
     return(
         <div className={"Consequence " + margin}>
             <div className="Container">
-                <h3 className="Medium-Margin">consequences</h3>
-                <TextField placeholder="Write a reflection on the consequences (positive and negative) of using algorithmically informed decision-making in this policy setting" variant="outlined" multiline minRows={12} />
+                <h3 className="Small-Margin">reflect</h3>
+                    <p>Reflection on the consequences (positive and negative) of using algorithmically informed decision-making in this policy setting</p>
+                <div className="Margin-Bottom" >
+                    <h4 className="Small-Margin">positive consequences</h4>
+                <TextField placeholder="write reflection" variant="outlined" multiline minRows={5} />
+                </div>
+                <div>
+                    <h4 className="Small-Margin">negative consequences</h4>
+                    <TextField placeholder="write reflection" variant="outlined" multiline minRows={5} />
+                </div>
             </div>
         </div>
     )
