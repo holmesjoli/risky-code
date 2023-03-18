@@ -13,7 +13,7 @@ import { visStyles, terms } from "../../utils/global";
 import { AlgorithmDefinition, LaundryRules } from '../../components/TrackUserInputs';
 
 let chartId = "brainstorm-terms";
-let width = 600;
+let width = 400;
 let height = 275;
 let style = "darkMode";
 

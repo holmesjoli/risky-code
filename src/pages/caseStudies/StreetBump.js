@@ -95,17 +95,22 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
-                            <h3 className="Page-Title">introduction to stakeholder mapping</h3>
-                            <p>The next module explores a common design-thinking methodology called <span className='Emphasis'>Stakeholder Mapping</span>. This section will lead you through a stakeholder mapping exercise for two public policy cases where algorithmically-informed decision-making was implemented.</p>
-                            <h3>sort stakeholders</h3>
-                            <SortStakeholders/>
-                            {/* <div id={chartID} className="chart Margin-Bottom"></div> */}
-                            {/* <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6> */}
+                            <div className="Bottom-Rule">
+                                <h3 className="Page-Title Small-Margin">introduction to stakeholder mapping</h3>
+                                <p className="Medium-Margin">The next module explores a common design-thinking methodology called <span className='Emphasis'>Stakeholder Mapping</span>. This section will lead you through a stakeholder mapping exercise for two public policy cases where algorithmically-informed decision-making was implemented.</p>
+                            </div>
+                            <div className="Medium-Margin-Top">
+                                <h3 className="Small-Margin">interact</h3>
+                                <p>Sort stakeholders</p>
+                                <SortStakeholders/>
+                                {/* <div id={chartID} className="chart Margin-Bottom"></div> */}
+                                {/* <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6> */}
+                                </div>
                         </div>
                         <RightSideBar>
                             <Role moduleName="caseStudies"/>
                             <div className="Card-Group">
-                                <h3>stakeholder groups</h3>
+                                <h3>define</h3>
                                 <ul>
                                     <li><span className="Emphasis">Direct</span> stakeholders are those who directly interact with the algorithmic system</li>
                                     <li><span className="Emphasis">Indirect</span> stakeholders do not directly interact with the algorithmic system, but are impacted by its use</li>
