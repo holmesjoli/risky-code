@@ -311,7 +311,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
     const [checked, setChecked] = useState(values);
 
-    const handleChange3 = (event) => {
+    const updateChecked = (event) => {
 
         const v = checked.map(obj => {
             if (obj.value == event.target.value) {
@@ -383,11 +383,11 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
         <div>
           <FormControlLabel
             label={values[0].value}
-            control={<Checkbox value={values[0].value} checked={checked[0].checked} onChange={handleChange3} />}
+            control={<Checkbox value={values[0].value} checked={checked[0].checked} onChange={updateChecked} />}
           />
           <FormControlLabel
             label={values[1].value}
-            control={<Checkbox value={values[1].value} checked={checked[1].checked} onChange={handleChange3} />}
+            control={<Checkbox value={values[1].value} checked={checked[1].checked} onChange={updateChecked} />}
           />
           </div>
     );
