@@ -311,11 +311,11 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const [stakeholderGroup, updateStakeholderGroup] = useState("direct");
     const [checked, setChecked] = useState(values);
 
-    const updateChecked = (event) => {
+    const updateChecked = (ev) => {
 
         const v = checked.map(obj => {
-            if (obj.value == event.target.value) {
-                return {...obj, checked: event.target.checked}
+            if (obj.value == ev.target.value) {
+                return {...obj, checked: ev.target.checked}
             }
             return obj;
             }
