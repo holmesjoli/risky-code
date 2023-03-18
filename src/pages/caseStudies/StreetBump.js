@@ -113,7 +113,8 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                                 </ul>
                             </div>
                             <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>
-                                <p className="No-Margin-Bottom">Stakeholder mapping is an important step in the design-thinking process. Why do you think its important to identify stakeholders?</p>
+                                <p className="No-Margin-Bottom">Stakeholder mapping is an important step in the design-thinking exercize. Why do you think its important to identify stakeholders?</p>
+                                <p className="No-Margin-Bottom">When might it be important to conduct stakeholder mapping?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableCaseStudyNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>
