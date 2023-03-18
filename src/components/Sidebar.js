@@ -76,7 +76,7 @@ export function Role({moduleName, addTitle = true}) {
         return(
             <div className="Card-Group">
                 <h3 className="Small-Margin">role: <span className="Emphasis">designer</span></h3>
-                <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">designer</span> interested in bring value-sensitive design methods to algorithmic decision-making.</p>
+                <p className="No-Margin-Bottom">A socially aware <span className="Emphasis">designer</span> interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>
             </div>
         )
     } else if (moduleName === "deliberation") {

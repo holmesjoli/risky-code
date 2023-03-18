@@ -3,8 +3,7 @@ import * as d3 from 'd3';
 export const config = {
     "About": {
         "id": "about",
-        "title": "about",
-        "descr": "About page"
+        "title": "about"
     },
     "Glossary": {
         "id": "glossary",
@@ -16,34 +15,27 @@ export const config = {
     },
     "Contact": {
         "id": "contact",
-        "title": "Contact",
-        "descr": "Contact page"
+        "title": "Contact"
     },
     "Classify": {
         "id": "classify",
-        "title": "classify",
-        "subtitle": "",
+        "title": "classify"
     },
     "Optimize": {
         "id": "optimize",
-        "title": "optimize",
-        "subtitle": "optimize the algorithm for accuracy"
+        "title": "optimize"
     },
     "Train": {
         "id": "train",
-        "title": "train",
-        "subtitle": "train the algorithm to predict the hot water load"
+        "title": "train"
     },
     "Calibration": {
         "id": "calibration",
-        "title": "calibration",
-        "subtitle": "learn about calibration definition of algorithmic fairness",
-        "descr": ""
+        "title": "calibration"
     },
     "Error": {
         "id": "error",
-        "title": "error rates",
-        "subtitle": "minimize the error rates"
+        "title": "error rates"
     },
     "Decision": {
         "id": "decision",
@@ -55,23 +47,19 @@ export const config = {
     },
     "Stakeholders": {
         "id": "stakeholders",
-        "title": "stakeholder mapping",
-        "subtitle": "brainstorm a policy scenario where algorithmically informed decision-making is or could be implemented."
+        "title": "stakeholder mapping"
     },
     "COMPAS": {
         "id": "compas",
-        "title": "compas and mathematical fairness",
-        "subtitle": "explore different versions of algorithmic fairness",
+        "title": "compas and mathematical fairness"
     },
     "StreetBump": {
         "id": "street",
-        "title": "street bump",
-        "subtitle": "learn about the street bump application"
+        "title": "street bump stakeholders"
     },
     "Health": {
         "id": "health",
-        "title": "health",
-        "subtitle": "learn about the street bump application"
+        "title": "health"
     }
 }
 

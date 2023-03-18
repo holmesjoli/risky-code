@@ -123,7 +123,6 @@ function renderTooltip() {
 
         d3.selectAll(".network-nodes")
             .attr("stroke", "none");
-
     });
 }
 

@@ -3,73 +3,56 @@ import { useNavigate, NavLink } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
-import SortBump from "../../components/SortBump";
-import { Consequence, Stakeholders } from "../../components/TrackUserInputs";
+import { Consequence } from "../../components/TrackUserInputs";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role, RoleAccordion } from "../../components/Sidebar";
-import { Button } from '@material-ui/core';
 import Timer from "../../components/Timer";
 import StakeholderMapping from "../../components/StakeholderMapping";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
 
-import coastline from "../../data/processed/Boston/coastline.json";
-import city from "../../data/processed/Boston/city.json";
-import park from "../../data/processed/Boston/park.json";
+// import coastline from "../../data/processed/Boston/coastline.json";
+// import city from "../../data/processed/Boston/city.json";
+// import park from "../../data/processed/Boston/park.json";
 
-function drawMap() {
+// function drawMap() {
 
-    // console.log(window.innerHeight, window.innerWidth)
+//     // console.log(window.innerHeight, window.innerWidth)
 
-    const svg = d3
-        .select("#Boston-Map")
-        .append("svg")
-        .attr("preserveAspectRatio", "xMinYMin meet")
-        .style("background-color", "#fff")
-        .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-        .classed("svg-content", true);
+//     const svg = d3
+//         .select("#Boston-Map")
+//         .append("svg")
+//         .attr("preserveAspectRatio", "xMinYMin meet")
+//         .style("background-color", "#fff")
+//         .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
+//         .classed("svg-content", true);
 
-    const projection = d3
-        .geoAlbers()
-        .translate([window.innerWidth / 2, window.innerHeight / 2])
-        .scale(40)
-        .center([0, 50]);
+//     const projection = d3
+//         .geoAlbers()
+//         .translate([window.innerWidth / 2, window.innerHeight / 2])
+//         .scale(40)
+//         .center([0, 50]);
 
-    let geoPathGenerator = d3
-        .geoPath()
-        .projection(projection);
+//     let geoPathGenerator = d3
+//         .geoPath()
+//         .projection(projection);
 
-    console.log(coastline)
-    console.log(city)
+//     console.log(coastline)
+//     console.log(city)
     
-    svg
-        .selectAll("path")
-        .data(park.features)
-        .enter()
-        .append("path")
-        // draw each country
+//     svg
+//         .selectAll("path")
+//         .data(park.features)
+//         .enter()
+//         .append("path")
+//         // draw each country
 
-        .attr("d", geoPathGenerator)
-        .attr("color", "#eeeeee");
-}
-
-function Content() {
-
-    // // useEffect(() => {
-    // //     drawMap();
-    // // }, [])
-
-    // const showResults = () => {
-    // }
-
-    return(
-        <div className="Content Two-Column-Three No-Padding-Top">
-        </div>
-    )
-}
+//         .attr("d", geoPathGenerator)
+//         .attr("color", "#eeeeee");
+// }
 
 export default function StreetBump({config, user, modules, disableCaseStudyNext, setDisableCaseStudyNext}) {
 
@@ -137,6 +120,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
             <LeftSideBar>
                 <Description config={config}>
                     <p>Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify problem roads.</p>
+                    <p>Brainstorm who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
                 </Description>
                 <RoleAccordion moduleName="caseStudies"/>
                 <Terminology>
