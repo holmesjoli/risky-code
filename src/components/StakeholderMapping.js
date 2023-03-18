@@ -13,24 +13,30 @@ let width = 650;
 let height = 400;
 let style = "darkMode";
 
-let defaultNetwork = {"nodes": [{"id": "stakeholders", "name": "Stakeholders", "group": "root", "type": "none"}], "links": []};
+let defaultNetwork = {"nodes": [], "links": []};
 let link, node, text;
 let simulation;
 
-const shapeData = [{"group": "root"},
-                    {"group": "stakeholder"},
+const shapeData = [{"group": "stakeholder"},
                     {"group": "value"}]
 
-const fillData = [{"group": "direct"},
-                  {"group": "indirect"},
-                  {"group": "excluded"}]
+const fillData = [{"type": "direct"},
+                  {"type": "indirect"},
+                  {"type": "excluded"}]
+
+const opacityScale = d3.scaleOrdinal()
+    .domain(["direct", "indirect", "excluded"])
+    .range([1, .7, .1])
+
+const sizeScale = d3.scaleOrdinal()
+    .domain(["stakeholder", "value"])
+    .range([300, 75])
+              
 
 export function symbolType(d) {
 
-    if (d.group === "root") {
+    if(d.group === "stakeholder") {
         return d3.symbolCircle;
-    } else if(d.group === "stakeholder") {
-        return d3.symbolTriangle;
     } else {
         return d3.symbolSquare;
     }
@@ -60,10 +66,6 @@ function drag() {
         .on("drag", dragged)
         .on("end", dragended);
 }
-
-const opacityScale = d3.scaleOrdinal()
-    .domain(["none", "direct", "indirect", "excluded"])
-    .range([1, 1, .7, .5])
 
 function stakeholderType(d) {
 
@@ -122,7 +124,6 @@ function initNetwork(data) {
         .selectAll("line");
 
     node = svg.append("g")
-        .attr("stroke", visStyles[style]["linkColor"])
         .attr("stroke-width", visStyles[style]["linkWidth"])
         .attr("cursor", "default")
         .selectAll("circle");
@@ -131,10 +132,10 @@ function initNetwork(data) {
         .selectAll("text");
 
     simulation = d3.forceSimulation()
-        .force("charge", d3.forceManyBody().strength(-300))
-        .force("link", d3.forceLink().id(d => d.id).distance(25))
-        .force("center", d3.forceCenter(width / 2, height / 2).strength(.01))
-        .force("collide", d3.forceCollide().strength(10).radius(8))
+        // .force("charge", d3.forceManyBody().strength(-50))
+        .force("link", d3.forceLink().id(d => d.id).distance(35))
+        .force("center", d3.forceCenter(width / 2, height / 2).strength(1))
+        .force("collide", d3.forceCollide().strength(.01).radius(8))
         .on("tick", ticked);
 
     function ticked() {
@@ -161,14 +162,15 @@ function updateNetwork(data) {
     node = node
       .data(data.nodes, d => d.id)
       .join(enter => enter.append("path")
-                .attr("class", d => d.group === "root"? "network-nodes node": "network-nodes")
-                .attr("opacity", d => opacityScale(d.type)))
+                .attr("class", "network-nodes")
+                .attr("fill-opacity", d => opacityScale(d.type))
                 .attr("fill", visStyles[style]["warningColor"])
+                .attr("stroke-opacity", 1)
+                .attr("stroke", visStyles[style]["warningColor"])
                 .attr("d", d3.symbol()
                 .type(((d) => symbolType(d)))
-                .size(d => d.group === "root"? 350: 100)
-                )
-        .call(drag);
+                .size(d => sizeScale(d.group)))
+            );
 
     link = link
         .data(data.links, d => `${d.source.id}\t${d.target.id}`)
@@ -191,6 +193,7 @@ function updateNetwork(data) {
     simulation.force("link").links(data.links);
     simulation.alpha(1).restart();
 
+    node.call(drag);
     renderTooltip();
 }
 
@@ -234,17 +237,17 @@ function drawShapeLegend() {
 
     let color = svg.append("g")
           .selectAll("circle")
-          .data(fillData, d => d.group)
+          .data(fillData, d => d.type)
           .enter()
           .append("g")
           .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
 
     color.append("path")
        .attr("d", d3.symbol()
-           .type(d3.symbolTriangle)
+           .type(d3.symbolCircle)
            .size(100))
        .attr("fill", visStyles[style]["warningColor"])
-       .attr("opacity", d => opacityScale(d.group));
+       .attr("opacity", d => opacityScale(d.type));
 
     color.append("text")
        .attr("text-anchor", "middle")
@@ -341,7 +344,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                                     "group": "value",
                                     "type": stakeholderGroup});
 
-                dataNew.links.push({"source": "stakeholders", "target": i});
+                // dataNew.links.push({"source": "stakeholders", "target": i});
             }
 
             dataNew.links.push({"source": i, "target": stakeholderName});
