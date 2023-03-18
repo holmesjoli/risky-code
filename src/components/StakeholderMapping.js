@@ -256,7 +256,7 @@ function drawShapeLegend() {
 function StakeholderNetwork(data, setData) {
 
     const resetNetwork = () => {
-        setData(defaultNetwork)
+        setData({"nodes": [], "links": []})
     }
 
     useEffect(() => {
@@ -400,7 +400,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
 export default function StakeholderMapping() {
 
-    const [data, setData] = useState(defaultNetwork);
+    const [data, setData] = useState({"nodes": [], "links": []});
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(
