@@ -4,9 +4,9 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
 import { importTransitImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { TRANSIT_COLUMN_NAMES, transitMethods } from "../utils/global";
+import { STAKEHOLDER_COLUMN_NAMES, stakeholderGroups } from "../utils/global";
 
-const images = importTransitImages();
+// const images = importTransitImages();
 
 const MovableItem = ({
   id,
@@ -80,17 +80,20 @@ const MovableItem = ({
 
       if (dropResult) {
         const { name } = dropResult;
-        const { TRANSIT, BUMP, NO_BUMP } = TRANSIT_COLUMN_NAMES;
+        const { STAKEHOLDERS, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
         switch (name) {
-          case BUMP:
-            changeItemColumn(item, BUMP);
+          case STAKEHOLDERS:
+            changeItemColumn(item, STAKEHOLDERS);
             break;
-          case NO_BUMP:
-            changeItemColumn(item, NO_BUMP);
+          case DIRECT:
+            changeItemColumn(item, DIRECT);
             break;
-          case TRANSIT:
-            changeItemColumn(item, TRANSIT);
+          case INDIRECT:
+            changeItemColumn(item, INDIRECT);
             break;
+          case EXCLUDED:
+              changeItemColumn(item, EXCLUDED);
+              break;
           default:
             break;
         }
@@ -107,7 +110,7 @@ const MovableItem = ({
 
   return (
     <div ref={ref} className="Movable-Item Card" style={{ opacity }}>
-        <img src={images[Object.keys(images)[item.id]]} alt="" width="200"></img>
+        {/* <img src={images[Object.keys(images)[item.id]]} alt="" width="200"></img> */}
     </div>
   );
 };
@@ -122,16 +125,10 @@ const Column = ({ children, className, title }) => {
     }),
     // Override monitor.canDrop() function
     canDrop: (item) => {
-      const { TRANSIT, BUMP, NO_BUMP } = TRANSIT_COLUMN_NAMES;
+      const { STAKEHOLDERS, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
-        currentColumnName === title ||
-        (currentColumnName === TRANSIT && title === BUMP) ||
-        (currentColumnName === BUMP &&
-          (title === TRANSIT || title === NO_BUMP)) ||
-        (currentColumnName === NO_BUMP &&
-          (title === BUMP )) ||
-        ( title === NO_BUMP)
+        currentColumnName === title || currentColumnName === DIRECT || title === INDIRECT || title === EXCLUDED || title === STAKEHOLDERS
       );
     }
   });
@@ -152,7 +149,7 @@ const Column = ({ children, className, title }) => {
 };
 
 export default function SortBump() {
-  const [items, setItems] = useState(transitMethods);
+  const [items, setItems] = useState(stakeholderGroups);
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -189,22 +186,26 @@ export default function SortBump() {
       ));
   };
 
-  const { TRANSIT, BUMP, NO_BUMP } = TRANSIT_COLUMN_NAMES;
+  const { STAKEHOLDERS, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
 
   return (
     <div className="Text-Align-Center">
       <DndProvider backend={HTML5Backend}>
-        <Column title={TRANSIT} className="Container Variables-Column">
-          {returnItemsForColumn(TRANSIT)}
+        <Column title={STAKEHOLDERS} className="Container Variables-Column">
+          {returnItemsForColumn(STAKEHOLDERS)}
         </Column>
         <ExpandMoreIcon className="Scale200"/>
         <div className="Two-Column">
-            <Column title={BUMP} className="Container Variables-Column">
-            {returnItemsForColumn(BUMP)}
+          <Column title={DIRECT} className="Container Variables-Column">
+            {returnItemsForColumn(DIRECT)}
+          </Column>
+            <Column title={INDIRECT} className="Container Variables-Column">
+            {returnItemsForColumn(INDIRECT)}
             </Column>
-            <Column title={NO_BUMP} className="Container Variables-Column">
-            {returnItemsForColumn(NO_BUMP)}
+            <Column title={EXCLUDED} className="Container Variables-Column">
+            {returnItemsForColumn(EXCLUDED)}
             </Column>
+
         </div>
       </DndProvider>
     </div>
