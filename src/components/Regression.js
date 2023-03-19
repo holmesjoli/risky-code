@@ -12,9 +12,9 @@ var logistic = new LogisticRegression({
     lambda: 0.0
 });
 
-export function Threshold({predictiveProbability, updateSlider}) {
+export function Threshold({predictiveProbability, updateSlider, containerClass="Container"}) {
     return(
-        <div className="Container Margin-Bottom Padding-Bottom Bottom-Rule">
+        <div className={containerClass +" Margin-Bottom Padding-Bottom Bottom-Rule"}>
             <h4 className="Small-Margin">decision threshold</h4>
             <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the cold water load.</p>
             <Slider
@@ -65,7 +65,7 @@ export function Accuracy({items, variables, predictiveProbability}) {
     )
 }
 
-export function PredictiveOutcomes({predictiveProbability=50}) {
+export function PredictiveOutcomes({predictiveProbability=50, containerClass="Container"}) {
 
     useEffect(() => {
 
@@ -78,7 +78,7 @@ export function PredictiveOutcomes({predictiveProbability=50}) {
 
     return(
         <div className="Margin-Bottom">
-            <div className="Container">
+            <div className={containerClass}>
                 <h4 className="Small-Margin">predictive probability</h4>
                 <div className="Row">
                     <div className="Card-Flat Example-Card">
