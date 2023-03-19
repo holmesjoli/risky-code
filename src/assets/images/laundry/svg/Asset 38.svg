@@ -8,7 +8,7 @@
 
       .cls-1, .cls-2 {
         fill-rule: evenodd;
-        stroke: #555;
+        stroke: #cbcbcb;
         stroke-miterlimit: 10;
       }
 

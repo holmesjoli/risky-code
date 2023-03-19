@@ -4,6 +4,7 @@
     <style>
       .cls-1 {
         fill-rule: evenodd;
+        stroke: #cbcbcb;
       }
     </style>
   </defs>
