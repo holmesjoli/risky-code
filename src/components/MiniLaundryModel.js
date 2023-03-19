@@ -116,7 +116,7 @@ const MovableItem = ({
   );
 };
 
-const Column = ({ children, className, title, nClassified }) => {
+const Column = ({ children, className, title}) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: "Our first type",
     drop: () => ({ name: title }),
@@ -208,15 +208,15 @@ export default function MiniModel() {
   return (
       <DndProvider backend={HTML5Backend}>
         <div className="Text-Align-Center">
-          <Column title={ITEM_LIST} className="Margin-Bottom">
+          <Column title={ITEM_LIST} className="Margin-Bottom Center-Card Margin-Top">
             {returnSingleItemForColumn(items, ITEM_LIST)}
           </Column>
           <ExpandMoreIcon/>
           <div className="Two-Column">
-            <Column title={CASE_TRUE} className="Container2 Case-True-Column Move-Column">
+            <Column title={CASE_TRUE} className="Container2 Move-Column-Mini">
               {returnItemsForColumn(items, CASE_TRUE)}
             </Column>
-            <Column title={CASE_FALSE} className="Container2 Case-False-Column Move-Column">
+            <Column title={CASE_FALSE} className="Container2 Move-Column-Mini">
               {returnItemsForColumn(items, CASE_FALSE)}
             </Column>
           </div>

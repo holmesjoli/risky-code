@@ -94,3 +94,13 @@
     border: 1px solid #fff;
     border-radius: 25px;
 }
+
+.Center-Card {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.Move-Column-Mini {
+    min-height: 125px;
+}
