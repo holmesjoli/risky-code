@@ -65,12 +65,12 @@ export function Accuracy({items, variables, predictiveProbability}) {
     )
 }
 
-export function PredictiveOutcomes({predictiveProbability=.5}) {
+export function PredictiveOutcomes({predictiveProbability=50}) {
 
     useEffect(() => {
 
         d3.selectAll(".Example-Card")
-            .attr("class", predictiveProbability < 28? "Card-Flat Example-Card": "Card-Flat Example-Card Predicted-False");
+            .attr("class", predictiveProbability > 28? "Card-Flat Example-Card": "Card-Flat Example-Card Predicted-False");
 
             console.log(predictiveProbability)
 
