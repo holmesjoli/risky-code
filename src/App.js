@@ -48,18 +48,14 @@ export default function App() {
     const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
 
-    useEffect(() => {
-      let t = user === "group"? "your team will imagine to be a team of:" : "you will imagine yourself as a:";
-      setType(t);
-    }, [user]);
     // items.sort((a, b) => a.column - b.column)
   
     return(
       <HashRouter>
         <Routes>
           <Route path="/" element={<Main/>} />
-          <Route path="/Orientation" element={<Orientation user={user} setUser={setUser} type={type} name={name} setName={setName} groupName={groupName} setGroupName={setGroupName}/>} />
-          <Route path="/Algorithm" element={<Algorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} />} />
+          <Route path="/Orientation" element={<Orientation user={user} setUser={setUser} name={name} setName={setName} groupName={groupName} setGroupName={setGroupName}/>} />
+          <Route path="/Algorithm" element={<Algorithm user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} />} />
           <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} setRules={setRules} name={name}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules}/>} />

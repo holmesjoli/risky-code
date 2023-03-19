@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import { BrainstormAlgorithm, BrainstormLaundryRules } from "../../components/Brainstorm";
 import { RolePrediction } from "../../components/Role";
 
-export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, rules, setRules}) {
+export default function Algorithm({user, algorithmDefinition, setAlgorithmDefinition, rules, setRules}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
@@ -28,7 +28,18 @@ export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, 
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const learningOutcomes = () => {
+    const Introduction = () => {
+
+        return(
+            <div className="Container Margin-Bottom">
+                <p>Define what an algorithm is</p>
+                <p className="No-Margin-Bottom">Describe the basic steps of algorithmic prediction</p>
+            </div>
+        )
+    }
+
+
+    const LearningOutcomes = () => {
 
         return(
             <div className="Container Margin-Bottom">
@@ -40,30 +51,25 @@ export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, 
 
     const steps = [
       {
+        label: 'introduction',
+        children: <Introduction/>
+        },
+      {
         label: 'learning outcomes',
-        children: learningOutcomes()
+        children: <LearningOutcomes/>
       },
       {
-        label: 'role: you',
-        children: RolePrediction()
+        label: 'role',
+        children: <RolePrediction user={user}/>
       },
       {
-        label: 'what is an algorithm?',
-        children: BrainstormAlgorithm(algorithmDefinition, setAlgorithmDefinition)
+        label: 'brainstorm',
+        children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
       },
       {
-        label: 'risky code\'s definition',
-        children: BrainstormLaundryRules(rules, setRules)
+        label: 'conceptualize',
+        children: <BrainstormLaundryRules rules={rules} setRules={setRules}/>
       },
-      {
-        label: 'steps of algorithmic prediction',
-      // children: terminologyExample()
-      },
-    //   {
-    //     label: 'discuss',
-    //     description: `In the right sidebar you will dind a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.`,
-    //     children: progressExample()
-    //   }
     ];
 
   return (
@@ -75,7 +81,7 @@ export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, 
                 {steps.map((step, index) => (
                 <Step key={step.label}>
                     <StepLabel>
-                    <h4 className="Small-Margin">{step.label}</h4>
+                    <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
                         {step.children}                      

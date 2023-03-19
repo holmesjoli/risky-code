@@ -12,7 +12,7 @@ import { Terminology, Term } from "../components/Sidebar";
 import { terms } from '../utils/global';
 import Progress from "../components/Progress";
 
-export default function Orientation({user, setUser, type, name, setName, groupName, setGroupName}) {
+export default function Orientation({user, setUser, name, setName, groupName, setGroupName}) {
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
 
@@ -41,7 +41,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
         setGroupName(event.target.value)
     };
 
-    const welcome = () => {
+    const Welcome = () => {
         return(
             <div className="Container Margin-Bottom">
                 <p className="No-Margin-Bottom">Risky Code is a digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.</p>
@@ -89,7 +89,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
         )
     }
 
-    const modules = () => {
+    const Modules = () => {
 
         return(
             <div className="Container Margin-Bottom">
@@ -105,14 +105,13 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
         )
     }
 
-    const role = (user) => {
+    const Role = ({user}) => {
 
         return(
             <div className="Container Margin-Bottom">
                 <p>In each module, {user === "group"? "you should imagine your team as a group of:" : "you should imagine yourself as a:"} </p>
-                {/* <p>{user === "group"? "your team will imagine to be a team of:" : "you will imagine yourself as a:"}</p> */}
                 <ul className="Margin-Bottom">
-                    <li><span className="Semi-Bold">{user === "group"? "Individuals" : "Individual"}</span> — {user === "group"? "busy people who want " : "a busy individual who wants "} to learn more about algorithmic decision-making</li>
+                    <li><span className="Semi-Bold">You</span> — {user === "group"? "busy people who want " : "a busy individual who wants "} to learn more about algorithmic decision-making</li>
                     <li><span className="Semi-Bold">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
                     <li><span className="Semi-Bold">{user === "group"? "Designers" : "Designer"}</span> — interested in bringing design methods to algorithmic decision-making</li>
                     <li><span className="Semi-Bold">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
@@ -147,7 +146,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
     const steps = [
       {
         label: 'welcome to risky code',
-        children: welcome()
+        children: <Welcome/>
       },
       {
         label: 'indicate user type',
@@ -155,11 +154,11 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
       },
       {
         label: 'module overview',
-        children: modules()
+        children: <Modules/>
       },
       {
         label: 'role',
-        children: role(user)
+        children: <Role user={user}/>
       },
     //   {
     //     label: 'user interface orientation | terminology',
@@ -180,7 +179,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
                 {steps.map((step, index) => (
                 <Step key={step.label}>
                     <StepLabel>
-                    <h4 className="Small-Margin">{step.label}</h4>
+                    <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
                         {step.children}                      
