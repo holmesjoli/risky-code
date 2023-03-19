@@ -20,6 +20,11 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
         navigate(path);
     }
 
+    const routeBack = () => {
+        let path = `/Orientation`;
+        navigate(path);
+    }
+
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
@@ -97,8 +102,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                                     size="small"
                                     variant="outlined" 
                                     color="secondary"
-                                    disabled={index === 0}
-                                    onClick={handleBack}
+                                    onClick={index === 0? routeBack:handleBack}
                                     sx={{ mt: 1, mr: 1 }}
                                 >
                                     back
@@ -120,7 +124,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                     <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        get started
+                        continue to algorithmic prediction
                     </Button>
                 </Paper>
             )}

@@ -21,6 +21,11 @@ export default function Orientation({user, setUser, name, setName, groupName, se
         navigate(path);
     }
 
+    const routeBack = () => {
+        let path = `/`;
+        navigate(path);
+    }
+
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
@@ -189,8 +194,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                                     size="small"
                                     variant="outlined" 
                                     color="secondary"
-                                    disabled={index === 0}
-                                    onClick={handleBack}
+                                    onClick={index === 0? routeBack:handleBack}
                                     sx={{ mt: 1, mr: 1 }}
                                 >
                                     back
@@ -212,7 +216,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                     <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        finish
+                        continue to algorithmic prediction
                     </Button>
                 </Paper>
             )}
