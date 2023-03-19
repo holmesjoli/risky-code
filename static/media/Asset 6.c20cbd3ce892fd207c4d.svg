@@ -7,6 +7,7 @@
         fill-rule: evenodd;
         stroke: #555;
         stroke-miterlimit: 10;
+        stroke: #cbcbcb;
       }
     </style>
   </defs>

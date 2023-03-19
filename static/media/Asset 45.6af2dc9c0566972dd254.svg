@@ -5,6 +5,7 @@
       .cls-1 {
         fill: #e661a3;
         fill-rule: evenodd;
+        stroke: #cbcbcb;
       }
     </style>
   </defs>
