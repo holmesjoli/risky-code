@@ -85,7 +85,7 @@ export default function Train({config, user, variables, setVariables, items, set
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>On this page, we will train a predictive model, Laundry AID, to guess if an item should belong in the hot water load according to your classification.</p>
+                    <p>On this page, we will train a predictive model, Laundry AID, to guess if an item should belong in the cold water load according to your classification.</p>
                     <p>A predictive model is a computational interpretation of an algorithm's rules. Here are the rules you defined in the last module:</p>
                     <ul className="Margin-Bottom">
                         <li className="Emphasis">{rules.rule1}</li>

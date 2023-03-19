@@ -16,7 +16,7 @@ export function Threshold({predictiveProbability, updateSlider}) {
     return(
         <div className="Container Margin-Bottom Padding-Bottom Bottom-Rule">
             <h4 className="Small-Margin">decision threshold</h4>
-            <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the hot water load.</p>
+            <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the cold water load.</p>
             <Slider
                 size="small"
                 defaultValue={predictiveProbability}
@@ -75,7 +75,7 @@ export function PredictiveOutcomes() {
                     <img src={LaundryItem} alt="Dirty laundry item" />
                     <h5 className="Semi-Bold">0.68</h5>
                 </div>
-                <p className="Margin-Left">This shirt has a <span className="Semi-Bold">68%</span> probability of belonging in the hot water load.</p>
+                <p className="Margin-Left">This shirt has a <span className="Semi-Bold">68%</span> probability of belonging in the cold water load.</p>
             </div>
         </div>
     )
@@ -108,13 +108,13 @@ function logisticData(iterateData, modelVars) {
             row.push(i.white ? 1: 0)
         }
 
-        if (i.hotWaterLoad === undefined) {
-            row.push(i.column === "hot water load" ? 1: 0)
+        if (i.coldWaterLoad === undefined) {
+            row.push(i.column === "cold water load" ? 1: 0)
         } else {
-            row.push(i.hotWaterLoad ? 1: 0)
+            row.push(i.coldWaterLoad ? 1: 0)
         }
 
-        row.push(i.hotWaterLoad ? 1: 0)
+        row.push(i.coldWaterLoad ? 1: 0)
 
         data.push(row);
     }
@@ -142,7 +142,7 @@ export function Regression({items, setItems, variables, predictiveProbability}) 
 
                 items[i].predicted = predicted;
                 items[i].predictedProbability = pp;
-                items[i].actual = items[i].column === "hot water load"? 1: 0;
+                items[i].actual = items[i].column === "cold water load"? 1: 0;
                 items[i].predictedCorrectly = items[i].actual === items[i].predicted;
             }
 

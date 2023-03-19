@@ -39,14 +39,12 @@ def laundry_data(df):
 
     for i in range(0, df.shape[0] - 1):
 
-        # import pdb; pdb.set_trace()
-
         row = {
             "id": int(i),
             "cleanType": df.iloc[i].clean_type,
             "delicate": bool(df.iloc[i].delicate),
             "clothes": bool(df.iloc[i].clothes),
-            "hotWaterLoad": bool(df.iloc[i].how_water_load),
+            "coldWaterLoad": bool(df.iloc[i].how_water_load),
             "print": bool(df.iloc[i].prints),
             "pastel": bool(df.iloc[i].pastel),
             "white": bool(df.iloc[i].white),

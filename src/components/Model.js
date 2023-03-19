@@ -196,7 +196,7 @@ export default function Model({variables, setVariables}) {
       <ExpandMoreIcon className="Scale200"/>
       <div className="Container Margin-Bottom">
           <h4 className="Small-Margin">outcome variable</h4>
-          <div className="Variable-Flat">hot water load</div>
+          <div className="Variable-Flat">cold water load</div>
       </div>
     </div>
   );

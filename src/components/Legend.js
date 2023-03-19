@@ -10,7 +10,7 @@ export function ActualPredicted() {
             <h4 className="Small-Margin">legend</h4>
             <div className="my-grid">
                 <div>
-                    <h5 className="section-title0">Actual hot water load</h5>
+                    <h5 className="section-title0">Actual cold water load</h5>
                 </div>
                 <div>
                     <h5 className="section-title2 No-Margin-Top">Model predicted</h5>
@@ -41,7 +41,7 @@ export function Actual() {
         <div className="Legend Container Margin-Bottom">
             <h4 className="Small-Margin">legend</h4>
             <div className="my-grid3">
-                <h5 className="section-title2 No-Margin-Top">Hot water load</h5>
+                <h5 className="section-title2 No-Margin-Top">Cold water load</h5>
                 <div className="my-grid">
                     <h6 className="section-title1">Yes</h6>
                     <div className="my-grid2">
