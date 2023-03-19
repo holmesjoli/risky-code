@@ -165,7 +165,6 @@ const Column = ({ children, className, title, nClassified }) => {
       >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
           {children.length === 0 ? <p>{instructions}</p>: children}
-          <h5 className="Small-Margin Semi-Bold">{className === "Margin-Bottom Center-Card"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
     </div>
   );
@@ -258,6 +257,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
                 {returnItemsForColumn(items, CASE_FALSE)}
               </Column>
             </div>
+            <h5 className="Text-Align-Right Small-Margin White Semi-Bold">{`${nClassified}/${totalClassify} classified`}</h5>
           </div>
         </div>
       </DndProvider>

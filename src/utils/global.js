@@ -168,13 +168,11 @@ export const MODEL_COLUMN_NAMES = {
 
 const {DATA_VARIABLES} = MODEL_COLUMN_NAMES;
 export const VARIABLES = [
-    {id: 1, name: 'item type', columnName: 'item_type', column: DATA_VARIABLES},
-    {id: 2, name: 'print', columnName: 'print',  column: DATA_VARIABLES},
-    {id: 3, name: 'pastel', columnName: 'pastel', column: DATA_VARIABLES},
-    {id: 4, name: 'delicate', columnName: 'delicate', column: DATA_VARIABLES },
-    // {id: 5, name: 'Item color', columnName: 'item_color', column: DATA_VARIABLES },
-    {id: 6, name: 'care type', columnName: 'cleanType', column: DATA_VARIABLES },
-    {id: 7, name: 'white', columnName: 'white', column: DATA_VARIABLES },
+    {id: 1, name: 'print', columnName: 'print',  column: DATA_VARIABLES},
+    {id: 2, name: 'pastel', columnName: 'pastel', column: DATA_VARIABLES},
+    {id: 3, name: 'delicate', columnName: 'delicate', column: DATA_VARIABLES },
+    {id: 4, name: 'dry clean only', columnName: 'dryCleanOnly', column: DATA_VARIABLES },
+    {id: 5, name: 'white', columnName: 'white', column: DATA_VARIABLES },
 ];
 
 export const CLASSIFY_COLUMN_NAMES = {
@@ -186,26 +184,26 @@ export const CLASSIFY_COLUMN_NAMES = {
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 
 export const CARDS = [
-    {id: 0, name: 'Card 0', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "blue", cleanType: "Dry clean only", white: false},
-    {id: 1, name: 'Card 1', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: true, item_color: "purple", cleanType: "Machine wash", white: false},
-    {id: 2, name: 'Card 2', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "black", cleanType: "Machine wash", white: false},
-    {id: 3, name: 'Card 3', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "green", cleanType: "Machine wash", white: false},
-    {id: 4, name: 'Card 4', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "black", cleanType: "Machine wash", white: false},
-    {id: 5, name: 'Card 5', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "pink", cleanType: "Machine wash", white: false},
-    {id: 6, name: 'Card 6', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", cleanType: "Machine wash", white: true},
-    {id: 7, name: 'Card 7', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "green", cleanType: "Machine wash", white: false},
-    {id: 8, name: 'Card 8', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: true, item_color: "blue", cleanType: "Dry clean only", white: false},
-    {id: 9, name: 'Card 9', column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, delicate: false, item_color: "blue", cleanType: "Machine wash", white: false},
-    {id: 10, name: 'Card 10', column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, delicate: false, item_color: "white", cleanType: "Machine wash", white: true},
-    {id: 11, name: 'Card 11', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "pink", cleanType: "Machine wash", white: false},
-    {id: 12, name: 'Card 12', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "white", cleanType: "Machine wash", white: true},
-    {id: 13, name: 'Card 13', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "yellow", cleanType: "Machine wash", white: false},
-    {id: 14, name: 'Card 14', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "blue", cleanType: "Machine wash", white: false},
-    {id: 15, name: 'Card 15', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "green", cleanType: "Machine wash", white: false},
-    {id: 16, name: 'Card 16', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "red", cleanType: "Dry clean only", white: false},
-    {id: 17, name: 'Card 17', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", cleanType: "Machine wash", white: true},
-    {id: 18, name: 'Card 18', column: ITEM_LIST, item_type: "pants", print: true, pastel: false, delicate: false, item_color: "white", cleanType: "Machine wash", white: true},
-    {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", cleanType: "Machine wash", white: true}
+    {id: 0, name: 'Card 0', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: true, white: false},
+    {id: 1, name: 'Card 1', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: true, item_color: "purple", dryCleanOnly: false, white: false},
+    {id: 2, name: 'Card 2', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "black", dryCleanOnly: false, white: false},
+    {id: 3, name: 'Card 3', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "green", dryCleanOnly: false, white: false},
+    {id: 4, name: 'Card 4', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "black", dryCleanOnly: false, white: false},
+    {id: 5, name: 'Card 5', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "pink", dryCleanOnly: false, white: false},
+    {id: 6, name: 'Card 6', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
+    {id: 7, name: 'Card 7', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "green", dryCleanOnly: false, white: false},
+    {id: 8, name: 'Card 8', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: true, item_color: "blue", dryCleanOnly: true, white: false},
+    {id: 9, name: 'Card 9', column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: false, white: false},
+    {id: 10, name: 'Card 10', column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
+    {id: 11, name: 'Card 11', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "pink", dryCleanOnly: false, white: false},
+    {id: 12, name: 'Card 12', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
+    {id: 13, name: 'Card 13', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "yellow", dryCleanOnly: false, white: false},
+    {id: 14, name: 'Card 14', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: false, white: false},
+    {id: 15, name: 'Card 15', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "green", dryCleanOnly: false, white: false},
+    {id: 16, name: 'Card 16', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "red", dryCleanOnly: true, white: false},
+    {id: 17, name: 'Card 17', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
+    {id: 18, name: 'Card 18', column: ITEM_LIST, item_type: "pants", print: true, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
+    {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true}
 ];
 
 export const STAKEHOLDER_COLUMN_NAMES = {

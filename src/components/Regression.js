@@ -88,8 +88,8 @@ function logisticData(iterateData, modelVars) {
     for(let i of iterateData) {
         var row = [];
 
-        if (modelVars.includes("cleanType")) {
-            row.push(i.cleanType === "Machine wash"? 1: 0)
+        if (modelVars.includes("dryCleanOnly")) {
+            row.push(i.dryCleanOnly ? 1: 0)
         }
 
         if (modelVars.includes("pastel")) {
