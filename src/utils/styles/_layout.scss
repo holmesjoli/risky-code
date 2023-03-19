@@ -132,11 +132,16 @@ ul {
     overflow: hidden;
 }
 
+.Row {
+    display: flex;
+    flex-direction: row;
+    grid-gap: $containerMargin;
+}
+
 .Two-Row {
     display: grid;
     grid-gap: 1rem; 
-    grid-template-columns: repeat(auto-fit, minmax(150px, 25%));
-
+    grid-template-columns: repeat(auto-fit, minmax(50px, 26%));
 }
 
 .Three-Column {
@@ -163,6 +168,12 @@ ul {
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: minmax(200px, 50%) minmax(200px, 50%);
+}
+
+.Two-Column2 {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(150px, 23%) minmax(200px, 35%);
 }
 
 .Two-Column-Three {

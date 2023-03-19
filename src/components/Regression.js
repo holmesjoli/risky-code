@@ -73,9 +73,9 @@ export function PredictiveOutcomes() {
             <div className="Row">
                 <div className="Card-Flat Example-Card">
                     <img src={LaundryItem} alt="Dirty laundry item" />
-                    <h5 className="Semi-Bold">0.68</h5>
+                    <h5 className="Semi-Bold White Opacity1">0.68</h5>
                 </div>
-                <p className="Margin-Left">This shirt has a <span className="Semi-Bold">68%</span> probability of belonging in the cold water load.</p>
+                <p>This shirt has a <span className="Semi-Bold White Opacity1">68%</span> probability of belonging in the cold water load.</p>
             </div>
         </div>
     )
