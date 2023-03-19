@@ -37,7 +37,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
     }
 
     const routeBack = () => {
-      let path = `/Algorithm`; 
+      let path = `/Prediction`; 
       navigate(path);
     }
 

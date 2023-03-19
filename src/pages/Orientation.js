@@ -17,7 +17,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
     let navigate = useNavigate();
 
     const routeNext = () => {
-        let path = `/Algorithm`;
+        let path = `/Prediction`;
         navigate(path);
     }
 

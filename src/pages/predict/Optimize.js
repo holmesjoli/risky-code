@@ -11,8 +11,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import { Regression, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
 import { ActualPredicted, Predicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
-import Timer from "../../components/Timer";
-import { AlgorithmDefinition } from '../../components/Brainstorm';
+
 import { RoleShort } from "../../components/Role";
 import MiniModel from "../../components/MiniAccuracyModel";
 
@@ -48,7 +47,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
     )
 }
 
-export default function Optimize({config, user, variables, setVariables, items, setItems, modules, disablePredictionNext2, setDisablePredictionNext2, algorithmDefinition, setAlgorithmDefinition, rules}) {
+export default function Optimize({config, variables, setVariables, items, setItems, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [predictiveProbability, setPredictiveProbability] = useState(50);
@@ -59,7 +58,7 @@ export default function Optimize({config, user, variables, setVariables, items, 
 
     let navigate = useNavigate(); 
     const routeNext = () => {
-      let path = `/COMPAS`; 
+      let path = `/PredictionReflection`; 
       navigate(path);
     }
 
@@ -146,7 +145,7 @@ export default function Optimize({config, user, variables, setVariables, items, 
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                    <NextButton routeNext={toggleOverlay}/>
+                    <NextButton routeNext={routeNext}/>
                 </RightSideBar>
             </div>
             <Footer/>

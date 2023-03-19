@@ -72,8 +72,6 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
         d3.selectAll(".Example-Card")
             .attr("class", predictiveProbability > 28? "Card-Flat Example-Card": "Card-Flat Example-Card Predicted-False");
 
-            console.log(predictiveProbability)
-
     }, [ predictiveProbability])
 
     return(

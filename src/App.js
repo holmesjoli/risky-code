@@ -2,13 +2,14 @@ import {
     Routes,
     Route,
     HashRouter,
-  } from "react-router-dom";
-import { useEffect } from 'react';
+} from "react-router-dom";
+
 import Orientation from "./pages/Orientation";
-import Algorithm from "./pages/predict/Algorithm";
+import Prediction from "./pages/predict/Prediction";
 import Classify from "./pages/predict/Classify";
 import Train from "./pages/predict/Train";
 import Optimize from "./pages/predict/Optimize";
+import PredictionReflection from "./pages/predict/PredictionReflection";
 import Calibration from "./pages/fairness/Calibration";
 import Error from "./pages/fairness/Error";
 import COMPAS from "./pages/fairness/COMPAS";
@@ -40,7 +41,7 @@ export default function App() {
     const [user, setUser] = useState("group");
     const [name, setName] = useState("");
     const [groupName, setGroupName] = useState("");
-    const [disablePredictionNext2, setDisablePredictionNext2] = useState(true);
+    const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);
     const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
@@ -53,10 +54,13 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/Orientation" element={<Orientation user={user} setUser={setUser} name={name} setName={setName} groupName={groupName} setGroupName={setGroupName}/>} />
-          <Route path="/Algorithm" element={<Algorithm user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} />} />
+
+          <Route path="/Prediction" element={<Prediction user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} />} />
           <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} setRules={setRules} name={name}/>} />
           <Route path="/Train" element={<Train config={config.Train} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
-          <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules}/>} />
+          <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
+          <Route path="/PredictionReflection" element={<PredictionReflection user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext}/>} />
+          
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} modules={modules}/>}></Route>
           <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
