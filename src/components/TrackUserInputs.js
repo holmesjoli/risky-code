@@ -23,11 +23,11 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
     }
 
     return(
-        <div className="No-Margin-Bottom Card-Group">
-            <h3 className="Small-Margin">conceptualize</h3>
-            {children}
+        // <div className="No-Margin-Bottom Card-Group">
+        //     <h3 className="Small-Margin">conceptualize</h3>
+        //     {children}
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
-        </div>
+        // </div>
     )
 }
 

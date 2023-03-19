@@ -14,7 +14,7 @@ import { AlgorithmDefinition, LaundryRules } from '../../components/TrackUserInp
 
 let chartId = "brainstorm-terms";
 let width = 400;
-let height = 275;
+let height = 200;
 let style = "darkMode";
 
 const algoTerms = [{"term": "automated"},
@@ -162,17 +162,19 @@ export default function Classify({config, user, disablePredictionNext, setDisabl
                 <Overlay isOpen={isOpen} onClose={toggleOverlay}>
                 <div className="Containers-Container">
                     <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title Small-Margin">introduction to algorithmic prediction</h3>
                         <div className="Two-Column-Three">
                             <div>
+                                <h3 className="Page-Title Small-Margin Padding-Bottom Bottom-Rule">introduction to algorithmic prediction</h3>
+                                <p className="Medium-Margin">The first module explores <span className='Emphasis'>algorithmic prediction</span>. This section will lead you through a series of exercises that explain the basics of algorithmic prediction .</p>
+                                {/* <p className="No-Margin-Bottom">Algorithmically informed decision-making is often also called algorithmic or automated decision-making. The term algorithmic decision-making has been modified in this research to include the word <span className="Emphasis">informed</span> in recognition of the reality that most automated systems are only semi-automatic and have some level of human interaction and oversight.</p> */}
                                 <div className="Card-Group">
                                     <h3 className="Small-Margin">brainstorm</h3>
                                     <p>What's in an algorithm? Use these terms to get started brainstorming.</p>
                                     <div className="chart" id={chartId}></div>
-                                </div>
                                 <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}>
                                     <p>What's your definition of an algorithm?</p>
                                 </AlgorithmDefinition>
+                                </div>
                             </div>
                             <RightSideBar>
                                 <Role moduleName="prediction"/>

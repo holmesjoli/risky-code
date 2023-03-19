@@ -96,7 +96,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                     <div className="Two-Column-Three">
                         <div>
                             <div className="Bottom-Rule">
-                                <h3 className="Page-Title Small-Margin">introduction to stakeholder mapping</h3>
+                                <h3 className="Page-Title Small-Margin Padding-Bottom Bottom-Rule">introduction to stakeholder mapping</h3>
                                 <p className="Medium-Margin">The next module explores a common design-thinking methodology called <span className='Emphasis'>Stakeholder Mapping</span>. This section will lead you through a stakeholder mapping exercise for two public policy cases where algorithmically-informed decision-making was implemented.</p>
                             </div>
                             <div className="Medium-Margin-Top">
