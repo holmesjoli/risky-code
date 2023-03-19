@@ -121,7 +121,7 @@ const MovableItem = ({
          <div className="Label">
             <div className="Small-Margin">
               <h4 className="Small-Margin">care type</h4>
-              <h6 className="Small-Margin">{item.cleanType}</h6>
+              <h6 className="Small-Margin">{item.dryCleanOnly? "Dry clean only": "Machine wash"}</h6>
             </div>
             <div className="Small-Margin">
               <h4 className="Small-Margin">delicate</h4>
