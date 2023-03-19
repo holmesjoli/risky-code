@@ -126,6 +126,8 @@ const Column = ({ children, className, title}) => {
     })
   });
 
+  let instructions = title === ITEM_LIST?  <span className="Instructions Opacity1 Semi-Bold White">Congrats you created an algorithm!</span> : <span className="Instructions Opacity">drop here</span>;
+
   return (
     <div
       ref={drop}
@@ -137,14 +139,16 @@ const Column = ({ children, className, title}) => {
       style={{ color: getColor(isOver, canDrop) }}
 
       >{title}</h4>
-        {children}
+        <div className={title !== ITEM_LIST? "Card-Container": ""}>
+          {children.length === 0 ? <p>{instructions}</p>: children}
+        </div>
     </div>
   );
 };
 
 export default function MiniModel() {
 
-  const [items, setItems] = useState(CARDS);
+  const [items, setItems] = useState(CARDS.filter(d => d.id < 2));
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];

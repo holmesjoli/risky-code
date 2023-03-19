@@ -150,7 +150,7 @@ const Column = ({ children, className, title, nClassified }) => {
     })
   });
 
-  let instructions = title === ITEM_LIST?  "congrats you created an algorithm!" : "drop here";
+  let instructions = title === ITEM_LIST?  <span className="Instructions Opacity1 Semi-Bold White">Congrats you created an algorithm!</span> : <span className="Instructions Opacity">drop here</span>;
 
   return (
     <div
@@ -164,8 +164,8 @@ const Column = ({ children, className, title, nClassified }) => {
 
       >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
-          {children.length === 0 ? <p className="Instructions Opacity">{instructions}</p>: children}
-          <h5 className="Small-Margin Semi-Bold">{className === "Text-Align-Center item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
+          {children.length === 0 ? <p>{instructions}</p>: children}
+          <h5 className="Small-Margin Semi-Bold">{className === "Margin-Bottom Center-Card"?`${nClassified}/${totalClassify} classified`: ""}</h5>
       </div>
     </div>
   );
@@ -246,7 +246,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
         <div className='Container'>
           <h3 className="Medium-Margin">interact</h3>
           <div className="Text-Align-Center">
-            <Column title={ITEM_LIST} className="Text-Align-Center item-list-column Margin-Bottom" nClassified={nClassified}>
+            <Column title={ITEM_LIST} className="Margin-Bottom Center-Card" nClassified={nClassified}>
               {returnSingleItemForColumn(items, ITEM_LIST)}
             </Column>
             <ExpandMoreIcon/>

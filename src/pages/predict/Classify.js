@@ -63,7 +63,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                             <div className="Container2">
                                 <h3>learn</h3>
                                 <p>The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>
-                                {user==="group"?<p className="Margin-Small">Your team will classify 20 items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
+                                {user==="group"?<p className="Margin-Small">Your team will classify <span className="Semi-Bold">20</span> items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
                                 <ul className="Margin-Bottom">
                                     <li>{rules.rule1}</li>
                                     <li>{rules.rule2}</li>
