@@ -133,13 +133,11 @@ const Column = ({ children, className, title, nClassified }) => {
       style={{ border: getBorder(isOver, canDrop),
                backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
-      <h4 className="Small-Margin"
+      <h4 className="Small-Margin Text-Align-Left"
       style={{ color: getColor(isOver, canDrop) }}
 
       >{title}</h4>
-        <div className={title !== ITEM_LIST? "Card-Container": ""}>
-          {children}
-      </div>
+        {children}
     </div>
   );
 };
@@ -209,21 +207,18 @@ export default function MiniModel() {
 
   return (
       <DndProvider backend={HTML5Backend}>
-        <div className='Container'>
-          <h3 className="Medium-Margin">interact</h3>
-          <div className="Text-Align-Center">
-            <Column title={ITEM_LIST} className="Text-Align-Center item-list-column Margin-Bottom">
-              {returnSingleItemForColumn(items, ITEM_LIST)}
+        <div className="Text-Align-Center">
+          <Column title={ITEM_LIST} className="Margin-Bottom">
+            {returnSingleItemForColumn(items, ITEM_LIST)}
+          </Column>
+          <ExpandMoreIcon/>
+          <div className="Two-Column">
+            <Column title={CASE_TRUE} className="Container2 Case-True-Column Move-Column">
+              {returnItemsForColumn(items, CASE_TRUE)}
             </Column>
-            <ExpandMoreIcon/>
-            <div className="Two-Column">
-              <Column title={CASE_TRUE} className="Card-Group Case-True-Column Move-Column">
-                {returnItemsForColumn(items, CASE_TRUE)}
-              </Column>
-              <Column title={CASE_FALSE} className="Card-Group Case-False-Column Move-Column">
-                {returnItemsForColumn(items, CASE_FALSE)}
-              </Column>
-            </div>
+            <Column title={CASE_FALSE} className="Container2 Case-False-Column Move-Column">
+              {returnItemsForColumn(items, CASE_FALSE)}
+            </Column>
           </div>
         </div>
       </DndProvider>

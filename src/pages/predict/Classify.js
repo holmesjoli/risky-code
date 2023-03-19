@@ -57,9 +57,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <h3 className="Page-Title Small-Margin">algorithmic prediction | classify</h3>
                     <div className="Two-Column-Three">
-                        <div className="Container2 No-Margin-Bottom">
-                            <MiniModel/>
-                        </div>
+                        <MiniModel/>
                         <RightSideBar>
                             {/* <Role moduleName="prediction" user={user}/> */}
                             <div className="Container2">
