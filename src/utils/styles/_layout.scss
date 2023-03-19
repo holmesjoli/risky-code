@@ -82,6 +82,19 @@ ul {
     background-color: $appDarkAccent;
 }
 
+.Container2 {
+    background-color: $cardBackgroundColor;
+    border-radius: $containerBorderRadius;
+    border: 1px solid #2e3238;
+    position: relative;
+    padding: 5px;
+    text-align: center;
+    flex: 1 1 150px; /*  Stretching: */
+    margin-bottom: $containerMarginBottom;
+    padding: $containerPadding;
+    text-align: left;
+}
+
 .Container-Fill-Secondary {
     background-color: $appDarkAccent;
 }

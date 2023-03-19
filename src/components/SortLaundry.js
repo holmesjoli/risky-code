@@ -245,17 +245,16 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
       <DndProvider backend={HTML5Backend}>
         <div className='Container'>
           <h3 className="Medium-Margin">interact</h3>
-          <p>Classify each item by dragging and dropping them in the hot water load or save for later load</p>
           <div className="Text-Align-Center">
             <Column title={ITEM_LIST} className="Text-Align-Center item-list-column Margin-Bottom" nClassified={nClassified}>
               {returnSingleItemForColumn(items, ITEM_LIST)}
             </Column>
             <ExpandMoreIcon/>
             <div className="Two-Column">
-              <Column title={CASE_TRUE} className="Container Case-True-Column Move-Column">
+              <Column title={CASE_TRUE} className="Card-Group Case-True-Column Move-Column">
                 {returnItemsForColumn(items, CASE_TRUE)}
               </Column>
-              <Column title={CASE_FALSE} className="Container Case-False-Column Move-Column">
+              <Column title={CASE_FALSE} className="Card-Group Case-False-Column Move-Column">
                 {returnItemsForColumn(items, CASE_FALSE)}
               </Column>
             </div>

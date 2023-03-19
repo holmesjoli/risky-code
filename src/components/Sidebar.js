@@ -31,10 +31,8 @@ export function Term({term}) {
 export function Description({config, children}) {
     return(
         <div className="Description Bottom-Rule">
-            <div className="">
-                <h2 className="Title Padding-Bottom">{config.title}</h2>
-                {children}
-            </div>
+            <h2 className="Title">{config.title}</h2>
+            {children}
         </div>
     )
 }

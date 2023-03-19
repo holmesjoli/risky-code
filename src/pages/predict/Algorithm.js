@@ -32,8 +32,14 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
 
         return(
             <div className="Container Margin-Bottom">
-                <p>Define what an algorithm is</p>
-                <p className="No-Margin-Bottom">Describe the basic steps of algorithmic prediction</p>
+                <p>The first module, <span>Algorithmic Prediction</span>, will lead you through a series of activities to learn about how algorithmic prediction works.</p>
+                <p>The basic steps to algorithmic prediction are: </p>
+                <ul className="No-Margin-Bottom">
+                    <li className="Semi-Bold">Data collection and classification</li>
+                    <li className="Semi-Bold">Model Training</li>
+                    <li className="Semi-Bold">Model Optimization</li>
+                    <li className="Semi-Bold">Model Testing</li>
+                </ul>
             </div>
         )
     }

@@ -1,6 +1,5 @@
 export function RolePrediction({user}) {
 
-    console.log(user)
     return(
         <div className="Container Margin-Bottom">
             <h4 className="Small-Margin">you</h4>
@@ -36,35 +35,34 @@ export function RoleFairnessDeliberation({user}) {
     )
 }
 
-
-export function Role({moduleName}) {
+export function Role({moduleName, user}) {
 
     if (moduleName === "prediction") {
         return(
-            <div className="Card-Group">
+            <div className="Container2 Margin-Bottom">
                 <h3 className="Small-Margin">role: <span className="Emphasis">you</span></h3>
-                <p className="No-Margin-Bottom">Your role in this module is <span className="Emphasis">you</span>, a busy individual who wants to learn more about algorithmic decision-making.</p>
+                {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is <span className="Semi-Bold">you</span>, a group of busy individuals who want to learn more about algorithmic decision-making</p>: <p className="No-Margin-Bottom">Your role in this module is <span className="Semi-Bold">you</span>, a busy individual who wants to learn more about algorithmic decision-making</p>}
             </div>
         )
     } else if (moduleName === "fairness") {
         return(
-            <div className="Card-Group">
-                <h3 className="Small-Margin">role: <span className="Emphasis">data scientist</span></h3>
-                <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness.</p>
+            <div className="Container2 Margin-Bottom">
+                <h3 className="Small-Margin">role: <span className="Emphasis">data scientist</span></h3><h3 className="Small-Margin">role: <span className="Emphasis">data scientist</span></h3>
+                {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is a team of socially aware <span className="Semi-Bold">data scientists</span>, interested in algorithmic fairness</p>: <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Semi-Bold">data scientist</span> interested in algorithmic fairness.</p>}
             </div>
         )
     } else if (moduleName === "caseStudies") {
         return(
-            <div className="Card-Group">
+            <div className="Container2 Margin-Bottom">
                 <h3 className="Small-Margin">role: <span className="Emphasis">designer</span></h3>
-                <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Emphasis">designer</span> interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>
+                {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is a team of socially aware <span className="Semi-Bold">designers</span>, interested in bring value-sensitive design methods to algorithmically informed decision-making</p>: <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Semi-Bold">designer</span>, interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>}
             </div>
         )
     } else if (moduleName === "deliberation") {
         return(
-            <div className="Card-Group">
+            <div className="Container2 Margin-Bottom">
                 <h3 className="Small-Margin">role: <span className="Emphasis">public policymaker</span></h3>
-                <p className="No-Margin-Bottom">Your role in this module is a <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</p>
+                {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is a team of socially aware <span className="Semi-Bold">public policymakers</span>, interested in using algorithmic decision-making in equitable and fair ways</p>: <p className="No-Margin-Bottom">Your role in this module is a <span className="Semi-Bold">public policymaker</span>, interested in using algorithmic decision-making in equitable and fair ways</p>}
             </div>
         )
     }
