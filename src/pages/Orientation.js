@@ -55,24 +55,25 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
                     >
                         <FormControlLabel value="group" control={<Radio />} label="Group" />
                         <FormControlLabel value="individual" control={<Radio />} label="Individual" />
-                    </RadioGroup>   
+                    </RadioGroup>
                 </div>
                 {user === "group"?
-                <div>
-                    <div className="Card-Group">
-                        <p className="Small-Margin">Identify a group faciliator who will navigate the application. </p>
-                        <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
-                        <p className="Margin-Top No-Margin-Bottom"><span className="Emphasis">{name}</span>, please share your screen with your team.</p>
+                    <div>
+                        <div className="Card-Group">
+                            <p className="Small-Margin">Identify a group faciliator who will navigate the application.</p>
+                            <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
+                            <p className="Margin-Top No-Margin-Bottom"><span className="Emphasis">{name}</span>, please share your screen with your team.</p>
+                        </div>
+                        <div className="Card-Group">
+                            <p className="Small-Margin">{name}, does your team have a team name?</p>
+                            <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
+                        </div>
+                    </div>:
+                    <div>
+                        <TextField placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
+                        <p className="Margin-Top">Welcome,<span className="Emphasis"> {name}!</span> We're glad you're here.</p>
                     </div>
-                    {/* <div className="Card-Group">
-                        <p className="Small-Margin">{name}, does your team have a team name?</p>
-                        <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
-                    </div> */}
-                </div>:
-                <div>
-                    <TextField placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
-                    <p className="Margin-Top">Welcome,<span className="Emphasis"> {name}!</span> We're glad you're here.</p>
-                </div>}
+                }
             </div>
         )
     }
@@ -82,13 +83,12 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
         return(
             <div>
                 <p>Risky Code contains four modules <span className="Emphasis">Algorithmic Prediction</span>, <span className="Emphasis">Algorithmic Fairness</span>, <span className="Emphasis">Case Studies</span>, and <span className="Emphasis">Deliberation</span>. In each of these modules {type}</p>
-                <ul>
+                {/* <ul>
                     <li><span className="Semi-Bold">Algorithmic Prediction</span> — <span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making</li>
                     <li><span className="Semi-Bold">Algorithmic Fairness</span> — A socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness.</li>
                     <li><span className="Semi-Bold">Case Studies</span> — A socially aware <span className="Emphasis">designer</span> interested in bring design methods to algorithmic decision-making.</li>
                     <li><span className="Semi-Bold">Deliberation</span> — A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</li>
-                </ul>
-                <p>Don't worry you won't have to remember these roles!</p>
+                </ul> */}
             </div>
         )
     }
@@ -121,7 +121,6 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
       },
       {
         label: 'role',
-        description: ``,
         children: role(type)
       },
       {

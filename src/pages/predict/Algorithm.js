@@ -1,6 +1,5 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-// import { RadioGroup, FormControlLabel, Radio, TextField } from '@material-ui/core';
 import * as React from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
@@ -9,8 +8,7 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
 import { BrainstormAlgorithm, BrainstormLaundryRules } from "../../components/Brainstorm";
-// import { Terminology, Term } from "../components/Sidebar";
-// import { terms } from '../utils/global';
+import { RolePrediction } from "../../components/Role";
 
 export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, rules, setRules}) {
 
@@ -33,10 +31,10 @@ export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, 
     const learningOutcomes = () => {
 
         return(
-                <ul className="Margin-Bottom">
-                    <li>Define what an algorithm is</li>
-                    <li>Describe the basic steps of algorithmic prediction</li>
-                </ul>
+            <div className="Container Margin-Bottom">
+                <p>Define what an algorithm is</p>
+                <p className="No-Margin-Bottom">Describe the basic steps of algorithmic prediction</p>
+            </div>
         )
     }
 
@@ -46,22 +44,20 @@ export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, 
         children: learningOutcomes()
       },
       {
-        label: 'role',
-        description: `This module will first establish a baseline knowledge of what an algorithm is. Then the module will walk through three steps of algorithmic prediction — Classify, Train, and Optimize.`
+        label: 'role: you',
+        children: RolePrediction()
       },
       {
         label: 'what is an algorithm?',
-        description: 'How do you define the term algorithm?',
         children: BrainstormAlgorithm(algorithmDefinition, setAlgorithmDefinition)
       },
       {
         label: 'risky code\'s definition',
-        description: `This project defines an algorithm as a series of steps that allow you to perform a particular task. The analogy used in this module is laundry. What are some rules you use to sort laundry for a hot water load?`,
         children: BrainstormLaundryRules(rules, setRules)
       },
-      {label: 'steps of algorithmic prediction',
-        // description: `In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.`,
-        // children: terminologyExample()
+      {
+        label: 'steps of algorithmic prediction',
+      // children: terminologyExample()
       },
     //   {
     //     label: 'discuss',
@@ -82,8 +78,7 @@ export default function Algorithm({algorithmDefinition, setAlgorithmDefinition, 
                     <h4 className="Small-Margin">{step.label}</h4>
                     </StepLabel>
                     <StepContent>
-                        <p>{step.description}</p>
-                            {step.children}                      
+                        {step.children}                      
                         <Box sx={{ mb: 2 }}>
                             <div className="Row">
                                 <Button

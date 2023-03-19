@@ -1,4 +1,41 @@
-export function Role({moduleName, addTitle = true}) {
+export function RolePrediction() {
+    return(
+        <div className="Container Margin-Bottom">
+            {/* <h3 className="Small-Margin">role: <span className="Emphasis">you</span></h3> */}
+            <p className="No-Margin-Bottom">Your role in this module is <span className="Emphasis">you</span>, a busy individual who wants to learn more about algorithmic decision-making.</p>
+        </div>
+    )
+}
+
+export function RoleFairnessPrediction() {
+    return(
+        <div className="Container Margin-Bottom">
+            {/* <h3 className="Small-Margin">role: <span className="Emphasis">data scientist</span></h3> */}
+            <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness.</p>
+        </div>
+    )
+}
+
+export function RoleFairnessStakeholder() {
+    return(
+        <div className="Container Margin-Bottom">
+            {/* <h3 className="Small-Margin">role: <span className="Emphasis">designer</span></h3> */}
+            <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Emphasis">designer</span> interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>
+        </div>
+    )
+}
+
+export function RoleFairnessDeliberation() {
+    return(
+        <div className="Card-Group">
+            {/* <h3 className="Small-Margin">role: <span className="Emphasis">public policymaker</span></h3> */}
+            <p className="No-Margin-Bottom">Your role in this module is a <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</p>
+        </div>
+    )
+}
+
+
+export function Role({moduleName}) {
 
     if (moduleName === "prediction") {
         return(

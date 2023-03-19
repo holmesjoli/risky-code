@@ -105,7 +105,7 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
     }
 
     return(
-        <div className="Margin-Bottom">
+        <div className="No-Margin-Bottom">
             <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={4} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>
     )
@@ -118,14 +118,25 @@ export function BrainstormAlgorithm({algorithmDefinition, setAlgorithmDefinition
     // }, []);
 
     return(
-        <div>
-            {/* <div className="chart" id={chartId}></div> */}
+        <div className="Container Margin-Bottom">
+            <p>How do you define the term <span className="Emphasis">algorithm</span>?</p>
             <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
         </div>
     )
 }
 
 export function BrainstormLaundryRules({rules, setRules}) {
+
+    return(
+        <div className="Container Margin-Bottom">
+            <p>This project defines an algorithm as <span className="Emphasis">a series of steps that allow you to perform a particular task</span>.</p>
+            <p>The analogy used in this module is <span className="Emphasis">laundry</span>. What are some rules you use to sort laundry for a <span className="Emphasis">hot water load?</span></p>
+            <LaundryRules rules={rules} setRules={setRules}/>
+        </div>
+    )
+}
+
+export function LaundryRules({rules, setRules}) {
 
     const updateRule1 = (event) => {
         rules.rule1 = event.target.value;
@@ -147,13 +158,13 @@ export function BrainstormLaundryRules({rules, setRules}) {
     return(
         <div>
             <div className="Margin-Bottom">
-                <TextField placeholder="add rule" variant="outlined" onChange={updateRule1}/>
+                <TextField placeholder="add laundry rule" variant="outlined" onChange={updateRule1}/>
             </div>
             <div className="Margin-Bottom">
-                <TextField placeholder="add rule" variant="outlined" onChange={updateRule2}/>
+                <TextField placeholder="add laundry rule" variant="outlined" onChange={updateRule2}/>
             </div>
-            <div className="Margin-Bottom">
-                <TextField placeholder="add rule" variant="outlined" onChange={updateRule3}/>
+            <div className="No-Margin-Bottom">
+                <TextField placeholder="add laundry rule" variant="outlined" onChange={updateRule3}/>
             </div>
         </div>
     )
