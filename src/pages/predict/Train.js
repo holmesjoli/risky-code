@@ -16,7 +16,7 @@ import MiniModel from "../../components/MiniStatisticalModel";
 
 function Information() {
     return (
-        <div>
+        <div className="Row Margin-Top">
             <Actual/>
             <PredictiveOutcomes/>
         </div>
@@ -29,11 +29,13 @@ export function Content({variables, setVariables, items, setItems}) {
         <div className="Content No-Padding-Top">
             <div>
                 <h3 className="Small-Margin">interact</h3>
-                <div className="Three-Column">
+                <div className="One-Column-Three2">
                     <Model variables={variables} setVariables={setVariables}/>
-                    <Regression items={items} setItems={setItems} variables={variables}/>
-                    <Card items={items} variables={variables} addIncorrect={false}/>
-                    <Information items={items} variables={variables}/>
+                    <div>
+                        <Regression items={items} setItems={setItems} variables={variables}/>
+                        <Card items={items} variables={variables} addIncorrect={false}/>
+                        <Information items={items} variables={variables}/>
+                    </div>
                 </div>
             </div>
         </div>

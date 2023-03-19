@@ -163,7 +163,7 @@ const Column = ({ children, className, title, nClassified }) => {
       style={{ color: getColor(isOver, canDrop) }}
 
       >{title}</h4>
-        <div className={title !== ITEM_LIST? "Card-Container": ""}>
+        <div className={title !== ITEM_LIST? "Card-Container2": ""}>
           {children.length === 0 ? <p>{instructions}</p>: children}
       </div>
     </div>

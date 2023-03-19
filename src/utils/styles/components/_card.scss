@@ -1,7 +1,15 @@
 .Card-Container {
+    height: auto;
     display: grid;
-    // grid-gap: .2rem;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 90px));
+    grid-gap: .5rem;
+    grid-template-columns: repeat(10, 1fr);
+}
+
+.Card-Container2 {
+    height: auto;
+    display: grid;
+    grid-gap: .5rem;
+    grid-template-columns: repeat(5, 1fr);
 }
 
 .Card,
@@ -15,8 +23,7 @@
     padding: 5px;
     text-align: center;
     flex: 1 1 150px; /*  Stretching: */
-    margin: .5rem;
-    // margin: 5px;
+    margin: .25rem;
 }
 
 .Card,
