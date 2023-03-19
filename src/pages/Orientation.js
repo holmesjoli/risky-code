@@ -8,9 +8,9 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
-import { Terminology, Term } from "../components/Sidebar";
-import { terms } from '../utils/global';
-import Progress from "../components/Progress";
+// import { Terminology, Term } from "../components/Sidebar";
+// import { terms } from '../utils/global';
+// import Progress from "../components/Progress";
 
 export default function Orientation({user, setUser, name, setName, groupName, setGroupName}) {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -126,27 +126,27 @@ export default function Orientation({user, setUser, name, setName, groupName, se
         )
     }
 
-    const terminologyExample = () => {
+    // const terminologyExample = () => {
 
-        return(
-            <div className="Container Margin-Bottom">
-                <p>In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.</p>
-                <Terminology defaultExpanded={true} margin="No-Margin-Bottom">
-                    <Term term={terms.aidm}></Term>
-                </Terminology>
-            </div>
-        )
-    }
+    //     return(
+    //         <div className="Container Margin-Bottom">
+    //             <p>In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.</p>
+    //             <Terminology defaultExpanded={true} margin="No-Margin-Bottom">
+    //                 <Term term={terms.aidm}></Term>
+    //             </Terminology>
+    //         </div>
+    //     )
+    // }
 
-    const progressExample = () => {
+    // const progressExample = () => {
 
-        return(
-            <div className="Container Margin-Bottom">
-                <p>In the right sidebar you will find a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.</p>
-                <Progress id="Classify" modules={[]}/>
-            </div>
-        )
-    }
+    //     return(
+    //         <div className="Container Margin-Bottom">
+    //             <p>In the right sidebar you will find a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.</p>
+    //             <Progress id="Classify" modules={[]}/>
+    //         </div>
+    //     )
+    // }
 
     const steps = [
       {
@@ -164,15 +164,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
       {
         label: 'role',
         children: <Role user={user}/>
-      },
-    //   {
-    //     label: 'user interface orientation | terminology',
-    //     children: terminologyExample()
-    //   },
-    //   {
-    //     label: 'user interface orientation | progress',
-    //     children: progressExample()
-    //   }
+      }
     ];
 
   return (

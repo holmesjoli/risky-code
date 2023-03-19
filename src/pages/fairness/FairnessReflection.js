@@ -7,21 +7,21 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
-import { BrainstormAlgorithm, BrainstormLaundryRules } from "../../components/Brainstorm";
-import { RoleFairness } from "../../components/Role";
+import Timer from "../../components/Timer";
+import { AlgorithmDefinition } from '../../components/Brainstorm';
 
-export default function Fairness({user}) {
+export default function FairnessReflection({user, disableFairnessNext, setDisableFairnessNext}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
 
     const routeNext = () => {
-        let path = `/COMPAS`;
+        let path = `/Stakeholders`;
         navigate(path);
     }
 
     const routeBack = () => {
-        let path = `/PredictionReflection`;
+        let path = `/Error`;
         navigate(path);
     }
 
@@ -33,22 +33,6 @@ export default function Fairness({user}) {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    const Introduction = () => {
-
-        return(
-            <div className="Container Margin-Bottom">
-                <p>The second module, <span>Algorithmic Fairness</span>, will lead you through a series of activities to learn about how algorithmic prediction works.</p>
-                <p>The basic steps to algorithmic prediction are: </p>
-                {/* <ul className="No-Margin-Bottom">
-                    <li className="Semi-Bold">Data collection and classification</li>
-                    <li className="Semi-Bold">Model Training</li>
-                    <li className="Semi-Bold">Model Optimization</li>
-                    <li className="Semi-Bold">Model Testing</li>
-                </ul> */}
-            </div>
-        )
-    }
-
     const LearningOutcomes = () => {
 
         return(
@@ -58,25 +42,46 @@ export default function Fairness({user}) {
             </div>
         )
     }
+
+    const BrainstormImpossibility = ({algorithmDefinition, setAlgorithmDefinition}) => {
+        return(
+            <div className="Container2">
+                <p>Would you make any updates to your initial definition of an algorithm?</p>
+                <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
+            </div>
+        )
+    }
+
+    const Reflect = ({user, disableFairnessNext, setDisableFairnessNext}) => {
+
+        return(
+            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
+                <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
+                <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
+                <p className="No-Margin-Bottom">When may it be optimal to use different types of mathematical fairness?</p>
+            </Timer>
+        )
+    }
+
     const steps = [
-      {
-        label: 'introduction',
-        children: <Introduction/>
-        },
       {
         label: 'learning outcomes',
         children: <LearningOutcomes/>
       },
+    //   {
+    //     label: 'define',
+    //     children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
+    //   },
       {
-        label: 'role',
-        children: <RoleFairness user={user}/>
-      }
+        label: 'reflect',
+        children: <Reflect user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
+      },
     ];
 
   return (
     <div className="Orientation">
         <div className="Container Margin-Bottom">
-        <h3>introduction to algorithmic fairness</h3>
+        <h3>reflect on algorithmic fairness</h3>
             <Box sx={{ width: 500 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
@@ -114,7 +119,7 @@ export default function Fairness({user}) {
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                     <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        continue to algorithmic prediction
+                        continue to algorithmic fairness
                     </Button>
                 </Paper>
             )}

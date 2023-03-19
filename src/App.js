@@ -5,14 +5,20 @@ import {
 } from "react-router-dom";
 
 import Orientation from "./pages/Orientation";
+
+
 import Prediction from "./pages/predict/Prediction";
 import Classify from "./pages/predict/Classify";
 import Train from "./pages/predict/Train";
 import Optimize from "./pages/predict/Optimize";
 import PredictionReflection from "./pages/predict/PredictionReflection";
+
+import Fairness from "./pages/fairness/Fairness";
+import COMPAS from "./pages/fairness/COMPAS";
 import Calibration from "./pages/fairness/Calibration";
 import Error from "./pages/fairness/Error";
-import COMPAS from "./pages/fairness/COMPAS";
+import FairnessReflection from "./pages/fairness/FairnessReflection";
+
 import Health from "./pages/caseStudies/Health";
 import StreetBump from "./pages/caseStudies/StreetBump";
 import Risk from "./pages/deliberation/Risk";
@@ -61,9 +67,12 @@ export default function App() {
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/PredictionReflection" element={<PredictionReflection user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext}/>} />
           
+          <Route path="/Fairness" element={<Fairness user={user} />} />
+          <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} modules={modules}/>}></Route>
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
-          <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} modules={modules}/>}></Route>
           <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
+          <Route path="/FairnessReflection" element={<FairnessReflection user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>} />
+
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} disableCaseStudyNext={disableCaseStudyNext} setDisableCaseStudyNext={setDisableCaseStudyNext} modules={modules}/>} />
           <Route path="/Health" element={<Health config={config.Health} modules={modules}/>} />
           <Route path="/Stakeholders" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />

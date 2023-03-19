@@ -249,7 +249,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
     const [isOpen, setIsOpen] = useState(false);
 
     const routeNext = () => {
-        let path = `/StreetBump`; 
+        let path = `/FairnessReflection`;
         navigate(path);
       }
 
@@ -263,16 +263,14 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
     };
 
     return (
-        <div className="App">{isOpen ?
+        <div className="App">
+            {/* {isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
                     <div className="Two-Column-Three">
                         <div>
                             <h3 className="Page-Title">reflect</h3>
-                            <div className="Card-Group">
-                                {/* <h3>laundry rules</h3> */}
-                            </div>
                         </div>
                         <RightSideBar>
                             <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2}>
@@ -288,7 +286,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
             </div>
         </Overlay>:
         <></>
-        }
+        } */}
             <Header/>
             <div className="Main">
                 <LeftSideBar>
@@ -307,7 +305,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                 <Content />
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                    <NextButton routeNext={toggleOverlay}/>
+                    <NextButton routeNext={routeNext}/>
                 </RightSideBar>
             </div>
             <Footer/>

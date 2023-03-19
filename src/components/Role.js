@@ -8,7 +8,7 @@ export function RolePrediction({user}) {
     )
 }
 
-export function RoleFairnessPrediction({user}) {
+export function RoleFairness({user}) {
     return(
         <div className="Container Margin-Bottom">
             <h4 className="Small-Margin">data scientist</h4>
@@ -17,7 +17,7 @@ export function RoleFairnessPrediction({user}) {
     )
 }
 
-export function RoleFairnessStakeholder({user}) {
+export function RoleStakeholder({user}) {
     return(
         <div className="Container Margin-Bottom">
             <h4 className="Small-Margin">designer</h4>
@@ -26,7 +26,7 @@ export function RoleFairnessStakeholder({user}) {
     )
 }
 
-export function RoleFairnessDeliberation({user}) {
+export function RoleDeliberation({user}) {
     return(
         <div className="Card-Group">
             <h4 className="Small-Margin">public policymaker</h4>

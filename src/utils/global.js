@@ -68,7 +68,7 @@ export const navigationData = [
         "name": "Predict",
         "id": "predict",
         "size": "Large",
-        "navLink": "/Classify"
+        "navLink": "/Prediction"
     },
     {
         "name": "Classify",
@@ -92,7 +92,7 @@ export const navigationData = [
         "name": "Algorithmic Fairness",
         "id": "fairness",
         "size": "Large",
-        "navLink": "/COMPAS"
+        "navLink": "/Fairness"
     },
     {
         "name": "COMPAS",
@@ -116,7 +116,7 @@ export const navigationData = [
         "name": "Stakeholder Mapping",
         "id": "stakeholderMapping",
         "size": "Large",
-        "navLink": "/StreetBump"
+        "navLink": "/StakeholderMapping"
     },
     {
         "name": "Street Bump",
@@ -133,7 +133,7 @@ export const navigationData = [
         "name": "Deliberation",
         "id": "deliberation",
         "size": "Large",
-        "navLink": "/Stakeholders"
+        "navLink": "/Deliberation"
     }, {
         "name": "Stakeholder Mapping",
         "id": "stakeholders",

@@ -122,7 +122,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                     <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        continue to algorithmic fairness
+                        continue to stakeholder mapping
                     </Button>
                 </Paper>
             )}
