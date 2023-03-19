@@ -183,23 +183,20 @@ export default function Model({variables, setVariables}) {
   const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
 
   return (
-    <div>
-      <h4 className="Small-Margin">predictive model</h4>
-      <div className="Text-Align-Center Padding-Top Top-Rule">
-        <DndProvider backend={HTML5Backend}>
-          <Column title={DATA_VARIABLES} className="Container Variables-Column">
-            {returnItemsForColumn(variables, DATA_VARIABLES)}
-          </Column>
-          <ExpandMoreIcon className="Scale200"/>
-          <Column title={MODEL_VARIABLES} className="Container Variables-Column">
-            {returnItemsForColumn(variables,MODEL_VARIABLES)}
-          </Column>
-        </DndProvider>
+    <div className="Text-Align-Center">
+      <DndProvider backend={HTML5Backend}>
+        <Column title={DATA_VARIABLES} className="Container Variables-Column">
+          {returnItemsForColumn(variables, DATA_VARIABLES)}
+        </Column>
         <ExpandMoreIcon className="Scale200"/>
-        <div className="Container Margin-Bottom">
-            <h4 className="Small-Margin">outcome variable</h4>
-            <div className="Variable-Flat">hot water load</div>
-        </div>
+        <Column title={MODEL_VARIABLES} className="Container Variables-Column">
+          {returnItemsForColumn(variables,MODEL_VARIABLES)}
+        </Column>
+      </DndProvider>
+      <ExpandMoreIcon className="Scale200"/>
+      <div className="Container Margin-Bottom">
+          <h4 className="Small-Margin">outcome variable</h4>
+          <div className="Variable-Flat">hot water load</div>
       </div>
     </div>
   );

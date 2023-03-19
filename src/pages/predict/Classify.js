@@ -54,28 +54,25 @@ export default function Classify({config, user, items, setItems, modules, rules,
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
-                    {/* <div className="Container2"> */}
-                        <h3 className="Page-Title Small-Margin">algorithmic prediction | classify</h3>
-                        {/* <h4 className="Small-Margin">classify</h4> */}
-                        <div className="Two-Column-Three">
-                            <div className="Container2">
-                                <p >The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>
-                                {user==="group"?<p className="Margin-Small">Your team will classify 20 items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
-                                <ul className="Margin-Bottom">
-                                    <li>{rules.rule1}</li>
-                                    <li>{rules.rule2}</li>
-                                    <li>{rules.rule3}</li>
-                                </ul>
-                                {user==="group"?<p className="No-Margin-Bottom">Discuss how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Decide how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
-                            </div>
-                            <RightSideBar>
-                                <Role moduleName="prediction" user={user}/>
-                                <NextButtonOverlay toggleOverlay={toggleOverlay}/>
-                            </RightSideBar>
-                            </div>
+                    <h3 className="Page-Title Small-Margin">algorithmic prediction | classify</h3>
+                    <div className="Two-Column-Three">
+                        <div className="Container2">
+                            <p>The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>
+                            {user==="group"?<p className="Margin-Small">Your team will classify 20 items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
+                            <ul className="Margin-Bottom">
+                                <li>{rules.rule1}</li>
+                                <li>{rules.rule2}</li>
+                                <li>{rules.rule3}</li>
+                            </ul>
+                            {user==="group"?<p className="No-Margin-Bottom">Discuss how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Decide how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                         </div>
-                    {/* </div> */}
+                        <RightSideBar>
+                            <Role moduleName="prediction" user={user}/>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                        </RightSideBar>
+                    </div>
                 </div>
+            </div>
         </Overlay>:
         <></>
         }
@@ -84,6 +81,12 @@ export default function Classify({config, user, items, setItems, modules, rules,
             <LeftSideBar>
                 <Description config={config}>
                     <p>Drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>
+                    <p>Laundry rules:</p>
+                    <ul className="Margin-Bottom">
+                        <li>{rules.rule1}</li>
+                        <li>{rules.rule2}</li>
+                        <li>{rules.rule3}</li>
+                    </ul>
                 </Description>
                 <RoleShort moduleName="prediction"/>
                 <Terminology margin="Margin-Large-Bottom">

@@ -39,7 +39,7 @@ export function Content({variables, setVariables, items, setItems}) {
     )
 }
 
-export default function Train({config, variables, setVariables, items, setItems, modules, rules}) {
+export default function Train({config, user, variables, setVariables, items, setItems, modules, rules}) {
 
     const [isOpen, setIsOpen] = useState(true);
 
@@ -64,15 +64,17 @@ export default function Train({config, variables, setVariables, items, setItems,
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
+                    <h3 className="Page-Title Small-Margin">algorithmic prediction | train</h3>
                     <div className="Two-Column-Three">
-                        <div>
-                            <div className="Card-Group">
-                                <p>Wow that took you awhile! Approximately 5 minutes and 21 seconds, seems like there is a more efficient way to do this.</p>
-                                <p>My friend told me about a new techology called Laundry AID (algorithmically informed decision-making) which automates the laundry sorting process.</p>
-                                <p>Laundry AID needs to be trained to your laundry preferences, but its easy to do! Once you set-up Laundry AID, you'll never have to sort laundry again.</p>
-                            </div>
-                            {toggleOverlay? <NextButtonOverlay toggleOverlay={toggleOverlay} label={"try laundry aid"}/>: <></>}
+                        <div className="Container2">
+                            <p>Wow that took you awhile! Approximately 5 minutes and 21 seconds, seems like there is a more efficient way to do this.</p>
+                            <p>My friend told me about a new techology called Laundry AID (algorithmically informed decision-making) which automates the laundry sorting process.</p>
+                            <p>Laundry AID needs to be trained to your laundry preferences, but its easy to do! Once you set-up Laundry AID, you'll never have to sort laundry again.</p>
                         </div>
+                        <RightSideBar>
+                            <Role moduleName="prediction" user={user}/>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                        </RightSideBar>
                     </div>
                 </div>
             </div>
