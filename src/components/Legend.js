@@ -36,6 +36,28 @@ export function ActualPredicted() {
     )
 }
 
+export function Predicted() {
+
+    return(
+        <div className="Legend Container Margin-Bottom">
+            <h4 className="Small-Margin">legend</h4>
+            <div>
+                <h5 className="No-Margin-Top No-Margin-Bottom">Model prediction</h5>
+                <div className="Row">
+                    <div className="Text-Align-Center">
+                        <h6 className="Text-Align-Center">Correctly</h6>
+                        <div className="Card-Flat"></div>
+                    </div>
+                    <div className="Text-Align-Center">
+                        <h6 className="Text-Align-Center">Incorrectly</h6>
+                        <div className="Card-Flat Predicted-False"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 export function Actual() {
     return(
         <div className="Legend Container Margin-Bottom">

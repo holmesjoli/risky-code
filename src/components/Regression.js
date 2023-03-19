@@ -65,7 +65,16 @@ export function Accuracy({items, variables, predictiveProbability}) {
     )
 }
 
-export function PredictiveOutcomes() {
+export function PredictiveOutcomes({predictiveProbability=.5}) {
+
+    useEffect(() => {
+
+        d3.selectAll(".Example-Card")
+            .attr("class", predictiveProbability < 28? "Card-Flat Example-Card": "Card-Flat Example-Card Predicted-False");
+
+            console.log(predictiveProbability)
+
+    }, [ predictiveProbability])
 
     return(
         <div className="Margin-Bottom">
@@ -76,7 +85,9 @@ export function PredictiveOutcomes() {
                         <img src={LaundryItem} alt="Dirty laundry item" />
                         <h5 className="Semi-Bold White Opacity1">0.28</h5>
                     </div>
-                    <p>This shirt has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
+                    <div>
+                        <p>This shirt, classified as a <span className="Semi-Bold White Opacity1">save for later load</span> item, has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
+                    </div>
                 </div>
             </div>
         </div>

@@ -14,6 +14,7 @@ import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../..
 import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/Brainstorm';
 import { RoleShort } from "../../components/Role";
+import MiniModel from "../../components/MiniAccuracyModel";
 
 function Information({items, variables, predictiveProbability}) {
     return (
@@ -49,7 +50,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
 
 export default function Optimize({config, user, variables, setVariables, items, setItems, modules, disablePredictionNext2, setDisablePredictionNext2, algorithmDefinition, setAlgorithmDefinition, rules}) {
 
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const [predictiveProbability, setPredictiveProbability] = useState(50);
 
     const updateSlider = (event, value) => {
@@ -72,7 +73,31 @@ export default function Optimize({config, user, variables, setVariables, items, 
     };
 
     return (
-        <div className="App">{isOpen ?
+        <div className="App">
+            {isOpen ?
+            <Overlay isOpen={isOpen} onClose={toggleOverlay}>
+            <div className="Containers-Container">
+                <div className="Container-Fill-Secondary">
+                    <h3 className="Page-Title Small-Margin">algorithmic prediction | optimize</h3>
+                    <div className="Two-Column-Three">
+                        <MiniModel/>
+                        <RightSideBar>
+                            <div className="Container2">
+                                <h3>learn</h3>
+                                <p>The third step of algorithmic prediction is to <span className="Semi-Bold">optimize</span> a predictive model. Optimizing a model normally means making a predictive model as accurate as possible.</p>
+                                <p>First, convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy.</p>
+                                <p className="No-Margin-Bottom">Notice</p>
+                            </div>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                        </RightSideBar>
+                    </div>
+                </div>
+            </div>
+        </Overlay>:
+        <></>
+        }
+            
+            {/* {isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
@@ -103,13 +128,11 @@ export default function Optimize({config, user, variables, setVariables, items, 
             </div>
         </Overlay>:
         <></>
-        }
+        } */}
         <Header/>
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}>
-                        <p>This page builds on the statistical model explored in the previous page, <span className="Emphasis">Train</span>.</p>
-                        <p>In this step of algorithm building, we will optimize the Laundry AID to be as accurate as possible. Convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy</p>
                     </Description>
                     <RoleShort moduleName="prediction"/>
                     <Terminology margin="Margin-Large-Bottom">
