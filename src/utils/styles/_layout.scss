@@ -152,9 +152,8 @@ ul {
 
 .Three-Column2 {
     display: grid;
-    grid-template-columns: minmax(150px, 35%) minmax(30px, 5%) minmax(150px, 57%);
     grid-gap: 1rem;
-    text-align: center;
+    grid-template-columns: minmax(150px, 30%) minmax(200px, 35%) minmax(150px, 23%);
 }
 
 .Three-Column3 {

@@ -15,12 +15,12 @@ import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/Brainstorm';
 import { RoleShort } from "../../components/Role";
 
-function Information({items, variables}) {
+function Information({items, variables, predictiveProbability}) {
     return (
-        <div>
+        <div className="Three-Column2 Margin-Top">
             <ActualPredicted/>
             <PredictiveOutcomes/>
-            <Accuracy items={items} variables={variables}/>
+            <Accuracy items={items} variables={variables} predictiveProbability={predictiveProbability}/>
         </div>
     )
 }
@@ -31,14 +31,16 @@ export function Content({variables, setVariables, items, setItems, predictivePro
         <div className="Content No-Padding-Top">
             <div>
                 <h3 className="Small-Margin">interact</h3>
-                <div className="Three-Column">
+                <div className="One-Column-Three2">
                     <div>
                         <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
-                        <Model variables={variables} setVariables={setVariables} />
+                        <Model variables={variables} setVariables={setVariables}/>
                     </div>
-                    <Regression items={items} setItems={setItems} variables={variables} predictiveProbability={predictiveProbability}/>
-                    <Card items={items} variables={variables} addIncorrect={true} predictiveProbability={predictiveProbability}/>
-                    <Information items={items} variables={variables}/>
+                    <div>
+                        <Regression items={items} setItems={setItems} variables={variables}/>
+                        <Card items={items} variables={variables} addIncorrect={false}/>
+                        <Information items={items} variables={variables} predictiveProbability={predictiveProbability}/>
+                    </div>
                 </div>
             </div>
         </div>

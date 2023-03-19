@@ -31,7 +31,7 @@ export function Threshold({predictiveProbability, updateSlider}) {
     )
 }
 
-export function Accuracy({items, variables}) {
+export function Accuracy({items, variables, predictiveProbability}) {
 
     const modelVars = getModelVariables(variables);
     const pred = items.filter(d => d.predictedCorrectly).length
@@ -44,23 +44,23 @@ export function Accuracy({items, variables}) {
                 .text(`${pct}%`)
 
             d3.selectAll(".Accuracy")
-                .attr("class", "Accuracy Container Visible")
+                .attr("class", "Accuracy Visible")
         } else {
             d3.selectAll(".Accuracy-Percent")
                 .text("")
 
             d3.select(".Accuracy")
-                .attr("class", "Accuracy Container Hidden")
+                .attr("class", "Accuracy Hidden")
         }
-    }, [items, variables])
+    }, [items, variables, predictiveProbability])
 
     return(
-        <div className="Accuracy Container Hidden">
-            <div className="Overlay-Controls">
+        <div className="Accuracy Hidden">
+            <div className="Container">
                 <h4 className="Small-Margin">model accuracy</h4>
-                {/* <InfoOutlinedIcon/> */}
+                <p>Accuracy is a percent of how many predicted values match the actual values.</p>
+                <h5 className="Accuracy-Percent Small-Margin No-Margin-Top Semi-Bold White Opacity1"></h5>
             </div>
-            <h5 className="Accuracy-Percent Small-Margin No-Margin-Top Semi-Bold"></h5>
         </div>
     )
 }
@@ -73,9 +73,9 @@ export function PredictiveOutcomes() {
             <div className="Row">
                 <div className="Card-Flat Example-Card">
                     <img src={LaundryItem} alt="Dirty laundry item" />
-                    <h5 className="Semi-Bold White Opacity1">0.68</h5>
+                    <h5 className="Semi-Bold White Opacity1">0.28</h5>
                 </div>
-                <p>This shirt has a <span className="Semi-Bold White Opacity1">68%</span> probability of belonging in the cold water load.</p>
+                <p>This shirt has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
             </div>
         </div>
     )
