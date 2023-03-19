@@ -41,54 +41,83 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
         setGroupName(event.target.value)
     };
 
-    const userGroup = (user, updateUser, name, updateName, groupName, updateGroupName) => {
+    const welcome = () => {
         return(
-            <div>
-                <div className="Card-Group">
-                    <p className="Small-Margin">Indicate how you intend to use Risky Code.</p>
-                    <RadioGroup
-                        aria-labelledby="demo-radio-buttons-group-label"
-                        name="radio-buttons-group"
-                        onChange={updateUser}
-                        value={user}
-                        className="No-Margin-Bottom"
-                    >
-                        <FormControlLabel value="group" control={<Radio />} label="Group" />
-                        <FormControlLabel value="individual" control={<Radio />} label="Individual" />
-                    </RadioGroup>
-                </div>
-                {user === "group"?
-                    <div>
-                        <div className="Card-Group">
-                            <p className="Small-Margin">Identify a group faciliator who will navigate the application.</p>
-                            <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
-                            <p className="Margin-Top No-Margin-Bottom"><span className="Emphasis">{name}</span>, please share your screen with your team.</p>
-                        </div>
-                        <div className="Card-Group">
-                            <p className="Small-Margin">{name}, does your team have a team name?</p>
-                            <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
-                        </div>
-                    </div>:
-                    <div>
-                        <TextField placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
-                        <p className="Margin-Top">Welcome,<span className="Emphasis"> {name}!</span> We're glad you're here.</p>
-                    </div>
-                }
+            <div className="Container Margin-Bottom">
+                <p className="No-Margin-Bottom">Risky Code is a digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.</p>
             </div>
         )
     }
 
-    const role = (type) => {
+    const userGroup = (user, updateUser, name, updateName, groupName, updateGroupName) => {
+        return(
+            <div className="Container Margin-Bottom">
+                <div className="No-Margin-Bottom">
+                    <p>Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, however, the experience is designed to differ slightly.</p>
+                    <div className="Card-Group">
+                        <p className="Small-Margin">Indicate how you intend to use Risky Code.</p>
+                        <RadioGroup
+                            aria-labelledby="demo-radio-buttons-group-label"
+                            name="radio-buttons-group"
+                            onChange={updateUser}
+                            value={user}
+                            className="No-Margin-Bottom"
+                        >
+                            <FormControlLabel value="group" control={<Radio />} label="Group" />
+                            <FormControlLabel value="individual" control={<Radio />} label="Individual" />
+                        </RadioGroup>
+                    </div>
+                    {user === "group"?
+                        <div className="No-Margin-Bottom">
+                            <div className="Card-Group">
+                                <p className="Small-Margin">Identify a group faciliator who will navigate the application.</p>
+                                <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
+                                <p className="Margin-Top No-Margin-Bottom"><span className="Emphasis">{name}</span>, please share your screen with your team.</p>
+                            </div>
+                            {/* <div className="Card-Group No-Margin-Bottom">
+                                <p className="Small-Margin">{name}, does your team have a team name?</p>
+                                <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
+                            </div> */}
+                        </div>:
+                        <div className="No-Margin-Bottom">
+                            <TextField placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
+                            <p className="Margin-Top">Welcome,<span className="Emphasis"> {name}!</span> We're glad you're here.</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        )
+    }
+
+    const modules = () => {
 
         return(
-            <div>
-                <p>Risky Code contains four modules <span className="Emphasis">Algorithmic Prediction</span>, <span className="Emphasis">Algorithmic Fairness</span>, <span className="Emphasis">Case Studies</span>, and <span className="Emphasis">Deliberation</span>. In each of these modules {type}</p>
-                {/* <ul>
-                    <li><span className="Semi-Bold">Algorithmic Prediction</span> — <span className="Emphasis">You</span>, a busy individual who wants to learn more about algorithmic decision-making</li>
-                    <li><span className="Semi-Bold">Algorithmic Fairness</span> — A socially aware <span className="Emphasis">data scientist</span> interested in algorithmic fairness.</li>
-                    <li><span className="Semi-Bold">Case Studies</span> — A socially aware <span className="Emphasis">designer</span> interested in bring design methods to algorithmic decision-making.</li>
-                    <li><span className="Semi-Bold">Deliberation</span> — A <span className="Emphasis">public policymaker</span> interested in using algorithmic decision-making.</li>
-                </ul> */}
+            <div className="Container Margin-Bottom">
+                <p className="Small-Margin">Risky Code contains four modules:</p>
+                <ul className="Margin-Bottom">
+                    <li><span className="Semi-Bold">Algorithmic Prediction</span> </li>
+                    <li><span className="Semi-Bold">Algorithmic Fairness</span></li>
+                    <li><span className="Semi-Bold">Stakeholder Mapping</span></li>
+                    <li><span className="Semi-Bold">Deliberation</span></li>
+                </ul>
+                <p className="No-Margin-Bottom">Each module has specific learning outcomes to achieve the overarching goal of <span className="Emphasis">informing and to facilitating deliberation about algorithmically informed decision-making</span>.</p>
+            </div>
+        )
+    }
+
+    const role = (user) => {
+
+        return(
+            <div className="Container Margin-Bottom">
+                <p>In each module, {user === "group"? "you should imagine your team as a group of:" : "you should imagine yourself as a:"} </p>
+                {/* <p>{user === "group"? "your team will imagine to be a team of:" : "you will imagine yourself as a:"}</p> */}
+                <ul className="Margin-Bottom">
+                    <li><span className="Semi-Bold">{user === "group"? "Individuals" : "Individual"}</span> — {user === "group"? "busy people who want " : "a busy individual who wants "} to learn more about algorithmic decision-making</li>
+                    <li><span className="Semi-Bold">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
+                    <li><span className="Semi-Bold">{user === "group"? "Designers" : "Designer"}</span> — interested in bringing design methods to algorithmic decision-making</li>
+                    <li><span className="Semi-Bold">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
+                </ul>
+                <p className="No-Margin-Bottom">The goal of the role is to imagine the constraints and decisions a person in that role faces when implementing algorithmic decision-making.</p>
             </div>
         )
     }
@@ -96,43 +125,50 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
     const terminologyExample = () => {
 
         return(
-            <Terminology defaultExpanded={true}  margin="Margin-Bottom">
-                <Term term={terms.aidm}></Term>
-            </Terminology>
+            <div className="Container Margin-Bottom">
+                <p>In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.</p>
+                <Terminology defaultExpanded={true} margin="No-Margin-Bottom">
+                    <Term term={terms.aidm}></Term>
+                </Terminology>
+            </div>
         )
     }
 
     const progressExample = () => {
 
         return(
-            <Progress id="Classify" modules={[]}/>
+            <div className="Container Margin-Bottom">
+                <p>In the right sidebar you will find a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.</p>
+                <Progress id="Classify" modules={[]}/>
+            </div>
         )
     }
 
     const steps = [
       {
         label: 'welcome to risky code',
-        description: `Risky Code is an interactive digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.`
+        children: welcome()
       },
       {
         label: 'indicate user type',
-        description: 'Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, however, the experience is designed to differ slightly.',
         children: userGroup(user, updateUser, name, updateName, groupName, updateGroupName)
       },
       {
+        label: 'module overview',
+        children: modules()
+      },
+      {
         label: 'role',
-        children: role(type)
+        children: role(user)
       },
-      {
-        label: 'user interface orientation | terminology',
-        description: `In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.`,
-        children: terminologyExample()
-      },
-      {
-        label: 'user interface orientation | progress',
-        description: `In the right sidebar you will dind a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.`,
-        children: progressExample()
-      }
+    //   {
+    //     label: 'user interface orientation | terminology',
+    //     children: terminologyExample()
+    //   },
+    //   {
+    //     label: 'user interface orientation | progress',
+    //     children: progressExample()
+    //   }
     ];
 
   return (
@@ -147,7 +183,6 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
                     <h4 className="Small-Margin">{step.label}</h4>
                     </StepLabel>
                     <StepContent>
-                        <p>{step.description}</p>
                         {step.children}                      
                         <Box sx={{ mb: 2 }}>
                             <div className="Row">

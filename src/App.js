@@ -49,7 +49,7 @@ export default function App() {
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
 
     useEffect(() => {
-      let t = user === "group"? "your group will assume a team of these roles." : "you will assume a different role.";
+      let t = user === "group"? "your team will imagine to be a team of:" : "you will imagine yourself as a:";
       setType(t);
     }, [user]);
     // items.sort((a, b) => a.column - b.column)

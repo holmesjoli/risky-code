@@ -150,6 +150,11 @@ const theme = createTheme({
           padding: "5px"
       }
     },
+    MuiCollapse: {
+      wrapperInner: {
+        color: "#cbcbcb"
+      }
+    },
     MuiButton: {
       root: {
         borderRadius: "0.25rem",
