@@ -9,8 +9,9 @@ import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/TrackUserInputs";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import Timer from "../../components/Timer";
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, RoleAccordion, Role } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import StakeholderMapping from "../../components/StakeholderMapping";
+import { RoleShort, Role } from "../../components/Role";
 
 export default function Policy({config, user, disableDeliberationNext, setDisableDeliberationNext, modules, policy, setPolicy}) {
 
@@ -82,7 +83,7 @@ export default function Policy({config, user, disableDeliberationNext, setDisabl
                 <Description config={config}>
                     <p>Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box.</p>
                 </Description>
-                <RoleAccordion moduleName="deliberation"/>
+                <RoleShort moduleName="deliberation"/>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>

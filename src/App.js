@@ -5,6 +5,7 @@ import {
   } from "react-router-dom";
 import { useEffect } from 'react';
 import Orientation from "./pages/Orientation";
+import Algorithm from "./pages/predict/Algorithm";
 import Classify from "./pages/predict/Classify";
 import Train from "./pages/predict/Train";
 import Optimize from "./pages/predict/Optimize";
@@ -58,7 +59,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Main/>} />
           <Route path="/Orientation" element={<Orientation user={user} setUser={setUser} type={type} name={name} setName={setName} groupName={groupName} setGroupName={setGroupName}/>} />
-          <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext} setItems={setItems} modules={modules} setModules={setModules} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} name={name}/>} />
+          <Route path="/Algorithm" element={<Algorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} />} />
+          <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} setRules={setRules} name={name}/>} />
           <Route path="/Train" element={<Train config={config.Train} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} disablePredictionNext2={disablePredictionNext2} setDisablePredictionNext2={setDisablePredictionNext2} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules}/>} />
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />

@@ -3,7 +3,8 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import { BackButton } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, RoleAccordion } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { RoleShort } from "../../components/Role";
 
 export function Content() {
     return(
@@ -28,7 +29,7 @@ export default function Decision({config, modules}) {
                 <LeftSideBar>
                     <Description config={config}>
                     </Description>
-                    <RoleAccordion moduleName="deliberation"/>
+                    <RoleShort moduleName="deliberation"/>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
                 <Content />

@@ -16,21 +16,6 @@ export function PolicyScenario({policy, setPolicy}) {
     )
 }
 
-export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition, children}) {
-
-    const updateAlgorithmDefinition = (event) => {
-        setAlgorithmDefinition(event.target.value)
-    }
-
-    return(
-        // <div className="No-Margin-Bottom Card-Group">
-        //     <h3 className="Small-Margin">conceptualize</h3>
-        //     {children}
-            <TextField placeholder="add your definition here" variant="outlined" multiline={true} minRows={8} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
-        // </div>
-    )
-}
-
 export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children}) {
 
     const updateBaseRates = (event) => {
@@ -42,41 +27,6 @@ export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children
             <h3 className="Small-Margin">brainstorm</h3>
             {children}
             <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={8} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
-        </div>
-    )
-}
-export function LaundryRules({user, rules, setRules, children}) {
-
-    const updateRule1 = (event) => {
-        rules.rule1 = event.target.value;
-        setRules(rules);
-    }
-
-    const updateRule2 = (event) => {
-        rules.rule2 = event.target.value;
-        setRules(rules);
-    }
-
-    const updateRule3 = (event) => {
-        rules.rule3 = event.target.value;
-        setRules(rules);
-    }
-
-    return(
-        <div>
-            <div className="No-Margin-Bottom Container">
-                <h3 className="Medium-Margin">conceptualize</h3>
-                {children}
-                <div className="Margin-Bottom">
-                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule1} defaultValue={rules.rule1}/>
-                </div>
-                <div className="Margin-Bottom">
-                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule2} defaultValue={rules.rule2}/>
-                </div>
-                <div>
-                    <TextField placeholder="add rule" variant="outlined" onChange={updateRule3} defaultValue={rules.rule3}/>
-                </div>
-            </div>
         </div>
     )
 }

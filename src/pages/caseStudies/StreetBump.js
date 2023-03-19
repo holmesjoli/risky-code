@@ -7,9 +7,10 @@ import { Consequence } from "../../components/TrackUserInputs";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role, RoleAccordion } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import StakeholderMapping from "../../components/StakeholderMapping";
+import { RoleShort, Role } from "../../components/Role";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -135,7 +136,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                     <p>Create a stakeholder map for stakeholders of the Street Bump application. Start by brainstorming who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
                     <p>Then add your brainstorm to the map to see how the stakeholders value overlap.</p>
                 </Description>
-                <RoleAccordion moduleName="caseStudies"/>
+                <RoleShort moduleName="caseStudies"/>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>

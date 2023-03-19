@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-import { FormControl, RadioGroup, FormControlLabel, Radio, TextField } from '@material-ui/core';
+import { RadioGroup, FormControlLabel, Radio, TextField } from '@material-ui/core';
 import * as React from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
@@ -17,7 +17,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
     let navigate = useNavigate();
 
     const routeNext = () => {
-        let path = `/Classify`;
+        let path = `/Algorithm`;
         navigate(path);
     }
 
@@ -27,10 +27,6 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
 
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
-
-    const handleReset = () => {
-        setActiveStep(0);
     };
 
     const updateUser = ev => {
@@ -141,10 +137,10 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
     ];
 
   return (
-    <div className="Risky Code Orientation">
+    <div className="Orientation">
         <div className="Container Margin-Bottom">
         <h3>orientation</h3>
-            <Box sx={{ maxWidth: 400 }}>
+            <Box sx={{ width: 500 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
@@ -172,7 +168,7 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
                                     size="small"
                                     sx={{ mt: 1, mr: 1 }}
                                 >
-                                    {index === steps.length - 1 ? 'finish' : 'continue'}
+                                    next
                                 </Button>
                             </div>
                         </Box>
@@ -182,9 +178,8 @@ export default function Orientation({user, setUser, type, name, setName, groupNa
             </Stepper>
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
-                    <p>Let's get started!</p>
                     <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        next
+                        finish
                     </Button>
                 </Paper>
             )}

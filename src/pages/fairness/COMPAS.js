@@ -9,7 +9,8 @@ import { wrap, visStyles } from "../../utils/global";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term, Role, RoleAccordion } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { RoleShort, Role } from "../../components/Role";
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -291,7 +292,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                     <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates (prevalence) in a population.</p>
                     <p>In the dataset used to train COMPAS, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should not be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
                 </Description>
-                <RoleAccordion moduleName="fairness"/>
+                <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">
                     <Term term={terms['mathematical-fairness']}/>
                     <Term term={terms['population-base-rate']}/>
