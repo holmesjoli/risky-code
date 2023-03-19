@@ -67,7 +67,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
         children: <LearningOutcomes/>
       },
       {
-        label: 'brainstorm',
+        label: 'define',
         children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
       },
       {
