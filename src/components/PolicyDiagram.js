@@ -15,6 +15,8 @@ function renderTooltip(chartID, style) {
         let x = e.layerX + 20;
         let y = e.layerY - 10;
 
+        // console.log(thisCircle)
+
         tooltip.style("visibility", "visible")
             .style("top", `${y}px`)
             .style("left", `${x}px`)
@@ -150,9 +152,9 @@ function adjustFontWeight(highlightNodes, style, d) {
 function highlightClass(d) {
 
     if (!d.children && d.data.highlight) {
-        return "node example shadow highlight";
+        return "node example highlight";
     } else if(!d.children) {
-        return "node example shadow";
+        return "node example";
     } else {
         return "node"
     }
