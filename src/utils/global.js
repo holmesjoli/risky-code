@@ -178,7 +178,7 @@ export const VARIABLES = [
 ];
 
 export const CLASSIFY_COLUMN_NAMES = {
-    ITEM_LIST: '',
+    ITEM_LIST: 'dirty clothes',
     CASE_TRUE: 'hot water load',
     CASE_FALSE: 'save for later load'
 }

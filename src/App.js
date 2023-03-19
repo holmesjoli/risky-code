@@ -40,8 +40,6 @@ export default function App() {
     const [user, setUser] = useState("group");
     const [name, setName] = useState("");
     const [groupName, setGroupName] = useState("");
-    const [type, setType] = useState("your group will assume a team of these roles.");
-    const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disablePredictionNext2, setDisablePredictionNext2] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);

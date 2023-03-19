@@ -8,7 +8,8 @@ import SortLaundry from "../../components/SortLaundry";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from "../../utils/global";
 import { RoleShort, Role } from "../../components/Role";
-import { Overlay } from "../../components/Overlay"
+import { Overlay } from "../../components/Overlay";
+import MiniModel from '../../components/MiniLaundryModel';
 
 export function Content({items, setItems, nClassified, setNClassified, setDisabled}) {
 
@@ -56,18 +57,23 @@ export default function Classify({config, user, items, setItems, modules, rules,
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <h3 className="Page-Title Small-Margin">algorithmic prediction | classify</h3>
                     <div className="Two-Column-Three">
-                        <div className="Container2">
-                            <p>The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>
-                            {user==="group"?<p className="Margin-Small">Your team will classify 20 items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
-                            <ul className="Margin-Bottom">
-                                <li>{rules.rule1}</li>
-                                <li>{rules.rule2}</li>
-                                <li>{rules.rule3}</li>
-                            </ul>
-                            {user==="group"?<p className="No-Margin-Bottom">Discuss how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Decide how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
+                        <div className="Container2 No-Margin-Bottom">
+                            <MiniModel/>
                         </div>
                         <RightSideBar>
-                            <Role moduleName="prediction" user={user}/>
+                            {/* <Role moduleName="prediction" user={user}/> */}
+                            <div className="Container2">
+                                <h3>learn</h3>
+                                <p>The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>
+                                {user==="group"?<p className="Margin-Small">Your team will classify 20 items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
+                                <ul className="Margin-Bottom">
+                                    <li>{rules.rule1}</li>
+                                    <li>{rules.rule2}</li>
+                                    <li>{rules.rule3}</li>
+                                </ul>
+
+                                {user==="group"?<p className="No-Margin-Bottom">Discuss how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Decide how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">hot water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
+                            </div>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
