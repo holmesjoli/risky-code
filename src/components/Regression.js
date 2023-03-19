@@ -68,14 +68,16 @@ export function Accuracy({items, variables, predictiveProbability}) {
 export function PredictiveOutcomes() {
 
     return(
-        <div className="Container Margin-Bottom">
-            <h4 className="Small-Margin">predictive probability</h4>
-            <div className="Row">
-                <div className="Card-Flat Example-Card">
-                    <img src={LaundryItem} alt="Dirty laundry item" />
-                    <h5 className="Semi-Bold White Opacity1">0.28</h5>
+        <div className="Margin-Bottom">
+            <div className="Container">
+                <h4 className="Small-Margin">predictive probability</h4>
+                <div className="Row">
+                    <div className="Card-Flat Example-Card">
+                        <img src={LaundryItem} alt="Dirty laundry item" />
+                        <h5 className="Semi-Bold White Opacity1">0.28</h5>
+                    </div>
+                    <p>This shirt has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
                 </div>
-                <p>This shirt has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
             </div>
         </div>
     )
