@@ -186,20 +186,20 @@ export default function SortStakeholders() {
   const { STAKEHOLDER, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
 
   return (
-    <div className="Text-Align-Center">
+    <div className="Text-Align-Center Two-Column">
       <DndProvider backend={HTML5Backend}>
-        <Column title={STAKEHOLDER} className="Container Variables-Column">
+        <Column title={STAKEHOLDER} className="Container Variables-Column Card-Group">
           {returnItemsForColumn(STAKEHOLDER)}
         </Column>
-        <ExpandMoreIcon className="Scale200"/>
-        <div className="Three-Column-Equal">
-          <Column title={DIRECT} className="Container Variables-Column">
+        {/* <ExpandMoreIcon className="Scale200"/> */}
+        <div className="Three-Row-Equal">
+          <Column title={DIRECT} className="Container Variables-Column Margin-Bottom Card-Group">
             {returnItemsForColumn(DIRECT)}
           </Column>
-            <Column title={INDIRECT} className="Container Variables-Column">
+            <Column title={INDIRECT} className="Container Variables-Column Margin-Bottom Card-Group">
             {returnItemsForColumn(INDIRECT)}
             </Column>
-            <Column title={EXCLUDED} className="Container Variables-Column">
+            <Column title={EXCLUDED} className="Container Variables-Column Margin-Bottom Card-Group">
             {returnItemsForColumn(EXCLUDED)}
             </Column>
         </div>
