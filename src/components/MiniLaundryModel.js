@@ -9,11 +9,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const images = importImages();
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
-let totalClassify;
-
-function bigCardClass(currentColumnName) {
-  return currentColumnName === ITEM_LIST? " Card-Big": "Card";
-}
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
 const MovableItem = ({
@@ -114,30 +109,11 @@ const MovableItem = ({
 
   drag(drop(ref));
 
-  if(currentColumnName === ITEM_LIST) {
-    return (
-      <div id={"Card" + item.id} key={item.id} ref={ref} className={addClass(currentColumnName) + " Movable-Item" + bigCardClass(currentColumnName)} style={{ opacity }}>
-         <img src={images[Object.keys(images)[item.id]]} alt="" height="100" width="100"></img>
-         <div className="Label">
-            <div className="Small-Margin">
-              <h4 className="Small-Margin">care type</h4>
-              <h6 className="Small-Margin">{item.cleanType}</h6>
-            </div>
-            <div className="Small-Margin">
-              <h4 className="Small-Margin">delicate</h4>
-              <h6 className="No-Margin-Bottom">{item.delicate ? "Yes": "No"}</h6>
-            </div>
-         </div>
-      </div>
-    );
-
-  } else {
-    return (
-      <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName) + " Movable-Item " + bigCardClass(currentColumnName)} style={{ opacity }}>
-         <img src={images[Object.keys(images)[id]]} alt="" width="100" height="55"></img>
-      </div>
-    );
-  }
+  return (
+    <div id={"Card" + id} key={id} ref={ref} className={addClass(currentColumnName) + " Movable-Item Card"} style={{ opacity }}>
+        <img src={images[Object.keys(images)[id]]} alt="" width="100" height="55"></img>
+    </div>
+  );
 };
 
 const Column = ({ children, className, title, nClassified }) => {
@@ -149,8 +125,6 @@ const Column = ({ children, className, title, nClassified }) => {
       canDrop: monitor.canDrop()
     })
   });
-
-  let instructions = title === ITEM_LIST?  "congrats you created an algorithm!" : "drop here";
 
   return (
     <div
@@ -164,8 +138,7 @@ const Column = ({ children, className, title, nClassified }) => {
 
       >{title}</h4>
         <div className={title !== ITEM_LIST? "Card-Container": ""}>
-          {children.length === 0 ? <p className="Instructions Opacity">{instructions}</p>: children}
-          <h5 className="Small-Margin Semi-Bold">{className === "Text-Align-Center item-list-column Margin-Bottom"?`${nClassified}/${totalClassify} classified`: ""}</h5>
+          {children}
       </div>
     </div>
   );
@@ -233,8 +206,6 @@ export default function MiniModel() {
   };
 
   const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
-
-  totalClassify = items.length;
 
   return (
       <DndProvider backend={HTML5Backend}>
