@@ -24,9 +24,9 @@ let height = 480;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 let style = "darkMode";
 
-const fillData = [{"fill": "Black"},
-                  {"fill": "White"},
-                  {"fill": "Other"}]
+const fillData = [{"fill": "Black", "pop": "Black"},
+                  {"fill": "White", "pop": "White"},
+                  {"fill": "Other", "pop": "Other"}]
 
 const xScale = d3.scaleLinear()
     .domain([0, width])
@@ -74,16 +74,16 @@ function grid(data) {
     return data;
 }
     
-function initGraph(data) {
+function initGraph(data, baseRate) {
     d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    renderGraph(data);
+    renderGraph(data, );
 }
 
-function renderGraph(data) {
+function renderGraph(data, baseRate) {
 
     let svg = d3.select(`#${chartId} svg`);
 
@@ -96,21 +96,22 @@ function renderGraph(data) {
         .data(data, d => d.id)
         .join(
             enter  => enter
-            .append("path")
-                .attr("d", d3.symbol()
-                    .type(((d) => symbolScale(d)))
-                    .size(10))
+            // .append("path")
+                // .attr("d", d3.symbol()
+                //     .type(((d) => symbolScale(d)))
+                //     .size(10))
 
-                .attr("transform", transform)
-                // .append("circle")
-                // .attr("cx", function(d) { return xScale(d.x); })
-                // .attr("cy", function(d) { return yScale(d.y); })
-                // .attr("r", 2)
-                .attr("fill", d => fillScale(d.pop)),
+                // .attr("transform", transform)
+                // .attr("fill", "#272B30"),
+                .append("circle")
+                .attr("cx", function(d) { return xScale(d.x); })
+                .attr("cy", function(d) { return yScale(d.y); })
+                .attr("r", 2)
+                .attr("fill", d => fillScale(d[baseRate])),
             update => update
-                .attr("fill", d => fillScale(d.pop)),
+                .attr("fill", d => fillScale(d[baseRate])),
             exit   => exit
-                .attr("fill", d => fillScale(d.pop))
+                .attr("fill", d => fillScale(d[baseRate]))
                 .remove()
         );
 }
@@ -132,12 +133,33 @@ function drawLegend() {
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
 
+    // let shape = svg.append("g")
+    //     .selectAll("path")
+    //         .data(fillData, d => d.pop)
+    //         .enter()
+    //         .append("g")
+    //     .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+
+    // shape.append("path")
+    //     .attr("d", d3.symbol()
+    //         .type(((d) => symbolScale(d)))
+    //         .size(100))
+    //     .attr("fill", visStyles[style]["textColor"]);
+
+    // // Add a text element to the previously added g element.
+    // shape.append("text")
+    //     .attr("text-anchor", "middle")
+    //     .attr("y", 20)
+    //     .attr("fill", visStyles[style]["textColor"])
+    //     .attr("font-size", visStyles[style]["fontSize"])
+    //     .text(d => d.pop);
+
     let color = svg.append("g")
           .selectAll("circle")
           .data(fillData, d => d.fill)
           .enter()
           .append("g")
-          .attr("transform", (d, i) => `translate(${(i * 70) + 20}, ${h / 3})`)
+          .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
 
     color.append("circle")
        .attr("r", 6)
@@ -196,7 +218,13 @@ function Model() {
     )
 }
 
-export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext}) {
+export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext, baseRate, setBaseRate}) {
+    
+    const handleChange = event => {
+        let rate = event.target.checked? "arrests": "pop";
+        setBaseRate(rate);
+    }
+    
     return(
         <div className="Content No-Padding-Top">
             <div>
@@ -216,7 +244,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
                         </div>
                         <div className="Container Margin-Bottom">
                             <h4 className="Small-Margin">reveal discrepancies</h4>
-                            <Switch size="small" color="secondary" />
+                            <Switch size="small" color="secondary" onChange={handleChange}/>
                         </div>
                         <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
                             <p>Brainstorm why there are discrepancies between the base rates in they underlying population (new charges).</p>
@@ -254,6 +282,8 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
 
 
     const [isOpen, setIsOpen] = useState(true);
+    const [baseRate, setBaseRate] = useState("pop");
+
     let navigate = useNavigate();
     const routeNext = () => {
       let path = `/Calibration`; 
@@ -270,13 +300,13 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
     };
 
     useEffect(() => {
-        initGraph(data);
+        initGraph(data, baseRate);
         initLegend();
     }, []);
 
-    // useEffect(() => {
-    //     renderGraph(data);
-    // }, []);
+    useEffect(() => {
+        renderGraph(data, baseRate);
+    }, [baseRate]);
 
     return (
         <div className="App">{
@@ -320,7 +350,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext}/>
+            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate}/>
             <RightSideBar>
                 <Progress id={config.id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>
