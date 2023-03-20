@@ -184,7 +184,7 @@ export default function MiniModel() {
 
     const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
     return (
-        <div className="Text-Align-Center">
+        <div className="Text-Align-Center Max50">
             <DndProvider backend={HTML5Backend}>
                 <Column title={DATA_VARIABLES} className="Container2 Variables-Column">
                 {returnItemsForColumn(variables, DATA_VARIABLES)}
@@ -193,14 +193,13 @@ export default function MiniModel() {
                 <Column title={MODEL_VARIABLES} className="Container2 Variables-Column">
                 {returnItemsForColumn(variables,MODEL_VARIABLES)}
                 </Column>
-
-                {variables.filter(d => d.column === MODEL_VARIABLES).length > 0? <h5 className="Semi-Bold White">Way to go! You added a variable to the predictive model.</h5>: <></>}
             </DndProvider>
             <ExpandMoreIcon/>
             <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">outcome variable</h4>
                 <div className="Variable-Flat">cold water load</div>
             </div>
+            {variables.filter(d => d.column === MODEL_VARIABLES).length > 0? <h5 className="Semi-Bold White">Way to go! You added a variable to the predictive model.</h5>: <></>}
         </div>
     );
 };
