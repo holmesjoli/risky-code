@@ -70,7 +70,7 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
     useEffect(() => {
 
         d3.selectAll(".Example-Card")
-            .attr("class", predictiveProbability > 28? "Card-Flat Example-Card": "Card-Flat Example-Card Predicted-False");
+            .attr("class", predictiveProbability > 28? "Card-Flat Example-Card Case-False": "Card-Flat Example-Card Case-False Predicted-False");
 
     }, [ predictiveProbability])
 
@@ -79,12 +79,12 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
             <div className={containerClass}>
                 <h4 className="Small-Margin">predictive probability</h4>
                 <div className="Row">
-                    <div className="Card-Flat Example-Card">
-                        <img src={LaundryItem} alt="Dirty laundry item" />
-                        <h5 className="Semi-Bold White Opacity1">0.28</h5>
+                    <div className="Card-Flat Example-Card Case-False No-Margin-Bottom">
+                        <img className="No-Margin-Bottom" src={LaundryItem} alt="Dirty laundry item" />
+                        <h5 className="Semi-Bold White Opacity1 No-Margin-Top">0.28</h5>
                     </div>
                     <div>
-                        <p>This shirt, classified as a <span className="Semi-Bold White Opacity1">save for later load</span> item, has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
+                        <p className="No-Margin-Bottom">This shirt, classified as a <span className="Semi-Bold White Opacity1">save for later load</span> item, has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
                     </div>
                 </div>
             </div>

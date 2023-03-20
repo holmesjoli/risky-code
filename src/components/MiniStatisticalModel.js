@@ -197,7 +197,7 @@ export default function MiniModel() {
             <ExpandMoreIcon/>
             <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">outcome variable</h4>
-                <div className="Variable-Flat">cold water load</div>
+                <div className="Variable-Flat Case-True">cold water load</div>
             </div>
             {variables.filter(d => d.column === MODEL_VARIABLES).length > 0? <h5 className="Semi-Bold White">Way to go! You added a variable to the predictive model.</h5>: <></>}
         </div>

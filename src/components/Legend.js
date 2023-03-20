@@ -19,8 +19,8 @@ export function ActualPredicted() {
                         <div className="my-grid2">
                             <h6 className="section-title2 No-Margin-Top">Correctly</h6>
                             <h6 className="section-title2 No-Margin-Top">Incorrectly</h6>
-                            <div className="Card-Flat "></div>
-                            <div className="Card-Flat Predicted-False "></div>
+                            <div className="Card-Flat Case-True"></div>
+                            <div className="Card-Flat Case-True Predicted-False "></div>
                         </div>
                     </div>
                     <div id="Predicted-Container" className="my-grid">
@@ -66,8 +66,8 @@ export function Actual() {
                 <h5 className="No-Margin-Top No-Margin-Bottom">Cold water load</h5>
                 <div className="Row">
                     <div className="Text-Align-Center">
-                        <h6 className="Text-Align-Center">Yes</h6>
-                        <div className="Card-Flat"></div>
+                        <h6 className="Text-Align-Center ">Yes</h6>
+                        <div className="Card-Flat Case-True"></div>
                     </div>
                     <div className="Text-Align-Center">
                         <h6 className="Text-Align-Center">No</h6>
