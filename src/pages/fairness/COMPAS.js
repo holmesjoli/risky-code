@@ -41,7 +41,7 @@ const yScale = d3.scaleLinear()
 
 const fillScale = d3.scaleOrdinal()
     .domain(["White", "Black", "Other"])
-    .range(["#F50141", "#FD7B03", "#F3C010"]);
+    .range(["#FD7B03", "#FE4002", "#F3C010"]);
 
 function symbolScale(d) {
 

@@ -33,7 +33,7 @@ const yScale = d3.scaleLinear()
 
 const fillScale = d3.scaleOrdinal()
     .domain(["white", "black"])
-    .range(["#F50141", "#FD7B03"]);
+    .range(["#FD7B03", "#FE4002"]);
 
 const fillData = [{"fill": "Black", "fill2": "black"},
                   {"fill": "White", "fill2": "white"}]
