@@ -289,8 +289,8 @@ function StakeholderNetwork(data, setData) {
     return(
         <div className="Container">
             <h3>visualize</h3>
-            <div id={chartId} className='Card-Group'></div>
-            <div id={legendId} className='Card-Group'>
+            <div id={chartId} className='Container2'></div>
+            <div id={legendId} className='Container2'>
                 <h4>legend</h4>
             </div>
             <div>

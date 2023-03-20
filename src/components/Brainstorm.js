@@ -195,7 +195,7 @@ export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children
         <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">brainstorm</h4>
             {children}
-            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={8} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
+            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={4} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
         </div>
     )
 }

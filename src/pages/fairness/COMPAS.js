@@ -12,13 +12,21 @@ import { RoleShort } from "../../components/Role";
 import Timer from "../../components/Timer";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Tooltip from '@material-ui/core/Tooltip';
+import Switch from '@material-ui/core/Switch';
 import { BaseRates } from "../../components/Brainstorm";
 import data from "../../data/processed/baseRates.json";
+import { visStyles } from "../../utils/global";
 
 let chartId = "Base-Rates";
-let width = 680;
+let legendId = "Legend-Base-Rates";
+let width = 660;
 let height = 500;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
+let style = "darkMode";
+
+const fillData = [{"fill": "Black"},
+                  {"fill": "White"},
+                  {"fill": "Other"}]
 
 const xScale = d3.scaleLinear()
     .domain([0, width])
@@ -59,7 +67,7 @@ function initGraph(data) {
 
     renderGraph(data);
 }
-    
+
 function renderGraph(data) {
 
     let svg = d3.select(`#${chartId} svg`);
@@ -87,23 +95,47 @@ function renderGraph(data) {
         );
 }
 
+function initLegend() {
 
-function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm}) {
-    // select one
-    return(
-        <div>
-            <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-                <p>Brainstorm why the base rate between different races (e.g., Black vs. White) may differ in the space below.</p>
-            </BaseRates>
-            {/* {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>} */}
-        </div>
-    )
+    let height = 40;
+
+    d3.select(`#${legendId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    drawLegend();
 }
+
+function drawLegend() {
+
+    let svg = d3.select(`#${legendId} svg`)
+    let h = 40;
+
+    let color = svg.append("g")
+          .selectAll("circle")
+          .data(fillData, d => d.fill)
+          .enter()
+          .append("g")
+          .attr("transform", (d, i) => `translate(${(i * 70) + 20}, ${h / 3})`)
+
+    color.append("circle")
+       .attr("r", 6)
+       .attr("fill", d => fillScale(d.fill))
+
+    color.append("text")
+       .attr("text-anchor", "middle")
+       .attr("y", 25)
+       .attr("fill", visStyles[style]["textHighlightColor"])
+       .attr("font-size", visStyles[style]["fontSize"])
+       .text(d => d.fill);
+}
+
 
 function Model() {
     return(
         <div className="Container2 Model">
-            <p >Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
+            <p>Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
             <div className="Text-Align-Center">
                 <div className="Bottom-Rule Margin-Bottom">
                     <h4 className="Text-Align-Left">model variables</h4>
@@ -150,8 +182,23 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
             <div className="Container">
                 <h3>explore</h3>
                 <div className="One-Column-Three4">
-                    <div id={chartId}></div>
-                    <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
+                    <div>
+                        <div id={chartId} className='Container2 Margin-Bottom'></div>
+                        <div id={legendId} className='Container2'></div>
+                    </div>
+                    <div>
+                        <div className="Container2 Margin-Bottom">
+                            <h4 className="Small-Margin">learn</h4>
+                            <p className="No-Margin-Bottom">The data used to train COMPAS is from Broward County Florida. There are 7214 people represented in the data, each visualized as a single dot. Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
+                        </div>
+                        <div className="Container2 Margin-Bottom">
+                            <h4 className="Small-Margin">reveal discrepancies</h4>
+                            <Switch size="small" color="secondary" />
+                        </div>
+                        <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
+                            <p>Brainstorm why the base rate between different races (e.g., Black vs. White) may differ in the space below.</p>
+                        </BaseRates>
+                    </div>
                 </div>
             </div>
         </div>
@@ -201,6 +248,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
 
     useEffect(() => {
         initGraph(data);
+        initLegend();
     }, []);
 
     // useEffect(() => {
@@ -220,7 +268,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                             <div className="Container2 Margin-Bottom">
                                 <h4 className="Small-Margin">learn</h4>
                                 <p>Before we jump into algorithmic fairness its important to know a little bit more about the COMPAS algorithm and its data.</p>
-                                <p className="No-Margin-Bottom">The outcome variable of interest is the <span className="Emphasis">reoffense</span> in the COMPAS model. However, the dataset used to train COMPAS only reports whether a defendant was charged with another crime, <span className="Emphasis">arrests</span>. In predictive modeling, <span className="Emphasis">arrests</span>. is called a proxy variable for the actual outcome variable of interest, <span className="Emphasis">reoffense</span>.</p>
+                                <p className="No-Margin-Bottom">The outcome variable of interest is the <span className="Emphasis">reoffense</span> in the COMPAS model. However, the data used to train COMPAS only reports whether a defendant was charged with another crime, <span className="Emphasis">arrests</span>. In predictive modeling, <span className="Emphasis">arrests</span>. is called a proxy variable for the actual outcome variable of interest, <span className="Emphasis">reoffense</span>.</p>
                             </div>
                             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
                                 <p>Does everyone who commits a crime get charged with that crime?</p>
