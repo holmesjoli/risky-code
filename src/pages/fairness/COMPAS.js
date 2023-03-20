@@ -229,6 +229,8 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
         let rate = event.target.checked? "arrests": "pop";
         setBaseRate(rate);
     }
+
+    const explanation = baseRate === "pop"? <h6 className="Small-Margin-Top">Visualization shows the <span className="Emphasis">arrested and charged</span> population if it were proportionate to the racial demographics of Broward County, Florida.</h6>: <h6 className="Small-Margin-Top">Visualization highlights Black people and people of other races are over represented in Broward County, Florida's <span className="Emphasis">arrested and charged</span> population. Conversely, the visualization also shows where White people are under represented.</h6>;
     
     return(
         <div className="Content No-Padding-Top">
@@ -237,9 +239,10 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
                 <div className="One-Column-Three4">
                     <div className="Container Margin-Bottom">
                         <h4 className="No-Margin-Bottom">visualize</h4>
-                        <div id={chartId} className="Margin-Bottom"></div>
+                        <div id={chartId}></div>
                         <h4>legend</h4>
-                        <div id={legendId} className="Margin-Bottom"></div>
+                        <div id={legendId} className="Small-Margin-Bottom"></div>
+                        {explanation}
                     </div>
                     <div>
                         <div className="Container Margin-Bottom">
