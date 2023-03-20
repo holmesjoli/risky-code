@@ -45,9 +45,9 @@ const fillScale = d3.scaleOrdinal()
 
 function symbolScale(d) {
 
-    if(d.pop === "White") {
+    if(d === "White") {
         return d3.symbolCircle;
-    } else if (d.pop === "Black") {
+    } else if (d === "Black") {
         return d3.symbolTriangle;
     } else {
         return d3.symbolSquare;
@@ -101,23 +101,16 @@ function renderGraph(data, baseRate) {
             enter  => enter
             .append("path")
                 .attr("d", d3.symbol()
-                    .type(((d) => symbolScale(d)))
+                    .type(((d) => symbolScale(d[baseRate])))
                     .size(10))
-
                 .attr("transform", transform)
-                // .attr("fill", "#272B30"),
-                // .append("circle")
-                // .attr("cx", function(d) { return xScale(d.x); })
-                // .attr("cy", function(d) { return yScale(d.y); })
-                // .attr("r", 2)
                 .attr("fill", d => fillScale(d[baseRate])),
-                // .attr("opacity", 1),
             update => update
                 .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
-                .attr("fill", d => fillScale(d[baseRate])),
-            exit   => exit
                 .attr("fill", d => fillScale(d[baseRate]))
-                .remove()
+                .attr("d", d3.symbol()
+                    .type(((d) => symbolScale(d[baseRate])))
+                    .size(10))
         );
 }
 
@@ -147,7 +140,7 @@ function drawLegend(baseRate) {
 
     shape.append("path")
         .attr("d", d3.symbol()
-            .type(((d) => symbolScale(d)))
+            .type(((d) => symbolScale(d[baseRate])))
             .size(100))
         .attr("fill", d => fillScale(d.fill))
         .attr("opacity", baseRate === "arrests" ? .35: 1)
