@@ -189,14 +189,15 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
                     <div>
                         <div className="Container2 Margin-Bottom">
                             <h4 className="Small-Margin">learn</h4>
-                            <p className="No-Margin-Bottom">The data used to train COMPAS is from Broward County Florida. There are 7214 people represented in the data, each visualized as a single dot. Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
+                            <p> The data used to train COMPAS is from Broward County, Florida. There are 7214 people represented in the data, each visualized as a single dot. The prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should <span className="Semi-Bold">not</span> be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
+                            <p className="No-Margin-Bottom">Prevalence of a certain demographic (e.g., race) in an underlying population (e.g. new charges) is called a <span className="Emphasis">base rate</span>.</p>
                         </div>
                         <div className="Container2 Margin-Bottom">
                             <h4 className="Small-Margin">reveal discrepancies</h4>
                             <Switch size="small" color="secondary" />
                         </div>
                         <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-                            <p>Brainstorm why the base rate between different races may differ in the space below.</p>
+                            <p>Brainstorm why there are discrepancies between the base rates in they underlying population (new charges).</p>
                         </BaseRates>
                     </div>
                 </div>
@@ -287,8 +288,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>In the dataset used to train COMPAS, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should <span className="Semi-Bold">not</span> be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
-                    <p>Prevalence of a certain demographic (e.g., race) in an underlying population (e.g. new charges) is called a <span className="Emphasis">base rate</span>. In this example, there are discrepancies in the underlying base rates in the newly charged population.</p>
+                    <p>Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">

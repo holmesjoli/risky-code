@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 import { useEffect } from 'react';
 import { navigationData, wrap, visStyles } from "../utils/global";
 
-const height = 505;
+const height = 540;
 const width = 260;
 const space = 35;
 const margin = {left: 30, top: 25}
@@ -210,7 +210,7 @@ export default function Progress({id, modules, defaultExpanded = false}) {
                 >
                 <div className="Expand">progress</div>
                 </AccordionSummary>
-                <AccordionDetails>
+                <AccordionDetails className="Container">
                     <div id="Progress-Chart"></div>
                 </AccordionDetails>
             </Accordion>

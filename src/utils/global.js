@@ -373,7 +373,7 @@ export const terms = {
         "definition": "Those who cannot interact with the algorithmic system. Reasons include physical, cognitive, social, or situational constraints. Examples include low-vision users of a technology which is primarily accessed through vision (Ballard et al. 2019)."
     },
     "recidivism": {
-        "title": "recidivism",
+        "title": "recidivism or reoffense",
         "definition": "A tendency to relapse into a previous condition or mode of behavior, especially relapse into criminal behavior."
     },
     "accuracy": {
