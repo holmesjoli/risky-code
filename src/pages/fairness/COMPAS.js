@@ -33,12 +33,27 @@ const xScale = d3.scaleLinear()
     .range([margin.left, width-margin.right]);
 
 const yScale = d3.scaleLinear()
-    .domain([0, height])
+    .domain([height, 0])
     .range([height-margin.bottom, margin.top]);
 
 const fillScale = d3.scaleOrdinal()
     .domain(["White", "Black", "Other"])
     .range(["#F50141", "#FD7B03", "#F3C010"]);
+
+function symbolScale(d) {
+
+    if(d.pop === "White") {
+        return d3.symbolCircle;
+    } else if (d.pop === "Black") {
+        return d3.symbolTriangle;
+    } else {
+        return d3.symbolSquare;
+    }
+}
+
+function transform(d) {
+    return "translate(" + xScale(d.x) + "," + yScale(d.y) + ")";
+}
 
 function grid(data) {
 
@@ -74,23 +89,28 @@ function renderGraph(data) {
 
     data = grid(data);
 
+    console.log(data)
+
     svg
-        .selectAll("circle")
+        .selectAll("path")
         .data(data, d => d.id)
         .join(
             enter  => enter
-                .append("circle")
-                .attr("cx", function(d) { return xScale(d.x); })
-                .attr("cy", function(d) { return yScale(d.y); })
-                .attr("r", 2)
-                // .attr("class", d => d.pop)
+            .append("path")
+                .attr("d", d3.symbol()
+                    .type(((d) => symbolScale(d)))
+                    .size(10))
+
+                .attr("transform", transform)
+                // .append("circle")
+                // .attr("cx", function(d) { return xScale(d.x); })
+                // .attr("cy", function(d) { return yScale(d.y); })
+                // .attr("r", 2)
                 .attr("fill", d => fillScale(d.pop)),
             update => update
-                // .attr("class", d => d.pop)
                 .attr("fill", d => fillScale(d.pop)),
             exit   => exit
                 .attr("fill", d => fillScale(d.pop))
-                // .attr("class", d => d.pop)
                 .remove()
         );
 }
