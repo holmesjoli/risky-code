@@ -29,14 +29,20 @@ export function Content({variables, setVariables, items, setItems, predictivePro
 
     return(
         <div className="Content No-Padding-Top">
-            <div>
-                <h3 className="Small-Margin">interact</h3>
-                <div className="One-Column-Three2">
-                    <div>
-                        <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
-                        <Model variables={variables} setVariables={setVariables}/>
+            <div className="One-Column-Three2">
+                <div>
+                    <div className='Container'>
+                        <h3 className="Small-Margin">interact</h3>
+                        <div>
+                            <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
+                            <Model variables={variables} setVariables={setVariables}/>
+                        </div>
                     </div>
-                    <div>
+                </div>
+
+                <div>
+                    <div className="Container">
+                        <h3 className="Small-Margin">visualize</h3>
                         <Regression items={items} setItems={setItems} variables={variables}/>
                         <Card items={items} variables={variables} addIncorrect={false}/>
                         <Information items={items} variables={variables} predictiveProbability={predictiveProbability}/>
@@ -96,39 +102,6 @@ export default function Optimize({config, variables, setVariables, items, setIte
         </Overlay>:
         <></>
         }
-            
-            {/* {isOpen ?
-            <Overlay isOpen={isOpen} onClose={toggleOverlay}>
-            <div className="Containers-Container">
-                <div className="Container-Fill-Secondary">
-                    <div className="Two-Column-Three">
-                        <div>
-                            <h3 className="Page-Title">reflect</h3>
-                            <div className="Card-Group">
-                                <h4>algorithm rules</h4>
-                                <p>{rules.rule1}</p>
-                                <p>{rules.rule2}</p>
-                                <p>{rules.rule3}</p>
-                            </div>
-                            <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}>
-                                <p>Would you make any updates to your definition of an algorithm?</p>
-                            </AlgorithmDefinition>
-                        </div>
-                        <RightSideBar>
-                            <Timer user={user} disableNext={disablePredictionNext2} setDisableNext={setDisablePredictionNext2}>
-                                <p>Would you collect any other variables to use in the statistical model?</p>
-                                <p>Were there any rules that didn't fit the statistical model was not able to accomodate?</p>
-                                {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
-                                <p>What are the consequences of when Laundry AID made an incorrect prediction?</p>
-                            </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disablePredictionNext2} toggleOverlay={routeNext}/>: <></>}
-                        </RightSideBar>
-                    </div>
-                </div>
-            </div>
-        </Overlay>:
-        <></>
-        } */}
         <Header/>
             <div className="Main">
                 <LeftSideBar>

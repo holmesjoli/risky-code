@@ -90,7 +90,7 @@ ul {
     padding: 5px;
     text-align: center;
     flex: 1 1 150px; /*  Stretching: */
-    margin-bottom: $containerMarginBottom;
+    // margin-bottom: $containerMarginBottom;
     padding: $containerPadding;
     text-align: left;
 }
@@ -153,7 +153,7 @@ ul {
 .Three-Column2 {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(150px, 30%) minmax(200px, 40%) minmax(150px, 30%);
+    grid-template-columns: minmax(150px, 34%) minmax(200px, 35%) minmax(150px, 31%);
 }
 
 .Three-Column3 {
@@ -172,7 +172,7 @@ ul {
 .Two-Column2 {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(150px, 23%) minmax(200px, 35%);
+    grid-template-columns: minmax(150px, 25%) minmax(200px, 35%);
 }
 
 .Two-Column-Three {
@@ -190,7 +190,7 @@ ul {
 .One-Column-Three2 {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(200px, 22%) minmax(700px, 80%);
+    grid-template-columns: minmax(200px, 25%) minmax(700px, 75%);
 }
 
 .One-Column-Three3 {

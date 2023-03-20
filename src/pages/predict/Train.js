@@ -27,11 +27,19 @@ export function Content({variables, setVariables, items, setItems}) {
 
     return(
         <div className="Content No-Padding-Top">
-            <div>
-                <h3 className="Small-Margin">interact</h3>
-                <div className="One-Column-Three2">
-                    <Model variables={variables} setVariables={setVariables}/>
-                    <div>
+            <div className="One-Column-Three2">
+                <div>
+                    <div className='Container'>
+                        <h3 className="Small-Margin">interact</h3>
+                        <div>
+                            <Model variables={variables} setVariables={setVariables}/>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div className="Container">
+                        <h3 className="Small-Margin">visualize</h3>
                         <Regression items={items} setItems={setItems} variables={variables}/>
                         <Card items={items} variables={variables} addIncorrect={false}/>
                         <Information items={items} variables={variables}/>

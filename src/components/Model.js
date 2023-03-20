@@ -185,16 +185,16 @@ export default function Model({variables, setVariables}) {
   return (
     <div className="Text-Align-Center">
       <DndProvider backend={HTML5Backend}>
-        <Column title={DATA_VARIABLES} className="Container Variables-Column">
+        <Column title={DATA_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom">
           {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
-        <ExpandMoreIcon className="Scale200"/>
-        <Column title={MODEL_VARIABLES} className="Container Variables-Column">
+        <ExpandMoreIcon/>
+        <Column title={MODEL_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom">
           {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
       </DndProvider>
-      <ExpandMoreIcon className="Scale200"/>
-      <div className="Container Margin-Bottom">
+      <ExpandMoreIcon/>
+      <div className="Container2 No-Margin-Bottom">
           <h4 className="Small-Margin">outcome variable</h4>
           <div className="Variable-Flat">cold water load</div>
       </div>

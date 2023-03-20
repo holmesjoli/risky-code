@@ -37,7 +37,7 @@ export function Consequence({margin}) {
         <div className={"Consequence " + margin}>
             <div className="Container">
                 <h3 className="Small-Margin">reflect</h3>
-                    <p>Reflection on the consequences (positive and negative) of using algorithmically informed decision-making in this policy setting</p>
+                    <p>Reflect on the consequences (positive and negative) of using algorithmically informed decision-making in this policy setting</p>
                 <div className="Margin-Bottom" >
                     <h4 className="Small-Margin">positive consequences</h4>
                 <TextField placeholder="write reflection" variant="outlined" multiline minRows={5} />

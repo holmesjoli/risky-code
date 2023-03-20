@@ -79,14 +79,13 @@ export default function App() {
           <Route path="/FairnessReflection" element={<FairnessReflection user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>} />
 
           <Route path="/StakeholderMapping" element={<StakeholderMapping user={user} brainstormStakeholders={setBrainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>} />
-          <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder} modules={modules}/>} />
+          <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} modules={modules}/>} />
           <Route path="/Health" element={<Health config={config.Health} modules={modules}/>} />
           
           <Route path="/Deliberation" element={<Deliberation user={user} />} />
           <Route path="/Stakeholders" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
-          
           
           <Route path="/About" element={<About config={config.About} modules={modules} />} />
           <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules}/>} />

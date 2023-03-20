@@ -171,7 +171,7 @@ export const VARIABLES = [
     {id: 1, name: 'print', columnName: 'print',  column: DATA_VARIABLES},
     {id: 2, name: 'pastel', columnName: 'pastel', column: DATA_VARIABLES},
     {id: 3, name: 'delicate', columnName: 'delicate', column: DATA_VARIABLES },
-    {id: 4, name: 'dry clean only', columnName: 'dryCleanOnly', column: DATA_VARIABLES },
+    {id: 4, name: 'dry clean', columnName: 'dryCleanOnly', column: DATA_VARIABLES },
     {id: 5, name: 'white', columnName: 'white', column: DATA_VARIABLES },
 ];
 

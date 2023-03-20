@@ -8,7 +8,6 @@ import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
-import Timer from "../../components/Timer";
 import StakeholderMapping from "../../components/StakeholderMapping";
 import { RoleShort } from "../../components/Role";
 
@@ -57,7 +56,7 @@ import SortStakeholders from "../../components/SortStakeholders";
 //         .attr("color", "#eeeeee");
 // }
 
-export default function StreetBump({config, user, modules, disableCaseStudyNext, setDisableCaseStudyNext}) {
+export default function StreetBump({config, user, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("cases");
@@ -71,7 +70,7 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
     }
   
     const routeBack = () => {
-        let path = `/Error`; 
+        let path = `/StakeholderMapping`; 
         navigate(path);
     }
 
@@ -96,21 +95,23 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <div className="Two-Column-Three">
                         <div>
-                            <h3 className="Page-Title Small-Margin Padding-Bottom Bottom-Rule">introduction to stakeholder mapping</h3>
+                            <h3 className="Page-Title Small-Margin Padding-">stakeholder mapping for street bump</h3>
                             <div className="Medium-Margin-Top">
-                                <h3 className="Small-Margin">interact</h3>
-                                {/* <p>Sort stakeholders</p> */}
                                 <SortStakeholders/>
                                 {/* <div id={chartID} className="chart Margin-Bottom"></div> */}
                                 {/* <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6> */}
                             </div>
                         </div>
                         <RightSideBar>
-                            <Timer user={user} disableNext={disableCaseStudyNext} setDisableNext={setDisableCaseStudyNext}>
-                                <p>Stakeholder mapping is an important step in the design-thinking exercize. Why do you think its important to identify stakeholders?</p>
-                                <p className="No-Margin-Bottom">When might it be important to conduct stakeholder mapping?</p>
-                            </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableCaseStudyNext} toggleOverlay={toggleOverlay}/>: <></>}
+                            <div className="Container2">
+                                <h3>learn</h3>
+                                <p className="No-Margin-Bottom">Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify road problems.</p>
+                            </div>
+                            <div className="Container2">
+                                <h3>brainstorm</h3>
+                                <p className="No-Margin-Bottom">Start by brainstorming who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
+                            </div>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -122,9 +123,8 @@ export default function StreetBump({config, user, modules, disableCaseStudyNext,
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify road problems.</p>
-                    <p>Create a stakeholder map for stakeholders of the Street Bump application. Start by brainstorming who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
-                    <p>Then add your brainstorm to the map to see how the stakeholders value overlap.</p>
+                    <p>Create a stakeholder map for stakeholders of the Street Bump application. </p>
+                    <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>
                 <RoleShort moduleName="caseStudies"/>
                 <Terminology margin="Margin-Large-Bottom">

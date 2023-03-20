@@ -12,7 +12,7 @@ var logistic = new LogisticRegression({
     lambda: 0.0
 });
 
-export function Threshold({predictiveProbability, updateSlider, containerClass="Container"}) {
+export function Threshold({predictiveProbability, updateSlider, containerClass="Container2"}) {
     return(
         <div className={containerClass +" Margin-Bottom Padding-Bottom Bottom-Rule"}>
             <h4 className="Small-Margin">decision threshold</h4>
@@ -56,16 +56,16 @@ export function Accuracy({items, variables, predictiveProbability}) {
 
     return(
         <div className="Accuracy Hidden">
-            <div className="Container">
+            <div className="Container2">
                 <h4 className="Small-Margin">model accuracy</h4>
                 <p>Accuracy is a percent of how many predicted values match the actual values.</p>
-                <h5 className="Accuracy-Percent Small-Margin No-Margin-Top Semi-Bold White Opacity1"></h5>
+                <h5 className="Accuracy-Percent Small-Margin No-Margin-Top Semi-Bold White Opacity1 No-Margin-Bottom"></h5>
             </div>
         </div>
     )
 }
 
-export function PredictiveOutcomes({predictiveProbability=50, containerClass="Container"}) {
+export function PredictiveOutcomes({predictiveProbability=50, containerClass="Container2"}) {
 
     useEffect(() => {
 
