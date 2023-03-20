@@ -118,7 +118,7 @@ export function BrainstormAlgorithm({algorithmDefinition, setAlgorithmDefinition
     // }, []);
 
     return(
-        <div className="Container Margin-Bottom">
+        <div className="Container2 Margin-Bottom">
             <h4>how do you define the term <span className="Emphasis">algorithm</span>?</h4>
             <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
         </div>
@@ -128,7 +128,7 @@ export function BrainstormAlgorithm({algorithmDefinition, setAlgorithmDefinition
 export function BrainstormLaundryRules({rules, setRules}) {
 
     return(
-        <div className="Container Margin-Bottom">
+        <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">define</h4>
             <p>This project defines an algorithm as <span className="Emphasis">a series of steps that allow you to perform a particular task</span>.</p>
             <h4 className="Small-Margin">analogize</h4>

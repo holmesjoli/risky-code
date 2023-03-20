@@ -36,7 +36,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
     const Introduction = () => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>The first module, <span>Algorithmic Prediction</span>, will lead you through a series of activities to learn about how algorithmic prediction works.</p>
                 <p>The basic steps to algorithmic prediction are: </p>
                 <ul className="No-Margin-Bottom">
@@ -53,7 +53,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
     const LearningOutcomes = () => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>Define what an algorithm is</p>
                 <p className="No-Margin-Bottom">Describe the basic steps of algorithmic prediction</p>
             </div>

@@ -36,7 +36,7 @@ export default function Fairness({user}) {
     const Introduction = () => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>The second module, <span>Algorithmic Fairness</span>, will lead you through a series of activities to learn about how algorithmic prediction works.</p>
                 <p>The basic steps to algorithmic prediction are: </p>
                 {/* <ul className="No-Margin-Bottom">
@@ -52,7 +52,7 @@ export default function Fairness({user}) {
     const LearningOutcomes = () => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>Understand that multiple definitions of algorithmic fairness cannot be met simultaneously</p>
                 <p className="No-Margin-Bottom">Understand the definitions of algorithmic fairness may result in disparate impacts</p>
             </div>
@@ -114,7 +114,7 @@ export default function Fairness({user}) {
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                     <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        continue to algorithmic prediction
+                        continue to algorithmic fariness
                     </Button>
                 </Paper>
             )}

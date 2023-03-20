@@ -48,7 +48,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
 
     const Welcome = () => {
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p className="No-Margin-Bottom">Risky Code is a digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.</p>
             </div>
         )
@@ -56,10 +56,10 @@ export default function Orientation({user, setUser, name, setName, groupName, se
 
     const userGroup = (user, updateUser, name, updateName, groupName, updateGroupName) => {
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <div className="No-Margin-Bottom">
-                    <p>Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, however, the experience is designed to differ slightly.</p>
-                    <div className="Card-Group">
+                    <p className="Bottom-Rule Padding-Bottom">Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, however, the experience is designed to differ slightly.</p>
+                    <div className="">
                         <p className="Small-Margin">Indicate how you intend to use Risky Code.</p>
                         <RadioGroup
                             aria-labelledby="demo-radio-buttons-group-label"
@@ -97,7 +97,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
     const Modules = () => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p className="Small-Margin">Risky Code contains four modules:</p>
                 <ul className="Margin-Bottom">
                     <li><span className="Semi-Bold">Algorithmic Prediction</span> </li>
@@ -113,7 +113,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
     const Role = ({user}) => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>In each module, {user === "group"? "you should imagine your team as a group of:" : "you should imagine yourself as a:"} </p>
                 <ul className="Margin-Bottom">
                     <li><span className="Semi-Bold">You</span> — {user === "group"? "busy people who want " : "a busy individual who wants "} to learn more about algorithmic decision-making</li>

@@ -98,6 +98,11 @@ const theme = createTheme({
        }
       }
     },
+    MuiPaper: {
+      root: {
+        backgroundColor: "#131517"
+      }
+    },
     MuiAccordionDetails: {
       root: {
         padding: 0,

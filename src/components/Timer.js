@@ -36,7 +36,7 @@ export default function Timer({user, disableNext, setDisableNext, children}) {
 
     if (user === "group") {
         return (
-        <div className="Timer Container2">
+        <div className="Timer Container2 Margin-Bottom">
             <h4 className="Small-Margin">discuss</h4>
             {children}
             {!disableNext
@@ -48,7 +48,7 @@ export default function Timer({user, disableNext, setDisableNext, children}) {
     } else {
         setDisableNext(false);
         return(
-        <div className="Timer Container2">
+        <div className="Timer Container2 Margin-Bottom">
             <h4 className="Small-Margin">consider</h4>
             {children}
         </div>

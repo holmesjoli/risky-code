@@ -36,7 +36,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
     const LearningOutcomes = () => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>Define what an algorithm is</p>
                 <p className="No-Margin-Bottom">Describe the basic steps of algorithmic prediction</p>
             </div>
@@ -45,7 +45,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
 
     const BrainstormAlgorithm = ({algorithmDefinition, setAlgorithmDefinition}) => {
         return(
-            <div className="Container2">
+            <div className="Container2 Margin-Bottom">
                 <p>Would you make any updates to your initial definition of an algorithm?</p>
                 <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
             </div>
