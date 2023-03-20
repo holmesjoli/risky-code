@@ -14,7 +14,12 @@ import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 import { RoleShort } from "../../components/Role";
 
-let chartId = "Fairness-Chart";
+let introChartId = "Fairness-Chart";
+let chartId = "Calibration-Chart";
+
+let width = 660;
+let height = 480;
+let margin = {left: 10, right: 10, top: 10, bottom: 10}
 
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
@@ -41,11 +46,11 @@ function textAnchor(angle) {
 // Tooltip
 function renderTooltip(style="darkMode") {
 
-    let tooltip = d3.select(`${chartId}`)
+    let tooltip = d3.select(`${introChartId}`)
         .append("div")
         .attr("class", "tooltip");
 
-    d3.selectAll(`${chartId} a circle`).on("mouseover", function(e, d) {
+    d3.selectAll(`${introChartId} a circle`).on("mouseover", function(e, d) {
 
         let thisCircle = d3.select(this);
         let x = e.layerX + 20;
@@ -86,7 +91,7 @@ function fairnessDefinitions(style = "darkMode") {
         data[i].yLabel = (radius*1.17 * Math.sin(data[i].angle)) + height/2;
     }
 
-    let svg = d3.select(`#${chartId}`)
+    let svg = d3.select(`#${introChartId}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
@@ -137,7 +142,7 @@ function Information() {
     )
 }
 
-export function Content() {
+function Content() {
     return(
         <div className="Content Three-Column No-Padding-Top">
             <Information/>
@@ -149,10 +154,24 @@ function ImpossibilityTheorem() {
     // select one
     return(
         <div>
-            <div className="chart" id={chartId}></div>
+            <div className="chart" id={introChartId}></div>
             <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Click to open journal article about that specific definition of algorithmic fairness.</h6>
         </div>
     )
+}
+
+function initGraph() {
+    d3.select(`#${chartId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    renderGraph(data);
+}
+
+function renderGraph() {
+
+    let svg = d3.select(`#${chartId} svg`);
 }
 
 export default function Calibration({config, user, disableFairnessNext, setDisableFairnessNext, modules}) {
@@ -181,6 +200,9 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
         fairnessDefinitions();
     }, [])
 
+    useEffect(() => {
+        initGraph();
+    }, []);
 
     return (
         <div className="App">{

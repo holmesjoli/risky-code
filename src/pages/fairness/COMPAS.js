@@ -83,7 +83,7 @@ function initGraph(data, baseRate) {
         .attr("width", width)
         .attr("height", height);
 
-    renderGraph(data, );
+    renderGraph(data);
 }
 
 function renderGraph(data, baseRate) {
