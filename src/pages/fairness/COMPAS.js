@@ -28,6 +28,9 @@ const fillData = [{"fill": "Black", "pop": "Black"},
                   {"fill": "White", "pop": "White"},
                   {"fill": "Other", "pop": "Other"}]
 
+const opacityData = [{"opacity": 1, "text": "Excess"},
+                    {"opacity": .35, "text": "blah"}]
+
 const xScale = d3.scaleLinear()
     .domain([0, width])
     .range([margin.left, width-margin.right]);
@@ -96,19 +99,21 @@ function renderGraph(data, baseRate) {
         .data(data, d => d.id)
         .join(
             enter  => enter
-            // .append("path")
-                // .attr("d", d3.symbol()
-                //     .type(((d) => symbolScale(d)))
-                //     .size(10))
+            .append("path")
+                .attr("d", d3.symbol()
+                    .type(((d) => symbolScale(d)))
+                    .size(10))
 
-                // .attr("transform", transform)
+                .attr("transform", transform)
                 // .attr("fill", "#272B30"),
-                .append("circle")
-                .attr("cx", function(d) { return xScale(d.x); })
-                .attr("cy", function(d) { return yScale(d.y); })
-                .attr("r", 2)
+                // .append("circle")
+                // .attr("cx", function(d) { return xScale(d.x); })
+                // .attr("cy", function(d) { return yScale(d.y); })
+                // .attr("r", 2)
                 .attr("fill", d => fillScale(d[baseRate])),
+                // .attr("opacity", 1),
             update => update
+                .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
                 .attr("fill", d => fillScale(d[baseRate])),
             exit   => exit
                 .attr("fill", d => fillScale(d[baseRate]))
@@ -133,46 +138,46 @@ function drawLegend() {
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
 
-    // let shape = svg.append("g")
-    //     .selectAll("path")
-    //         .data(fillData, d => d.pop)
-    //         .enter()
-    //         .append("g")
-    //     .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+    let shape = svg.append("g")
+        .selectAll("path")
+            .data(fillData, d => d.pop)
+            .enter()
+            .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
 
-    // shape.append("path")
-    //     .attr("d", d3.symbol()
-    //         .type(((d) => symbolScale(d)))
-    //         .size(100))
-    //     .attr("fill", visStyles[style]["textColor"]);
+    shape.append("path")
+        .attr("d", d3.symbol()
+            .type(((d) => symbolScale(d)))
+            .size(100))
+        .attr("fill", d => fillScale(d.fill));
 
-    // // Add a text element to the previously added g element.
-    // shape.append("text")
-    //     .attr("text-anchor", "middle")
-    //     .attr("y", 20)
-    //     .attr("fill", visStyles[style]["textColor"])
-    //     .attr("font-size", visStyles[style]["fontSize"])
-    //     .text(d => d.pop);
+    // Add a text element to the previously added g element.
+    shape.append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", 20)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .text(d => d.pop);
 
     let color = svg.append("g")
           .selectAll("circle")
-          .data(fillData, d => d.fill)
+          .data(opacityData, d => d.opacity)
           .enter()
           .append("g")
           .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
 
     color.append("circle")
        .attr("r", 6)
-       .attr("fill", d => fillScale(d.fill))
+       .attr("fill", visStyles[style]["textColor"])
+       .attr("opacity", d => d.opacity);
 
     color.append("text")
        .attr("text-anchor", "middle")
        .attr("y", 25)
        .attr("fill", visStyles[style]["textHighlightColor"])
        .attr("font-size", visStyles[style]["fontSize"])
-       .text(d => d.fill);
+       .text(d => d.text);
 }
-
 
 function Model() {
     return(
