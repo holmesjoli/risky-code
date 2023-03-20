@@ -28,7 +28,7 @@ const xScale = d3.scaleLinear()
     .range([margin.left, width-margin.right]);
 
 const yScale = d3.scaleLinear()
-    .domain([0, 1])
+    .domain([0, 100])
     .range([height-margin.bottom, margin.top]);
 
 const fillScale = d3.scaleOrdinal()
@@ -152,16 +152,22 @@ function fairnessDefinitions(style = "darkMode") {
     // transitionHighlight(style);
 }
 
-// function Information() {
-//     return (
-//         <div className="Information">
-//         </div>
-//     )
-// }
+function Information() {
+    return (
+        <div className="Information">
+            <div className="Container">
+                <h4 className="Margin-Small">learn</h4>
+                    <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. </p>
+                    <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
+                    <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
+            </div>
+        </div>
+    )
+}
 
 function Content() {
     return(
-        <div className="Content Three-Column No-Padding-Top">
+        <div className="Content One-Column-Three4 No-Padding-Top">
             <div className="Container Margin-Bottom">
                 <h4 className="No-Margin-Bottom">visualize</h4>
                 <div id={chartId}></div>
@@ -169,7 +175,7 @@ function Content() {
                 <div id={legendId} className="Small-Margin-Bottom"></div>
                 {/* {explanation} */}
             </div>
-            {/* <Information/> */}
+            <Information/>
         </div>
     )
 }
@@ -201,7 +207,7 @@ function renderGraph(data) {
 
     const line = d3.line()
         .x(function(d) { return xScale(d.decile); })
-        .y(function(d) { return yScale(d.mean); })
+        .y(function(d) { return yScale(d.mean*100); })
         .curve(d3.curveLinear);
 
     const xAxis = svg.append("g")
@@ -229,7 +235,7 @@ function renderGraph(data) {
         .enter()
         .append("circle")
           .attr("cx", function(d) { return xScale(d.decile); })
-          .attr("cy", function(d) { return yScale(d.mean); })
+          .attr("cy", function(d) { return yScale(d.mean*100); })
           .attr("r",2)
           .attr("fill", d => fillScale(d.race));
 
@@ -249,7 +255,7 @@ function renderGraph(data) {
           .attr("y", 50)
           .attr("text-anchor","middle")
           .attr("transform","rotate(-90)")
-          .text("Likelihood of reoffense")
+          .text("Likelihood of reoffense (%)")
           .attr("fill", visStyles[style]["textHighlightColor"])
           .attr("font-size", 12)
           .attr("letter-spacing", visStyles[style]["letterSpacing"]);
@@ -358,9 +364,6 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    {/* <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. </p>
-                    <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
-                    <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p> */}
                 </Description>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">
