@@ -17,8 +17,8 @@ import { BaseRates } from "../../components/Brainstorm";
 import data from "../../data/processed/baseRates.json";
 import { visStyles } from "../../utils/global";
 
-let chartId = "Base-Rates";
-let legendId = "Legend-Base-Rates";
+let chartId = "Base-Rates-Chart";
+let legendId = "Base-Rates-Legend";
 let width = 660;
 let height = 480;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
@@ -83,7 +83,7 @@ function initGraph(data, baseRate) {
         .attr("width", width)
         .attr("height", height);
 
-    renderGraph(data);
+    renderGraph(data, baseRate);
 }
 
 function renderGraph(data, baseRate) {
@@ -159,27 +159,33 @@ function drawLegend(baseRate) {
         .attr("y", 20)
         .attr("fill", visStyles[style]["textColor"])
         .attr("font-size", visStyles[style]["fontSize"])
-        .text(d => d.pop);
+        .text(d => d.pop)
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
     let color = svg.append("g")
-          .selectAll("circle")
-          .data(opacityData, d => d.opacity)
-          .enter()
-          .append("g")
-          .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
+        .selectAll("circle")
+        .data(opacityData, d => d.opacity)
+        .enter()
+        .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
 
     color.append("circle")
-       .attr("r", 6)
-       .attr("fill", visStyles[style]["textColor"])
-       .attr("opacity", d => baseRate === "pop"? 0: d.opacity);
+        .attr("r", 6)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("opacity", d => baseRate === "pop"? 0: d.opacity);
 
     color.append("text")
-       .attr("text-anchor", "middle")
-       .attr("y", 25)
-       .attr("fill", visStyles[style]["textHighlightColor"])
-       .attr("font-size", visStyles[style]["fontSize"])
-       .attr("opacity", baseRate === "pop"? 0: 1)
-       .text(d => d.text);
+        .attr("text-anchor", "middle")
+        .attr("y", 25)
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("opacity", baseRate === "pop"? 0: 1)
+        .text(d => d.text)
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 }
 
 function Model() {

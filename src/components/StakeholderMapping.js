@@ -230,11 +230,11 @@ function drawShapeLegend() {
     let h = 40;
 
     let shape = svg.append("g")
-           .selectAll("circle")
-           .data(shapeData, d => d.shape)
-           .enter()
-           .append("g")
-           .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+        .selectAll("circle")
+        .data(shapeData, d => d.shape)
+        .enter()
+        .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`);
 
     shape.append("path")
         .attr("d", d3.symbol()
@@ -244,18 +244,21 @@ function drawShapeLegend() {
 
     // Add a text element to the previously added g element.
     shape.append("text")
-          .attr("text-anchor", "middle")
-          .attr("y", 20)
-          .attr("fill", visStyles[style]["textColor"])
-          .attr("font-size", visStyles[style]["fontSize"])
-          .text(d => d.shape);
+        .attr("text-anchor", "middle")
+        .attr("y", 20)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .text(d => d.shape)
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
     let color = svg.append("g")
-          .selectAll("circle")
-          .data(fillData, d => d.fill)
-          .enter()
-          .append("g")
-          .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
+        .selectAll("circle")
+        .data(fillData, d => d.fill)
+        .enter()
+        .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
 
     color.append("path")
        .attr("d", d3.symbol()
@@ -264,11 +267,14 @@ function drawShapeLegend() {
         .attr("fill", d => fillScale(d.fill))
 
     color.append("text")
-       .attr("text-anchor", "middle")
-       .attr("y", 20)
-       .attr("fill", visStyles[style]["textColor"])
-       .attr("font-size", visStyles[style]["fontSize"])
-       .text(d => d.fill);
+        .attr("text-anchor", "middle")
+        .attr("y", 20)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .text(d => d.fill)
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 }
 
 function StakeholderNetwork(data, setData) {

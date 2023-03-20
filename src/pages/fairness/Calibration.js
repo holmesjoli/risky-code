@@ -16,6 +16,7 @@ import data from "../../data/processed/calibrationCurve.json";
 
 let introChartId = "Fairness-Chart";
 let chartId = "Calibration-Chart";
+let legendId = "Calibration-Legend";
 
 let width = 660;
 let height = 480;
@@ -33,6 +34,9 @@ const yScale = d3.scaleLinear()
 const fillScale = d3.scaleOrdinal()
     .domain(["white", "black"])
     .range(["#F50141", "#FD7B03"]);
+
+const fillData = [{"fill": "Black", "fill2": "black"},
+                  {"fill": "White", "fill2": "white"}]
 
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
@@ -148,18 +152,24 @@ function fairnessDefinitions(style = "darkMode") {
     // transitionHighlight(style);
 }
 
-function Information() {
-    return (
-        <div className="Information">
-        </div>
-    )
-}
+// function Information() {
+//     return (
+//         <div className="Information">
+//         </div>
+//     )
+// }
 
 function Content() {
     return(
         <div className="Content Three-Column No-Padding-Top">
-            <div className="chart" id={chartId}></div>
-            <Information/>
+            <div className="Container Margin-Bottom">
+                <h4 className="No-Margin-Bottom">visualize</h4>
+                <div id={chartId}></div>
+                <h4>legend</h4>
+                <div id={legendId} className="Small-Margin-Bottom"></div>
+                {/* {explanation} */}
+            </div>
+            {/* <Information/> */}
         </div>
     )
 }
@@ -245,6 +255,47 @@ function renderGraph(data) {
           .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 }
 
+function initLegend() {
+
+    let height = 40;
+
+    d3.select(`#${legendId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    drawLegend();
+}
+
+function drawLegend(baseRate) {
+
+    let svg = d3.select(`#${legendId} svg`)
+    let h = 40;
+
+    let color = svg.append("g")
+          .selectAll("circle")
+          .data(fillData, d => d.fill)
+          .enter()
+          .append("g")
+          .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+
+    color.append("circle")
+       .attr("r", 6)
+       .attr("fill", d => fillScale(d.fill2))
+
+    color.append("text")
+       .attr("text-anchor", "middle")
+       .attr("y", 25)
+       .attr("fill", visStyles[style]["textHighlightColor"])
+       .attr("font-size", visStyles[style]["fontSize"])
+       .text(d => d.fill)
+       .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+}
+
+
+
 export default function Calibration({config, user, disableFairnessNext, setDisableFairnessNext, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
@@ -273,6 +324,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
 
     useEffect(() => {
         initGraph();
+        initLegend();
     }, []);
 
     return (
