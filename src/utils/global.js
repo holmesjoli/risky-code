@@ -51,7 +51,7 @@ export const config = {
     },
     "COMPAS": {
         "id": "compas",
-        "title": "compas and mathematical fairness"
+        "title": "compas' data"
     },
     "StreetBump": {
         "id": "street",

@@ -17,122 +17,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Tooltip from '@material-ui/core/Tooltip';
 import { BaseRates } from "../../components/Brainstorm";
 
-let chartId = "Fairness-Chart";
-
-function textAngle(angle) {
-    return (180/Math.PI)*angle; 
-}
-
-function flipText(angle) {
-    
-    if (angle < 4.7 && angle > 1.6) {
-        return `-1, -1`;
-    } else {
-        return `1, 1`;
-    }
-}
-
-function textAnchor(angle) {
-    
-    if (angle < 4.7 && angle > 1.6) {
-        return "end";
-    } else {
-        return "start";
-    }
-}
-
-// Tooltip
-function renderTooltip(style="darkMode") {
-
-    let tooltip = d3.select(`${chartId}`)
-        .append("div")
-        .attr("class", "tooltip");
-
-    d3.selectAll(`${chartId} circle`).on("mouseover", function(e, d) {
-
-        let thisCircle = d3.select(this);
-        let x = e.layerX + 20;
-        let y = e.layerY - 10;
-
-        tooltip.style("visibility", "visible")
-            .style("top", `${y}px`)
-            .style("left", `${x}px`)
-            .html(`${d.fairness_definition} <br> ${d.author}`);
-
-        thisCircle
-            .attr("stroke", visStyles[style]["highlightColor"])
-            .attr("stroke-width", 1.5);
-
-    }).on("mouseout", function() {
-
-        tooltip.style("visibility", "hidden");
-
-        d3.selectAll(`${chartId} circle`)
-            .attr("stroke", visStyles[style]["borderColor"])
-            .attr("stroke-width", 1);
-    });
-}
-
-function fairnessDefinitions(style = "darkMode") {
-
-    let n = data.length;
-    let theta = ((Math.PI*2) / n);
-    let width = 650;
-    let height = 510;
-    let radius = 120;
-
-    for (let i in data) {
-        data[i].angle = (theta * i);
-        data[i].x = (radius * Math.cos(data[i].angle)) + width/2;
-        data[i].y = (radius * Math.sin(data[i].angle)) + height/2;
-        data[i].xLabel = (radius*1.17 * Math.cos(data[i].angle)) + width/2;
-        data[i].yLabel = (radius*1.17 * Math.sin(data[i].angle)) + height/2;
-    }
-
-    let svg = d3.select(`#${chartId}`)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-    
-    svg.append("text")
-        .attr("x", width/2)
-        .attr("y", height/2)
-        .text("Algorithmic fairness definitions")
-        .attr("fill", "#cbcbcb")
-        .attr("font-size", 14)
-        .attr("text-anchor", "middle")
-        .call(wrap, 100);
-
-    svg = svg.selectAll("circle")
-        .data(data)
-        .enter();
-
-    svg
-        .append("a")
-        .attr("href", d => d.link)
-        .attr("target", "_blank")
-        .append("circle")
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y)
-        .attr("r", 8)
-        .attr("fill", visStyles[style]["fillColor"])
-        .attr("stroke", visStyles[style]["borderColor"])
-        .attr("stroke-width", visStyles[style]["borderWidth"])
-        .attr("class", d => d.highlight? "shadow highlight": "shadow");
-
-    svg.append("text")
-        .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)}) scale(${flipText(d.angle)})`)
-        .attr("text-anchor", d => textAnchor(d.angle))
-        .attr("alignment-baseline", "bottom")
-        .attr("fill", visStyles[style]["textHighlightColor"])
-        .attr("font-size", 12)
-        .attr("letter-spacing", visStyles[style]["letterSpacing"])
-        .text(d => d.fairness_definition);
-
-    renderTooltip();
-    // transitionHighlight(style);
-}
-
 function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm}) {
     // select one
     return(
@@ -140,23 +24,7 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
             <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
                 <p>Brainstorm why the base rate between different races (e.g., Black vs. White) may differ in the space below.</p>
             </BaseRates>
-            <div className="Container2">
-                <h4 className="Small-Margin">discuss</h4>
-                <p>Does everyone who commits a crime get charged with that crime?</p>
-                <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
-                <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
-            </div>
             {/* {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>} */}
-        </div>
-    )
-}
-
-function ImpossibilityTheorem() {
-    // select one
-    return(
-        <div>
-            <div className="chart" id={chartId}></div>
-            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Click to open journal article about that specific definition of algorithmic fairness.</h6>
         </div>
     )
 }
@@ -164,6 +32,7 @@ function ImpossibilityTheorem() {
 function Model() {
     return(
         <div className="Container2 Model">
+            <p >Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
             <div className="Text-Align-Center">
                 <div className="Bottom-Rule Margin-Bottom">
                     <h4 className="Text-Align-Left">model variables</h4>
@@ -195,7 +64,9 @@ function Model() {
             <ExpandMoreIcon className="Scale200"/>
             <div className="Margin-Bottom">
                 <h4 className="Text-Align-Left">outcome variable</h4>
-                <div className="Variable-Flat">arrests</div>
+                <Tooltip title="Age of first arrest">
+                    <div className="Variable-Flat">arrested and charged</div>
+                </Tooltip>
             </div>
         </div>
     </div>
@@ -208,7 +79,6 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
             <div className="Container">
                 <h3>explore</h3>
                 <div className="Two-Column-Three">
-                    <Model/>
                     <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
                 </div>
             </div>
@@ -216,12 +86,33 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
     )
 }
 
+export function Outcomes({}) {
+    return(
+
+        <div className="Container2 Model">
+            <div className="Text-Align-Center">
+                <div className="Bottom-Rule Margin-Bottom">
+                    <h4 className="Text-Align-Left">model variable</h4>
+                    <Tooltip title="Frequency of moving homes in the last twelve months">
+                        <div className="Variable-Flat">moved frequently</div>
+                    </Tooltip>
+                </div>
+                <div className="Margin-Bottom">
+                    <h4 className="Text-Align-Left">proxy variable</h4>
+                    <Tooltip title="Frequency of moving homes in the last twelve months">
+                        <div className="Variable-Flat">arrests</div>
+                    </Tooltip>
+                </div>
+        </div>
+    </div>
+    )
+}
+
 export default function COMPAS({config, user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm, modules}) {
 
-    const [isOpen, setIsOpen] = useState(true);
-    const [id, setId] = useState("fairness");
 
-    let navigate = useNavigate(); 
+    const [isOpen, setIsOpen] = useState(true);
+    let navigate = useNavigate();
     const routeNext = () => {
       let path = `/Calibration`; 
       navigate(path);
@@ -236,31 +127,25 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         setIsOpen(!isOpen);
     };
 
-    useEffect(() => {
-        setId(isOpen ? "fairness": "compas");
-    }, [isOpen])
-
-    useEffect(() => {
-        fairnessDefinitions();
-    }, [])
-
     return (
         <div className="App">{
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
-                <h3 className="Page-Title">introduction to compas and mathematical fairness</h3>
+                <h3 className="Page-Title">introduction to compas' data</h3>
                     <div className="Two-Column-Three">
-                        <ImpossibilityTheorem/>
+                        <Model/>
                         <RightSideBar>
                             <div className="Container2 Margin-Bottom">
                                 <h4 className="Small-Margin">learn</h4>
-                                <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates (prevalence) in a population.</p>
+                                <p>Before we jump into algorithmic fairness its important to know a little bit more about the COMPAS algorithm and its data.</p>
+                                <p className="No-Margin-Bottom">The outcome variable of interest is the <span className="Emphasis">reoffense</span> in the COMPAS model. However, the dataset used to train COMPAS only reports whether a defendant was charged with another crime, <span className="Emphasis">arrests</span>. In predictive modeling, <span className="Emphasis">arrests</span>. is called a proxy variable for the actual outcome variable of interest, <span className="Emphasis">reoffense</span>.</p>
                             </div>
                             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
-                                <p>Have you heard of any of these definitions before?</p>
-                                <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
+                                <p>Does everyone who commits a crime get charged with that crime?</p>
+                                <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
+                                <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>
@@ -274,13 +159,11 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>The dataset used to train COMPAS only reports whether a defendant was charged with another crime (arrests). In statistical modeling, arrests is called a proxy variable.</p>
-                    <p className="No-Margin-Bottom">Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
-                    <p>In the dataset used to train COMPAS, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should not be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
+                    <p>In the dataset used to train COMPAS, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should <span className="Semi-Bold">not</span> be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
+                    <p>Prevalence of a certain demographic (e.g., race) in an underlying population (e.g. new charges) is called a <span className="Emphasis">base rate</span>. In this example, there are discrepancies in the underlying base rates in the newly charged population.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">
-                    <Term term={terms['mathematical-fairness']}/>
                     <Term term={terms['population-base-rate']}/>
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>
@@ -289,7 +172,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             </LeftSideBar>
             <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext}/>
             <RightSideBar>
-                <Progress id={id} modules={modules}/>
+                <Progress id={config.id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>
             </RightSideBar>
         </div>

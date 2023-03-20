@@ -64,8 +64,9 @@ export default function Fairness({user}) {
     const COMPAS = () => {
         return(
             <div className="Container2 Margin-Bottom">
-                <p>This module will use the COMPAS recidivism algorithm as a case study to visualize how algorithmically informed decision-making can result in multiple definitions of algorithmic fairness.</p>
-                <p className="No-Margin-Bottom">Algorithmic decision-making systems like COMPAS attempt to predict whether a defendant will commit another crime if released.</p>
+                <p>This module will use the COMPAS recidivism algorithm as a case study to visualize how different definitions of algorithmic fairness can result in disparate impacts.</p>
+                <p className="No-Margin-Bottom">COMPAS was designed by Equivant to predict whether a defendant will commit another crime if released. It was intended to be used by judges to help decide whether to set bail and release an individual prior to trial and sentencing <NavLink to="/Resources">(Hao and Stray 2019)</NavLink>.</p>
+                {/* <p className="No-Margin-Bottom">However, as of 2020, COMPAS is used at additional points in the criminal justice system <NavLink to="/Resources">(Dipshan and Hudgins 2020)</NavLink>.</p> */}
             </div>
         )
     }
