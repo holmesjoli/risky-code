@@ -4,22 +4,34 @@ import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
-import data from "../../data/processed/mathematical_fairness.json"
 import { wrap, visStyles } from "../../utils/global";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
-import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 import { RoleShort } from "../../components/Role";
+import fairnessData from "../../data/processed/mathematical_fairness.json"
+import data from "../../data/processed/calibrationCurve.json";
 
 let introChartId = "Fairness-Chart";
 let chartId = "Calibration-Chart";
 
 let width = 660;
 let height = 480;
-let margin = {left: 10, right: 10, top: 10, bottom: 10}
+let margin = {left: 100, right: 50, top: 50, bottom: 70};
+
+const xScale = d3.scaleLinear()
+    .domain([0, 10])
+    .range([margin.left, width-margin.right]);
+
+const yScale = d3.scaleLinear()
+    .domain([0, 1])
+    .range([height-margin.bottom, margin.top]);
+
+const fillScale = d3.scaleOrdinal()
+    .domain(["white", "black"])
+    .range(["#F50141", "#FD7B03"]);
 
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
@@ -77,18 +89,18 @@ function renderTooltip(style="darkMode") {
 
 function fairnessDefinitions(style = "darkMode") {
 
-    let n = data.length;
+    let n = fairnessData.length;
     let theta = ((Math.PI*2) / n);
     let width = 600;
     let height = 520;
     let radius = 95;
 
-    for (let i in data) {
-        data[i].angle = (theta * i);
-        data[i].x = (radius * Math.cos(data[i].angle)) + width/2;
-        data[i].y = (radius * Math.sin(data[i].angle)) + height/2;
-        data[i].xLabel = (radius*1.17 * Math.cos(data[i].angle)) + width/2;
-        data[i].yLabel = (radius*1.17 * Math.sin(data[i].angle)) + height/2;
+    for (let i in fairnessData) {
+        fairnessData[i].angle = (theta * i);
+        fairnessData[i].x = (radius * Math.cos(fairnessData[i].angle)) + width/2;
+        fairnessData[i].y = (radius * Math.sin(fairnessData[i].angle)) + height/2;
+        fairnessData[i].xLabel = (radius*1.17 * Math.cos(fairnessData[i].angle)) + width/2;
+        fairnessData[i].yLabel = (radius*1.17 * Math.sin(fairnessData[i].angle)) + height/2;
     }
 
     let svg = d3.select(`#${introChartId}`)
@@ -106,7 +118,7 @@ function fairnessDefinitions(style = "darkMode") {
         .call(wrap, 100);
 
     svg = svg.selectAll("circle")
-        .data(data)
+        .data(fairnessData)
         .enter();
 
     svg
@@ -145,6 +157,7 @@ function Information() {
 function Content() {
     return(
         <div className="Content Three-Column No-Padding-Top">
+            <div className="chart" id={chartId}></div>
             <Information/>
         </div>
     )
@@ -169,9 +182,62 @@ function initGraph() {
     renderGraph(data);
 }
 
-function renderGraph() {
+function renderGraph(data) {
 
     let svg = d3.select(`#${chartId} svg`);
+
+    const grouped_data = d3.group(data, d => d.race);
+
+    const line = d3.line()
+        .x(function(d) { return xScale(d.decile); })
+        .y(function(d) { return yScale(d.mean); })
+        .curve(d3.curveLinear);
+
+    const xAxis = svg.append("g")
+        .attr("class", "axis")
+        .attr("transform",`translate(0,${height-margin.bottom})`)
+        .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
+
+    const yAxis = svg.append("g")
+        .attr("class", "axis")
+        .attr("transform",`translate(${margin.left},0)`)
+        .call(d3.axisLeft().scale(yScale));
+
+    let path = svg
+        .selectAll(".line")
+        .data(grouped_data)
+        .join("path")
+            .attr("fill", "none")
+            .attr("stroke", function(d){ return fillScale(d[0]);})
+            .attr("d", function(d) { return line(d[1]); })
+            .attr("stroke-width", 2);
+
+    let circle = svg
+      .selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+          .attr("cx", function(d) { return xScale(d.decile); })
+          .attr("cy", function(d) { return yScale(d.mean); })
+          .attr("r",2)
+          .attr("fill", d => fillScale(d.race));
+
+    svg.append("text")
+          .attr("class","axisLabel")
+          .attr("x", width/2)
+          .attr("y", height - 10)
+          .attr("text-anchor","middle")
+          .text("Risk score")
+          .attr("fill", "#cbcbcb");
+  
+    svg.append("text")
+          .attr("class","axisLabel")
+          .attr("x", -height/2)
+          .attr("y", 50)
+          .attr("text-anchor","middle")
+          .attr("transform","rotate(-90)")
+          .text("Likelihood of reoffense")
+          .attr("fill", "#cbcbcb");
 }
 
 export default function Calibration({config, user, disableFairnessNext, setDisableFairnessNext, modules}) {
@@ -235,9 +301,9 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. </p>
+                    {/* <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. </p>
                     <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
-                    <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
+                    <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p> */}
                 </Description>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">
