@@ -179,20 +179,22 @@ function Model() {
 export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext}) {
     return(
         <div className="Content No-Padding-Top">
-            <div className="Container">
-                <h3>explore</h3>
+            <div>
+                {/* <h3>explore</h3> */}
                 <div className="One-Column-Three4">
-                    <div>
-                        <div id={chartId} className='Container2 Margin-Bottom'></div>
-                        <div id={legendId} className='Container2'></div>
+                    <div className="Container Margin-Bottom">
+                        <h4 className="No-Margin-Bottom">visualize</h4>
+                        <div id={chartId} className="Margin-Bottom"></div>
+                        <h4>legend</h4>
+                        <div id={legendId} className="Margin-Bottom"></div>
                     </div>
                     <div>
-                        <div className="Container2 Margin-Bottom">
+                        <div className="Container Margin-Bottom">
                             <h4 className="Small-Margin">learn</h4>
                             <p> The data used to train COMPAS is from Broward County, Florida. There are 7214 people represented in the data, each visualized as a single dot. The prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should <span className="Semi-Bold">not</span> be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
                             <p className="No-Margin-Bottom">Prevalence of a certain demographic (e.g., race) in an underlying population (e.g. new charges) is called a <span className="Emphasis">base rate</span>.</p>
                         </div>
-                        <div className="Container2 Margin-Bottom">
+                        <div className="Container Margin-Bottom">
                             <h4 className="Small-Margin">reveal discrepancies</h4>
                             <Switch size="small" color="secondary" />
                         </div>
