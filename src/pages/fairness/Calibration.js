@@ -45,7 +45,7 @@ function renderTooltip(style="darkMode") {
         .append("div")
         .attr("class", "tooltip");
 
-    d3.selectAll(`${chartId} circle`).on("mouseover", function(e, d) {
+    d3.selectAll(`${chartId} a circle`).on("mouseover", function(e, d) {
 
         let thisCircle = d3.select(this);
         let x = e.layerX + 20;
@@ -64,7 +64,7 @@ function renderTooltip(style="darkMode") {
 
         tooltip.style("visibility", "hidden");
 
-        d3.selectAll(`${chartId} circle`)
+        d3.selectAll(`${chartId} a circle`)
             .attr("stroke", visStyles[style]["borderColor"])
             .attr("stroke-width", 1);
     });
@@ -74,9 +74,9 @@ function fairnessDefinitions(style = "darkMode") {
 
     let n = data.length;
     let theta = ((Math.PI*2) / n);
-    let width = 650;
-    let height = 510;
-    let radius = 120;
+    let width = 600;
+    let height = 520;
+    let radius = 95;
 
     for (let i in data) {
         data[i].angle = (theta * i);
@@ -106,16 +106,16 @@ function fairnessDefinitions(style = "darkMode") {
 
     svg
         .append("a")
-        .attr("href", d => d.link)
-        .attr("target", "_blank")
+            .attr("href", d => d.link)
+            .attr("target", "_blank")
         .append("circle")
-        .attr("cx", d => d.x)
-        .attr("cy", d => d.y)
-        .attr("r", 8)
-        .attr("fill", visStyles[style]["fillColor"])
-        .attr("stroke", visStyles[style]["borderColor"])
-        .attr("stroke-width", visStyles[style]["borderWidth"])
-        .attr("class", d => d.highlight? "shadow highlight": "shadow");
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", 8)
+            .attr("fill", visStyles[style]["fillColor"])
+            .attr("stroke", visStyles[style]["borderColor"])
+            .attr("stroke-width", visStyles[style]["borderWidth"])
+            .attr("class", d => d.highlight? "shadow highlight": "shadow");
 
     svg.append("text")
         .attr("transform", d => `translate(${d.xLabel},${d.yLabel}) rotate(${textAngle(d.angle)}) scale(${flipText(d.angle)})`)
@@ -188,7 +188,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
-                <h3 className="Page-Title">introduction to compas</h3>
+                <h3 className="Page-Title">introduction to algorithmic fairness</h3>
                     <div className="Two-Column-Three">
                         <ImpossibilityTheorem/>
                         <RightSideBar>
