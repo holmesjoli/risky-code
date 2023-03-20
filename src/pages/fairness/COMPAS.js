@@ -121,7 +121,7 @@ function renderGraph(data, baseRate) {
         );
 }
 
-function initLegend() {
+function initLegend(baseRate) {
 
     let height = 40;
 
@@ -130,10 +130,10 @@ function initLegend() {
         .attr("width", width)
         .attr("height", height);
 
-    drawLegend();
+    drawLegend(baseRate);
 }
 
-function drawLegend() {
+function drawLegend(baseRate) {
 
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
@@ -149,7 +149,9 @@ function drawLegend() {
         .attr("d", d3.symbol()
             .type(((d) => symbolScale(d)))
             .size(100))
-        .attr("fill", d => fillScale(d.fill));
+        .attr("fill", d => fillScale(d.fill))
+        .attr("opacity", baseRate === "arrests" ? .35: 1)
+        ;
 
     // Add a text element to the previously added g element.
     shape.append("text")
@@ -309,7 +311,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
 
     useEffect(() => {
         initGraph(data, baseRate);
-        initLegend();
+        initLegend(baseRate);
     }, []);
 
     useEffect(() => {
