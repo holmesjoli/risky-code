@@ -73,7 +73,7 @@ export default function App() {
           <Route path="/PredictionReflection" element={<PredictionReflection user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext}/>} />
           
           <Route path="/Fairness" element={<Fairness user={user} />} />
-          <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} modules={modules}/>}></Route>
+          <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} modules={modules}/>}></Route>
           <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
           <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
           <Route path="/FairnessReflection" element={<FairnessReflection user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>} />
