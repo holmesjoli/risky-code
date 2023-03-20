@@ -19,6 +19,7 @@ let chartId = "Calibration-Chart";
 
 let width = 660;
 let height = 480;
+let style = "darkMode";
 let margin = {left: 100, right: 50, top: 50, bottom: 70};
 
 const xScale = d3.scaleLinear()
@@ -228,7 +229,9 @@ function renderGraph(data) {
           .attr("y", height - 10)
           .attr("text-anchor","middle")
           .text("Risk score")
-          .attr("fill", "#cbcbcb");
+          .attr("fill", visStyles[style]["textHighlightColor"])
+          .attr("font-size", 12)
+          .attr("letter-spacing", visStyles[style]["letterSpacing"]);
   
     svg.append("text")
           .attr("class","axisLabel")
@@ -237,7 +240,9 @@ function renderGraph(data) {
           .attr("text-anchor","middle")
           .attr("transform","rotate(-90)")
           .text("Likelihood of reoffense")
-          .attr("fill", "#cbcbcb");
+          .attr("fill", visStyles[style]["textHighlightColor"])
+          .attr("font-size", 12)
+          .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 }
 
 export default function Calibration({config, user, disableFairnessNext, setDisableFairnessNext, modules}) {
