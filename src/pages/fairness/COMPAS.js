@@ -20,7 +20,7 @@ import { visStyles } from "../../utils/global";
 let chartId = "Base-Rates";
 let legendId = "Legend-Base-Rates";
 let width = 660;
-let height = 500;
+let height = 480;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 let style = "darkMode";
 
@@ -42,7 +42,7 @@ const fillScale = d3.scaleOrdinal()
 
 function grid(data) {
 
-    const cols = 70;
+    const cols = 100;
     const colW = width / cols;
     const rows = Math.round(data.length/cols)
     const rowH = height / rows;
@@ -196,7 +196,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
                             <Switch size="small" color="secondary" />
                         </div>
                         <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-                            <p>Brainstorm why the base rate between different races (e.g., Black vs. White) may differ in the space below.</p>
+                            <p>Brainstorm why the base rate between different races may differ in the space below.</p>
                         </BaseRates>
                     </div>
                 </div>
