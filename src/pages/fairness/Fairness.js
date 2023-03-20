@@ -63,9 +63,9 @@ export default function Fairness({user}) {
 
     const COMPAS = () => {
         return(
-            <div>
+            <div className="Container2 Margin-Bottom">
                 <p>This module will use the COMPAS recidivism algorithm as a case study to visualize how algorithmically informed decision-making can result in multiple definitions of algorithmic fairness.</p>
-                <p>Algorithmic decision-making systems like COMPAS attempt to predict whether a defendant will commit another crime if released.</p>
+                <p className="No-Margin-Bottom">Algorithmic decision-making systems like COMPAS attempt to predict whether a defendant will commit another crime if released.</p>
             </div>
         )
     }

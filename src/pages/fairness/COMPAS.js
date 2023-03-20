@@ -10,12 +10,12 @@ import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
-import { RoleShort, Role } from "../../components/Role";
+import { RoleShort } from "../../components/Role";
 import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Tooltip from '@material-ui/core/Tooltip';
-import { BaseRates } from "../../components/TrackUserInputs";
+import { BaseRates } from "../../components/Brainstorm";
 
 let chartId = "Fairness-Chart";
 
@@ -141,9 +141,10 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
                 <p>Brainstorm why the base rate between different races (e.g., Black vs. White) may differ in the space below.</p>
             </BaseRates>
             <div className="Card-Group">
-                <h3 className="Small-Margin">discuss</h3>
-                <p>Have you heard of any of these definitions before?</p>
-                <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
+                <h4 className="Small-Margin">discuss</h4>
+                <p>Does everyone who commits a crime get charged with that crime?</p>
+                <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
+                <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
             </div>
             {/* {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>} */}
         </div>
@@ -155,7 +156,7 @@ function ImpossibilityTheorem() {
     return(
         <div>
             <div className="chart" id={chartId}></div>
-            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Purple nodes indicate which definitions of algorithmic fairness are reviewed in this module.</h6>
+            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Click to open journal article about that specific definition of algorithmic fairness.</h6>
         </div>
     )
 }
@@ -163,7 +164,6 @@ function ImpossibilityTheorem() {
 function Model() {
     return(
         <div className="Card-Group Model">
-            <h3 className="Small-Margin">explore</h3>
             <div className="Text-Align-Center">
                 <div className="Bottom-Rule Margin-Bottom">
                     <h4 className="Text-Align-Left">model variables</h4>
@@ -208,7 +208,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
             <div className="Container">
                 <h3 className="No-Margin-Bottom">explore</h3>
                 <div className="Two-Column-Three">
-                    <ImpossibilityTheorem/>
+                    <Model/>
                     <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
                 </div>
             </div>
@@ -250,22 +250,17 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
-                <h3 className="Page-Title">introduction to algorithmic fairness</h3>
+                <h3 className="Page-Title">introduction to compas and mathematical fairness</h3>
                     <div className="Two-Column-Three">
-                        <div className="Two-Column">
-                            <div>
-                                <div className="Container2">
-                                    <h4 className="Small-Margin">learn</h4>
-                                    <p>However, the dataset used to train COMPAS only reports whether a defendant was charged with another crime (arrests). In statistical modeling, arrests is called a proxy variable.</p>
-                                    <p className="No-Margin-Bottom">Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
-                                </div>
-                           </div>
-                            <Model/>
-                        </div>
+                        <ImpossibilityTheorem/>
                         <RightSideBar>
+                            <div className="Container2 Margin-Bottom">
+                                <h4 className="Small-Margin">learn</h4>
+                                <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates (prevalence) in a population.</p>
+                            </div>
                             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
-                                <p>Does everyone who commits a crime get charged with that crime? What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
-                                <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
+                                <p>Have you heard of any of these definitions before?</p>
+                                <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>
@@ -279,7 +274,8 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
-                    <p>AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions of algorithmic fairness if there are discrepancies in the underlying base rates (prevalence) in a population.</p>
+                    <p>The dataset used to train COMPAS only reports whether a defendant was charged with another crime (arrests). In statistical modeling, arrests is called a proxy variable.</p>
+                    <p className="No-Margin-Bottom">Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
                     <p>In the dataset used to train COMPAS, the prevalence of <span className="Emphasis">new charges</span> is higher for Black defendants compared to White defendants. However, this should not be interpreted to mean that the prevalence of <span className="Emphasis">new crimes</span> is higher for Black defendants compared to White defendants.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>

@@ -184,3 +184,18 @@ export function BrainstormStakeholders({brainstormStakeholders, setBrainstormSta
         </div>
     )
 }
+
+export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children}) {
+
+    const updateBaseRates = (event) => {
+        setBaseRatesBrainstorm(event.target.value)
+    }
+
+    return(
+        <div className="No-Margin-Bottom Card-Group">
+            <h4 className="Small-Margin">brainstorm</h4>
+            {children}
+            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={8} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
+        </div>
+    )
+}
