@@ -140,7 +140,7 @@ function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBr
             <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
                 <p>Brainstorm why the base rate between different races (e.g., Black vs. White) may differ in the space below.</p>
             </BaseRates>
-            <div className="Card-Group">
+            <div className="Container2">
                 <h4 className="Small-Margin">discuss</h4>
                 <p>Does everyone who commits a crime get charged with that crime?</p>
                 <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
@@ -163,7 +163,7 @@ function ImpossibilityTheorem() {
 
 function Model() {
     return(
-        <div className="Card-Group Model">
+        <div className="Container2 Model">
             <div className="Text-Align-Center">
                 <div className="Bottom-Rule Margin-Bottom">
                     <h4 className="Text-Align-Left">model variables</h4>
@@ -206,7 +206,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
     return(
         <div className="Content No-Padding-Top">
             <div className="Container">
-                <h3 className="No-Margin-Bottom">explore</h3>
+                <h3>explore</h3>
                 <div className="Two-Column-Three">
                     <Model/>
                     <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
