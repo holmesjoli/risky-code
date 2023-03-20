@@ -16,7 +16,7 @@ import { BaseRates } from "../../components/Brainstorm";
 import data from "../../data/processed/baseRates.json";
 
 let chartId = "Base-Rates";
-let width = 550;
+let width = 680;
 let height = 500;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 
@@ -149,7 +149,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
         <div className="Content No-Padding-Top">
             <div className="Container">
                 <h3>explore</h3>
-                <div className="Two-Column-Three">
+                <div className="One-Column-Three4">
                     <div id={chartId}></div>
                     <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
                 </div>

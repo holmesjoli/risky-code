@@ -187,6 +187,13 @@ ul {
     grid-template-columns: minmax(570px, 78%) minmax(175px, 22%);
 }
 
+.One-Column-Three4 {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(570px, 66%) minmax(175px, 33%);
+}
+
+
 .One-Column {
     display: grid;
     grid-gap: 1rem;
