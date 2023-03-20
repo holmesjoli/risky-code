@@ -19,11 +19,15 @@ import Calibration from "./pages/fairness/Calibration";
 import Error from "./pages/fairness/Error";
 import FairnessReflection from "./pages/fairness/FairnessReflection";
 
+import StakeholderMapping from "./pages/caseStudies/StakeholderMapping";
 import Health from "./pages/caseStudies/Health";
 import StreetBump from "./pages/caseStudies/StreetBump";
+
+import Deliberation from "./pages/deliberation/Deliberation";
 import Risk from "./pages/deliberation/Risk";
 import Policy from "./pages/deliberation/Policy";
 import Decision from "./pages/deliberation/Decision";
+
 import About from "./pages/About";
 import Glossary from "./pages/Glossary";
 import Resources from "./pages/Resources";
@@ -41,6 +45,7 @@ export default function App() {
     const [policy, setPolicy] = useState("");
     const [algorithmDefinition, setAlgorithmDefinition] = useState("");
     const [baseRatesBrainstorm, setBaseRatesBrainstorm] = useState("");
+    const [brainstormStakeholders, setBrainstormStakeholders] = useState("");
     const [rules, setRules] = useState({"rule1": "",
                                         "rule2": "",
                                         "rule3": ""});
@@ -50,7 +55,7 @@ export default function App() {
     const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);
-    const [disableCaseStudyNext, setDisableCaseStudyNext] = useState(true);
+    const [disableStakeholder, setDisableStakeholder] = useState(true);
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
 
     // items.sort((a, b) => a.column - b.column)
@@ -73,11 +78,16 @@ export default function App() {
           <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
           <Route path="/FairnessReflection" element={<FairnessReflection user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>} />
 
-          <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} disableCaseStudyNext={disableCaseStudyNext} setDisableCaseStudyNext={setDisableCaseStudyNext} modules={modules}/>} />
+          <Route path="/StakeholderMapping" element={<StakeholderMapping user={user} brainstormStakeholders={setBrainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>} />
+          <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder} modules={modules}/>} />
           <Route path="/Health" element={<Health config={config.Health} modules={modules}/>} />
+          
+          <Route path="/Deliberation" element={<Deliberation user={user} />} />
           <Route path="/Stakeholders" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
+          
+          
           <Route path="/About" element={<About config={config.About} modules={modules} />} />
           <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules}/>} />
           <Route path="/Resources" element={<Resources config={config.Resources} modules={modules}/>} />

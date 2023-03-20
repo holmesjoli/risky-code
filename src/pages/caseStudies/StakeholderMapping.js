@@ -7,21 +7,21 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
-import Timer from "../../components/Timer";
-import { AlgorithmDefinition } from '../../components/Brainstorm';
+import { RoleStakeholder } from "../../components/Role";
+import { BrainstormStakeholders } from "../../components/Brainstorm";
 
-export default function FairnessReflection({user, disableFairnessNext, setDisableFairnessNext}) {
+export default function StakeholderMapping({user, brainstormStakeholders, setBrainstormStakeholders}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
 
     const routeNext = () => {
-        let path = `/StakeholderMapping`;
+        let path = `/StreetBump`;
         navigate(path);
     }
 
     const routeBack = () => {
-        let path = `/Error`;
+        let path = `/FairnessReflection`;
         navigate(path);
     }
 
@@ -33,55 +33,72 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
+    const Introduction = ({user}) => {
+
+        return(
+            <div className="Container Margin-Bottom">
+            {user==="group"?<p className="No-Margin-Bottom">The third module explores a common design-thinking methodology called <span className="Emphasis">Stakeholder Mapping</span>. This section will lead your team through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>:<p className="No-Margin-Bottom">The third module, <span className="Emphasis">Stakeholder Mapping</span>, explores a common design-thinking methodology called Stakeholder Mapping. This section will lead you through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>}
+            </div>
+        )
+    }
+
     const LearningOutcomes = () => {
 
         return(
             <div className="Container Margin-Bottom">
-                <p>Understand that multiple definitions of algorithmic fairness cannot be met simultaneously</p>
-                <p className="No-Margin-Bottom">Understand the definitions of algorithmic fairness may result in disparate impacts</p>
+                <p>Be able to define multiple stakeholder groups and explain why these groups are relevant to algorithmic decision-making</p>
+                <p className="No-Margin-Bottom">Understand how stakeholder mapping can help to identify different people or groups who are important to consider when implementing an algorithmic system</p>
             </div>
         )
     }
 
-    const BrainstormImpossibility = ({algorithmDefinition, setAlgorithmDefinition}) => {
-        return(
-            <div className="Container2">
-                <p>Would you make any updates to your initial definition of an algorithm?</p>
-                <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
+    const Define = () => {
+        return (
+            <div className="Container Margin-Bottom">
+                <p><span className="Emphasis">Direct</span> stakeholders are those who directly interact with the algorithmic system</p>
+                <p><span className="Emphasis">Indirect</span> stakeholders do not directly interact with the algorithmic system, but are impacted by its use</p>
+                <p className="No-Margin-Bottom"><span className="Emphasis">Excluded</span> stakeholders are those who cannot interact with the algorithmic system</p>
             </div>
         )
     }
 
-    const Reflect = ({user, disableFairnessNext, setDisableFairnessNext}) => {
-
-        return(
-            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
-                <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
-                <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
-                <p className="No-Margin-Bottom">When may it be optimal to use different types of mathematical fairness?</p>
-            </Timer>
+    const Brainstorm = ({brainstormStakeholders, setBrainstormStakeholders}) => {
+        return (
+            <div className="Container Margin-Bottom">
+                <p>Why do you think its important to identify stakeholders?</p>
+                <p>When might it be important to conduct stakeholder mapping?</p>
+                <BrainstormStakeholders brainstormStakeholders={brainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>
+            </div>
         )
     }
 
     const steps = [
       {
+        label: 'introduction',
+        children: <Introduction user={user}/>
+        },
+      {
         label: 'learning outcomes',
         children: <LearningOutcomes/>
       },
-    //   {
-    //     label: 'define',
-    //     children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
-    //   },
       {
-        label: 'reflect',
-        children: <Reflect user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
+        label: 'role',
+        children: <RoleStakeholder user={user}/>
       },
+      {
+        label: 'define',
+        children: <Define/>
+      },
+      {
+        label: 'brainstorm',
+        children: <Brainstorm brainstormStakeholders={brainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>
+      }
     ];
 
   return (
     <div className="Orientation">
         <div className="Container Margin-Bottom">
-        <h3>reflect on algorithmic fairness</h3>
+        <h3>introduction to stakeholder mapping</h3>
             <Box sx={{ width: 500 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (

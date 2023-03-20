@@ -171,3 +171,16 @@ export function LaundryRules({rules, setRules}) {
         </div>
     )
 }
+
+export function BrainstormStakeholders({brainstormStakeholders, setBrainstormStakeholders}) {
+
+    const updateBrainstormStakeholders = (event) => {
+        setBrainstormStakeholders(event.target.value)
+    }
+
+    return(
+        <div className="No-Margin-Bottom">
+            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={4} defaultValue={brainstormStakeholders} onChange={updateBrainstormStakeholders}/>
+        </div>
+    )
+}
