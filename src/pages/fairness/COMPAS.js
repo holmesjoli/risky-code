@@ -171,13 +171,14 @@ function drawLegend(baseRate) {
     color.append("circle")
        .attr("r", 6)
        .attr("fill", visStyles[style]["textColor"])
-       .attr("opacity", d => d.opacity);
+       .attr("opacity", d => baseRate === "pop"? 0: d.opacity);
 
     color.append("text")
        .attr("text-anchor", "middle")
        .attr("y", 25)
        .attr("fill", visStyles[style]["textHighlightColor"])
        .attr("font-size", visStyles[style]["fontSize"])
+       .attr("opacity", baseRate === "pop"? 0: 1)
        .text(d => d.text);
 }
 
