@@ -15,8 +15,8 @@ function Accuracy({predictiveProbability}) {
         <div>
             <div className="Container2">
                 <h4 className="Small-Margin">model accuracy</h4>
-                <p>Accuracy is a percent of how many predicted values match the actual values.</p>
-                <h5 className="Accuracy-Percent Small-Margin No-Margin-Top No-Margin-Bottom Semi-Bold White Opacity1 No-Margin-Bottom"></h5>
+                <p className="Small-Margin"> Accuracy is a percent of how many predicted values match the actual values. In this example, the accuracy is either 0 or 100%, because there is only one item.</p>
+                <h5 className="Accuracy-Percent Small-Margin No-Margin-Top No-Margin-Bottom Semi-Bold White Opacity1"></h5>
             </div>
         </div>
     )
@@ -39,7 +39,7 @@ export default function MiniModel() {
                     <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider} containerClass="Container2"/>
                 </div>
             </div>
-            <div className="Row Padding-Top">
+            <div className="Two-Column Padding-Top">
                 <PredictiveOutcomes predictiveProbability={predictiveProbability} containerClass="Container2"/>
                 <Accuracy predictiveProbability={predictiveProbability}/>
             </div>

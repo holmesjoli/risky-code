@@ -132,18 +132,6 @@ ul {
     overflow: hidden;
 }
 
-.Row {
-    display: flex;
-    flex-direction: row;
-    grid-gap: $containerMargin;
-}
-
-.Two-Row {
-    display: grid;
-    grid-gap: 1rem; 
-    grid-template-columns: repeat(auto-fit, minmax(50px, 26%));
-}
-
 .Three-Column {
     display: grid;
     grid-template-columns: minmax(150px, 25%) 1fr minmax(150px, 26%);
@@ -204,6 +192,19 @@ ul {
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
+
+.Row {
+    display: flex;
+    flex-direction: row;
+    grid-gap: $containerMargin;
+}
+
+// .Two-Row {
+//     display: grid;
+//     grid-gap: 1rem; 
+//     grid-template-columns: repeat(auto-fit, minmax(50px, 26%));
+// }
+
 
 .Two-Row {
     display: grid;

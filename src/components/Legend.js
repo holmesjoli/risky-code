@@ -39,7 +39,7 @@ export function ActualPredicted() {
 export function Predicted() {
 
     return(
-        <div className="Legend Margin-Bottom Padding-Top">
+        <div className="Legend No-Margin-Bottom Padding-Top">
             <h4 className="Small-Margin">legend</h4>
             <div>
                 <h5 className="No-Margin-Top No-Margin-Bottom">Model prediction</h5>
