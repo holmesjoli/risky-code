@@ -228,7 +228,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
     }
 
     const routeBack = () => {
-      let path = `/Optimize`; 
+      let path = `/Fairness`; 
       navigate(path);
     }
 
@@ -254,25 +254,15 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                     <div className="Two-Column-Three">
                         <div className="Two-Column">
                             <div>
-                                <div className="Card-Group">
-                                    <h3 className="Small-Margin">learn</h3>
-                                    <p>In this module, <span className="Emphasis">Algorithmic Fairness</span>, we will look as the COMPAS recidivism algorithm. Algorithmic decision-making systems like COMPAS are trying to predict whether a defendant will commit another crime if released.</p>
+                                <div className="Container2">
+                                    <h4 className="Small-Margin">learn</h4>
                                     <p>However, the dataset used to train COMPAS only reports whether a defendant was charged with another crime (arrests). In statistical modeling, arrests is called a proxy variable.</p>
                                     <p className="No-Margin-Bottom">Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
-                                </div>
-                                <div className="Card-Group">
-                                    <h3>algorithms in use</h3>
-                                    <p className="No-Margin-Bottom">Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed. The next module will look at two case studies and explore how different definitions of algorithmic fairness apply.</p>
-                                </div>
-                                <div className="Card-Group">
-                                    <h3 className="Small-Margin">define</h3>
-                                    <p className="No-Margin-Bottom">The term <span className="Semi-Bold">algorithmic decision-making system</span> is defined as <span className="Emphasis">a system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>.</p>
                                 </div>
                            </div>
                             <Model/>
                         </div>
                         <RightSideBar>
-                            <Role moduleName="fairness"/>
                             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
                                 <p>Does everyone who commits a crime get charged with that crime? What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
                                 <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>

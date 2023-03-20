@@ -88,7 +88,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                         <MiniModel/>
                         <RightSideBar>
                             <div className="Container2">
-                                <h3>learn</h3>
+                                <h4 className="Small-Margin">learn</h4>
                                 <p>The third step of algorithmic prediction is to <span className="Semi-Bold">optimize</span> a predictive model. Optimizing a model normally means making a predictive model as accurate as possible.</p>
                                 <p>First, convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy.</p>
                                 <p className="Padding-Bottom No-Margin-Bottom Bottom-Rule">Use the slider to adjust the threshold. Notice, how the prediction of belonging to the cold water load changes for each item and the overall model accuracy changes.</p>

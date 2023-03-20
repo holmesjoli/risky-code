@@ -80,7 +80,7 @@ export default function Train({config, user, variables, setVariables, items, set
                         <MiniModel/>
                         <RightSideBar>
                             <div className="Container2">
-                                <h3>learn</h3>
+                                <h4 className="Small-Margin">learn</h4>
                                 <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. We will train a predictive model, Laundry AID, to guess if an item should belong in the cold water load according to your classification.</p>
                                 <p>A predictive model is a computational interpretation of an algorithm's rules. Here are the rules you defined in the last module:</p>
                                 <ul className="Margin-Bottom">

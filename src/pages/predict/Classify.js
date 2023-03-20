@@ -7,7 +7,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import SortLaundry from "../../components/SortLaundry";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from "../../utils/global";
-import { RoleShort, Role } from "../../components/Role";
+import { RoleShort } from "../../components/Role";
 import { Overlay } from "../../components/Overlay";
 import MiniModel from '../../components/MiniLaundryModel';
 
@@ -61,7 +61,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                         <RightSideBar>
                             {/* <Role moduleName="prediction" user={user}/> */}
                             <div className="Container2">
-                                <h3>learn</h3>
+                                <h4 className="Small-Margin">learn</h4>
                                 <p>The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>
                                 {user==="group"?<p className="Margin-Small">Your team will classify <span className="Semi-Bold">20</span> items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
                                 <ul className="Margin-Bottom">

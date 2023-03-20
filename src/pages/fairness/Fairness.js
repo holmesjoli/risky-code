@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import * as React from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
@@ -34,30 +34,42 @@ export default function Fairness({user}) {
     };
 
     const Introduction = () => {
-
         return(
             <div className="Container2 Margin-Bottom">
-                <p>The second module, <span>Algorithmic Fairness</span>, will lead you through a series of activities to learn about how algorithmic prediction works.</p>
-                <p>The basic steps to algorithmic prediction are: </p>
-                {/* <ul className="No-Margin-Bottom">
-                    <li className="Semi-Bold">Data collection and classification</li>
-                    <li className="Semi-Bold">Model Training</li>
-                    <li className="Semi-Bold">Model Optimization</li>
-                    <li className="Semi-Bold">Model Testing</li>
-                </ul> */}
+                <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed.</p>
+                <p className="No-Margin-Bottom"> The second module, <span className="Emphasis">Algorithmic Fairness</span>, will lead you through a series of activities to learn about multiple definitions of algorithmic fairness.</p>
             </div>
         )
     }
 
     const LearningOutcomes = () => {
-
         return(
             <div className="Container2 Margin-Bottom">
+                <p>Learn that there are many definitions of algorithmic fairness</p>
                 <p>Understand that multiple definitions of algorithmic fairness cannot be met simultaneously</p>
-                <p className="No-Margin-Bottom">Understand the definitions of algorithmic fairness may result in disparate impacts</p>
+                <p className="No-Margin-Bottom">Identify where different definitions of algorithmic fairness may result in disparate impacts</p>
             </div>
         )
     }
+
+    const Define = () => {
+        return(
+             <div className="Container2 Margin-Bottom">
+                <h4 className="Small-Margin">algorithmic decision-making system</h4>
+                <p className="No-Margin-Bottom"><span className="Emphasis">A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>.</p>
+            </div> 
+        )
+    }
+
+    const COMPAS = () => {
+        return(
+            <div>
+                <p>This module will use the COMPAS recidivism algorithm as a case study to visualize how algorithmically informed decision-making can result in multiple definitions of algorithmic fairness.</p>
+                <p>Algorithmic decision-making systems like COMPAS attempt to predict whether a defendant will commit another crime if released.</p>
+            </div>
+        )
+    }
+
     const steps = [
       {
         label: 'introduction',
@@ -70,6 +82,14 @@ export default function Fairness({user}) {
       {
         label: 'role',
         children: <RoleFairness user={user}/>
+      },
+      {
+        label: 'define',
+        children: <Define/>
+      },
+      {
+        label: 'fairness case study',
+        children: <COMPAS/>
       }
     ];
 
@@ -114,7 +134,7 @@ export default function Fairness({user}) {
             {activeStep === steps.length && (
                 <Paper square elevation={0} sx={{ p: 3 }}>
                     <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        continue to algorithmic fariness
+                        continue to algorithmic fairness
                     </Button>
                 </Paper>
             )}

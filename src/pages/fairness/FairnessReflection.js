@@ -34,11 +34,11 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
     };
 
     const LearningOutcomes = () => {
-
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
+                <p>Learn that there are many definitions of algorithmic fairness</p>
                 <p>Understand that multiple definitions of algorithmic fairness cannot be met simultaneously</p>
-                <p className="No-Margin-Bottom">Understand the definitions of algorithmic fairness may result in disparate impacts</p>
+                <p className="No-Margin-Bottom">Identify where different definitions of algorithmic fairness may result in disparate impacts</p>
             </div>
         )
     }
