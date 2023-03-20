@@ -91,7 +91,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                                 <h3>learn</h3>
                                 <p>The third step of algorithmic prediction is to <span className="Semi-Bold">optimize</span> a predictive model. Optimizing a model normally means making a predictive model as accurate as possible.</p>
                                 <p>First, convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy.</p>
-                                <p className="Padding-Bottom No-Margin-Bottom Bottom-Rule">Use, the slider to adjust the threshold. Notice, how the prediction of belonging to the cold water load changes for each item and the overall model accuracy changes.</p>
+                                <p className="Padding-Bottom No-Margin-Bottom Bottom-Rule">Use the slider to adjust the threshold. Notice, how the prediction of belonging to the cold water load changes for each item and the overall model accuracy changes.</p>
                                 <Predicted/>
                             </div>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>
@@ -106,6 +106,8 @@ export default function Optimize({config, variables, setVariables, items, setIte
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}>
+                        <p>Optimize Laundry AID by adjusting the slider and adding or removing model variables.</p>
+                        <p className="Padding-Bottom No-Margin-Bottom">Try to get the accuracy as high as possible.</p>
                     </Description>
                     <RoleShort moduleName="prediction"/>
                     <Terminology margin="Margin-Large-Bottom">
