@@ -4,18 +4,89 @@ import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
-import data from "../../data/processed/mathematical_fairness.json"
-import { wrap, visStyles } from "../../utils/global";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { RoleShort } from "../../components/Role";
-import { transitionHighlight } from '../../components/PolicyDiagram';
 import Timer from "../../components/Timer";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Tooltip from '@material-ui/core/Tooltip';
 import { BaseRates } from "../../components/Brainstorm";
+import data from "../../data/processed/baseRates.json";
+
+let chartId = "Base-Rates";
+let width = 550;
+let height = 500;
+let margin = {left: 10, right: 10, top: 10, bottom: 10}
+
+const xScale = d3.scaleLinear()
+    .domain([0, width])
+    .range([margin.left, width-margin.right]);
+
+const yScale = d3.scaleLinear()
+    .domain([0, height])
+    .range([height-margin.bottom, margin.top]);
+
+const fillScale = d3.scaleOrdinal()
+    .domain(["White", "Black", "Other"])
+    .range(["#F50141", "#FD7B03", "#F3C010"]);
+
+function grid(data) {
+
+    const cols = 70;
+    const colW = width / cols;
+    const rows = Math.round(data.length/cols)
+    const rowH = height / rows;
+
+    for (let i = 0; i < data.length; i++) {
+
+        let col = i % cols;
+        let row = Math.floor(i / cols);
+        data[i].x = (colW * col)
+        data[i].y = (rowH * row)
+
+    }
+
+    return data;
+}
+    
+function initGraph(data) {
+    d3.select(`#${chartId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    renderGraph(data);
+}
+    
+function renderGraph(data) {
+
+    let svg = d3.select(`#${chartId} svg`);
+
+    data = grid(data);
+
+    svg
+        .selectAll("circle")
+        .data(data, d => d.id)
+        .join(
+            enter  => enter
+                .append("circle")
+                .attr("cx", function(d) { return xScale(d.x); })
+                .attr("cy", function(d) { return yScale(d.y); })
+                .attr("r", 2)
+                // .attr("class", d => d.pop)
+                .attr("fill", d => fillScale(d.pop)),
+            update => update
+                // .attr("class", d => d.pop)
+                .attr("fill", d => fillScale(d.pop)),
+            exit   => exit
+                .attr("fill", d => fillScale(d.pop))
+                // .attr("class", d => d.pop)
+                .remove()
+        );
+}
+
 
 function Reflect({user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm}) {
     // select one
@@ -79,6 +150,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
             <div className="Container">
                 <h3>explore</h3>
                 <div className="Two-Column-Three">
+                    <div id={chartId}></div>
                     <Reflect baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
                 </div>
             </div>
@@ -126,6 +198,14 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
+
+    useEffect(() => {
+        initGraph(data);
+    }, []);
+
+    // useEffect(() => {
+    //     renderGraph(data);
+    // }, []);
 
     return (
         <div className="App">{

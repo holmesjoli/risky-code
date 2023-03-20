@@ -223,7 +223,7 @@ export function Content() {
                             <div className="One-Column-Three3">
                                 <div id={chartIdBlack}></div>
                                 <div>
-                                    <div id={textIdBlack} className="Card-Group"></div>
+                                    <div id={textIdBlack} className="Container2"></div>
                                 </div>
                             </div>
                         </div>
@@ -232,7 +232,7 @@ export function Content() {
                             <div className="One-Column-Three3">
                                 <div id={chartIdWhite}></div>
                                 <div>
-                                    <div id={textIdWhite} className="Card-Group"></div>
+                                    <div id={textIdWhite} className="Container2"></div>
                                 </div>
                             </div>
                         </div>
