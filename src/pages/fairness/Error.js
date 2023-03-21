@@ -23,6 +23,7 @@ let textIdFPR = "Error-text-FPR";
 let textIdFNR = "Error-text-FNR";
 let raceLegendId = "Error-Race-Legend";
 let predictedLegendId = "Error-Predicted-Legend";
+let style = "darkMode";
 
 let width = 550;
 let height = 225;
@@ -52,15 +53,24 @@ function grid(data) {
 }
 
 function initGraph(data, predictiveProbability) {
+
     d3.select(`#${chartIdFPR}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
+    d3.select(`#${chartIdFPR}`)
+        .append("div")
+        .attr("class", "tooltip");
+
     d3.select(`#${chartIdFNR}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
+
+    d3.select(`#${chartIdFNR}`)
+        .append("div")
+        .attr("class", "tooltip");
 
     renderGraph(data, predictiveProbability);
 }
@@ -159,14 +169,9 @@ function renderGraph(data, predictiveProbability) {
                 .attr("fill", d => fillScale(d.race))
                 .attr("opacity", d => opacityScale(d.confusion))
                 .attr("stroke-width", 1)
-                .attr("class", d => d.confusion),
+                .attr("class", "compas-error-rate-point"),
             update => update
                 .attr("opacity", d => opacityScale(d.confusion))
-                .attr("class", d => d.confusion),
-            exit => exit
-                .attr("opacity", d => opacityScale(d.confusion))
-                .attr("class", d => d.confusion)
-                .remove()
     );
 
     svgFNR
@@ -182,14 +187,9 @@ function renderGraph(data, predictiveProbability) {
                 .attr("fill", d => fillScale(d.race))
                 .attr("opacity", d => opacityScale(d.confusion))
                 .attr("stroke-width", 1)
-                .attr("class", d => d.confusion),
+                .attr("class", "compas-error-rate-point"),
             update => update
                 .attr("opacity", d => opacityScale(d.confusion))
-                .attr("class", d => d.confusion),
-            exit => exit
-                .attr("opacity", d => opacityScale(d.confusion))
-                .attr("class", d => d.confusion)
-                .remove()
         );
 
     let FPRWhite = dataFilteredFPR.filter(d => d.race === "White" && d.confusion === "FP").length;
@@ -210,13 +210,45 @@ function renderGraph(data, predictiveProbability) {
 
     d3.select(`#${textIdFPR}`)
         .append("p")
-        .text(`At a threshold of ${predictiveProbability}, ${FPRPctWhite}% of White people and ${FPRPctBlack}% of Black were predicted to reoffend, but did not reoffend`);
+        .text(`At a threshold of ${predictiveProbability}, ${FPRPctBlack}% of Black people and ${FPRPctWhite}% of White people were predicted to reoffend, but did not reoffend`);
 
     document.getElementById(textIdFNR).textContent="";
 
     d3.select(`#${textIdFNR}`)
         .append("p")
-        .text(`At a threshold of ${predictiveProbability}, ${FNRPctWhite}% of White people and ${FNRPctBlack}% of Black were not predicted to reoffend, but did reoffend`);
+        .text(`At a threshold of ${predictiveProbability}, ${FNRPctBlack}% of Black people and ${FNRPctWhite}% of White people were not predicted to reoffend, but did reoffend`);
+
+    renderTooltip(chartIdFPR);
+    renderTooltip(chartIdFNR);
+}
+
+function renderTooltip(chartId) {
+    var tooltip = d3.select(`#${chartId} .tooltip`);
+
+    d3.selectAll(".compas-error-rate-point")
+        .on("mouseover", function (e, d) {
+
+        let text = 'blah'
+
+        let thisCircle = d3.select(this);
+        var x = d.x + 20;
+        var y = d.y - 10;
+
+        thisCircle
+            .attr("stroke-width", 2)
+            .attr("stroke", visStyles[style]["secondaryHighlightColor"]);
+
+        tooltip.style("visibility", "visible")
+            .style("left", x + "px")
+            .style("top", y + "px")
+            .html(`${d.id} ${d.race} ${d.predicted}`);
+
+    }).on("mouseout", function () {
+        tooltip.style("visibility", "hidden");
+
+        d3.selectAll(".compas-error-rate-point")
+            .attr("stroke", "none");
+    });
 }
 
 export function Content() {
@@ -284,7 +316,7 @@ export function Content() {
                         <div>
                             <h4 className="Small-Margin">false positive rate</h4>
                             <div className="One-Column-Three3">
-                                <div id={chartIdFPR}></div>
+                                <div id={chartIdFPR} className="chart"></div>
                                 <div>
                                     <div id={textIdFPR} className="Container2 Margin-Left"></div>
                                 </div>
@@ -293,7 +325,7 @@ export function Content() {
                         <div>
                             <h4 className="Small-Margin Margin-Top">false negative rate</h4>
                             <div className="One-Column-Three3">
-                                <div id={chartIdFNR}></div>
+                                <div id={chartIdFNR} className="chart"></div>
                                 <div>
                                     <div id={textIdFNR} className="Container2 Margin-Left"></div>
                                 </div>
