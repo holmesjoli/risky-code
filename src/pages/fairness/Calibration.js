@@ -13,7 +13,8 @@ import Timer from "../../components/Timer";
 import { RoleShort } from "../../components/Role";
 import fairnessData from "../../data/processed/mathematical_fairness.json"
 import data from "../../data/processed/calibrationCurve.json";
-import { FormControl, RadioGroup, FormControlLabel, Radio, FormGroup} from '@material-ui/core';
+import { FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { fillScale, symbolScale} from "./COMPAS"
 
 let introChartId = "Fairness-Chart";
 let chartId = "Calibration-Chart";
@@ -31,10 +32,6 @@ const xScale = d3.scaleLinear()
 const yScale = d3.scaleLinear()
     .domain([0, 100])
     .range([height-margin.bottom, margin.top]);
-
-const fillScale = d3.scaleOrdinal()
-    .domain(["White", "Black", "Other"])
-    .range(["#FD7B03", "#FE4002", "#F3C010"]);
 
 const fillData = [{"fill": "Black"},
                   {"fill": "White"},
@@ -222,17 +219,6 @@ function initGraph() {
 
 function transform(d) {
     return "translate(" + xScale(d.decile) + "," + yScale(d.mean*100) + ")";
-}
-
-function symbolScale(d) {
-
-    if(d === "White") {
-        return d3.symbolCircle;
-    } else if (d === "Black") {
-        return d3.symbolTriangle;
-    } else {
-        return d3.symbolSquare;
-    }
 }
 
 function renderGraph(data) {

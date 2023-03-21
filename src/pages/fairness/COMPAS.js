@@ -39,11 +39,11 @@ const yScale = d3.scaleLinear()
     .domain([height, 0])
     .range([height-margin.bottom, margin.top]);
 
-const fillScale = d3.scaleOrdinal()
+export const fillScale = d3.scaleOrdinal()
     .domain(["White", "Black", "Other"])
     .range(["#FD7B03", "#FE4002", "#F3C010"]);
 
-function symbolScale(d) {
+export function symbolScale(d) {
 
     if(d === "White") {
         return d3.symbolCircle;
@@ -54,7 +54,7 @@ function symbolScale(d) {
     }
 }
 
-function transform(d) {
+export function transform(d) {
     return "translate(" + xScale(d.x) + "," + yScale(d.y) + ")";
 }
 
@@ -76,12 +76,51 @@ function grid(data) {
 
     return data;
 }
-    
+
+function renderTooltip(baseRate) {
+    var tooltip = d3.select(`#${chartId} .tooltip`);
+
+    d3.selectAll(".compas-base-rate-point")
+        .on("mouseover", function (e, d) {
+
+        console.log(d)
+
+        var otherPop = d.pop === "Other" ? "person of another race": `${d.pop} person`;
+        var otherArrests =  d.arrests === "Other"? "person of another race": `${d.arrests} person`;
+
+        var proportionate = d.pop === d.arrests ? `1 ${otherArrests}`: `1 ${otherArrests} who would be a ${otherPop} if the data were proportionate to the population of Broward County, Florida`
+        var text = baseRate === "pop"? `1 ${otherPop}`: proportionate;
+
+        let thisCircle = d3.select(this);
+        var x = d.x + 20;
+        var y = d.y - 10;
+
+        thisCircle
+            .attr("stroke-width", 2)
+            .attr("stroke", visStyles[style]["secondaryHighlightColor"]);
+
+        tooltip.style("visibility", "visible")
+            .style("left", x + "px")
+            .style("top", y + "px")
+            .html(text);
+
+    }).on("mouseout", function () {
+        tooltip.style("visibility", "hidden");
+
+        d3.selectAll(".compas-base-rate-point")
+            .attr("stroke", "none");
+    });
+}
+
 function initGraph(data, baseRate) {
     d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
+
+    d3.select(`#${chartId}`)
+        .append("div")
+        .attr("class", "tooltip");
 
     renderGraph(data, baseRate);
 }
@@ -102,7 +141,8 @@ function renderGraph(data, baseRate) {
                     .type(((d) => symbolScale(d[baseRate])))
                     .size(10))
                 .attr("transform", transform)
-                .attr("fill", d => fillScale(d[baseRate])),
+                .attr("fill", d => fillScale(d[baseRate]))
+                .attr("class", "compas-base-rate-point"),
             update => update
                 .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
                 .attr("fill", d => fillScale(d[baseRate]))
@@ -110,6 +150,8 @@ function renderGraph(data, baseRate) {
                     .type(((d) => symbolScale(d[baseRate])))
                     .size(10))
         );
+
+    renderTooltip(baseRate);
 }
 
 function initLegend(baseRate) {
@@ -239,7 +281,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
                 <div className="One-Column-Three4">
                     <div className="Container Margin-Bottom">
                         <h4 className="No-Margin-Bottom">visualize</h4>
-                        <div id={chartId}></div>
+                        <div id={chartId} className="chart"></div>
                         <h4>legend</h4>
                         <div id={legendId} className="Small-Margin-Bottom"></div>
                         {explanation}

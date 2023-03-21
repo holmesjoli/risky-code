@@ -12,6 +12,7 @@ import { terms } from '../../utils/global';
 import { Points } from "../../components/Legend";
 import Overlay from "../../components/Overlay";
 import Timer from "../../components/Timer";
+import { fillScale, symbolScale, transform } from "./COMPAS"
 
 import data from "../../data/processed/error.json";
 
@@ -19,7 +20,7 @@ let chartIdBlack = "COMPAS-Chart-Black";
 let chartIdWhite = "COMPAS-Chart-White";
 let textIdBlack = "COMPAS-text-Black";
 let textIdWhite = "COMPAS-text-White";
-let width = 550;
+let width = 225;
 let height = 225;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 
@@ -31,9 +32,13 @@ const yScale = d3.scaleLinear()
     .domain([0, height])
     .range([height-margin.bottom, margin.top]);
 
-const fillScale = d3.scaleOrdinal()
+const strokeScale = d3.scaleOrdinal()
     .domain(["FP", "FN", "TP", "TN"])
-    .range(["#F50141", "#F50141", "#272B30", "#272B30"])
+    .range(["#F50141", "#F50141", "#272B30", "#272B30"]);
+
+const opacityScale = d3.scaleOrdinal()
+    .domain(["FP", "FN", "TP", "TN"])
+    .range([1, 1, .35, .35]);
 
 // Title Create Grid
 function grid(data) {
@@ -103,44 +108,50 @@ function renderGraph(data, definition, predictiveProbability) {
     dataFilteredWhite = grid(dataFilteredWhite);
 
     svgBlack
-        .selectAll("circle")
-        .data(dataFilteredBlack, d => d.id)
+        .selectAll("path")
+        .data(data, d => d.id)
         .join(
             enter  => enter
-                .append("circle")
-                .attr("cx", function(d) { return xScale(d.x); })
-                .attr("cy", function(d) { return yScale(d.y); })
-                .attr("r", 4)
-                .attr("fill", d => fillScale(d.confusion))
+            .append("path")
+                .attr("d", d3.symbol()
+                    .type(((d) => symbolScale("Black")))
+                    .size(20))
+                .attr("transform", transform)
+                .attr("fill", d => fillScale("Black"))
+                .attr("opacity", d => opacityScale(d.confusion))
+                .attr("stroke-width", 1)
                 .attr("class", d => d.confusion),
             update => update
-                .attr("fill", d => fillScale(d.confusion))
+                .attr("opacity", d => opacityScale(d.confusion))
                 .attr("class", d => d.confusion),
-            exit   => exit
-                .attr("fill", d => fillScale(d.confusion))
+            exit => exit
+                .attr("opacity", d => opacityScale(d.confusion))
                 .attr("class", d => d.confusion)
                 .remove()
-        );
+    );
 
     svgWhite
-        .selectAll("circle")
-        .data(dataFilteredWhite, d => d.id)
+        .selectAll("path")
+        .data(data, d => d.id)
         .join(
             enter  => enter
-                .append("circle")
-                .attr("cx", function(d) { return xScale(d.x); })
-                .attr("cy", function(d) { return yScale(d.y); })
-                .attr("r", 4)
-                .attr("fill", d => fillScale(d.confusion))
+            .append("path")
+                .attr("d", d3.symbol()
+                    .type(((d) => symbolScale("White")))
+                    .size(20))
+                .attr("transform", transform)
+                .attr("fill", d => fillScale("White"))
+                .attr("opacity", d => opacityScale(d.confusion))
+                .attr("stroke-width", 1)
                 .attr("class", d => d.confusion),
             update => update
-                .attr("fill", d => fillScale(d.confusion))
+                .attr("opacity", d => opacityScale(d.confusion))
                 .attr("class", d => d.confusion),
-            exit   => exit
-                .attr("fill", d => fillScale(d.confusion))
-                .attr("class", d => d.confusion)
-                .remove()
-        );
+                exit => exit
+                    .attr("opacity", d => opacityScale(d.confusion))
+                    .attr("class", d => d.confusion)
+                    .remove()
+    );
 
     let incorrectWhite = dataFilteredWhite.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
     let incorrectBlack = dataFilteredBlack.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
@@ -152,7 +163,6 @@ function renderGraph(data, definition, predictiveProbability) {
     d3.select(`#${textIdBlack}`)
         .append("p")
         .text(`At a threshold of ${predictiveProbability}, ${incorrectBlack} out of 500 people Black people (${incorrectBlackPct}%) ${text}` );
-
 
     document.getElementById(textIdWhite).textContent="";
 
@@ -246,7 +256,7 @@ export function Content() {
 export default function Error({config, modules, user, disableFairnessNext2, setDisableFairnessNext2}) {
 
     let navigate = useNavigate();
-    const [isOpen, setIsOpen] = useState(false);
+    // const [isOpen, setIsOpen] = useState(false);
 
     const routeNext = () => {
         let path = `/FairnessReflection`;
@@ -258,9 +268,9 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
         navigate(path);
     }
 
-    const toggleOverlay = () => {
-        setIsOpen(!isOpen);
-    };
+    // const toggleOverlay = () => {
+    //     setIsOpen(!isOpen);
+    // };
 
     return (
         <div className="App">
