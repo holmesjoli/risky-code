@@ -12,10 +12,9 @@ import { Overlay } from "../../components/Overlay";
 import MiniModel from '../../components/MiniLaundryModel';
 
 export function Content({items, setItems, nClassified, setNClassified, setDisabled}) {
-
     return(
         <div className="Content No-Padding-Top">
-            <div className="">
+            <div>
                 <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
             </div>
         </div>
@@ -50,7 +49,8 @@ export default function Classify({config, user, items, setItems, modules, rules,
     }, [isOpen]);
 
     return (
-        <div className="App"> {
+        <div className="App"> 
+        {
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
@@ -59,7 +59,6 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     <div className="Two-Column-Three">
                         <MiniModel/>
                         <RightSideBar>
-                            {/* <Role moduleName="prediction" user={user}/> */}
                             <div className="Container2">
                                 <h4 className="Small-Margin">learn</h4>
                                 <p>The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>

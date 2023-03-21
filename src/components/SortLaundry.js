@@ -240,27 +240,25 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   }, [nClassified, items])
 
   return (
-    <div id="SortLaundry">
-      <DndWrapper id="SortLaundry">
-        <div className='Container'>
-          <h3 className="No-Margin-Bottom">interact</h3>
-          <div className="Text-Align-Center">
-            <Column title={ITEM_LIST} className="Margin-Bottom Center-Card" nClassified={nClassified}>
-              {returnSingleItemForColumn(items, ITEM_LIST)}
-            </Column>
-            <ExpandMoreIcon/>
-            <div className="Two-Column">
-              <Column title={CASE_TRUE} className="Container2 Case-True-Column Move-Column No-Margin-Bottom">
-                {returnItemsForColumn(items, CASE_TRUE)}
-              </Column>
-              <Column title={CASE_FALSE} className="Container2 Case-False-Column Move-Column No-Margin-Bottom">
-                {returnItemsForColumn(items, CASE_FALSE)}
-              </Column>
-            </div>
-            <h5 className="Text-Align-Right Small-Margin White Semi-Bold">{`${nClassified}/${totalClassify} classified`}</h5>
-          </div>
+    <div id="SortLaundryModel" className='Container'>
+      <h3 className="No-Margin-Bottom">interact</h3>
+      <div className="Text-Align-Center">
+        <DndWrapper id="SortLaundryModel">
+        <Column title={ITEM_LIST} className="Margin-Bottom Center-Card" nClassified={nClassified}>
+          {returnSingleItemForColumn(items, ITEM_LIST)}
+        </Column>
+        <ExpandMoreIcon/>
+        <div className="Two-Column">
+          <Column title={CASE_TRUE} className="Container2 Case-True-Column Move-Column No-Margin-Bottom">
+            {returnItemsForColumn(items, CASE_TRUE)}
+          </Column>
+          <Column title={CASE_FALSE} className="Container2 Case-False-Column Move-Column No-Margin-Bottom">
+            {returnItemsForColumn(items, CASE_FALSE)}
+          </Column>
         </div>
-      </DndWrapper>
+        </DndWrapper>
+        <h5 className="Text-Align-Right Small-Margin White Semi-Bold">{`${nClassified}/${totalClassify} classified`}</h5>
       </div>
+    </div>
   );
 };
