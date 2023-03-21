@@ -79,62 +79,6 @@ export function Actual() {
     )
 }
 
-export function Points() {
-
-    const width = window.width, height = 40;
-
-    const data = [{x: 10, y:10, name: "Correct"},
-                  {x: 10, y:30, name: "Incorrect"}]
-
-    const style = "darkMode";
-    const opacityScale = d3.scaleOrdinal()
-        .domain(["Correct", "Incorrect"])
-        .range([.35, 1]);
-
-    useEffect(() => {
-        const svg = d3.select("#Legend-Visualization")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
-        svg
-            .selectAll("circle")
-            .data(data)
-            .enter()
-            .append("circle")
-            .attr("cx", ((d) => d.x))
-            .attr("cy", ((d) => d.y))
-            .attr("r", 5)
-            .attr("opacity", d => opacityScale(d.name))
-            .attr("fill", visStyles[style]["textColor"])
-
-        // TODO Center Text with circle
-        svg
-            .selectAll("text")
-            .data(data)
-            .enter()
-            .append("text")
-            .attr("x", ((d) => d.x + 20))
-            .attr("y", ((d) => d.y))
-            .text(((d) => d.name))
-            .style("fill", visStyles[style]["textColor"])
-            .style("font-size", "12px")
-            // .attr("text-anchor", "left")
-            // .attr("alignment-baseline", "bottom")
-
-    }, [])
-
-    return(
-        <div className="Container">
-            <div className="Legend">
-                <h4 className="Small-Margin">legend</h4>
-                <h5 className="Small-Margin">Predicted</h5>
-                <div id='Legend-Visualization'></div>
-            </div>
-        </div>
-    )
-}
-
 class LegendContainer extends React.Component {
 
     constructor(componentType) {
@@ -151,9 +95,6 @@ class LegendContainer extends React.Component {
                 break;
             case 'actual' :
                 component = <Actual/>;
-                break;
-            case 'points' :
-                component = <Points/>;
                 break;
         }
         return component;

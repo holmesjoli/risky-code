@@ -9,7 +9,6 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { RoleShort } from "../../components/Role";
 import { terms } from '../../utils/global';
-import { Points } from "../../components/Legend";
 import Overlay from "../../components/Overlay";
 import Timer from "../../components/Timer";
 import { fillScale, symbolScale, transform } from "./COMPAS";
