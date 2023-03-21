@@ -38,11 +38,19 @@ export default function Deliberation({user}) {
             <div className="Container2 Margin-Bottom">
                 <p>Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are.</p>
                 <p>For example, in the <span className="Algorithmic Fairness"> module we looked at the COMPAS case study. COMPAS is likely a higher risk use case. In the <span className="Stakeholder Mapping"> mdouel we looked at the Street Bump example. Street Bump is likely a lower risk use case. </span></span></p>
-                <p>The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
+                <p className="No-Margin-Bottom">The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
             </div>
         )
     }
 
+    const Brainstorm = () => {
+        return(
+            <div className="Container2 Margin-Bottom">
+                <p>Do you think algorithmic decision-making should be used to inform all types of policy decisions? Why or why not?</p>
+                <p className="No-Margin-Bottom">Do you think algorithmic decision-making is more risky in certain scenarios?</p>
+            </div>
+        )
+    }
 
     const LearningOutcomes = () => {
 
@@ -68,14 +76,10 @@ export default function Deliberation({user}) {
         label: 'role',
         children: <RoleDeliberation user={user}/>
       },
-    //   {
-    //     label: 'brainstorm',
-    //     children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
-    //   },
-    //   {
-    //     label: 'conceptualize',
-    //     children: <BrainstormLaundryRules rules={rules} setRules={setRules}/>
-    //   },
+      {
+        label: 'brainstorm',
+        children: <Brainstorm/>
+      }
     ];
 
   return (

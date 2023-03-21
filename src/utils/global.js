@@ -56,10 +56,6 @@ export const config = {
     "StreetBump": {
         "id": "street",
         "title": "street bump stakeholders"
-    },
-    "Health": {
-        "id": "health",
-        "title": "health"
     }
 }
 
@@ -125,11 +121,6 @@ export const navigationData = [
         "navLink": "/StreetBump"
     },
     {
-        "name": "Health",
-        "id": "health",
-        "size": "Small",
-        "navLink": "/Health"
-    }, {
         "name": "Deliberation",
         "id": "deliberation",
         "size": "Large",

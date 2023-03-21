@@ -155,8 +155,6 @@ export function LaundryRules({rules, setRules}) {
         setRules(rules);
     }
 
-    // defaultValue={rules.rule2}
-
     return(
         <div>
             <div className="Margin-Bottom">
@@ -174,20 +172,20 @@ export function LaundryRules({rules, setRules}) {
 
 export function BrainstormStakeholders({brainstormStakeholders, setBrainstormStakeholders}) {
 
-    const updateBrainstormStakeholders = (event) => {
+    const handleChange = (event) => {
         setBrainstormStakeholders(event.target.value)
     }
 
     return(
         <div className="No-Margin-Bottom">
-            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={4} defaultValue={brainstormStakeholders} onChange={updateBrainstormStakeholders}/>
+            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={4} defaultValue={brainstormStakeholders} onChange={handleChange}/>
         </div>
     )
 }
 
 export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children}) {
 
-    const updateBaseRates = (event) => {
+    const handleChange = (event) => {
         setBaseRatesBrainstorm(event.target.value)
     }
 
@@ -195,7 +193,22 @@ export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children
         <div className="Container Margin-Bottom">
             <h4 className="Small-Margin">brainstorm</h4>
             {children}
-            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={baseRatesBrainstorm} onChange={updateBaseRates}/>
+            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={baseRatesBrainstorm} onChange={handleChange}/>
+        </div>
+    )
+}
+
+export function BrainstormAlgorithmicDecisionMaking({algorithmicBrainstorm, setAlgorithmicBrainstorm, children}) {
+
+    const handleChange = (event) => {
+        setAlgorithmicBrainstorm(event.target.value)
+    }
+
+    return(
+        <div className="Container Margin-Bottom">
+            <h4 className="Small-Margin">brainstorm</h4>
+            {children}
+            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={algorithmicBrainstorm} onChange={handleChange}/>
         </div>
     )
 }

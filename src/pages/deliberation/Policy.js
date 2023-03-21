@@ -48,23 +48,16 @@ export default function Policy({config, user, disableDeliberationNext, setDisabl
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
+                    <h3 className="Page-Title">introduction to  deliberation</h3>
                     <div className="Two-Column-Three">
-                        <div>
-                            <h3 className="Page-Title">introduction to  deliberation</h3>
-                            <div className="Container2">
-                                <h3 className="Small-Margin Text-Align-Left">explore</h3>
-                                <div className="chart" id={chartId}></div>
-                                <h6 className="Small-Margin Text-Align-Left">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
-                            </div>
+                        <div className="Container2">
+                            <h4 className="Small-Margin Text-Align-Left">explore</h4>
+                            <div className="chart" id={chartId}></div>
+                            <h6 className="Small-Margin Text-Align-Left">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
                         </div>
                         <RightSideBar>
-                            <Timer user={user} disableNext={disableDeliberationNext} setDisableNext={setDisableDeliberationNext}>
-                                <p>Brainstorm examples of where algorithmically-informed decision-making is used.</p>
-                                <p>Pick one scenario and brainstorm some potential consequences (positive and negative) of that example.</p>
-                                {/* <p>Do you think algorithmic decision-making should be used to inform all types of policy decisions? Why or why not?</p> */}
-                                {/* <p className="Small-Margin">Do you think algorithmic decision-making is more risky in certain scenarios?</p> */}
-                            </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableDeliberationNext} toggleOverlay={toggleOverlay}/>: <></>}
+                            <PolicyScenario policy={policy} setPolicy={setPolicy} className="Container2"/>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
                 </div>
