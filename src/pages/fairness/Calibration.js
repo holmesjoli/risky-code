@@ -390,12 +390,12 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
     const routeNext = () => {
       let path = `/Error`; 
       navigate(path);
-    }
+    };
 
     const routeBack = () => {
       let path = `/COMPAS`; 
       navigate(path);
-    }
+    };
 
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
@@ -403,9 +403,6 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
 
     useEffect(() => {
         fairnessDefinitions();
-    }, [])
-
-    useEffect(() => {
         initGraph();
         initRaceLegend(legendId);
     }, []);
