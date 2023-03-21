@@ -85,7 +85,7 @@ export default function App() {
           <Route path="/StakeholderReflection" element={<StakeholderReflection user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>} />
           
           <Route path="/Deliberation" element={<Deliberation user={user} />} />
-          <Route path="/Stakeholders" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
+          <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           

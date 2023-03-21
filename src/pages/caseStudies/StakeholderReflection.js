@@ -8,7 +8,6 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
 import Timer from "../../components/Timer";
-import { AlgorithmDefinition } from '../../components/Brainstorm';
 
 export default function StakeholderReflection({user, disableStakeholder, setDisableStakeholder}) {
 
@@ -16,12 +15,12 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
     let navigate = useNavigate();
 
     const routeNext = () => {
-        let path = `/Health`;
+        let path = `/Deliberation`;
         navigate(path);
     }
 
     const routeBack = () => {
-        let path = `/Deliberation`;
+        let path = `/Health`;
         navigate(path);
     }
 
@@ -47,10 +46,9 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
 
         return(
             <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder}>
-                <p>Would you collect any other variables to use in the statistical model?</p>
-                <p>Were there any rules that didn't fit the statistical model was not able to accomodate?</p>
-                    {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
-                <p className="No-Margin-Bottom">What are the consequences of when Laundry AID made an incorrect prediction?</p>
+                {user==="group"? <p>Did your team think of any stakeholders which you hadn't considered before?</p>: <p>Did you think of any stakeholders which you hadn't considered before?</p>}
+                <p>How did the stakeholders' values align or diverge?</p>
+                <p className="No-Margin-Bottom">Is it important to consider all stakeholders' values equally?</p>
             </Timer>
         )
         }
@@ -69,7 +67,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
   return (
     <div className="Orientation">
         <div className="Container Margin-Bottom">
-        <h3>reflect on algorithmic prediction</h3>
+        <h3>reflect on stakeholder mapping</h3>
             <Box sx={{ width: 500 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (

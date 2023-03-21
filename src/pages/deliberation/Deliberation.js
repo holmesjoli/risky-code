@@ -15,12 +15,12 @@ export default function Deliberation({user}) {
     let navigate = useNavigate();
 
     const routeNext = () => {
-        let path = `/StreetBump`;
+        let path = `/Policy`;
         navigate(path);
     }
 
     const routeBack = () => {
-        let path = `/FairnessReflection`;
+        let path = `/StakeholderReflection`;
         navigate(path);
     }
 
@@ -35,15 +35,10 @@ export default function Deliberation({user}) {
     const Introduction = () => {
 
         return(
-            <div className="Container Margin-Bottom">
-                <p>The first module, <span>Algorithmic Prediction</span>, will lead you through a series of activities to learn about how algorithmic prediction works.</p>
-                <p>The basic steps to algorithmic prediction are: </p>
-                <ul className="No-Margin-Bottom">
-                    <li className="Semi-Bold">Data collection and classification</li>
-                    <li className="Semi-Bold">Model Training</li>
-                    <li className="Semi-Bold">Model Optimization</li>
-                    <li className="Semi-Bold">Model Testing</li>
-                </ul>
+            <div className="Container2 Margin-Bottom">
+                <p>Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are.</p>
+                <p>For example, in the <span className="Algorithmic Fairness"> module we looked at the COMPAS case study. COMPAS is likely a higher risk use case. In the <span className="Stakeholder Mapping"> mdouel we looked at the Street Bump example. Street Bump is likely a lower risk use case. </span></span></p>
+                <p>The goal of this module is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
             </div>
         )
     }
@@ -52,9 +47,10 @@ export default function Deliberation({user}) {
     const LearningOutcomes = () => {
 
         return(
-            <div className="Container Margin-Bottom">
-                <p>Define what an algorithm is</p>
-                <p className="No-Margin-Bottom">Describe the basic steps of algorithmic prediction</p>
+            <div className="Container2 Margin-Bottom">
+                <p>Learn different metrics to consider when if an algorithm should be used in a public policy setting</p>
+                <p>Consider different stakeholders and their individual risks</p>
+                <p className="No-Margin-Bottom">Visually analyze an algorithm's risk</p>
             </div>
         )
     }
