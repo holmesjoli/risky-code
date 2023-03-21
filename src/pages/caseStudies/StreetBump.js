@@ -56,7 +56,7 @@ import MiniModel from "../../components/MiniStakeholderModel";
 //         .attr("color", "#eeeeee");
 // }
 
-export default function StreetBump({config, user, modules}) {
+export default function StreetBump({config, user, modules, data, setData}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("cases");
@@ -98,8 +98,6 @@ export default function StreetBump({config, user, modules}) {
                             <h3 className="Page-Title Small-Margin Padding-">stakeholder mapping for street bump</h3>
                             <div className="Medium-Margin-Top">
                                 <MiniModel/>
-                                {/* <div id={chartID} className="chart Margin-Bottom"></div> */}
-                                {/* <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6> */}
                             </div>
                         </div>
                         <RightSideBar>
@@ -128,14 +126,14 @@ export default function StreetBump({config, user, modules}) {
                 </Description>
                 <RoleShort moduleName="caseStudies"/>
                 <Terminology margin="Margin-Large-Bottom">
+                    <Term term={terms['stakeholders']}/>
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
                     <Term term={terms['excluded stakeholders']}/>
-                    {/* <Term term={terms['fpr']}/> */}
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <StakeholderMapping />
+            <StakeholderMapping data={data} setData={setData}/>
             <RightSideBar>
             <Progress id={id} modules={modules}/>
                 <Consequence margin="Margin-Large-Bottom"/>

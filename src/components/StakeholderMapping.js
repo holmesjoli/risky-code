@@ -33,7 +33,7 @@ let width = 550;
 let height = 375;
 let style = "darkMode";
 
-let defaultNetwork = {"nodes": [], "links": []};
+// let defaultNetwork = {"nodes": [], "links": []};
 let link, node, text;
 let simulation;
 
@@ -413,9 +413,8 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     )
 }
 
-export default function StakeholderMapping() {
+export default function StakeholderMapping({data, setData}) {
 
-    const [data, setData] = useState({"nodes": [], "links": []});
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(

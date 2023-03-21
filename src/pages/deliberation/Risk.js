@@ -18,7 +18,7 @@ let height = 460;
 let style = "darkMode";
 let margin = {left: 70, right: 30, top: 30, bottom: 70};
 
-function initGraph() {
+function initGraph(data) {
     d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
@@ -52,7 +52,7 @@ export function Content() {
     )
 }
 
-export default function Risk({config, modules, policy, setPolicy}) {
+export default function Risk({config, modules, policy, setPolicy, data}) {
 
     let navigate = useNavigate();
 
@@ -67,7 +67,7 @@ export default function Risk({config, modules, policy, setPolicy}) {
     }
 
     useEffect(() => {
-        initGraph();
+        initGraph(data);
     }, []);
 
     return (

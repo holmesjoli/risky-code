@@ -12,7 +12,7 @@ import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../..
 import StakeholderMapping from "../../components/StakeholderMapping";
 import { RoleShort } from "../../components/Role";
 
-export default function Policy({config, user, modules, policy, setPolicy}) {
+export default function Policy({config, user, modules, policy, setPolicy, data, setData}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");
@@ -72,13 +72,14 @@ export default function Policy({config, user, modules, policy, setPolicy}) {
                 </Description>
                 <RoleShort moduleName="deliberation"/>
                 <Terminology margin="Margin-Large-Bottom">
+                    <Term term={terms['stakeholders']}/>
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
                     <Term term={terms['excluded stakeholders']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <StakeholderMapping />
+            <StakeholderMapping data={data} setData={setData}/>
             <RightSideBar>
                 <Progress id={id} modules={modules}/>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
