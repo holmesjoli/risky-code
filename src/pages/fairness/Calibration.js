@@ -190,7 +190,7 @@ function Content() {
                 <div id={chartId}></div>
                 <h4>legend</h4>
                 <div id={legendId} className="Small-Margin-Bottom"></div>
-                {/* {explanation} */}
+                <h6 className="Small-Margin-Top">Visualization shows recidivism rate by risk score and race for Black people, White people, and people of other races. The calibration curves are roughtly equivalent for the three groups. For example, at a risk level of 7, 62% of White people reoffended compared with 59% of Black people.</h6>
             </div>
             <Information/>
         </div>
