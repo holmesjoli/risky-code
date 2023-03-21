@@ -11,7 +11,7 @@ const style = "darkMode";
 const theme = createTheme({
   typography: {
     fontFamily: "Plex, Verdana, Geneva, Tahoma, sans-serif",
-    fontSize: 13,
+    fontSize: 12,
     lineHeight: 1.3
   },
   palette: {
@@ -37,10 +37,10 @@ const theme = createTheme({
     },
     MuiTypography: {
       root: {
-        fontSize: 13,
+        fontSize: 12,
       },
       body1: {
-        fontSize: 13,
+        fontSize: 12,
       }
     },
     MuiFormGroup: {
@@ -51,12 +51,12 @@ const theme = createTheme({
     },
     MuiMenuItem: {
       root: {
-        fontSize: 13,
+        fontSize: 12,
       }
     },
     MuiListItem: {
       root: {
-        fontSize: 13,
+        fontSize: 12,
       }
     },
     MuiSvgIcon: {
@@ -123,7 +123,7 @@ const theme = createTheme({
     },
     MuiInputBase: {
       input: {
-        fontSize: 13,
+        fontSize: 12,
         padding: "14px",
         lineHeight: 1.3
       }
@@ -133,12 +133,12 @@ const theme = createTheme({
         borderRadius: ".25rem"
       },
       input: {
-        fontSize: 13,
+        fontSize: 12,
         padding: "14px",
         lineHeight: 1.3
       },
       multiline: {
-        fontSize: 13,
+        fontSize: 12,
         padding: "14px"
       }
     },
@@ -152,7 +152,7 @@ const theme = createTheme({
     },
     PrivateSwitchBase: {
       root: {
-          padding: "5px"
+          padding: "3px"
       }
     },
     MuiCollapse: {

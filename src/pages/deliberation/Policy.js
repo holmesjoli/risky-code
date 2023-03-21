@@ -8,12 +8,11 @@ import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { PolicyScenario } from "../../components/TrackUserInputs";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import Timer from "../../components/Timer";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import StakeholderMapping from "../../components/StakeholderMapping";
-import { RoleShort, Role } from "../../components/Role";
+import { RoleShort } from "../../components/Role";
 
-export default function Policy({config, user, disableDeliberationNext, setDisableDeliberationNext, modules, policy, setPolicy}) {
+export default function Policy({config, user, modules, policy, setPolicy}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");

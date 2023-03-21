@@ -57,9 +57,6 @@ export default function App() {
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);
     const [disableStakeholder, setDisableStakeholder] = useState(true);
-    const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
-
-
 
     // items.sort((a, b) => a.column - b.column)
   
@@ -86,7 +83,7 @@ export default function App() {
           <Route path="/StakeholderReflection" element={<StakeholderReflection user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>} />
           
           <Route path="/Deliberation" element={<Deliberation user={user} algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}/>} />
-          <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
+          <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           
@@ -94,6 +91,7 @@ export default function App() {
           <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules}/>} />
           <Route path="/Resources" element={<Resources config={config.Resources} modules={modules}/>} />
           <Route path="/Contact" element={<Contact config={config.Contact} modules={modules}/>} />
+
         </Routes>
       </HashRouter>
     )
