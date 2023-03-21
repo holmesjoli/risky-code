@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/Brainstorm';
 
-export default function PredictionReflection({user, disablePredictionNext, setDisablePredictionNext}) {
+export default function StakeholderReflection({user, disableStakeholder, setDisableStakeholder}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
@@ -36,19 +36,17 @@ export default function PredictionReflection({user, disablePredictionNext, setDi
     const LearningOutcomes = () => {
 
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>Be able to define multiple stakeholder groups and explain why these groups are relevant to algorithmic decision-making</p>
                 <p className="No-Margin-Bottom">Understand how stakeholder mapping can help to identify different people or groups who are important to consider when implementing an algorithmic system</p>
             </div>
         )
     }
 
-    const Reflect = ({user, disablePredictionNext, setDisablePredictionNext}) => {
-
-        console.log(disablePredictionNext)
+    const Reflect = ({user, disableStakeholder, setDisableStakeholder}) => {
 
         return(
-            <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
+            <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder}>
                 <p>Would you collect any other variables to use in the statistical model?</p>
                 <p>Were there any rules that didn't fit the statistical model was not able to accomodate?</p>
                     {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
@@ -64,7 +62,7 @@ export default function PredictionReflection({user, disablePredictionNext, setDi
       },
       {
         label: 'reflect',
-        children: <Reflect user={user} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext}/>
+        children: <Reflect user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>
       },
     ];
 

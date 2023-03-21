@@ -26,7 +26,7 @@ export default function Policy({config, user, disableDeliberationNext, setDisabl
     }
 
     const routeBack = () => {
-        let path = `/Health`; 
+        let path = `/StakeholderReflection`; 
         navigate(path);
     }
 

@@ -22,6 +22,7 @@ import FairnessReflection from "./pages/fairness/FairnessReflection";
 import StakeholderMapping from "./pages/caseStudies/StakeholderMapping";
 import Health from "./pages/caseStudies/Health";
 import StreetBump from "./pages/caseStudies/StreetBump";
+import StakeholderReflection from "./pages/caseStudies/StakeholderReflection";
 
 import Deliberation from "./pages/deliberation/Deliberation";
 import Risk from "./pages/deliberation/Risk";
@@ -81,6 +82,7 @@ export default function App() {
           <Route path="/StakeholderMapping" element={<StakeholderMapping user={user} brainstormStakeholders={setBrainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} modules={modules}/>} />
           <Route path="/Health" element={<Health config={config.Health} modules={modules}/>} />
+          <Route path="/StakeholderReflection" element={<StakeholderReflection user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>} />
           
           <Route path="/Deliberation" element={<Deliberation user={user} />} />
           <Route path="/Stakeholders" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />

@@ -17,7 +17,7 @@ export default function Health({config, modules}) {
     let navigate = useNavigate();
 
     const routeNext = () => {
-        let path = `/Stakeholders`; 
+        let path = `/StakeholderReflection`; 
         navigate(path);
     }
 
