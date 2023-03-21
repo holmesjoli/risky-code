@@ -29,8 +29,8 @@ const defaultValues = values;
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
-let width = 650;
-let height = 400;
+let width = 550;
+let height = 375;
 let style = "darkMode";
 
 let defaultNetwork = {"nodes": [], "links": []};
