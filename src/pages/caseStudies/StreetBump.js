@@ -103,12 +103,12 @@ export default function StreetBump({config, user, modules}) {
                             </div>
                         </div>
                         <RightSideBar>
-                            <div className="Container2">
-                                <h3>learn</h3>
+                            <div className="Container2 Margin-Bottom">
+                                <h4 className="Small-Margin">learn</h4>
                                 <p className="No-Margin-Bottom">Street Bump was an application developed for the city of Boston in 2011 to identify potholes in need of repair. The application relied on people with smartphones to opt-in, download, and open the application during their daily commutes around Boston. The application recorded acceleration and GPS data to help the city identify road problems.</p>
                             </div>
                             <div className="Container2">
-                                <h3>brainstorm</h3>
+                                <h4 className="Small-Margin">brainstorm</h4>
                                 <p className="No-Margin-Bottom">Start by brainstorming who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
                             </div>
                             <NextButtonOverlay toggleOverlay={toggleOverlay}/>

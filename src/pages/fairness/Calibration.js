@@ -13,6 +13,7 @@ import Timer from "../../components/Timer";
 import { RoleShort } from "../../components/Role";
 import fairnessData from "../../data/processed/mathematical_fairness.json"
 import data from "../../data/processed/calibrationCurve.json";
+import { FormControl, RadioGroup, FormControlLabel, Radio, FormGroup} from '@material-ui/core';
 
 let introChartId = "Fairness-Chart";
 let chartId = "Calibration-Chart";
@@ -61,36 +62,36 @@ function textAnchor(angle) {
 }
 
 // Tooltip
-function renderTooltip(style="darkMode") {
+// function renderTooltip(style="darkMode") {
 
-    let tooltip = d3.select(`${introChartId}`)
-        .append("div")
-        .attr("class", "tooltip");
+//     let tooltip = d3.select(`${introChartId}`)
+//         .append("div")
+//         .attr("class", "tooltip");
 
-    d3.selectAll(`${introChartId} a circle`).on("mouseover", function(e, d) {
+//     d3.selectAll(`${introChartId} a circle`).on("mouseover", function(e, d) {
 
-        let thisCircle = d3.select(this);
-        let x = e.layerX + 20;
-        let y = e.layerY - 10;
+//         let thisCircle = d3.select(this);
+//         let x = e.layerX + 20;
+//         let y = e.layerY - 10;
 
-        tooltip.style("visibility", "visible")
-            .style("top", `${y}px`)
-            .style("left", `${x}px`)
-            .html(`${d.fairness_definition} <br> ${d.author}`);
+//         tooltip.style("visibility", "visible")
+//             .style("top", `${y}px`)
+//             .style("left", `${x}px`)
+//             .html(`${d.fairness_definition} <br> ${d.author}`);
 
-        thisCircle
-            .attr("stroke", visStyles[style]["highlightColor"])
-            .attr("stroke-width", 1.5);
+//         thisCircle
+//             .attr("stroke", visStyles[style]["highlightColor"])
+//             .attr("stroke-width", 1.5);
 
-    }).on("mouseout", function() {
+//     }).on("mouseout", function() {
 
-        tooltip.style("visibility", "hidden");
+//         tooltip.style("visibility", "hidden");
 
-        d3.selectAll(`${chartId} a circle`)
-            .attr("stroke", visStyles[style]["borderColor"])
-            .attr("stroke-width", 1);
-    });
-}
+//         d3.selectAll(`${chartId} a circle`)
+//             .attr("stroke", visStyles[style]["borderColor"])
+//             .attr("stroke-width", 1);
+//     });
+// }
 
 function fairnessDefinitions(style = "darkMode") {
 
@@ -148,18 +149,33 @@ function fairnessDefinitions(style = "darkMode") {
         .attr("letter-spacing", visStyles[style]["letterSpacing"])
         .text(d => d.fairness_definition);
 
-    renderTooltip();
+    // renderTooltip();
     // transitionHighlight(style);
 }
 
 function Information() {
     return (
         <div className="Information">
-            <div className="Container">
+            <div className="Container Margin-Bottom">
                 <h4 className="Margin-Small">learn</h4>
                     <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. </p>
                     <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
                     <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
+            </div>
+            <div className="Container">
+                <FormControl>
+                    <h4 className="Small-Margin">is compas fair?</h4>
+                    <p>Evaluate if you think COMPAS treats people fairly based on race.</p>
+                    <RadioGroup
+                        aria-labelledby="demo-radio-buttons-group-label"
+                        name="radio-buttons-group"
+                        // onChange={updateStakeholderGroup}
+                        // value={stakeholderGroup}
+                    >
+                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                    </RadioGroup>
+                </FormControl>
             </div>
         </div>
     )
@@ -195,6 +211,10 @@ function initGraph() {
         .append("svg")
         .attr("width", width)
         .attr("height", height);
+
+    d3.select(`#${chartId}`)
+        .append("div")
+        .attr("class", "tooltip");
 
     renderGraph(data);
 }
@@ -257,6 +277,7 @@ function renderGraph(data) {
                     .size(20))
                 .attr("transform", transform)
                 .attr("fill", d => fillScale(d.race))
+                .attr("class", "compas-calibration-point")
             //     ,
             // update => update
             //     .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
@@ -286,6 +307,38 @@ function renderGraph(data) {
           .attr("fill", visStyles[style]["textHighlightColor"])
           .attr("font-size", 12)
           .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+
+    renderTooltip();
+}
+
+function renderTooltip() {
+    var tooltip = d3.select(`#${chartId} .tooltip`);
+
+    d3.selectAll(".compas-calibration-point")
+    .on("mouseover", function (e, d) {
+
+        console.log(d)
+
+        var x = xScale(d.decile);
+        var y = yScale(d.mean*100);
+
+        let thisCircle = d3.select(this);
+
+        thisCircle
+            .attr("stroke-width", 2)
+            .attr("stroke", visStyles[style]["secondaryHighlightColor"]);
+
+        tooltip.style("visibility", "visible")
+            .style("left", x + "px")
+            .style("top", y + "px")
+            .html(`At a risk score of ${d.decile}, ${Math.round(d.mean*100)}% of ${d.race} people reoffended`);
+
+    }).on("mouseout", function () {
+        tooltip.style("visibility", "hidden");
+
+        d3.selectAll(".compas-calibration-point")
+            .attr("stroke", "none");
+    });
 }
 
 function initLegend() {

@@ -371,11 +371,11 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     return(
         <div className="Stakeholder-Attr Container">
             <h3>interact</h3>
-            <div className="Container2">
+            <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">stakeholder group</h4>
                 <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={updateStakeholder} />
             </div>
-            <div className="Container2">
+            <div className="Container2 Margin-Bottom">
                 <FormControl>
                     <h4 className="Small-Margin">stakeholder type</h4>
                     <RadioGroup
@@ -391,7 +391,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                     </RadioGroup>
                 </FormControl>
             </div>
-            <div className="Container2">
+            <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">stakeholder values</h4>
                 <div>
                 </div>

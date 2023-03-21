@@ -35,7 +35,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
 
     const Introduction = ({user}) => {
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 {user==="group"?<p className="No-Margin-Bottom">The third module explores a common design-thinking methodology called <span className="Emphasis">Stakeholder Mapping</span>. This section will lead your team through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>:<p className="No-Margin-Bottom">The third module, <span className="Emphasis">Stakeholder Mapping</span>, explores a common design-thinking methodology called Stakeholder Mapping. This section will lead you through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>}
             </div>
         )
@@ -43,7 +43,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
 
     const LearningOutcomes = () => {
         return(
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>Be able to define multiple stakeholder groups and explain why these groups are relevant to algorithmic decision-making</p>
                 <p className="No-Margin-Bottom">Understand how stakeholder mapping can help to identify different people or groups who are important to consider when implementing an algorithmic system</p>
             </div>
@@ -52,7 +52,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
 
     const Define = () => {
         return (
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p><span className="Emphasis">Direct</span> stakeholders are those who directly interact with the algorithmic system</p>
                 <p><span className="Emphasis">Indirect</span> stakeholders do not directly interact with the algorithmic system, but are impacted by its use</p>
                 <p className="No-Margin-Bottom"><span className="Emphasis">Excluded</span> stakeholders are those who cannot interact with the algorithmic system</p>
@@ -62,7 +62,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
 
     const Brainstorm = ({brainstormStakeholders, setBrainstormStakeholders}) => {
         return (
-            <div className="Container Margin-Bottom">
+            <div className="Container2 Margin-Bottom">
                 <p>Why do you think its important to identify stakeholders?</p>
                 <p>When might it be important to conduct stakeholder mapping?</p>
                 <BrainstormStakeholders brainstormStakeholders={brainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>
