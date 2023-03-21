@@ -228,11 +228,13 @@ function renderGraph(data) {
     const xAxis = svg.append("g")
         .attr("class", "axis")
         .attr("transform",`translate(0,${height-margin.bottom})`)
+        .attr("color", visStyles[style]["textColor"])
         .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
 
     const yAxis = svg.append("g")
         .attr("class", "axis")
         .attr("transform",`translate(${margin.left},0)`)
+        .attr("color", visStyles[style]["textColor"])
         .call(d3.axisLeft().scale(yScale));
 
     let path = svg
@@ -266,8 +268,8 @@ function renderGraph(data) {
 
     svg.append("text")
           .attr("class","axisLabel")
-          .attr("x", width/2)
-          .attr("y", height - 10)
+          .attr("x", (width - margin.left - margin.right)/2 + margin.left)
+          .attr("y", height - 5)
           .attr("text-anchor","middle")
           .text("Risk score")
           .attr("fill", visStyles[style]["textHighlightColor"])
