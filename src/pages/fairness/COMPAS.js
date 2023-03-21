@@ -92,8 +92,6 @@ function renderGraph(data, baseRate) {
 
     data = grid(data);
 
-    console.log(data)
-
     svg
         .selectAll("path")
         .data(data, d => d.id)

@@ -24,7 +24,7 @@ let style = "darkMode";
 let margin = {left: 100, right: 50, top: 50, bottom: 70};
 
 const xScale = d3.scaleLinear()
-    .domain([0, 10])
+    .domain([1, 10])
     .range([margin.left, width-margin.right]);
 
 const yScale = d3.scaleLinear()
@@ -199,6 +199,22 @@ function initGraph() {
     renderGraph(data);
 }
 
+function transform(d) {
+    return "translate(" + xScale(d.decile) + "," + yScale(d.mean*100) + ")";
+}
+
+function symbolScale(d) {
+
+    if(d === "white") {
+        return d3.symbolCircle;
+    } else if (d === "black") {
+        return d3.symbolTriangle;
+    } else {
+        return d3.symbolSquare;
+    }
+}
+
+
 function renderGraph(data) {
 
     let svg = d3.select(`#${chartId} svg`);
@@ -229,15 +245,36 @@ function renderGraph(data) {
             .attr("d", function(d) { return line(d[1]); })
             .attr("stroke-width", 2);
 
-    let circle = svg
-      .selectAll("circle")
+    // let circle = svg
+    //   .selectAll("circle")
+    //     .data(data)
+    //     .enter()
+    //     .append("circle")
+    //       .attr("cx", function(d) { return xScale(d.decile); })
+    //       .attr("cy", function(d) { return yScale(d.mean*100); })
+    //       .attr("r",2)
+    //       .attr("fill", d => fillScale(d.race));
+
+
+    svg
+        .selectAll("path")
         .data(data)
-        .enter()
-        .append("circle")
-          .attr("cx", function(d) { return xScale(d.decile); })
-          .attr("cy", function(d) { return yScale(d.mean*100); })
-          .attr("r",2)
-          .attr("fill", d => fillScale(d.race));
+        .join(
+            enter  => enter
+            .append("path")
+                .attr("d", d3.symbol()
+                    .type(((d) => symbolScale(d.race)))
+                    .size(20))
+                .attr("transform", transform)
+                .attr("fill", d => fillScale(d.race))
+            //     ,
+            // update => update
+            //     .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
+            //     .attr("fill", d => fillScale(d[baseRate]))
+            //     .attr("d", d3.symbol()
+            //         .type(((d) => symbolScale(d[baseRate])))
+            //         .size(10))
+        );
 
     svg.append("text")
           .attr("class","axisLabel")
