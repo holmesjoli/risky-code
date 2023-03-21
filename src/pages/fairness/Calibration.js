@@ -341,7 +341,7 @@ function renderTooltip() {
     });
 }
 
-function initLegend() {
+export function initRaceLegend(legendId) {
 
     let height = 40;
 
@@ -350,10 +350,10 @@ function initLegend() {
         .attr("width", width)
         .attr("height", height);
 
-    drawLegend();
+    drawRaceLegend(legendId);
 }
 
-function drawLegend() {
+export function drawRaceLegend(legendId) {
 
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
@@ -407,7 +407,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
 
     useEffect(() => {
         initGraph();
-        initLegend();
+        initRaceLegend(legendId);
     }, []);
 
     return (

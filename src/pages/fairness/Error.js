@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import { Slider, MenuItem, FormControl, Select } from '@material-ui/core';
+import { Slider } from '@material-ui/core';
 import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -12,29 +12,22 @@ import { terms } from '../../utils/global';
 import { Points } from "../../components/Legend";
 import Overlay from "../../components/Overlay";
 import Timer from "../../components/Timer";
-import { fillScale, symbolScale, transform } from "./COMPAS"
+import { fillScale, symbolScale, transform } from "./COMPAS";
+import { initRaceLegend, drawLegend } from "./Calibration";
+import { visStyles } from "../../utils/global";
 
 import data from "../../data/processed/error.json";
 
-let chartIdBlack = "COMPAS-Chart-Black";
-let chartIdWhite = "COMPAS-Chart-White";
-let textIdBlack = "COMPAS-text-Black";
-let textIdWhite = "COMPAS-text-White";
-let width = 225;
+let chartIdFPR = "Error-Chart-FPR";
+let chartIdFNR = "Error-Chart-FNR";
+let textIdFPR = "Error-text-FPR";
+let textIdFNR = "Error-text-FNR";
+let raceLegendId = "Error-Race-Legend";
+let predictedLegendId = "Error-Predicted-Legend";
+
+let width = 550;
 let height = 225;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
-
-const xScale = d3.scaleLinear()
-    .domain([0, width])
-    .range([margin.left, width-margin.right]);
-
-const yScale = d3.scaleLinear()
-    .domain([0, height])
-    .range([height-margin.bottom, margin.top]);
-
-const strokeScale = d3.scaleOrdinal()
-    .domain(["FP", "FN", "TP", "TN"])
-    .range(["#F50141", "#F50141", "#272B30", "#272B30"]);
 
 const opacityScale = d3.scaleOrdinal()
     .domain(["FP", "FN", "TP", "TN"])
@@ -43,7 +36,7 @@ const opacityScale = d3.scaleOrdinal()
 // Title Create Grid
 function grid(data) {
 
-    const cols = 25;
+    const cols = 50;
     const colW = width / cols;
     const rows = Math.round(data.length/cols)
     const rowH = height / rows;
@@ -60,18 +53,18 @@ function grid(data) {
     return data;
 }
 
-function initGraph(data, definition, predictiveProbability) {
-    d3.select(`#${chartIdBlack}`)
+function initGraph(data, predictiveProbability) {
+    d3.select(`#${chartIdFPR}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    d3.select(`#${chartIdWhite}`)
+    d3.select(`#${chartIdFNR}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
 
-    renderGraph(data, definition, predictiveProbability);
+    renderGraph(data, predictiveProbability);
 }
 
 function confusion(i) {
@@ -87,10 +80,61 @@ function confusion(i) {
     }
 }
 
-function renderGraph(data, definition, predictiveProbability) {
+export function initPredictedLegend(legendId) {
 
-    let svgBlack = d3.select(`#${chartIdBlack} svg`);
-    let svgWhite = d3.select(`#${chartIdWhite} svg`);
+    let height = 40;
+
+    d3.select(`#${legendId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    drawPredictedLegend(legendId);
+}
+
+export function drawPredictedLegend(legendId) {
+
+    const width = window.width;
+
+    const data = [{x: 10, y:10, name: "Correct"},
+                  {x: 10, y:30, name: "Incorrect"}];
+    
+    const h = 40;
+
+    const style = "darkMode";
+    const opacityScale = d3.scaleOrdinal()
+        .domain(["Correct", "Incorrect"])
+        .range([.35, 1]);
+
+    let svg = d3.select(`#${legendId} svg`);
+
+    let shape = svg.append("g")
+        .selectAll("circle")
+            .data(data, d => d.name)
+            .enter()
+            .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`);
+
+     shape.append("circle")
+        .attr("r", 6)
+        .attr("opacity", d => opacityScale(d.name))
+        .attr("fill", visStyles[style]["textColor"]);
+
+    shape.append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", 20)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"])
+        .text(d => d.name);
+}
+
+function renderGraph(data, predictiveProbability) {
+
+    let svgFPR = d3.select(`#${chartIdFPR} svg`);
+    let svgFNR = d3.select(`#${chartIdFNR} svg`);
 
     for (let i of data) {
         i.predicted = i.decile > predictiveProbability;
@@ -98,26 +142,25 @@ function renderGraph(data, definition, predictiveProbability) {
         i.confusion = confusion(i);
     }
 
-    let recidn = definition === "fpr"? "Negative": "Positive";
-    let text = definition === "fpr"? "were predicted to reoffend, but did not reoffend": "were not predicted to reoffend, but did reoffend"
+    let dataFilteredFPR = data.filter(d => d.recid);
+    dataFilteredFPR = grid(dataFilteredFPR);
 
-    let dataFilteredBlack = data.filter(d => d.race === "black" && d.recidn === recidn);
-    dataFilteredBlack = grid(dataFilteredBlack);
+    let dataFilteredFNR = data.filter(d => !d.recid);
+    dataFilteredFNR = grid(dataFilteredFNR);
 
-    let dataFilteredWhite = data.filter(d => d.race === "white" && d.recidn === recidn);
-    dataFilteredWhite = grid(dataFilteredWhite);
+    console.log(dataFilteredFNR)
 
-    svgBlack
+    svgFPR
         .selectAll("path")
-        .data(data, d => d.id)
+        .data(dataFilteredFPR, d => d.id)
         .join(
             enter  => enter
             .append("path")
                 .attr("d", d3.symbol()
-                    .type(((d) => symbolScale("Black")))
+                    .type(((d) => symbolScale(d.race)))
                     .size(20))
                 .attr("transform", transform)
-                .attr("fill", d => fillScale("Black"))
+                .attr("fill", d => fillScale(d.race))
                 .attr("opacity", d => opacityScale(d.confusion))
                 .attr("stroke-width", 1)
                 .attr("class", d => d.confusion),
@@ -130,87 +173,69 @@ function renderGraph(data, definition, predictiveProbability) {
                 .remove()
     );
 
-    svgWhite
+    svgFNR
         .selectAll("path")
-        .data(data, d => d.id)
+        .data(dataFilteredFNR, d => d.id)
         .join(
             enter  => enter
             .append("path")
                 .attr("d", d3.symbol()
-                    .type(((d) => symbolScale("White")))
+                    .type(((d) => symbolScale(d.race)))
                     .size(20))
                 .attr("transform", transform)
-                .attr("fill", d => fillScale("White"))
+                .attr("fill", d => fillScale(d.race))
                 .attr("opacity", d => opacityScale(d.confusion))
                 .attr("stroke-width", 1)
                 .attr("class", d => d.confusion),
             update => update
                 .attr("opacity", d => opacityScale(d.confusion))
                 .attr("class", d => d.confusion),
-                exit => exit
-                    .attr("opacity", d => opacityScale(d.confusion))
-                    .attr("class", d => d.confusion)
-                    .remove()
-    );
+            exit => exit
+                .attr("opacity", d => opacityScale(d.confusion))
+                .attr("class", d => d.confusion)
+                .remove()
+        );
 
-    let incorrectWhite = dataFilteredWhite.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
-    let incorrectBlack = dataFilteredBlack.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
-    let incorrectBlackPct = Math.round((incorrectBlack/500)*100);
-    let incorrectWhitePct = Math.round((incorrectWhite/500)*100);
+    // let incorrectWhite = dataFilteredWhite.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
+    // let incorrectBlack = dataFilteredBlack.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
+    // let incorrectBlackPct = Math.round((incorrectBlack/500)*100);
+    // let incorrectWhitePct = Math.round((incorrectWhite/500)*100);
 
-    document.getElementById(textIdBlack).textContent="";
+    // document.getElementById(textIdFPR).textContent="";
 
-    d3.select(`#${textIdBlack}`)
-        .append("p")
-        .text(`At a threshold of ${predictiveProbability}, ${incorrectBlack} out of 500 people Black people (${incorrectBlackPct}%) ${text}` );
+    // d3.select(`#${textIdFPR}`)
+    //     .append("p")
+    //     .text(`At a threshold of ${predictiveProbability}, ${incorrectBlack} out of 500 people Black people (${incorrectBlackPct}%) ${text}` );
 
-    document.getElementById(textIdWhite).textContent="";
+    // document.getElementById(textIdFNR).textContent="";
 
-    d3.select(`#${textIdWhite}`)
-        .append("p")
-        .text(`At a threshold of ${predictiveProbability}, ${incorrectWhite} out of 500 people white people (${incorrectWhitePct}%) ${text}` )
+    // d3.select(`#${textIdFNR}`)
+    //     .append("p")
+    //     .text(`At a threshold of ${predictiveProbability}, ${incorrectWhite} out of 500 people white people (${incorrectWhitePct}%) ${text}` )
 }
 
 export function Content() {
 
     const [predictiveProbability, setPredictiveProbability] = useState(4);
-    const [definition, setDefinition] = useState("fpr");
 
     const updateSlider = (event, value) => {
         setPredictiveProbability(value/10)
     }
 
-    const updateDefinition = (event) => {
-        setDefinition(event.target.value)
-    }
-
     useEffect(() => {
-        initGraph(data, definition, predictiveProbability);
+        initGraph(data, predictiveProbability);
     }, []);
 
     useEffect(() => {
-        renderGraph(data, definition, predictiveProbability);
-    }, [predictiveProbability, definition]);
+        renderGraph(data, predictiveProbability);
+    }, [predictiveProbability]);
 
     return(
         <div className="Content No-Padding-Top">
             <div className="One-Column-Three2">
                 <div>
                     <div className="Container Margin-Bottom">
-                        <h3>algorithmic fairness definition</h3>
-                        <FormControl variant="outlined" size="small">
-                            <Select
-                                value={definition}
-                                onChange={updateDefinition}
-                            >
-                                <MenuItem value="fpr">False Positive Rate</MenuItem>
-                                <MenuItem value="fnr">False Negative Rate</MenuItem>
-                                {/* <MenuItem value="calibration">Calibration Rate</MenuItem> */}
-                            </Select>
-                        </FormControl>
-                    </div>
-                    <div className="Container Margin-Bottom">
-                        <h3>predicted probability of reoffense</h3>
+                        <h4 className="Small-Margin-Bottom">predicted probability of reoffense</h4>
                         <p>Use the slider to adjust at what threshold defendants should be considered high-risk of reoffense.</p>
                         <Slider
                             size="small"
@@ -223,26 +248,34 @@ export function Content() {
                             onChange={updateSlider}
                             />
                     </div>
-                    <Points/>
+                    <div className="Container">
+                        <div className="Legend">
+                            <h4 className="Small-Margin">legend</h4>
+                            <h5 className="Small-Margin">Race</h5>
+                            <div id={raceLegendId} className="Small-Margin-Bottom"></div>
+                            <h5 className="Small-Margin">Predicted</h5>
+                            <div id={predictedLegendId}></div>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div className="Container">
                         <h3>the compas algorithm's recidivism predictions</h3>
                         <div>
-                            <h4 className="Small-Margin">black</h4>
+                            <h4 className="Small-Margin">false positive rate</h4>
                             <div className="One-Column-Three3">
-                                <div id={chartIdBlack}></div>
+                                <div id={chartIdFPR}></div>
                                 <div>
-                                    <div id={textIdBlack} className="Container2"></div>
+                                    <div id={textIdFPR} className="Container2"></div>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <h4 className="Small-Margin Margin-Top">white</h4>
+                            <h4 className="Small-Margin Margin-Top">false negative rate</h4>
                             <div className="One-Column-Three3">
-                                <div id={chartIdWhite}></div>
+                                <div id={chartIdFNR}></div>
                                 <div>
-                                    <div id={textIdWhite} className="Container2"></div>
+                                    <div id={textIdFNR} className="Container2"></div>
                                 </div>
                             </div>
                         </div>
@@ -267,6 +300,12 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
         let path = `/Calibration`; 
         navigate(path);
     }
+
+    useEffect(() => {
+        initRaceLegend(raceLegendId);
+        initPredictedLegend(predictedLegendId);
+    }, []);
+
 
     // const toggleOverlay = () => {
     //     setIsOpen(!isOpen);

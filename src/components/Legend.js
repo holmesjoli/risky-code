@@ -1,7 +1,7 @@
 import React from 'react';
 import * as d3 from "d3";
 import { useEffect } from 'react';
-import { visStyles } from "../utils/global"
+import { visStyles } from "../utils/global";
 
 export function ActualPredicted() {
 
@@ -87,9 +87,9 @@ export function Points() {
                   {x: 10, y:30, name: "Incorrect"}]
 
     const style = "darkMode";
-    const scaleFill = d3.scaleOrdinal()
+    const opacityScale = d3.scaleOrdinal()
         .domain(["Correct", "Incorrect"])
-        .range(["#272B30", visStyles[style]["warningColor"]])
+        .range([.35, 1]);
 
     useEffect(() => {
         const svg = d3.select("#Legend-Visualization")
@@ -105,7 +105,8 @@ export function Points() {
             .attr("cx", ((d) => d.x))
             .attr("cy", ((d) => d.y))
             .attr("r", 5)
-            .attr("fill", ((d) => scaleFill(d.name)))
+            .attr("opacity", d => opacityScale(d.name))
+            .attr("fill", visStyles[style]["textColor"])
 
         // TODO Center Text with circle
         svg
