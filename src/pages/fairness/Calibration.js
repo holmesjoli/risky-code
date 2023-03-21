@@ -303,27 +303,6 @@ function drawLegend() {
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
 
-    // let color = svg.append("g")
-    //       .selectAll("circle")
-    //       .data(fillData, d => d.fill)
-    //       .enter()
-    //       .append("g")
-    //       .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
-
-    // color.append("circle")
-    //    .attr("r", 6)
-    //    .attr("fill", d => fillScale(d.fill2))
-
-    // color.append("text")
-    //    .attr("text-anchor", "middle")
-    //    .attr("y", 25)
-    //    .attr("fill", visStyles[style]["textHighlightColor"])
-    //    .attr("font-size", visStyles[style]["fontSize"])
-    //    .text(d => d.fill)
-    //    .attr("fill", visStyles[style]["textHighlightColor"])
-    //     .attr("font-size", 12)
-    //     .attr("letter-spacing", visStyles[style]["letterSpacing"]);
-
     let shape = svg.append("g")
         .selectAll("path")
             .data(fillData, d => d.fill2)
@@ -349,8 +328,6 @@ function drawLegend() {
         .text(d => d.fill);
 }
 
-
-
 export default function Calibration({config, user, disableFairnessNext, setDisableFairnessNext, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
@@ -368,10 +345,6 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
-
-    // useEffect(() => {
-    //     setId(isOpen ? "fairness": "calibration");
-    // }, [isOpen])
 
     useEffect(() => {
         fairnessDefinitions();
@@ -395,7 +368,6 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
                             <div className="Container2 Margin-Bottom">
                                 <h4 className="Small-Margin">learn</h4>
                                 <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions if the underlying base rates of a population are unequal.</p>
-                                {/* if there are discrepancies in the underlying base rates (prevalence) in a population. */}
                             </div>
                             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
                                 <p>Have you heard of any of these definitions before?</p>
