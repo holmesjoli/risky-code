@@ -214,7 +214,6 @@ function symbolScale(d) {
     }
 }
 
-
 function renderGraph(data) {
 
     let svg = d3.select(`#${chartId} svg`);
@@ -244,17 +243,6 @@ function renderGraph(data) {
             .attr("stroke", function(d){ return fillScale(d[0]);})
             .attr("d", function(d) { return line(d[1]); })
             .attr("stroke-width", 2);
-
-    // let circle = svg
-    //   .selectAll("circle")
-    //     .data(data)
-    //     .enter()
-    //     .append("circle")
-    //       .attr("cx", function(d) { return xScale(d.decile); })
-    //       .attr("cy", function(d) { return yScale(d.mean*100); })
-    //       .attr("r",2)
-    //       .attr("fill", d => fillScale(d.race));
-
 
     svg
         .selectAll("path")
@@ -310,31 +298,55 @@ function initLegend() {
     drawLegend();
 }
 
-function drawLegend(baseRate) {
+function drawLegend() {
 
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
 
-    let color = svg.append("g")
-          .selectAll("circle")
-          .data(fillData, d => d.fill)
-          .enter()
-          .append("g")
-          .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+    // let color = svg.append("g")
+    //       .selectAll("circle")
+    //       .data(fillData, d => d.fill)
+    //       .enter()
+    //       .append("g")
+    //       .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
 
-    color.append("circle")
-       .attr("r", 6)
-       .attr("fill", d => fillScale(d.fill2))
+    // color.append("circle")
+    //    .attr("r", 6)
+    //    .attr("fill", d => fillScale(d.fill2))
 
-    color.append("text")
-       .attr("text-anchor", "middle")
-       .attr("y", 25)
-       .attr("fill", visStyles[style]["textHighlightColor"])
-       .attr("font-size", visStyles[style]["fontSize"])
-       .text(d => d.fill)
-       .attr("fill", visStyles[style]["textHighlightColor"])
+    // color.append("text")
+    //    .attr("text-anchor", "middle")
+    //    .attr("y", 25)
+    //    .attr("fill", visStyles[style]["textHighlightColor"])
+    //    .attr("font-size", visStyles[style]["fontSize"])
+    //    .text(d => d.fill)
+    //    .attr("fill", visStyles[style]["textHighlightColor"])
+    //     .attr("font-size", 12)
+    //     .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+
+    let shape = svg.append("g")
+        .selectAll("path")
+            .data(fillData, d => d.fill2)
+            .enter()
+            .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+
+    shape.append("path")
+        .attr("d", d3.symbol()
+            .type(((d) => symbolScale(d.fill2)))
+            .size(100))
+        .attr("fill", d => fillScale(d.fill2));
+
+    // Add a text element to the previously added g element.
+    shape.append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", 20)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-size", 12)
-        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+        .attr("letter-spacing", visStyles[style]["letterSpacing"])
+        .text(d => d.fill);
 }
 
 
