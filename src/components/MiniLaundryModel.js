@@ -209,8 +209,8 @@ export default function MiniModel() {
   const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
   return (
-    <div id="laundryMiniModel">
-      <DndWrapper id="laundryMiniModel">
+    <div id="laundryModel">
+      <DndWrapper id="laundryModel">
         <div className="Text-Align-Center">
           <Column title={ITEM_LIST} className="Margin-Bottom Center-Card Margin-Top">
             {returnSingleItemForColumn(items, ITEM_LIST)}

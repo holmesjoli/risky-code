@@ -19,7 +19,7 @@ import { visStyles } from "../../utils/global";
 
 let chartId = "Base-Rates-Chart";
 let legendId = "Base-Rates-Legend";
-let width = 660;
+let width = 600;
 let height = 480;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 let style = "darkMode";
@@ -137,7 +137,7 @@ function renderGraph(data, baseRate) {
             .append("path")
                 .attr("d", d3.symbol()
                     .type(((d) => symbolScale(d[baseRate])))
-                    .size(10))
+                    .size(8))
                 .attr("transform", transform)
                 .attr("fill", d => fillScale(d[baseRate]))
                 .attr("class", "compas-base-rate-point"),
@@ -146,7 +146,7 @@ function renderGraph(data, baseRate) {
                 .attr("fill", d => fillScale(d[baseRate]))
                 .attr("d", d3.symbol()
                     .type(((d) => symbolScale(d[baseRate])))
-                    .size(10))
+                    .size(8))
         );
 
     renderTooltip(baseRate);
@@ -374,7 +374,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
                                 <p>Does everyone who commits a crime get charged with that crime?</p>
                                 <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
-                                <p>Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
+                                <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>

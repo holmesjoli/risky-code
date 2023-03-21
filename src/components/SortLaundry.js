@@ -240,10 +240,10 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   }, [nClassified, items])
 
   return (
-    <div id="SortLaundryModel" className='Container'>
+    <div id="laundryModel" className='Container'>
       <h3 className="No-Margin-Bottom">interact</h3>
       <div className="Text-Align-Center">
-        <DndWrapper id="SortLaundryModel">
+        <DndWrapper id="laundryModel">
         <Column title={ITEM_LIST} className="Margin-Bottom Center-Card" nClassified={nClassified}>
           {returnSingleItemForColumn(items, ITEM_LIST)}
         </Column>

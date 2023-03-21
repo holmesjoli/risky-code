@@ -7,9 +7,9 @@ export function Overlay({ isOpen, onClose, children }) {
       {isOpen && (
         <div className="Overlay">
           <div className="Overlay-Background" onClick={onClose} />
-          <div className="Overlay-Container">
-            {children}
-          </div>
+            <div className="Overlay-Container">
+              {children}
+            </div>
         </div>
       )}
     </Fragment>
