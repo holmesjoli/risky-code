@@ -195,8 +195,6 @@ function renderGraph(data, predictiveProbability) {
     let FPRWhite = dataFilteredFPR.filter(d => d.race === "White" && d.confusion === "FP").length;
     let FNRWhite = dataFilteredFNR.filter(d => d.race === "White" && d.confusion === "FN").length;
 
-    console.log(dataFilteredFPR, FPRWhite)
-
     let FPRBlack = dataFilteredFPR.filter(d => d.race === "Black" && d.confusion === "FP").length;
     let FNRBlack = dataFilteredFNR.filter(d => d.race === "Black" && d.confusion === "FN").length;
 
@@ -228,8 +226,6 @@ function renderTooltip(chartId) {
     d3.selectAll(".compas-error-rate-point")
         .on("mouseover", function (e, d) {
 
-        let text = 'blah'
-
         let thisCircle = d3.select(this);
         var x = d.x + 20;
         var y = d.y - 10;
@@ -241,7 +237,7 @@ function renderTooltip(chartId) {
         tooltip.style("visibility", "visible")
             .style("left", x + "px")
             .style("top", y + "px")
-            .html(`${d.id} ${d.race} ${d.predicted}`);
+            .html(`A ${d.race} person who was ${d.confusion === "FP" || d.confusion === "FN"? "incorrectly": "correctly"} by the COMPAS algorithm`);
 
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
@@ -273,7 +269,7 @@ export function Content() {
                 <div>
                     <div className="Container Margin-Bottom">
                         <h4 className="Small-Margin-Bottom">predicted probability of reoffense</h4>
-                        <p>Use the slider to adjust at what threshold defendants should be considered high-risk of reoffense.</p>
+                        <p>Choose the risk level you believe someone should be considered at a high-risk of reoffense.</p>
                         <Slider
                             size="small"
                             defaultValue={40}
