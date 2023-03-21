@@ -31,7 +31,7 @@ export default function Risk({config, modules, policy, setPolicy}) {
     }
 
     const routeBack = () => {
-        let path = `/Stakeholders`; 
+        let path = `/Policy`;
         navigate(path);
     }
 
