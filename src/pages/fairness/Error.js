@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import { Slider } from '@material-ui/core';
+import { FormControl, RadioGroup, FormControlLabel, Radio, Slider } from '@material-ui/core';
 import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -246,7 +246,7 @@ export function Content() {
                             onChange={updateSlider}
                             />
                     </div>
-                    <div className="Container">
+                    <div className="Container Margin-Bottom">
                         <div className="Legend">
                             <h4 className="Small-Margin">legend</h4>
                             <h5 className="Small-Margin">Race</h5>
@@ -255,6 +255,21 @@ export function Content() {
                             <div id={predictedLegendId}></div>
                         </div>
                     </div>
+                <div className="Container">
+                    <FormControl>
+                        <h4 className="Small-Margin">is compas fair?</h4>
+                        <p>Evaluate if you think COMPAS treats people fairly based on race.</p>
+                        <RadioGroup
+                            aria-labelledby="demo-radio-buttons-group-label"
+                            name="radio-buttons-group"
+                            // onChange={updateStakeholderGroup}
+                            // value={stakeholderGroup}
+                        >
+                            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+                            <FormControlLabel value="no" control={<Radio />} label="No" />
+                        </RadioGroup>
+                    </FormControl>
+                </div>
                 </div>
                 <div>
                     <div className="Container">
@@ -338,14 +353,15 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}>
+                        <p>Optimize the false positive rate and false negative rate by moving the slider. </p>
                         <p> The decision to keep an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships.</p>
                     </Description>
                     <RoleShort moduleName="fairness"/>
                     <Terminology margin="Margin-Large-Bottom">
-                        <Term term={terms['recidivism']}/>
-                        <Term term={terms['stakeholders']}/>
                         <Term term={terms['fpr']}/>
                         <Term term={terms['fnr']}/>
+                        <Term term={terms['mathematical-fairness']}/>
+                        <Term term={terms['recidivism']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
