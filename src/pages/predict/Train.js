@@ -5,8 +5,8 @@ import Footer from '../../components/Footer';
 import Model from "../../components/Model";
 import { Actual } from "../../components/Legend";
 import Card from "../../components/Card";
-import { Regression, PredictiveOutcomes } from "../../components/Regression";
-import { terms } from '../../utils/global';
+import { Regression, PredictiveOutcomes, LaundryItemPredicted } from "../../components/Regression";
+import { terms, VARIABLES } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
@@ -53,6 +53,7 @@ export function Content({variables, setVariables, items, setItems}) {
 export default function Train({config, user, variables, setVariables, items, setItems, modules, rules}) {
 
     const [isOpen, setIsOpen] = useState(true);
+    const [variablesMini, setVariablesMini] = useState(VARIABLES);
 
     let navigate = useNavigate();
     const routeNext = () => {
@@ -77,7 +78,10 @@ export default function Train({config, user, variables, setVariables, items, set
                 <div className="Container-Fill-Secondary">
                     <h3 className="Page-Title Small-Margin">algorithmic prediction | train</h3>
                     <div className="Two-Column-Three">
-                        <MiniModel/>
+                        <div className="Two-Column">
+                            <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/>
+                            <LaundryItemPredicted variablesMini={variablesMini}/>
+                        </div>
                         <RightSideBar>
                             <div className="Container2">
                                 <h4 className="Small-Margin">learn</h4>

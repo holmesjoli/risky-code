@@ -92,6 +92,38 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
     )
 }
 
+export function LaundryItemPredicted({variablesMini, containerClass="Container2"}) {
+
+    const modelVars = getModelVariables(variablesMini);
+
+    useEffect(() => {
+
+        d3.selectAll("#predictive-probability")
+            .attr("class", modelVars.length > 0 ? "Semi-Bold White Opacity1 No-Margin-Top": "Hidden");
+
+        d3.selectAll("#description")
+            .attr("class", modelVars.length > 0 ? "No-Margin": "Hidden");
+
+    }, [variablesMini])
+
+    return(
+        <div className="Margin-Bottom">
+            <div className={containerClass}>
+                <h4 className="Small-Margin">predictive probability</h4>
+                <div className="Row">
+                    <div className="Card-Flat Example-Card Case-False No-Margin-Bottom">
+                        <img className="No-Margin-Bottom" src={LaundryItem} alt="Dirty laundry item" />
+                        <h5 id ="predictive-probability" className="Hidden">0.28</h5>
+                    </div>
+                    <div>
+                        <p id ="description" className="Hidden">This shirt, classified as a <span className="Semi-Bold White Opacity1">save for later load</span> item, has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 function logisticData(iterateData, modelVars) {
 
     var data = [];

@@ -10,10 +10,10 @@ const MovableItem = ({
   index,
   currentColumnName,
   moveCardHandler,
-  setVariables
+  setVariablesMini
 }) => {
   const changeItemColumn = (currentItem, columnName) => {
-    setVariables((prevState) => {
+    setVariablesMini((prevState) => {
       return prevState.map((e) => {
         return {
           ...e,
@@ -140,15 +140,13 @@ const Column = ({ children, className, title }) => {
   );
 };
 
-export default function MiniModel() {
-
-    const [variables, setVariables] = useState(VARIABLES);
+export default function MiniModel({variablesMini, setVariablesMini}) {
 
     const moveCardHandler = (dragIndex, hoverIndex) => {
-        const dragItem = variables[dragIndex];
+        const dragItem = variablesMini[dragIndex];
 
         if (dragItem) {
-        setVariables((prevState) => {
+          setVariablesMini((prevState) => {
             const coppiedStateArray = [...prevState];
 
             // remove item by "hoverIndex" and put "dragItem" instead
@@ -162,15 +160,15 @@ export default function MiniModel() {
         }
     };
 
-    const returnItemsForColumn = (variables, columnName) => {
-        return variables
+    const returnItemsForColumn = (variablesMini, columnName) => {
+        return variablesMini
         .filter((item) => item.column === columnName)
         .map((item, index) => (
             <MovableItem
             key={item.id}
             name={item.name}
             currentColumnName={item.column}
-            setVariables={setVariables}
+            setVariablesMini={setVariablesMini}
             index={index}
             moveCardHandler={moveCardHandler}
             />
@@ -179,14 +177,14 @@ export default function MiniModel() {
 
     const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
     return (
-        <div id="statisticalMiniModel" className="Text-Align-Center Max50">
+        <div id="statisticalMiniModel" className="Text-Align-Center">
             <DndWrapper id="statisticalMiniModel">
                 <Column title={DATA_VARIABLES} className="Container2 Variables-Column">
-                {returnItemsForColumn(variables, DATA_VARIABLES)}
+                {returnItemsForColumn(variablesMini, DATA_VARIABLES)}
                 </Column>
                 <ExpandMoreIcon />
                 <Column title={MODEL_VARIABLES} className="Container2 Variables-Column">
-                {returnItemsForColumn(variables,MODEL_VARIABLES)}
+                {returnItemsForColumn(variablesMini, MODEL_VARIABLES)}
                 </Column>
             </DndWrapper>
             <ExpandMoreIcon/>
@@ -194,7 +192,7 @@ export default function MiniModel() {
                 <h4 className="Small-Margin">outcome variable</h4>
                 <div className="Variable-Flat Case-True">cold water load</div>
             </div>
-            {variables.filter(d => d.column === MODEL_VARIABLES).length > 0? <h5 className="Semi-Bold White">Way to go! You added a variable to the predictive model.</h5>: <></>}
+            {variablesMini.filter(d => d.column === MODEL_VARIABLES).length > 0? <h5 className="Semi-Bold White">Way to go! You added a variable to the predictive model.</h5>: <></>}
         </div>
     );
 };
