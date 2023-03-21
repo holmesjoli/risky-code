@@ -200,15 +200,22 @@ export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children
 
 export function BrainstormAlgorithmicDecisionMaking({algorithmicBrainstorm, setAlgorithmicBrainstorm, children}) {
 
+    return(
+        <div className="Container2 Margin-Bottom">
+            <h4 className="Small-Margin">brainstorm</h4>
+            {children}
+            <AlgorithmicDecisionMaking algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}/>
+        </div>
+    )
+}
+
+export function AlgorithmicDecisionMaking({algorithmicBrainstorm, setAlgorithmicBrainstorm}) {
+
     const handleChange = (event) => {
         setAlgorithmicBrainstorm(event.target.value)
     }
 
     return(
-        <div className="Container Margin-Bottom">
-            <h4 className="Small-Margin">brainstorm</h4>
-            {children}
-            <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={algorithmicBrainstorm} onChange={handleChange}/>
-        </div>
+        <TextField placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={algorithmicBrainstorm} onChange={handleChange}/>
     )
 }

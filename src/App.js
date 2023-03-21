@@ -46,6 +46,7 @@ export default function App() {
     const [algorithmDefinition, setAlgorithmDefinition] = useState("");
     const [baseRatesBrainstorm, setBaseRatesBrainstorm] = useState("");
     const [brainstormStakeholders, setBrainstormStakeholders] = useState("");
+    const [algorithmicBrainstorm, setAlgorithmicBrainstorm] = useState("");
     const [rules, setRules] = useState({"rule1": "",
                                         "rule2": "",
                                         "rule3": ""});
@@ -57,6 +58,8 @@ export default function App() {
     const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);
     const [disableStakeholder, setDisableStakeholder] = useState(true);
     const [disableDeliberationNext, setDisableDeliberationNext] = useState(true);
+
+
 
     // items.sort((a, b) => a.column - b.column)
   
@@ -78,11 +81,11 @@ export default function App() {
           <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
           <Route path="/FairnessReflection" element={<FairnessReflection user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>} />
 
-          <Route path="/StakeholderMapping" element={<StakeholderMapping user={user} brainstormStakeholders={setBrainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>} />
+          <Route path="/StakeholderMapping" element={<StakeholderMapping user={user} brainstormStakeholders={brainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} modules={modules}/>} />
           <Route path="/StakeholderReflection" element={<StakeholderReflection user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>} />
           
-          <Route path="/Deliberation" element={<Deliberation user={user} />} />
+          <Route path="/Deliberation" element={<Deliberation user={user} algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}/>} />
           <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} disableDeliberationNext={disableDeliberationNext} setDisableDeliberationNext={setDisableDeliberationNext} modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />

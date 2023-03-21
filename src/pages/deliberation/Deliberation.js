@@ -8,8 +8,9 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
 import { RoleDeliberation } from "../../components/Role";
+import { BrainstormAlgorithmicDecisionMaking } from "../../components/Brainstorm"
 
-export default function Deliberation({user}) {
+export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmicBrainstorm}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
@@ -45,10 +46,10 @@ export default function Deliberation({user}) {
 
     const Brainstorm = () => {
         return(
-            <div className="Container2 Margin-Bottom">
+            <BrainstormAlgorithmicDecisionMaking algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}>
                 <p>Do you think algorithmic decision-making should be used to inform all types of policy decisions? Why or why not?</p>
-                <p className="No-Margin-Bottom">Do you think algorithmic decision-making is more risky in certain scenarios?</p>
-            </div>
+                <p >Do you think algorithmic decision-making is more risky in certain scenarios?</p>
+            </BrainstormAlgorithmicDecisionMaking>
         )
     }
 

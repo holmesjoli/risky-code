@@ -33,7 +33,6 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
     };
 
     const LearningOutcomes = () => {
-
         return(
             <div className="Container2 Margin-Bottom">
                 <p>Be able to define multiple stakeholder groups and explain why these groups are relevant to algorithmic decision-making</p>
@@ -43,7 +42,6 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
     }
 
     const Reflect = ({user, disableStakeholder, setDisableStakeholder}) => {
-
         return(
             <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder}>
                 {user==="group"? <p>Did your team think of any stakeholders which you hadn't considered before?</p>: <p>Did you think of any stakeholders which you hadn't considered before?</p>}
@@ -51,7 +49,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
                 <p className="No-Margin-Bottom">Is it important to consider all stakeholders' values equally?</p>
             </Timer>
         )
-        }
+    }
 
     const steps = [
       {
