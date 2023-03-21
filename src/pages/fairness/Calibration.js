@@ -33,11 +33,12 @@ const yScale = d3.scaleLinear()
     .range([height-margin.bottom, margin.top]);
 
 const fillScale = d3.scaleOrdinal()
-    .domain(["white", "black"])
-    .range(["#FD7B03", "#FE4002"]);
+    .domain(["White", "Black", "Other"])
+    .range(["#FD7B03", "#FE4002", "#F3C010"]);
 
-const fillData = [{"fill": "Black", "fill2": "black"},
-                  {"fill": "White", "fill2": "white"}]
+const fillData = [{"fill": "Black"},
+                  {"fill": "White"},
+                  {"fill": "Other"}]
 
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
@@ -225,9 +226,9 @@ function transform(d) {
 
 function symbolScale(d) {
 
-    if(d === "white") {
+    if(d === "White") {
         return d3.symbolCircle;
-    } else if (d === "black") {
+    } else if (d === "Black") {
         return d3.symbolTriangle;
     } else {
         return d3.symbolSquare;
@@ -360,16 +361,16 @@ function drawLegend() {
 
     let shape = svg.append("g")
         .selectAll("path")
-            .data(fillData, d => d.fill2)
+            .data(fillData, d => d.fill)
             .enter()
             .append("g")
         .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()
-            .type(((d) => symbolScale(d.fill2)))
+            .type(((d) => symbolScale(d.fill)))
             .size(100))
-        .attr("fill", d => fillScale(d.fill2));
+        .attr("fill", d => fillScale(d.fill));
 
     // Add a text element to the previously added g element.
     shape.append("text")

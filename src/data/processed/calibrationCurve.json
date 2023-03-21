@@ -1,101 +1,151 @@
 [
     {
-      "race": "black",
+      "race": "Black",
       "decile": 1,
       "mean": 0.228643216080402
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 2,
       "mean": 0.30279898218829515
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 3,
       "mean": 0.4190751445086705
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 4,
       "mean": 0.4597402597402597
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 5,
       "mean": 0.4821917808219178
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 6,
       "mean": 0.5598958333333334
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 7,
       "mean": 0.5925
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 8,
       "mean": 0.6824512534818942
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 9,
       "mean": 0.7078947368421052
     },
     {
-      "race": "black",
+      "race": "Black",
       "decile": 10,
       "mean": 0.7937062937062938
     },
     {
-      "race": "white",
+      "race": "Other",
+      "decile": 1,
+      "mean": 0.2077562326869806
+    },
+    {
+      "race": "Other",
+      "decile": 2,
+      "mean": 0.32620320855614976
+    },
+    {
+      "race": "Other",
+      "decile": 3,
+      "mean": 0.3359375
+    },
+    {
+      "race": "Other",
+      "decile": 4,
+      "mean": 0.4444444444444444
+    },
+    {
+      "race": "Other",
+      "decile": 5,
+      "mean": 0.52
+    },
+    {
+      "race": "Other",
+      "decile": 6,
+      "mean": 0.5079365079365079
+    },
+    {
+      "race": "Other",
+      "decile": 7,
+      "mean": 0.5102040816326531
+    },
+    {
+      "race": "Other",
+      "decile": 8,
+      "mean": 0.5897435897435898
+    },
+    {
+      "race": "Other",
+      "decile": 9,
+      "mean": 0.6
+    },
+    {
+      "race": "Other",
+      "decile": 10,
+      "mean": 0.7272727272727273
+    },
+    {
+      "race": "White",
       "decile": 1,
       "mean": 0.20851688693098386
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 2,
       "mean": 0.31301939058171746
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 3,
       "mean": 0.34065934065934067
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 4,
       "mean": 0.39649122807017545
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 5,
       "mean": 0.4605809128630705
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 6,
       "mean": 0.5721649484536082
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 7,
       "mean": 0.6153846153846154
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 8,
       "mean": 0.7192982456140351
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 9,
       "mean": 0.6938775510204082
     },
     {
-      "race": "white",
+      "race": "White",
       "decile": 10,
       "mean": 0.703125
     }
