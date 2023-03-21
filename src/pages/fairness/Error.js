@@ -194,22 +194,29 @@ function renderGraph(data, predictiveProbability) {
                 .remove()
         );
 
-    // let FPR = dataFilteredFPR.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
-    // let FNR = dataFilteredFNR.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
-    // let FPRPct = Math.round((FPR/500)*100);
-    // let FNRPct = Math.round((FNR/500)*100);
+    let FPRWhite = dataFilteredFPR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "White").length;
+    let FNRWhite = dataFilteredFNR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "White").length;
 
-    // document.getElementById(textIdFPR).textContent="";
+    let FPRBlack = dataFilteredFPR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "Black").length;
+    let FNRBlack = dataFilteredFNR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "Black").length;
 
-    // d3.select(`#${textIdFPR}`)
-    //     .append("p")
-    //     .text(`At a threshold of ${predictiveProbability}, ${FPR} out of 500 people Black people (${FPRPct}%) were predicted to reoffend, but did not reoffend` );
+    let FPRPctWhite = Math.round((FPRWhite/500)*100);
+    let FNRPctWhite = Math.round((FNRWhite/500)*100);
 
-    // document.getElementById(textIdFNR).textContent="";
+    let FPRPctBlack = Math.round((FPRBlack/500)*100);
+    let FNRPctBlack = Math.round((FNRBlack/500)*100);
 
-    // d3.select(`#${textIdFNR}`)
-    //     .append("p")
-    //     .text(`At a threshold of ${predictiveProbability}, ${FNR} out of 500 people white people (${FNRPct}%) were not predicted to reoffend, but did reoffend` )
+    document.getElementById(textIdFPR).textContent="";
+
+    d3.select(`#${textIdFPR}`)
+        .append("p")
+        .text(`At a threshold of ${predictiveProbability}, ${FPRPctWhite}% of White people and ${FPRPctBlack}% of Black were predicted to reoffend, but did not reoffend`);
+
+    document.getElementById(textIdFNR).textContent="";
+
+    d3.select(`#${textIdFNR}`)
+        .append("p")
+        .text(`At a threshold of ${predictiveProbability}, ${FNRPctWhite}% of White people and ${FNRPctBlack}% of Black were not predicted to reoffend, but did reoffend`);
 }
 
 export function Content() {
@@ -279,7 +286,7 @@ export function Content() {
                             <div className="One-Column-Three3">
                                 <div id={chartIdFPR}></div>
                                 <div>
-                                    <div id={textIdFPR} className="Container2"></div>
+                                    <div id={textIdFPR} className="Container2 Margin-Left"></div>
                                 </div>
                             </div>
                         </div>
@@ -288,7 +295,7 @@ export function Content() {
                             <div className="One-Column-Three3">
                                 <div id={chartIdFNR}></div>
                                 <div>
-                                    <div id={textIdFNR} className="Container2"></div>
+                                    <div id={textIdFNR} className="Container2 Margin-Left"></div>
                                 </div>
                             </div>
                         </div>
