@@ -187,7 +187,7 @@ function Content() {
         <div className="Content One-Column-Three4 No-Padding-Top">
             <div className="Container Margin-Bottom">
                 <h4 className="No-Margin-Bottom">visualize</h4>
-                <div id={chartId}></div>
+                <div id={chartId} className="chart"></div>
                 <h4>legend</h4>
                 <div id={legendId} className="Small-Margin-Bottom"></div>
                 <h6 className="Small-Margin-Top">Visualization shows recidivism rate by risk score and race for Black people, White people, and people of other races. The calibration curves are roughtly equivalent for the three groups. For example, at a risk level of 7, 62% of White people reoffended compared with 59% of Black people.</h6>
@@ -316,12 +316,10 @@ function renderTooltip() {
     var tooltip = d3.select(`#${chartId} .tooltip`);
 
     d3.selectAll(".compas-calibration-point")
-    .on("mouseover", function (e, d) {
+        .on("mouseover", function (e, d) {
 
-        console.log(d)
-
-        var x = xScale(d.decile);
-        var y = yScale(d.mean*100);
+        var x = xScale(d.decile) + 20;
+        var y = yScale(d.mean*100) - 10;
 
         let thisCircle = d3.select(this);
 
@@ -441,6 +439,8 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
         <div className="Main">
             <LeftSideBar>
                 <Description config={config}>
+                    <p>An algorithm is well calibration if in each risk group, the rate of recidivism is about the same for different demographic groups.</p>
+                    <p>Hover over points on the visualization to see more.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom">
