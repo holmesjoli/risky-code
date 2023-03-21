@@ -118,11 +118,7 @@ const Column = ({ children, className, title }) => {
       const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
-        currentColumnName === title ||
-        (currentColumnName === DATA_VARIABLES && title === MODEL_VARIABLES) ||
-        (currentColumnName === MODEL_VARIABLES &&
-          (title === DATA_VARIABLES)) ||
-        (currentColumnName === (title === MODEL_VARIABLES))
+        currentColumnName === title || currentColumnName === DATA_VARIABLES || title === MODEL_VARIABLES
       );
     }
   });
@@ -203,3 +199,28 @@ export default function MiniModel() {
         </div>
     );
 };
+
+
+
+// 
+
+// const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
+//     return (
+//         <div className="Text-Align-Center Max50">
+//             <DndProvider backend={HTML5Backend}>
+//                 <Column title={DATA_VARIABLES} className="Container2 Variables-Column">
+//                 {returnItemsForColumn(variables, DATA_VARIABLES)}
+//                 </Column>
+//                 <ExpandMoreIcon />
+//                 <Column title={MODEL_VARIABLES} className="Container2 Variables-Column">
+//                 {returnItemsForColumn(variables,MODEL_VARIABLES)}
+//                 </Column>
+//             </DndProvider>
+//             <ExpandMoreIcon/>
+//             <div className="Container2 Margin-Bottom">
+//                 <h4 className="Small-Margin">outcome variable</h4>
+//                 <div className="Variable-Flat Case-True">cold water load</div>
+//             </div>
+//             {variables.filter(d => d.column === MODEL_VARIABLES).length > 0? <h5 className="Semi-Bold White">Way to go! You added a variable to the predictive model.</h5>: <></>}
+//         </div>
+//     );
