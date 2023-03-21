@@ -26,7 +26,6 @@ let predictedLegendId = "Error-Predicted-Legend";
 
 let width = 550;
 let height = 225;
-let margin = {left: 10, right: 10, top: 10, bottom: 10}
 
 const opacityScale = d3.scaleOrdinal()
     .domain(["FP", "FN", "TP", "TN"])
@@ -147,7 +146,7 @@ function renderGraph(data, predictiveProbability) {
     let dataFilteredFNR = data.filter(d => !d.recid);
     dataFilteredFNR = grid(dataFilteredFNR);
 
-    console.log(dataFilteredFNR)
+    // console.log(dataFilteredFNR)
 
     svgFPR
         .selectAll("path")
@@ -195,22 +194,22 @@ function renderGraph(data, predictiveProbability) {
                 .remove()
         );
 
-    // let incorrectWhite = dataFilteredWhite.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
-    // let incorrectBlack = dataFilteredBlack.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
-    // let incorrectBlackPct = Math.round((incorrectBlack/500)*100);
-    // let incorrectWhitePct = Math.round((incorrectWhite/500)*100);
+    // let FPR = dataFilteredFPR.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
+    // let FNR = dataFilteredFNR.filter(d => d.confusion === "FP" || d.confusion === "FN").length;
+    // let FPRPct = Math.round((FPR/500)*100);
+    // let FNRPct = Math.round((FNR/500)*100);
 
     // document.getElementById(textIdFPR).textContent="";
 
     // d3.select(`#${textIdFPR}`)
     //     .append("p")
-    //     .text(`At a threshold of ${predictiveProbability}, ${incorrectBlack} out of 500 people Black people (${incorrectBlackPct}%) ${text}` );
+    //     .text(`At a threshold of ${predictiveProbability}, ${FPR} out of 500 people Black people (${FPRPct}%) were predicted to reoffend, but did not reoffend` );
 
     // document.getElementById(textIdFNR).textContent="";
 
     // d3.select(`#${textIdFNR}`)
     //     .append("p")
-    //     .text(`At a threshold of ${predictiveProbability}, ${incorrectWhite} out of 500 people white people (${incorrectWhitePct}%) ${text}` )
+    //     .text(`At a threshold of ${predictiveProbability}, ${FNR} out of 500 people white people (${FNRPct}%) were not predicted to reoffend, but did reoffend` )
 }
 
 export function Content() {
