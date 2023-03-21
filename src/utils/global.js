@@ -207,7 +207,7 @@ export const CARDS = [
 ];
 
 export const STAKEHOLDER_COLUMN_NAMES = {
-    STAKEHOLDER: 'stakeholder',
+    STAKEHOLDER: 'stakeholder list',
     DIRECT: 'direct stakeholder',
     INDIRECT: 'indirect stakeholder',
     EXCLUDED: 'excluded stakeholder'

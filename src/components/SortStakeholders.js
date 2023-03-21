@@ -2,8 +2,9 @@ import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { STAKEHOLDER_COLUMN_NAMES, stakeholderGroups } from "../utils/global";
+import { Fab, TextField } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 const MovableItem = ({
   id,
@@ -147,6 +148,24 @@ const Column = ({ children, className, title }) => {
 
 export default function SortStakeholders() {
   const [items, setItems] = useState(stakeholderGroups);
+  const [stakeholderName, setStakeholderName] = useState("");
+
+  const add = () => {
+
+    let dataNew = Object.assign([], items);
+    const {STAKEHOLDER} = STAKEHOLDER_COLUMN_NAMES;
+    let sk = {'id': 10, 'name': stakeholderName, 'column': STAKEHOLDER, 'group': ''};
+
+    console.log(dataNew)
+    dataNew.push(sk);
+
+    setStakeholderName("");
+    setItems(dataNew)
+}
+
+  const updateStakeholder = ev => {
+    setStakeholderName(ev.target.value);
+  }
 
   const moveCardHandler = (dragIndex, hoverIndex) => {
     const dragItem = items[dragIndex];
@@ -188,9 +207,21 @@ export default function SortStakeholders() {
   return (
     <div className="Text-Align-Center Two-Column">
       <DndProvider backend={HTML5Backend}>
-        <Column title={STAKEHOLDER} className="Container Variables-Column Card-Group">
-          {returnItemsForColumn(STAKEHOLDER)}
-        </Column>
+        <div>
+          <Column title={STAKEHOLDER} className="Container Variables-Column Card-Group">
+            {returnItemsForColumn(STAKEHOLDER)}
+          </Column>
+          <div className="Container2 Margin-Bottom">
+            <h4 className="Small-Margin">add your own stakeholder</h4>
+            <TextField value={stakeholderName} placeholder="stakeholder name" variant="outlined" onChange={updateStakeholder} />
+            <div className="Add-Stakeholder-Button">
+                <h4 className="Small-Margin">add stakeholder to the list</h4>
+                <Fab color="primary" onClick={add}>
+                    <AddIcon />
+                </Fab>
+            </div>
+          </div>
+      </div>
         {/* <ExpandMoreIcon className="Scale200"/> */}
         <div className="Three-Row-Equal">
           <Column title={DIRECT} className="Container Variables-Column Margin-Bottom Card-Group">

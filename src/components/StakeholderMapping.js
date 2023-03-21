@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField, Box } from '@material-ui/core';
+import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGroup, Checkbox, TextField } from '@material-ui/core';
 import * as d3 from 'd3';
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../utils/global";
