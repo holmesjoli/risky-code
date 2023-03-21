@@ -46,7 +46,7 @@ const fillData = [{"fill": "direct"},
 
 const fillScale = d3.scaleOrdinal()
     .domain(["direct", "indirect", "excluded"])
-    .range(["#F50141", "#FD7B03", "#F3C010"])
+    .range(["#FD7B03", "#FE4002", "#F3C010"])
 
 const sizeScale = d3.scaleOrdinal()
     .domain(["stakeholder", "value"])
@@ -294,8 +294,8 @@ function StakeholderNetwork(data, setData) {
 
     return(
         <div className="Container">
-            <h3>visualize</h3>
             <div className='Container2'>
+                <h4 className="Small-Margin">visualize</h4>
                 <div id={chartId}></div>
                 <h4>legend</h4>
                 <div id={legendId} className="Small-Margin-Bottom"></div>
@@ -370,7 +370,6 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
 
     return(
         <div className="Stakeholder-Attr Container">
-            <h3>interact</h3>
             <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">stakeholder group</h4>
                 <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={updateStakeholder} />

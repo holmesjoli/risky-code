@@ -8,7 +8,6 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Paper from '@material-ui/core/Paper';
 import Timer from "../../components/Timer";
-import { AlgorithmDefinition } from '../../components/Brainstorm';
 
 export default function FairnessReflection({user, disableFairnessNext, setDisableFairnessNext}) {
 
@@ -43,15 +42,6 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
         )
     }
 
-    const BrainstormImpossibility = ({algorithmDefinition, setAlgorithmDefinition}) => {
-        return(
-            <div className="Container2">
-                <p>Would you make any updates to your initial definition of an algorithm?</p>
-                <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
-            </div>
-        )
-    }
-
     const Reflect = ({user, disableFairnessNext, setDisableFairnessNext}) => {
 
         return(
@@ -68,10 +58,6 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
         label: 'learning outcomes',
         children: <LearningOutcomes/>
       },
-    //   {
-    //     label: 'define',
-    //     children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
-    //   },
       {
         label: 'reflect',
         children: <Reflect user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
