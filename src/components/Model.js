@@ -1,8 +1,7 @@
 import React, { useRef } from "react";
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { useDrag, useDrop } from "react-dnd";
 import { MODEL_COLUMN_NAMES } from "../utils/global";
-import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
+import { getBackgroundColor, getColor, getBorder, DndWrapper } from "./DragAndDrop";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
@@ -183,8 +182,8 @@ export default function Model({variables, setVariables}) {
   const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
 
   return (
-    <div className="Text-Align-Center">
-      <DndProvider backend={HTML5Backend}>
+    <div id="StatisticalModel" className="Text-Align-Center">
+      <DndWrapper id="StatisticalModel">
         <Column title={DATA_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom">
           {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
@@ -192,7 +191,7 @@ export default function Model({variables, setVariables}) {
         <Column title={MODEL_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom">
           {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
-      </DndProvider>
+      </DndWrapper>
       <ExpandMoreIcon/>
       <div className="Container2 No-Margin-Bottom">
           <h4 className="Small-Margin">outcome variable</h4>

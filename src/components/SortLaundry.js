@@ -1,8 +1,7 @@
 import React, { useRef, useEffect } from "react";
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { useDrag, useDrop } from "react-dnd";
 import { CLASSIFY_COLUMN_NAMES } from "../utils/global";
-import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
+import { getBackgroundColor, getColor, getBorder, DndWrapper } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -241,7 +240,8 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
   }, [nClassified, items])
 
   return (
-      <DndProvider backend={HTML5Backend}>
+    <div id="SortLaundry">
+      <DndWrapper id="SortLaundry">
         <div className='Container'>
           <h3 className="No-Margin-Bottom">interact</h3>
           <div className="Text-Align-Center">
@@ -260,6 +260,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
             <h5 className="Text-Align-Right Small-Margin White Semi-Bold">{`${nClassified}/${totalClassify} classified`}</h5>
           </div>
         </div>
-      </DndProvider>
+      </DndWrapper>
+      </div>
   );
 };

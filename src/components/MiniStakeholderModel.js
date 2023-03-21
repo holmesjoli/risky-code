@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { useDrag, useDrop } from "react-dnd";
 import { getBackgroundColor, getColor, getBorder, DndWrapper } from "./DragAndDrop";
 import { STAKEHOLDER_COLUMN_NAMES, stakeholderGroups } from "../utils/global";
 import { Fab, TextField } from '@material-ui/core';
@@ -146,7 +145,7 @@ const Column = ({ children, className, title }) => {
   );
 };
 
-export default function SortStakeholders() {
+export default function MiniModel() {
   const [items, setItems] = useState(stakeholderGroups);
   const [stakeholderName, setStakeholderName] = useState("");
 
