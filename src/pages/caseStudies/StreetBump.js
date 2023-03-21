@@ -13,7 +13,7 @@ import { RoleShort } from "../../components/Role";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
-import SortStakeholders from "../../components/SortStakeholders";
+import MiniModel from "../../components/MiniStakeholderModel";
 
 
 // import coastline from "../../data/processed/Boston/coastline.json";
@@ -97,7 +97,7 @@ export default function StreetBump({config, user, modules}) {
                         <div>
                             <h3 className="Page-Title Small-Margin Padding-">stakeholder mapping for street bump</h3>
                             <div className="Medium-Margin-Top">
-                                <SortStakeholders/>
+                                <MiniModel/>
                                 {/* <div id={chartID} className="chart Margin-Bottom"></div> */}
                                 {/* <h6>Visualization shows different policy areas where algorithmically informed-decision making is currently in use. Purple nodes indicate which definitions of algorithmic fairness are reviewed in the next module. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>. </h6> */}
                             </div>

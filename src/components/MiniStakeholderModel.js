@@ -146,7 +146,7 @@ const Column = ({ children, className, title }) => {
   );
 };
 
-export default function MiniModel() {
+export default function SortStakeholders() {
   const [items, setItems] = useState(stakeholderGroups);
   const [stakeholderName, setStakeholderName] = useState("");
 
