@@ -140,13 +140,11 @@ function renderGraph(data, predictiveProbability) {
         i.confusion = confusion(i);
     }
 
-    let dataFilteredFPR = data.filter(d => d.recid);
+    let dataFilteredFPR = data.filter(d => !d.recid);
     dataFilteredFPR = grid(dataFilteredFPR);
 
-    let dataFilteredFNR = data.filter(d => !d.recid);
+    let dataFilteredFNR = data.filter(d => d.recid);
     dataFilteredFNR = grid(dataFilteredFNR);
-
-    // console.log(dataFilteredFNR)
 
     svgFPR
         .selectAll("path")
@@ -194,11 +192,13 @@ function renderGraph(data, predictiveProbability) {
                 .remove()
         );
 
-    let FPRWhite = dataFilteredFPR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "White").length;
-    let FNRWhite = dataFilteredFNR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "White").length;
+    let FPRWhite = dataFilteredFPR.filter(d => d.race === "White" && d.confusion === "FP").length;
+    let FNRWhite = dataFilteredFNR.filter(d => d.race === "White" && d.confusion === "FN").length;
 
-    let FPRBlack = dataFilteredFPR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "Black").length;
-    let FNRBlack = dataFilteredFNR.filter(d => d.confusion === "FP" || d.confusion === "FN" && d.race === "Black").length;
+    console.log(dataFilteredFPR, FPRWhite)
+
+    let FPRBlack = dataFilteredFPR.filter(d => d.race === "Black" && d.confusion === "FP").length;
+    let FNRBlack = dataFilteredFNR.filter(d => d.race === "Black" && d.confusion === "FN").length;
 
     let FPRPctWhite = Math.round((FPRWhite/500)*100);
     let FNRPctWhite = Math.round((FNRWhite/500)*100);
