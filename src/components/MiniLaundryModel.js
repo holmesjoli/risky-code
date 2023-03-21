@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useState } from "react";
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import React, { useRef, useState } from "react";
+import { useDrag, useDrop } from "react-dnd";
 import { CLASSIFY_COLUMN_NAMES, CARDS } from "../utils/global";
-import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
+import { getBackgroundColor, getColor, getBorder, DndWrapper } from "./DragAndDrop";
 import { addClass } from "./Card";
 import { importImages } from "./Helper";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -210,7 +209,8 @@ export default function MiniModel() {
   const { ITEM_LIST, CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
 
   return (
-      <DndProvider backend={HTML5Backend}>
+    <div id="laundryMiniModel">
+      <DndWrapper id="laundryMiniModel">
         <div className="Text-Align-Center">
           <Column title={ITEM_LIST} className="Margin-Bottom Center-Card Margin-Top">
             {returnSingleItemForColumn(items, ITEM_LIST)}
@@ -225,6 +225,7 @@ export default function MiniModel() {
             </Column>
           </div>
         </div>
-      </DndProvider>
+      </DndWrapper>
+      </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
+import { getBackgroundColor, getColor, getBorder, DndWrapper } from "./DragAndDrop";
 import { STAKEHOLDER_COLUMN_NAMES, stakeholderGroups } from "../utils/global";
 import { Fab, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
@@ -205,8 +205,8 @@ export default function SortStakeholders() {
   const { STAKEHOLDER, DIRECT, INDIRECT, EXCLUDED } = STAKEHOLDER_COLUMN_NAMES;
 
   return (
-    <div className="Text-Align-Center Two-Column">
-      <DndProvider backend={HTML5Backend}>
+    <div id="stakeholderMiniModel" className="Text-Align-Center Two-Column">
+      <DndWrapper id="stakeholderMiniModel">
         <div>
           <Column title={STAKEHOLDER} className="Container Variables-Column Card-Group">
             {returnItemsForColumn(STAKEHOLDER)}
@@ -234,7 +234,7 @@ export default function SortStakeholders() {
             {returnItemsForColumn(EXCLUDED)}
             </Column>
         </div>
-      </DndProvider>
+      </DndWrapper>
     </div>
   );
 };

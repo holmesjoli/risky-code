@@ -1,8 +1,7 @@
 import React, { useRef, useState } from "react";
-import { DndProvider, useDrag, useDrop } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { useDrag, useDrop } from "react-dnd";
 import { MODEL_COLUMN_NAMES, VARIABLES } from "../utils/global";
-import { getBackgroundColor, getColor, getBorder } from "./DragAndDrop";
+import { getBackgroundColor, getColor, getBorder, DndWrapper } from "./DragAndDrop";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
@@ -180,8 +179,8 @@ export default function MiniModel() {
 
     const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
     return (
-        <div className="Text-Align-Center Max50">
-            <DndProvider backend={HTML5Backend}>
+        <div id="statisticalMiniModel" className="Text-Align-Center Max50">
+            <DndWrapper id="statisticalMiniModel">
                 <Column title={DATA_VARIABLES} className="Container2 Variables-Column">
                 {returnItemsForColumn(variables, DATA_VARIABLES)}
                 </Column>
@@ -189,7 +188,7 @@ export default function MiniModel() {
                 <Column title={MODEL_VARIABLES} className="Container2 Variables-Column">
                 {returnItemsForColumn(variables,MODEL_VARIABLES)}
                 </Column>
-            </DndProvider>
+            </DndWrapper>
             <ExpandMoreIcon/>
             <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">outcome variable</h4>
@@ -199,28 +198,3 @@ export default function MiniModel() {
         </div>
     );
 };
-
-
-
-// 
-
-// const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
-//     return (
-//         <div className="Text-Align-Center Max50">
-//             <DndProvider backend={HTML5Backend}>
-//                 <Column title={DATA_VARIABLES} className="Container2 Variables-Column">
-//                 {returnItemsForColumn(variables, DATA_VARIABLES)}
-//                 </Column>
-//                 <ExpandMoreIcon />
-//                 <Column title={MODEL_VARIABLES} className="Container2 Variables-Column">
-//                 {returnItemsForColumn(variables,MODEL_VARIABLES)}
-//                 </Column>
-//             </DndProvider>
-//             <ExpandMoreIcon/>
-//             <div className="Container2 Margin-Bottom">
-//                 <h4 className="Small-Margin">outcome variable</h4>
-//                 <div className="Variable-Flat Case-True">cold water load</div>
-//             </div>
-//             {variables.filter(d => d.column === MODEL_VARIABLES).length > 0? <h5 className="Semi-Bold White">Way to go! You added a variable to the predictive model.</h5>: <></>}
-//         </div>
-//     );
