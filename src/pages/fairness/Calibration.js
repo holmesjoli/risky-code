@@ -251,7 +251,8 @@ function renderGraph(data) {
             .attr("fill", "none")
             .attr("stroke", function(d){ return fillScale(d[0]);})
             .attr("d", function(d) { return line(d[1]); })
-            .attr("stroke-width", 2);
+            .attr("stroke-width", 2)
+            .attr("class", "compas-calibration-line");
 
     svg
         .selectAll("path")
@@ -309,20 +310,34 @@ function renderTooltip() {
 
         let thisCircle = d3.select(this);
 
-        thisCircle
-            .attr("stroke-width", 2)
-            .attr("stroke", visStyles[style]["secondaryHighlightColor"]);
-
         tooltip.style("visibility", "visible")
             .style("left", x + "px")
             .style("top", y + "px")
             .html(`At a risk score of ${d.decile}, ${Math.round(d.mean*100)}% of ${d.race} people reoffended`);
 
+        d3
+            .selectAll(".compas-calibration-point")
+            .attr("opacity", 0.5);
+
+        d3
+            .selectAll(".compas-calibration-line")
+            .attr("opacity", 0.5);
+
+        thisCircle
+            .attr("stroke-width", 2)
+            .attr("stroke", fillScale(d.race))
+            .attr("opacity", 1).raise();
+
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
 
         d3.selectAll(".compas-calibration-point")
+            .attr("opacity", 1)
             .attr("stroke", "none");
+
+        d3
+            .selectAll(".compas-calibration-line")
+            .attr("opacity", 1);
     });
 }
 

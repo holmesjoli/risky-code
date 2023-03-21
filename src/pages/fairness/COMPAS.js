@@ -83,8 +83,6 @@ function renderTooltip(baseRate) {
     d3.selectAll(".compas-base-rate-point")
         .on("mouseover", function (e, d) {
 
-        console.log(d)
-
         var otherPop = d.pop === "Other" ? "person of another race": `${d.pop} person`;
         var otherArrests =  d.arrests === "Other"? "person of another race": `${d.arrests} person`;
 
