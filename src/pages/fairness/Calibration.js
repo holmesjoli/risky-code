@@ -20,9 +20,9 @@ let chartId = "Calibration-Chart";
 let legendId = "Calibration-Legend";
 
 let width = 660;
-let height = 480;
+let height = 460;
 let style = "darkMode";
-let margin = {left: 100, right: 50, top: 50, bottom: 70};
+let margin = {left: 70, right: 30, top: 30, bottom: 70};
 
 const xScale = d3.scaleLinear()
     .domain([1, 10])
@@ -301,7 +301,7 @@ function renderGraph(data) {
     svg.append("text")
           .attr("class","axisLabel")
           .attr("x", -height/2)
-          .attr("y", 50)
+          .attr("y", 30)
           .attr("text-anchor","middle")
           .attr("transform","rotate(-90)")
           .text("Likelihood of reoffense (%)")
