@@ -62,7 +62,7 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
 
     return (
         <div className="Container2 Small-Padding-Bottom">
-            <h3 className="Small-Margin">{title}</h3>
+            <h4 className="Small-Margin Semi-Bold">{title}</h4>
             {children}
             <div className="Padding-Left Padding-Right">
                   <Slider
@@ -122,43 +122,43 @@ export function Content() {
                         <RiskLevel title="risk of appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}>
                             <ul>
                                 <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">citizen data use</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">citizen data use</span></li>
                                 </Tooltip>
                                 <Tooltip title="Consider the purposes and context under which the data was obtained">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">data compatability</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">data compatability</span></li>
                                 </Tooltip>
                             </ul>
                         </RiskLevel>
                         <RiskLevel title="risk of technical bias" defaultValue={technical} handleChange={updateTechnical}>
                             <ul>
                                 <Tooltip title="Consider representativeness of data, sample bias, data quality.">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">technical bias</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">technical bias</span></li>
                                 </Tooltip>
                                 <Tooltip title="Consider if there is a match between the real world and the captured data.">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">proxy variables</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">proxy variables</span></li>
                                 </Tooltip>
                             </ul>
                         </RiskLevel>
                         <RiskLevel title="risk of stakeholder values" defaultValue={stakeholderValues} handleChange={updateStakeholderValues}>
                             <ul>
                                 <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
                                 </Tooltip>
                                 <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">historic societal bias</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">historic societal bias</span></li>
                                 </Tooltip>
                             </ul>
                         </RiskLevel>
                         <RiskLevel title="risk of accountability" defaultValue={accountability} handleChange={updateAccountability}>
                             <ul>
                                 <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
                                 </Tooltip>
                                 <Tooltip title="Consider data and algorithm access">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
+                                    <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
                                 </Tooltip>
                                 <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
-                                    <li className="Small-Margin">Risk of <span className="Emphasis">automation</span></li>
+                                    <li className="Small-Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">automation</span></li>
                                 </Tooltip>
                             </ul>
                         </RiskLevel>
