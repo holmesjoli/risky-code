@@ -13,6 +13,7 @@ import { riskData } from "../../utils/global";
 import Box from '@material-ui/core/Box';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
+import Tooltip from '@material-ui/core/Tooltip';
 
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
@@ -41,7 +42,7 @@ function renderGraph(data) {
     console.log(data)
 }
 
-function RiskLevel({title, defaultValue, handleChange}) {
+function RiskLevel({title, defaultValue, handleChange, children}) {
 
     const marks = [
         {
@@ -60,19 +61,21 @@ function RiskLevel({title, defaultValue, handleChange}) {
 
     return (
         <div className="Container2 Margin-Bottom">
-            <h4 className="No-Margin-Bottom">{title}</h4>
-            <Slider
-                size="small"
-                defaultValue={defaultValue}
-                min={1}
-                max={5}
-                step={3}
-                aria-label="Small"
-                marks={marks}
-                valueLabelDisplay="auto"
-                className="Padding-Left Padding-Right"
-                onChange={handleChange}
-            />
+            <h3 className="Small-Margin">{title}</h3>
+            {children}
+            <div className="Padding-Left Padding-Right">
+                  <Slider
+                  size="small"
+                  defaultValue={defaultValue}
+                  min={1}
+                  max={5}
+                  step={3}
+                  aria-label="Small"
+                  marks={marks}
+                  valueLabelDisplay="auto"
+                  onChange={handleChange}
+              />
+            </div>
         </div>
     );
 }
@@ -103,15 +106,54 @@ export function Content() {
     return(
         <div className="Content One-Column-Three No-Padding-Top">
             <div className="Container Margin-Bottom">
-                <RiskLevel title="appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}/>
-                <RiskLevel title="accountability" defaultValue={accountability} handleChange={updateAccountability}/>
-                <RiskLevel title="technical risk" defaultValue={technical} handleChange={updateTechnical}/>
-                <RiskLevel title="stakeholder values" defaultValue={stakeholderValues} handleChange={updateStakeholderValues}/>
+                <RiskLevel title="risk of appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}>
+                    <ul>
+                        <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">citizen data use</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider the purposes and context under which the data was obtained">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">data compatability</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
+                <RiskLevel title="risk of accountability" defaultValue={accountability} handleChange={updateAccountability}>
+                    <ul>
+                        <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider data and algorithm access">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">automation</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
+                <RiskLevel title="risk of technical bias" defaultValue={technical} handleChange={updateTechnical}>
+                    <ul>
+                        <Tooltip title="Consider representativeness of data, sample bias, data quality.">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">technical bias</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider if there is a match between the real world and the captured data.">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">proxy variables</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
+                <RiskLevel title="risk of stakeholder values" defaultValue={stakeholderValues} handleChange={updateStakeholderValues}>
+                    <ul>
+                        <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
+                            <li className="Small-Margin">Risk of <span className="Emphasis">historic societal bias</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
             </div>
             <div className="Container Margin-Bottom">
-                <h4 className="No-Margin-Bottom">visualize</h4>
+                {/* <h4 className="No-Margin-Bottom">visualize</h4> */}
                 <div id={chartId} className="chart"></div>
-                <h4>legend</h4>
+                {/* <h4>legend</h4> */}
                 <div id={legendId} className="Small-Margin-Bottom"></div>
                 <h6 className="Small-Margin-Top"></h6>
             </div>
