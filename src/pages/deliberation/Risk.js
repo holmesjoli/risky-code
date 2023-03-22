@@ -9,6 +9,10 @@ import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
 import { RoleShort } from "../../components/Role";
+import { riskData } from "../../utils/global";
+import Box from '@material-ui/core/Box';
+import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
 
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
@@ -37,9 +41,46 @@ function renderGraph(data) {
     console.log(data)
 }
 
+function RiskLevels(title="blah") {
+
+    const marks = [
+        {
+          value: 1,
+          label: 'Low',
+        },
+        {
+          value: 3,
+          label: 'Medium',
+        },
+        {
+          value: 5,
+          label: 'High',
+        }
+    ];
+
+    return (
+        <div className="Container2">
+            <h4 className="No-Margin-Bottom">blah</h4>
+            <Slider
+                size="small"
+                defaultValue={1}
+                step={1} 
+                marks={marks}
+                min={1} 
+                max={5}
+                valueLabelDisplay="auto"
+            />
+        </div>
+    );
+}
+
 export function Content() {
     return(
-        <div className="Content One-Column-Three4 No-Padding-Top">
+        <div className="Content One-Column-Three No-Padding-Top">
+            <div className="Container Margin-Bottom">
+
+                <RiskLevels/>
+            </div>
             <div className="Container Margin-Bottom">
                 <h4 className="No-Margin-Bottom">visualize</h4>
                 <div id={chartId} className="chart"></div>
@@ -77,6 +118,9 @@ export default function Risk({config, modules, policy, setPolicy, data}) {
                     <Description config={config}>
                     </Description>
                     <RoleShort moduleName="deliberation"/>
+                    <Terminology margin="Margin-Large-Bottom">
+                        <Term term={terms['proxy-variable']}/>
+                    </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
                 <Content />

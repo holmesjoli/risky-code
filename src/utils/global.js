@@ -397,7 +397,6 @@ export const terms = {
     }
 }
 
-
 export const riskVariables = [
     {"id": "citizenData2", "group": "appropriate data use", "name": "Risk of citizen data", "description":  "Risk of citizen data. Consider if citizen data is used and if citizens opted into data collection"},
     {"id": "dataUse", "group": "appropriate data use", "name": "Risk of data compatability", "description": "Risk of data compatability with the purposes and context under which the data was obtained"},

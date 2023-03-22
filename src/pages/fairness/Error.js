@@ -102,7 +102,7 @@ export function initPredictedLegend(legendId) {
 
 export function drawPredictedLegend(legendId) {
 
-    const width = window.width;
+    // const width = window.width;
 
     const data = [{x: 10, y:10, name: "Correct"},
                   {x: 10, y:30, name: "Incorrect"}];
@@ -121,7 +121,7 @@ export function drawPredictedLegend(legendId) {
             .data(data, d => d.name)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`);
+        .attr("transform", (d, i) => `translate(${(i * 70) + 30}, ${h / 3})`);
 
      shape.append("circle")
         .attr("r", 6)

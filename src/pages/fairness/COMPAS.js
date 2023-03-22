@@ -174,7 +174,7 @@ function drawLegend(baseRate) {
             .data(fillData, d => d.pop)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+        .attr("transform", (d, i) => `translate(${(i * 70) + 30}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()

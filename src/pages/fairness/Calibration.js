@@ -20,7 +20,7 @@ let introChartId = "Fairness-Chart";
 let chartId = "Calibration-Chart";
 let legendId = "Calibration-Legend";
 
-let width = 660;
+let width = 620;
 let height = 460;
 let style = "darkMode";
 let margin = {left: 70, right: 30, top: 30, bottom: 70};
@@ -266,13 +266,6 @@ function renderGraph(data) {
                 .attr("transform", transform)
                 .attr("fill", d => fillScale(d.race))
                 .attr("class", "compas-calibration-point")
-            //     ,
-            // update => update
-            //     .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
-            //     .attr("fill", d => fillScale(d[baseRate]))
-            //     .attr("d", d3.symbol()
-            //         .type(((d) => symbolScale(d[baseRate])))
-            //         .size(10))
         );
 
     svg.append("text")
@@ -363,7 +356,7 @@ export function drawRaceLegend(legendId) {
             .data(fillData, d => d.fill)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`)
+        .attr("transform", (d, i) => `translate(${(i * 70) + 30}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()
