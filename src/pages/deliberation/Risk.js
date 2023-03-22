@@ -15,14 +15,21 @@ import Tooltip from '@material-ui/core/Tooltip';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
-
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
 
 let width = 660;
-let height = 250;
+let height = 200;
 let style = "darkMode";
-let margin = {left: 70, right: 30, top: 30, bottom: 70};
+let margin = {left: 10, right: 10, top: 10, bottom: 40};
+
+const xScale = d3.scaleLinear()
+    .domain([1, 5])
+    .range([margin.left, width-margin.right]);
+
+const yScale = d3.scaleLinear()
+    .domain([0, 100])
+    .range([height-margin.bottom, margin.top]);
 
 function initGraph(data) {
     d3.select(`#${chartId}`)
@@ -41,6 +48,23 @@ function renderGraph(data) {
 
     let svg = d3.select(`#${chartId} svg`);
     console.log(data)
+
+    const xAxis = svg.append("g")
+        .attr("class", "axis")
+        .attr("transform",`translate(0,${height-margin.bottom})`)
+        .attr("color", visStyles[style]["textColor"])
+        .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
+
+
+    svg.append("text")
+        .attr("class","axisLabel")
+        .attr("x", (width - margin.left - margin.right)/2 + margin.left)
+        .attr("y", height - 5)
+        .attr("text-anchor","middle")
+        .text("Overall risk")
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 }
 
 function RiskLevel({title, defaultValue, handleChange, children}) {
