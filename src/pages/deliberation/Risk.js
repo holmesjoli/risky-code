@@ -17,6 +17,7 @@ import AddIcon from '@material-ui/icons/Add';
 
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
+let stakeholderId = "Risk-Stakeholder";
 
 let width = 550;
 let height = 200;
@@ -64,6 +65,25 @@ function renderGraph(data) {
         .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-size", 12)
         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+}
+
+function initStakeholder(data) {
+
+    let height = 200;
+    let width = 100;
+
+    d3.select(`#${stakeholderId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    drawStakeholder(data);
+}
+
+function drawStakeholder(data) {
+
+    let svg = d3.select(`#${stakeholderId} svg`)
+
 }
 
 function RiskLevel({title, defaultValue, handleChange, children}) {
@@ -135,6 +155,7 @@ export function Content() {
                 <div className="One-Column-Three Margin-Bottom">
                     <div className="Container2">
                         <div className="Add-Stakeholder-Button">
+                            <div id={stakeholderId} className="Small-Margin-Bottom"></div>
                             <h4 className="Small-Margin">add stakeholder to diagram</h4>
                             <Fab color="primary" onClick={add}>
                                 <AddIcon />
@@ -219,6 +240,7 @@ export default function Risk({config, modules, policy, setPolicy, data}) {
 
     useEffect(() => {
         initGraph(data);
+        initStakeholder(data);
     }, []);
 
     return (
