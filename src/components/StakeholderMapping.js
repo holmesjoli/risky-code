@@ -97,7 +97,7 @@ function stakeholderType(d) {
     }
 }
 
-function renderTooltip() {
+function renderTooltip(chartId) {
     var tooltip = d3.select(`#${chartId} .tooltip`);
 
     d3.selectAll(".network-nodes").on("mouseover", function (e, d) {
@@ -126,7 +126,7 @@ function renderTooltip() {
     });
 }
 
-function initNetwork(data) {
+export function initNetwork(chartId, data) {
     let svg = d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
@@ -170,10 +170,10 @@ function initNetwork(data) {
             .attr("y", function (d) { return d.y - 10; });
     }
 
-    updateNetwork(data);
+    updateNetwork(chartId, data);
 }
 
-function updateNetwork(data) {
+export function updateNetwork(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
 
@@ -209,7 +209,7 @@ function updateNetwork(data) {
     simulation.alpha(1).restart();
 
     node.call(drag);
-    renderTooltip();
+    renderTooltip(chartId);
 }
 
 function initShapeLegend() {
@@ -284,12 +284,12 @@ function StakeholderNetwork(data, setData) {
     }
 
     useEffect(() => {
-        initNetwork(data);
+        initNetwork(chartId, data);
         initShapeLegend();
     }, [])
 
     useEffect(() => {
-        updateNetwork(data);
+        updateNetwork(chartId, data);
     }, [data])
 
     return(

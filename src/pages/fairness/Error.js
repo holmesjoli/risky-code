@@ -208,12 +208,14 @@ function renderGraph(data, predictiveProbability) {
 
     d3.select(`#${textIdFPR}`)
         .append("p")
+        .attr("class", "No-Margin-Bottom")
         .text(`At a threshold of ${predictiveProbability}, ${FPRPctBlack}% of Black people and ${FPRPctWhite}% of White people were predicted to reoffend, but did not reoffend`);
 
     document.getElementById(textIdFNR).textContent="";
 
     d3.select(`#${textIdFNR}`)
         .append("p")
+        .attr("class", "No-Margin-Bottom")
         .text(`At a threshold of ${predictiveProbability}, ${FNRPctBlack}% of Black people and ${FNRPctWhite}% of White people were not predicted to reoffend, but did reoffend`);
 
     renderTooltip(chartIdFPR);

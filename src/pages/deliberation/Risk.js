@@ -14,6 +14,7 @@ import Slider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import { initNetwork, updateNetwork } from '../../components/StakeholderMapping';
 
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
@@ -66,7 +67,7 @@ function renderGraph(data) {
         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 }
 
-function initStakeholder(data) {
+function initStakeholder(stakeholderId, data) {
 
     let height = 200;
     let width = 100;
@@ -76,12 +77,12 @@ function initStakeholder(data) {
         .attr("width", width)
         .attr("height", height);
 
-    drawStakeholder(data);
+    drawStakeholder(stakeholderId, data);
 }
 
-function drawStakeholder(data) {
+function drawStakeholder(stakeholderId, data) {
 
-    let svg = d3.select(`#${stakeholderId} svg`)
+    // let svg = d3.select(`#${stakeholderId} svg`)
 
 }
 
@@ -241,7 +242,7 @@ export default function Risk({config, modules, policy, setPolicy, data, stakehol
 
     useEffect(() => {
         initGraph(data);
-        initStakeholder(data);
+        initStakeholder(stakeholderId, data);
     }, []);
 
     return (
