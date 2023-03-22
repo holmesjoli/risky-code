@@ -74,10 +74,7 @@ function initStakeholder(stakeholderId, data) {
 
 function drawStakeholder(stakeholderId, height, width, data) {
 
-
     initNetwork(stakeholderId, height, width, data)
-    // let svg = d3.select(`#${stakeholderId} svg`)
-
 }
 
 function RiskLevel({title, defaultValue, handleChange, children}) {
@@ -104,7 +101,7 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
             <div className="Padding-Left Padding-Right">
                   <Slider
                   size="small"
-                  defaultValue={defaultValue}
+                  defaultValue={3}
                   min={1}
                   max={5}
                   step={1}
@@ -118,7 +115,7 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
     );
 }
 
-export function Content({stakeholderData}) {
+export function Content({stakeholderData, setStakeholderData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -141,6 +138,18 @@ export function Content({stakeholderData}) {
     };
 
     const add = () => {
+
+        let dataNew = Object.assign({}, stakeholderData[0]);
+
+        let risks = {
+            "accountability": accountability,
+            "stakeholderValues": stakeholderValues,
+            "technical": technical,
+            "appropriateDataUse": appropriateDataUse
+        }
+
+        dataNew.risks = risks;
+        setStakeholderData(dataNew)
     }
 
     return(
@@ -218,7 +227,7 @@ export function Content({stakeholderData}) {
     )
 }
 
-export default function Risk({config, modules, policy, setPolicy, data, stakeholderData}) {
+export default function Risk({config, modules, policy, setPolicy, data, stakeholderData, setStakeholderData}) {
 
     console.log(stakeholderData)
 
@@ -253,7 +262,7 @@ export default function Risk({config, modules, policy, setPolicy, data, stakehol
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content stakeholderData={stakeholderData}/>
+                <Content stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>

@@ -88,7 +88,7 @@ export default function App() {
 
           <Route path="/Deliberation" element={<Deliberation user={user} algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}/>} />
           <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} setData={setPolicyData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>} />
-          <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} stakeholderData={stakeholderData}/>} />
+          <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
 
           <Route path="/About" element={<About config={config.About} modules={modules} />} />
