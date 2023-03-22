@@ -311,7 +311,7 @@ function StakeholderNetwork(data, setData) {
     )
 }
 
-function AddStakeholder(data, setData, stakeholderIdArray) {
+function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray) {
 
     const [stakeholderName, setStakeholderName] = useState("");
     const [stakeholderGroup, setStakeholderGroup] = useState("direct");
@@ -341,6 +341,8 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     const add = () => {
 
         let dataNew = Object.assign({}, data);
+        let dataS = Object.assign([], stakeholderData);
+        let links = []
 
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
@@ -348,7 +350,6 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                            "fill": stakeholderGroup};
 
         dataNew.nodes.push(stakeholder);
-
         for (let i of stakeholderValues.filter(d => d.checked)) {
 
             if (!stakeholderIdArray.includes(i.value)) {
@@ -360,8 +361,17 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
             }
 
             dataNew.links.push({"source": i.value, "target": stakeholderName});
+            links.push({"source": i.value, "target": stakeholderName});
         }
 
+        let s = {
+            "nodes": stakeholder,
+            "links": links
+        }
+
+        dataS.push(s);
+
+        setStakeholderData(dataS)
         setData(dataNew);
         setStakeholderName("");
         setStakeholderGroup("direct");
@@ -413,14 +423,14 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
     )
 }
 
-export default function StakeholderMapping({data, setData}) {
+export default function StakeholderMapping({data, setData, stakeholderData, setStakeholderData}) {
 
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(
         <div className="Content One-Column-Three No-Padding-Top">
             <div className="">
-                {AddStakeholder(data, setData, stakeholderIdArray)}
+                {AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray)}
             </div>
             <div className="">
                 {StakeholderNetwork(data, setData)}

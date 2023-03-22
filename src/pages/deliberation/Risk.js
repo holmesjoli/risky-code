@@ -48,7 +48,6 @@ function initGraph(data) {
 function renderGraph(data) {
 
     let svg = d3.select(`#${chartId} svg`);
-    console.log(data)
 
     const xAxis = svg.append("g")
         .attr("class", "axis")
@@ -124,7 +123,7 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
     );
 }
 
-export function Content() {
+export function Content({stakeholderData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -224,7 +223,9 @@ export function Content() {
     )
 }
 
-export default function Risk({config, modules, policy, setPolicy, data}) {
+export default function Risk({config, modules, policy, setPolicy, data, stakeholderData}) {
+
+    console.log(stakeholderData)
 
     let navigate = useNavigate();
 
@@ -257,7 +258,7 @@ export default function Risk({config, modules, policy, setPolicy, data}) {
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content />
+                <Content stakeholderData={stakeholderData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
