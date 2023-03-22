@@ -160,7 +160,7 @@ ul {
 .Two-Column2 {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(150px, 28%) minmax(200px, 35%);
+    grid-template-columns: minmax(150px, 30%) minmax(200px, 40%);
 }
 
 .Two-Column-Three {
@@ -193,6 +193,11 @@ ul {
     grid-template-columns: minmax(570px, 66%) minmax(175px, 33%);
 }
 
+.One-Column-Three5 {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(200px, 30%) minmax(500px, 70%);
+}
 
 .One-Column {
     display: grid;

@@ -15,7 +15,7 @@ function Accuracy({predictiveProbability}) {
         <div>
             <div className="Container2">
                 <h4 className="Small-Margin">model accuracy</h4>
-                <p className="Small-Margin"> Accuracy is a percent of how many predicted values match the actual values. In this example, the accuracy is either 0 or 100%, because there is only one item.</p>
+                <p className="No-Margin-Bottom"> Accuracy is a percent of how many predicted values match the actual values. In this example, the accuracy is either 0 or 100%, because there is only one item.</p>
                 <h5 className="Accuracy-Percent Small-Margin No-Margin-Top No-Margin-Bottom Semi-Bold White Opacity1"></h5>
             </div>
         </div>
