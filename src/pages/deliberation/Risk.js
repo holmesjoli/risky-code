@@ -18,7 +18,7 @@ import AddIcon from '@material-ui/icons/Add';
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
 
-let width = 660;
+let width = 550;
 let height = 200;
 let style = "darkMode";
 let margin = {left: 10, right: 10, top: 10, bottom: 40};
@@ -54,7 +54,6 @@ function renderGraph(data) {
         .attr("transform",`translate(0,${height-margin.bottom})`)
         .attr("color", visStyles[style]["textColor"])
         .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
-
 
     svg.append("text")
         .attr("class","axisLabel")
@@ -188,11 +187,15 @@ export function Content() {
                         </RiskLevel>
                     </div>
                 </div>
-                <div className="Container2">
-                    <h4 className="No-Margin-Bottom">visualize</h4>
-                    <div id={chartId} className="chart"></div>
-                    {/* <h4>legend</h4> */}
-                    <div id={legendId} className="Small-Margin-Bottom"></div>
+                <div className="Container2 One-Column-Three No-Margin-Bottom">
+                    <div>
+                        <h4 className="No-Margin-Bottom">legend</h4>
+                        <div id={legendId} className="Small-Margin-Bottom"></div>
+                    </div>
+                    <div>
+                        <h4 className="No-Margin-Bottom">visualize</h4>
+                        <div id={chartId} className="chart"></div>
+                    </div>
                     <h6 className="Small-Margin-Top"></h6>
                 </div>
             </div>
