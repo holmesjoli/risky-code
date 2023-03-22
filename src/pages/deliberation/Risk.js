@@ -73,7 +73,7 @@ function initStakeholder(stakeholderId, data) {
     initNetwork(stakeholderId, height = 200, width = 280, data);
 }
 
-function RiskLevel({title, defaultValue, handleChange, children}) {
+function RiskLevel({title, handleChange, children}) {
 
     const marks = [
         {
@@ -111,7 +111,7 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
     );
 }
 
-export function Content({stakeholderData, setStakeholderData}) {
+export function Content({stakeholderId, stakeholderData, setStakeholderData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -135,8 +135,7 @@ export function Content({stakeholderData, setStakeholderData}) {
 
     const add = () => {
 
-        let dataNew = Object.assign({}, stakeholderData[0]);
-
+        let dataNew = Object.assign({}, stakeholderData[stakeholderId]);
         let risks = {
             "accountability": accountability,
             "stakeholderValues": stakeholderValues,
@@ -162,7 +161,7 @@ export function Content({stakeholderData, setStakeholderData}) {
                         </div>
                     </div>
                     <div className="Slider-Container">
-                        <RiskLevel title="risk of appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}>
+                        <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
                             <ul>
                                 <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
                                     <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">citizen data use</span></li>
@@ -172,7 +171,7 @@ export function Content({stakeholderData, setStakeholderData}) {
                                 </Tooltip>
                             </ul>
                         </RiskLevel>
-                        <RiskLevel title="risk of technical bias" defaultValue={technical} handleChange={updateTechnical}>
+                        <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
                             <ul>
                                 <Tooltip title="Consider representativeness of data, sample bias, data quality.">
                                     <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">technical bias</span></li>
@@ -182,7 +181,7 @@ export function Content({stakeholderData, setStakeholderData}) {
                                 </Tooltip>
                             </ul>
                         </RiskLevel>
-                        <RiskLevel title="risk of stakeholder values" defaultValue={stakeholderValues} handleChange={updateStakeholderValues}>
+                        <RiskLevel title="risk of stakeholder values" handleChange={updateStakeholderValues}>
                             <ul>
                                 <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
                                     <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
@@ -192,7 +191,7 @@ export function Content({stakeholderData, setStakeholderData}) {
                                 </Tooltip>
                             </ul>
                         </RiskLevel>
-                        <RiskLevel title="risk of accountability" defaultValue={accountability} handleChange={updateAccountability}>
+                        <RiskLevel title="risk of accountability" handleChange={updateAccountability}>
                             <ul>
                                 <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
                                     <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
@@ -258,7 +257,7 @@ export default function Risk({config, modules, policy, setPolicy, data, stakehol
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
+                <Content stakeholderId={0} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>

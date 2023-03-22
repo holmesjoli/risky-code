@@ -71,15 +71,15 @@ function drag() {
     function dragstarted(event, d) {
       d3.select(this).raise().attr("stroke", "black");
     }
-  
+
     function dragged(event, d) {
       d3.select(this).attr("cx", d.x = event.x).attr("cy", d.y = event.y);
     }
-  
+
     function dragended(event, d) {
       d3.select(this).attr("stroke", null);
     }
-  
+
     return d3.drag()
         .on("start", dragstarted)
         .on("drag", dragged)
