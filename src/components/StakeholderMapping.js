@@ -126,7 +126,7 @@ function renderTooltip(chartId) {
     });
 }
 
-export function initNetwork(chartId, height, width, data) {
+export function initNetwork(chartId, width, height, data) {
     let svg = d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
@@ -284,7 +284,7 @@ function StakeholderNetwork(data, setData) {
     }
 
     useEffect(() => {
-        initNetwork(chartId, height, width, data);
+        initNetwork(chartId, width, height, data);
         initShapeLegend();
     }, [])
 
@@ -342,7 +342,8 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
 
         let dataNew = Object.assign({}, data);
         let dataS = Object.assign([], stakeholderData);
-        let links = []
+        let links = [];
+        let nodes = []
 
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
@@ -350,6 +351,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                            "fill": stakeholderGroup};
 
         dataNew.nodes.push(stakeholder);
+        nodes.push(stakeholder);
         for (let i of stakeholderValues.filter(d => d.checked)) {
 
             if (!stakeholderIdArray.includes(i.value)) {
@@ -358,6 +360,11 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                                     "name": i.value,
                                     "shape": "value",
                                     "fill": stakeholderGroup});
+
+                nodes.push({"id": i.value,
+                            "name": i.value,
+                            "shape": "value",
+                            "fill": stakeholderGroup});
             }
 
             dataNew.links.push({"source": i.value, "target": stakeholderName});
@@ -365,7 +372,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
         }
 
         let s = {
-            "nodes": stakeholder,
+            "nodes": nodes,
             "links": links
         }
 

@@ -9,7 +9,7 @@ import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
 import { RoleShort } from "../../components/Role";
-import { riskData, visStyles } from "../../utils/global";
+import { visStyles } from "../../utils/global";
 import Slider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Fab } from '@material-ui/core';
@@ -69,8 +69,11 @@ function renderGraph(chartId, data) {
 }
 
 function initStakeholder(stakeholderId, data) {
+    console.log(data)
 
-    initNetwork(stakeholderId, height = 200, width = 280, data);
+    let height = 200, width = 280;
+
+    initNetwork(stakeholderId, width, height, data);
 }
 
 function RiskLevel({title, handleChange, children}) {
@@ -111,7 +114,7 @@ function RiskLevel({title, handleChange, children}) {
     );
 }
 
-export function Content({stakeholderId, stakeholderData, setStakeholderData}) {
+export function Content({sid, stakeholderData, setStakeholderData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -135,7 +138,7 @@ export function Content({stakeholderId, stakeholderData, setStakeholderData}) {
 
     const add = () => {
 
-        let dataNew = Object.assign({}, stakeholderData[stakeholderId]);
+        let dataNew = Object.assign({}, stakeholderData[sid]);
         let risks = {
             "accountability": accountability,
             "stakeholderValues": stakeholderValues,
@@ -224,8 +227,6 @@ export function Content({stakeholderId, stakeholderData, setStakeholderData}) {
 
 export default function Risk({config, modules, policy, setPolicy, data, stakeholderData, setStakeholderData}) {
 
-    console.log(stakeholderData)
-
     let navigate = useNavigate();
 
     const routeNext = () => {
@@ -239,8 +240,8 @@ export default function Risk({config, modules, policy, setPolicy, data, stakehol
     }
 
     useEffect(() => {
-        initGraph(chartId, data);
-        initStakeholder(stakeholderId, data);
+        initGraph(chartId, stakeholderData);
+        initStakeholder(stakeholderId, stakeholderData[0]);
     }, []);
 
     return (
@@ -257,7 +258,7 @@ export default function Risk({config, modules, policy, setPolicy, data, stakehol
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content stakeholderId={0} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
+                <Content sid={0} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
