@@ -60,15 +60,18 @@ function RiskLevels(title="blah") {
 
     return (
         <div className="Container2">
-            <h4 className="No-Margin-Bottom">blah</h4>
+            <h4 className="No-Margin-Bottom">appropriate data use</h4>
             <Slider
                 size="small"
                 defaultValue={1}
-                step={1} 
-                marks={marks}
-                min={1} 
+                min={1}
                 max={5}
+                step={3}
+                aria-label="Small"
+                marks={marks}
                 valueLabelDisplay="auto"
+                className="Padding-Left Padding-Right"
+                // onChange={updateSlider}
             />
         </div>
     );
