@@ -97,7 +97,7 @@ function fairnessDefinitions(style = "darkMode") {
     let theta = ((Math.PI*2) / n);
     let width = 600;
     let height = 520;
-    let radius = 95;
+    let radius = 100;
 
     for (let i in fairnessData) {
         fairnessData[i].angle = (theta * i);
@@ -132,7 +132,7 @@ function fairnessDefinitions(style = "darkMode") {
         .append("circle")
             .attr("cx", d => d.x)
             .attr("cy", d => d.y)
-            .attr("r", 8)
+            .attr("r", 7)
             .attr("fill", visStyles[style]["fillColor"])
             .attr("stroke", visStyles[style]["borderColor"])
             .attr("stroke-width", visStyles[style]["borderWidth"])

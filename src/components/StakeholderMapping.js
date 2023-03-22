@@ -390,7 +390,7 @@ function AddStakeholder(data, setData, stakeholderIdArray) {
                     </RadioGroup>
                 </FormControl>
             </div>
-            <div className="Container2 Margin-Bottom">
+            <div className="Container2 Small-Margin Small-Padding-Bottom">
                 <h4 className="Small-Margin">stakeholder values</h4>
                 <div>
                 </div>

@@ -60,6 +60,7 @@ export default function App() {
 
     const [streetBumpData, setStreetBumpData] = useState({"nodes": [], "links": []});
     const [policyData, setPolicyData] = useState({"nodes": [], "links": []});
+    const [policyStakeholderData, setPolicyStaekholderData] = useState({});
     // items.sort((a, b) => a.column - b.column)
   
     return(
@@ -85,7 +86,7 @@ export default function App() {
           <Route path="/StakeholderReflection" element={<StakeholderReflection user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>} />
           
           <Route path="/Deliberation" element={<Deliberation user={user} algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}/>} />
-          <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} setData={setPolicyData}/>} />
+          <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} setData={setPolicyData} policyStakeholderData={policyStakeholderData} setPolicyStaekholderData={setPolicyStaekholderData}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy} data={policyData}/>} />
           <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
           
