@@ -33,7 +33,8 @@ const yScale = d3.scaleLinear()
     .domain([0, 100])
     .range([height-margin.bottom, margin.top]);
 
-function initGraph(data) {
+function initGraph(chartId, data) {
+
     d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
@@ -43,10 +44,10 @@ function initGraph(data) {
         .append("div")
         .attr("class", "tooltip");
 
-    renderGraph(data);
+    renderGraph(chartId, data);
 }
 
-function renderGraph(data) {
+function renderGraph(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
 
@@ -69,12 +70,7 @@ function renderGraph(data) {
 
 function initStakeholder(stakeholderId, data) {
 
-    drawStakeholder(stakeholderId, height = 200, width = 280, data);
-}
-
-function drawStakeholder(stakeholderId, height, width, data) {
-
-    initNetwork(stakeholderId, height, width, data)
+    initNetwork(stakeholderId, height = 200, width = 280, data);
 }
 
 function RiskLevel({title, defaultValue, handleChange, children}) {
@@ -244,7 +240,7 @@ export default function Risk({config, modules, policy, setPolicy, data, stakehol
     }
 
     useEffect(() => {
-        initGraph(data);
+        initGraph(chartId, data);
         initStakeholder(stakeholderId, data);
     }, []);
 
