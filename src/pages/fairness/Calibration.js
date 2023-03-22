@@ -21,7 +21,7 @@ let chartId = "Calibration-Chart";
 let legendId = "Calibration-Legend";
 
 let width = 620;
-let height = 460;
+let height = 400;
 let style = "darkMode";
 let margin = {left: 70, right: 30, top: 30, bottom: 70};
 
