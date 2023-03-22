@@ -126,7 +126,7 @@ function renderTooltip(chartId) {
     });
 }
 
-export function initNetwork(chartId, data) {
+export function initNetwork(chartId, height, width, data) {
     let svg = d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
@@ -284,7 +284,7 @@ function StakeholderNetwork(data, setData) {
     }
 
     useEffect(() => {
-        initNetwork(chartId, data);
+        initNetwork(chartId, height, width, data);
         initShapeLegend();
     }, [])
 

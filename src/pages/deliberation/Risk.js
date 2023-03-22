@@ -69,19 +69,13 @@ function renderGraph(data) {
 
 function initStakeholder(stakeholderId, data) {
 
-    let height = 200;
-    let width = 100;
-
-    d3.select(`#${stakeholderId}`)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    drawStakeholder(stakeholderId, data);
+    drawStakeholder(stakeholderId, height = 200, width = 280, data);
 }
 
-function drawStakeholder(stakeholderId, data) {
+function drawStakeholder(stakeholderId, height, width, data) {
 
+
+    initNetwork(stakeholderId, height, width, data)
     // let svg = d3.select(`#${stakeholderId} svg`)
 
 }
