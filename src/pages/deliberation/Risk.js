@@ -9,11 +9,12 @@ import { BackButton, NextButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from '../../utils/global';
 import { RoleShort } from "../../components/Role";
-import { riskData } from "../../utils/global";
-import Box from '@material-ui/core/Box';
+import { riskData, visStyles } from "../../utils/global";
 import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
 import Tooltip from '@material-ui/core/Tooltip';
+import { Fab } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+
 
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
@@ -60,7 +61,7 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
     ];
 
     return (
-        <div className="Container2 Margin-Bottom">
+        <div className="Container2">
             <h3 className="Small-Margin">{title}</h3>
             {children}
             <div className="Padding-Left Padding-Right">
@@ -83,7 +84,6 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
 export function Content() {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
-
     const updateAppropriateDataUse = (event, value) => {
         setAppropriateDataUse(value)
     };
@@ -103,54 +103,68 @@ export function Content() {
         setStakeholderValues(value)
     };
 
+    const add = () => {
+    }
+
     return(
-        <div className="Content One-Column-Three No-Padding-Top">
-            <div className="Container Margin-Bottom">
-                <RiskLevel title="risk of appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}>
-                    <ul>
-                        <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">citizen data use</span></li>
-                        </Tooltip>
-                        <Tooltip title="Consider the purposes and context under which the data was obtained">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">data compatability</span></li>
-                        </Tooltip>
-                    </ul>
-                </RiskLevel>
-                <RiskLevel title="risk of accountability" defaultValue={accountability} handleChange={updateAccountability}>
-                    <ul>
-                        <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
-                        </Tooltip>
-                        <Tooltip title="Consider data and algorithm access">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
-                        </Tooltip>
-                        <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">automation</span></li>
-                        </Tooltip>
-                    </ul>
-                </RiskLevel>
-                <RiskLevel title="risk of technical bias" defaultValue={technical} handleChange={updateTechnical}>
-                    <ul>
-                        <Tooltip title="Consider representativeness of data, sample bias, data quality.">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">technical bias</span></li>
-                        </Tooltip>
-                        <Tooltip title="Consider if there is a match between the real world and the captured data.">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">proxy variables</span></li>
-                        </Tooltip>
-                    </ul>
-                </RiskLevel>
-                <RiskLevel title="risk of stakeholder values" defaultValue={stakeholderValues} handleChange={updateStakeholderValues}>
-                    <ul>
-                        <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
-                        </Tooltip>
-                        <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
-                            <li className="Small-Margin">Risk of <span className="Emphasis">historic societal bias</span></li>
-                        </Tooltip>
-                    </ul>
-                </RiskLevel>
+        <div className="Content No-Padding-Top">
+            <div className="Container Margin-Bottom One-Column-Three">
+                <div className="Container2">
+
+                <div className="Add-Stakeholder-Button">
+                    <h4 className="Small-Margin">add stakeholder to diagram</h4>
+                    <Fab color="primary" onClick={add}>
+                        <AddIcon />
+                    </Fab>
+                </div>
+                </div>
+                <div className="Slider-Container">
+                    <RiskLevel title="risk of appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}>
+                        <ul>
+                            <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">citizen data use</span></li>
+                            </Tooltip>
+                            <Tooltip title="Consider the purposes and context under which the data was obtained">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">data compatability</span></li>
+                            </Tooltip>
+                        </ul>
+                    </RiskLevel>
+                    <RiskLevel title="risk of technical bias" defaultValue={technical} handleChange={updateTechnical}>
+                        <ul>
+                            <Tooltip title="Consider representativeness of data, sample bias, data quality.">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">technical bias</span></li>
+                            </Tooltip>
+                            <Tooltip title="Consider if there is a match between the real world and the captured data.">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">proxy variables</span></li>
+                            </Tooltip>
+                        </ul>
+                    </RiskLevel>
+                    <RiskLevel title="risk of stakeholder values" defaultValue={stakeholderValues} handleChange={updateStakeholderValues}>
+                        <ul>
+                            <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
+                            </Tooltip>
+                            <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">historic societal bias</span></li>
+                            </Tooltip>
+                        </ul>
+                    </RiskLevel>
+                    <RiskLevel title="risk of accountability" defaultValue={accountability} handleChange={updateAccountability}>
+                        <ul>
+                            <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
+                            </Tooltip>
+                            <Tooltip title="Consider data and algorithm access">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
+                            </Tooltip>
+                            <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
+                                <li className="Small-Margin">Risk of <span className="Emphasis">automation</span></li>
+                            </Tooltip>
+                        </ul>
+                    </RiskLevel>
+                </div>
             </div>
-            <div className="Container Margin-Bottom">
+            <div className="Margin-Bottom">
                 {/* <h4 className="No-Margin-Bottom">visualize</h4> */}
                 <div id={chartId} className="chart"></div>
                 {/* <h4>legend</h4> */}
@@ -185,6 +199,7 @@ export default function Risk({config, modules, policy, setPolicy, data}) {
             <div className="Main">
                 <LeftSideBar>
                     <Description config={config}>
+                        <p>Use the sliders to adjust the risks for each stakeholder you identified on the stakeholder mapping page</p>
                     </Description>
                     <RoleShort moduleName="deliberation"/>
                     <Terminology margin="Margin-Large-Bottom">

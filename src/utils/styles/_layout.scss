@@ -366,3 +366,10 @@ ul {
 .Max50 {
     max-width: 50%;
 }
+
+.Slider-Container {
+    height: auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
