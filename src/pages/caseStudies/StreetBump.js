@@ -56,7 +56,7 @@ import MiniModel from "../../components/MiniStakeholderModel";
 //         .attr("color", "#eeeeee");
 // }
 
-export default function StreetBump({config, user, modules, data, setData}) {
+export default function StreetBump({config, user, modules, data, setData, stakeholderData, setStakeholderData}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("cases");
@@ -133,7 +133,7 @@ export default function StreetBump({config, user, modules, data, setData}) {
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <StakeholderMapping data={data} setData={setData}/>
+            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
             <RightSideBar>
             <Progress id={id} modules={modules}/>
                 <Consequence margin="Margin-Large-Bottom"/>
