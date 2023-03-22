@@ -93,7 +93,7 @@ function RiskLevel({title, defaultValue, handleChange, children}) {
                   defaultValue={defaultValue}
                   min={1}
                   max={5}
-                  step={3}
+                  step={1}
                   aria-label="Small"
                   marks={marks}
                   valueLabelDisplay="auto"
