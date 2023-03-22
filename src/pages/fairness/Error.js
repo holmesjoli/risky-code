@@ -223,7 +223,7 @@ function renderGraph(data, predictiveProbability) {
 function renderTooltip(chartId) {
     var tooltip = d3.select(`#${chartId} .tooltip`);
 
-    d3.selectAll(".compas-error-rate-point")
+    d3.selectAll(`#${chartId} .compas-error-rate-point`)
         .on("mouseover", function (e, d) {
 
         let thisCircle = d3.select(this);
@@ -242,7 +242,7 @@ function renderTooltip(chartId) {
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
 
-        d3.selectAll(".compas-error-rate-point")
+        d3.selectAll(`#${chartId} .compas-error-rate-point`)
             .attr("stroke", "none");
     });
 }
