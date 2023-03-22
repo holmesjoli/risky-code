@@ -41,7 +41,7 @@ function renderGraph(data) {
     console.log(data)
 }
 
-function RiskAppropriateDataUse({title, defaultValue, handleChange}) {
+function RiskLevel({title, defaultValue, handleChange}) {
 
     const marks = [
         {
@@ -59,7 +59,7 @@ function RiskAppropriateDataUse({title, defaultValue, handleChange}) {
     ];
 
     return (
-        <div className="Container2">
+        <div className="Container2 Margin-Bottom">
             <h4 className="No-Margin-Bottom">{title}</h4>
             <Slider
                 size="small"
@@ -85,10 +85,28 @@ export function Content() {
         setAppropriateDataUse(value)
     };
 
+    const [accountability, setAccountability] = useState(3);
+    const updateAccountability = (event, value) => {
+        setAccountability(value)
+    };
+
+    const [technical, setTechnical] = useState(3);
+    const updateTechnical = (event, value) => {
+        setTechnical(value)
+    };
+
+    const [stakeholderValues, setStakeholderValues] = useState(3);
+    const updateStakeholderValues = (event, value) => {
+        setStakeholderValues(value)
+    };
+
     return(
         <div className="Content One-Column-Three No-Padding-Top">
             <div className="Container Margin-Bottom">
-                <RiskAppropriateDataUse title="appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}/>
+                <RiskLevel title="appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}/>
+                <RiskLevel title="accountability" defaultValue={accountability} handleChange={updateAccountability}/>
+                <RiskLevel title="technical risk" defaultValue={technical} handleChange={updateTechnical}/>
+                <RiskLevel title="stakeholder values" defaultValue={stakeholderValues} handleChange={updateStakeholderValues}/>
             </div>
             <div className="Container Margin-Bottom">
                 <h4 className="No-Margin-Bottom">visualize</h4>
