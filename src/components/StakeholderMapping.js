@@ -46,7 +46,7 @@ const fillData = [{"fill": "direct"},
 
 const fillScale = d3.scaleOrdinal()
     .domain(["direct", "indirect", "excluded"])
-    .range(["#FD7B03", "#FE4002", "#F3C010"])
+    .range(["#FE4002", "#FD7B03", "#F3C010"])
 
 const sizeScale = d3.scaleOrdinal()
     .domain(["stakeholder", "value"])

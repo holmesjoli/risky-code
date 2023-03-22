@@ -396,3 +396,18 @@ export const terms = {
         "definition": "Two groups have the same fraction of members in the positive class (Kleinberg et al., 2016)"
     }
 }
+
+
+export const riskVariables = [
+    {"id": "citizenData2", "group": "appropriate data use", "name": "Risk of citizen data", "description":  "Risk of citizen data. Consider if citizen data is used and if citizens opted into data collection"},
+    {"id": "dataUse", "group": "appropriate data use", "name": "Risk of data compatability", "description": "Risk of data compatability with the purposes and context under which the data was obtained"},
+    {"id": "worstHarm", "group": "values", "name": "Risk of serious possible citizen harm", "description": "Risk of serious possible citizen harm. Consider stakeholder values such as loss of life, liberty, or property"},
+    // {"id": "citizenBarrier", "group": "accountability", "name": "Risk of citizen challenges to the data/algorithm as discriminatory, inaccurate, unfair or lacking explanation"},
+    {"id": "automation", "group": "accountability", "name": "Risk of automation", "description": "Risk of automation in the decision-making or action the algorithm informs. Consider the degree (low, medium, high) of automation in decision-making."},
+    {"id": "explainability", "group": "accountability", "name": "Risk of lack of algorithmic explainability", "description": "Risk of lack of algorithmic explainability. Consider if the algorithm can be explained to lay users or only expert users."},
+    {"id": "auditability", "group": "accountability", "name": "Risk of lack of algorithmic auditability", "description": "Risk of lack of algorithmic auditability. Consider data and algorithm access"},
+    {"id": "technical", "group": "technical", "name": "Risk of technical bias", "description": "Risk of technical bias. Consider representativeness of data, sample bias, data quality"},
+    {"id": "proxyVariables", "group": "technical",  "name": "Risk of proxy outcome variables.", "description": "Risk of proxy outcome variables. Consider if there is a match between the real world and "},
+    {"id": "historicalBias", "group": "overall impact", "name": "Risk of historic societal bias.", "descriptoin": "Risk of historic societal bias. Consider bias from racism, discrimination, etc."},
+    {"id": "historicalBias", "group": "overall impact", "name": "Risk of overall scale of impact"},
+];

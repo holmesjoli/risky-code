@@ -31,12 +31,11 @@ function initGraph(data) {
     renderGraph(data);
 }
 
-
 function renderGraph(data) {
 
     let svg = d3.select(`#${chartId} svg`);
+    console.log(data)
 }
-
 
 export function Content() {
     return(
