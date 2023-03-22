@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
@@ -41,7 +41,7 @@ function renderGraph(data) {
     console.log(data)
 }
 
-function RiskLevels(title="blah") {
+function RiskAppropriateDataUse({title, defaultValue, handleChange}) {
 
     const marks = [
         {
@@ -60,10 +60,10 @@ function RiskLevels(title="blah") {
 
     return (
         <div className="Container2">
-            <h4 className="No-Margin-Bottom">appropriate data use</h4>
+            <h4 className="No-Margin-Bottom">{title}</h4>
             <Slider
                 size="small"
-                defaultValue={1}
+                defaultValue={defaultValue}
                 min={1}
                 max={5}
                 step={3}
@@ -71,18 +71,24 @@ function RiskLevels(title="blah") {
                 marks={marks}
                 valueLabelDisplay="auto"
                 className="Padding-Left Padding-Right"
-                // onChange={updateSlider}
+                onChange={handleChange}
             />
         </div>
     );
 }
 
 export function Content() {
+
+    const [appropriateDataUse, setAppropriateDataUse] = useState(3);
+
+    const updateAppropriateDataUse = (event, value) => {
+        setAppropriateDataUse(value)
+    };
+
     return(
         <div className="Content One-Column-Three No-Padding-Top">
             <div className="Container Margin-Bottom">
-
-                <RiskLevels/>
+                <RiskAppropriateDataUse title="appropriate data use" defaultValue={appropriateDataUse} handleChange={updateAppropriateDataUse}/>
             </div>
             <div className="Container Margin-Bottom">
                 <h4 className="No-Margin-Bottom">visualize</h4>
