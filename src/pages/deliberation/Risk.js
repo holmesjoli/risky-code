@@ -49,6 +49,12 @@ function initGraph(chartId, data) {
 
 function renderGraph(chartId, data) {
 
+    let dataNew = [];
+
+    data.map(d => d.risks.map(i => dataNew.push(i)))
+
+    // console.log(dataNew)
+
     let svg = d3.select(`#${chartId} svg`);
 
     const xAxis = svg.append("g")
@@ -66,10 +72,29 @@ function renderGraph(chartId, data) {
         .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-size", 12)
         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+
+    // svg
+    // .selectAll("path")
+    // .data(dataNew, d => d.id)
+    // .join(
+    //     enter  => enter
+    //     .append("path")
+    //         .attr("d", d3.symbol()
+    //             .type(((d) => symbolScale(d[baseRate])))
+    //             .size(8))
+    //         .attr("transform", transform)
+    //         .attr("fill", d => fillScale(d[baseRate]))
+    //         .attr("class", "compas-base-rate-point"),
+    //     update => update
+    //         .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
+    //         .attr("fill", d => fillScale(d[baseRate]))
+    //         .attr("d", d3.symbol()
+    //             .type(((d) => symbolScale(d[baseRate])))
+    //             .size(8))
+    // );
 }
 
 function initStakeholder(stakeholderId, data) {
-    console.log(data)
 
     let height = 200, width = 280;
 
@@ -114,7 +139,7 @@ function RiskLevel({title, handleChange, children}) {
     );
 }
 
-export function Content({sid, stakeholderData, setStakeholderData}) {
+export function Content({stakeholderData, setStakeholderData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -138,18 +163,16 @@ export function Content({sid, stakeholderData, setStakeholderData}) {
 
     const add = () => {
 
-        let dataNew = Object.assign({}, stakeholderData[sid]);
+        let dataNew = Object.assign({}, stakeholderData);
         let risks = [
-            {"accountability": accountability},
-            {"stakeholderValues": stakeholderValues},
-            {"technical": technical},
-            {"appropriateDataUse": appropriateDataUse}
+            {"id": `${stakeholderData.id}-accountability`, "accountability": accountability},
+            {"id": `${stakeholderData.id}-stakeholderValues`, "stakeholderValues": stakeholderValues},
+            {"id": `${stakeholderData.id}-technical`, "technical": technical},
+            {"id": `${stakeholderData.id}-appropriateDataUse`, "appropriateDataUse": appropriateDataUse}
         ]
 
         dataNew.risks = risks;
-
-        console.log(dataNew)
-        setStakeholderData(dataNew)
+        setStakeholderData([dataNew])
     }
 
     return(
@@ -246,6 +269,10 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
         initStakeholder(stakeholderId, stakeholderData[0]);
     }, []);
 
+    useEffect(() => {
+        renderGraph(chartId, stakeholderData)
+    }, [stakeholderData])
+
     return (
         <div className="App">
             <Header/>
@@ -260,7 +287,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content sid={0} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
+                <Content stakeholderData={stakeholderData[0]} setStakeholderData={setStakeholderData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>

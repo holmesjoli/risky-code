@@ -170,7 +170,6 @@ export function initNetwork(chartId, width, height, data) {
             .attr("y", function (d) { return d.y - 10; });
     }
 
-    console.log(data)
     if (data !== undefined) {
         updateNetwork(chartId, data);
     }
@@ -346,7 +345,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
         let dataNew = Object.assign({}, data);
         let dataS = Object.assign([], stakeholderData);
         let links = [];
-        let nodes = []
+        let nodes = [];
 
         let stakeholder = {"id": stakeholderName,
                            "name": stakeholderName,
@@ -376,7 +375,9 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
 
         let s = {
             "nodes": nodes,
-            "links": links
+            "links": links,
+            "id": stakeholderName,
+            "name": stakeholderName,
         }
 
         dataS.push(s);
