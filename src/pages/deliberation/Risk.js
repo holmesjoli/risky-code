@@ -14,7 +14,7 @@ import Slider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import { initNetwork, updateNetwork } from '../../components/StakeholderMapping';
+import { initNetwork, updateNetwork, transform } from '../../components/StakeholderMapping';
 
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
@@ -32,6 +32,21 @@ const xScale = d3.scaleLinear()
 const yScale = d3.scaleLinear()
     .domain([0, 100])
     .range([height-margin.bottom, margin.top]);
+
+const fillScale = d3.scaleOrdinal()
+    .domain([5, 4, 3, 2, 1])
+    .range(["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#F3C010"])
+
+function symbolScale(d) {
+
+    if(d.stakeholderType === "direct") {
+        return d3.symbolCircle;
+    } else if (d.stakeholderType === "indirect") {
+        return d3.symbolSquare;
+    } else  {
+        return d3.symbolTriangle;
+    }
+}
 
 function initGraph(chartId, data) {
 
@@ -51,9 +66,9 @@ function renderGraph(chartId, data) {
 
     let dataNew = [];
 
-    data.map(d => d.risks.map(i => dataNew.push(i)))
+    data.map(d => d.risks? d.risks.map(i => dataNew.push(i)): d);
 
-    // console.log(dataNew)
+    console.log(dataNew)
 
     let svg = d3.select(`#${chartId} svg`);
 
@@ -80,10 +95,10 @@ function renderGraph(chartId, data) {
     //     enter  => enter
     //     .append("path")
     //         .attr("d", d3.symbol()
-    //             .type(((d) => symbolScale(d[baseRate])))
+    //             .type(((d) => symbolScale(d.type)))
     //             .size(8))
     //         .attr("transform", transform)
-    //         .attr("fill", d => fillScale(d[baseRate]))
+    //         .attr("fill", d => fillScale(d.value))
     //         .attr("class", "compas-base-rate-point"),
     //     update => update
     //         .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
@@ -165,10 +180,10 @@ export function Content({stakeholderData, setStakeholderData}) {
 
         let dataNew = Object.assign({}, stakeholderData);
         let risks = [
-            {"id": `${stakeholderData.id}-accountability`, "accountability": accountability},
-            {"id": `${stakeholderData.id}-stakeholderValues`, "stakeholderValues": stakeholderValues},
-            {"id": `${stakeholderData.id}-technical`, "technical": technical},
-            {"id": `${stakeholderData.id}-appropriateDataUse`, "appropriateDataUse": appropriateDataUse}
+            {"id": `${stakeholderData.id}-accountability`, "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType},
+            {"id": `${stakeholderData.id}-stakeholderValues`, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType},
+            {"id": `${stakeholderData.id}-technical`, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType},
+            {"id": `${stakeholderData.id}-appropriateDataUse`, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType}
         ]
 
         dataNew.risks = risks;

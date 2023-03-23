@@ -52,7 +52,7 @@ const sizeScale = d3.scaleOrdinal()
     .domain(["stakeholder", "value"])
     .range([300, 75]);
 
-export function symbolType(d) {
+export function symbolScale(d) {
 
     if(d.shape === "stakeholder") {
         return d3.symbolCircle;
@@ -61,7 +61,7 @@ export function symbolType(d) {
     }
 }
 
-function transform(d) {
+export function transform(d) {
     return "translate(" + d.x + "," + d.y + ")";
 }
 
@@ -185,7 +185,7 @@ export function updateNetwork(chartId, data) {
                 .attr("class", "network-nodes")
                 .attr("fill", d => fillScale(d.fill))
                 .attr("d", d3.symbol()
-                    .type(((d) => symbolType(d)))
+                    .type(((d) => symbolScale(d)))
                     .size(d => sizeScale(d.shape)))
             );
 
@@ -240,7 +240,7 @@ function drawShapeLegend() {
 
     shape.append("path")
         .attr("d", d3.symbol()
-            .type(((d) => symbolType(d)))
+            .type(((d) => symbolScale(d)))
             .size(100))
         .attr("fill", visStyles[style]["textColor"]);
 
@@ -378,6 +378,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
             "links": links,
             "id": stakeholderName,
             "name": stakeholderName,
+            "stakeholderType": stakeholderGroup
         }
 
         dataS.push(s);
