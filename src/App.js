@@ -60,7 +60,7 @@ export default function App() {
 
     const [streetBumpData, setStreetBumpData] = useState({"nodes": [], "links": []});
     const [policyData, setPolicyData] = useState({"nodes": [], "links": []});
-    const [stakeholderData, setStakeholderData] = useState([{"nodes": [], "links": []}]);
+    const [stakeholderData, setStakeholderData] = useState([]);
     const [stakeholderData2, setStakeholderData2] = useState([{"nodes": [], "links": []}]);
     // items.sort((a, b) => a.column - b.column)
   

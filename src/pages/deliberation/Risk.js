@@ -99,14 +99,18 @@ function renderGraph(chartId, data) {
     let svg = d3.select(`#${chartId} svg`);
     svg.append("g").attr("class", "nodes");
 
-    console.log(data)
+    let dataNew2 = [];
 
-    let data2 = [{id: "blah", x: 1, y:2, value: 1, stakeholderType: "indirect"},
-                {id: "blah2", x: 3, y:2, value: 3, stakeholderType: "direct"}
-    ];
+    data.map(d => d.risks? d.risks.map(i => dataNew2.push(i)): d);
 
-    let node = svg.selectAll("symbol")
-        .data(data2, d => d.id)
+
+    if (dataNew2.length > 0) {
+
+        // console.log("hit")
+        console.log(dataNew2)
+
+        let node = svg.selectAll("symbol")
+        .data(dataNew2, d => d.id)
         .join(
             enter  => enter
             .append("path")
@@ -119,27 +123,20 @@ function renderGraph(chartId, data) {
             exit => exit
         )
 
-    function transform(d) {
-        return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
-    }
+        // simulation.alpha(1).restart();
 
-    // let dataNew2 = [];
+        // simulation
+        //     .nodes(dataNew2)
+        //     .on("tick", ticked);
 
-    // data.map(d => d.risks? d.risks.map(i => dataNew2.push(i)): d);
+        // function ticked() {
+        //     node.attr("transform", transform)
+        // }
 
-    // if (dataNew2.length > 0) {
-
-        simulation.alpha(1).restart();
-
-        simulation
-            .nodes(data2)
-            .on("tick", ticked);
-
-        function ticked() {
-            node.attr("transform", transform)
+        function transform(d) {
+            return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
         }
-
-    // }
+    }
 }
 
 function initStakeholder(stakeholderId, data) {
