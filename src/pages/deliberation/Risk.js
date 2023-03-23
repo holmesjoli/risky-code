@@ -24,7 +24,7 @@ let width = 550;
 let height = 200;
 let style = "darkMode";
 let margin = {left: 10, right: 10, top: 10, bottom: 40};
-let node;
+// let node;
 
 const xScale = d3.scaleLinear()
     .domain([1, 5])
@@ -96,62 +96,52 @@ function initGraph(chartId, data) {
 
 function renderGraph(chartId, data) {
 
+    let svg = d3.select(`#${chartId} svg`);
+    svg.append("g").attr("class", "nodes");
+
     let dataNew = [];
 
     data.map(d => d.risks? d.risks.map(i => dataNew.push(i)): d);
 
-    console.log(dataNew)
+    if (dataNew.length > 0) {
 
-    let svg = d3.select(`#${chartId} svg`);
+        console.log(dataNew)
 
-    node = svg.append("g")
-        .attr("stroke-width", visStyles[style]["linkWidth"])
-        .attr("cursor", "default")
-        .selectAll("circle");
-
-    node = node
-    .data(dataNew, d => d.id)
-    .join(enter => enter.append("path")
-            .attr("class", "stakeholder-mapping-network-node")
-            .attr("fill", d => fillScale(d.value))
-            .attr("d", d3.symbol()
-                .type(((d) => symbolScale(d.stakeholderType)))
-                .size(10))
+        let node = svg
+            .selectAll("path")
+            .data(dataNew, d => d.id)
+            .join(
+                enter  => enter
+                    // .append("path")
+                    // .attr("d", d3.symbol()
+                    //     .type(((d) => symbolScale(d.stakeholderType)))
+                    //     .size(10))
+                    // .attr("transform", transform)
+                    .append("circle")
+                    .attr("r", 10)
+                    .attr("cx", d => xScale(d.value))
+                    .attr("cy", d => yScale(d.y))
+                    .attr("fill", d => fillScale(d.value)),
+                update => update,         
+                exit   => exit.remove()
             );
 
-    simulation.alpha(1).restart();
+        // simulation.alpha(1).restart();
 
-    simulation
-        .nodes(dataNew)
-        .on("tick", ticked);
+        // simulation
+        //     .nodes(dataNew)
+        //     .on("tick", ticked);
 
-    function ticked() {
-        node.attr("transform", transform)
+        // function transform(d) {
+        //     console.log(d)
+        //     return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
+        // }
+
+        // function ticked() {
+        //     node.attr("transform", transform)
+        // }
+
     }
-
-    function transform(d) {
-        return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
-    }
-
-    // svg
-    // .selectAll("path")
-    // .data(dataNew, d => d.id)
-    // .join(
-    //     enter  => enter
-    //     .append("path")
-    //         .attr("d", d3.symbol()
-    //             .type(((d) => symbolScale(d.type)))
-    //             .size(8))
-    //         .attr("transform", transform)
-    //         .attr("fill", d => fillScale(d.value))
-    //         .attr("class", "compas-base-rate-point"),
-    //     update => update
-    //         .attr("opacity", d => d.pop === d.arrests && baseRate === "arrests" ? .35: 1)
-    //         .attr("fill", d => fillScale(d[baseRate]))
-    //         .attr("d", d3.symbol()
-    //             .type(((d) => symbolScale(d[baseRate])))
-    //             .size(8))
-    // );
 }
 
 function initStakeholder(stakeholderId, data) {
