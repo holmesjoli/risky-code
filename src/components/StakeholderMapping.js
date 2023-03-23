@@ -170,7 +170,10 @@ export function initNetwork(chartId, width, height, data) {
             .attr("y", function (d) { return d.y - 10; });
     }
 
-    updateNetwork(chartId, data);
+    console.log(data)
+    if (data !== undefined) {
+        updateNetwork(chartId, data);
+    }
 }
 
 export function updateNetwork(chartId, data) {

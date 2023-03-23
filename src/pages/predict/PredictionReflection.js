@@ -54,8 +54,6 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
 
     const Reflect = ({user, disablePredictionNext, setDisablePredictionNext}) => {
 
-        console.log(disablePredictionNext)
-
         return(
             <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
                 <p>Would you collect any other variables to use in the statistical model?</p>
@@ -64,7 +62,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                 <p className="No-Margin-Bottom">What are the consequences of when Laundry AID made an incorrect prediction?</p>
             </Timer>
         )
-        }
+    }
 
     const steps = [
       {

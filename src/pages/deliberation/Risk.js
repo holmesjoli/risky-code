@@ -139,14 +139,16 @@ export function Content({sid, stakeholderData, setStakeholderData}) {
     const add = () => {
 
         let dataNew = Object.assign({}, stakeholderData[sid]);
-        let risks = {
-            "accountability": accountability,
-            "stakeholderValues": stakeholderValues,
-            "technical": technical,
-            "appropriateDataUse": appropriateDataUse
-        }
+        let risks = [
+            {"accountability": accountability},
+            {"stakeholderValues": stakeholderValues},
+            {"technical": technical},
+            {"appropriateDataUse": appropriateDataUse}
+        ]
 
         dataNew.risks = risks;
+
+        console.log(dataNew)
         setStakeholderData(dataNew)
     }
 
@@ -225,7 +227,7 @@ export function Content({sid, stakeholderData, setStakeholderData}) {
     )
 }
 
-export default function Risk({config, modules, policy, setPolicy, data, stakeholderData, setStakeholderData}) {
+export default function Risk({config, modules, policy, setPolicy, stakeholderData, setStakeholderData}) {
 
     let navigate = useNavigate();
 
