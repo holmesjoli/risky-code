@@ -101,18 +101,37 @@ function renderGraph(chartId, data) {
 
     console.log(data)
 
-    let data2 = [{x: 1, y:2, value: 1},
-                {x: 3, y:2, value: 3}
+    let data2 = [{id: "blah", x: 1, y:2, value: 1, stakeholderType: "indirect"},
+                {id: "blah2", x: 3, y:2, value: 3, stakeholderType: "direct"}
     ]
 
     svg.selectAll("circle")
-        .data(data2)
+        .data(data2, d => d.id)
         .join(enter => enter
             .append("circle")
             .attr("cx", d => xScale(d.x))
             .attr("cy", d => yScale(d.y))
             .attr("r", 5)
-            .attr("fill", d => fillScale(d.value)))
+            .attr("fill", d => fillScale(d.value)));
+
+    // let node = svg
+    //         .selectAll("path")
+    //         .data(data2, d => d.id)
+    //         .join(
+    //             enter  => enter
+    //                 .append("path")
+    //                 .attr("d", d3.symbol()
+    //                     .type(((d) => symbolScale(d.stakeholderType)))
+    //                     .size(10))
+    //                 .attr("transform", transform)
+    //                 .attr("fill", d => fillScale(d.value)),
+    //             update => update,         
+    //             exit   => exit.remove()
+    //         );
+
+    function transform(d) {
+        return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
+    }
 
     // let dataNew2 = [];
 
@@ -146,11 +165,6 @@ function renderGraph(chartId, data) {
     //     // simulation
     //     //     .nodes(dataNew2)
     //     //     .on("tick", ticked);
-
-    //     // function transform(d) {
-    //     //     console.log(d)
-    //     //     return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
-    //     // }
 
     //     // function ticked() {
     //     //     node.attr("transform", transform)
