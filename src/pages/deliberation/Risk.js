@@ -55,9 +55,9 @@ let simulation = d3.forceSimulation()
 
 function symbolScale(d) {
 
-    if(d.stakeholderType === "direct") {
+    if(d === "direct") {
         return d3.symbolCircle;
-    } else if (d.stakeholderType === "indirect") {
+    } else if (d === "indirect") {
         return d3.symbolSquare;
     } else  {
         return d3.symbolTriangle;
@@ -103,7 +103,7 @@ function renderGraph(chartId, data) {
 
     let data2 = [{id: "blah", x: 1, y:2, value: 1, stakeholderType: "indirect"},
                 {id: "blah2", x: 3, y:2, value: 3, stakeholderType: "direct"}
-    ]
+    ];
 
     svg.selectAll("symbol")
         .data(data2, d => d.id)
@@ -111,7 +111,8 @@ function renderGraph(chartId, data) {
             enter  => enter
             .append("path")
                 .attr("d", d3.symbol()
-                    .type(d3.symbolCircle))
+                    .type(d => symbolScale(d.stakeholderType))
+                    .size(100))
                 .attr("transform", transform)
                 .attr("fill", d => fillScale(d.value))
         )
