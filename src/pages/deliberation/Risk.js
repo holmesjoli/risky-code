@@ -14,7 +14,7 @@ import Slider from '@material-ui/core/Slider';
 import Tooltip from '@material-ui/core/Tooltip';
 import { Fab } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import { initNetwork, updateNetwork, transform } from '../../components/StakeholderMapping';
+import { initNetwork, updateNetwork } from '../../components/StakeholderMapping';
 
 let chartId = "Risk-Chart";
 let legendId = "Risk-Legend";
@@ -24,18 +24,34 @@ let width = 550;
 let height = 200;
 let style = "darkMode";
 let margin = {left: 10, right: 10, top: 10, bottom: 40};
+let node;
 
 const xScale = d3.scaleLinear()
     .domain([1, 5])
     .range([margin.left, width-margin.right]);
 
 const yScale = d3.scaleLinear()
-    .domain([0, 100])
+    .domain([0, 10])
     .range([height-margin.bottom, margin.top]);
 
 const fillScale = d3.scaleOrdinal()
     .domain([5, 4, 3, 2, 1])
-    .range(["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#F3C010"])
+    .range(["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#F3C010"]);
+
+let simulation = d3.forceSimulation()
+    .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
+    .force('x', d3.forceX().x(function (d) {
+        return xScale(d.value);
+    }).strength(1))
+    .force('y', d3.forceY().y(function (d) {
+        return height/2;
+    }).strength(4))
+    .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
+    // .force('collision', d3.forceCollide().radius(function (d) { // prevent circle overlap when collide
+    //     return rScale(d.Cocoa_Percent);
+    // }).strength(1))
+
+
 
 function symbolScale(d) {
 
@@ -87,6 +103,35 @@ function renderGraph(chartId, data) {
         .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-size", 12)
         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+
+    node = svg.append("g")
+        .attr("stroke-width", visStyles[style]["linkWidth"])
+        .attr("cursor", "default")
+        .selectAll("circle");
+
+    node = node
+    .data(dataNew, d => d.id)
+    .join(enter => enter.append("path")
+            .attr("class", "stakeholder-mapping-network-node")
+            .attr("fill", d => fillScale(d.value))
+            .attr("d", d3.symbol()
+                .type(((d) => symbolScale(d.stakeholderType)))
+                .size(10))
+            );
+
+    simulation.alpha(1).restart();
+
+    simulation
+        .nodes(dataNew)
+        .on("tick", ticked);
+
+    function ticked() {
+        node.attr("transform", transform)
+    }
+
+    function transform(d) {
+        return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
+    }
 
     // svg
     // .selectAll("path")
@@ -154,7 +199,7 @@ function RiskLevel({title, handleChange, children}) {
     );
 }
 
-export function Content({stakeholderData, setStakeholderData}) {
+export function Content({sid, stakeholderData, setStakeholderData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -180,10 +225,10 @@ export function Content({stakeholderData, setStakeholderData}) {
 
         let dataNew = Object.assign({}, stakeholderData);
         let risks = [
-            {"id": `${stakeholderData.id}-accountability`, "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType},
-            {"id": `${stakeholderData.id}-stakeholderValues`, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType},
-            {"id": `${stakeholderData.id}-technical`, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType},
-            {"id": `${stakeholderData.id}-appropriateDataUse`, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType}
+            {"id": `${stakeholderData.id}-accountability`, "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+            {"id": `${stakeholderData.id}-stakeholderValues`, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+            {"id": `${stakeholderData.id}-technical`, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+            {"id": `${stakeholderData.id}-appropriateDataUse`, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "y": sid}
         ]
 
         dataNew.risks = risks;
@@ -249,7 +294,7 @@ export function Content({stakeholderData, setStakeholderData}) {
                         </RiskLevel>
                     </div>
                 </div>
-                <div className="Container2 One-Column-Three No-Margin-Bottom">
+                <div className="Container2 One-Column-Three No-Margin-Bottom No-Padding-Bottom">
                     <div>
                         <h4 className="No-Margin-Bottom">legend</h4>
                         <div id={legendId} className="Small-Margin-Bottom"></div>
@@ -269,6 +314,8 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
 
     let navigate = useNavigate();
 
+    let sid = 0;
+
     const routeNext = () => {
         let path = `/Decision`; 
         navigate(path);
@@ -281,7 +328,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
 
     useEffect(() => {
         initGraph(chartId, stakeholderData);
-        initStakeholder(stakeholderId, stakeholderData[0]);
+        initStakeholder(stakeholderId, stakeholderData[sid]);
     }, []);
 
     useEffect(() => {
@@ -302,7 +349,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content stakeholderData={stakeholderData[0]} setStakeholderData={setStakeholderData}/>
+                <Content sid={sid} stakeholderData={stakeholderData[sid]} setStakeholderData={setStakeholderData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
