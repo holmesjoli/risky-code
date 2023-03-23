@@ -99,49 +99,64 @@ function renderGraph(chartId, data) {
     let svg = d3.select(`#${chartId} svg`);
     svg.append("g").attr("class", "nodes");
 
-    let dataNew = [];
+    console.log(data)
 
-    data.map(d => d.risks? d.risks.map(i => dataNew.push(i)): d);
+    let data2 = [{x: 1, y:2, value: 1},
+                {x: 3, y:2, value: 3}
+    ]
 
-    if (dataNew.length > 0) {
+    svg.selectAll("circle")
+        .data(data2)
+        .join(enter => enter
+            .append("circle")
+            .attr("cx", d => xScale(d.x))
+            .attr("cy", d => yScale(d.y))
+            .attr("r", 5)
+            .attr("fill", d => fillScale(d.value)))
 
-        console.log(dataNew)
+    // let dataNew2 = [];
 
-        let node = svg
-            .selectAll("path")
-            .data(dataNew, d => d.id)
-            .join(
-                enter  => enter
-                    // .append("path")
-                    // .attr("d", d3.symbol()
-                    //     .type(((d) => symbolScale(d.stakeholderType)))
-                    //     .size(10))
-                    // .attr("transform", transform)
-                    .append("circle")
-                    .attr("r", 10)
-                    .attr("cx", d => xScale(d.value))
-                    .attr("cy", d => yScale(d.y))
-                    .attr("fill", d => fillScale(d.value)),
-                update => update,         
-                exit   => exit.remove()
-            );
+    // data.map(d => d.risks? d.risks.map(i => dataNew2.push(i)): d);
 
-        // simulation.alpha(1).restart();
+    // if (dataNew2.length > 0) {
 
-        // simulation
-        //     .nodes(dataNew)
-        //     .on("tick", ticked);
+    //     console.log(dataNew2)
 
-        // function transform(d) {
-        //     console.log(d)
-        //     return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
-        // }
+    //     let node = svg
+    //         .selectAll("path")
+    //         .data(dataNew2, d => d.id)
+    //         .join(
+    //             enter  => enter
+    //                 // .append("path")
+    //                 // .attr("d", d3.symbol()
+    //                 //     .type(((d) => symbolScale(d.stakeholderType)))
+    //                 //     .size(10))
+    //                 // .attr("transform", transform)
+    //                 .append("circle")
+    //                 .attr("r", 10)
+    //                 .attr("cx", d => xScale(d.value))
+    //                 .attr("cy", d => yScale(d.y))
+    //                 .attr("fill", d => fillScale(d.value)),
+    //             update => update,         
+    //             exit   => exit.remove()
+    //         );
 
-        // function ticked() {
-        //     node.attr("transform", transform)
-        // }
+    //     // simulation.alpha(1).restart();
 
-    }
+    //     // simulation
+    //     //     .nodes(dataNew2)
+    //     //     .on("tick", ticked);
+
+    //     // function transform(d) {
+    //     //     console.log(d)
+    //     //     return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
+    //     // }
+
+    //     // function ticked() {
+    //     //     node.attr("transform", transform)
+    //     // }
+
+    // }
 }
 
 function initStakeholder(stakeholderId, data) {
@@ -213,16 +228,18 @@ export function Content({sid, stakeholderData, setStakeholderData}) {
 
     const add = () => {
 
-        let dataNew = Object.assign({}, stakeholderData);
-        let risks = [
-            {"id": `${stakeholderData.id}-accountability`, "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-            {"id": `${stakeholderData.id}-stakeholderValues`, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-            {"id": `${stakeholderData.id}-technical`, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-            {"id": `${stakeholderData.id}-appropriateDataUse`, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "y": sid}
-        ]
+        if (stakeholderData !== undefined) {
+            let dataNew = Object.assign({}, stakeholderData);
+            let risks = [
+                {"id": `${stakeholderData.id}-accountability`, "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+                {"id": `${stakeholderData.id}-stakeholderValues`, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+                {"id": `${stakeholderData.id}-technical`, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+                {"id": `${stakeholderData.id}-appropriateDataUse`, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "y": sid}
+            ]
 
-        dataNew.risks = risks;
-        setStakeholderData([dataNew])
+            dataNew.risks = risks;
+            setStakeholderData([dataNew])
+        }
     }
 
     return(
