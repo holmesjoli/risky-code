@@ -51,8 +51,6 @@ let simulation = d3.forceSimulation()
     //     return rScale(d.Cocoa_Percent);
     // }).strength(1))
 
-
-
 function symbolScale(d) {
 
     if(d === "direct") {
@@ -94,6 +92,36 @@ function initGraph(chartId, data) {
     renderGraph(chartId, data);
 }
 
+function renderTooltip(chartId) {
+    var tooltip = d3.select(`#${chartId} .tooltip`);
+
+    d3.selectAll(".stakeholder-risk-network-node")
+        .on("mouseover", function (e, d) {
+
+        let thisCircle = d3.select(this);
+        var x = xScale(d.value) + 20;
+        var y = yScale(d.y) - 10;
+
+        console.log(d)
+
+        thisCircle
+            .attr("stroke-width", 2)
+            .attr("stroke", visStyles[style]["secondaryHighlightColor"]);
+
+        tooltip.style("visibility", "visible")
+            .style("left", x + "px")
+            .style("top", y + "px")
+            .html(`${d.type}`);
+
+    }).on("mouseout", function () {
+        tooltip.style("visibility", "hidden");
+
+        d3.selectAll(".stakeholder-risk-network-node")
+            .attr("stroke", "none");
+    });
+}
+
+
 function renderGraph(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
@@ -103,25 +131,26 @@ function renderGraph(chartId, data) {
 
     data.map(d => d.risks? d.risks.map(i => dataNew2.push(i)): d);
 
-
     if (dataNew2.length > 0) {
 
-        // console.log("hit")
         console.log(dataNew2)
 
         let node = svg.selectAll("symbol")
-        .data(dataNew2, d => d.id)
-        .join(
-            enter  => enter
-            .append("path")
-                .attr("d", d3.symbol()
-                    .type(d => symbolScale(d.stakeholderType))
-                    .size(100))
-                .attr("transform", transform)
-                .attr("fill", d => fillScale(d.value)),
-            update => update,
-            exit => exit
-        )
+            .data(dataNew2, d => d.id)
+            .join(
+                enter  => enter
+                .append("path")
+                    .attr("d", d3.symbol()
+                        .type(d => symbolScale(d.stakeholderType))
+                        .size(100))
+                    .attr("transform", transform)
+                    .attr("fill", d => fillScale(d.value))
+                    .attr("class", "stakeholder-risk-network-node"),
+                update => update
+                    .attr("transform", transform)
+                    .attr("fill", d => fillScale(d.value)),
+                exit => exit
+            )
 
         // simulation.alpha(1).restart();
 
@@ -136,6 +165,8 @@ function renderGraph(chartId, data) {
         function transform(d) {
             return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
         }
+
+        renderTooltip(chartId);
     }
 }
 
