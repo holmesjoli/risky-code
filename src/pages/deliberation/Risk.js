@@ -105,28 +105,16 @@ function renderGraph(chartId, data) {
                 {id: "blah2", x: 3, y:2, value: 3, stakeholderType: "direct"}
     ]
 
-    svg.selectAll("circle")
+    svg.selectAll("symbol")
         .data(data2, d => d.id)
-        .join(enter => enter
-            .append("circle")
-            .attr("transform", transform)
-            .attr("r", 5)
-            .attr("fill", d => fillScale(d.value)));
-
-    // let node = svg
-    //         .selectAll("path")
-    //         .data(data2, d => d.id)
-    //         .join(
-    //             enter  => enter
-    //                 .append("path")
-    //                 .attr("d", d3.symbol()
-    //                     .type(((d) => symbolScale(d.stakeholderType)))
-    //                     .size(10))
-    //                 .attr("transform", transform)
-    //                 .attr("fill", d => fillScale(d.value)),
-    //             update => update,         
-    //             exit   => exit.remove()
-    //         );
+        .join(
+            enter  => enter
+            .append("path")
+                .attr("d", d3.symbol()
+                    .type(d3.symbolCircle))
+                .attr("transform", transform)
+                .attr("fill", d => fillScale(d.value))
+        )
 
     function transform(d) {
         return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
@@ -137,27 +125,6 @@ function renderGraph(chartId, data) {
     // data.map(d => d.risks? d.risks.map(i => dataNew2.push(i)): d);
 
     // if (dataNew2.length > 0) {
-
-    //     console.log(dataNew2)
-
-    //     let node = svg
-    //         .selectAll("path")
-    //         .data(dataNew2, d => d.id)
-    //         .join(
-    //             enter  => enter
-    //                 // .append("path")
-    //                 // .attr("d", d3.symbol()
-    //                 //     .type(((d) => symbolScale(d.stakeholderType)))
-    //                 //     .size(10))
-    //                 // .attr("transform", transform)
-    //                 .append("circle")
-    //                 .attr("r", 10)
-    //                 .attr("cx", d => xScale(d.value))
-    //                 .attr("cy", d => yScale(d.y))
-    //                 .attr("fill", d => fillScale(d.value)),
-    //             update => update,         
-    //             exit   => exit.remove()
-    //         );
 
     //     // simulation.alpha(1).restart();
 
