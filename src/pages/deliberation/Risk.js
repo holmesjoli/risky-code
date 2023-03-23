@@ -105,7 +105,7 @@ function renderGraph(chartId, data) {
                 {id: "blah2", x: 3, y:2, value: 3, stakeholderType: "direct"}
     ];
 
-    svg.selectAll("symbol")
+    let node = svg.selectAll("symbol")
         .data(data2, d => d.id)
         .join(
             enter  => enter
@@ -114,7 +114,9 @@ function renderGraph(chartId, data) {
                     .type(d => symbolScale(d.stakeholderType))
                     .size(100))
                 .attr("transform", transform)
-                .attr("fill", d => fillScale(d.value))
+                .attr("fill", d => fillScale(d.value)),
+            update => update,
+            exit => exit
         )
 
     function transform(d) {
@@ -127,15 +129,15 @@ function renderGraph(chartId, data) {
 
     // if (dataNew2.length > 0) {
 
-    //     // simulation.alpha(1).restart();
+        simulation.alpha(1).restart();
 
-    //     // simulation
-    //     //     .nodes(dataNew2)
-    //     //     .on("tick", ticked);
+        simulation
+            .nodes(data2)
+            .on("tick", ticked);
 
-    //     // function ticked() {
-    //     //     node.attr("transform", transform)
-    //     // }
+        function ticked() {
+            node.attr("transform", transform)
+        }
 
     // }
 }
