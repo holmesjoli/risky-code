@@ -110,7 +110,7 @@ function renderTooltip(chartId) {
         tooltip.style("visibility", "visible")
             .style("left", x + "px")
             .style("top", y + "px")
-            .html(`${d.type}`);
+            .html(`${d.name}: ${d.type}`);
 
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
@@ -240,10 +240,10 @@ export function Content({sid, stakeholderData, setStakeholderData}) {
         if (stakeholderData !== undefined) {
             let dataNew = Object.assign({}, stakeholderData);
             let risks = [
-                {"id": `${stakeholderData.id}-accountability`, "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-                {"id": `${stakeholderData.id}-stakeholderValues`, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-                {"id": `${stakeholderData.id}-technical`, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-                {"id": `${stakeholderData.id}-appropriateDataUse`, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "y": sid}
+                {"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+                {"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+                {"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
+                {"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "y": sid}
             ]
 
             dataNew.risks = risks;
