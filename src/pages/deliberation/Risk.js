@@ -109,8 +109,7 @@ function renderGraph(chartId, data) {
         .data(data2, d => d.id)
         .join(enter => enter
             .append("circle")
-            .attr("cx", d => xScale(d.x))
-            .attr("cy", d => yScale(d.y))
+            .attr("transform", transform)
             .attr("r", 5)
             .attr("fill", d => fillScale(d.value)));
 
