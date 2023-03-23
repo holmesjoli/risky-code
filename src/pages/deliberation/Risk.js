@@ -40,13 +40,13 @@ const fillScale = d3.scaleOrdinal()
 
 let simulation = d3.forceSimulation()
     .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
-    .force('x', d3.forceX().x(function (d) {
-        return xScale(d.value);
-    }).strength(1))
-    .force('y', d3.forceY().y(function (d) {
-        return height/2;
-    }).strength(4))
-    .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
+    // .force('x', d3.forceX().x(function (d) {
+    //     return xScale(d.value);
+    // }).strength(1))
+    // .force('y', d3.forceY().y(function (d) {
+    //     return height/2;
+    // }).strength(1))
+    // .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
     // .force('collision', d3.forceCollide().radius(function (d) { // prevent circle overlap when collide
     //     return rScale(d.Cocoa_Percent);
     // }).strength(1))
@@ -79,10 +79,11 @@ function initGraph(chartId, data) {
         .attr("color", visStyles[style]["textColor"])
         .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
 
-    svg.append("text")
-        .attr("class","axisLabel")
+    svg.select(".axis")
+        .append("text")
+        .attr("class", "axisLabel")
         .attr("x", (width - margin.left - margin.right)/2 + margin.left)
-        .attr("y", height - 5)
+        .attr("y", margin.bottom)
         .attr("text-anchor","middle")
         .text("Overall risk")
         .attr("fill", visStyles[style]["textHighlightColor"])
@@ -101,8 +102,6 @@ function renderTooltip(chartId) {
         let thisCircle = d3.select(this);
         var x = xScale(d.value) + 20;
         var y = yScale(d.y) - 10;
-
-        console.log(d)
 
         thisCircle
             .attr("stroke-width", 2)
@@ -133,9 +132,8 @@ function renderGraph(chartId, data) {
 
     if (dataNew2.length > 0) {
 
-        console.log(dataNew2)
-
-        let node = svg.selectAll("symbol")
+        let node = svg
+            .select(".nodes").selectAll("symbol")
             .data(dataNew2, d => d.id)
             .join(
                 enter  => enter
