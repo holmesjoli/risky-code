@@ -66,7 +66,7 @@ function symbolScale(d) {
 
 function initGraph(chartId, data) {
 
-    d3.select(`#${chartId}`)
+    let svg = d3.select(`#${chartId}`)
         .append("svg")
         .attr("width", width)
         .attr("height", height);
@@ -74,19 +74,6 @@ function initGraph(chartId, data) {
     d3.select(`#${chartId}`)
         .append("div")
         .attr("class", "tooltip");
-
-    renderGraph(chartId, data);
-}
-
-function renderGraph(chartId, data) {
-
-    let dataNew = [];
-
-    data.map(d => d.risks? d.risks.map(i => dataNew.push(i)): d);
-
-    console.log(dataNew)
-
-    let svg = d3.select(`#${chartId} svg`);
 
     const xAxis = svg.append("g")
         .attr("class", "axis")
@@ -103,6 +90,19 @@ function renderGraph(chartId, data) {
         .attr("fill", visStyles[style]["textHighlightColor"])
         .attr("font-size", 12)
         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+
+    renderGraph(chartId, data);
+}
+
+function renderGraph(chartId, data) {
+
+    let dataNew = [];
+
+    data.map(d => d.risks? d.risks.map(i => dataNew.push(i)): d);
+
+    console.log(dataNew)
+
+    let svg = d3.select(`#${chartId} svg`);
 
     node = svg.append("g")
         .attr("stroke-width", visStyles[style]["linkWidth"])
