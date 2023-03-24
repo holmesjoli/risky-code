@@ -31,7 +31,7 @@ const xScale = d3.scaleLinear()
     .range([margin.left, width-margin.right]);
 
 const yScale = d3.scaleLinear()
-    .domain([0, 10])
+    .domain([1, 4])
     .range([height-margin.bottom, margin.top]);
 
 const fillScale = d3.scaleOrdinal()
@@ -40,13 +40,13 @@ const fillScale = d3.scaleOrdinal()
 
 let simulation = d3.forceSimulation()
     .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
-    // .force('x', d3.forceX().x(function (d) {
-    //     return xScale(d.value);
-    // }).strength(1))
-    // .force('y', d3.forceY().y(function (d) {
-    //     return height/2;
-    // }).strength(1))
-    // .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
+    .force('x', d3.forceX().x(function (d) {
+        return xScale(d.value);
+    }).strength(1))
+    .force('y', d3.forceY().y(function (d) {
+        return yScale(d.yValue);
+    }).strength(1))
+    .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
     // .force('collision', d3.forceCollide().radius(function (d) { // prevent circle overlap when collide
     //     return rScale(d.Cocoa_Percent);
     // }).strength(1))
@@ -101,7 +101,7 @@ function renderTooltip(chartId) {
 
         let thisCircle = d3.select(this);
         var x = xScale(d.value) + 20;
-        var y = yScale(d.y) - 10;
+        var y = yScale(d.yValue) - 10;
 
         thisCircle
             .attr("stroke-width", 2)
@@ -141,27 +141,28 @@ function renderGraph(chartId, data) {
                     .attr("d", d3.symbol()
                         .type(d => symbolScale(d.stakeholderType))
                         .size(100))
-                    .attr("transform", transform)
+                    // .attr("transform", transform)
                     .attr("fill", d => fillScale(d.value))
                     .attr("class", "stakeholder-risk-network-node"),
                 update => update
-                    .attr("transform", transform)
+                    // .attr("transform", transform)
                     .attr("fill", d => fillScale(d.value)),
                 exit => exit
             )
 
-        // simulation.alpha(1).restart();
+        simulation.alpha(1).restart();
 
-        // simulation
-        //     .nodes(dataNew2)
-        //     .on("tick", ticked);
+        simulation
+            .nodes(dataNew2)
+            .on("tick", ticked);
 
-        // function ticked() {
-        //     node.attr("transform", transform)
-        // }
+        function ticked() {
+            node.attr("transform", transform)
+        }
 
         function transform(d) {
-            return "translate(" + xScale(d.value) + "," + yScale(d.y) + ")";
+            return "translate(" + xScale(d.value) + "," + yScale(d.yValue) + ")";
+
         }
 
         renderTooltip(chartId);
@@ -240,10 +241,10 @@ export function Content({sid, stakeholderData, setStakeholderData}) {
         if (stakeholderData !== undefined) {
             let dataNew = Object.assign({}, stakeholderData);
             let risks = [
-                {"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-                {"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-                {"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "y": sid},
-                {"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "y": sid}
+                {"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1},
+                {"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2},
+                {"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3},
+                {"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4}
             ]
 
             dataNew.risks = risks;
