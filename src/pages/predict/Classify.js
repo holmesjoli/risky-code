@@ -61,14 +61,14 @@ export default function Classify({config, user, items, setItems, modules, rules,
                         <RightSideBar>
                             <div className="Container2">
                                 <h4 className="Small-Margin">learn</h4>
-                                <p>The first step of algorithmic prediction is to collect and classify data. The <span className="Emphasis">Algorithmic Prediction</span> module continues to build on the laundry analogy introduced in the orientation.</p>
+                                <p>The first step of algorithmic prediction is to collect and classify data. </p>
                                 {user==="group"?<p className="Margin-Small">Your team will classify <span className="Semi-Bold">20</span> items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
                                 <ul className="Margin-Bottom">
                                     <li>{rules.rule1}</li>
                                     <li>{rules.rule2}</li>
                                     <li>{rules.rule3}</li>
                                 </ul>
-                                {user==="group"?<p className="No-Margin-Bottom">Discuss how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Decide how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
+                                {user==="group"?<p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                             </div>
                             <NextButtonOverlay className="Pink" toggleOverlay={toggleOverlay}/>
                         </RightSideBar>

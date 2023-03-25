@@ -337,6 +337,7 @@ function StakeholderNetwork(data, setData) {
                 <h4 className="Small-Margin">visualize</h4>
                 <div id={chartId}></div>
                 <h4>legend</h4>
+                <h5>Stakeholder type</h5>
                 <div id={legendId} className="Small-Margin-Bottom"></div>
             </div>
             <div>

@@ -45,7 +45,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
     const Welcome = () => {
         return(
             <div className="Container2 Margin-Bottom">
-                <p className="No-Margin-Bottom">Risky Code is a digital toolkit designed to inform and to facilitate deliberation about algorithmically informed decision-making.</p>
+                <p className="No-Margin-Bottom">Risky Code is a digital workshop inteded to educate participants and facilitates discussion around algorithmic informed decision-making.</p>
             </div>
         )
     }
@@ -54,9 +54,9 @@ export default function Orientation({user, setUser, name, setName, groupName, se
         return(
             <div className="Container2 Margin-Bottom">
                 <div className="No-Margin-Bottom">
-                    <p className="Bottom-Rule Padding-Bottom">Risky Code is designed to be used in a small group setting (approximately three to six people) to facilitate discussion and deliberation. Individuals are also encouraged to try Risky Code, however, the experience is designed to differ slightly.</p>
+                    <p>Risky Code has two user experiences, one is designed for small groups (~3-6 people) and the other is geared towards individuals.</p>
                     <div className="">
-                        <p className="Small-Margin">Indicate how you intend to use Risky Code.</p>
+                        <p className="Small-Margin">Indicate how you intend to use Risky Code:</p>
                         <RadioGroup
                             aria-labelledby="demo-radio-buttons-group-label"
                             name="radio-buttons-group"
@@ -70,7 +70,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                     </div>
                     {user === "group"?
                         <div className="No-Margin-Bottom">
-                            <p className="Small-Margin Padding-Top">Identify a group faciliator who will navigate the application. Group faciliator please share your screen with your team. Risky Code is designed to take approximately an hour to complete.</p>
+                            <p className="Small-Margin Padding-Top">The group toolkit is best experienced with a facilitator who share their screen during the experience.</p>
                         </div>:
                         <></>
                     }
@@ -83,7 +83,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
 
         return(
             <div className="Container2 Margin-Bottom">
-                <p className="Medium-Margin">Risky Code contains four modules:</p>
+                <p className="Medium-Margin">Risky Code has specific learning outcomes which are split into four modules and will take ~ 1 hour to complete:</p>
                 <ul className="Margin-Bottom">
                     <li className="Small-Margin"><span className="Semi-Bold Pink">Algorithmic Prediction</span> </li>
                     <li className="Small-Margin"><span className="Semi-Bold DarkOrange">Algorithmic Fairness</span></li>
@@ -99,14 +99,14 @@ export default function Orientation({user, setUser, name, setName, groupName, se
 
         return(
             <div className="Container2 Margin-Bottom">
+                <p>Each module has a target persona which will be reflected as a <span className="Emphasis">role</span>. The roles highlight constraints and decisions that someone in that role may face.</p>
                 <p>In each module, {user === "group"? "imagine your team as a group of:" : "imagine yourself as a:"} </p>
-                <ul className="Margin-Bottom">
-                    <li className="Small-Margin"><span className="Semi-Bold">Algorithmic Prediction</span>: <span className="Semi-Bold Pink">You</span> — {user === "group"? "busy people who want " : "a busy individual who wants "} to learn more about algorithmic decision-making</li>
-                    <li className="Small-Margin"><span className="Semi-Bold">Algorithmic Fairness</span>: <span className="Semi-Bold DarkOrange">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
-                    <li className="Small-Margin"><span className="Semi-Bold">Stakeholder Mapping</span>: <span className="Semi-Bold LightOrange">{user === "group"? "Designers" : "Designer"}</span> — interested in bringing design methods to algorithmic decision-making</li>
-                    <li className="Small-Margin"><span className="Semi-Bold">Deliberation</span>: <span className="Semi-Bold Yellow">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
+                <ul className="No-Margin-Bottom">
+                    <li className="Small-Margin"><span className="Semi-Bold Pink">You</span> — {user === "group"? "busy people who are " : "a busy individual who wis "} interested in learning about algorithmic decision making</li>
+                    <li className="Small-Margin"><span className="Semi-Bold DarkOrange">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
+                    <li className="Small-Margin"><span className="Semi-Bold LightOrange">{user === "group"? "Designers" : "Designer"}</span> — interested in applying design methods to algorithmic decision-making</li>
+                    <li className="Small-Margin"><span className="Semi-Bold Yellow">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
                 </ul>
-                <p className="No-Margin-Bottom">The goal of the role is to imagine the constraints and decisions a person in that role faces when implementing algorithmic decision-making.</p>
             </div>
         )
     }
@@ -117,7 +117,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
         children: <Welcome/>
       },
       {
-        label: 'indicate user type',
+        label: 'intended audience',
         children: userGroup(user, updateUser, name, updateName, groupName, updateGroupName)
       },
       {
@@ -125,7 +125,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
         children: <Modules/>
       },
       {
-        label: 'role',
+        label: 'roles',
         children: <Role user={user}/>
       }
     ];
