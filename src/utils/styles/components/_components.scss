@@ -122,6 +122,34 @@ p {
 
 // Accordion
 
-.MuiAccordionSummary-root {
-    
+.Pink .MuiButtonBase-root.MuiAccordionSummary-root:hover,
+.Pink .MuiAccordionSummary-expandIcon:hover,
+.Pink .MuiAccordionSummary-content:hover,
+.Pink .Expand:hover {
+    color: $Pink;
+    border-color: $Pink;
+}
+
+.DarkOrange .MuiButtonBase-root.MuiAccordionSummary-root:hover,
+.DarkOrange .MuiAccordionSummary-expandIcon:hover,
+.DarkOrange .MuiAccordionSummary-content:hover,
+.DarkOrange .Expand:hover {
+    color: $DarkOrange;
+    border-color: $DarkOrange;
+}
+
+.LightOrange .MuiButtonBase-root.MuiAccordionSummary-root:hover,
+.LightOrange .MuiAccordionSummary-expandIcon:hover,
+.LightOrange .MuiAccordionSummary-content:hover,
+.LightOrange .Expand:hover {
+    color: $LightOrange;
+    border-color: $LightOrange;
+}
+
+.Yellow .MuiButtonBase-root.MuiAccordionSummary-root:hover,
+.Yellow .MuiAccordionSummary-expandIcon:hover,
+.Yellow .MuiAccordionSummary-content:hover,
+.Yellow .Expand:hover {
+    color: $Yellow;
+    border-color: $Yellow;
 }
