@@ -44,7 +44,7 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
     const Reflect = ({user, disableFairnessNext, setDisableFairnessNext}) => {
 
         return(
-            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
+            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext} className="DarkOrange">
                 <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
                 <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
                 <p className="No-Margin-Bottom">When may it be optimal to use different types of mathematical fairness?</p>

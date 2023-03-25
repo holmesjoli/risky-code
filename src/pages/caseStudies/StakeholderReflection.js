@@ -42,7 +42,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
 
     const Reflect = ({user, disableStakeholder, setDisableStakeholder}) => {
         return(
-            <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder}>
+            <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder} className="LightOrange">
                 {user==="group"? <p>Did your team think of any stakeholders which you hadn't considered before?</p>: <p>Did you think of any stakeholders which you hadn't considered before?</p>}
                 <p>How did the stakeholders' values align or diverge?</p>
                 <p className="No-Margin-Bottom">Is it important to consider all stakeholders' values equally?</p>

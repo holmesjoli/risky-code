@@ -54,7 +54,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
     const Reflect = ({user, disablePredictionNext, setDisablePredictionNext}) => {
 
         return(
-            <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
+            <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext} className="Pink">
                 <p>Would you collect any other variables to use in the statistical model?</p>
                 <p>Were there any rules {user==="group"? "your team": "you"} brainstormed that the statistical model was not able to accomodate?</p>
                     {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}

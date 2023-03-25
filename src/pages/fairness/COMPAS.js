@@ -375,10 +375,10 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                                 <p>Before we jump into algorithmic fairness its important to know a little bit more about the COMPAS algorithm and its data.</p>
                                 <p className="No-Margin-Bottom">The outcome variable of interest is the <span className="Emphasis">reoffense</span> in the COMPAS model. However, the data used to train COMPAS only reports whether a defendant was charged with another crime, <span className="Emphasis">arrests</span>. In predictive modeling, <span className="Emphasis">arrests</span>. is called a proxy variable for the actual outcome variable of interest, <span className="Emphasis">reoffense</span>.</p>
                             </div>
-                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext}>
+                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext} className="DarkOrange">
                                 <p>Does everyone who commits a crime get charged with that crime?</p>
                                 <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
-                                <p className="No-Margin-Bottom">Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
+                                <p>Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} className="DarkOrange" toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>

@@ -2,7 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 
 // adpated from https://stackoverflow.com/questions/40885923/countdown-timer-in-react
-export default function Timer({user, disableNext, setDisableNext, children}) {
+export default function Timer({user, disableNext, setDisableNext, children, className}) {
 
     const [minutes, setMinutes ] = useState(0);
     const [seconds, setSeconds ] =  useState(2);
@@ -36,7 +36,7 @@ export default function Timer({user, disableNext, setDisableNext, children}) {
 
     if (user === "group") {
         return (
-        <div className="Timer Container2 Margin-Bottom">
+        <div className={className + " Timer Container2 Margin-Bottom"}>
             <h4 className="Small-Margin">discuss</h4>
             {children}
             {!disableNext

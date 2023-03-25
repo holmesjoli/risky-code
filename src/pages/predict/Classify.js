@@ -99,7 +99,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
             <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name}/>
             <RightSideBar>
                 <Progress id={id} modules={modules} className="Pink"/>
-                <NextButton routeNext={routeNext} disabled={disabled}/>
+                <NextButton routeNext={routeNext} className="Pink" disabled={disabled}/>
             </RightSideBar>
         </div>
         <Footer/>

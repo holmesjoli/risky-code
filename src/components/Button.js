@@ -10,6 +10,10 @@ export function BackButton({routeBack}) {
 
 export function NextButton({routeNext, className, disabled=false, label="next"}) {
 
+    if (disabled) {
+        className = ""
+    }
+
     if (!disabled && className=== undefined) {
         className="Purple"
     }
@@ -23,9 +27,14 @@ export function NextButton({routeNext, className, disabled=false, label="next"})
 
 export function NextButtonOverlay({toggleOverlay, className, disabled=false, label="next"}) {
 
+    if (disabled) {
+        className = ""
+    }
+
     if (!disabled && className=== undefined) {
         className="Purple"
     }
+    console.log(className)
 
     return(
         <div className="Button-Container-Right-Overlay Margin-Top">
