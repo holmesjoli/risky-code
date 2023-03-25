@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { FormControl, RadioGroup, FormControlLabel, Radio, Slider } from '@material-ui/core';
 import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
-import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { BackButton, NextButton } from '../../components/Button';
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, COMPASFair } from "../../components/Sidebar";
 import { RoleShort } from "../../components/Role";
 import { terms } from '../../utils/global';
-import Overlay from "../../components/Overlay";
-import Timer from "../../components/Timer";
 import { fillScale, symbolScale, transform } from "./COMPAS";
-import { initRaceLegend, drawLegend } from "./Calibration";
+import { initRaceLegend } from "./Calibration";
 import { visStyles } from "../../utils/global";
 
 import data from "../../data/processed/error.json";
@@ -209,14 +207,14 @@ function renderGraph(data, predictiveProbability) {
     d3.select(`#${textIdFPR}`)
         .append("p")
         .attr("class", "No-Margin-Bottom")
-        .text(`At a threshold of ${predictiveProbability}, ${FPRPctBlack}% of Black people and ${FPRPctWhite}% of White people were predicted to reoffend, but did not reoffend`);
+        .text(`At a risk level of ${predictiveProbability}, COMPAS incorrectly predicts that ${FPRPctBlack}% of Black people and ${FPRPctWhite}% of White people will reoffend, who do not reoffend`);
 
     document.getElementById(textIdFNR).textContent="";
 
     d3.select(`#${textIdFNR}`)
         .append("p")
         .attr("class", "No-Margin-Bottom")
-        .text(`At a threshold of ${predictiveProbability}, ${FNRPctBlack}% of Black people and ${FNRPctWhite}% of White people were not predicted to reoffend, but did reoffend`);
+        .text(`At a risk level of ${predictiveProbability}, COMPAS incorrectly predicts that ${FNRPctBlack}% of Black people and ${FNRPctWhite}% of White people were not reoffend, who do reoffend`);
 
     renderTooltip(chartIdFPR);
     renderTooltip(chartIdFNR);
@@ -283,6 +281,7 @@ export function Content() {
                             className="DarkOrange"
                             onChange={updateSlider}
                             />
+                        <p className="No-Margin-Bottom">Keeping an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships.</p>
                     </div>
                     <div className="Container Margin-Bottom">
                         <div className="Legend">
@@ -293,20 +292,6 @@ export function Content() {
                             <div id={predictedLegendId}></div>
                         </div>
                     </div>
-                <div className="Container">
-                    <FormControl>
-                        <h4 className="Small-Margin">is compas fair?</h4>
-                        <p>Evaluate if you think COMPAS treats people fairly based on race.</p>
-                        <RadioGroup
-                            aria-labelledby="demo-radio-buttons-group-label"
-                            name="radio-buttons-group"
-                            className="Margin-Left"
-                        >
-                            <FormControlLabel className="DarkOrange" value="yes" control={<Radio />} label="Yes" />
-                            <FormControlLabel className="DarkOrange" value="no" control={<Radio />} label="No" />
-                        </RadioGroup>
-                    </FormControl>
-                </div>
                 </div>
                 <div>
                     <div className="Container">
@@ -387,7 +372,6 @@ export default function Error({config, modules}) {
                 <LeftSideBar>
                     <Description title={config.title}>
                         <p>Optimize the false positive rate and false negative rate by moving the slider. </p>
-                        <p> The decision to keep an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships.</p>
                     </Description>
                     <RoleShort moduleName="fairness"/>
                     <Terminology margin="Margin-Large-Bottom" className="DarkOrange">
@@ -401,6 +385,7 @@ export default function Error({config, modules}) {
                 <Content />
                 <RightSideBar>
                     <Progress id={config.id} modules={modules} className="DarkOrange"/>
+                    <COMPASFair/>
                     <NextButton routeNext={routeNext} className="DarkOrange"/>
                 </RightSideBar>
             </div>

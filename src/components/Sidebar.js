@@ -1,4 +1,4 @@
-import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
+import { Accordion, AccordionSummary, AccordionDetails,  FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 export function Terminology({children, className, margin, defaultExpanded=false}) {
@@ -51,5 +51,25 @@ export function RightSideBar({children}) {
         <div className="Sidebar-Right No-Padding-Top">
             {children}
         </div>
+    )
+}
+
+
+export function COMPASFair() {
+    return(
+        <div className="Container Bottom">
+            <FormControl>
+                <h4 className="Small-Margin">is compas fair?</h4>
+                <p>Evaluate if you think COMPAS treats people fairly based on race.</p>
+                <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    name="radio-buttons-group"
+                    className="Margin-Left"
+                >
+                    <FormControlLabel className="DarkOrange" value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel className="DarkOrange" value="no" control={<Radio />} label="No" />
+                </RadioGroup>
+            </FormControl>
+    </div>
     )
 }

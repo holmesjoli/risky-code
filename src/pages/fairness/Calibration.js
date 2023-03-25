@@ -8,13 +8,13 @@ import { wrap, visStyles } from "../../utils/global";
 import { terms } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
+import { LeftSideBar, RightSideBar, Description, Terminology, Term, COMPASFair } from "../../components/Sidebar";
 import Timer from "../../components/Timer";
 import { RoleShort } from "../../components/Role";
 import fairnessData from "../../data/processed/mathematical_fairness.json"
 import data from "../../data/processed/calibrationCurve.json";
 import { FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
-import { fillScale, symbolScale} from "./COMPAS"
+import { fillScale, symbolScale } from "./COMPAS"
 
 let introChartId = "Fairness-Chart";
 let chartId = "Calibration-Chart";
@@ -155,20 +155,6 @@ function Information() {
                     <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources" className="DarkOrange">(Angwin et al. 2016)</NavLink>. </p>
                     <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources" className="DarkOrange">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
                     <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
-            </div>
-            <div className="Container">
-                <FormControl>
-                    <h4 className="Small-Margin">is compas fair?</h4>
-                    <p>Evaluate if you think COMPAS treats people fairly based on race.</p>
-                    <RadioGroup
-                        aria-labelledby="demo-radio-buttons-group-label"
-                        name="radio-buttons-group"
-                        className="Margin-Left"
-                    >
-                        <FormControlLabel className="DarkOrange" value="yes" control={<Radio/>} label="Yes" />
-                        <FormControlLabel className="DarkOrange" value="no" control={<Radio/>} label="No" />
-                    </RadioGroup>
-                </FormControl>
             </div>
         </div>
     )
@@ -444,6 +430,7 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
             <Content/>
             <RightSideBar>
                 <Progress id={config.id} modules={modules} className="DarkOrange"/>
+                <COMPASFair/>
                 <NextButton routeNext={routeNext} className="DarkOrange"/>
             </RightSideBar>
         </div>

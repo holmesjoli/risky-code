@@ -48,9 +48,7 @@ let simulation = d3.forceSimulation()
         return yScale(d.yValue);
     }).strength(1))
     .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
-    // .force('collision', d3.forceCollide().radius(function (d) { // prevent circle overlap when collide
-    //     return rScale(d.Cocoa_Percent);
-    // }).strength(1))
+    .force('collision', d3.forceCollide().radius(6).strength(1))
 
 export function initRiskLegend(legendStakeholderId) {
 

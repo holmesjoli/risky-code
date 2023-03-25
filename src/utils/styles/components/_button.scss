@@ -34,6 +34,16 @@
     right: 15px;
 }
 
+.Bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    position: absolute;
+    bottom: 75px;
+    width: 90%;
+    right: 15px;
+}
+
 .Button-Container-Right-Overlay {
     padding: 0 10px;
 }
