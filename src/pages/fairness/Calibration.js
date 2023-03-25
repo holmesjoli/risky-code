@@ -33,10 +33,6 @@ const yScale = d3.scaleLinear()
     .domain([0, 100])
     .range([height-margin.bottom, margin.top]);
 
-const fillData = [{"fill": "Black"},
-                  {"fill": "White"},
-                  {"fill": "Other"}]
-
 function textAngle(angle) {
     return (180/Math.PI)*angle; 
 }
@@ -349,6 +345,10 @@ export function drawRaceLegend(legendId) {
 
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
+
+    const fillData = [{"fill": "Black"},
+                  {"fill": "White"},
+                  {"fill": "Other"}]
 
     let shape = svg.append("g")
         .selectAll("path")

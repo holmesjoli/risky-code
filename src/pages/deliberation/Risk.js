@@ -17,7 +17,7 @@ import AddIcon from '@material-ui/icons/Add';
 import { initNetwork, updateNetwork } from '../../components/StakeholderMapping';
 
 let chartId = "Risk-Chart";
-let legendId = "Risk-Legend";
+let legendStakeholderId = "Risk-Legend";
 let stakeholderId = "Risk-Stakeholder";
 
 let width = 550;
@@ -61,6 +61,53 @@ function symbolScale(d) {
         return d3.symbolTriangle;
     }
 }
+
+export function initStakeholderLegend(legendStakeholderId) {
+
+    let height = 40;
+
+    d3.select(`#${legendStakeholderId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    drawStakeholderLegend(legendStakeholderId);
+}
+
+export function drawStakeholderLegend(legendId) {
+    
+    const fillData = [{"fill": "direct", "name": "Direct"},
+                        {"fill": "indirect", "name": "Indirect"},
+                        {"fill": "excluded", "name": "Excluded"}]
+    
+    let svg = d3.select(`#${legendId} svg`)
+    let h = 40;
+
+    let shape = svg.append("g")
+        .selectAll("path")
+            .data(fillData, d => d.fill)
+            .enter()
+            .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 70) + 30}, ${h / 3})`)
+
+    shape.append("path")
+        .attr("d", d3.symbol()
+            .type(((d) => symbolScale(d.fill)))
+            .size(100))
+        .attr("fill", "#cbcbcb");
+
+    // Add a text element to the previously added g element.
+    shape.append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", 20)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"])
+        .text(d => d.name);
+}
+
 
 function initGraph(chartId, data) {
 
@@ -283,8 +330,9 @@ function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
     const Legend = () => {
         return(
             <div>
-                <h4 className="No-Margin-Bottom">legend</h4>
-                <div id={legendId} className="Small-Margin-Bottom"></div>
+                <h4 className="Small-Margin">legend</h4>
+                <h5 className="Small-Margin">Stakeholder type</h5>
+                <div id={legendStakeholderId} className="Small-Margin-Bottom"></div>
             </div>
         )
     }
@@ -382,6 +430,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
     useEffect(() => {
         initStakeholder(stakeholderId, stakeholderData[sid]);
         initGraph(chartId);
+        initStakeholderLegend(legendStakeholderId);
     }, []);
 
     return (
