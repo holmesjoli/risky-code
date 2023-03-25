@@ -17,7 +17,8 @@ import AddIcon from '@material-ui/icons/Add';
 import { initNetwork, updateNetwork } from '../../components/StakeholderMapping';
 
 let chartId = "Risk-Chart";
-let legendStakeholderId = "Risk-Legend";
+let legendStakeholderId = "Risk-Stakeholder-Legend";
+let legendRiskId = "Risk-Legend";
 let stakeholderId = "Risk-Stakeholder";
 
 let width = 550;
@@ -88,13 +89,61 @@ export function drawStakeholderLegend(legendId) {
             .data(fillData, d => d.fill)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 70) + 30}, ${h / 3})`)
+        .attr("transform", (d, i) => `translate(${(i * 60) + 30}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()
             .type(((d) => symbolScale(d.fill)))
             .size(100))
         .attr("fill", "#cbcbcb");
+
+    // Add a text element to the previously added g element.
+    shape.append("text")
+        .attr("text-anchor", "middle")
+        .attr("y", 20)
+        .attr("fill", visStyles[style]["textColor"])
+        .attr("font-size", visStyles[style]["fontSize"])
+        .attr("fill", visStyles[style]["textHighlightColor"])
+        .attr("font-size", 12)
+        .attr("letter-spacing", visStyles[style]["letterSpacing"])
+        .text(d => d.name);
+}
+
+export function initRiskLegend(legendStakeholderId) {
+
+    let height = 40;
+
+    d3.select(`#${legendStakeholderId}`)
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    drawRiskLegend(legendStakeholderId);
+}
+
+export function drawRiskLegend(legendId) {
+    
+    const fillData = [{"fill": 1, "name": "Low"},
+                        {"fill": 2, "name": ""},
+                        {"fill": 3, "name": "Medium"},
+                        {"fill": 4, "name": ""},
+                        {"fill": 5, "name": "High"}]
+    
+    let svg = d3.select(`#${legendId} svg`)
+    let h = 40;
+
+    let shape = svg.append("g")
+        .selectAll("path")
+            .data(fillData, d => d.fill)
+            .enter()
+            .append("g")
+        .attr("transform", (d, i) => `translate(${(i * 60) + 30}, ${h / 3})`)
+
+    shape.append("path")
+        .attr("d", d3.symbol()
+            .type(((d) => symbolScale(d.fill)))
+            .size(100))
+        .attr("fill", d=>fillScale(d.fill));
 
     // Add a text element to the previously added g element.
     shape.append("text")
@@ -332,7 +381,9 @@ function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
             <div>
                 <h4 className="Small-Margin">legend</h4>
                 <h5 className="Small-Margin">Stakeholder type</h5>
-                <div id={legendStakeholderId} className="Small-Margin-Bottom"></div>
+                <div id={legendStakeholderId}></div>
+                <h5 className="Small-Margin Margin-Top">Risk level</h5>
+                <div id={legendRiskId} className="Small-Margin-Bottom"></div>
             </div>
         )
     }
@@ -431,6 +482,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
         initStakeholder(stakeholderId, stakeholderData[sid]);
         initGraph(chartId);
         initStakeholderLegend(legendStakeholderId);
+        initRiskLegend(legendRiskId);
     }, []);
 
     return (
