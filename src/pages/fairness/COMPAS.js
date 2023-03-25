@@ -275,7 +275,6 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
     return(
         <div className="Content No-Padding-Top">
             <div>
-                {/* <h3>explore</h3> */}
                 <div className="One-Column-Three4">
                     <div className="Container Margin-Bottom">
                         <h4 className="No-Margin-Bottom">visualize</h4>

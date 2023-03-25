@@ -34,11 +34,25 @@ export function NextButtonOverlay({toggleOverlay, className, disabled=false, lab
     if (!disabled && className=== undefined) {
         className="Purple"
     }
-    console.log(className)
 
     return(
         <div className="Button-Container-Right-Overlay Margin-Top">
             <Button variant="outlined" className={className} onClick={toggleOverlay} disabled={disabled}>{label}</Button>
         </div>
+    )
+}
+
+export function NextButtonOrientation({routeNext, className, disabled=false, label="next"}) {
+
+    if (disabled) {
+        className = ""
+    }
+
+    if (!disabled && className=== undefined) {
+        className="Purple"
+    }
+
+    return(
+        <Button variant="outlined" className={className} onClick={routeNext} disabled={disabled}>{label}</Button>
     )
 }

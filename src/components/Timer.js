@@ -6,6 +6,7 @@ export default function Timer({user, disableNext, setDisableNext, children, clas
 
     const [minutes, setMinutes ] = useState(0);
     const [seconds, setSeconds ] =  useState(2);
+
     useEffect(()=> {
 
         if (disableNext) {

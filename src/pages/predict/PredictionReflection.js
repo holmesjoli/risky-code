@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -8,11 +8,13 @@ import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/Brainstorm';
+import { NextButtonOrientation } from "../../components/Button";
 
 export default function PredictionReflection({user, algorithmDefinition, setAlgorithmDefinition, disablePredictionNext, setDisablePredictionNext}) {
 
-    const [activeStep, setActiveStep] = React.useState(0);
+    const [activeStep, setActiveStep] = useState(0);
     let navigate = useNavigate();
+    // const [className, setClassName] = useState("Pink");
 
     const routeNext = () => {
         let path = `/Fairness`;
@@ -31,6 +33,12 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
     const handleBack = () => {
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
+
+    // useEffect(() => {
+    //     if(disablePredictionNext) {
+    //         setClassName("Pink")
+    //     }
+    // }, [disablePredictionNext])
 
     const LearningOutcomes = () => {
 
@@ -52,7 +60,6 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
     }
 
     const Reflect = ({user, disablePredictionNext, setDisablePredictionNext}) => {
-
         return(
             <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext} className="Pink">
                 <p>Would you collect any other variables to use in the statistical model?</p>
@@ -66,15 +73,18 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
     const steps = [
       {
         label: 'learning outcomes',
-        children: <LearningOutcomes/>
+        children: <LearningOutcomes/>,
+        disable: false
       },
       {
         label: 'define',
-        children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
+        children: <BrainstormAlgorithm algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>,
+        disable: false
       },
       {
         label: 'reflect',
-        children: <Reflect user={user} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext}/>
+        children: <Reflect user={user} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext}/>,
+        disable: disablePredictionNext
       },
     ];
 
@@ -101,14 +111,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                                 >
                                     back
                                 </Button>
-                                <Button
-                                    className="Pink" 
-                                    variant="outlined"
-                                    onClick={handleNext}
-                                    size="small"
-                                >
-                                    next
-                                </Button>
+                                <NextButtonOrientation className="Pink" routeNext={handleNext} disabled={step.disable}/>
                             </div>
                         </Box>
                     </StepContent>
@@ -116,7 +119,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="DarkOrange" variant="outlined">
+                <Button onClick={routeNext} className="Pink" variant="outlined">
                     continue to algorithmic fairness
                 </Button>
             )}

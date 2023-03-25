@@ -117,7 +117,7 @@ const Column = ({ children, className, title }) => {
       const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
       const { currentColumnName } = item;
       return (
-        currentColumnName === title || currentColumnName === DATA_VARIABLES || title === MODEL_VARIABLES
+        currentColumnName === title || title === DATA_VARIABLES || title === MODEL_VARIABLES
       );
     }
   });

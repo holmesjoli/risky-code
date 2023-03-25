@@ -257,7 +257,7 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
           </Column>
         </div>
         </DndWrapper>
-        <h5 className="Text-Align-Right Small-Margin White Semi-Bold">{`${nClassified}/${totalClassify} classified`}</h5>
+        <h5 className="Text-Align-Right Padding-Top Small-Margin White Semi-Bold">{`${nClassified}/${totalClassify} classified`}</h5>
       </div>
     </div>
   );
