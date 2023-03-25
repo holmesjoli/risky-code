@@ -78,7 +78,7 @@ function transitionColor() {
     d3.selectAll(".node")
         .transition()
         .ease(d3.easePoly)
-        .duration(1000)
+        .duration(2000)
         .style("fill", d => randomColor())
         .on('end', transitionColor);
 }
@@ -87,8 +87,8 @@ export function transitionHighlightBack(style) {
     d3.selectAll(".highlight")
         .transition()
         .ease(d3.easePoly)
-        .delay((d, i) => i*1000)
-        .duration(1000)
+        .delay((d, i) => i*2000)
+        .duration(2000)
         .attr("fill", visStyles[style]["fillColor"])
         .attr("stroke", visStyles[style]["borderColor"])
         .attr("fill-opacity", 1)
@@ -117,7 +117,7 @@ function adjustStrokeColor(highlightNodes, style, d) {
         return scale(d.data.highlight);
 
     } else {
-        return visStyles[style]["borderColor"];
+        return "#FFF";
     }
 }
 
@@ -238,7 +238,7 @@ export function policyDiagram(chartID, width = 430, height = 430, style = "darkM
             .attr("r", ((d) => rScale(d.data.group)))
             .attr("fill", d => adjustFillColor(style))
             .attr("stroke", d => adjustStrokeColor(highlightNodes, style, d))
-            .attr("stroke-width", visStyles[style]["borderWidth"]);
+            .attr("stroke-width", .75);
 
     circle
         .append("text")
