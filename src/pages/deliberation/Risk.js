@@ -266,7 +266,7 @@ function Content({sid, stakeholderData, data, setData}) {
 const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability}) => {
     return(
         <div className="Slider-Container">
-                {/* <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
+                <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
                     <ul>
                         <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
                             <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">citizen data use</span></li>
@@ -275,8 +275,8 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
                             <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">data compatability</span></li>
                         </Tooltip>
                     </ul>
-                </RiskLevel> */}
-                {/* <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
+                </RiskLevel>
+                <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
                     <ul>
                         <Tooltip title="Consider representativeness of data, sample bias, data quality.">
                             <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">technical bias</span></li>
@@ -308,7 +308,7 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
                             <li className="Small-Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">automation</span></li>
                         </Tooltip>
                     </ul>
-                </RiskLevel> */}
+                </RiskLevel>
             </div>
     )
 }
@@ -365,19 +365,6 @@ function AddRisks({stakeholderData, data, setData}) {
     return(
         <div className="One-Column-Three Margin-Bottom">
             <AddStakeholder/>
-
-
-            <Slider
-                size="small"
-                defaultValue={40}
-                min={10}
-                max={100}
-                step={10}
-                aria-label="Small"
-                valueLabelDisplay="auto"
-                className="DarkOrange"
-                onChange={updateAccountability}
-                />
             <div className="Container2">
                 <div className="Add-Stakeholder-Button">
                     <div id={stakeholderId} className="Small-Margin-Bottom"></div>
