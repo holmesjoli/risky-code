@@ -90,7 +90,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                 {steps.map((step, index) => (
                 <Step key={step.label}>
                     <StepLabel>
-                    <h3 className="Small-Margin">{step.label}</h3>
+                        <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
                         {step.children}                      
@@ -101,7 +101,6 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                                     variant="outlined" 
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     back
                                 </Button>
@@ -109,7 +108,6 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                                     variant="contained"
                                     onClick={handleNext}
                                     size="small"
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     next
                                 </Button>

@@ -125,28 +125,6 @@ export default function Orientation({user, setUser, name, setName, groupName, se
         )
     }
 
-    // const terminologyExample = () => {
-
-    //     return(
-    //         <div className="Container Margin-Bottom">
-    //             <p>In the left sidebar you will find a dropdown box called terminology. Terminology specific to algorithmic decision-making is defined in this section.</p>
-    //             <Terminology defaultExpanded={true} margin="No-Margin-Bottom">
-    //                 <Term term={terms.aidm}></Term>
-    //             </Terminology>
-    //         </div>
-    //     )
-    // }
-
-    // const progressExample = () => {
-
-    //     return(
-    //         <div className="Container Margin-Bottom">
-    //             <p>In the right sidebar you will find a dropdown box called progress. Progress shows where you are in the Risky Code module. You can also use Progress to navigate back to previously completed modules.</p>
-    //             <Progress id="Classify" modules={[]}/>
-    //         </div>
-    //     )
-    // }
-
     const steps = [
       {
         label: 'welcome to risky code',
@@ -186,7 +164,6 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                                     variant="outlined" 
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     back
                                 </Button>
@@ -194,7 +171,6 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                                     variant="contained"
                                     onClick={handleNext}
                                     size="small"
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     next
                                 </Button>

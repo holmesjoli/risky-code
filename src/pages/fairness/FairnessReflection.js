@@ -83,7 +83,6 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
                                     variant="outlined" 
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     back
                                 </Button>
@@ -91,7 +90,6 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
                                     variant="contained"
                                     onClick={handleNext}
                                     size="small"
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     next
                                 </Button>

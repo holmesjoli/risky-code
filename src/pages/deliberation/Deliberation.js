@@ -102,7 +102,6 @@ export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmi
                                     variant="outlined" 
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     back
                                 </Button>
@@ -110,7 +109,6 @@ export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmi
                                     variant="contained"
                                     onClick={handleNext}
                                     size="small"
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     next
                                 </Button>

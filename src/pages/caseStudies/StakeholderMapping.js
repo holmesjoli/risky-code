@@ -112,7 +112,6 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
                                     variant="outlined" 
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     back
                                 </Button>
@@ -120,7 +119,6 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
                                     variant="contained"
                                     onClick={handleNext}
                                     size="small"
-                                    sx={{ mt: 1, mr: 1 }}
                                 >
                                     next
                                 </Button>
