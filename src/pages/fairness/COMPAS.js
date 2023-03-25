@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as d3 from 'd3';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';

@@ -52,7 +52,7 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                         <div className="Container2">
                             <h4 className="Small-Margin Text-Align-Left">explore</h4>
                             <div className="chart" id={chartId}></div>
-                            <h6 className="Small-Margin Text-Align-Left">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
+                            <h6 className="Small-Margin Text-Align-Left">Visualization showing changing risk levels of policy decisions where algorithmically informed-decision making is currently in use. Visualization data created from examples in <NavLink to="/Resources" className="Yellow">O'Neil (2016) AINOW (2018), Eubanks (2018), and Obermeyer et al. (2019)</NavLink>.</h6>
                         </div>
                         <RightSideBar>
                             <PolicyScenario policy={policy} setPolicy={setPolicy} className="Container2"/>

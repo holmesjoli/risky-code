@@ -54,7 +54,7 @@ export default function Fairness({user}) {
         return(
              <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">algorithmic decision-making system</h4>
-                <p className="No-Margin-Bottom"><span className="Emphasis">A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources">(AINOW 2018)</NavLink></span>.</p>
+                <p className="No-Margin-Bottom"><span className="Emphasis">A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources" className="DarkOrange">(AINOW 2018)</NavLink></span>.</p>
             </div> 
         )
     }
@@ -63,8 +63,8 @@ export default function Fairness({user}) {
         return(
             <div className="Container2 Margin-Bottom">
                 <p>This module will use the COMPAS recidivism algorithm as a case study to visualize how different definitions of algorithmic fairness can result in disparate impacts.</p>
-                <p className="No-Margin-Bottom">COMPAS was designed by Equivant to predict whether a defendant will commit another crime if released. It was intended to be used by judges to help decide whether to set bail and release an individual prior to trial and sentencing <NavLink to="/Resources">(Hao and Stray 2019)</NavLink>.</p>
-                {/* <p className="No-Margin-Bottom">However, as of 2020, COMPAS is used at additional points in the criminal justice system <NavLink to="/Resources">(Dipshan and Hudgins 2020)</NavLink>.</p> */}
+                <p className="No-Margin-Bottom">COMPAS was designed by Equivant to predict whether a defendant will commit another crime if released. It was intended to be used by judges to help decide whether to set bail and release an individual prior to trial and sentencing <NavLink to="/Resources" className="DarkOrange">(Hao and Stray 2019)</NavLink>.</p>
+                {/* <p className="No-Margin-Bottom">However, as of 2020, COMPAS is used at additional points in the criminal justice system <NavLink to="/Resources" className="DarkOrange">(Dipshan and Hudgins 2020)</NavLink>.</p> */}
             </div>
         )
     }
