@@ -263,7 +263,7 @@ function Content({sid, stakeholderData, data, setData}) {
 }
 
 
-const Sliders = (updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability) => {
+const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability}) => {
     return(
         <div className="Slider-Container">
                 <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
@@ -341,11 +341,6 @@ function StakeholderRisks({stakeholderData, data, setData}) {
     const updateAppropriateDataUse = (event, value) => {
         setAppropriateDataUse(value)
     };
-
-    // const [technical, setTechnical] = useState(3);
-    // const updateTechnical = (event, value) => {
-    //     setTechnical(value)
-    // };
 
     const [technical, setTechnical] = useState(3);
     const updateTechnical = (event, value) => {
