@@ -338,16 +338,22 @@ h1 .active {
 }
 
 .MuiButtonBase-root.MuiButton-root.MuiButton-contained.Pink {
-  background-color: $Pink;
-  color: #000000;
+  border: 1px solid $Pink;
+  background-color: #000000;
+  color: $Pink;
 }
 
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained.Pink:hover {
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.Pink:hover,
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.DarkOrange:hover {
   color: #FFFFFF;
+  border: 1px solid #FFFFFF;
 }
 
-.Pink-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active .MuiStepIcon-text{
-  color: #000;
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.DarkOrange {
+  border: 1px solid $DarkOrange;
+  background-color: #000000;
+  color: $DarkOrange;
 }
 
 .DarkOrange,
@@ -356,10 +362,22 @@ h1 .active {
   color: $DarkOrange;
 }
 
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.LightOrange {
+  border: 1px solid $LightOrange;
+  background-color: #000000;
+  color: $LightOrange;
+}
+
 .LightOrange,
 .LightOrange-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active,
 .LightOrange-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed {
   color: $LightOrange;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.Yellow {
+  border: 1px solid $Yellow;
+  background-color: #000000;
+  color: $Yellow;
 }
 
 .Yellow,
@@ -367,3 +385,4 @@ h1 .active {
 .Yellow-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed {
   color: $Yellow;
 }
+

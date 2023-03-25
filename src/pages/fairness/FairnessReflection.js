@@ -100,7 +100,7 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} variant="contained">
+                <Button onClick={routeNext} className="LightOrange" variant="contained">
                     continue to stakeholder mapping
                 </Button>
             )}

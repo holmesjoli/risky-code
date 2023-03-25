@@ -115,7 +115,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} variant="contained">
+                <Button onClick={routeNext} className="DarkOrange" variant="contained">
                     continue to algorithmic fairness
                 </Button>
             )}

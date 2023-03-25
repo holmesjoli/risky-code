@@ -98,7 +98,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} variant="contained">
+                <Button onClick={routeNext} className="Yellow" variant="contained">
                     continue to deliberation
                 </Button>
             )}
