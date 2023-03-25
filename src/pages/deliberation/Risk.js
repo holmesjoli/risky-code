@@ -236,7 +236,7 @@ function RiskLevel({title, handleChange, children}) {
                     defaultValue={3}
                     min={1}
                     max={5}
-                    step={.5}
+                    step={1}
                     aria-label="Small"
                     marks={marks}
                     valueLabelDisplay="auto"
@@ -256,12 +256,11 @@ function Content({sid, stakeholderData, data, setData}) {
         <div className="Content No-Padding-Top">
             <div className="Container Margin-Bottom">
                 <AddRisks stakeholderData={stakeholderData} data={data} setData={setData}/>
-                {/* <AddRisks sid={sid} stakeholderData={stakeholderData} data={data} setData={setData}/> */}
+                <RiskNetwork/>
             </div>
         </div>
     )
 }
-
 
 const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability}) => {
     return(
@@ -398,22 +397,15 @@ const Viz = () => {
 }
 
 
-// function renderGraph({sid, stakeholderData, data, setData}) {
+function RiskNetwork({}) {
 
-
-//     return(
-//         <div className="Container Margin-Bottom">
-//             <div className="One-Column-Three Margin-Bottom">
-//                 <AddStakeholder/>
-//                 <Sliders/>
-//             </div>
-//             <div className="Container2 One-Column-Three">
-//                 <Legend/>
-//                 <Viz/>
-//             </div>
-//         </div>
-//     )
-// }
+    return(
+        <div className="Container2 One-Column-Three">
+            <Legend/>
+            <Viz/>
+        </div>
+    )
+}
 
 export default function Risk({config, modules, policy, setPolicy, stakeholderData, setStakeholderData}) {
 
