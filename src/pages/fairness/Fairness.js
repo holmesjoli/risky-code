@@ -6,7 +6,6 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
-import Paper from '@material-ui/core/Paper';
 import { RoleFairness } from "../../components/Role";
 
 export default function Fairness({user}) {
@@ -132,11 +131,9 @@ export default function Fairness({user}) {
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Paper square elevation={0} sx={{ p: 3 }}>
-                    <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        continue to algorithmic fairness
-                    </Button>
-                </Paper>
+                <Button onClick={routeNext} variant="contained">
+                    continue to algorithmic fairness
+                </Button>
             )}
             </Box>
         </div>

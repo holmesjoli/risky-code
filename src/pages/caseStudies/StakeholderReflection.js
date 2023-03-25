@@ -6,7 +6,6 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
-import Paper from '@material-ui/core/Paper';
 import Timer from "../../components/Timer";
 
 export default function StakeholderReflection({user, disableStakeholder, setDisableStakeholder}) {
@@ -101,11 +100,9 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Paper square elevation={0} sx={{ p: 3 }}>
-                    <Button onClick={routeNext} sx={{ mt: 1, mr: 1 }} variant="contained">
-                        continue to deliberation
-                    </Button>
-                </Paper>
+                <Button onClick={routeNext} variant="contained">
+                    continue to deliberation
+                </Button>
             )}
             </Box>
         </div>

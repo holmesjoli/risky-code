@@ -3,7 +3,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import * as d3 from 'd3';
 import { useEffect } from 'react';
-import { config, wrap, visStyles } from "../utils/global";
+import { config, wrap, visStyles, highlightColorScale } from "../utils/global";
 
 const height = 540;
 const width = 260;
@@ -14,10 +14,6 @@ const style = "darkMode";
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([5, 8]);
-
-const highlightColorScale = d3.scaleOrdinal()
-    .domain(["predict", "fairness", "stakeholders", "deliberation"])
-    .range(["#ea21ad", "#FE4002", "#FD7B03", "#F3C010"])
 
 function lookupPageId(id, configArray) {
     const pageId = configArray.filter(d => d.id === id).map(d => d.id)[0];
@@ -187,7 +183,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
     return (
         <div className="Progress">
             <Accordion defaultExpanded={defaultExpanded}>
-            {/* <Accordion defaultExpanded> */}
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >
