@@ -15,6 +15,15 @@ const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([5, 8]);
 
+const highlightColorScale = d3.scaleOrdinal()
+    .domain(["predict", "fairness", "stakeholders", "deliberation"])
+    .range(["#ea21ad", "#FE4002", "#FD7B03", "#F3C010"])
+
+// const strokeScale2 = function() {
+
+
+// }
+
 function lookupPageId(id, configArray) {
     const pageId = configArray.filter(d => d.id === id).map(d => d.id)[0];
     return pageId;
@@ -32,21 +41,26 @@ function createVisited(modules, configArray) {
 
 function createStrokeScale(pageId, modules, visited, configArray) {
 
+    let highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
+    console.log(highlightColor)
+
     let notVisited = configArray.filter(d => !modules.includes(d.id) && d.id !== pageId).map(d => d.id);
     let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
     let colors;
 
     if (visited.length > 1) {
         let visitedStrokes = Array(visited.length - 1).fill(visStyles[style]["secondaryHighlightColor"]);
-        colors = [visStyles[style]["highlightColor"]].concat(visitedStrokes.concat(notVisitedStrokes))
+        colors = [highlightColor].concat(visitedStrokes.concat(notVisitedStrokes))
     } else {
-        colors = [visStyles[style]["highlightColor"]].concat(notVisitedStrokes);
+        colors = [highlightColor].concat(notVisitedStrokes);
     }
 
     const index = visited.indexOf(pageId);
     if (index > -1) {
         visited.splice(index, 1);
     }
+
+    console.log(colors)
 
     let scale = d3.scaleOrdinal()
         .domain([pageId].concat(visited.concat(notVisited)))
