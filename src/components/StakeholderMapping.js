@@ -394,7 +394,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
         <div className="Stakeholder-Attr Container">
             <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">stakeholder group</h4>
-                <TextField value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={updateStakeholder} />
+                <TextField className={className} value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={updateStakeholder} />
             </div>
             <div className="Container2 Margin-Bottom">
                 <FormControl>
@@ -405,10 +405,11 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                         name="radio-buttons-group"
                         onChange={updateStakeholderGroup}
                         value={stakeholderGroup}
+                        className={className}
                     >
-                        <FormControlLabel value="direct" control={<Radio />} label="Direct" />
-                        <FormControlLabel value="indirect" control={<Radio />} label="Indirect" />
-                        <FormControlLabel value="excluded" control={<Radio />} label="Excluded" />
+                        <FormControlLabel className={className} value="direct" control={<Radio />} label="Direct" />
+                        <FormControlLabel className={className} value="indirect" control={<Radio />} label="Indirect" />
+                        <FormControlLabel className={className} value="excluded" control={<Radio />} label="Excluded" />
                     </RadioGroup>
                 </FormControl>
             </div>
@@ -420,7 +421,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                         {stakeholderValues.map(el => 
                             <FormControlLabel key={el.value}
                             label={el.value}
-                            control={<Checkbox className="Value-Check" value={el.value} checked={el.checked} onChange={updateStakeholderValues} />}
+                            control={<Checkbox className={className + " Value-Check "} value={el.value} checked={el.checked} onChange={updateStakeholderValues} />}
                             />
                         )}
                 </FormGroup>

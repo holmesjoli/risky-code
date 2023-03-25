@@ -75,16 +75,16 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                         <div className="No-Margin-Bottom">
                             <div className="Card-Group">
                                 <p className="Small-Margin">Identify a group faciliator who will navigate the application.</p>
-                                <TextField placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
+                                <TextField className="Purple" placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
                                 <p className="Margin-Top No-Margin-Bottom"><span className="Emphasis">{name}</span>, please share your screen with your team.</p>
                             </div>
                             <div className="Card-Group No-Margin-Bottom">
                                 <p className="Small-Margin">{name}, does your team have a team name?</p>
-                                <TextField placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
+                                <TextField className="Purple" placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
                             </div>
                         </div>:
                         <div className="No-Margin-Bottom">
-                            <TextField placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
+                            <TextField className="Purple" placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
                             <p className="Margin-Top">Welcome,<span className="Emphasis"> {name}!</span> We're glad you're here.</p>
                         </div>
                     } */}

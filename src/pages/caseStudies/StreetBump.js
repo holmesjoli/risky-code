@@ -135,8 +135,8 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
             </LeftSideBar>
             <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="LightOrange"/>
             <RightSideBar>
-            <Progress id={id} modules={modules} className="Yellow"/>
-                <Consequence margin="Margin-Large-Bottom"/>
+            <Progress id={id} modules={modules} className="LightOrange"/>
+                <Consequence className="LightOrange Margin-Large-Bottom"/>
                 <NextButton routeNext={routeNext} className="LightOrange"/>
             </RightSideBar>
         </div>
