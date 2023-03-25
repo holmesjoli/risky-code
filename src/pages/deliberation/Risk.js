@@ -232,35 +232,86 @@ function RiskLevel({title, handleChange, children}) {
             {children}
             <div className="Padding-Left Padding-Right">
                   <Slider
-                  size="small"
-                  defaultValue={3}
-                  min={1}
-                  max={5}
-                  step={1}
-                  aria-label="Small"
-                  marks={marks}
-                  valueLabelDisplay="auto"
-                  onChange={handleChange}
-                  className="Yellow"
+                    size="small"
+                    defaultValue={3}
+                    min={1}
+                    max={5}
+                    step={.5}
+                    aria-label="Small"
+                    marks={marks}
+                    valueLabelDisplay="auto"
+                    onChange={handleChange}
+                    className="Yellow"
               />
             </div>
         </div>
     );
 }
 
-function Content({sid, stakeholderData}) {
-
-    const [data, setData] = useState({});
+function Content({sid, stakeholderData, data, setData}) {
 
     console.log(data)
 
     return(
         <div className="Content No-Padding-Top">
-            <AddRisks sid={sid} stakeholderData={stakeholderData} data={data} setData={setData}/>
+            <div className="Container Margin-Bottom">
+                <StakeholderRisks stakeholderData={stakeholderData} data={data} setData={setData}/>
+                <AddRisks sid={sid} stakeholderData={stakeholderData} data={data} setData={setData}/>
+            </div>
         </div>
         )
 }
 
+
+const Sliders = (updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability) => {
+    return(
+        <div className="Slider-Container">
+                <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
+                    <ul>
+                        <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">citizen data use</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider the purposes and context under which the data was obtained">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">data compatability</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
+                <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
+                    <ul>
+                        <Tooltip title="Consider representativeness of data, sample bias, data quality.">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">technical bias</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider if there is a match between the real world and the captured data.">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">proxy variables</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
+                <RiskLevel title="risk of stakeholder values" handleChange={updateStakeholderValues}>
+                    <ul>
+                        <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">historic societal bias</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
+                <RiskLevel title="risk of accountability" handleChange={updateAccountability}>
+                    <ul>
+                        <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider data and algorithm access">
+                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
+                        </Tooltip>
+                        <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
+                            <li className="Small-Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">automation</span></li>
+                        </Tooltip>
+                    </ul>
+                </RiskLevel>
+            </div>
+    )
+}
 
 const Legend = () => {
     return(
@@ -284,21 +335,17 @@ const Viz = () => {
     )
 }
 
-function AddRisks({sid, stakeholderData, data, setData}) {
-
-    useEffect(() => {
-        renderGraph(chartId, data);
-    }, [stakeholderData, data])
+function StakeholderRisks({stakeholderData, data, setData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
         setAppropriateDataUse(value)
     };
 
-    const [accountability, setAccountability] = useState(3);
-    const updateAccountability = (event, value) => {
-        setAccountability(value)
-    };
+    // const [technical, setTechnical] = useState(3);
+    // const updateTechnical = (event, value) => {
+    //     setTechnical(value)
+    // };
 
     const [technical, setTechnical] = useState(3);
     const updateTechnical = (event, value) => {
@@ -308,6 +355,11 @@ function AddRisks({sid, stakeholderData, data, setData}) {
     const [stakeholderValues, setStakeholderValues] = useState(3);
     const updateStakeholderValues = (event, value) => {
         setStakeholderValues(value)
+    };
+
+    const [accountability, setAccountability] = useState(3);
+    const updateAccountability = (event, value) => {
+        setAccountability(value)
     };
 
     const add = () => {
@@ -339,74 +391,37 @@ function AddRisks({sid, stakeholderData, data, setData}) {
         )
     }
 
-    const Sliders = () => {
-        return(
-            <div className="Slider-Container">
-                    <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
-                        <ul>
-                            <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">citizen data use</span></li>
-                            </Tooltip>
-                            <Tooltip title="Consider the purposes and context under which the data was obtained">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">data compatability</span></li>
-                            </Tooltip>
-                        </ul>
-                    </RiskLevel>
-                    <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
-                        <ul>
-                            <Tooltip title="Consider representativeness of data, sample bias, data quality.">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">technical bias</span></li>
-                            </Tooltip>
-                            <Tooltip title="Consider if there is a match between the real world and the captured data.">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">proxy variables</span></li>
-                            </Tooltip>
-                        </ul>
-                    </RiskLevel>
-                    <RiskLevel title="risk of stakeholder values" handleChange={updateStakeholderValues}>
-                        <ul>
-                            <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
-                            </Tooltip>
-                            <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">historic societal bias</span></li>
-                            </Tooltip>
-                        </ul>
-                    </RiskLevel>
-                    <RiskLevel title="risk of accountability" handleChange={updateAccountability}>
-                        <ul>
-                            <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
-                            </Tooltip>
-                            <Tooltip title="Consider data and algorithm access">
-                                <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
-                            </Tooltip>
-                            <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
-                                <li className="Small-Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">automation</span></li>
-                            </Tooltip>
-                        </ul>
-                    </RiskLevel>
-                </div>
-        )
-    }
-
     return(
-        <div className="Container Margin-Bottom">
-            <div className="One-Column-Three Margin-Bottom">
-                <AddStakeholder/>
-                <Sliders/>
-            </div>
-            <div className="Container2 One-Column-Three">
-                <Legend/>
-                <Viz/>
-            </div>
-        </div>
-    )
+        <div className="One-Column-Three Margin-Bottom">
+            <AddStakeholder/>
+            <Sliders updateAppropriateDataUse={updateAppropriateDataUse} updateTechnical={updateTechnical} updateStakeholderValues={updateStakeholderValues} updateAccountability={updateAccountability}/>
+        </div>)
+
+}
+
+function AddRisks({sid, stakeholderData, data, setData}) {
+
+
+    // return(
+    //     <div className="Container Margin-Bottom">
+    //         <div className="One-Column-Three Margin-Bottom">
+    //             <AddStakeholder/>
+    //             <Sliders/>
+    //         </div>
+    //         <div className="Container2 One-Column-Three">
+    //             <Legend/>
+    //             <Viz/>
+    //         </div>
+    //     </div>
+    // )
 }
 
 export default function Risk({config, modules, policy, setPolicy, stakeholderData, setStakeholderData}) {
 
     let navigate = useNavigate();
     let sid = 0;
+    const [data, setData] = useState({});
+
 
     const routeNext = () => {
         let path = `/Decision`; 
@@ -425,6 +440,10 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
         initRiskLegend(legendRiskId);
     }, []);
 
+    useEffect(() => {
+        renderGraph(chartId, data);
+    }, [stakeholderData, data])
+
     return (
         <div className="App">
             <Header/>
@@ -439,7 +458,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content sid={sid} stakeholderData={stakeholderData[sid]}/>
+                <Content sid={sid} stakeholderData={stakeholderData[sid]} data={data} setData={setData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules} className="Yellow"/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
