@@ -393,7 +393,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
                         <p>Use the sliders to adjust the risks for each stakeholder you identified on the stakeholder mapping page</p>
                     </Description>
                     <RoleShort moduleName="deliberation"/>
-                    <Terminology className="Margin-Large-Bottom Yellow">
+                    <Terminology margin="Margin-Large-Bottom" className="Yellow">
                         <Term term={terms['proxy-variable']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>

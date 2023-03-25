@@ -71,7 +71,7 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                     <p>Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box.</p>
                 </Description>
                 <RoleShort moduleName="deliberation"/>
-                <Terminology className="Margin-Large-Bottom Yellow">
+                <Terminology margin="Margin-Large-Bottom" className="Yellow">
                     <Term term={terms['stakeholders']}/>
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>

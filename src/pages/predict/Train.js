@@ -113,7 +113,7 @@ export default function Train({config, user, variables, setVariables, items, set
                     </ul>                    
                 </Description>
                 <RoleShort moduleName="prediction"/>
-                <Terminology className="Margin-Large-Bottom Pink">
+                <Terminology margin="Margin-Large-Bottom" className="Pink">
                     <Term term={terms['algorithm']}/>
                     <Term term={terms['data-variable']}/>
                     <Term term={terms['model-variable']}/>

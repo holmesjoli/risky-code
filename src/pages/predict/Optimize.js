@@ -103,7 +103,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                         <p className="Padding-Bottom No-Margin-Bottom">Try to get the accuracy as high as possible.</p>
                     </Description>
                     <RoleShort moduleName="prediction"/>
-                    <Terminology className="Margin-Large-Bottom Pink">
+                    <Terminology margin="Margin-Large-Bottom" className="Pink">
                         <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['decision-threshold']}/>

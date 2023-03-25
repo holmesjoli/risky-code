@@ -395,7 +395,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                         <p> The decision to keep an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships.</p>
                     </Description>
                     <RoleShort moduleName="fairness"/>
-                    <Terminology className="Margin-Large-Bottom DarkOrange">
+                    <Terminology margin="Margin-Large-Bottom" className="DarkOrange">
                         <Term term={terms['fpr']}/>
                         <Term term={terms['fnr']}/>
                         <Term term={terms['mathematical-fairness']}/>

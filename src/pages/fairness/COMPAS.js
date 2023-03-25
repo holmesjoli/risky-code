@@ -395,7 +395,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                     <p>Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>
-                <Terminology className="Margin-Large-Bottom DarkOrange">
+                <Terminology margin="Margin-Large-Bottom" className="DarkOrange">
                     <Term term={terms['population-base-rate']}/>
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>

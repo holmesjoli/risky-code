@@ -91,7 +91,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     </ul>
                 </Description>
                 <RoleShort moduleName="prediction"/>
-                <Terminology className="Margin-Large-Bottom Pink">
+                <Terminology margin="Margin-Large-Bottom" className="Pink">
                     <Term term={terms['algorithm']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
