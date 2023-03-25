@@ -454,7 +454,7 @@ function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
                 <AddStakeholder/>
                 <Sliders/>
             </div>
-            <div className="Container2 One-Column-Three No-Margin-Bottom No-Padding-Bottom">
+            <div className="Container2 One-Column-Three">
                 <Legend/>
                 <Viz/>
             </div>
