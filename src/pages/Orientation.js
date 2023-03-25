@@ -7,9 +7,6 @@ import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
-// import { Terminology, Term } from "../components/Sidebar";
-// import { terms } from '../utils/global';
-// import Progress from "../components/Progress";
 
 export default function Orientation({user, setUser, name, setName, groupName, setGroupName}) {
     const [activeStep, setActiveStep] = React.useState(0);
@@ -65,29 +62,18 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                             name="radio-buttons-group"
                             onChange={updateUser}
                             value={user}
-                            className="No-Margin-Bottom"
+                            className="No-Margin-Bottom Margin-Left"
                         >
                             <FormControlLabel value="group" control={<Radio />} label="Group" />
                             <FormControlLabel value="individual" control={<Radio />} label="Individual" />
                         </RadioGroup>
                     </div>
-                    {/* {user === "group"?
+                    {user === "group"?
                         <div className="No-Margin-Bottom">
-                            <div className="Card-Group">
-                                <p className="Small-Margin">Identify a group faciliator who will navigate the application.</p>
-                                <TextField className="Purple" placeholder="Group facilitator please enter your name" defaultValue={name} onChange={updateName}/>
-                                <p className="Margin-Top No-Margin-Bottom"><span className="Emphasis">{name}</span>, please share your screen with your team.</p>
-                            </div>
-                            <div className="Card-Group No-Margin-Bottom">
-                                <p className="Small-Margin">{name}, does your team have a team name?</p>
-                                <TextField className="Purple" placeholder="Please enter your name" defaultValue={groupName} onChange={updateGroupName}/>
-                            </div>
+                            <p className="Small-Margin Padding-Top">Identify a group faciliator who will navigate the application. Group faciliator please share your screen with your team. Risky Code is designed to take approximately an hour to complete.</p>
                         </div>:
-                        <div className="No-Margin-Bottom">
-                            <TextField className="Purple" placeholder="Please enter your name" defaultValue={name} onChange={updateName}/>
-                            <p className="Margin-Top">Welcome,<span className="Emphasis"> {name}!</span> We're glad you're here.</p>
-                        </div>
-                    } */}
+                        <></>
+                    }
                 </div>
             </div>
         )
