@@ -120,7 +120,7 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description config={config}>
+                <Description title={config.title}>
                     <p>Create a stakeholder map for stakeholders of the Street Bump application. </p>
                     <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>

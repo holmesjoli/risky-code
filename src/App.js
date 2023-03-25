@@ -87,14 +87,14 @@ export default function App() {
           <Route path="/StakeholderReflection" element={<StakeholderReflection user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>} />
 
           <Route path="/Deliberation" element={<Deliberation user={user} algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}/>} />
-          <Route path="/Policy" element={<Policy config={config.Stakeholders} user={user} modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} setData={setPolicyData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>} />
-          <Route path="/Risk" element={<Risk config={config.Risk}  modules={modules} policy={policy} setPolicy={setPolicy} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>} />
-          <Route path="/Decision" element={<Decision config={config.Decision}  modules={modules}/>} />
+          <Route path="/Policy" element={<Policy config={config.Policy} user={user} modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} setData={setPolicyData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>} />
+          <Route path="/Risk" element={<Risk config={config.Risk} modules={modules} policy={policy} setPolicy={setPolicy} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>} />
+          <Route path="/Decision" element={<Decision config={config.Decision} modules={modules}/>} />
 
-          <Route path="/About" element={<About config={config.About} modules={modules} />} />
-          <Route path="/Glossary" element={<Glossary config={config.Glossary} modules={modules}/>} />
-          <Route path="/Resources" element={<Resources config={config.Resources} modules={modules}/>} />
-          <Route path="/Contact" element={<Contact config={config.Contact} modules={modules}/>} />
+          <Route path="/About" element={<About modules={modules} />} />
+          <Route path="/Glossary" element={<Glossary modules={modules}/>} />
+          <Route path="/Resources" element={<Resources modules={modules}/>} />
+          <Route path="/Contact" element={<Contact modules={modules}/>} />
 
         </Routes>
       </HashRouter>

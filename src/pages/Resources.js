@@ -176,7 +176,7 @@ export function Content() {
     )
 }
 
-export default function Resources({config, modules}) {
+export default function Resources({modules}) {
 
     let navigate = useNavigate();
 
@@ -185,7 +185,7 @@ export default function Resources({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Description config={config}>
+                    <Description title="Resources">
                         <p>This design builds on extensive research in the algorithmic fairness literature to help policymakers better understand the implications of having a just AI. A list of literature and precedent artifacts are referenced here for those interested in learning more</p>
                     </Description>
                     <div className="Button-Container-Left">

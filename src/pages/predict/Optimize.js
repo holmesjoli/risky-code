@@ -99,7 +99,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
         <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}>
+                    <Description title={config.title}>
                         <p>Optimize Laundry AID by adjusting the slider and adding or removing model variables.</p>
                         <p className="Padding-Bottom No-Margin-Bottom">Try to get the accuracy as high as possible.</p>
                     </Description>

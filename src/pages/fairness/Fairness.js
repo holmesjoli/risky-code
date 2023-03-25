@@ -37,7 +37,7 @@ export default function Fairness({user}) {
         return(
             <div className="Container2 Margin-Bottom">
                 <p>Algorithmically informed decision-making tools are now being used in every field. They are used to evaluate prisoners for parole, triage patients in emergency rooms, and predict where and when services might be needed.</p>
-                <p className="No-Margin-Bottom"> The second module, <span className="Emphasis">Algorithmic Fairness</span>, will lead you through a series of activities to learn about multiple definitions of algorithmic fairness.</p>
+                <p className="No-Margin-Bottom"> The second module, <span className="Emphasis Dark Orange">Algorithmic Fairness</span>, will lead you through a series of activities to learn about multiple definitions of algorithmic fairness.</p>
             </div>
         )
     }

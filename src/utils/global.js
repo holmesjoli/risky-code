@@ -1,147 +1,116 @@
 import * as d3 from 'd3';
 
-export const config = {
-    "About": {
-        "id": "about",
-        "title": "about"
-    },
-    "Glossary": {
-        "id": "glossary",
-        "title": "glossary"
-    },
-    "Resources": {
-        "id": "resources",
-        "title": "resources"
-    },
-    "Contact": {
-        "id": "contact",
-        "title": "Contact"
-    },
-    "Classify": {
-        "id": "classify",
-        "title": "classify"
-    },
-    "Optimize": {
-        "id": "optimize",
-        "title": "optimize"
-    },
-    "Train": {
-        "id": "train",
-        "title": "train"
-    },
-    "Calibration": {
-        "id": "calibration",
-        "title": "calibration"
-    },
-    "Error": {
-        "id": "error",
-        "title": "error rates"
-    },
-    "Decision": {
-        "id": "decision",
-        "title": "decision aid"
-    },
-    "Risk": {
-        "id": "risk",
-        "title": "risk framework"
-    },
-    "Stakeholders": {
-        "id": "stakeholders",
-        "title": "stakeholder mapping"
-    },
-    "COMPAS": {
-        "id": "compas",
-        "title": "compas' data"
-    },
-    "StreetBump": {
-        "id": "street",
-        "title": "street bump stakeholders"
-    }
-}
-
-export const navigationData = [ 
-    {
+export const config = { 
+    "Predict": {
         "name": "Predict",
         "id": "predict",
         "size": "Large",
-        "navLink": "/Prediction"
+        "navLink": "/Prediction",
+        "group": "predict"
     },
-    {
+    "Classify": {
         "name": "Classify",
         "id": "classify",
         "size": "Small",
-        "navLink": "/Classify"
+        "navLink": "/Classify",
+        "group": "predict",
+        "title": "classify"
     },
-    {
+    "Train": {
         "name": "Train",
         "id": "train",
         "size": "Small",
-        "navLink": "/Train" 
+        "navLink": "/Train",
+        "group": "predict",
+        "title": "train"
     },
-    {
+    "Optimize": {
         "name": "Optimize",
         "id": "optimize",
         "size": "Small",
-        "navLink": "/Optimize"
+        "navLink": "/Optimize",
+        "group": "predict",
+        "title": "optimize"
     },
-    {
+    "Fairness": {
         "name": "Algorithmic Fairness",
         "id": "fairness",
         "size": "Large",
-        "navLink": "/Fairness"
+        "navLink": "/Fairness",
+        "group": "fairness"
     },
-    {
+    "COMPAS": {
         "name": "COMPAS",
         "id": "compas",
         "size": "small",
-        "navLink": "/COMPAS"
+        "navLink": "/COMPAS",
+        "group": "fairness",
+        "title": "compas' data"
     },
-    {
+    "Calibration": {
         "name": "Calibration",
         "id": "calibration",
         "size": "Small",
-        "navLink": "/Calibration"
+        "navLink": "/Calibration",
+        "group": "fairness",
+        "title": "calibration"
     },
-    {
+    "Error": {
         "name": "Error Rates",
         "id": "error",
         "size": "Small",
-        "navLink": "/Error"
+        "navLink": "/Error",
+        "group": "fairness",
+        "title": "error rates"
     },
-    {
+    "Stakeholders": {
         "name": "Stakeholder Mapping",
         "id": "stakeholderMapping",
         "size": "Large",
-        "navLink": "/StakeholderMapping"
+        "navLink": "/StakeholderMapping",
+        "group": "stakeholders",
+        "title": "stakeholder mapping"
     },
-    {
+    "StreetBump": {
         "name": "Street Bump",
         "id": "street",
         "size": "Small",
-        "navLink": "/StreetBump"
+        "navLink": "/StreetBump",
+        "group": "stakeholders",
+        "title": "street bump stakeholders"
     },
-    {
+    "Deliberation": {
         "name": "Deliberation",
         "id": "deliberation",
         "size": "Large",
-        "navLink": "/Deliberation"
-    }, {
-        "name": "Stakeholder Mapping",
-        "id": "stakeholders",
+        "navLink": "/Deliberation",
+        "group": "deliberation"
+    }, 
+    "Policy": {
+        "name": "Policy",
+        "id": "policy",
         "size": "Small",
-        "navLink": "/Stakeholders"
-    }, {
+        "navLink": "/Policy",
+        "group": "deliberation",
+        "title": "stakeholder mapping"
+    }, 
+    "Risk": {
         "name": "Risk Framework",
         "id": "risk",
         "size": "Small",
-        "navLink": "/Risk"
-    }, {
+        "navLink": "/Risk",
+        "group": "deliberation",
+        "title": "risk framework"
+    }, 
+    "Decision": {
         "name": "Decision Aid",
         "id": "decision",
         "size": "Small",
-        "navLink": "/Decision"
+        "navLink": "/Decision",
+        "group": "deliberation",
+        "title": "decision aid"
     }
-]
+}
 
 export const colors = {
     "text": {
@@ -255,7 +224,7 @@ export const visStyles = {
         "linkWidth": 1
     },
     "colorMode": {
-        "colors": ["#9A00FF", "#ea21ad", "#F50141", "#FE4002", "#FD7B03", "#F3C010"],
+        "colors": ["#9A00FF", "#F50141", "#ea21ad", "#FE4002", "#FD7B03", "#F3C010"],
         "warningColor": "#F50141",
         "highlightColor": "#FFFFFF",
         "secondaryHighlightColor": "#cbcbcb",

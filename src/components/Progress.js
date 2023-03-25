@@ -3,7 +3,7 @@ import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import * as d3 from 'd3';
 import { useEffect } from 'react';
-import { navigationData, wrap, visStyles } from "../utils/global";
+import { config, wrap, visStyles } from "../utils/global";
 
 const height = 540;
 const width = 260;
@@ -15,24 +15,24 @@ const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([5, 8]);
 
-function lookupPageId(id) {
-    const pageId = navigationData.filter(d => d.id === id).map(d => d.id)[0];
+function lookupPageId(id, configArray) {
+    const pageId = configArray.filter(d => d.id === id).map(d => d.id)[0];
     return pageId;
 }
 
-function lookupOtherPages(id) {
-    const pageId = navigationData.filter(d => d.id !== id).map(d => d.id);
+function lookupOtherPages(id, configArray) {
+    const pageId = configArray.filter(d => d.id !== id).map(d => d.id);
     return pageId;
 }
 
-function createVisited(modules) {
-    let visited = navigationData.filter(d => modules.includes(d.id)).map(d => d.id);
+function createVisited(modules, configArray) {
+    let visited = configArray.filter(d => modules.includes(d.id)).map(d => d.id);
     return visited;
 }
 
-function createStrokeScale(pageId, modules, visited) {
+function createStrokeScale(pageId, modules, visited, configArray) {
 
-    let notVisited = navigationData.filter(d => !modules.includes(d.id) && d.id !== pageId).map(d => d.id);
+    let notVisited = configArray.filter(d => !modules.includes(d.id) && d.id !== pageId).map(d => d.id);
     let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
     let colors;
 
@@ -72,11 +72,6 @@ function onClickNav(navigate) {
     }
 
     d3.selectAll(".visited-node").on("click", function(e, d) {
-
-        // if(d.id === "predict") {
-        //     modules = modules.filter(item => item !== "predict")
-        // }
-
         routeChange(d.navLink)
     })
 }
@@ -102,21 +97,30 @@ function renderTooltip(pageId, fillScale) {
 export default function Progress({id, modules, defaultExpanded = false}) {
 
     let navigate = useNavigate();
-    const fill = [visStyles[style]["highlightColor"]].concat(Array(navigationData.length - 1).fill("#131517"));
-    const fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(navigationData.length - 1).fill(visStyles[style]["fontWeight"]));
-    const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(navigationData.length - 1).fill("#868B90"));
+    let configLength = Object.keys(config).length;
+    var result = Object.entries(config);
+    let configArray = [];
+
+    for (let i of result) {
+        configArray.push(i[1])
+    }
+
+    console.log(configArray)
+    const fill = [visStyles[style]["highlightColor"]].concat(Array(configLength - 1).fill("#131517"));
+    const fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(configLength - 1).fill(visStyles[style]["fontWeight"]));
+    const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
 
     let pageId, otherPageIds;
     let visited, strokeScale, fillScale, fontWeightScale, fontColorScale, textTransformScale;
 
     useEffect(() => {
 
-        pageId = lookupPageId(id);
-        otherPageIds = lookupOtherPages(id);
+        pageId = lookupPageId(id, configArray);
+        otherPageIds = lookupOtherPages(id, configArray);
 
         // Node scales
-        visited = createVisited(modules);
-        strokeScale = createStrokeScale(pageId, modules, visited);
+        visited = createVisited(modules, configArray);
+        strokeScale = createStrokeScale(pageId, modules, visited, configArray);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         // Font scales
@@ -134,13 +138,13 @@ export default function Progress({id, modules, defaultExpanded = false}) {
             .attr("x1", margin.left)
             .attr("x2", margin.left)
             .attr("y1", margin.top)
-            .attr("y2", space*(navigationData.length - 1) + margin.top)
+            .attr("y2", space*(config.length - 1) + margin.top)
             .attr("stroke", "#272B30")
 
         var nodes = svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
-            .data(navigationData)
+            .data(config)
             .enter()
             .append("g")
             .attr("transform", function(d, i) {
@@ -173,15 +177,15 @@ export default function Progress({id, modules, defaultExpanded = false}) {
 
     useEffect(() => {
 
-        pageId = lookupPageId(id);
-        otherPageIds = lookupOtherPages(id);
+        pageId = lookupPageId(id, configArray);
+        otherPageIds = lookupOtherPages(id, configArray);
 
         if (!modules.includes(pageId)) {
             modules.push(pageId)
         }
 
-        visited = createVisited(modules);
-        strokeScale = createStrokeScale(pageId, modules, visited);
+        visited = createVisited(modules, configArray);
+        strokeScale = createStrokeScale(pageId, modules, visited, configArray);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);

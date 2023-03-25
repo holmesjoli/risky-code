@@ -103,7 +103,7 @@ export default function Train({config, user, variables, setVariables, items, set
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description config={config}>
+                <Description title={config.title}>
                     <p>To train Laundry AID, drag one or more variables from data variables to model variables. This will automatically run a statistical model to predict the results. Add or remove variables from the model to see how the predictive probabilities change.</p>
                     <p>Laundry rules:</p>
                     <ul className="Margin-Bottom">

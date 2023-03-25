@@ -133,6 +133,7 @@ export function BrainstormLaundryRules({rules, setRules}) {
             <p>This project defines an algorithm as <span className="Emphasis">a series of steps that allow you to perform a particular task</span>.</p>
             <h4 className="Small-Margin">analogize</h4>
             <p>The analogy used in this module is <span className="Emphasis">laundry</span>. What are some rules you use to sort laundry for a <span className="Emphasis">cold water load?</span></p>
+            <p>For example, a rule could be <span className="Emphasis">only whites in hot water</span>.</p>
             <LaundryRules rules={rules} setRules={setRules}/>
         </div>
     )

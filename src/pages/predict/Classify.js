@@ -81,7 +81,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description config={config}>
+                <Description title={config.title}>
                     <p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>
                     <p>Laundry rules:</p>
                     <ul className="Margin-Bottom">

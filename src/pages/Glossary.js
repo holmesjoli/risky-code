@@ -171,7 +171,7 @@ export function Content() {
     )
 }
 
-export default function Glossary({config, modules}) {
+export default function Glossary({modules}) {
 
     let navigate = useNavigate();
 
@@ -180,7 +180,7 @@ export default function Glossary({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Description config={config}>
+                    <Description title="Glossary">
                         <p>Glossary of terms related to algorithmically informed decision-making. For some terms, more than one definition is given to show variety and similarity across term definition.</p>
                     </Description>
                     <div className="Button-Container-Left">

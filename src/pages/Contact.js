@@ -12,7 +12,7 @@ export function Content() {
     )
 }
 
-export default function Contact({config, modules}) {
+export default function Contact({modules}) {
 
     let navigate = useNavigate(); 
 
@@ -21,8 +21,7 @@ export default function Contact({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Description config={config}>
-                    </Description>
+                    <Description title="Contact"></Description>
                     <div className="Button-Container-Left">
                         <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
                     </div>

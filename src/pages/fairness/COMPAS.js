@@ -387,7 +387,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description config={config}>
+                <Description title={config.title}>
                     <p>Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>

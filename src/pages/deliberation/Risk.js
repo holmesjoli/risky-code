@@ -388,7 +388,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description config={config}>
+                    <Description title={config.title}>
                         <p>Use the sliders to adjust the risks for each stakeholder you identified on the stakeholder mapping page</p>
                     </Description>
                     <RoleShort moduleName="deliberation"/>

@@ -162,7 +162,7 @@ const theme = createTheme({
     },
     MuiSvgIcon: {
       root: {
-        fill: visStyles[style]["highlightColor"]
+        borderColor: visStyles[style]["highlightColor"]
       }
     },
     MuiButton: {

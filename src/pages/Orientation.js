@@ -98,12 +98,12 @@ export default function Orientation({user, setUser, name, setName, groupName, se
 
         return(
             <div className="Container2 Margin-Bottom">
-                <p className="Small-Margin">Risky Code contains four modules:</p>
+                <p className="Medium-Margin">Risky Code contains four modules:</p>
                 <ul className="Margin-Bottom">
-                    <li><span className="Semi-Bold">Algorithmic Prediction</span> </li>
-                    <li><span className="Semi-Bold">Algorithmic Fairness</span></li>
-                    <li><span className="Semi-Bold">Stakeholder Mapping</span></li>
-                    <li><span className="Semi-Bold">Deliberation</span></li>
+                    <li className="Small-Margin"><span className="Semi-Bold Pink">Algorithmic Prediction</span> </li>
+                    <li className="Small-Margin"><span className="Semi-Bold DarkOrange">Algorithmic Fairness</span></li>
+                    <li className="Small-Margin"><span className="Semi-Bold LightOrange">Stakeholder Mapping</span></li>
+                    <li className="Small-Margin"><span className="Semi-Bold Yellow">Deliberation</span></li>
                 </ul>
                 <p className="No-Margin-Bottom">Each module has specific learning outcomes to achieve the overarching goal of <span className="Emphasis">informing and to facilitating deliberation about algorithmically informed decision-making</span>.</p>
             </div>
@@ -114,12 +114,12 @@ export default function Orientation({user, setUser, name, setName, groupName, se
 
         return(
             <div className="Container2 Margin-Bottom">
-                <p>In each module, {user === "group"? "you should imagine your team as a group of:" : "you should imagine yourself as a:"} </p>
+                <p>In each module, {user === "group"? "imagine your team as a group of:" : "imagine yourself as a:"} </p>
                 <ul className="Margin-Bottom">
-                    <li><span className="Semi-Bold">You</span> — {user === "group"? "busy people who want " : "a busy individual who wants "} to learn more about algorithmic decision-making</li>
-                    <li><span className="Semi-Bold">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
-                    <li><span className="Semi-Bold">{user === "group"? "Designers" : "Designer"}</span> — interested in bringing design methods to algorithmic decision-making</li>
-                    <li><span className="Semi-Bold">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
+                    <li className="Small-Margin"><span className="Semi-Bold">Algorithmic Prediction</span>: <span className="Semi-Bold Pink">You</span> — {user === "group"? "busy people who want " : "a busy individual who wants "} to learn more about algorithmic decision-making</li>
+                    <li className="Small-Margin"><span className="Semi-Bold">Algorithmic Fairness</span>: <span className="Semi-Bold DarkOrange">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
+                    <li className="Small-Margin"><span className="Semi-Bold">Stakeholder Mapping</span>: <span className="Semi-Bold LightOrange">{user === "group"? "Designers" : "Designer"}</span> — interested in bringing design methods to algorithmic decision-making</li>
+                    <li className="Small-Margin"><span className="Semi-Bold">Deliberation</span>: <span className="Semi-Bold Yellow">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
                 </ul>
                 <p className="No-Margin-Bottom">The goal of the role is to imagine the constraints and decisions a person in that role faces when implementing algorithmic decision-making.</p>
             </div>

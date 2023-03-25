@@ -12,7 +12,7 @@ export function Content() {
     )
 }
 
-export default function About({config, modules}) {
+export default function About({modules}) {
 
     let navigate = useNavigate(); 
 
@@ -21,7 +21,7 @@ export default function About({config, modules}) {
             <Header/>
             <div className="Main">
                 <div className="Sidebar-Left">
-                    <Description config={config}>
+                    <Description title="About">
                     </Description>
                     <div className="Button-Container-Left">
                         <Button variant="outlined" color="secondary" onClick={() => navigate(-1)}>back</Button>
