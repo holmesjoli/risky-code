@@ -301,8 +301,6 @@ export function Content() {
                             aria-labelledby="demo-radio-buttons-group-label"
                             name="radio-buttons-group"
                             className="Margin-Left"
-                            // onChange={updateStakeholderGroup}
-                            // value={stakeholderGroup}
                         >
                             <FormControlLabel className="DarkOrange" value="yes" control={<Radio />} label="Yes" />
                             <FormControlLabel className="DarkOrange" value="no" control={<Radio />} label="No" />

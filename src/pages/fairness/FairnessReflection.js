@@ -60,7 +60,7 @@ export default function FairnessReflection({user, disableFairnessNext3, setDisab
       },
       {
         label: 'reflect',
-        children: <Reflect user={user} disableFairnessNext={disableFairnessNext3} setDisableFairnessNext={setDisableFairnessNext3}/>,
+        children: <Reflect user={user} disableFairnessNext3={disableFairnessNext3} setDisableFairnessNext3={setDisableFairnessNext3}/>,
         disable: disableFairnessNext3
       },
     ];
