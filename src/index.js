@@ -156,13 +156,8 @@ const theme = createTheme({
       }
     },
     MuiStepIcon: {
-      "root": {
-        "&$active": {
-          "color": "#ea21ad"
-        },
-        "&$completed": {
-          "color": "#ea21ad"
-        }
+      text: {
+        color: "#000000"
       }
     },
     MuiButton: {

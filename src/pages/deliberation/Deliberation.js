@@ -90,7 +90,7 @@ export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmi
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel>
+                    <StepLabel className="Yellow-Icon">
                     <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>

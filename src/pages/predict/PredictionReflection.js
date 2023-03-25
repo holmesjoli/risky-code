@@ -86,8 +86,8 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel>
-                    <h3 className="Small-Margin">{step.label}</h3>
+                    <StepLabel className="Pink-Icon">
+                        <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
                         {step.children}                      

@@ -100,8 +100,8 @@ export default function Fairness({user}) {
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel>
-                    <h3 className="Small-Margin">{step.label}</h3>
+                    <StepLabel className="DarkOrange-Icon">
+                        <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
                         {step.children}                      
