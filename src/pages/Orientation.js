@@ -45,7 +45,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
     const Welcome = () => {
         return(
             <div className="Container2 Margin-Bottom">
-                <p className="No-Margin-Bottom">Risky Code is a digital workshop inteded to educate participants and facilitates discussion around algorithmic informed decision-making.</p>
+                <p className="No-Margin-Bottom">Risky Code is a digital workshop intended to educate participants and facilitate discussion about algorithmically informed decision-making.</p>
             </div>
         )
     }
@@ -102,7 +102,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                 <p>Each module has a target persona which will be reflected as a <span className="Emphasis">role</span>. The roles highlight constraints and decisions that someone in that role may face.</p>
                 <p>In each module, {user === "group"? "imagine your team as a group of:" : "imagine yourself as a:"} </p>
                 <ul className="No-Margin-Bottom">
-                    <li className="Small-Margin"><span className="Semi-Bold Pink">You</span> — {user === "group"? "busy people who are " : "a busy individual who wis "} interested in learning about algorithmic decision making</li>
+                    <li className="Small-Margin"><span className="Semi-Bold Pink">You</span> — {user === "group"? "busy people who are " : "a busy individual who is "} interested in learning about algorithmic decision making</li>
                     <li className="Small-Margin"><span className="Semi-Bold DarkOrange">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
                     <li className="Small-Margin"><span className="Semi-Bold LightOrange">{user === "group"? "Designers" : "Designer"}</span> — interested in applying design methods to algorithmic decision-making</li>
                     <li className="Small-Margin"><span className="Semi-Bold Yellow">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
