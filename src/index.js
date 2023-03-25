@@ -59,11 +59,6 @@ const theme = createTheme({
         fontSize: 12,
       }
     },
-    MuiSvgIcon: {
-      root: {
-        fill: visStyles[style]["textHighlightColor"]
-      }
-    },
     MuiAccordionSummary: {
       root: {
         position: "relative",
@@ -160,9 +155,14 @@ const theme = createTheme({
         color: "#cbcbcb"
       }
     },
-    MuiSvgIcon: {
-      root: {
-        borderColor: visStyles[style]["highlightColor"]
+    MuiStepIcon: {
+      "root": {
+        "&$active": {
+          "color": "#ea21ad"
+        },
+        "&$completed": {
+          "color": "#ea21ad"
+        }
       }
     },
     MuiButton: {
