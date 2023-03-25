@@ -255,7 +255,7 @@ export const visStyles = {
         "linkWidth": 1
     },
     "colorMode": {
-        "colors": ["#9A00FF", "#F50141", "#FE4002", "#FD7B03", "#F3C010"],
+        "colors": ["#9A00FF", "#ea21ad", "#F50141", "#FE4002", "#FD7B03", "#F3C010"],
         "warningColor": "#F50141",
         "highlightColor": "#FFFFFF",
         "secondaryHighlightColor": "#cbcbcb",

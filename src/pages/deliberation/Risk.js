@@ -90,7 +90,7 @@ function initGraph(chartId, data) {
         .attr("font-size", 12)
         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
-    // renderGraph(chartId, data);
+    renderGraph(chartId, data);
 }
 
 function renderTooltip(chartId) {
@@ -128,39 +128,42 @@ function renderGraph(chartId, data) {
 
     console.log(data)
 
-    let node = svg
-        .select(".nodes").selectAll("symbol")
-        .data(data, d => d.id)
-        .join(
-            enter  => enter
-            .append("path")
-                .attr("d", d3.symbol()
-                    .type(d => symbolScale(d.stakeholderType))
-                    .size(100))
-                .attr("transform", transform)
-                .attr("fill", d => fillScale(d.value))
-                .attr("class", "stakeholder-risk-network-node"),
-            update => update
-                .attr("transform", transform)
-                .attr("fill", d => fillScale(d.value)),
-            exit => exit
-        )
+    if (data !== undefined) {
 
-    simulation.alpha(1).restart();
+        let node = svg
+            .select(".nodes").selectAll("symbol")
+            .data(data, d => d.id)
+            .join(
+                enter  => enter
+                .append("path")
+                    .attr("d", d3.symbol()
+                        .type(d => symbolScale(d.stakeholderType))
+                        .size(100))
+                    .attr("transform", transform)
+                    .attr("fill", d => fillScale(d.value))
+                    .attr("class", "stakeholder-risk-network-node"),
+                update => update
+                    .attr("transform", transform)
+                    .attr("fill", d => fillScale(d.value)),
+                exit => exit
+            )
 
-    simulation
-        .nodes(data)
-        .on("tick", ticked);
+        simulation.alpha(1).restart();
 
-    function ticked() {
-        node.attr("transform", transform)
+        simulation
+            .nodes(data)
+            .on("tick", ticked);
+
+        function ticked() {
+            node.attr("transform", transform)
+        }
+
+        function transform(d) {
+            return "translate(" + xScale(d.value) + "," + yScale(d.yValue) + ")";
+        }
+
+        renderTooltip(chartId);
     }
-
-    function transform(d) {
-        return "translate(" + xScale(d.value) + "," + yScale(d.yValue) + ")";
-    }
-
-    renderTooltip(chartId);
 }
 
 function initStakeholder(stakeholderId, data) {
@@ -212,10 +215,7 @@ function Content({sid, stakeholderData}) {
 
     const [riskData, setRiskData] = useState([]);
 
-    // useEffect(() => {
-    //     renderGraph(chartId, riskData);
-
-    // }, [stakeholderData])
+    console.log(riskData)
 
     return(
         <div className="Content No-Padding-Top">
@@ -225,6 +225,10 @@ function Content({sid, stakeholderData}) {
 }
 
 function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
+
+    useEffect(() => {
+        renderGraph(chartId, riskData);
+    }, [stakeholderData, riskData])
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -248,15 +252,16 @@ function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
 
     const add = () => {
 
-        let riskDataNew = Object.assign([], riskData);
+        // let riskDataNew = Object.assign([], riskData);
 
-        riskDataNew.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
-        riskDataNew.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
-        riskDataNew.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
-        riskDataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
+        if (stakeholderData !== undefined) {
 
-        console.log(riskDataNew)
-        setRiskData(riskDataNew);
+            riskData.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
+            riskData.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
+            riskData.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
+            riskData.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
+            setRiskData(riskData);
+        }
     }
 
     const AddStakeholder = () => {
@@ -361,6 +366,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
 
     let navigate = useNavigate();
     let sid = 0;
+    
 
     const routeNext = () => {
         let path = `/Decision`; 
