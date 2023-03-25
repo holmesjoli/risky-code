@@ -160,6 +160,11 @@ const theme = createTheme({
         color: "#000000"
       }
     },
+    MuiSvgIcon: {
+      root: {
+        fill: "#cbcbcb"
+      }
+    },
     MuiButton: {
       root: {
         borderRadius: "0.25rem",

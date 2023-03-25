@@ -116,6 +116,11 @@
     background-color: $Yellow;
 }
 
+.MuiButtonBase-root.MuiFab-root.Yellow.MuiFab-primary .MuiSvgIcon-root,
+.MuiButtonBase-root.MuiFab-root.LightOrange.MuiFab-primary .MuiSvgIcon-root {
+    fill: #000000;
+}
+
 
 // RadioButton
 
