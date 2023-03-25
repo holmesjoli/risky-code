@@ -352,24 +352,22 @@ function AddRisks({stakeholderData, data, setData}) {
     const AddStakeholder = () => {
 
         return(
-            <div className="Container2">
-                <div className="Add-Stakeholder-Button">
-                    <Fab color="primary" onClick={add} className="Yellow">
-                        <AddIcon />
-                    </Fab>
-                </div>
+            <div className="Add-Stakeholder-Button">
+                <Fab color="primary" onClick={add} className="Yellow">
+                    <AddIcon />
+                </Fab>
             </div>
         )
     }
 
     return(
         <div className="One-Column-Three Margin-Bottom">
-            <AddStakeholder/>
             <div className="Container2">
                 <div className="Add-Stakeholder-Button">
                     <div id={stakeholderId} className="Small-Margin-Bottom"></div>
                     <h4 className="Small-Margin">add stakeholder to diagram</h4>
                 </div>
+                <AddStakeholder/>
             </div>
     
             <Sliders updateAppropriateDataUse={updateAppropriateDataUse} updateTechnical={updateTechnical} updateStakeholderValues={updateStakeholderValues} updateAccountability={updateAccountability}/>
