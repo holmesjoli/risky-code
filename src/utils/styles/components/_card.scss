@@ -42,6 +42,10 @@
     border: 1px solid #2e3238;
 }
 
+.Card-Flat.Predicted-False:hover {
+    border: 2px solid $Red;
+}
+
 .Card-Big {
     display: flex;
     flex-direction: row;

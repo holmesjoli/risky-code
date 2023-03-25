@@ -29,10 +29,6 @@
     cursor: -webkit-grabbing;
 }
 
-.Movable-Item:hover {
-    border: 1px solid $appColor;
-}
-
 .Variable,
 .Variable-Flat {
     border-radius: $containerBorderRadius;

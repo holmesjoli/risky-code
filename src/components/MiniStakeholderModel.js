@@ -106,7 +106,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item Card Variable Variable-LightOrange" style={{ opacity }}>
+    <div ref={ref} className="Movable-Item Variable Variable-LightOrange" style={{ opacity }}>
       {item.name}
     </div>
   );
