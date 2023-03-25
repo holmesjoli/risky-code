@@ -213,7 +213,7 @@ export default function MiniModel() {
           <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">add your own stakeholder</h4>
             <TextField className="LightOrange" value={stakeholderName} placeholder="stakeholder name" variant="outlined" onChange={updateStakeholder} />
-            <div className="Add-Stakeholder-Button">
+            <div className="Add-Stakeholder-Button Margin-Top">
                 <h4 className="Small-Margin">add stakeholder to the list</h4>
                 <Fab color="primary" onClick={add} className="LightOrange">
                     <AddIcon />
