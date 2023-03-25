@@ -91,9 +91,12 @@ function renderTooltip(pageId, fillScale) {
 
         let thisCircle = d3.select(this);
 
+        console.log(d)
+
         thisCircle
             .attr("stroke-width", d => d.id === pageId ? 1: 2)
-            .attr("fill", d => d.id === pageId ? visStyles[style]["highlightColor"]: "rgb(154, 0, 255, .5)");
+            .attr("fill", d => highlightColorScale(d.group))
+            .attr("fill-opacity", d => d.id === pageId ? 1: .5)
 
     }).on("mouseout", function() {
 
