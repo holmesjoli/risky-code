@@ -313,28 +313,6 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
     )
 }
 
-const Legend = () => {
-    return(
-        <div>
-            <h4 className="Small-Margin">legend</h4>
-            <h5 className="Small-Margin">Stakeholder type</h5>
-            <div id={legendStakeholderId}></div>
-            <h5 className="Small-Margin Margin-Top">Risk level</h5>
-            <div id={legendRiskId} className="Small-Margin-Bottom"></div>
-        </div>
-    )
-}
-
-const Viz = () => {
-    return(
-        <div>
-            <h4 className="No-Margin-Bottom">visualize</h4>
-            <div id={chartId} className="chart"></div>
-            <h6 className="Small-Margin-Top"></h6>
-        </div>
-    )
-}
-
 function AddRisks({stakeholderData, data, setData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
@@ -393,6 +371,29 @@ function AddRisks({stakeholderData, data, setData}) {
         </div>)
 
 }
+
+const Legend = () => {
+    return(
+        <div>
+            <h4 className="Small-Margin">legend</h4>
+            <h5 className="Small-Margin">Stakeholder type</h5>
+            <div id={legendStakeholderId}></div>
+            <h5 className="Small-Margin Margin-Top">Risk level</h5>
+            <div id={legendRiskId} className="Small-Margin-Bottom"></div>
+        </div>
+    )
+}
+
+const Viz = () => {
+    return(
+        <div>
+            <h4 className="No-Margin-Bottom">visualize</h4>
+            <div id={chartId} className="chart"></div>
+            <h6 className="Small-Margin-Top"></h6>
+        </div>
+    )
+}
+
 
 // function renderGraph({sid, stakeholderData, data, setData}) {
 
