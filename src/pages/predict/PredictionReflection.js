@@ -56,9 +56,9 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
         return(
             <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext}>
                 <p>Would you collect any other variables to use in the statistical model?</p>
-                <p>Were there any rules that didn't fit the statistical model was not able to accomodate?</p>
+                <p>Were there any rules {user==="group"? "your team": "you"} brainstormed that the statistical model was not able to accomodate?</p>
                     {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
-                <p className="No-Margin-Bottom">What are the consequences of when Laundry AID made an incorrect prediction?</p>
+                <p className="No-Margin-Bottom">What were the consequences of when Laundry AID made an incorrect prediction?</p>
             </Timer>
         )
     }

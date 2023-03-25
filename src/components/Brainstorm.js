@@ -119,7 +119,7 @@ export function BrainstormAlgorithm({algorithmDefinition, setAlgorithmDefinition
 
     return(
         <div className="Container2 Margin-Bottom">
-            <h4>how do you define the term <span className="Emphasis">algorithm</span>?</h4>
+            <p>how do you define the term <span className="Emphasis">algorithm</span>?</p>
             <AlgorithmDefinition algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition}/>
         </div>
     )
