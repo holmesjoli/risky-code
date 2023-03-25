@@ -111,6 +111,19 @@ const theme = createTheme({
           }
         }
     },
+    MuiTooltip: {
+        tooltip: {
+          fontSize: ".75rem",
+          fontWeight: 400,
+          color: "#FFFFFF",
+          backgroundColor: "#1C1F23",
+          padding: "5px",
+          borderRadius: "5px",
+          borderColor: visStyles[style]["borderColorPrimary"],
+          borderWidth: "1px",
+          borderStyle: "solid"
+      }
+    },
     MuiFormControl: {
       root: {
         width: "100%"

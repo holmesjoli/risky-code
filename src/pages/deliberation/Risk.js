@@ -268,43 +268,43 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
                 <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
                     <ul>
                         <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">citizen data use</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Citizen data use</span> risks</li>
                         </Tooltip>
                         <Tooltip title="Consider the purposes and context under which the data was obtained">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">data compatability</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Data compatability</span> risks</li>
                         </Tooltip>
                     </ul>
                 </RiskLevel>
                 <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
                     <ul>
                         <Tooltip title="Consider representativeness of data, sample bias, data quality.">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">technical bias</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Technical bias</span> risks </li>
                         </Tooltip>
                         <Tooltip title="Consider if there is a match between the real world and the captured data.">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">proxy variables</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Proxy variables</span> risk </li>
                         </Tooltip>
                     </ul>
                 </RiskLevel>
                 <RiskLevel title="risk of stakeholder values" handleChange={updateStakeholderValues}>
                     <ul>
                         <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">serious stakeholder harm</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Serious stakeholder harm</span> risks</li>
                         </Tooltip>
                         <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">historic societal bias</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Historical and societal bias</span> risks</li>
                         </Tooltip>
                     </ul>
                 </RiskLevel>
                 <RiskLevel title="risk of accountability" handleChange={updateAccountability}>
                     <ul>
                         <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic explainability</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Algorithmic explainability</span> risks</li>
                         </Tooltip>
                         <Tooltip title="Consider data and algorithm access">
-                            <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">lack of algorithmic auditability</span></li>
+                            <li className="Extra-Small-Margin-Bottom"><span className="Emphasis">Algorithmic auditability</span> risks</li>
                         </Tooltip>
                         <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
-                            <li className="Small-Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">automation</span></li>
+                            <li className="Small-Extra-Small-Margin-Bottom"><span className="Emphasis">Automation</span> risks</li>
                         </Tooltip>
                     </ul>
                 </RiskLevel>
