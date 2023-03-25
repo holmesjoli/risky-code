@@ -181,12 +181,12 @@ const theme = createTheme({
        }
       },
       outlinedSecondary: {
-        borderColor: visStyles[style]["highlightColor"],
-        color: visStyles[style]["highlightColor"],
+        borderColor: visStyles[style]["textHighlightColor"],
+        color: visStyles[style]["textHighlightColor"],
         backgroundColor: "#131517",
         '&:hover': {
-          borderColor: visStyles[style]["textHighlightColor"],
-          color: visStyles[style]["secondaryHighlightColor"]
+          borderColor: "#ffffff",
+          color: "#ffffff"
        }
       }
     }

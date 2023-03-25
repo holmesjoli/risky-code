@@ -337,22 +337,27 @@ h1 .active {
   color: $Pink;
 }
 
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained.Pink {
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Pink {
   border: 1px solid $Pink;
-  background-color: #000000;
+  background-color: $appDarkAccent;
   color: $Pink;
 }
 
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained.Pink:hover,
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained.DarkOrange:hover {
-  color: #FFFFFF;
-  border: 1px solid #FFFFFF;
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Pink:hover {
+  background-color: $Pink;
+  border: 1px solid $Pink;
+  color: #000000;
 }
 
-
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained.DarkOrange {
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.DarkOrange:hover {
+  background-color: $DarkOrange;
   border: 1px solid $DarkOrange;
-  background-color: #000000;
+  color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.DarkOrange {
+  border: 1px solid $DarkOrange;
+  background-color: $appDarkAccent;
   color: $DarkOrange;
 }
 
@@ -362,9 +367,15 @@ h1 .active {
   color: $DarkOrange;
 }
 
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained.LightOrange {
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.LightOrange:hover {
+  background-color: $LightOrange;
   border: 1px solid $LightOrange;
-  background-color: #000000;
+  color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.LightOrange {
+  border: 1px solid $LightOrange;
+  background-color: $appDarkAccent;
   color: $LightOrange;
 }
 
@@ -374,9 +385,15 @@ h1 .active {
   color: $LightOrange;
 }
 
-.MuiButtonBase-root.MuiButton-root.MuiButton-contained.Yellow {
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Yellow:hover {
+  background-color: $Yellow;
   border: 1px solid $Yellow;
-  background-color: #000000;
+  color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Yellow {
+  border: 1px solid $Yellow;
+  background-color: $appDarkAccent;
   color: $Yellow;
 }
 

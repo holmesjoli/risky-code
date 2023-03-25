@@ -99,14 +99,15 @@ export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmi
                             <div className="Row">
                                 <Button
                                     size="small"
-                                    variant="outlined" 
+                                    variant="outlined"
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
                                 >
                                     back
                                 </Button>
                                 <Button
-                                    variant="contained"
+                                    className="Yellow"
+                                    variant="outlined"
                                     onClick={handleNext}
                                     size="small"
                                 >
@@ -119,7 +120,7 @@ export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmi
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} variant="contained">
+                <Button onClick={routeNext} className="Yellow" variant="outlined">
                     continue to deliberation
                 </Button>
             )}

@@ -109,14 +109,15 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
                             <div className="Row">
                                 <Button
                                     size="small"
-                                    variant="outlined" 
+                                    variant="outlined"
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
                                 >
                                     back
                                 </Button>
                                 <Button
-                                    variant="contained"
+                                    className="LightOrange" 
+                                    variant="outlined"
                                     onClick={handleNext}
                                     size="small"
                                 >
@@ -129,7 +130,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} variant="contained">
+                <Button onClick={routeNext} className="LightOrange" variant="outlined">
                     continue to stakeholder mapping
                 </Button>
             )}

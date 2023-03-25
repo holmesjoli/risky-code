@@ -95,14 +95,15 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                             <div className="Row">
                                 <Button
                                     size="small"
-                                    variant="outlined" 
+                                    variant="outlined"
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
                                 >
                                     back
                                 </Button>
                                 <Button
-                                    variant="contained"
+                                    className="Pink" 
+                                    variant="outlined"
                                     onClick={handleNext}
                                     size="small"
                                 >
@@ -115,7 +116,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="DarkOrange" variant="contained">
+                <Button onClick={routeNext} className="DarkOrange" variant="outlined">
                     continue to algorithmic fairness
                 </Button>
             )}

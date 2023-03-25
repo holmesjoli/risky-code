@@ -80,14 +80,15 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
                             <div className="Row">
                                 <Button
                                     size="small"
-                                    variant="outlined" 
+                                    variant="outlined"
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
                                 >
                                     back
                                 </Button>
                                 <Button
-                                    variant="contained"
+                                    className="DarkOrange" 
+                                    variant="outlined"
                                     onClick={handleNext}
                                     size="small"
                                 >
@@ -100,7 +101,7 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="LightOrange" variant="contained">
+                <Button onClick={routeNext} className="Yellow" variant="outlined">
                     continue to stakeholder mapping
                 </Button>
             )}

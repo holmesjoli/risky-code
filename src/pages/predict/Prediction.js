@@ -98,14 +98,15 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                             <div className="Row">
                                 <Button
                                     size="small"
-                                    variant="outlined" 
+                                    variant="outlined"
                                     color="secondary"
                                     onClick={index === 0? routeBack:handleBack}
                                 >
                                     back
                                 </Button>
                                 <Button
-                                    variant="contained"
+                                    className="Pink" 
+                                    variant="outlined"
                                     onClick={handleNext}
                                     size="small"
                                 >
@@ -118,7 +119,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="Pink" variant="contained">
+                <Button onClick={routeNext} className="Pink" variant="outlined">
                     continue to algorithmic prediction
                 </Button>
             )}

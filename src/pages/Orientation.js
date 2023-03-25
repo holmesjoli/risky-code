@@ -181,7 +181,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} variant="contained">
+                <Button onClick={routeNext} className="Pink" variant="outlined">
                     continue to algorithmic prediction
                 </Button>
             )}
