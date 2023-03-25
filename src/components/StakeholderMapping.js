@@ -168,8 +168,6 @@ export function updateNetwork(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
 
-    console.log(data.nodes)
-
     node = node
       .data(data.nodes, d => d.id)
       .join(enter => enter.append("path")

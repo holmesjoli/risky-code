@@ -250,22 +250,45 @@ function RiskLevel({title, handleChange, children}) {
 
 function Content({sid, stakeholderData}) {
 
-    const [riskData, setRiskData] = useState([]);
+    const [data, setData] = useState({});
 
-    console.log(riskData)
+    console.log(data)
 
     return(
         <div className="Content No-Padding-Top">
-            <AddRisks sid={sid} stakeholderData={stakeholderData} riskData={riskData} setRiskData={setRiskData}/>
+            <AddRisks sid={sid} stakeholderData={stakeholderData} data={data} setData={setData}/>
         </div>
         )
 }
 
-function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
+
+const Legend = () => {
+    return(
+        <div>
+            <h4 className="Small-Margin">legend</h4>
+            <h5 className="Small-Margin">Stakeholder type</h5>
+            <div id={legendStakeholderId}></div>
+            <h5 className="Small-Margin Margin-Top">Risk level</h5>
+            <div id={legendRiskId} className="Small-Margin-Bottom"></div>
+        </div>
+    )
+}
+
+const Viz = () => {
+    return(
+        <div>
+            <h4 className="No-Margin-Bottom">visualize</h4>
+            <div id={chartId} className="chart"></div>
+            <h6 className="Small-Margin-Top"></h6>
+        </div>
+    )
+}
+
+function AddRisks({sid, stakeholderData, data, setData}) {
 
     useEffect(() => {
-        renderGraph(chartId, riskData);
-    }, [stakeholderData, riskData])
+        renderGraph(chartId, data);
+    }, [stakeholderData, data])
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -289,15 +312,15 @@ function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
 
     const add = () => {
 
-        // let riskDataNew = Object.assign([], riskData);
+        let dataNew = Object.assign([], data);
 
         if (stakeholderData !== undefined) {
 
-            riskData.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
-            riskData.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
-            riskData.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
-            riskData.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
-            setRiskData(riskData);
+            dataNew.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
+            dataNew.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
+            dataNew.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
+            dataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
+            setData(dataNew);
         }
     }
 
@@ -312,28 +335,6 @@ function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
                         <AddIcon />
                     </Fab>
                 </div>
-            </div>
-        )
-    }
-
-    const Legend = () => {
-        return(
-            <div>
-                <h4 className="Small-Margin">legend</h4>
-                <h5 className="Small-Margin">Stakeholder type</h5>
-                <div id={legendStakeholderId}></div>
-                <h5 className="Small-Margin Margin-Top">Risk level</h5>
-                <div id={legendRiskId} className="Small-Margin-Bottom"></div>
-            </div>
-        )
-    }
-
-    const Viz = () => {
-        return(
-            <div>
-                <h4 className="No-Margin-Bottom">visualize</h4>
-                <div id={chartId} className="chart"></div>
-                <h6 className="Small-Margin-Top"></h6>
             </div>
         )
     }
@@ -406,7 +407,6 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
 
     let navigate = useNavigate();
     let sid = 0;
-    
 
     const routeNext = () => {
         let path = `/Decision`; 
