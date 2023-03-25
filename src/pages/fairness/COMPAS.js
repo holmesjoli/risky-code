@@ -377,7 +377,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                             <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext} className="DarkOrange">
                                 <p>Does everyone who commits a crime get charged with that crime?</p>
                                 <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
-                                <p>Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
+                                <p className={disableFairnessNext ? "": "No-Margin-Bottom"}>Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} className="DarkOrange" toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>

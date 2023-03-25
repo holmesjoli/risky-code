@@ -167,6 +167,7 @@ function Information() {
                     <RadioGroup
                         aria-labelledby="demo-radio-buttons-group-label"
                         name="radio-buttons-group"
+                        className="Margin-Left"
                         // onChange={updateStakeholderGroup}
                         // value={stakeholderGroup}
                     >
@@ -376,7 +377,7 @@ export function drawRaceLegend(legendId) {
         .text(d => d.fill);
 }
 
-export default function Calibration({config, user, disableFairnessNext, setDisableFairnessNext, modules}) {
+export default function Calibration({config, user, disableFairnessNext2, setDisableFairnessNext2, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
     let navigate = useNavigate(); 
@@ -414,11 +415,11 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
                                 <h4 className="Small-Margin">learn</h4>
                                 <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources" className="DarkOrange">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources" className="DarkOrange">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions if the underlying base rates of a population are unequal.</p>
                             </div>
-                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext} className="DarkOrange">
+                            <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2} className="DarkOrange">
                                 <p>Have you heard of any of these definitions before?</p>
-                                <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
+                                <p className={disableFairnessNext2 ? "": "No-Margin-Bottom"}>Have you used or come across any of these definitions in your work before?</p>
                             </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay} className="DarkOrange"/>: <></>}
+                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={toggleOverlay} className="DarkOrange"/>: <></>}
                         </RightSideBar>
                     </div>
                 </div>

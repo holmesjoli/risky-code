@@ -300,6 +300,7 @@ export function Content() {
                         <RadioGroup
                             aria-labelledby="demo-radio-buttons-group-label"
                             name="radio-buttons-group"
+                            className="Margin-Left"
                             // onChange={updateStakeholderGroup}
                             // value={stakeholderGroup}
                         >
@@ -337,7 +338,7 @@ export function Content() {
     )
 }
 
-export default function Error({config, modules, user, disableFairnessNext2, setDisableFairnessNext2}) {
+export default function Error({config, modules}) {
 
     let navigate = useNavigate();
     // const [isOpen, setIsOpen] = useState(false);
@@ -374,10 +375,6 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                         </div>
                         <RightSideBar>
                             <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2} className="DarkOrange">
-                                <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
-                                <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
-                                <p>When may it be optimal to minimize the false positive error rate?</p>
-                                <p className="No-Margin-Bottom">When may it be optimal to minimize the false negative error rate?</p>
                             </Timer>
                             {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext} className="DarkOrange"/>: <></>}
                         </RightSideBar>

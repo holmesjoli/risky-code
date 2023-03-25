@@ -7,8 +7,9 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Timer from "../../components/Timer";
+import { NextButtonOrientation } from "../../components/Button";
 
-export default function FairnessReflection({user, disableFairnessNext, setDisableFairnessNext}) {
+export default function FairnessReflection({user, disableFairnessNext3, setDisableFairnessNext3}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
@@ -41,13 +42,12 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
         )
     }
 
-    const Reflect = ({user, disableFairnessNext, setDisableFairnessNext}) => {
-
+    const Reflect = ({user, disableFairnessNext3, setDisableFairnessNext3}) => {
         return(
-            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext} className="DarkOrange">
+            <Timer user={user} disableNext={disableFairnessNext3} setDisableNext={setDisableFairnessNext3} className="DarkOrange">
                 <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
                 <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
-                <p className="No-Margin-Bottom">When may it be optimal to use different types of mathematical fairness?</p>
+                <p className={setDisableFairnessNext3 ? "": "No-Margin-Bottom"}>When may it be optimal to use different types of mathematical fairness?</p>
             </Timer>
         )
     }
@@ -55,11 +55,13 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
     const steps = [
       {
         label: 'learning outcomes',
-        children: <LearningOutcomes/>
+        children: <LearningOutcomes/>,
+        disable: false
       },
       {
         label: 'reflect',
-        children: <Reflect user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>
+        children: <Reflect user={user} disableFairnessNext={disableFairnessNext3} setDisableFairnessNext={setDisableFairnessNext3}/>,
+        disable: disableFairnessNext3
       },
     ];
 
@@ -86,14 +88,7 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
                                 >
                                     back
                                 </Button>
-                                <Button
-                                    className="DarkOrange" 
-                                    variant="outlined"
-                                    onClick={handleNext}
-                                    size="small"
-                                >
-                                    next
-                                </Button>
+                                <NextButtonOrientation className="DarkOrange" routeNext={handleNext} disabled={step.disable}/>
                             </div>
                         </Box>
                     </StepContent>
@@ -101,7 +96,7 @@ export default function FairnessReflection({user, disableFairnessNext, setDisabl
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="LightOrange" variant="outlined">
+                <Button onClick={routeNext} className="DarkOrange" variant="outlined">
                     continue to stakeholder mapping
                 </Button>
             )}

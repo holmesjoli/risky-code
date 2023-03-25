@@ -7,6 +7,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 import Timer from "../../components/Timer";
+import { NextButtonOrientation } from "../../components/Button";
 
 export default function StakeholderReflection({user, disableStakeholder, setDisableStakeholder}) {
 
@@ -45,7 +46,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
             <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder} className="LightOrange">
                 {user==="group"? <p>Did your team think of any stakeholders which you hadn't considered before?</p>: <p>Did you think of any stakeholders which you hadn't considered before?</p>}
                 <p>How did the stakeholders' values align or diverge?</p>
-                <p className="No-Margin-Bottom">Is it important to consider all stakeholders' values equally?</p>
+                <p className={disableStakeholder ? "": "No-Margin-Bottom"}>Is it important to consider all stakeholders' values equally?</p>
             </Timer>
         )
     }
@@ -53,11 +54,13 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
     const steps = [
       {
         label: 'learning outcomes',
-        children: <LearningOutcomes/>
+        children: <LearningOutcomes/>,
+        disable: false
       },
       {
         label: 'reflect',
-        children: <Reflect user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>
+        children: <Reflect user={user} disableStakeholder={disableStakeholder} setDisableStakeholder={setDisableStakeholder}/>,
+        disable: disableStakeholder
       },
     ];
 
@@ -84,14 +87,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
                                 >
                                     back
                                 </Button>
-                                <Button
-                                    className="LightOrange" 
-                                    variant="outlined"
-                                    onClick={handleNext}
-                                    size="small"
-                                >
-                                    next
-                                </Button>
+                                <NextButtonOrientation className="LightOrange" routeNext={handleNext} disabled={step.disable}/>
                             </div>
                         </Box>
                     </StepContent>
@@ -99,7 +95,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="Yellow" variant="outlined">
+                <Button onClick={routeNext} className="LightOrange" variant="outlined">
                     continue to deliberation
                 </Button>
             )}

@@ -56,6 +56,7 @@ export default function App() {
     const [disablePredictionNext, setDisablePredictionNext] = useState(true);
     const [disableFairnessNext, setDisableFairnessNext] = useState(true);
     const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);
+    const [disableFairnessNext3, setDisableFairnessNext3] = useState(true);
     const [disableStakeholder, setDisableStakeholder] = useState(true);
 
     const [streetBumpData, setStreetBumpData] = useState({"nodes": [], "links": []});
@@ -78,9 +79,9 @@ export default function App() {
 
           <Route path="/Fairness" element={<Fairness user={user} />} />
           <Route path="/COMPAS" element={<COMPAS config={config.COMPAS} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} modules={modules}/>}></Route>
-          <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext} modules={modules}/>} />
-          <Route path="/Error" element={<Error config={config.Error} modules={modules} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2}/>} />
-          <Route path="/FairnessReflection" element={<FairnessReflection user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={setDisableFairnessNext}/>} />
+          <Route path="/Calibration" element={<Calibration config={config.Calibration} user={user} disableFairnessNext2={disableFairnessNext2} setDisableFairnessNext2={setDisableFairnessNext2} modules={modules}/>} />
+          <Route path="/Error" element={<Error config={config.Error} modules={modules}/>} />
+          <Route path="/FairnessReflection" element={<FairnessReflection user={user} disableFairnessNext3={disableFairnessNext3} setDisableFairnessNext3={setDisableFairnessNext3}/>} />
 
           <Route path="/StakeholderMapping" element={<StakeholderMapping user={user} brainstormStakeholders={brainstormStakeholders} setBrainstormStakeholders={setBrainstormStakeholders}/>} />
           <Route path="/StreetBump" element={<StreetBump config={config.StreetBump} user={user} data={streetBumpData} setData={setStreetBumpData} modules={modules} stakeholderData={stakeholderData2} setStakeholderData={setStakeholderData2}/>} />

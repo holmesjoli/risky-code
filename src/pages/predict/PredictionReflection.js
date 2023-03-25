@@ -34,12 +34,6 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
-    // useEffect(() => {
-    //     if(disablePredictionNext) {
-    //         setClassName("Pink")
-    //     }
-    // }, [disablePredictionNext])
-
     const LearningOutcomes = () => {
 
         return(
@@ -65,7 +59,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                 <p>Would you collect any other variables to use in the statistical model?</p>
                 <p>Were there any rules {user==="group"? "your team": "you"} brainstormed that the statistical model was not able to accomodate?</p>
                     {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
-                <p className="No-Margin-Bottom">What were the consequences of when Laundry AID made an incorrect prediction?</p>
+                <p className={disablePredictionNext ? "": "No-Margin-Bottom"}>What were the consequences of when Laundry AID made an incorrect prediction?</p>
             </Timer>
         )
     }
