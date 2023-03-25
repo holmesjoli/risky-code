@@ -16,12 +16,21 @@ export const DndWrapper = React.memo((props) => {
   ) : null;
 });
 
-export const getBackgroundColor = (isOver, canDrop) => {
+export const getBackgroundColor = (isOver, canDrop, className) => {
     if (isOver) {
       if (canDrop) {
-        return "rgb(154, 0, 255, .12)"; // TODO change the highlight background color
-      } else if (!canDrop) {
-        return "rgb(255,188,188)";
+        if (className === "Purple") {
+          return "rgb(154, 0, 255, .12)"; 
+        } else if(className === "Pink") {
+          return "rgb(234, 33, 173, .12)"; 
+        } else if (className === "DarkOrange") {
+          return "rgb(254, 64, 2, .12)"; 
+        } else if (className === "LightOrange") {
+          return "rgb(253, 123, 3, .12)";
+        }
+
+      } else {
+        return "rgb(255,188,188)"
       }
     } else {
       return "";
@@ -40,10 +49,18 @@ export const getColor = (isOver, canDrop) => {
     }
 };
 
-export const getBorder = (isOver, canDrop) => {
+export const getBorder = (isOver, canDrop, className) => {
   if (isOver) {
     if (canDrop) {
-      return "1.5pt dotted rgb(154, 0, 255)"; 
+      if (className === "Purple") {
+        return "1.5pt dotted rgb(154, 0, 255)"; 
+      } else if (className === "Pink") {
+        return "1.5pt dotted rgb(234, 33, 173)"
+      } else if (className === "DarkOrange") {
+        return "1.5pt dotted rgb(254, 64, 2)"
+      } else if (className === "LightOrange") {
+        return "1.5pt dotted rgb(253, 123, 3)"
+      }
     } else if (!canDrop) {
       return "none";
     }

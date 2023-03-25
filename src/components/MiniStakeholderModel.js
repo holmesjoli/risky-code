@@ -134,8 +134,8 @@ const Column = ({ children, className, title }) => {
     <div
       ref={drop}
       className={className}
-      style={{ border: getBorder(isOver, canDrop),
-        backgroundColor: getBackgroundColor(isOver, canDrop) }}
+      style={{ border: getBorder(isOver, canDrop, "LightOrange"),
+        backgroundColor: getBackgroundColor(isOver, canDrop, "LightOrange") }}
     >
       <h4 className="Small-Margin" style={{ color: getColor(isOver, canDrop) }}>{title}</h4>
       <div className="Card-Container Moveable-Items">
