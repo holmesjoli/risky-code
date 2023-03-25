@@ -328,9 +328,9 @@ export function Outcomes({}) {
 
 export default function COMPAS({config, user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm, modules}) {
 
-
     const [isOpen, setIsOpen] = useState(true);
     const [baseRate, setBaseRate] = useState("pop");
+    const [id, setId] = useState("fairness");
 
     let navigate = useNavigate();
     const routeNext = () => {
@@ -355,6 +355,10 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
     useEffect(() => {
         renderGraph(data, baseRate);
     }, [baseRate]);
+
+    useEffect(() => {
+        setId(isOpen ? "fairness": config.id);
+    }, [isOpen]);
 
     return (
         <div className="App">{
@@ -400,7 +404,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             </LeftSideBar>
             <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate}/>
             <RightSideBar>
-                <Progress id={config.id} modules={modules}/>
+                <Progress id={id} modules={modules}/>
                 <NextButton routeNext={routeNext}/>
             </RightSideBar>
         </div>

@@ -35,7 +35,6 @@ export function Content({variables, setVariables, items, setItems, predictivePro
                     <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                     <Model variables={variables} setVariables={setVariables}/>
                 </div>
-
                 <div>
                     {/* <h3 className="Small-Margin">visualize</h3> */}
                     <Regression items={items} setItems={setItems} variables={variables}/>

@@ -49,7 +49,6 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
         )
     }
 
-
     const LearningOutcomes = () => {
 
         return(
