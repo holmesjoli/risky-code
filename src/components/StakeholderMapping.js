@@ -77,17 +77,6 @@ function drag() {
         .on("end", dragended);
 }
 
-function stakeholderType(d) {
-
-    if(d.group === "value") {
-        return `Value: ${d.name}`;
-    } else if(d.group === "stakeholder") {
-        return `${d.id}`;
-    } else {
-        return "";
-    }
-}
-
 export function symbolScale(d) {
 
     if(d === "direct") {
@@ -113,12 +102,10 @@ function renderTooltip(chartId) {
             .attr("stroke-width", 2)
             .attr("stroke", visStyles[style]["secondaryHighlightColor"]);
 
-        let type = stakeholderType(d);
-
         tooltip.style("visibility", "visible")
             .style("left", cx + "px")
             .style("top", cy + "px")
-            .html(type);
+            .html(d.group === "stakeholder"? `${d.id}`: `${d.name}`);
 
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
@@ -153,9 +140,9 @@ export function initNetwork(chartId, width, height, data) {
 
     simulation = d3.forceSimulation()
         .force("charge", d3.forceManyBody().strength(-10))
-        .force("link", d3.forceLink().id(d => d.id).distance(35))
+        .force("link", d3.forceLink().id(d => d.id).distance(45))
         .force("center", d3.forceCenter(width / 2, height / 2).strength(1))
-        .force("collide", d3.forceCollide().strength(.01).radius(8))
+        .force("collide", d3.forceCollide().strength(.5).radius(10))
         .on("tick", ticked);
 
     function ticked() {

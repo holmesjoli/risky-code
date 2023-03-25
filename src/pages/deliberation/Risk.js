@@ -26,7 +26,6 @@ let width = 550;
 let height = 200;
 let style = "darkMode";
 let margin = {left: 10, right: 10, top: 10, bottom: 40};
-// let node;
 
 const xScale = d3.scaleLinear()
     .domain([1, 5])
