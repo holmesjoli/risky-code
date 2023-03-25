@@ -259,14 +259,14 @@ function Content({sid, stakeholderData, data, setData}) {
                 {/* <AddRisks sid={sid} stakeholderData={stakeholderData} data={data} setData={setData}/> */}
             </div>
         </div>
-        )
+    )
 }
 
 
 const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability}) => {
     return(
         <div className="Slider-Container">
-                <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
+                {/* <RiskLevel title="risk of appropriate data use" handleChange={updateAppropriateDataUse}>
                     <ul>
                         <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
                             <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">citizen data use</span></li>
@@ -275,8 +275,8 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
                             <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">data compatability</span></li>
                         </Tooltip>
                     </ul>
-                </RiskLevel>
-                <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
+                </RiskLevel> */}
+                {/* <RiskLevel title="risk of technical bias" handleChange={updateTechnical}>
                     <ul>
                         <Tooltip title="Consider representativeness of data, sample bias, data quality.">
                             <li className="Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">technical bias</span></li>
@@ -308,7 +308,7 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
                             <li className="Small-Extra-Small-Margin-Bottom">Risk of <span className="Emphasis">automation</span></li>
                         </Tooltip>
                     </ul>
-                </RiskLevel>
+                </RiskLevel> */}
             </div>
     )
 }
@@ -337,16 +337,16 @@ function AddRisks({stakeholderData, data, setData}) {
 
     const add = () => {
 
-        let dataNew = Object.assign([], data);
+    //     let dataNew = Object.assign([], data);
 
-        if (stakeholderData !== undefined) {
+    //     if (stakeholderData !== undefined) {
 
-            dataNew.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
-            dataNew.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
-            dataNew.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
-            dataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
-            setData(dataNew);
-        }
+    //         dataNew.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
+    //         dataNew.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
+    //         dataNew.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
+    //         dataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
+    //         setData(dataNew);
+    //     }
     }
 
     const AddStakeholder = () => {
@@ -354,8 +354,6 @@ function AddRisks({stakeholderData, data, setData}) {
         return(
             <div className="Container2">
                 <div className="Add-Stakeholder-Button">
-                    <div id={stakeholderId} className="Small-Margin-Bottom"></div>
-                    <h4 className="Small-Margin">add stakeholder to diagram</h4>
                     <Fab color="primary" onClick={add} className="Yellow">
                         <AddIcon />
                     </Fab>
@@ -367,6 +365,26 @@ function AddRisks({stakeholderData, data, setData}) {
     return(
         <div className="One-Column-Three Margin-Bottom">
             <AddStakeholder/>
+
+
+            <Slider
+                size="small"
+                defaultValue={40}
+                min={10}
+                max={100}
+                step={10}
+                aria-label="Small"
+                valueLabelDisplay="auto"
+                className="DarkOrange"
+                onChange={updateAccountability}
+                />
+            <div className="Container2">
+                <div className="Add-Stakeholder-Button">
+                    <div id={stakeholderId} className="Small-Margin-Bottom"></div>
+                    <h4 className="Small-Margin">add stakeholder to diagram</h4>
+                </div>
+            </div>
+    
             <Sliders updateAppropriateDataUse={updateAppropriateDataUse} updateTechnical={updateTechnical} updateStakeholderValues={updateStakeholderValues} updateAccountability={updateAccountability}/>
         </div>)
 
@@ -416,8 +434,8 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
 
     let navigate = useNavigate();
     let sid = 0;
-    const [data, setData] = useState({});
-
+    const [data, setData] = useState([]);
+    console.log(data)
 
     const routeNext = () => {
         let path = `/Decision`; 
