@@ -34,7 +34,7 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
     };
 
     useEffect(() => {
-        setId(isOpen ? "deliberation": "stakeholders");
+        setId(isOpen ? "deliberation": config.id);
     }, [isOpen])
 
     useEffect(() => {

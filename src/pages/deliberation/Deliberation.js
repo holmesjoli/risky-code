@@ -38,8 +38,8 @@ export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmi
         return(
             <div className="Container2 Margin-Bottom">
                 <p>Many algorithms intervening in public policy decisions are considered high-stakes decision-making cases (e.g., predict child maltreatment, automated recruitment decisions, college admissions), but not all are.</p>
-                <p>For example, in the <span className="SemiBold DarkOrange"> Algorithmic Fairness </span> module we looked at the COMPAS case study. COMPAS is likely a higher risk use case. In the <span className="SemiBold LightOrange"> Stakeholder Mapping</span> module we looked at the Street Bump example. Street Bump is likely a lower risk use case.</p>
-                <p className="No-Margin-Bottom">The goal of this module, <span className="SemiBold Yello">Deliberation</span>is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
+                <p>For example, in the <span className="Semi-Bold DarkOrange"> Algorithmic Fairness </span> module we looked at the COMPAS case study. COMPAS is likely a higher risk use case. In the <span className="Semi-Bold LightOrange"> Stakeholder Mapping</span> module we looked at the Street Bump example. Street Bump is likely a lower risk use case.</p>
+                <p className="No-Margin-Bottom">The goal of this module, <span className="Semi-Bold Yellow">Deliberation</span> is to visually assess risk across numerous dimensions to answer the question, <span className="Italic">is it appropriate to use algorithmic decision-making for my specific public policy use case?</span></p>
             </div>
         )
     }

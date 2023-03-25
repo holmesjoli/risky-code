@@ -59,7 +59,7 @@ import MiniModel from "../../components/MiniStakeholderModel";
 export default function StreetBump({config, user, modules, data, setData, stakeholderData, setStakeholderData}) {
 
     const [isOpen, setIsOpen] = useState(true);
-    const [id, setId] = useState("stakeholders");
+    const [id, setId] = useState("stakeholderMapping");
     let chartID = "Policy-Chart2";
 
     let navigate = useNavigate();
@@ -79,8 +79,10 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
     };
 
     useEffect(() => {
-        setId(isOpen ? "stakeholders": config.id);
+        setId(isOpen ? "stakeholderMapping": config.id);
     }, [isOpen]);
+
+    console.log(id)
 
     useEffect(() => {
         policyDiagram(chartID, 490, 490, "darkMode", true);

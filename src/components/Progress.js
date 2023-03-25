@@ -118,6 +118,8 @@ export default function Progress({id, modules, defaultExpanded = false}) {
 
     useEffect(() => {
 
+        console.log(pageId)
+
         pageId = lookupPageId(id, configArray);
         otherPageIds = lookupOtherPages(id, configArray);
         highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
