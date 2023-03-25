@@ -19,11 +19,6 @@ const highlightColorScale = d3.scaleOrdinal()
     .domain(["predict", "fairness", "stakeholders", "deliberation"])
     .range(["#ea21ad", "#FE4002", "#FD7B03", "#F3C010"])
 
-// const strokeScale2 = function() {
-
-
-// }
-
 function lookupPageId(id, configArray) {
     const pageId = configArray.filter(d => d.id === id).map(d => d.id)[0];
     return pageId;
@@ -91,8 +86,6 @@ function renderTooltip(pageId, fillScale) {
 
         let thisCircle = d3.select(this);
 
-        console.log(d)
-
         thisCircle
             .attr("stroke-width", d => d.id === pageId ? 1: 2)
             .attr("fill", d => highlightColorScale(d.group))
@@ -117,7 +110,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
         configArray.push(i[1])
     }
 
-    console.log(configArray)
     const fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(configLength - 1).fill(visStyles[style]["fontWeight"]));
     const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
 
