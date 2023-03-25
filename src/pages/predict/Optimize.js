@@ -103,7 +103,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                         <p className="Padding-Bottom No-Margin-Bottom">Try to get the accuracy as high as possible.</p>
                     </Description>
                     <RoleShort moduleName="prediction"/>
-                    <Terminology margin="Margin-Large-Bottom">
+                    <Terminology className="Margin-Large-Bottom Pink">
                         <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['decision-threshold']}/>
@@ -112,7 +112,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                 </LeftSideBar>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                 <RightSideBar>
-                    <Progress id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules} className="Pink"/>
                     <NextButton routeNext={routeNext} className="Pink"/>
                 </RightSideBar>
             </div>

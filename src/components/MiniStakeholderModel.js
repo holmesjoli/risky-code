@@ -106,7 +106,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item Card Variable" style={{ opacity }}>
+    <div ref={ref} className="Movable-Item Card Variable Variable-LightOrange" style={{ opacity }}>
       {item.name}
     </div>
   );
@@ -215,7 +215,7 @@ export default function MiniModel() {
             <TextField value={stakeholderName} placeholder="stakeholder name" variant="outlined" onChange={updateStakeholder} />
             <div className="Add-Stakeholder-Button">
                 <h4 className="Small-Margin">add stakeholder to the list</h4>
-                <Fab color="primary" onClick={add}>
+                <Fab color="primary" onClick={add} className="LightOrange">
                     <AddIcon />
                 </Fab>
             </div>

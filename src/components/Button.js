@@ -10,6 +10,10 @@ export function BackButton({routeBack}) {
 
 export function NextButton({routeNext, className, disabled=false, label="next"}) {
 
+    if (!disabled && className=== undefined) {
+        className="Purple"
+    }
+
     return(
         <div className="Button-Container-Right">
             <Button variant="outlined" className={className} onClick={routeNext} disabled={disabled}>{label}</Button>
@@ -19,9 +23,13 @@ export function NextButton({routeNext, className, disabled=false, label="next"})
 
 export function NextButtonOverlay({toggleOverlay, className, disabled=false, label="next"}) {
 
-  return(
-      <div className="Button-Container-Right-Overlay Margin-Top">
-          <Button variant="outlined" className={className} onClick={toggleOverlay} disabled={disabled}>{label}</Button>
-      </div>
-  )
+    if (!disabled && className=== undefined) {
+        className="Purple"
+    }
+
+    return(
+        <div className="Button-Container-Right-Overlay Margin-Top">
+            <Button variant="outlined" className={className} onClick={toggleOverlay} disabled={disabled}>{label}</Button>
+        </div>
+    )
 }

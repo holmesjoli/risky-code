@@ -91,14 +91,14 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     </ul>
                 </Description>
                 <RoleShort moduleName="prediction"/>
-                <Terminology margin="Margin-Large-Bottom">
+                <Terminology className="Margin-Large-Bottom Pink">
                     <Term term={terms['algorithm']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
             <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name}/>
             <RightSideBar>
-                <Progress id={id} modules={modules}/>
+                <Progress id={id} modules={modules} className="Pink"/>
                 <NextButton routeNext={routeNext} disabled={disabled}/>
             </RightSideBar>
         </div>

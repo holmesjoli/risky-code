@@ -71,7 +71,7 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                     <p>Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box.</p>
                 </Description>
                 <RoleShort moduleName="deliberation"/>
-                <Terminology margin="Margin-Large-Bottom">
+                <Terminology className="Margin-Large-Bottom Yellow">
                     <Term term={terms['stakeholders']}/>
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
@@ -79,9 +79,9 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
+            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Yellow"/>
             <RightSideBar>
-                <Progress id={id} modules={modules}/>
+                <Progress id={id} modules={modules} className="Yellow"/>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
                 <NextButton routeNext={routeNext} className="Yellow"/>
             </RightSideBar>

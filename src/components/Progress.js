@@ -69,7 +69,7 @@ function renderTooltip(pageId, fillScale) {
     })
 }
 
-export default function Progress({id, modules, defaultExpanded = false}) {
+export default function Progress({id, modules, defaultExpanded = false, className="Purple"}) {
 
     let navigate = useNavigate();
     let configLength = Object.keys(config).length;
@@ -182,7 +182,7 @@ export default function Progress({id, modules, defaultExpanded = false}) {
 
     return (
         <div className="Progress">
-            <Accordion defaultExpanded={defaultExpanded}>
+            <Accordion defaultExpanded={defaultExpanded} className={className}>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                 >

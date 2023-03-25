@@ -395,7 +395,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                     <p>Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>
-                <Terminology margin="Margin-Large-Bottom">
+                <Terminology className="Margin-Large-Bottom DarkOrange">
                     <Term term={terms['population-base-rate']}/>
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>
@@ -404,7 +404,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             </LeftSideBar>
             <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate}/>
             <RightSideBar>
-                <Progress id={id} modules={modules}/>
+                <Progress id={id} modules={modules} className="DarkOrange"/>
                 <NextButton routeNext={routeNext} className="DarkOrange"/>
             </RightSideBar>
         </div>

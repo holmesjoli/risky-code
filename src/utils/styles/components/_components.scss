@@ -1,0 +1,113 @@
+//Buttons for each module
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Purple:hover {
+    background-color: $Purple;
+    border: 1px solid $Purple;
+    color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Purple {
+    border: 1px solid $Purple;
+    background-color: $appDarkAccent;
+    color: $Purple;
+}
+
+.Purple,
+.Purple-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active,
+.Purple-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed {
+    color: $Purple;
+}
+
+.Pink,
+.Pink-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active,
+.Pink-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed {
+    color: $Pink;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Pink {
+    border: 1px solid $Pink;
+    background-color: $appDarkAccent;
+    color: $Pink;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Pink:hover {
+    background-color: $Pink;
+    border: 1px solid $Pink;
+    color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.DarkOrange:hover {
+    background-color: $DarkOrange;
+    border: 1px solid $DarkOrange;
+    color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.DarkOrange {
+    border: 1px solid $DarkOrange;
+    background-color: $appDarkAccent;
+    color: $DarkOrange;
+}
+
+.DarkOrange,
+.DarkOrange-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active,
+.DarkOrange-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed {
+    color: $DarkOrange;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.LightOrange:hover {
+    background-color: $LightOrange;
+    border: 1px solid $LightOrange;
+    color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.LightOrange {
+    border: 1px solid $LightOrange;
+    background-color: $appDarkAccent;
+    color: $LightOrange;
+}
+
+.LightOrange,
+.LightOrange-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active,
+.LightOrange-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed {
+    color: $LightOrange;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Yellow:hover {
+    background-color: $Yellow;
+    border: 1px solid $Yellow;
+    color: #000000;
+}
+
+.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Yellow {
+    border: 1px solid $Yellow;
+    background-color: $appDarkAccent;
+    color: $Yellow;
+}
+
+.Yellow,
+.Yellow-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active,
+.Yellow-Icon .MuiStepLabel-iconContainer .MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed {
+    color: $Yellow;
+}
+
+  
+//Slider
+.MuiSlider-root.MuiSlider-colorPrimary.Pink {
+    color: $Pink;
+}
+
+.MuiSlider-root.MuiSlider-colorPrimary.DarkOrange {
+    color: $DarkOrange;
+}
+
+.MuiSlider-root.MuiSlider-colorPrimary.Yellow {
+    color: $Yellow;
+}
+
+//Fab
+.MuiButtonBase-root.MuiFab-root.LightOrange.MuiFab-primary {
+    background-color: $LightOrange;
+}
+
+.MuiButtonBase-root.MuiFab-root.MuiFab-primary.Yellow {
+    background-color: $Yellow;
+}

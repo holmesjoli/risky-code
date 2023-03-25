@@ -280,6 +280,7 @@ export function Content() {
                             step={10}
                             aria-label="Small"
                             valueLabelDisplay="auto"
+                            className="DarkOrange"
                             onChange={updateSlider}
                             />
                     </div>
@@ -394,7 +395,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                         <p> The decision to keep an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships.</p>
                     </Description>
                     <RoleShort moduleName="fairness"/>
-                    <Terminology margin="Margin-Large-Bottom">
+                    <Terminology className="Margin-Large-Bottom DarkOrange">
                         <Term term={terms['fpr']}/>
                         <Term term={terms['fnr']}/>
                         <Term term={terms['mathematical-fairness']}/>
@@ -404,7 +405,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                 </LeftSideBar>
                 <Content />
                 <RightSideBar>
-                    <Progress id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules} className="DarkOrange"/>
                     <NextButton routeNext={routeNext} className="DarkOrange"/>
                 </RightSideBar>
             </div>

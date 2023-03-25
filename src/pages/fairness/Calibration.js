@@ -434,7 +434,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
                     <p>Hover over points on the visualization to see more.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>
-                <Terminology margin="Margin-Large-Bottom">
+                <Terminology className="Margin-Large-Bottom DarkOrange">
                     <Term term={terms['calibration']}/>
                     <Term term={terms['mathematical-fairness']}/>
                     <Term term={terms['proxy-variable']}/>
@@ -444,7 +444,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
             </LeftSideBar>
             <Content/>
             <RightSideBar>
-                <Progress id={config.id} modules={modules}/>
+                <Progress id={config.id} modules={modules} className="DarkOrange"/>
                 <NextButton routeNext={routeNext} className="DarkOrange"/>
             </RightSideBar>
         </div>

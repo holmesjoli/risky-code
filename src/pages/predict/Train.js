@@ -113,7 +113,7 @@ export default function Train({config, user, variables, setVariables, items, set
                     </ul>                    
                 </Description>
                 <RoleShort moduleName="prediction"/>
-                <Terminology margin="Margin-Large-Bottom">
+                <Terminology className="Margin-Large-Bottom Pink">
                     <Term term={terms['algorithm']}/>
                     <Term term={terms['data-variable']}/>
                     <Term term={terms['model-variable']}/>
@@ -125,7 +125,7 @@ export default function Train({config, user, variables, setVariables, items, set
             </LeftSideBar>
             <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
             <RightSideBar>
-                <Progress id={config.id} modules={modules}/>
+                <Progress id={config.id} modules={modules} className="Pink"/>
                 <NextButton routeNext={routeNext} className="Pink"/>
             </RightSideBar>
         </div>

@@ -34,7 +34,7 @@ export default function Decision({config, modules}) {
                 </LeftSideBar>
                 <Content />
                 <RightSideBar>
-                    <Progress id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules} className="Yellow"/>
                 </RightSideBar>
             </div>
             <Footer/>

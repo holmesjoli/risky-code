@@ -125,7 +125,7 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                     <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>
                 <RoleShort moduleName="caseStudies"/>
-                <Terminology margin="Margin-Large-Bottom">
+                <Terminology className="Margin-Large-Bottom LightOrange">
                     <Term term={terms['stakeholders']}/>
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
@@ -133,9 +133,9 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>
+            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="LightOrange"/>
             <RightSideBar>
-            <Progress id={id} modules={modules}/>
+            <Progress id={id} modules={modules} className="Yellow"/>
                 <Consequence margin="Margin-Large-Bottom"/>
                 <NextButton routeNext={routeNext} className="LightOrange"/>
             </RightSideBar>

@@ -205,6 +205,7 @@ function RiskLevel({title, handleChange, children}) {
                   marks={marks}
                   valueLabelDisplay="auto"
                   onChange={handleChange}
+                  className="Yellow"
               />
             </div>
         </div>
@@ -271,7 +272,7 @@ function AddRisks({sid, stakeholderData, riskData, setRiskData}) {
                 <div className="Add-Stakeholder-Button">
                     <div id={stakeholderId} className="Small-Margin-Bottom"></div>
                     <h4 className="Small-Margin">add stakeholder to diagram</h4>
-                    <Fab color="primary" onClick={add}>
+                    <Fab color="primary" onClick={add} className="Yellow">
                         <AddIcon />
                     </Fab>
                 </div>
@@ -392,14 +393,14 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
                         <p>Use the sliders to adjust the risks for each stakeholder you identified on the stakeholder mapping page</p>
                     </Description>
                     <RoleShort moduleName="deliberation"/>
-                    <Terminology margin="Margin-Large-Bottom">
+                    <Terminology className="Margin-Large-Bottom Yellow">
                         <Term term={terms['proxy-variable']}/>
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
                 <Content sid={sid} stakeholderData={stakeholderData[sid]}/>
                 <RightSideBar>
-                    <Progress id={config.id} modules={modules}/>
+                    <Progress id={config.id} modules={modules} className="Yellow"/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
                     <NextButton routeNext={routeNext} className="Yellow"/>
                 </RightSideBar>

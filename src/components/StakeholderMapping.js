@@ -313,7 +313,7 @@ function StakeholderNetwork(data, setData) {
     )
 }
 
-function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray) {
+function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray, className) {
 
     const [stakeholderName, setStakeholderName] = useState("");
     const [stakeholderGroup, setStakeholderGroup] = useState("direct");
@@ -427,7 +427,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
             </div>
             <div className="Add-Stakeholder-Button">
                 <h4 className="Small-Margin">add stakeholder to diagram</h4>
-                <Fab color="primary" onClick={add}>
+                <Fab color="primary" onClick={add} className={className}>
                     <AddIcon />
                 </Fab>
             </div>
@@ -435,14 +435,14 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
     )
 }
 
-export default function StakeholderMapping({data, setData, stakeholderData, setStakeholderData}) {
+export default function StakeholderMapping({data, setData, stakeholderData, setStakeholderData, className}) {
 
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(
         <div className="Content One-Column-Three No-Padding-Top">
             <div className="">
-                {AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray)}
+                {AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray, className)}
             </div>
             <div className="">
                 {StakeholderNetwork(data, setData)}
