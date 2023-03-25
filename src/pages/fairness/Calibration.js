@@ -418,7 +418,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
                                 <p>Have you heard of any of these definitions before?</p>
                                 <p className="No-Margin-Bottom">Have you used or come across any of these definitions in your work before?</p>
                             </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay}/>: <></>}
+                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} toggleOverlay={toggleOverlay} className="DarkOrange"/>: <></>}
                         </RightSideBar>
                     </div>
                 </div>
@@ -445,7 +445,7 @@ export default function Calibration({config, user, disableFairnessNext, setDisab
             <Content/>
             <RightSideBar>
                 <Progress id={config.id} modules={modules}/>
-                <NextButton routeNext={routeNext}/>
+                <NextButton routeNext={routeNext} className="DarkOrange"/>
             </RightSideBar>
         </div>
         <Footer/>

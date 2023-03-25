@@ -87,7 +87,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                                 <p className="Padding-Bottom No-Margin-Bottom Bottom-Rule">Use the slider to adjust the threshold. Notice, how the prediction of belonging to the cold water load changes for each item and the overall model accuracy changes.</p>
                                 <Predicted/>
                             </div>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                            <NextButtonOverlay className="Pink" toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                    <NextButton routeNext={routeNext}/>
+                    <NextButton routeNext={routeNext} className="Pink"/>
                 </RightSideBar>
             </div>
             <Footer/>

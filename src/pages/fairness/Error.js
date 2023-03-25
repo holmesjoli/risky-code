@@ -378,7 +378,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                                 <p>When may it be optimal to minimize the false positive error rate?</p>
                                 <p className="No-Margin-Bottom">When may it be optimal to minimize the false negative error rate?</p>
                             </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext}/>: <></>}
+                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext} className="DarkOrange"/>: <></>}
                         </RightSideBar>
                     </div>
                 </div>
@@ -405,7 +405,7 @@ export default function Error({config, modules, user, disableFairnessNext2, setD
                 <Content />
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
-                    <NextButton routeNext={routeNext}/>
+                    <NextButton routeNext={routeNext} className="DarkOrange"/>
                 </RightSideBar>
             </div>
             <Footer/>

@@ -401,7 +401,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
                 <RightSideBar>
                     <Progress id={config.id} modules={modules}/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                    <NextButton routeNext={routeNext}/>
+                    <NextButton routeNext={routeNext} className="Yellow"/>
                 </RightSideBar>
             </div>
             <Footer/>

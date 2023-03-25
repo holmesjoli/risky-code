@@ -56,7 +56,7 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                         </div>
                         <RightSideBar>
                             <PolicyScenario policy={policy} setPolicy={setPolicy} className="Container2"/>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay} className="Yellow"/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -83,7 +83,7 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
             <RightSideBar>
                 <Progress id={id} modules={modules}/>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                <NextButton routeNext={routeNext}/>
+                <NextButton routeNext={routeNext} className="Yellow"/>
             </RightSideBar>
         </div>
         <Footer/>

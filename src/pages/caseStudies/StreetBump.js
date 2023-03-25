@@ -109,7 +109,7 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                                 <h4 className="Small-Margin">brainstorm</h4>
                                 <p className="No-Margin-Bottom">Start by brainstorming who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
                             </div>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay} className="LightOrange"/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -137,7 +137,7 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
             <RightSideBar>
             <Progress id={id} modules={modules}/>
                 <Consequence margin="Margin-Large-Bottom"/>
-                <NextButton routeNext={routeNext}/>
+                <NextButton routeNext={routeNext} className="LightOrange"/>
             </RightSideBar>
         </div>
         <Footer/>

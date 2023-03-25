@@ -70,7 +70,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                                 </ul>
                                 {user==="group"?<p className="No-Margin-Bottom">Discuss how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Decide how to classify each item and then drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                             </div>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                            <NextButtonOverlay className="Pink" toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
                 </div>

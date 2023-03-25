@@ -92,7 +92,7 @@ export default function Train({config, user, variables, setVariables, items, set
                                 <p>Test how you will train Laundry AID by dragging one or more variables from <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
                                 <p className="No-Margin-Bottom">Notice that the outcome variable, <span className="Emphasis">cold water load</span> is fixed and cannot be changed.</p>
                             </div>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay}/>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay} className="Pink"/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -126,7 +126,7 @@ export default function Train({config, user, variables, setVariables, items, set
             <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
             <RightSideBar>
                 <Progress id={config.id} modules={modules}/>
-                <NextButton routeNext={routeNext}/>
+                <NextButton routeNext={routeNext} className="Pink"/>
             </RightSideBar>
         </div>
         <Footer/>
