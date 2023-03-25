@@ -39,10 +39,7 @@ function createVisited(modules, configArray) {
     return visited;
 }
 
-function createStrokeScale(pageId, modules, visited, configArray) {
-
-    let highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
-    console.log(highlightColor)
+function createStrokeScale(pageId, modules, visited, configArray, highlightColor) {
 
     let notVisited = configArray.filter(d => !modules.includes(d.id) && d.id !== pageId).map(d => d.id);
     let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
@@ -59,8 +56,6 @@ function createStrokeScale(pageId, modules, visited, configArray) {
     if (index > -1) {
         visited.splice(index, 1);
     }
-
-    console.log(colors)
 
     let scale = d3.scaleOrdinal()
         .domain([pageId].concat(visited.concat(notVisited)))
@@ -120,21 +115,22 @@ export default function Progress({id, modules, defaultExpanded = false}) {
     }
 
     console.log(configArray)
-    const fill = [visStyles[style]["highlightColor"]].concat(Array(configLength - 1).fill("#131517"));
     const fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(configLength - 1).fill(visStyles[style]["fontWeight"]));
     const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
 
-    let pageId, otherPageIds;
+    let pageId, otherPageIds, highlightColor, fill;
     let visited, strokeScale, fillScale, fontWeightScale, fontColorScale, textTransformScale;
 
     useEffect(() => {
 
         pageId = lookupPageId(id, configArray);
         otherPageIds = lookupOtherPages(id, configArray);
+        highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
+        fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));;
 
         // Node scales
         visited = createVisited(modules, configArray);
-        strokeScale = createStrokeScale(pageId, modules, visited, configArray);
+        strokeScale = createStrokeScale(pageId, modules, visited, configArray, highlightColor);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         // Font scales
@@ -193,13 +189,15 @@ export default function Progress({id, modules, defaultExpanded = false}) {
 
         pageId = lookupPageId(id, configArray);
         otherPageIds = lookupOtherPages(id, configArray);
+        highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
+        fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));
 
         if (!modules.includes(pageId)) {
             modules.push(pageId)
         }
 
         visited = createVisited(modules, configArray);
-        strokeScale = createStrokeScale(pageId, modules, visited, configArray);
+        strokeScale = createStrokeScale(pageId, modules, visited, configArray, highlightColor);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
