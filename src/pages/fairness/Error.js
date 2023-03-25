@@ -23,7 +23,7 @@ let raceLegendId = "Error-Race-Legend";
 let predictedLegendId = "Error-Predicted-Legend";
 let style = "darkMode";
 
-let width = 550;
+let width = 480;
 let height = 225;
 
 const opacityScale = d3.scaleOrdinal()
