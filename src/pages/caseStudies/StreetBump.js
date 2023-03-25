@@ -82,8 +82,6 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
         setId(isOpen ? "stakeholderMapping": config.id);
     }, [isOpen]);
 
-    console.log(id)
-
     useEffect(() => {
         policyDiagram(chartID, 490, 490, "darkMode", true);
     }, []);

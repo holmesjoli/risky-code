@@ -28,35 +28,9 @@ function lookupOtherPages(id, configArray) {
     const pageId = configArray.filter(d => d.id !== id).map(d => d.id);
     return pageId;
 }
-
 function createVisited(modules, configArray) {
     let visited = configArray.filter(d => modules.includes(d.id)).map(d => d.id);
     return visited;
-}
-
-function createStrokeScale(pageId, modules, visited, configArray, highlightColor) {
-
-    let notVisited = configArray.filter(d => !modules.includes(d.id) && d.id !== pageId).map(d => d.id);
-    let notVisitedStrokes = Array(notVisited.length).fill("#272B30");
-    let colors;
-
-    if (visited.length > 1) {
-        let visitedStrokes = Array(visited.length - 1).fill(visStyles[style]["secondaryHighlightColor"]);
-        colors = [highlightColor].concat(visitedStrokes.concat(notVisitedStrokes))
-    } else {
-        colors = [highlightColor].concat(notVisitedStrokes);
-    }
-
-    const index = visited.indexOf(pageId);
-    if (index > -1) {
-        visited.splice(index, 1);
-    }
-
-    let scale = d3.scaleOrdinal()
-        .domain([pageId].concat(visited.concat(notVisited)))
-        .range(colors);
-
-    return scale;
 }
 
 function createScale(pageId, otherPageIds, scaleRange) {
@@ -114,11 +88,9 @@ export default function Progress({id, modules, defaultExpanded = false}) {
     const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
 
     let pageId, otherPageIds, highlightColor, fill;
-    let visited, strokeScale, fillScale, fontWeightScale, fontColorScale, textTransformScale;
+    let visited, fillScale, fontWeightScale, fontColorScale;
 
     useEffect(() => {
-
-        console.log(pageId)
 
         pageId = lookupPageId(id, configArray);
         otherPageIds = lookupOtherPages(id, configArray);
@@ -127,7 +99,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
 
         // Node scales
         visited = createVisited(modules, configArray);
-        strokeScale = createStrokeScale(pageId, modules, visited, configArray, highlightColor);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         // Font scales
@@ -165,7 +136,7 @@ export default function Progress({id, modules, defaultExpanded = false}) {
             .attr("class", d => d.id === pageId ? "nav-node visited-node": "nav-node")
             .attr("r", d => rScale(d.size))
             .attr("fill", d => fillScale(d.id))
-            .attr("stroke", d => strokeScale(d.id));
+            .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
 
         nodes.append("text")
             .attr("x", 30)
@@ -194,7 +165,6 @@ export default function Progress({id, modules, defaultExpanded = false}) {
         }
 
         visited = createVisited(modules, configArray);
-        strokeScale = createStrokeScale(pageId, modules, visited, configArray, highlightColor);
         fillScale = createScale(pageId, otherPageIds, fill);
 
         fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
@@ -203,7 +173,7 @@ export default function Progress({id, modules, defaultExpanded = false}) {
         d3.selectAll(".nav-node")
             .attr("class", d => d.id === pageId || visited.includes(d.id) ? "nav-node visited-node": "nav-node")
             .attr("fill", d => fillScale(d.id))
-            .attr("stroke", d => strokeScale(d.id));
+            .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
 
         d3.selectAll(".nav-text")
             .attr("font-weight", d => fontWeightScale(d.id))
