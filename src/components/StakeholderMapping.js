@@ -405,7 +405,6 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                         name="radio-buttons-group"
                         onChange={updateStakeholderGroup}
                         value={stakeholderGroup}
-                        className={className}
                     >
                         <FormControlLabel className={className} value="direct" control={<Radio />} label="Direct" />
                         <FormControlLabel className={className} value="indirect" control={<Radio />} label="Indirect" />
@@ -420,8 +419,9 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                 <FormGroup>
                         {stakeholderValues.map(el => 
                             <FormControlLabel key={el.value}
+                            className={className}
                             label={el.value}
-                            control={<Checkbox className={className + " Value-Check "} value={el.value} checked={el.checked} onChange={updateStakeholderValues} />}
+                            control={<Checkbox className="Value-Check" value={el.value} checked={el.checked} onChange={updateStakeholderValues} />}
                             />
                         )}
                 </FormGroup>

@@ -292,7 +292,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
                         </div>
                         <div className="Container Margin-Bottom">
                             <h4 className="Small-Margin">reveal discrepancies</h4>
-                            <Switch size="small" color="secondary" onChange={handleChange}/>
+                            <Switch size="small" color="secondary" className="DarkOrange" onChange={handleChange}/>
                         </div>
                         <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
                             <p>Brainstorm why there are discrepancies between the base rates in they underlying population (new charges).</p>

@@ -119,9 +119,27 @@ p {
     color: #cbcbcb;
 }
 
+.MuiTypography-root.MuiFormControlLabel-label.MuiTypography-body1 {
+    color: #cbcbcb;
+}
+
+//Switch
+.DarkOrange .MuiButtonBase-root:hover {
+    color: $DarkOrange;
+    border-color: $DarkOrange;
+}
+
+.LightOrange .MuiButtonBase-root:hover {
+    color: $LightOrange;
+    border-color: $LightOrange;
+}
+
+.Yellow .MuiButtonBase-root:hover {
+    color: $Yellow;
+    border-color: $Yellow;
+}
 
 // Accordion
-
 .Pink .MuiButtonBase-root.MuiAccordionSummary-root:hover,
 .Pink .MuiAccordionSummary-expandIcon:hover,
 .Pink .MuiAccordionSummary-content:hover,

@@ -170,8 +170,8 @@ function Information() {
                         // onChange={updateStakeholderGroup}
                         // value={stakeholderGroup}
                     >
-                        <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-                        <FormControlLabel value="no" control={<Radio />} label="No" />
+                        <FormControlLabel className="DarkOrange" value="yes" control={<Radio/>} label="Yes" />
+                        <FormControlLabel className="DarkOrange" value="no" control={<Radio/>} label="No" />
                     </RadioGroup>
                 </FormControl>
             </div>
