@@ -255,8 +255,8 @@ function Content({sid, stakeholderData, data, setData}) {
     return(
         <div className="Content No-Padding-Top">
             <div className="Container Margin-Bottom">
-                <StakeholderRisks stakeholderData={stakeholderData} data={data} setData={setData}/>
-                <AddRisks sid={sid} stakeholderData={stakeholderData} data={data} setData={setData}/>
+                <AddRisks stakeholderData={stakeholderData} data={data} setData={setData}/>
+                {/* <AddRisks sid={sid} stakeholderData={stakeholderData} data={data} setData={setData}/> */}
             </div>
         </div>
         )
@@ -335,7 +335,7 @@ const Viz = () => {
     )
 }
 
-function StakeholderRisks({stakeholderData, data, setData}) {
+function AddRisks({stakeholderData, data, setData}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -394,22 +394,22 @@ function StakeholderRisks({stakeholderData, data, setData}) {
 
 }
 
-function AddRisks({sid, stakeholderData, data, setData}) {
+// function renderGraph({sid, stakeholderData, data, setData}) {
 
 
-    // return(
-    //     <div className="Container Margin-Bottom">
-    //         <div className="One-Column-Three Margin-Bottom">
-    //             <AddStakeholder/>
-    //             <Sliders/>
-    //         </div>
-    //         <div className="Container2 One-Column-Three">
-    //             <Legend/>
-    //             <Viz/>
-    //         </div>
-    //     </div>
-    // )
-}
+//     return(
+//         <div className="Container Margin-Bottom">
+//             <div className="One-Column-Three Margin-Bottom">
+//                 <AddStakeholder/>
+//                 <Sliders/>
+//             </div>
+//             <div className="Container2 One-Column-Three">
+//                 <Legend/>
+//                 <Viz/>
+//             </div>
+//         </div>
+//     )
+// }
 
 export default function Risk({config, modules, policy, setPolicy, stakeholderData, setStakeholderData}) {
 
