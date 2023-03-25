@@ -138,13 +138,13 @@ export default function Progress({id, modules, defaultExpanded = false}) {
             .attr("x1", margin.left)
             .attr("x2", margin.left)
             .attr("y1", margin.top)
-            .attr("y2", space*(config.length - 1) + margin.top)
+            .attr("y2", space*(configLength - 1) + margin.top)
             .attr("stroke", "#272B30")
 
         var nodes = svg.append("g")
             .attr("class", "nodes")
             .selectAll("circle")
-            .data(config)
+            .data(configArray)
             .enter()
             .append("g")
             .attr("transform", function(d, i) {
