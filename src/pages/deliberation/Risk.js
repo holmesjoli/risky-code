@@ -191,26 +191,26 @@ function renderTooltip(chartId) {
 function renderGraph(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
-    svg.append("g").attr("class", "nodes");
+    // svg.append("g").attr("class", "nodes");
+
+    console.log(data)
 
     if (data !== undefined) {
 
         let node = svg
-            .select(".nodes")
+            // .select(".nodes")
             .selectAll("symbol")
                 .data(data, d => d.id)
                 .join(
                     enter  => enter
-                    .append("path")
-                        .attr("d", d3.symbol()
-                            .type(d => symbolScale(d.stakeholderType))
-                            .size(100))
-                        .attr("fill", d => fillScale(d.value))
-                        .attr("class", "stakeholder-risk-network-node"),
-                    update => update
-                        .attr("fill", d => fillScale(d.value)),
-                    exit => exit
-                        .remove()
+                        .append("path")
+                            .attr("d", d3.symbol()
+                                .type(d => symbolScale(d.stakeholderType))
+                                .size(100))
+                            .attr("fill", d => fillScale(d.value))
+                            .attr("class", "stakeholder-risk-network-node"),
+                    update => update,
+                    exit => exit.remove()
                 )
 
         simulation.alpha(1).restart();
@@ -222,10 +222,6 @@ function renderGraph(chartId, data) {
         function ticked() {
             node.attr("transform", transform)
         }
-
-        // function transform(d) {
-        //     return `translate( ${xScale(d.value)},${yScale(d.type) + margin.bottom} )`;
-        // }
 
         function transform(d) {
             return `translate( ${d.x + margin.left/2}, ${d.y- margin.bottom/2} )`;
