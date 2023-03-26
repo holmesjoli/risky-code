@@ -453,11 +453,8 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
 
     let navigate = useNavigate();
     dataLength = stakeholderData.length;
-    // console.log(dataLength)
     const [data, setData] = useState([]);
     const [sid, setId] = useState(0);
-
-    // console.log(sid, stakeholderData[sid], stakeholderData[sid].nodes)
 
     const routeNext = () => {
         let path = `/Decision`; 
@@ -470,7 +467,7 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
     }
 
     useEffect(() => {
-        if (sid <= dataLength) {
+        if (sid <= dataLength && data !== undefined) {
             initStakeholder(stakeholderId, stakeholderData[sid]);
             initGraph(chartId, data, sid);
         }
@@ -480,7 +477,7 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
     }, []);
 
     useEffect(() => {
-        if (sid <= dataLength) {
+        if (sid <= dataLength && data !== undefined) {
             updateNetwork(stakeholderId, stakeholderData[sid]);
             renderGraph(chartId, data, sid);
         }
