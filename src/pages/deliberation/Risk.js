@@ -29,9 +29,10 @@ const xScale = d3.scaleLinear()
     .domain([1, 5])
     .range([margin.left, width-margin.right]);
 
-const yScale = d3.scaleLinear()
-    .domain([1, 4])
-    .range([height-margin.bottom, margin.top]);
+const yScale = d3.scaleBand()
+    .domain(["Accountability", "Stakeholder values", "Technical", "Appropriate data use"])
+    .range([height-margin.bottom, margin.top])
+    .padding(0.05);
 
 const fillScale = d3.scaleOrdinal()
     .domain([5, 4, 3, 2, 1])
@@ -43,7 +44,7 @@ let simulation = d3.forceSimulation()
         return xScale(d.value);
     }).strength(1))
     .force('y', d3.forceY().y(function (d) {
-        return yScale(d.yValue);
+        return yScale(d.type);
     }).strength(1))
     .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
     .force('collision', d3.forceCollide().radius(6).strength(1))
@@ -130,18 +131,12 @@ function initGraph(chartId, data) {
             .attr("fill", visStyles[style]["textHighlightColor"])
             .attr("font-size", 12)
             .attr("letter-spacing", visStyles[style]["letterSpacing"]);
-
-    const yAxisTicks = yScale.ticks()
-        .filter(tick => Number.isInteger(tick));
         
-
     const yAxis = svg.append("g")
         .attr("class", "axis")
         .attr("color", visStyles[style]["textColor"])
         .attr("transform",`translate(${margin.left},0)`)
-        .call(d3.axisLeft().scale(yScale)
-            .tickValues(yAxisTicks)
-            .tickFormat(d3.format('d')));
+        .call(d3.axisLeft().scale(yScale));
 
     svg.select(".axis")
         .append("text")
@@ -166,7 +161,7 @@ function renderTooltip(chartId) {
 
         let thisCircle = d3.select(this);
         var x = xScale(d.value) + 20;
-        var y = yScale(d.yValue) - 10;
+        var y = yScale(d.type) - 10;
 
         thisCircle
             .attr("stroke-width", 2)
@@ -225,7 +220,7 @@ function renderGraph(chartId, data) {
         }
 
         function transform(d) {
-            return "translate(" + xScale(d.value) + "," + yScale(d.yValue) + ")";
+            return `translate( ${xScale(d.value)},${yScale(d.type) + margin.bottom} )`;
         }
 
         renderTooltip(chartId);
@@ -360,10 +355,10 @@ function AddRisks({stakeholderData, data, setData}) {
 
         if (stakeholderData !== undefined) {
 
-            dataNew.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
-            dataNew.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
-            dataNew.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
-            dataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
+            dataNew.push({"id": `${stakeholderData.id}-accountability`, "name": stakeholderData.name,  "value": accountability, "type": "Accountability", "stakeholderType": stakeholderData.stakeholderType, "yValue": 1})
+            dataNew.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "Stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
+            dataNew.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "Technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
+            dataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "Appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
 
             setData(dataNew);
         }
