@@ -23,7 +23,7 @@ let stakeholderId = "Risk-Stakeholder";
 let width = 550;
 let height = 375;
 let style = "darkMode";
-let margin = {left: 10, right: 10, top: 10, bottom: 40};
+let margin = {left: 50, right: 10, top: 10, bottom: 40};
 
 const xScale = d3.scaleLinear()
     .domain([1, 5])
@@ -107,22 +107,53 @@ function initGraph(chartId, data) {
         .append("div")
         .attr("class", "tooltip");
 
+    const xAxisTicks = xScale.ticks()
+        .filter(tick => Number.isInteger(tick));
+
     const xAxis = svg.append("g")
         .attr("class", "axis")
         .attr("transform",`translate(0,${height-margin.bottom})`)
         .attr("color", visStyles[style]["textColor"])
-        .call(d3.axisBottom().scale(xScale).tickFormat(d3.format("Y")));
+        .call(d3.axisBottom()
+            .scale(xScale)
+            .tickFormat(d3.format("Y"))
+            .tickValues(xAxisTicks)
+            .tickFormat(d3.format('d')));
 
     svg.select(".axis")
         .append("text")
-        .attr("class", "axisLabel")
-        .attr("x", (width - margin.left - margin.right)/2 + margin.left)
-        .attr("y", margin.bottom)
-        .attr("text-anchor","middle")
-        .text("Overall risk")
-        .attr("fill", visStyles[style]["textHighlightColor"])
-        .attr("font-size", 12)
-        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+            .attr("class", "axisLabel")
+            .attr("x", (width - margin.left - margin.right)/2 + margin.left)
+            .attr("y", margin.bottom - 5)
+            .attr("text-anchor","middle")
+            .text("Overall risk")
+            .attr("fill", visStyles[style]["textHighlightColor"])
+            .attr("font-size", 12)
+            .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+
+    const yAxisTicks = yScale.ticks()
+        .filter(tick => Number.isInteger(tick));
+        
+
+    const yAxis = svg.append("g")
+        .attr("class", "axis")
+        .attr("color", visStyles[style]["textColor"])
+        .attr("transform",`translate(${margin.left},0)`)
+        .call(d3.axisLeft().scale(yScale)
+            .tickValues(yAxisTicks)
+            .tickFormat(d3.format('d')));
+
+    svg.select(".axis")
+        .append("text")
+            .attr("class","axisLabel")
+            .attr("x", -height/2)
+            .attr("y", 30)
+            .attr("text-anchor","middle")
+            .attr("transform","rotate(-90)")
+            .text("Likelihood of reoffense (%)")
+            .attr("fill", visStyles[style]["textHighlightColor"])
+            .attr("font-size", 12)
+            .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
     renderGraph(chartId, data);
 }
@@ -180,6 +211,7 @@ function renderGraph(chartId, data) {
                     .attr("transform", transform)
                     .attr("fill", d => fillScale(d.value)),
                 exit => exit
+                    .remove()
             )
 
         simulation.alpha(1).restart();
@@ -332,6 +364,7 @@ function AddRisks({stakeholderData, data, setData}) {
             dataNew.push({"id": `${stakeholderData.id}-stakeholderValues`, "name": stakeholderData.name, "value": stakeholderValues, "type": "stakeholder values", "stakeholderType": stakeholderData.stakeholderType, "yValue": 2})
             dataNew.push({"id": `${stakeholderData.id}-technical`, "name": stakeholderData.name, "value": technical, "type": "technical", "stakeholderType": stakeholderData.stakeholderType, "yValue": 3})
             dataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
+
             setData(dataNew);
         }
     }
