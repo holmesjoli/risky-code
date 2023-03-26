@@ -49,7 +49,7 @@ const fillScale = d3.scaleOrdinal()
 
 const sizeScale = d3.scaleOrdinal()
     .domain(["stakeholder", "value"])
-    .range([300, 75]);
+    .range([350, 50]);
 
 export function transform(d) {
     return "translate(" + d.x + "," + d.y + ")";
@@ -338,12 +338,12 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                                     "name": i.value,
                                     "group": "value",
                                     "type": stakeholderGroup});
-
-                nodes.push({"id": i.value,
-                            "name": i.value,
-                            "group": "value",
-                            "type": stakeholderGroup});
             }
+
+            nodes.push({"id": i.value,
+                        "name": i.value,
+                        "group": "value",
+                        "type": stakeholderGroup});
 
             dataNew.links.push({"source": i.value, "target": stakeholderName});
             links.push({"source": i.value, "target": stakeholderName});
