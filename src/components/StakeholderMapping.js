@@ -159,48 +159,51 @@ export function initNetwork(chartId, width, height, data) {
             .attr("y", function (d) { return d.y - 10; });
     }
 
-    if (data !== undefined) {
-        updateNetwork(chartId, data);
-    }
+    updateNetwork(chartId, data);
 }
 
 export function updateNetwork(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
 
-    node = node
-      .data(data.nodes, d => d.id)
-      .join(enter => enter.append("path")
-                .attr("class", "network-nodes")
-                .attr("fill", d => fillScale(d.fill))
-                .attr("d", d3.symbol()
-                    .type(((d) => symbolScale(d.type)))
-                    .size(d => sizeScale(d.group)))
-            );
+    console.log(data)
+    if (data !== undefined) {
 
-    link = link
-        .data(data.links, d => `${d.source.id}\t${d.target.id}`)
-        .join("line");
-
-    text = svg
-        .selectAll("text")
+        node = node
         .data(data.nodes, d => d.id)
-        .join(
-            enter  => enter.append("text")
-                .attr("fill", d => d.group === "value"? visStyles[style]["textColor"]: visStyles[style]["textHighlightColor"])
-                .attr("font-size", visStyles[style]["fontSize"])
-                .attr("font-weight", d => d.group === "value"? visStyles[style]["fontWeight"]: visStyles[style]["fontHighlightWeight"])
-                .attr("cursor", "default")
-                .attr("letter-spacing", ".6px")
-                .text(d => d.group !== "value" ? d.name: `${d.name}`)
-    );
+        .join(enter => enter.append("path")
+                    .attr("class", "network-nodes")
+                    .attr("fill", d => fillScale(d.fill))
+                    .attr("d", d3.symbol()
+                        .type(((d) => symbolScale(d.type)))
+                        .size(d => sizeScale(d.group)))
+                );
 
-    simulation.nodes(data.nodes);
-    simulation.force("link").links(data.links);
-    simulation.alpha(1).restart();
+        link = link
+            .data(data.links, d => `${d.source.id}\t${d.target.id}`)
+            .join("line");
 
-    node.call(drag);
-    renderTooltip(chartId);
+        text = svg
+            .selectAll("text")
+            .data(data.nodes, d => d.id)
+            .join(
+                enter  => enter.append("text")
+                    .attr("fill", d => d.group === "value"? visStyles[style]["textColor"]: visStyles[style]["textHighlightColor"])
+                    .attr("font-size", visStyles[style]["fontSize"])
+                    .attr("font-weight", d => d.group === "value"? visStyles[style]["fontWeight"]: visStyles[style]["fontHighlightWeight"])
+                    .attr("cursor", "default")
+                    .attr("letter-spacing", ".6px")
+                    .text(d => d.group !== "value" ? d.name: `${d.name}`)
+        );
+
+        simulation.nodes(data.nodes);
+        simulation.force("link").links(data.links);
+        simulation.alpha(1).restart();
+
+        node.call(drag);
+        renderTooltip(chartId);
+
+    }
 }
 
 export function initStakeholderLegend(legendStakeholderId) {

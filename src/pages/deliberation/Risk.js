@@ -12,7 +12,7 @@ import { RoleShort } from "../../components/Role";
 import { visStyles } from "../../utils/global";
 import { Slider, Button, Tooltip, Fab } from '@material-ui/core/';
 import AddIcon from '@material-ui/icons/Add';
-import { initNetwork } from '../../components/StakeholderMapping';
+import { initNetwork, updateNetwork } from '../../components/StakeholderMapping';
 import { initStakeholderLegend, symbolScale } from '../../components/StakeholderMapping';
 
 let chartId = "Risk-Chart";
@@ -24,6 +24,7 @@ let width = 550;
 let height = 375;
 let style = "darkMode";
 let margin = {left: 80, right: 10, top: 10, bottom: 40};
+let dataLength;
 
 const xScale = d3.scaleLinear()
     .domain([1, 5])
@@ -277,12 +278,12 @@ function RiskLevel({title, handleChange, children}) {
     );
 }
 
-function Content({ stakeholderData, data, setData }) {
+function Content({ stakeholderData, data, setData, sid, setId }) {
 
     return(
         <div className="Content No-Padding-Top">
             <div className="One-Column-Three">
-                <AddRisks stakeholderData={stakeholderData} data={data} setData={setData}/>
+                <AddRisks stakeholderData={stakeholderData} data={data} setData={setData} sid={sid} setId={setId}/>
                 <RiskNetwork setData={setData}/>
             </div>
         </div>
@@ -331,7 +332,7 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
     )
 }
 
-function AddRisks({stakeholderData, data, setData}) {
+function AddRisks({stakeholderData, data, setData, sid, setId}) {
 
     const [appropriateDataUse, setAppropriateDataUse] = useState(3);
     const updateAppropriateDataUse = (event, value) => {
@@ -365,6 +366,10 @@ function AddRisks({stakeholderData, data, setData}) {
             dataNew.push({"id": `${stakeholderData.id}-appropriateDataUse`, "name": stakeholderData.name, "value": appropriateDataUse, "type": "Appropriate data use", "stakeholderType": stakeholderData.stakeholderType, "yValue": 4})
 
             setData(dataNew);
+
+            if (sid < dataLength) {
+                setId(sid+=1)
+            }
         }
     }
 
@@ -445,19 +450,15 @@ function RiskNetwork({setData}) {
     )
 }
 
-const returnSingleItemForColumn = (stakeholderData, sid) => {
-    const id = stakeholderData.map((d) => d.id)[sid];
-    return stakeholderData
-      .filter((item) => item.id === id)
-  };
-
 export default function Risk({ config, modules, policy, setPolicy, stakeholderData }) {
 
     let navigate = useNavigate();
-    let dataLength = stakeholderData.length;
-    console.log(dataLength)
+    dataLength = stakeholderData.length;
+    // console.log(dataLength)
     const [data, setData] = useState([]);
     const [sid, setId] = useState(0);
+
+    // console.log(sid, stakeholderData[sid], stakeholderData[sid].nodes)
 
     const routeNext = () => {
         let path = `/Decision`; 
@@ -470,14 +471,20 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
     }
 
     useEffect(() => {
-        initStakeholder(stakeholderId, stakeholderData[sid]);
-        initGraph(chartId, data, sid);
+        if (sid <= dataLength) {
+            initStakeholder(stakeholderId, stakeholderData[sid]);
+            initGraph(chartId, data, sid);
+        }
+
         initStakeholderLegend(legendStakeholderId);
         initRiskLegend(legendRiskId);
     }, []);
 
     useEffect(() => {
-        renderGraph(chartId, data, sid);
+        if (sid <= dataLength) {
+            renderGraph(chartId, data, sid);
+            // updateNetwork(stakeholderId, stakeholderData[sid]);
+        }
     }, [stakeholderData, data, sid])
 
     return (
@@ -494,7 +501,7 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData}/>
+                <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData} sid={sid} setId={setId}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules} className="Yellow"/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
