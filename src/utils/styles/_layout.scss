@@ -347,6 +347,14 @@ ul {
     padding-right: 0;
 }
 
+.Small-Padding-Left {
+    padding-left: .5rem;
+}
+
+.Small-Padding-Right {
+    padding-right: .5rem;
+}
+
 .Padding-Left {
     padding-left: $containerPadding;
 }
@@ -378,6 +386,6 @@ ul {
 .Slider-Container {
     height: auto;
     display: grid;
-    grid-gap: 1rem;
+    grid-gap: .5rem;
     grid-template-columns: repeat(2, 1fr);
 }

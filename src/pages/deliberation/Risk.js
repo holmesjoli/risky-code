@@ -260,7 +260,7 @@ function RiskLevel({title, handleChange, children}) {
         <div className="Container2 Small-Padding-Bottom">
             <h4 className="Small-Margin Semi-Bold">{title}</h4>
             {children}
-            <div className="Padding-Left Padding-Right">
+            <div className="Small-Padding-Left Small-Padding-Right">
                   <Slider
                     size="small"
                     defaultValue={3}
@@ -293,39 +293,39 @@ function Content({ stakeholderData, data, setData, sid, setId }) {
 const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability}) => {
     return(
         <div className="Slider-Container">
-            <RiskLevel title="appropriate data use risks" handleChange={updateAppropriateDataUse}>
-                <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Citizen data use</span></p>
-                </Tooltip>
-                <Tooltip title="Consider the purposes and context under which the data was obtained">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Data compatability</span></p>
-                </Tooltip>
-            </RiskLevel>
-            <RiskLevel title="technical bias risks" handleChange={updateTechnical}>
-                <Tooltip title="Consider representativeness of data, sample bias, data quality.">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Technical bias</span></p>
-                </Tooltip>
-                <Tooltip title="Consider if there is a match between the real world and the captured data.">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Proxy variables</span></p>
-                </Tooltip>
-            </RiskLevel>
-            <RiskLevel title="stakeholder values risks" handleChange={updateStakeholderValues}>
-                <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Serious stakeholder harm</span></p>
-                </Tooltip>
-                <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Historical and societal bias</span></p>
-                </Tooltip>
-            </RiskLevel>
-            <RiskLevel title="accountability risks" handleChange={updateAccountability}>
+            <RiskLevel title="accountability" handleChange={updateAccountability}>
                 <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Explainability</span></p>
+                    <p className="Small-Margin"><span className="Emphasis">Explainability</span></p>
                 </Tooltip>
                 <Tooltip title="Consider data and algorithm access">
-                    <p className="Extra-Small-Margin-Bottom"><span className="Emphasis">Auditability</span></p>
+                    <p className="Small-Margin"><span className="Emphasis">Auditability</span></p>
                 </Tooltip>
                 <Tooltip title="Consider the degree (low, medium, high) of automation in decision-making.">
-                    <p className="Small-Extra-Small-Margin-Bottom"><span className="Emphasis">Automation</span></p>
+                    <p className="Small-Margin"><span className="Emphasis">Automation</span></p>
+                </Tooltip>
+            </RiskLevel>
+            <RiskLevel title="technical bias" handleChange={updateTechnical}>
+                <Tooltip title="Consider representativeness of data, sample bias, data quality.">
+                    <p className="Small-Margin"><span className="Emphasis">Technical bias</span></p>
+                </Tooltip>
+                <Tooltip title="Consider if there is a match between the real world and the captured data.">
+                    <p className="Small-Margin"><span className="Emphasis">Proxy variables</span></p>
+                </Tooltip>
+            </RiskLevel>
+            <RiskLevel title="stakeholder values" handleChange={updateStakeholderValues}>
+                <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
+                    <p className="Small-Margin"><span className="Emphasis">Serious stakeholder harm</span></p>
+                </Tooltip>
+                <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
+                    <p className="Small-Margin"><span className="Emphasis">Historical and societal bias</span></p>
+                </Tooltip>
+            </RiskLevel>
+            <RiskLevel title="appropriate data use" handleChange={updateAppropriateDataUse}>
+                <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
+                    <p className="Small-Margin"><span className="Emphasis">Citizen data use</span></p>
+                </Tooltip>
+                <Tooltip title="Consider the purposes and context under which the data was obtained">
+                    <p className="Small-Margin"><span className="Emphasis">Data compatability</span></p>
                 </Tooltip>
             </RiskLevel>
         </div>
@@ -393,6 +393,7 @@ function AddRisks({stakeholderData, data, setData, sid, setId}) {
                 </div>
                 <AddStakeholder/>
             </div>
+            <h3 className="Small-Margin">stakeholder risks</h3>
             <Sliders updateAppropriateDataUse={updateAppropriateDataUse} updateTechnical={updateTechnical} updateStakeholderValues={updateStakeholderValues} updateAccountability={updateAccountability}/>
         </div>
     )
