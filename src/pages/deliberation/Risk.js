@@ -23,7 +23,7 @@ let stakeholderId = "Risk-Stakeholder";
 let width = 550;
 let height = 375;
 let style = "darkMode";
-let margin = {left: 50, right: 10, top: 10, bottom: 40};
+let margin = {left: 80, right: 10, top: 10, bottom: 40};
 
 const xScale = d3.scaleLinear()
     .domain([1, 5])
@@ -132,11 +132,18 @@ function initGraph(chartId, data) {
             .attr("font-size", 12)
             .attr("letter-spacing", visStyles[style]["letterSpacing"]);
         
-    const yAxis = svg.append("g")
-        .attr("class", "axis")
+    const yAxis = svg
+        .append("g")
+        .attr("class", "YAxis")
         .attr("color", visStyles[style]["textColor"])
         .attr("transform",`translate(${margin.left},0)`)
-        .call(d3.axisLeft().scale(yScale));
+        .call(d3.axisLeft()
+                .scale(yScale))
+                .selectAll("text")
+                    .style("text-anchor", "end")
+                    .attr("dx", ".3em")
+                    .attr("dy", "-.25em")
+                    .attr("transform", "rotate(-45)");
 
     svg.select(".axis")
         .append("text")
