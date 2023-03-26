@@ -278,21 +278,25 @@ function RiskLevel({title, handleChange, children}) {
     );
 }
 
-function Content({ stakeholderData, data, setData, sid, setId }) {
-
-    return(
-        <div className="Content No-Padding-Top">
-            <div className="One-Column-Three">
-                <AddRisks stakeholderData={stakeholderData} data={data} setData={setData} sid={sid} setId={setId}/>
-                <RiskNetwork setData={setData}/>
-            </div>
-        </div>
-    )
-}
-
 const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability}) => {
     return(
         <div className="Slider-Container">
+            <RiskLevel title="appropriate data usage" handleChange={updateAppropriateDataUse}>
+                <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
+                    <p className="Small-Margin"><span className="Emphasis">Citizen data use</span></p>
+                </Tooltip>
+                <Tooltip title="Consider the purposes and context under which the data was obtained">
+                    <p className="Small-Margin"><span className="Emphasis">Data compatability</span></p>
+                </Tooltip>
+            </RiskLevel>
+            <RiskLevel title="technical bias" handleChange={updateTechnical}>
+                <Tooltip title="Consider representativeness of data, sample bias, data quality.">
+                    <p className="Small-Margin"><span className="Emphasis">Technical bias</span></p>
+                </Tooltip>
+                <Tooltip title="Consider if there is a match between the real world and the captured data.">
+                    <p className="Small-Margin"><span className="Emphasis">Proxy variables</span></p>
+                </Tooltip>
+            </RiskLevel>
             <RiskLevel title="accountability" handleChange={updateAccountability}>
                 <Tooltip title="Consider if the algorithm can be explained to lay users or only expert users">
                     <p className="Small-Margin"><span className="Emphasis">Explainability</span></p>
@@ -304,28 +308,12 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
                     <p className="Small-Margin"><span className="Emphasis">Automation</span></p>
                 </Tooltip>
             </RiskLevel>
-            <RiskLevel title="technical bias" handleChange={updateTechnical}>
-                <Tooltip title="Consider representativeness of data, sample bias, data quality.">
-                    <p className="Small-Margin"><span className="Emphasis">Technical bias</span></p>
-                </Tooltip>
-                <Tooltip title="Consider if there is a match between the real world and the captured data.">
-                    <p className="Small-Margin"><span className="Emphasis">Proxy variables</span></p>
-                </Tooltip>
-            </RiskLevel>
             <RiskLevel title="stakeholder values" handleChange={updateStakeholderValues}>
                 <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
                     <p className="Small-Margin"><span className="Emphasis">Serious stakeholder harm</span></p>
                 </Tooltip>
                 <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
                     <p className="Small-Margin"><span className="Emphasis">Historical and societal bias</span></p>
-                </Tooltip>
-            </RiskLevel>
-            <RiskLevel title="appropriate data use" handleChange={updateAppropriateDataUse}>
-                <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
-                    <p className="Small-Margin"><span className="Emphasis">Citizen data use</span></p>
-                </Tooltip>
-                <Tooltip title="Consider the purposes and context under which the data was obtained">
-                    <p className="Small-Margin"><span className="Emphasis">Data compatability</span></p>
                 </Tooltip>
             </RiskLevel>
         </div>
@@ -446,6 +434,18 @@ function RiskNetwork({setData}) {
                     <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset network</Button>
                     <div></div>
                 </div>
+            </div>
+        </div>
+    )
+}
+
+function Content({ stakeholderData, data, setData, sid, setId }) {
+
+    return(
+        <div className="Content No-Padding-Top">
+            <div className="One-Column-Three6">
+                <AddRisks stakeholderData={stakeholderData} data={data} setData={setData} sid={sid} setId={setId}/>
+                <RiskNetwork setData={setData}/>
             </div>
         </div>
     )

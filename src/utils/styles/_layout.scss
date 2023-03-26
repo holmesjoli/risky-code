@@ -199,6 +199,12 @@ ul {
     grid-template-columns: minmax(200px, 30%) minmax(500px, 70%);
 }
 
+.One-Column-Three6 {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: minmax(200px, 36%) minmax(500px, 64%);
+}
+
 .One-Column {
     display: grid;
     grid-gap: 1rem;
