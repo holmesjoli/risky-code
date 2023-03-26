@@ -29,7 +29,7 @@ const defaultValues = values;
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
-let width = 550;
+let width = 250;
 let height = 375;
 let style = "darkMode";
 
