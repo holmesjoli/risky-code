@@ -146,17 +146,17 @@ function initGraph(chartId, data) {
                     .attr("dy", "-.25em")
                     .attr("transform", "rotate(-45)");
 
-    svg.select(".axis")
-        .append("text")
-            .attr("class","axisLabel")
-            .attr("x", -height/2)
-            .attr("y", 30)
-            .attr("text-anchor","middle")
-            .attr("transform","rotate(-90)")
-            .text("Likelihood of reoffense (%)")
-            .attr("fill", visStyles[style]["textHighlightColor"])
-            .attr("font-size", 12)
-            .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+    // svg.select(".axis")
+    //     .append("text")
+    //         .attr("class","axisLabel")
+    //         .attr("x", -height/2)
+    //         .attr("y", 30)
+    //         .attr("text-anchor","middle")
+    //         .attr("transform","rotate(-90)")
+    //         .text("Risks to stakeholders from algorithmic decision-making")
+    //         .attr("fill", visStyles[style]["textHighlightColor"])
+    //         .attr("font-size", 12)
+    //         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
     renderGraph(chartId, data);
 }
@@ -420,7 +420,7 @@ const Viz = () => {
 
     return(
         <div>
-            <h3 className="Small-Margin">stakeholder risks for algorithmic decision-making</h3>
+            <h3 className="Small-Margin">stakeholder risks from algorithmically informed decision-making</h3>
             <div className="Container2 Margin-Bottom">
                 <div id={chartId} className="chart"></div>
                 <h6 className="Small-Margin-Top"></h6>
