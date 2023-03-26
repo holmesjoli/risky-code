@@ -98,7 +98,7 @@ export function drawRiskLegend(legendId) {
         .text(d => d.name);
 }
 
-function initGraph(chartId, data, sid) {
+function initGraph(chartId, data) {
 
     let svg = d3.select(`#${chartId}`)
         .append("svg")
@@ -158,7 +158,7 @@ function initGraph(chartId, data, sid) {
             .attr("font-size", 12)
             .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
-    renderGraph(chartId, data, sid);
+    renderGraph(chartId, data);
 }
 
 function renderTooltip(chartId) {
@@ -196,23 +196,24 @@ function renderGraph(chartId, data) {
     if (data !== undefined) {
 
         let node = svg
-            .select(".nodes").selectAll("symbol")
-            .data(data, d => d.id)
-            .join(
-                enter  => enter
-                .append("path")
-                    .attr("d", d3.symbol()
-                        .type(d => symbolScale(d.stakeholderType))
-                        .size(100))
-                    .attr("transform", transform)
-                    .attr("fill", d => fillScale(d.value))
-                    .attr("class", "stakeholder-risk-network-node"),
-                update => update
-                    .attr("transform", transform)
-                    .attr("fill", d => fillScale(d.value)),
-                exit => exit
-                    .remove()
-            )
+            .select(".nodes")
+            .selectAll("symbol")
+                .data(data, d => d.id)
+                .join(
+                    enter  => enter
+                    .append("path")
+                        .attr("d", d3.symbol()
+                            .type(d => symbolScale(d.stakeholderType))
+                            .size(100))
+                        .attr("transform", transform)
+                        .attr("fill", d => fillScale(d.value))
+                        .attr("class", "stakeholder-risk-network-node"),
+                    update => update
+                        .attr("transform", transform)
+                        .attr("fill", d => fillScale(d.value)),
+                    exit => exit
+                        .remove()
+                )
 
         simulation.alpha(1).restart();
 
@@ -469,7 +470,7 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
     useEffect(() => {
         if (sid <= dataLength && data !== undefined) {
             initStakeholder(stakeholderId, stakeholderData[sid]);
-            initGraph(chartId, data, sid);
+            initGraph(chartId, data);
         }
 
         initStakeholderLegend(legendStakeholderId);
@@ -479,7 +480,7 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
     useEffect(() => {
         if (sid <= dataLength && data !== undefined) {
             updateNetwork(stakeholderId, stakeholderData[sid]);
-            renderGraph(chartId, data, sid);
+            renderGraph(chartId, data);
         }
     }, [stakeholderData, data, sid])
 
