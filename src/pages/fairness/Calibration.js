@@ -164,7 +164,7 @@ function Content() {
     return(
         <div className="Content One-Column-Three4 No-Padding-Top">
             <div className="Container Margin-Bottom">
-                <h4 className="No-Margin-Bottom">visualize</h4>
+                <h3 className="No-Margin-Bottom">compas' calibration risk scores by race</h3>
                 <div id={chartId} className="chart"></div>
                 <h4>legend</h4>
                 <div id={legendId} className="Small-Margin-Bottom"></div>

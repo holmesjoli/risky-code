@@ -277,7 +277,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
             <div>
                 <div className="One-Column-Three4">
                     <div className="Container Margin-Bottom">
-                        <h4 className="No-Margin-Bottom">visualize</h4>
+                        <h3 className="No-Margin-Bottom">underlying racial discrepancies in broward county florida's criminal justice system</h3>
                         <div id={chartId} className="chart"></div>
                         <h4>legend</h4>
                         <div id={legendId} className="Small-Margin-Bottom"></div>
