@@ -29,7 +29,7 @@ const defaultValues = values;
 
 let chartId = "Stakeholder-Mapping-Diagram";
 let legendId = "Stakeholder-Mapping-Legend";
-let width = 250;
+let width = 550;
 let height = 375;
 let style = "darkMode";
 
@@ -209,7 +209,7 @@ export function initStakeholderLegend(legendStakeholderId) {
 
     d3.select(`#${legendStakeholderId}`)
         .append("svg")
-        .attr("width", width)
+        .attr("width", 220)
         .attr("height", height);
 
     drawStakeholderLegend(legendStakeholderId);
@@ -229,7 +229,7 @@ export function drawStakeholderLegend(legendId) {
             .data(fillData, d => d.fill)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 60) + 30}, ${h / 3})`)
+        .attr("transform", (d, i) => `translate(${(i * 70) + 20}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()
@@ -249,70 +249,70 @@ export function drawStakeholderLegend(legendId) {
         .text(d => d.name);
 }
 
-function initShapeLegend() {
+// function initShapeLegend() {
 
-    let height = 40;
+//     let height = 40;
 
-    d3.select(`#${legendId}`)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
+//     d3.select(`#${legendId}`)
+//         .append("svg")
+//         .attr("width", 250)
+//         .attr("height", height);
 
-    drawShapeLegend();
-}
+//     drawShapeLegend();
+// }
 
-function drawShapeLegend() {
+// function drawShapeLegend() {
 
-    let svg = d3.select(`#${legendId} svg`)
-    let h = 40;
+//     let svg = d3.select(`#${legendId} svg`)
+//     let h = 40;
 
-    let shape = svg.append("g")
-        .selectAll("circle")
-        .data(groupData, d => d.group)
-        .enter()
-        .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`);
+//     let shape = svg.append("g")
+//         .selectAll("circle")
+//         .data(groupData, d => d.group)
+//         .enter()
+//         .append("g")
+//         .attr("transform", (d, i) => `translate(${(i * 70) + 50}, ${h / 3})`);
 
-    shape.append("path")
-        .attr("d", d3.symbol()
-            .type(((d) => symbolScale(d.type)))
-            .size(100))
-        .attr("fill", visStyles[style]["textColor"]);
+//     shape.append("path")
+//         .attr("d", d3.symbol()
+//             .type(((d) => symbolScale(d.type)))
+//             .size(100))
+//         .attr("fill", visStyles[style]["textColor"]);
 
-    // Add a text element to the previously added g element.
-    shape.append("text")
-        .attr("text-anchor", "middle")
-        .attr("y", 20)
-        .attr("fill", visStyles[style]["textColor"])
-        .attr("font-size", visStyles[style]["fontSize"])
-        .text(d => d.group)
-        .attr("fill", visStyles[style]["textHighlightColor"])
-        .attr("font-size", 12)
-        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+//     // Add a text element to the previously added g element.
+//     shape.append("text")
+//         .attr("text-anchor", "middle")
+//         .attr("y", 20)
+//         .attr("fill", visStyles[style]["textColor"])
+//         .attr("font-size", visStyles[style]["fontSize"])
+//         .text(d => d.group)
+//         .attr("fill", visStyles[style]["textHighlightColor"])
+//         .attr("font-size", 12)
+//         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
-    let color = svg.append("g")
-        .selectAll("circle")
-        .data(fillData, d => d.fill)
-        .enter()
-        .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
+//     let color = svg.append("g")
+//         .selectAll("circle")
+//         .data(fillData, d => d.fill)
+//         .enter()
+//         .append("g")
+//         .attr("transform", (d, i) => `translate(${(i * 70) + 300}, ${h / 3})`)
 
-    color.append("path")
-       .attr("d", d3.symbol()
-           .type(d3.symbolCircle)
-           .size(100))
-        .attr("fill", d => fillScale(d.fill))
+//     color.append("path")
+//        .attr("d", d3.symbol()
+//            .type(d3.symbolCircle)
+//            .size(100))
+//         .attr("fill", d => fillScale(d.fill))
 
-    color.append("text")
-        .attr("text-anchor", "middle")
-        .attr("y", 20)
-        .attr("fill", visStyles[style]["textColor"])
-        .attr("font-size", visStyles[style]["fontSize"])
-        .text(d => d.fill)
-        .attr("fill", visStyles[style]["textHighlightColor"])
-        .attr("font-size", 12)
-        .attr("letter-spacing", visStyles[style]["letterSpacing"]);
-}
+//     color.append("text")
+//         .attr("text-anchor", "middle")
+//         .attr("y", 20)
+//         .attr("fill", visStyles[style]["textColor"])
+//         .attr("font-size", visStyles[style]["fontSize"])
+//         .text(d => d.fill)
+//         .attr("fill", visStyles[style]["textHighlightColor"])
+//         .attr("font-size", 12)
+//         .attr("letter-spacing", visStyles[style]["letterSpacing"]);
+// }
 
 function StakeholderNetwork(data, setData) {
 

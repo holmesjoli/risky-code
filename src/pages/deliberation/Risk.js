@@ -65,9 +65,9 @@ export function initRiskLegend(legendStakeholderId) {
 export function drawRiskLegend(legendId) {
     
     const fillData = [{"fill": 1, "name": "Low"},
-                        {"fill": 2, "name": ""},
+                        {"fill": 2, "name": "Medium — Low"},
                         {"fill": 3, "name": "Medium"},
-                        {"fill": 4, "name": ""},
+                        {"fill": 4, "name": "Medium — High"},
                         {"fill": 5, "name": "High"}]
     
     let svg = d3.select(`#${legendId} svg`)
@@ -78,7 +78,7 @@ export function drawRiskLegend(legendId) {
             .data(fillData, d => d.fill)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 60) + 30}, ${h / 3})`)
+        .attr("transform", (d, i) => `translate(${(i * 75) + 20}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()
@@ -356,9 +356,9 @@ function AddRisks({stakeholderData, data, setData}) {
     return(
         <div>
             <div className="Container2 Margin-Bottom">
+                <h4 className="Small-Margin">add stakeholder to diagram</h4>
                 <div className="Add-Stakeholder-Button">
                     <div id={stakeholderId} className="Small-Margin-Bottom"></div>
-                    <h4 className="Small-Margin">add stakeholder to diagram</h4>
                 </div>
                 <AddStakeholder/>
             </div>
