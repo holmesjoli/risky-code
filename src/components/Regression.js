@@ -85,7 +85,7 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
                         <h5 className="Semi-Bold White Opacity1 No-Margin-Top">0.28</h5>
                     </div>
                     <div>
-                        <p className="No-Margin-Bottom">This shirt, classified as a <span className="Semi-Bold White Opacity1">save for later load</span> item, has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
+                        <p className="No-Margin-Bottom">The predictive probability of this shirt is <span className="Semi-Bold White Opacity1">28%</span>. The model predicts this shirt has a <span className="Semi-Bold White Opacity1">28%</span> chance of belonging in the <span className="Emphasis">cold water load</span>.</p>
                     </div>
                 </div>
             </div>
@@ -117,7 +117,7 @@ export function LaundryItemPredicted({variablesMini, containerClass="Container2"
                         <h5 id ="predictive-probability" className="Hidden">0.28</h5>
                     </div>
                     <div>
-                        <p id ="description" className="Hidden">This shirt, classified as a <span className="Semi-Bold White Opacity1">save for later load</span> item, has a <span className="Semi-Bold White Opacity1">28%</span> probability of belonging in the cold water load.</p>
+                        <p className="No-Margin-Bottom">The predictive probability of this shirt is <span className="Semi-Bold White Opacity1">28%</span>. The model predicts this shirt has a <span className="Semi-Bold White Opacity1">28%</span> chance of belonging in the <span className="Emphasis">cold water load</span>.</p>
                     </div>
                 </div>
             </div>

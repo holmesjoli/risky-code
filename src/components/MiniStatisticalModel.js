@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import { MODEL_COLUMN_NAMES, VARIABLES } from "../utils/global";
+import { MODEL_COLUMN_NAMES } from "../utils/global";
 import { getBackgroundColor, getColor, getBorder, DndWrapper } from "./DragAndDrop";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
