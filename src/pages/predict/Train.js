@@ -77,7 +77,7 @@ export default function Train({config, user, variables, setVariables, items, set
                     <div className="Two-Column-Three">
                         <div className="Two-Column">
                             <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/>
-                            <LaundryItemPredicted variablesMini={variablesMini}/>
+                            <LaundryItemPredicted variablesMini={variablesMini} className="Container2"/>
                         </div>
                         <RightSideBar>
                             <div className="Container2">

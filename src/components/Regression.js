@@ -93,7 +93,7 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
     )
 }
 
-export function LaundryItemPredicted({variablesMini, containerClass="Container"}) {
+export function LaundryItemPredicted({variablesMini, className="Container"}) {
 
     const modelVars = getModelVariables(variablesMini);
 
@@ -109,7 +109,7 @@ export function LaundryItemPredicted({variablesMini, containerClass="Container"}
 
     return(
         <div className="Margin-Bottom">
-            <div className={containerClass}>
+            <div className={className}>
                 <h4 className="Small-Margin">predictive probability</h4>
                 <div className="Row">
                     <div className="Card-Flat Example-Card Case-False No-Margin-Bottom">
