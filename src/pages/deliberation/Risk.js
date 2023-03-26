@@ -420,7 +420,7 @@ const Viz = () => {
 
     return(
         <div>
-            <h3 className="Small-Margin">visualize</h3>
+            <h3 className="Small-Margin">stakeholder risks for algorithmic decision-making</h3>
             <div className="Container2 Margin-Bottom">
                 <div id={chartId} className="chart"></div>
                 <h6 className="Small-Margin-Top"></h6>
