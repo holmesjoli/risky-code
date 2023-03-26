@@ -41,7 +41,7 @@ export function Role({moduleName, user}) {
         return(
             <div className="Container2 Margin-Bottom">
                 <h3 className="Small-Margin">role: <span className="Emphasis">you</span></h3>
-                {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is <span className="Semi-Bold">you</span>, a group of busy individuals who are interested in learning more about algorithmic decision-making</p>: <p className="No-Margin-Bottom">Your role in this module is <span className="Semi-Bold">you</span>, a busy individual who is interested in learning more about algorithmic decision-making</p>}
+                {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is <span className="Semi-Bold">you</span>, a group of individuals who are interested in learning more about algorithmic decision-making</p>: <p className="No-Margin-Bottom">Your role in this module is <span className="Semi-Bold">you</span>, an individual who is interested in learning more about algorithmic decision-making</p>}
             </div>
         )
     } else if (moduleName === "fairness") {

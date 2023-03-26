@@ -70,7 +70,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
                     </div>
                     {user === "group"?
                         <div className="No-Margin-Bottom">
-                            <p className="Small-Margin Padding-Top">The group toolkit is best experienced with a facilitator who share their screen during the experience.</p>
+                            <p className="No-Margin-Bottom Padding-Top">A facilitator should share their screen during the group experience.</p>
                         </div>:
                         <></>
                     }
@@ -80,32 +80,30 @@ export default function Orientation({user, setUser, name, setName, groupName, se
     }
 
     const Modules = () => {
-
         return(
             <div className="Container2 Margin-Bottom">
-                <p className="Medium-Margin">Risky Code has specific learning outcomes which are split into four modules and will take ~ 1 hour to complete:</p>
-                <ul className="Margin-Bottom">
+                <p className="Medium-Margin">Risky Code takes approximately ~1 hour to complete and is comprised of four learning modules.</p>
+                <ul className="No-Margin-Bottom">
                     <li className="Small-Margin"><span className="Semi-Bold Pink">Algorithmic Prediction</span> </li>
                     <li className="Small-Margin"><span className="Semi-Bold DarkOrange">Algorithmic Fairness</span></li>
                     <li className="Small-Margin"><span className="Semi-Bold LightOrange">Stakeholder Mapping</span></li>
                     <li className="Small-Margin"><span className="Semi-Bold Yellow">Deliberation</span></li>
                 </ul>
-                <p className="No-Margin-Bottom">Each module has specific learning outcomes to achieve the overarching goal of <span className="Emphasis">informing and to facilitating deliberation about algorithmically informed decision-making</span>.</p>
+                {/* <p className="No-Margin-Bottom">Each module has specific learning outcomes to achieve the overarching goal of <span className="Emphasis">informing and to facilitating deliberation about algorithmically informed decision-making</span>.</p> */}
             </div>
         )
     }
 
     const Role = ({user}) => {
-
         return(
             <div className="Container2 Margin-Bottom">
-                <p>Each module has a target persona which will be reflected as a <span className="Emphasis">role</span>. The roles highlight constraints and decisions that someone in that role may face.</p>
+                <p>Each module has a target persona reflected as a <span className="Emphasis">role</span>. The roles highlight constraints and decisions that someone may face.</p>
                 <p>In each module, {user === "group"? "imagine your team as a group of:" : "imagine yourself as a:"} </p>
                 <ul className="No-Margin-Bottom">
-                    <li className="Small-Margin"><span className="Semi-Bold Pink">You</span> — {user === "group"? "busy people who are " : "a busy individual who is "} interested in learning about algorithmic decision making</li>
+                    <li className="Small-Margin"><span className="Semi-Bold Pink">You</span> — {user === "group"? "people who are " : "an individual who is "} interested in learning about algorithmic decision making</li>
                     <li className="Small-Margin"><span className="Semi-Bold DarkOrange">{user === "group"? "Data Scientists" : "Data Scientist"}</span> — interested in algorithmic fairness and equity</li>
                     <li className="Small-Margin"><span className="Semi-Bold LightOrange">{user === "group"? "Designers" : "Designer"}</span> — interested in applying design methods to algorithmic decision-making</li>
-                    <li className="Small-Margin"><span className="Semi-Bold Yellow">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways.</li>
+                    <li className="Small-Margin"><span className="Semi-Bold Yellow">{user === "group"? "Public Policymakers" : "Public Policymaker"}</span> — interested in using algorithmic decision-making in equitable and fair ways</li>
                 </ul>
             </div>
         )
@@ -130,49 +128,49 @@ export default function Orientation({user, setUser, name, setName, groupName, se
       }
     ];
 
-  return (
-    <div className="Orientation">
-        <div className="Container Margin-Bottom">
-        <h3>orientation</h3>
-            <Box sx={{ width: 500 }}>
-            <Stepper activeStep={activeStep} orientation="vertical">
-                {steps.map((step, index) => (
-                <Step key={step.label}>
-                    <StepLabel>
-                    <h3 className="Small-Margin">{step.label}</h3>
-                    </StepLabel>
-                    <StepContent>
-                        {step.children}                      
-                        <Box sx={{ mb: 2 }}>
-                            <div className="Row">
-                                <Button
-                                    size="small"
-                                    variant="outlined" 
-                                    color="secondary"
-                                    onClick={index === 0? routeBack:handleBack}
-                                >
-                                    back
-                                </Button>
-                                <Button
-                                    variant="contained"
-                                    onClick={handleNext}
-                                    size="small"
-                                >
-                                    next
-                                </Button>
-                            </div>
-                        </Box>
-                    </StepContent>
-                </Step>
-                ))}
-            </Stepper>
-            {activeStep === steps.length && (
-                <Button onClick={routeNext} className="Pink" variant="outlined">
-                    continue to algorithmic prediction
-                </Button>
-            )}
-            </Box>
+    return (
+        <div className="Orientation">
+            <div className="Container Margin-Bottom">
+            <h3>orientation</h3>
+                <Box sx={{ width: 500 }}>
+                <Stepper activeStep={activeStep} orientation="vertical">
+                    {steps.map((step, index) => (
+                    <Step key={step.label}>
+                        <StepLabel>
+                        <h3 className="Small-Margin">{step.label}</h3>
+                        </StepLabel>
+                        <StepContent>
+                            {step.children}                      
+                            <Box sx={{ mb: 2 }}>
+                                <div className="Row">
+                                    <Button
+                                        size="small"
+                                        variant="outlined" 
+                                        color="secondary"
+                                        onClick={index === 0? routeBack:handleBack}
+                                    >
+                                        back
+                                    </Button>
+                                    <Button
+                                        variant="contained"
+                                        onClick={handleNext}
+                                        size="small"
+                                    >
+                                        next
+                                    </Button>
+                                </div>
+                            </Box>
+                        </StepContent>
+                    </Step>
+                    ))}
+                </Stepper>
+                {activeStep === steps.length && (
+                    <Button onClick={routeNext} className="Pink" variant="outlined">
+                        continue to algorithmic prediction
+                    </Button>
+                )}
+                </Box>
+            </div>
         </div>
-    </div>
-  );
+    );
 }
