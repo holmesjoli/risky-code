@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/risky-code/static/css/main.ee5eaa66.css",
-    "main.js": "/risky-code/static/js/main.3e4f3c41.js",
+    "main.js": "/risky-code/static/js/main.313460ea.js",
     "static/media/ibmplexsans-semibolditalic-webfont.ttf": "/risky-code/static/media/ibmplexsans-semibolditalic-webfont.dc52201a0f3abab7941e.ttf",
     "static/media/ibmplexsans-italic-webfont.ttf": "/risky-code/static/media/ibmplexsans-italic-webfont.2b311f7fe222ec0e8b39.ttf",
     "static/media/ibmplexsans-extralight-webfont.ttf": "/risky-code/static/media/ibmplexsans-extralight-webfont.80e51e08c66239d80b58.ttf",
@@ -69,10 +69,10 @@
     "static/media/Asset 2.svg": "/risky-code/static/media/Asset 2.1a4b22faa8b31c0b556a.svg",
     "index.html": "/risky-code/index.html",
     "main.ee5eaa66.css.map": "/risky-code/static/css/main.ee5eaa66.css.map",
-    "main.3e4f3c41.js.map": "/risky-code/static/js/main.3e4f3c41.js.map"
+    "main.313460ea.js.map": "/risky-code/static/js/main.313460ea.js.map"
   },
   "entrypoints": [
     "static/css/main.ee5eaa66.css",
-    "static/js/main.3e4f3c41.js"
+    "static/js/main.313460ea.js"
   ]
 }
