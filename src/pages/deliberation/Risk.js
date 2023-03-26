@@ -97,7 +97,7 @@ export function drawRiskLegend(legendId) {
         .text(d => d.name);
 }
 
-function initGraph(chartId, data) {
+function initGraph(chartId, data, sid) {
 
     let svg = d3.select(`#${chartId}`)
         .append("svg")
@@ -157,7 +157,7 @@ function initGraph(chartId, data) {
             .attr("font-size", 12)
             .attr("letter-spacing", visStyles[style]["letterSpacing"]);
 
-    renderGraph(chartId, data);
+    renderGraph(chartId, data, sid);
 }
 
 function renderTooltip(chartId) {
@@ -187,13 +187,10 @@ function renderTooltip(chartId) {
     });
 }
 
-
 function renderGraph(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
     svg.append("g").attr("class", "nodes");
-
-    console.log(data)
 
     if (data !== undefined) {
 
@@ -280,7 +277,7 @@ function RiskLevel({title, handleChange, children}) {
     );
 }
 
-function Content({sid, stakeholderData, data, setData}) {
+function Content({ stakeholderData, data, setData }) {
 
     return(
         <div className="Content No-Padding-Top">
@@ -448,12 +445,19 @@ function RiskNetwork({setData}) {
     )
 }
 
-export default function Risk({config, modules, policy, setPolicy, stakeholderData, setStakeholderData}) {
+const returnSingleItemForColumn = (stakeholderData, sid) => {
+    const id = stakeholderData.map((d) => d.id)[sid];
+    return stakeholderData
+      .filter((item) => item.id === id)
+  };
+
+export default function Risk({ config, modules, policy, setPolicy, stakeholderData }) {
 
     let navigate = useNavigate();
-    let sid = 0;
+    let dataLength = stakeholderData.length;
+    console.log(dataLength)
     const [data, setData] = useState([]);
-    console.log(data)
+    const [sid, setId] = useState(0);
 
     const routeNext = () => {
         let path = `/Decision`; 
@@ -467,14 +471,14 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
 
     useEffect(() => {
         initStakeholder(stakeholderId, stakeholderData[sid]);
-        initGraph(chartId);
+        initGraph(chartId, data, sid);
         initStakeholderLegend(legendStakeholderId);
         initRiskLegend(legendRiskId);
     }, []);
 
     useEffect(() => {
-        renderGraph(chartId, data);
-    }, [stakeholderData, data])
+        renderGraph(chartId, data, sid);
+    }, [stakeholderData, data, sid])
 
     return (
         <div className="App">
@@ -490,7 +494,7 @@ export default function Risk({config, modules, policy, setPolicy, stakeholderDat
                     </Terminology>
                     <BackButton routeBack={routeBack}/>
                 </LeftSideBar>
-                <Content sid={sid} stakeholderData={stakeholderData[sid]} data={data} setData={setData}/>
+                <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData}/>
                 <RightSideBar>
                     <Progress id={config.id} modules={modules} className="Yellow"/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
