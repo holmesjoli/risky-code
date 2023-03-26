@@ -36,13 +36,6 @@ let style = "darkMode";
 let link, node, text;
 let simulation;
 
-const groupData = [{"group": "stakeholder"},
-                    {"group": "value"}]
-
-const fillData = [{"fill": "direct"},
-                  {"fill": "indirect"},
-                  {"fill": "excluded"}]
-
 const fillScale = d3.scaleOrdinal()
     .domain(["direct", "indirect", "excluded"])
     .range(["#FE4002", "#FD7B03", "#F3C010"])
@@ -167,7 +160,6 @@ export function updateNetwork(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
 
-    console.log(data)
     if (data !== undefined) {
 
         node = node

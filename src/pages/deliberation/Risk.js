@@ -43,10 +43,10 @@ let simulation = d3.forceSimulation()
     .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
     .force('x', d3.forceX().x(function (d) {
         return xScale(d.value);
-    }).strength(.01))
+    }).strength(.1))
     .force('y', d3.forceY().y(function (d) {
         return yScale(d.type);
-    }).strength(.01))
+    }).strength(.1))
     .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
     .force('collision', d3.forceCollide().radius(6).strength(1))
 
@@ -205,11 +205,9 @@ function renderGraph(chartId, data) {
                         .attr("d", d3.symbol()
                             .type(d => symbolScale(d.stakeholderType))
                             .size(100))
-                        .attr("transform", transform)
                         .attr("fill", d => fillScale(d.value))
                         .attr("class", "stakeholder-risk-network-node"),
                     update => update
-                        .attr("transform", transform)
                         .attr("fill", d => fillScale(d.value)),
                     exit => exit
                         .remove()
@@ -225,8 +223,12 @@ function renderGraph(chartId, data) {
             node.attr("transform", transform)
         }
 
+        // function transform(d) {
+        //     return `translate( ${xScale(d.value)},${yScale(d.type) + margin.bottom} )`;
+        // }
+
         function transform(d) {
-            return `translate( ${xScale(d.value)},${yScale(d.type) + margin.bottom} )`;
+            return `translate( ${d.x + margin.left/2}, ${d.y- margin.bottom/2} )`;
         }
 
         renderTooltip(chartId);
