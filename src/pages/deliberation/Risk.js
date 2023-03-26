@@ -43,12 +43,12 @@ let simulation = d3.forceSimulation()
     .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
     .force('x', d3.forceX().x(function (d) {
         return xScale(d.value);
-    }).strength(.1))
+    }).strength(.05))
     .force('y', d3.forceY().y(function (d) {
         return yScale(d.type);
-    }).strength(.1))
-    .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
-    .force('collision', d3.forceCollide().radius(6).strength(1))
+    }).strength(.03))
+    .force('charge', d3.forceManyBody().strength(5)) // send nodes away from eachother
+    .force('collision', d3.forceCollide().radius(6).strength(5))
 
 export function initRiskLegend(legendStakeholderId) {
 
@@ -191,14 +191,15 @@ function renderTooltip(chartId) {
 function renderGraph(chartId, data) {
 
     let svg = d3.select(`#${chartId} svg`);
-    // svg.append("g").attr("class", "nodes");
+    svg.selectAll(".nodes").remove();
+    svg.append("g").attr("class", "nodes");
 
     console.log(data)
 
     if (data !== undefined) {
 
         let node = svg
-            // .select(".nodes")
+            .select(".nodes")
             .selectAll("symbol")
                 .data(data, d => d.id)
                 .join(
