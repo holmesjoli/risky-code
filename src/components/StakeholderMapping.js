@@ -83,8 +83,10 @@ export function symbolScale(d) {
         return d3.symbolCircle;
     } else if (d === "indirect") {
         return d3.symbolSquare;
-    } else  {
+    } else if (d === "excluded") {
         return d3.symbolTriangle;
+    } else {
+        return d3.symbolStar;
     }
 }
 
@@ -175,7 +177,7 @@ export function updateNetwork(chartId, data) {
                     .attr("class", "network-nodes")
                     .attr("fill", d => fillScale(d.fill))
                     .attr("d", d3.symbol()
-                        .type(((d) => symbolScale(d.type)))
+                        .type(((d) => d.group === "stakeholder" ? symbolScale(d.type): d3.symbolStar))
                         .size(d => sizeScale(d.group)))
                 );
 
@@ -212,7 +214,7 @@ export function initStakeholderLegend(legendStakeholderId) {
 
     d3.select(`#${legendStakeholderId}`)
         .append("svg")
-        .attr("width", 220)
+        .attr("width", 250)
         .attr("height", height);
 
     drawStakeholderLegend(legendStakeholderId);
@@ -220,9 +222,10 @@ export function initStakeholderLegend(legendStakeholderId) {
 
 export function drawStakeholderLegend(legendId) {
     
-    const fillData = [{"type": "direct", "name": "Direct"},
-                        {"type": "indirect", "name": "Indirect"},
-                        {"type": "excluded", "name": "Excluded"}]
+    const fillData = [{"type": "direct", "name": "Direct", "group": "stakeholder"},
+                        {"type": "indirect", "name": "Indirect", "group": "stakeholder"},
+                        {"type": "excluded", "name": "Excluded", "group": "stakeholder"},
+                        {"type": "value", "name": "Value", "group": "value"}]
     
     let svg = d3.select(`#${legendId} svg`)
     let h = 40;
@@ -232,11 +235,11 @@ export function drawStakeholderLegend(legendId) {
             .data(fillData, d => d.fill)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 70) + 20}, ${h / 3})`)
+        .attr("transform", (d, i) => `translate(${(i * 60) + 20}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()
-            .type(((d) => symbolScale(d.type)))
+            .type(((d) => d.group === "stakeholder" ? symbolScale(d.type): d3.symbolStar))
             .size(100))
         .attr("fill", "#cbcbcb");
 

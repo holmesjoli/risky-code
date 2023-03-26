@@ -43,10 +43,10 @@ let simulation = d3.forceSimulation()
     .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
     .force('x', d3.forceX().x(function (d) {
         return xScale(d.value);
-    }).strength(1))
+    }).strength(.01))
     .force('y', d3.forceY().y(function (d) {
         return yScale(d.type);
-    }).strength(1))
+    }).strength(.01))
     .force('charge', d3.forceManyBody().strength(1)) // send nodes away from eachother
     .force('collision', d3.forceCollide().radius(6).strength(1))
 
@@ -65,9 +65,9 @@ export function initRiskLegend(legendStakeholderId) {
 export function drawRiskLegend(legendId) {
     
     const fillData = [{"fill": 1, "name": "Low"},
-                        {"fill": 2, "name": "Medium — Low"},
+                        {"fill": 2, "name": ""},
                         {"fill": 3, "name": "Medium"},
-                        {"fill": 4, "name": "Medium — High"},
+                        {"fill": 4, "name": ""},
                         {"fill": 5, "name": "High"}]
     
     let svg = d3.select(`#${legendId} svg`)
@@ -78,11 +78,11 @@ export function drawRiskLegend(legendId) {
             .data(fillData, d => d.fill)
             .enter()
             .append("g")
-        .attr("transform", (d, i) => `translate(${(i * 75) + 20}, ${h / 3})`)
+        .attr("transform", (d, i) => `translate(${(i * 60) + 20}, ${h / 3})`)
 
     shape.append("path")
         .attr("d", d3.symbol()
-            .type(((d) => symbolScale(d.fill)))
+            .type(((d) => d3.symbolCircle))
             .size(100))
         .attr("fill", d=>fillScale(d.fill));
 
