@@ -82,14 +82,14 @@ export default function Train({config, user, variables, setVariables, items, set
                         <RightSideBar>
                             <div className="Container2">
                                 <h4 className="Small-Margin">learn</h4>
-                                <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. We will train a predictive model, Laundry AID, to guess if an item should belong in the cold water load according to your classification.</p>
-                                <p>A predictive model is a computational interpretation of an algorithm's rules. Here are the rules you defined in the last module:</p>
+                                <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. A predictive model is a computational interpretation of an algorithm's rules.</p>
+                                <p>We will train a predictive model called Laundry AID. It will guess if an item belongs in the cold water load according to your rules from the last module.</p>
                                 <ul className="Margin-Bottom">
                                     <li>{rules.rule1}</li>
                                     <li>{rules.rule2}</li>
                                     <li>{rules.rule3}</li>
                                 </ul>
-                                <p>Test how you will train Laundry AID by dragging one or more variables from <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
+                                <p>Test how you will train Laundry AID by dragging one or more <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
                                 <p className="No-Margin-Bottom">Notice that the outcome variable, <span className="Emphasis">cold water load</span> is fixed and cannot be changed.</p>
                             </div>
                             <NextButtonOverlay toggleOverlay={toggleOverlay} className="Pink"/>
