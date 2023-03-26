@@ -10,9 +10,7 @@ import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../..
 import { terms } from '../../utils/global';
 import { RoleShort } from "../../components/Role";
 import { visStyles } from "../../utils/global";
-import Slider from '@material-ui/core/Slider';
-import Tooltip from '@material-ui/core/Tooltip';
-import { Fab } from '@material-ui/core';
+import { Slider, Button, Tooltip, Fab } from '@material-ui/core/';
 import AddIcon from '@material-ui/icons/Add';
 import { initNetwork } from '../../components/StakeholderMapping';
 import { initStakeholderLegend, symbolScale } from '../../components/StakeholderMapping';
@@ -23,7 +21,7 @@ let legendRiskId = "Risk-Legend";
 let stakeholderId = "Risk-Stakeholder";
 
 let width = 550;
-let height = 400;
+let height = 375;
 let style = "darkMode";
 let margin = {left: 10, right: 10, top: 10, bottom: 40};
 
@@ -250,15 +248,11 @@ function RiskLevel({title, handleChange, children}) {
 
 function Content({sid, stakeholderData, data, setData}) {
 
-    console.log(data)
-
     return(
         <div className="Content No-Padding-Top">
-            <div className="Container">
-                <div className="One-Column-Three">
-                    <AddRisks stakeholderData={stakeholderData} data={data} setData={setData}/>
-                    <RiskNetwork/>
-                </div>
+            <div className="One-Column-Three">
+                <AddRisks stakeholderData={stakeholderData} data={data} setData={setData}/>
+                <RiskNetwork setData={setData}/>
             </div>
         </div>
     )
@@ -354,24 +348,22 @@ function AddRisks({stakeholderData, data, setData}) {
     }
 
     return(
-        <div>
+        <div className="Container">
+            <h3 className="Small-Margin">add stakeholder to diagram</h3>
             <div className="Container2 Margin-Bottom">
-                <h4 className="Small-Margin">add stakeholder to diagram</h4>
                 <div className="Add-Stakeholder-Button">
                     <div id={stakeholderId} className="Small-Margin-Bottom"></div>
                 </div>
                 <AddStakeholder/>
             </div>
-
             <Sliders updateAppropriateDataUse={updateAppropriateDataUse} updateTechnical={updateTechnical} updateStakeholderValues={updateStakeholderValues} updateAccountability={updateAccountability}/>
         </div>
-        )
-
+    )
 }
 
 const Legend = () => {
     return(
-        <div>
+        <div className="Container2 No-Margin-Bottom">
             <h4 className="Small-Margin">legend</h4>
             <div className="Row">
                 <div>
@@ -388,22 +380,34 @@ const Legend = () => {
 }
 
 const Viz = () => {
+
     return(
-        <div className="Margin-Bottom">
-            <h4 className="No-Margin-Bottom">visualize</h4>
-            <div id={chartId} className="chart"></div>
-            <h6 className="Small-Margin-Top"></h6>
+        <div>
+            <h3 className="Small-Margin">visualize</h3>
+            <div className="Container2 Margin-Bottom">
+                <div id={chartId} className="chart"></div>
+                <h6 className="Small-Margin-Top"></h6>
+            </div>
         </div>
     )
 }
 
-function RiskNetwork({}) {
+function RiskNetwork({setData}) {
+
+    const resetNetwork = () => {
+        setData([])
+    }
 
     return(
         <div>
-            <div className="Container2">
+            <div className="Container">
                 <Viz/>
                 <Legend/>
+                <div className="Three-Column-Equal Margin-Top">
+                    <div></div>
+                    <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset network</Button>
+                    <div></div>
+                </div>
             </div>
         </div>
     )

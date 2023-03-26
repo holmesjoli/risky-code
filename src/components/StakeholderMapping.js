@@ -331,8 +331,8 @@ function StakeholderNetwork(data, setData) {
 
     return(
         <div className="Container">
+            <h3 className="Small-Margin">visualize</h3>
             <div className='Container2'>
-                <h4 className="Small-Margin">visualize</h4>
                 <div id={chartId}></div>
                 <h4>legend</h4>
                 <h5>Stakeholder type</h5>
@@ -428,6 +428,7 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
 
     return(
         <div className="Stakeholder-Attr Container">
+            <h3 className="Small-Margin">add stakeholder to network</h3>
             <div className="Container2 Margin-Bottom">
                 <h4 className="Small-Margin">stakeholder group</h4>
                 <TextField className={className} value={stakeholderName} placeholder="Stakeholder group name" variant="outlined" onChange={updateStakeholder} />
@@ -463,7 +464,6 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
                 </FormGroup>
             </div>
             <div className="Add-Stakeholder-Button">
-                <h4 className="Small-Margin">add stakeholder to diagram</h4>
                 <Fab color="primary" onClick={add} className={className}>
                     <AddIcon />
                 </Fab>
