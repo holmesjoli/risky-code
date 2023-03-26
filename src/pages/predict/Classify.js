@@ -55,7 +55,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
-                    <h3 className="Page-Title Small-Margin">algorithmic prediction | classify</h3>
+                    <h3 className="Page-Title Small-Margin">introduction to data collection and classification</h3>
                     <div className="Two-Column-Three">
                         <MiniModel/>
                         <RightSideBar>

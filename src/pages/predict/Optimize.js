@@ -76,7 +76,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title Small-Margin">algorithmic prediction | optimize</h3>
+                    <h3 className="Page-Title Small-Margin">introduction to algorithmic optimization</h3>
                     <div className="Two-Column-Three">
                         <MiniModel/>
                         <RightSideBar>

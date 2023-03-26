@@ -73,7 +73,7 @@ export default function Train({config, user, variables, setVariables, items, set
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title Small-Margin">algorithmic prediction | train</h3>
+                    <h3 className="Page-Title Small-Margin">introduction to algorithmic training</h3>
                     <div className="Two-Column-Three">
                         <div className="Two-Column">
                             <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/>
