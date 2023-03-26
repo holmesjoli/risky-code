@@ -6,7 +6,7 @@ import { visStyles } from "../utils/global";
 export function ActualPredicted() {
 
     return(
-        <div className="Legend Container2 No-Margin-Bottom">
+        <div className="Legend Container No-Margin-Bottom">
             <h4 className="Small-Margin">legend</h4>
             <div className="my-grid">
                 <div>
@@ -60,7 +60,7 @@ export function Predicted() {
 
 export function Actual() {
     return(
-        <div className="Legend Container2">
+        <div className="Legend Container">
             <h4 className="Small-Margin">legend</h4>
             <div>
                 <h5 className="No-Margin-Top No-Margin-Bottom">Cold water load</h5>

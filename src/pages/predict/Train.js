@@ -27,7 +27,7 @@ export function Content({variables, setVariables, items, setItems}) {
 
     return(
         <div className="Content No-Padding-Top">
-            <div className="One-Column-Three5 Container">
+            <div className="One-Column-Three5">
                 <div>
                     <div className=''>
                         {/* <h3 className="Small-Margin">interact</h3> */}

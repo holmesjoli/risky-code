@@ -73,7 +73,7 @@ export default function Card({items, variables, addIncorrect, predictiveProbabil
     }
 
     return(
-        <div className="Cards-Container Container2">
+        <div className="Cards-Container Container">
             <h4 className="Small-Margin">clothing items</h4>
             <div className="Card-Container">
                    {createCard(items)}

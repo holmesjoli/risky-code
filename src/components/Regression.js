@@ -12,11 +12,11 @@ var logistic = new LogisticRegression({
     lambda: 0.0
 });
 
-export function Threshold({predictiveProbability, updateSlider, containerClass="Container2"}) {
+export function Threshold({predictiveProbability, updateSlider, containerClass="Container"}) {
     return(
         <div className={containerClass +" Margin-Bottom No-Padding-Bottom Bottom-Rule"}>
             <h4 className="Small-Margin">decision threshold</h4>
-            <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the cold water load.</p>
+            <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the <span className="Emphasis">cold water load</span>.</p>
             <Slider
                 size="small"
                 defaultValue={predictiveProbability}
@@ -57,7 +57,7 @@ export function Accuracy({items, variables, predictiveProbability}) {
 
     return(
         <div className="Accuracy Hidden">
-            <div className="Container2">
+            <div className="Container">
                 <h4 className="Small-Margin">model accuracy</h4>
                 <p>Accuracy is a percent of how many predicted values match the actual values.</p>
                 <h5 className="Accuracy-Percent Small-Margin No-Margin-Top Semi-Bold White Opacity1 No-Margin-Bottom"></h5>
@@ -66,7 +66,7 @@ export function Accuracy({items, variables, predictiveProbability}) {
     )
 }
 
-export function PredictiveOutcomes({predictiveProbability=50, containerClass="Container2"}) {
+export function PredictiveOutcomes({predictiveProbability=50, containerClass="Container"}) {
 
     useEffect(() => {
 
@@ -93,7 +93,7 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
     )
 }
 
-export function LaundryItemPredicted({variablesMini, containerClass="Container2"}) {
+export function LaundryItemPredicted({variablesMini, containerClass="Container"}) {
 
     const modelVars = getModelVariables(variablesMini);
 

@@ -184,16 +184,16 @@ export default function Model({variables, setVariables}) {
   return (
     <div id="StatisticalModel" className="Text-Align-Center">
       <DndWrapper id="StatisticalModel">
-        <Column title={DATA_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom">
+        <Column title={DATA_VARIABLES} className="Container Variables-Column No-Margin-Bottom">
           {returnItemsForColumn(variables, DATA_VARIABLES)}
         </Column>
         <ExpandMoreIcon/>
-        <Column title={MODEL_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom">
+        <Column title={MODEL_VARIABLES} className="Container Variables-Column No-Margin-Bottom">
           {returnItemsForColumn(variables,MODEL_VARIABLES)}
         </Column>
       </DndWrapper>
       <ExpandMoreIcon/>
-      <div className="Container2 No-Margin-Bottom">
+      <div className="Container No-Margin-Bottom">
           <h4 className="Small-Margin">outcome variable</h4>
           <div className="Variable-Flat Case-True">cold water load</div>
       </div>
