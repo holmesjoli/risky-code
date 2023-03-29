@@ -27,8 +27,6 @@ export default function MiniModel() {
     const [predictiveProbability, setPredictiveProbability] = useState(50);
 
     const updateSlider = (event, value) => {
-
-        console.log(value)
         setPredictiveProbability(value)
     };
 

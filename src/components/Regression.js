@@ -19,7 +19,7 @@ export function Threshold({predictiveProbability, updateSlider, containerClass="
             <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the <span className="Emphasis">cold water load</span>.</p>
             <Slider
                 size="small"
-                defaultValue={predictiveProbability}
+                defaultValue={50}
                 min={10}
                 max={100}
                 step={5}

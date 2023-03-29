@@ -76,7 +76,7 @@ export default function Train({config, user, variables, setVariables, items, set
                     <h3 className="Page-Title Small-Margin">introduction to algorithmic training</h3>
                     <div className="Two-Column-Three">
                         <div className="Two-Column">
-                            <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/>
+                            {/* <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/> */}
                             <LaundryItemPredicted variablesMini={variablesMini} className="Container2"/>
                         </div>
                         <RightSideBar>
