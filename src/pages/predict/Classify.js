@@ -57,7 +57,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <h3 className="Page-Title Small-Margin">introduction to data collection and classification</h3>
                     <div className="Two-Column-Three">
-                        <MiniModel/>
+                        {/* <MiniModel/> */}
                         <RightSideBar>
                             <div className="Container2">
                                 <h4 className="Small-Margin">learn</h4>

@@ -35,7 +35,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
     const Introduction = ({user}) => {
         return(
             <div className="Container2 Margin-Bottom">
-                {user==="group"?<p className="No-Margin-Bottom">The third module explores a common design-thinking methodology called <span className="Semi-Bold LightOrange">Stakeholder Mapping</span>. This section will lead your team through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>:<p className="No-Margin-Bottom">The third module, <span className="Emphasis">Stakeholder Mapping</span>, explores a common design-thinking methodology called Stakeholder Mapping. This section will lead you through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>}
+                {user==="group"?<p className="No-Margin-Bottom">The third module explores a common design-thinking methodology called <span className="Semi-Bold LightOrange">Stakeholder Mapping</span>. This section will lead your team through a stakeholder mapping exercise using a case study of where algorithmically-informed decision-making was implemented.</p>:<p className="No-Margin-Bottom">The third module, <span className="Emphasis">Stakeholder Mapping</span>, explores a common design-thinking methodology called Stakeholder Mapping. This section will lead you through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>}
             </div>
         )
     }

@@ -53,7 +53,7 @@ export default function Fairness({user}) {
     const Define = () => {
         return(
              <div className="Container2 Margin-Bottom">
-                <h4 className="Small-Margin">algorithmic decision-making system</h4>
+                <h4 className="Small-Margin">algorithmically informed decision-making</h4>
                 <p className="No-Margin-Bottom"><span className="Emphasis">A system that uses automated reasoning to aid or replace a decision-making process that would otherwise be performed by humans <NavLink to="/Resources" className="DarkOrange">(AINOW 2018)</NavLink></span>.</p>
             </div> 
         )
