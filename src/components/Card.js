@@ -56,7 +56,6 @@ export function updateCard(items, variables, predictiveProbability = .5, addInco
 
     if (modelVars.length > 0 ) {
 
-        console.log("hit")
         d3.selectAll(".predicted.Semi-Bold")
             .text(function() {
                 let id = +this.getAttribute("id").match(/\d+/)[0];

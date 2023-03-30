@@ -26,3 +26,6 @@ yarn-error.log*
 
 /renv/library
 /renv/staging
+
+backend/env
+backend/__pycache__
