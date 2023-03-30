@@ -168,10 +168,7 @@ function logisticData(iterateData, modelVars) {
 
 export function runRegression(variables, items, setItems, predictiveProbability = .5) {
 
-    // console.log(variables)
-
     var modelVars = getModelVariables(variables);
-    // console.log(modelVars)
 
     if (modelVars.length > 0) {
 
@@ -185,10 +182,10 @@ export function runRegression(variables, items, setItems, predictiveProbability 
             var pp = logistic.transform(testingData[i]);
             var predicted = pp >= predictiveProbability? 1: 0;
 
-            console.log(predictiveProbability)
-            console.log(pp >= predictiveProbability? 1: 0)
-            console.log("predicted probability", pp)
-            console.log("predicted", predicted)
+            // console.log(predictiveProbability)
+            // console.log(pp >= predictiveProbability? 1: 0)
+            // console.log("predicted probability", pp)
+            // console.log("predicted", predicted)
 
             items[i].predicted = predicted;
             items[i].predictedProbability = pp;
@@ -196,7 +193,7 @@ export function runRegression(variables, items, setItems, predictiveProbability 
             items[i].predictedCorrectly = items[i].actual === items[i].predicted;
         }
 
-        console.log(items)
+        // console.log(items)
         items.sort((a, b) => b.predicted - a.predicted);
         setItems(items)
     }
