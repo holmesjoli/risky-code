@@ -52,11 +52,6 @@ export default function Optimize({config, variables, setVariables, items, setIte
         setPredictiveProbability(value)
     };
 
-    useEffect(() => {
-        runRegression(variables, items, setItems);
-        updateCard(items, variables, predictiveProbability, true);
-    }, [variables, items, predictiveProbability]);
-
     let navigate = useNavigate(); 
     const routeNext = () => {
       let path = `/PredictionReflection`; 
@@ -71,6 +66,12 @@ export default function Optimize({config, variables, setVariables, items, setIte
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
+
+    useEffect(() => {
+        // console.log(predictiveProbability)
+        runRegression(variables, items, setItems, predictiveProbability/100);
+        updateCard(items, variables, true);
+    }, [variables, items, predictiveProbability]);
 
     return (
         <div className="App">

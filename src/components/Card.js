@@ -50,7 +50,7 @@ export function Card({items}) {
     )
 }
 
-export function updateCard(items, variables, predictiveProbability = .5, addIncorrect=false) {
+export function updateCard(items, variables, addIncorrect=false) {
 
     var modelVars = getModelVariables(variables);
 

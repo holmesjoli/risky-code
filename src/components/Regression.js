@@ -185,6 +185,11 @@ export function runRegression(variables, items, setItems, predictiveProbability 
             var pp = logistic.transform(testingData[i]);
             var predicted = pp >= predictiveProbability? 1: 0;
 
+            console.log(predictiveProbability)
+            console.log(pp >= predictiveProbability? 1: 0)
+            console.log("predicted probability", pp)
+            console.log("predicted", predicted)
+
             items[i].predicted = predicted;
             items[i].predictedProbability = pp;
             items[i].actual = items[i].column === "cold water load"? 1: 0;
