@@ -2,14 +2,7 @@ import { useState, useEffect } from 'react';
 import { PredictiveOutcomes, Threshold } from "./Regression";
 import * as d3 from 'd3';
 
-function Accuracy({predictiveProbability}) {
-
-    useEffect(() => {
-
-        d3.selectAll(".Accuracy-Percent")
-            .text(predictiveProbability > 28 ? "100%": "0%");
-
-    }, [predictiveProbability])
+function Accuracy() {
 
     return(
         <div>
@@ -30,6 +23,11 @@ export default function MiniModel() {
         setPredictiveProbability(value)
     };
 
+    useEffect(() => {
+        d3.selectAll(".Accuracy-Percent")
+            .text(predictiveProbability > 28 ? "100%": "0%");
+    }, [predictiveProbability])
+
     return(
         <div>
             <div className="Bottom-Rule">
@@ -39,7 +37,7 @@ export default function MiniModel() {
             </div>
             <div className="Two-Column Padding-Top">
                 <PredictiveOutcomes predictiveProbability={predictiveProbability} containerClass="Container2"/>
-                <Accuracy predictiveProbability={predictiveProbability}/>
+                <Accuracy />
             </div>
         </div>
     )

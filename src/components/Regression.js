@@ -32,28 +32,28 @@ export function Threshold({predictiveProbability, updateSlider, containerClass="
     )
 }
 
-export function Accuracy({items, variables, predictiveProbability}) {
+export function updateAccuracy(items, variables) {
 
     const modelVars = getModelVariables(variables);
     const pred = items.filter(d => d.predictedCorrectly).length
     const pct = Math.round((pred/items.length)*100)
 
-    useEffect(() => {
+    if (modelVars.length > 0 ) {
+        d3.selectAll(".Accuracy-Percent")
+            .text(`${pct}%`)
 
-        if (modelVars.length > 0 ) {
-            d3.selectAll(".Accuracy-Percent")
-                .text(`${pct}%`)
+        d3.selectAll(".Accuracy")
+            .attr("class", "Accuracy Visible")
+    } else {
+        d3.selectAll(".Accuracy-Percent")
+            .text("")
 
-            d3.selectAll(".Accuracy")
-                .attr("class", "Accuracy Visible")
-        } else {
-            d3.selectAll(".Accuracy-Percent")
-                .text("")
+        d3.select(".Accuracy")
+            .attr("class", "Accuracy Hidden")
+    }
+}
 
-            d3.select(".Accuracy")
-                .attr("class", "Accuracy Hidden")
-        }
-    }, [items, variables, predictiveProbability])
+export function Accuracy() {
 
     return(
         <div className="Accuracy Hidden">

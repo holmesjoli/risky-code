@@ -8,7 +8,7 @@ import { updateCard, Card } from "../../components/Card";
 import Model from "../../components/Model";
 import { terms } from '../../utils/global';
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { runRegression, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
+import { runRegression, updateAccuracy, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
 import { ActualPredicted, Predicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
@@ -20,7 +20,7 @@ function Information({items, variables, predictiveProbability}) {
         <div className="Three-Column2 Margin-Top">
             <ActualPredicted/>
             <PredictiveOutcomes/>
-            <Accuracy items={items} variables={variables} predictiveProbability={predictiveProbability}/>
+            <Accuracy />
         </div>
     )
 }
@@ -68,9 +68,9 @@ export default function Optimize({config, variables, setVariables, items, setIte
     };
 
     useEffect(() => {
-        // console.log(predictiveProbability)
         runRegression(variables, items, setItems, predictiveProbability/100);
         updateCard(items, variables, true);
+        updateAccuracy(items, variables)
     }, [variables, items, predictiveProbability]);
 
     return (
