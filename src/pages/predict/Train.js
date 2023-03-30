@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Model from "../../components/Model";
 import { Actual } from "../../components/Legend";
 import Card from "../../components/Card";
-import { Regression, PredictiveOutcomes, LaundryItemPredicted } from "../../components/Regression";
+import { runRegression, PredictiveOutcomes, LaundryItemPredicted } from "../../components/Regression";
 import { terms, VARIABLES } from '../../utils/global';
 import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
@@ -25,6 +25,10 @@ function Information() {
 
 export function Content({variables, setVariables, items, setItems}) {
 
+    useEffect(() => {
+        runRegression(variables, items, setItems);
+    }, [variables, items])
+
     return(
         <div className="Content No-Padding-Top">
             <div className="One-Column-Three5">
@@ -38,7 +42,6 @@ export function Content({variables, setVariables, items, setItems}) {
                 </div>
                 <div className="">
                     {/* <h3 className="Small-Margin">visualize</h3> */}
-                    <Regression items={items} setItems={setItems} variables={variables}/>
                     <Card items={items} variables={variables} addIncorrect={false}/>
                     <Information items={items} variables={variables}/>
                 </div>

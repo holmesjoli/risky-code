@@ -35,7 +35,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
                     <Model variables={variables} setVariables={setVariables}/>
                 </div>
                 <div>
-                    <Regression items={items} setItems={setItems} variables={variables}/>
+                    {/* <Regression items={items} setItems={setItems} variables={variables}/> */}
                     <Card items={items} variables={variables} addIncorrect={true}/>
                     <Information items={items} variables={variables} predictiveProbability={predictiveProbability}/>
                 </div>

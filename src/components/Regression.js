@@ -166,32 +166,32 @@ function logisticData(iterateData, modelVars) {
     return data;
 }
 
-export function Regression({items, setItems, variables, predictiveProbability}) {
+export function runRegression(variables, items, setItems, predictiveProbability = .5) {
+
+    console.log(variables)
 
     var modelVars = getModelVariables(variables);
 
-    useEffect(() => {
+    if (modelVars.length > 0) {
 
-        if (modelVars.length > 0) {
+        var testingData = logisticData(items, modelVars);
 
-            var testingData = logisticData(items, modelVars);
+        // === Train the logistic regression === //
+        var model = logistic.fit(testingData);
 
-            // === Train the logistic regression === //
-            var model = logistic.fit(testingData);
+        // // // === Testing the trained logistic regression === //
+        for(var i=0; i < testingData.length; ++i){
+            var pp = logistic.transform(testingData[i]);
+            var predicted = pp >= predictiveProbability? 1: 0;
 
-            // // // === Testing the trained logistic regression === //
-            for(var i=0; i < testingData.length; ++i){
-                var pp = logistic.transform(testingData[i]);
-                var predicted = pp >= predictiveProbability? 1: 0;
-
-                items[i].predicted = predicted;
-                items[i].predictedProbability = pp;
-                items[i].actual = items[i].column === "cold water load"? 1: 0;
-                items[i].predictedCorrectly = items[i].actual === items[i].predicted;
-            }
-
-            items.sort((a, b) => b.predicted - a.predicted);
-            setItems(items)
+            items[i].predicted = predicted;
+            items[i].predictedProbability = pp;
+            items[i].actual = items[i].column === "cold water load"? 1: 0;
+            items[i].predictedCorrectly = items[i].actual === items[i].predicted;
         }
-    }, [items, variables, predictiveProbability])
+
+        console.log(items)
+        items.sort((a, b) => b.predicted - a.predicted);
+        setItems(items)
+    }
 }

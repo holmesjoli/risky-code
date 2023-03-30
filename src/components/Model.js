@@ -165,6 +165,7 @@ export default function Model({variables, setVariables}) {
   };
 
   const returnItemsForColumn = (variables, columnName) => {
+
     return variables
       .filter((item) => item.column === columnName)
       .map((item, index) => (
@@ -185,11 +186,11 @@ export default function Model({variables, setVariables}) {
     <div id="StatisticalModel" className="Text-Align-Center">
       <DndWrapper id="StatisticalModel">
         <Column title={DATA_VARIABLES} className="Container Variables-Column No-Margin-Bottom">
-          {returnItemsForColumn(variables, DATA_VARIABLES)}
+          {returnItemsForColumn(variables, DATA_VARIABLES )}
         </Column>
         <ExpandMoreIcon/>
         <Column title={MODEL_VARIABLES} className="Container Variables-Column No-Margin-Bottom">
-          {returnItemsForColumn(variables,MODEL_VARIABLES)}
+          {returnItemsForColumn(variables, MODEL_VARIABLES)}
         </Column>
       </DndWrapper>
       <ExpandMoreIcon/>
