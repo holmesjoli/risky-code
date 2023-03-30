@@ -73,14 +73,14 @@ export default function Train({config, user, variables, setVariables, items, set
 
     return (
         <div className="App">
-            {isOpen ?
+            {/* {isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
                     <h3 className="Page-Title Small-Margin">introduction to algorithmic training</h3>
                     <div className="Two-Column-Three">
                         <div className="Two-Column">
-                            {/* <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/> */}
+                            <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/>
                             <LaundryItemPredicted variablesMini={variablesMini} className="Container2"/>
                         </div>
                         <RightSideBar>
@@ -103,18 +103,27 @@ export default function Train({config, user, variables, setVariables, items, set
             </div>
         </Overlay>:
         <></>
-        }
+        } */}
         <Header/>
         <div className="Main">
             <LeftSideBar>
                 <Description title={config.title}>
-                    <p>To train Laundry AID, drag one or more variables from data variables to model variables. This will automatically run a statistical model to predict the results. Add or remove variables from the model to see how the predictive probabilities change.</p>
+                    {/* <p>To train Laundry AID, drag one or more variables from data variables to model variables. This will automatically run a statistical model to predict the results. Add or remove variables from the model to see how the predictive probabilities change.</p>
                     <p>Laundry rules:</p>
                     <ul className="Margin-Bottom">
                         <li>{rules.rule1}</li>
                         <li>{rules.rule2}</li>
                         <li>{rules.rule3}</li>
-                    </ul>                    
+                    </ul>*/}
+                    <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. A predictive model is a computational interpretation of an algorithm's rules.</p>
+                                <p>We will train a predictive model called Laundry AID. It will guess if an item belongs in the cold water load according to your rules from the last module.</p>
+                                <ul className="Margin-Bottom">
+                                    <li>{rules.rule1}</li>
+                                    <li>{rules.rule2}</li>
+                                    <li>{rules.rule3}</li>
+                                </ul>
+                                <p>Test how you will train Laundry AID by dragging one or more <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
+                                <p>Notice that the outcome variable, <span className="Emphasis">cold water load</span> is fixed and cannot be changed.</p>
                 </Description>
                 <RoleShort moduleName="prediction"/>
                 <Terminology margin="Margin-Large-Bottom" className="Pink">

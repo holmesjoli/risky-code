@@ -50,14 +50,14 @@ export default function Classify({config, user, items, setItems, modules, rules,
 
     return (
         <div className="App"> 
-        {
+        {/* {
             isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary No-Padding-Right">
                     <h3 className="Page-Title Small-Margin">introduction to data collection and classification</h3>
                     <div className="Two-Column-Three">
-                        {/* <MiniModel/> */}
+                        <MiniModel/>
                         <RightSideBar>
                             <div className="Container2">
                                 <h4 className="Small-Margin">learn</h4>
@@ -77,18 +77,26 @@ export default function Classify({config, user, items, setItems, modules, rules,
             </div>
         </Overlay>:
         <></>
-        }
+        } */}
         <Header/>
         <div className="Main">
             <LeftSideBar>
                 <Description title={config.title}>
-                    <p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>
+                    {/* <p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>
                     <p>Laundry rules:</p>
                     <ul className="Margin-Bottom">
                         <li>{rules.rule1}</li>
                         <li>{rules.rule2}</li>
                         <li>{rules.rule3}</li>
+                    </ul> */}
+                    <p>The first step of algorithmic prediction is to collect and classify data. </p>
+                    {user==="group"?<p className="Margin-Small">Your team will classify <span className="Semi-Bold">20</span> items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
+                    <ul className="Margin-Bottom">
+                        <li>{rules.rule1}</li>
+                        <li>{rules.rule2}</li>
+                        <li>{rules.rule3}</li>
                     </ul>
+                    {user==="group"?<p >Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                 </Description>
                 <RoleShort moduleName="prediction"/>
                 <Terminology margin="Margin-Large-Bottom" className="Pink">
