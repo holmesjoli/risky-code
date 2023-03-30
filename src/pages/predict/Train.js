@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Model from "../../components/Model";
 import { Actual } from "../../components/Legend";
-import Card from "../../components/Card";
+import { updateCard, Card } from '../../components/Card'; 
 import { runRegression, PredictiveOutcomes, LaundryItemPredicted } from "../../components/Regression";
 import { terms, VARIABLES } from '../../utils/global';
 import Progress from "../../components/Progress";
@@ -26,8 +26,9 @@ function Information() {
 export function Content({variables, setVariables, items, setItems}) {
 
     useEffect(() => {
-        runRegression(variables, items, setItems);
-    }, [variables, items])
+            runRegression(variables, items, setItems);
+            updateCard(items, variables);
+    }, [variables, items]);
 
     return(
         <div className="Content No-Padding-Top">
@@ -42,7 +43,7 @@ export function Content({variables, setVariables, items, setItems}) {
                 </div>
                 <div className="">
                     {/* <h3 className="Small-Margin">visualize</h3> */}
-                    <Card items={items} variables={variables} addIncorrect={false}/>
+                    <Card items={items}/>
                     <Information items={items} variables={variables}/>
                 </div>
             </div>

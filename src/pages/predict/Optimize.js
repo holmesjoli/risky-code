@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Progress from "../../components/Progress";
 import Overlay from "../../components/Overlay";
-import Card from "../../components/Card";
+import { updateCard, Card } from "../../components/Card";
 import Model from "../../components/Model";
 import { terms } from '../../utils/global';
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
-import { Regression, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
+import { runRegression, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
 import { ActualPredicted, Predicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
@@ -36,7 +36,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
                 </div>
                 <div>
                     {/* <Regression items={items} setItems={setItems} variables={variables}/> */}
-                    <Card items={items} variables={variables} addIncorrect={true}/>
+                    {/* <Card items={items} variables={variables} addIncorrect={true}/> */}
                     <Information items={items} variables={variables} predictiveProbability={predictiveProbability}/>
                 </div>
             </div>
@@ -52,6 +52,11 @@ export default function Optimize({config, variables, setVariables, items, setIte
     const updateSlider = (event, value) => {
         setPredictiveProbability(value)
     };
+
+    useEffect(() => {
+        runRegression(variables, items, setItems);
+        updateCard(items, variables, predictiveProbability, true);
+    }, [variables, items, predictiveProbability]);
 
     let navigate = useNavigate(); 
     const routeNext = () => {

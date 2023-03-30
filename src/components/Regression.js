@@ -22,7 +22,7 @@ export function Threshold({predictiveProbability, updateSlider, containerClass="
                 defaultValue={50}
                 min={10}
                 max={100}
-                step={5}
+                step={1}
                 aria-label="Small"
                 className="Pink"
                 valueLabelDisplay="auto"
@@ -168,9 +168,10 @@ function logisticData(iterateData, modelVars) {
 
 export function runRegression(variables, items, setItems, predictiveProbability = .5) {
 
-    console.log(variables)
+    // console.log(variables)
 
     var modelVars = getModelVariables(variables);
+    // console.log(modelVars)
 
     if (modelVars.length > 0) {
 
