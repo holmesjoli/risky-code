@@ -56,8 +56,8 @@ export default function Deliberation({user, algorithmicBrainstorm, setAlgorithmi
 
         return(
             <div className="Container2 Margin-Bottom">
-                <p>Learn different metrics to consider when if an algorithm should be used in a public policy setting</p>
-                <p>Consider different stakeholders and their individual risks</p>
+                <p>Consider different risk metrics about algorithmically-informed decision-making</p>
+                <p>Analyze different stakeholders and their individual risks</p>
                 <p className="No-Margin-Bottom">Visually analyze an algorithm's risk</p>
             </div>
         )

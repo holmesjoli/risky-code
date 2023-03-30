@@ -5,6 +5,7 @@ import Progress from "../../components/Progress";
 import { BackButton } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { RoleShort } from "../../components/Role";
+import { PolicyScenario } from "../../components/TrackUserInputs";
 
 export function Content() {
     return(
@@ -13,7 +14,7 @@ export function Content() {
     )
 }
 
-export default function Decision({config, modules}) {
+export default function Decision({config, modules, policy, setPolicy}) {
 
     let navigate = useNavigate();
   
@@ -35,6 +36,7 @@ export default function Decision({config, modules}) {
                 <Content />
                 <RightSideBar>
                     <Progress id={config.id} modules={modules} className="Yellow"/>
+                    <PolicyScenario policy={policy} setPolicy={setPolicy} className="Container2"/>
                 </RightSideBar>
             </div>
             <Footer/>

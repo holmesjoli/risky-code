@@ -101,15 +101,16 @@ export const config = {
         "navLink": "/Risk",
         "group": "deliberation",
         "title": "risk framework"
-    }, 
-    "Decision": {
-        "name": "Decision Aid",
-        "id": "decision",
-        "size": "Small",
-        "navLink": "/Decision",
-        "group": "deliberation",
-        "title": "decision aid"
     }
+    // , 
+    // "Decision": {
+    //     "name": "Decision Aid",
+    //     "id": "decision",
+    //     "size": "Small",
+    //     "navLink": "/Decision",
+    //     "group": "deliberation",
+    //     "title": "decision aid"
+    // }
 }
 
 export const colors = {

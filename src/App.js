@@ -27,6 +27,7 @@ import Deliberation from "./pages/deliberation/Deliberation";
 import Risk from "./pages/deliberation/Risk";
 import Policy from "./pages/deliberation/Policy";
 import Decision from "./pages/deliberation/Decision";
+import DeliberationReflection from "./pages/deliberation/DeliberationReflection";
 
 import About from "./pages/About";
 import Glossary from "./pages/Glossary";
@@ -58,6 +59,7 @@ export default function App() {
     const [disableFairnessNext2, setDisableFairnessNext2] = useState(true);
     const [disableFairnessNext3, setDisableFairnessNext3] = useState(true);
     const [disableStakeholder, setDisableStakeholder] = useState(true);
+    const [disableDeliberation, setDeliberation] = useState(true);
 
     const [streetBumpData, setStreetBumpData] = useState({"nodes": [], "links": []});
     const [policyData, setPolicyData] = useState({"nodes": [], "links": []});
@@ -90,7 +92,8 @@ export default function App() {
           <Route path="/Deliberation" element={<Deliberation user={user} algorithmicBrainstorm={algorithmicBrainstorm} setAlgorithmicBrainstorm={setAlgorithmicBrainstorm}/>} />
           <Route path="/Policy" element={<Policy config={config.Policy} user={user} modules={modules} policy={policy} setPolicy={setPolicy} data={policyData} setData={setPolicyData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData}/>} />
           <Route path="/Risk" element={<Risk config={config.Risk} modules={modules} policy={policy} setPolicy={setPolicy} stakeholderData={stakeholderData} />} />
-          <Route path="/Decision" element={<Decision config={config.Decision} modules={modules}/>} policy={policy} />
+          {/* <Route path="/Decision" element={<Decision config={config.Decision} modules={modules}/>} policy={policy} setPolicy={setPolicy}/> */}
+          <Route path="/DeliberationReflection" element={<DeliberationReflection user={user} disableDeliberation={disableDeliberation} setDeliberation={setDeliberation}/>} />
 
           <Route path="/About" element={<About modules={modules} />} />
           <Route path="/Glossary" element={<Glossary modules={modules}/>} />

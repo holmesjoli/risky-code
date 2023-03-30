@@ -428,11 +428,11 @@ function RiskNetwork({setData}) {
             <div className="Container">
                 <Viz/>
                 <Legend/>
-                <div className="Three-Column-Equal Margin-Top">
+                {/* <div className="Three-Column-Equal Margin-Top">
                     <div></div>
                     <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset network</Button>
                     <div></div>
-                </div>
+                </div> */}
             </div>
         </div>
     )
@@ -457,8 +457,13 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
     const [data, setData] = useState([]);
     const [sid, setId] = useState(0);
 
+    // const routeNext = () => {
+    //     let path = `/Decision`; 
+    //     navigate(path);
+    // }
+
     const routeNext = () => {
-        let path = `/Decision`; 
+        let path = `/DeliberationReflection`; 
         navigate(path);
     }
 
