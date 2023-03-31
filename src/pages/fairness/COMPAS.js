@@ -291,10 +291,10 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
                         </div>
                         <div className="Container Margin-Bottom">
                             <h4 className="Small-Margin">reveal discrepancies</h4>
-                            <Switch size="small" color="secondary" className="DarkOrange" onChange={handleChange}/>
+                            <Switch size="small" color="secondary" className="Purple" onChange={handleChange}/>
                         </div>
                         <BaseRates baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm}>
-                            <p>Brainstorm why there are discrepancies between the base rates in they underlying population (new charges).</p>
+                            <p>Brainstorm why there are discrepancies between the base rates in the underlying population (new charges).</p>
                         </BaseRates>
                     </div>
                 </div>
@@ -374,12 +374,12 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                                 <p>Before we jump into algorithmic fairness its important to know a little bit more about the COMPAS algorithm and its data.</p>
                                 <p className="No-Margin-Bottom">The outcome variable of interest is the <span className="Emphasis">reoffense</span> in the COMPAS model. However, the data used to train COMPAS only reports whether a defendant was charged with another crime, <span className="Emphasis">arrests</span>. In predictive modeling, <span className="Emphasis">arrests</span>. is called a proxy variable for the actual outcome variable of interest, <span className="Emphasis">reoffense</span>.</p>
                             </div>
-                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext} className="DarkOrange">
+                            <Timer user={user} disableNext={disableFairnessNext} setDisableNext={setDisableFairnessNext} className="Purple">
                                 <p>Does everyone who commits a crime get charged with that crime?</p>
                                 <p>What are some factors that affect the likelihood that someone who commits a crime will be arrested and charged?</p>
                                 <p className={disableFairnessNext ? "": "No-Margin-Bottom"}>Do you think that <span className="Emphasis">arrests</span> is a good proxy variable for <span className="Emphasis">reoffense</span>?</p>
                             </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} className="DarkOrange" toggleOverlay={toggleOverlay}/>: <></>}
+                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext} className="Purple" toggleOverlay={toggleOverlay}/>: <></>}
                         </RightSideBar>
                     </div>
                 </div>
@@ -394,7 +394,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                     <p>Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
                 </Description>
                 <RoleShort moduleName="fairness"/>
-                <Terminology margin="Margin-Large-Bottom" className="DarkOrange">
+                <Terminology margin="Margin-Large-Bottom" className="Purple">
                     <Term term={terms['population-base-rate']}/>
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>
@@ -403,8 +403,8 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
             </LeftSideBar>
             <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate}/>
             <RightSideBar>
-                <Progress id={id} modules={modules} className="DarkOrange"/>
-                <NextButton routeNext={routeNext} className="DarkOrange"/>
+                <Progress id={id} modules={modules} className="Purple"/>
+                <NextButton routeNext={routeNext} className="Purple"/>
             </RightSideBar>
         </div>
         <Footer/>

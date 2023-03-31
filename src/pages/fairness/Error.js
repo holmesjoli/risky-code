@@ -278,7 +278,7 @@ export function Content() {
                             step={10}
                             aria-label="Small"
                             valueLabelDisplay="auto"
-                            className="DarkOrange"
+                            className="Purple"
                             onChange={updateSlider}
                             />
                         <p className="No-Margin-Bottom">Keeping an individual in jail awaiting trial can have vast implications in an individuals life; it can strain social and employment relationships.</p>
@@ -357,9 +357,9 @@ export default function Error({config, modules}) {
                             <h3 className="Page-Title">reflect</h3>
                         </div>
                         <RightSideBar>
-                            <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2} className="DarkOrange">
+                            <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2} className="Purple">
                             </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext} className="DarkOrange"/>: <></>}
+                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={routeNext} className="Purple"/>: <></>}
                         </RightSideBar>
                     </div>
                 </div>
@@ -374,7 +374,7 @@ export default function Error({config, modules}) {
                         <p>Optimize the false positive rate and false negative rate by moving the slider. </p>
                     </Description>
                     <RoleShort moduleName="fairness"/>
-                    <Terminology margin="Margin-Large-Bottom" className="DarkOrange">
+                    <Terminology margin="Margin-Large-Bottom" className="Purple">
                         <Term term={terms['fpr']}/>
                         <Term term={terms['fnr']}/>
                         <Term term={terms['mathematical-fairness']}/>
@@ -384,9 +384,9 @@ export default function Error({config, modules}) {
                 </LeftSideBar>
                 <Content />
                 <RightSideBar>
-                    <Progress id={config.id} modules={modules} className="DarkOrange"/>
+                    <Progress id={config.id} modules={modules} className="Purple"/>
                     <COMPASFair/>
-                    <NextButton routeNext={routeNext} className="DarkOrange"/>
+                    <NextButton routeNext={routeNext} className="Purple"/>
                 </RightSideBar>
             </div>
             <Footer/>

@@ -35,7 +35,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
     const Introduction = ({user}) => {
         return(
             <div className="Container2 Margin-Bottom">
-                {user==="group"?<p className="No-Margin-Bottom">The third module explores a common design-thinking methodology called <span className="Semi-Bold LightOrange">Stakeholder Mapping</span>. This section will lead your team through a stakeholder mapping exercise using a case study of where algorithmically-informed decision-making was implemented.</p>:<p className="No-Margin-Bottom">The third module, <span className="Emphasis">Stakeholder Mapping</span>, explores a common design-thinking methodology called Stakeholder Mapping. This section will lead you through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>}
+                {user==="group"?<p className="No-Margin-Bottom">The third module explores a common design-thinking methodology called <span className="Semi-Bold">Stakeholder Mapping</span>. This section will lead your team through a stakeholder mapping exercise using a case study of where algorithmically-informed decision-making was implemented.</p>:<p className="No-Margin-Bottom">The third module, <span className="Emphasis">Stakeholder Mapping</span>, explores a common design-thinking methodology called Stakeholder Mapping. This section will lead you through a two stakeholder mapping exercises use different case studies where algorithmically-informed decision-making was implemented.</p>}
             </div>
         )
     }
@@ -100,7 +100,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel className="LightOrange-Icon">
+                    <StepLabel className="Purple-Icon">
                         <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
@@ -116,7 +116,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
                                     back
                                 </Button>
                                 <Button
-                                    className="LightOrange" 
+                                    className="Purple" 
                                     variant="outlined"
                                     onClick={handleNext}
                                     size="small"
@@ -130,7 +130,7 @@ export default function StakeholderMapping({user, brainstormStakeholders, setBra
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="LightOrange" variant="outlined">
+                <Button onClick={routeNext} className="Purple" variant="outlined">
                     continue to stakeholder mapping
                 </Button>
             )}

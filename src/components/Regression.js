@@ -24,7 +24,7 @@ export function Threshold({predictiveProbability, updateSlider, containerClass="
                 max={100}
                 step={1}
                 aria-label="Small"
-                className="Pink"
+                className="Purple"
                 valueLabelDisplay="auto"
                 onChange={updateSlider}
             />

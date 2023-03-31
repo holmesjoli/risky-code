@@ -90,7 +90,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                                 <p className="Padding-Bottom No-Margin-Bottom Bottom-Rule">Use the slider to adjust the threshold. Notice, how the prediction of belonging to the cold water load changes for each item and the overall model accuracy changes.</p>
                                 <Predicted/>
                             </div>
-                            <NextButtonOverlay className="Pink" toggleOverlay={toggleOverlay}/>
+                            <NextButtonOverlay className="Purple" toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -106,7 +106,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
                         <p className="Padding-Bottom No-Margin-Bottom">Try to get the accuracy as high as possible.</p>
                     </Description>
                     <RoleShort moduleName="prediction"/>
-                    <Terminology margin="Margin-Large-Bottom" className="Pink">
+                    <Terminology margin="Margin-Large-Bottom" className="Purple">
                         <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['decision-threshold']}/>
@@ -115,8 +115,8 @@ export default function Optimize({config, variables, setVariables, items, setIte
                 </LeftSideBar>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                 <RightSideBar>
-                    <Progress id={config.id} modules={modules} className="Pink"/>
-                    <NextButton routeNext={routeNext} className="Pink"/>
+                    <Progress id={config.id} modules={modules} className="Purple"/>
+                    <NextButton routeNext={routeNext} className="Purple"/>
                 </RightSideBar>
             </div>
             <Footer/>

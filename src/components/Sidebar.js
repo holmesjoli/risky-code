@@ -66,8 +66,8 @@ export function COMPASFair() {
                     name="radio-buttons-group"
                     className="Margin-Left"
                 >
-                    <FormControlLabel className="DarkOrange" value="yes" control={<Radio />} label="Yes" />
-                    <FormControlLabel className="DarkOrange" value="no" control={<Radio />} label="No" />
+                    <FormControlLabel className="Purple" value="yes" control={<Radio />} label="Yes" />
+                    <FormControlLabel className="Purple" value="no" control={<Radio />} label="No" />
                 </RadioGroup>
             </FormControl>
     </div>

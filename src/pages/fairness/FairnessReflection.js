@@ -44,7 +44,7 @@ export default function FairnessReflection({user, disableFairnessNext3, setDisab
 
     const Reflect = ({user, disableFairnessNext3, setDisableFairnessNext3}) => {
         return(
-            <Timer user={user} disableNext={disableFairnessNext3} setDisableNext={setDisableFairnessNext3} className="DarkOrange">
+            <Timer user={user} disableNext={disableFairnessNext3} setDisableNext={setDisableFairnessNext3} className="Purple">
                 <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
                 <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
                 <p className={setDisableFairnessNext3 ? "": "No-Margin-Bottom"}>When may it be optimal to use different types of mathematical fairness?</p>
@@ -73,7 +73,7 @@ export default function FairnessReflection({user, disableFairnessNext3, setDisab
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel className="DarkOrange-Icon">
+                    <StepLabel className="Purple-Icon">
                         <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
@@ -88,7 +88,7 @@ export default function FairnessReflection({user, disableFairnessNext3, setDisab
                                 >
                                     back
                                 </Button>
-                                <NextButtonOrientation className="DarkOrange" routeNext={handleNext} disabled={step.disable}/>
+                                <NextButtonOrientation className="Purple" routeNext={handleNext} disabled={step.disable}/>
                             </div>
                         </Box>
                     </StepContent>
@@ -96,7 +96,7 @@ export default function FairnessReflection({user, disableFairnessNext3, setDisab
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="DarkOrange" variant="outlined">
+                <Button onClick={routeNext} className="Purple" variant="outlined">
                     continue to stakeholder mapping
                 </Button>
             )}

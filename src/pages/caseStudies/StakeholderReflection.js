@@ -43,7 +43,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
 
     const Reflect = ({user, disableStakeholder, setDisableStakeholder}) => {
         return(
-            <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder} className="LightOrange">
+            <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder} className="Purple">
                 {user==="group"? <p>Did your team think of any stakeholders which you hadn't considered before?</p>: <p>Did you think of any stakeholders which you hadn't considered before?</p>}
                 <p>How did the stakeholders' values align or diverge?</p>
                 <p className={disableStakeholder ? "": "No-Margin-Bottom"}>Is it important to consider all stakeholders' values equally?</p>
@@ -72,7 +72,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel className="LightOrange-Icon">
+                    <StepLabel className="Purple-Icon">
                         <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
@@ -87,7 +87,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
                                 >
                                     back
                                 </Button>
-                                <NextButtonOrientation className="LightOrange" routeNext={handleNext} disabled={step.disable}/>
+                                <NextButtonOrientation className="Purple" routeNext={handleNext} disabled={step.disable}/>
                             </div>
                         </Box>
                     </StepContent>
@@ -95,7 +95,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="LightOrange" variant="outlined">
+                <Button onClick={routeNext} className="Purple" variant="outlined">
                     continue to deliberation
                 </Button>
             )}

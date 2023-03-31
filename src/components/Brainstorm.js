@@ -106,7 +106,7 @@ export function AlgorithmDefinition({algorithmDefinition, setAlgorithmDefinition
 
     return(
         <div className="No-Margin-Bottom">
-            <TextField className="Pink" placeholder="add your definition here" variant="outlined" multiline={true} minRows={4} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
+            <TextField className="Purple" placeholder="add your definition here" variant="outlined" multiline={true} minRows={4} defaultValue={algorithmDefinition} onChange={updateAlgorithmDefinition}/>
         </div>
     )
 }
@@ -159,13 +159,13 @@ export function LaundryRules({rules, setRules}) {
     return(
         <div>
             <div className="Margin-Bottom">
-                <TextField className="Pink" placeholder="add laundry rule" variant="outlined" onChange={updateRule1}/>
+                <TextField className="Purple" placeholder="add laundry rule" variant="outlined" onChange={updateRule1}/>
             </div>
             <div className="Margin-Bottom">
-                <TextField className="Pink" placeholder="add laundry rule" variant="outlined" onChange={updateRule2}/>
+                <TextField className="Purple" placeholder="add laundry rule" variant="outlined" onChange={updateRule2}/>
             </div>
             <div className="No-Margin-Bottom">
-                <TextField className="Pink" placeholder="add laundry rule" variant="outlined" onChange={updateRule3}/>
+                <TextField className="Purple" placeholder="add laundry rule" variant="outlined" onChange={updateRule3}/>
             </div>
         </div>
     )
@@ -179,7 +179,7 @@ export function BrainstormStakeholders({brainstormStakeholders, setBrainstormSta
 
     return(
         <div className="No-Margin-Bottom">
-            <TextField className="LightOrange" placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={4} defaultValue={brainstormStakeholders} onChange={handleChange}/>
+            <TextField className="Purple" placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={4} defaultValue={brainstormStakeholders} onChange={handleChange}/>
         </div>
     )
 }
@@ -194,7 +194,7 @@ export function BaseRates({baseRatesBrainstorm, setBaseRatesBrainstorm, children
         <div className="Container Margin-Bottom">
             <h4 className="Small-Margin">brainstorm</h4>
             {children}
-            <TextField className="DarkOrange" placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={baseRatesBrainstorm} onChange={handleChange}/>
+            <TextField className="Purple" placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={baseRatesBrainstorm} onChange={handleChange}/>
         </div>
     )
 }
@@ -217,6 +217,6 @@ export function AlgorithmicDecisionMaking({algorithmicBrainstorm, setAlgorithmic
     }
 
     return(
-        <TextField className="Pink" placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={algorithmicBrainstorm} onChange={handleChange}/>
+        <TextField className="Purple" placeholder="add your brainstorm here" variant="outlined" multiline={true} minRows={5} defaultValue={algorithmicBrainstorm} onChange={handleChange}/>
     )
 }

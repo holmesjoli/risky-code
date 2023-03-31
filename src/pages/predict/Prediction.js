@@ -88,7 +88,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel className="Pink-Icon">
+                    <StepLabel className="Purple-Icon">
                         <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
@@ -104,7 +104,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                                     back
                                 </Button>
                                 <Button
-                                    className="Pink" 
+                                    className="Purple" 
                                     variant="outlined"
                                     onClick={handleNext}
                                     size="small"
@@ -118,7 +118,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="Pink" variant="outlined">
+                <Button onClick={routeNext} className="Purple" variant="outlined">
                     continue to algorithmic prediction
                 </Button>
             )}

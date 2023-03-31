@@ -70,7 +70,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                                 </ul>
                                 {user==="group"?<p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                             </div>
-                            <NextButtonOverlay className="Pink" toggleOverlay={toggleOverlay}/>
+                            <NextButtonOverlay className="Purple" toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -99,15 +99,15 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     {user==="group"?<p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                 </Description>
                 <RoleShort moduleName="prediction"/>
-                <Terminology margin="Margin-Large-Bottom" className="Pink">
+                <Terminology margin="Margin-Large-Bottom" className="Purple">
                     <Term term={terms['algorithm']}/>
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
             <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name}/>
             <RightSideBar>
-                <Progress id={id} modules={modules} className="Pink"/>
-                <NextButton routeNext={routeNext} className="Pink" disabled={disabled}/>
+                <Progress id={id} modules={modules} className="Purple"/>
+                <NextButton routeNext={routeNext} className="Purple" disabled={disabled}/>
             </RightSideBar>
         </div>
         <Footer/>

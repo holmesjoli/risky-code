@@ -109,7 +109,7 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                                 <h4 className="Small-Margin">brainstorm</h4>
                                 <p className="No-Margin-Bottom">Start by brainstorming who the direct stakeholders of Street Bump would be. Are there any indirect stakeholders? Is anyone excluded from the using the application?</p>
                             </div>
-                            <NextButtonOverlay toggleOverlay={toggleOverlay} className="LightOrange"/>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay} className="Purple"/>
                         </RightSideBar>
                     </div>
                 </div>
@@ -125,7 +125,7 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                     <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>
                 <RoleShort moduleName="caseStudies"/>
-                <Terminology margin="Margin-Large-Bottom" className="LightOrange">
+                <Terminology margin="Margin-Large-Bottom" className="">
                     <Term term={terms['stakeholders']}/>
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
@@ -133,11 +133,11 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                 </Terminology>
                 <BackButton routeBack={routeBack}/>
             </LeftSideBar>
-            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="LightOrange"/>
+            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Purple"/>
             <RightSideBar>
-            <Progress id={id} modules={modules} className="LightOrange"/>
-                <Consequence className="LightOrange Margin-Large-Bottom"/>
-                <NextButton routeNext={routeNext} className="LightOrange"/>
+            <Progress id={id} modules={modules} className="Purple"/>
+                <Consequence className="Purple Margin-Large-Bottom"/>
+                <NextButton routeNext={routeNext} className="Purple"/>
             </RightSideBar>
         </div>
         <Footer/>

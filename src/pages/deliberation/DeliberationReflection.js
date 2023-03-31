@@ -31,7 +31,7 @@ export default function DeliberationReflection({user, disableDeliberation, setDe
 
         return(
             <div className="Container2 Margin-Bottom">
-                <p>Consider different risk metrics about algorithmically-informed decsion-making</p>
+                <p>Consider different risk metrics about algorithmically-informed decision-making</p>
                 <p>Analyze different stakeholders and their individual risks</p>
                 <p className="No-Margin-Bottom">Visually analyze an algorithm's risk</p>
             </div>
@@ -40,7 +40,7 @@ export default function DeliberationReflection({user, disableDeliberation, setDe
 
     const Reflect = ({user, disableDeliberation, setDeliberation}) => {
         return(
-            <Timer user={user} disableNext={disableDeliberation} setDisableNext={setDeliberation} className="Yellow">
+            <Timer user={user} disableNext={disableDeliberation} setDisableNext={setDeliberation} className="Purple">
                 <p>Do you think algorithmically informed decision-making should be used in your policy scenario?</p>
                 <p className="No-Margin-Bottom">What do you think of algorithmically informed decision-making after this workshop? Did any of your views change?</p>
             </Timer>
@@ -68,7 +68,7 @@ export default function DeliberationReflection({user, disableDeliberation, setDe
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel className="DarkOrange-Icon">
+                    <StepLabel className="Purple-Icon">
                         <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
@@ -83,7 +83,7 @@ export default function DeliberationReflection({user, disableDeliberation, setDe
                                 >
                                     back
                                 </Button>
-                                <NextButtonOrientation className="Yellow" routeNext={handleNext} disabled={step.disable}/>
+                                <NextButtonOrientation className="Purple" routeNext={handleNext} disabled={step.disable}/>
                             </div>
                         </Box>
                     </StepContent>
@@ -92,7 +92,7 @@ export default function DeliberationReflection({user, disableDeliberation, setDe
             </Stepper>
             {activeStep === steps.length && (
                 <div className="Semi-Bold">Congrats you've reached the end. Thank you for participating!</div>
-                // <Button onClick={routeNext} className="Yellow" variant="outlined">
+                // <Button onClick={routeNext} className="Purple" variant="outlined">
                 //     continue to stakeholder mapping
                 // </Button>
             )}

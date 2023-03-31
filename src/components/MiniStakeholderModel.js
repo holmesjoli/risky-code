@@ -106,7 +106,7 @@ const MovableItem = ({
   drag(drop(ref));
 
   return (
-    <div ref={ref} className="Movable-Item Variable Variable-LightOrange" style={{ opacity }}>
+    <div ref={ref} className="Movable-Item Variable Variable-Purple" style={{ opacity }}>
       {item.name}
     </div>
   );
@@ -134,8 +134,8 @@ const Column = ({ children, className, title }) => {
     <div
       ref={drop}
       className={className}
-      style={{ border: getBorder(isOver, canDrop, "LightOrange"),
-        backgroundColor: getBackgroundColor(isOver, canDrop, "LightOrange") }}
+      style={{ border: getBorder(isOver, canDrop),
+        backgroundColor: getBackgroundColor(isOver, canDrop) }}
     >
       <h4 className="Small-Margin" style={{ color: getColor(isOver, canDrop) }}>{title}</h4>
       <div className="Card-Container Moveable-Items">
@@ -212,10 +212,10 @@ export default function MiniModel() {
           </Column>
           <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">add your own stakeholder</h4>
-            <TextField className="LightOrange" value={stakeholderName} placeholder="stakeholder name" variant="outlined" onChange={updateStakeholder} />
+            <TextField className="Purple" value={stakeholderName} placeholder="stakeholder name" variant="outlined" onChange={updateStakeholder} />
             <div className="Add-Stakeholder-Button Margin-Top">
                 <h4 className="Small-Margin">add stakeholder to the list</h4>
-                <Fab color="primary" onClick={add} className="LightOrange">
+                <Fab color="primary" onClick={add} className="Purple">
                     <AddIcon />
                 </Fab>
             </div>

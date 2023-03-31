@@ -36,7 +36,7 @@ import Contact from "./pages/Contact";
 import Main from "./pages/Main";
 
 import { config, CARDS, VARIABLES }  from "./utils/global";
-import { useState} from "react";
+import { useState } from "react";
 
 export default function App() {
 

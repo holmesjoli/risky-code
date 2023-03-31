@@ -14,7 +14,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
 
     const [activeStep, setActiveStep] = useState(0);
     let navigate = useNavigate();
-    // const [className, setClassName] = useState("Pink");
+    // const [className, setClassName] = useState("Purple");
 
     const routeNext = () => {
         let path = `/Fairness`;
@@ -55,7 +55,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
 
     const Reflect = ({user, disablePredictionNext, setDisablePredictionNext}) => {
         return(
-            <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext} className="Pink">
+            <Timer user={user} disableNext={disablePredictionNext} setDisableNext={setDisablePredictionNext} className="Purple">
                 <p>Would you collect any other variables to use in the statistical model?</p>
                 <p>Were there any rules {user==="group"? "your team": "you"} brainstormed that the statistical model was not able to accomodate?</p>
                     {user==="group"? <p>Were there any rules that one person uses to sort their laundry that are not used by others?</p>: <></>}
@@ -90,7 +90,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
                 <Step key={step.label}>
-                    <StepLabel className="Pink-Icon">
+                    <StepLabel className="Purple-Icon">
                         <h3 className="Small-Margin">{step.label}</h3>
                     </StepLabel>
                     <StepContent>
@@ -105,7 +105,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                                 >
                                     back
                                 </Button>
-                                <NextButtonOrientation className="Pink" routeNext={handleNext} disabled={step.disable}/>
+                                <NextButtonOrientation className="Purple" routeNext={handleNext} disabled={step.disable}/>
                             </div>
                         </Box>
                     </StepContent>
@@ -113,7 +113,7 @@ export default function PredictionReflection({user, algorithmDefinition, setAlgo
                 ))}
             </Stepper>
             {activeStep === steps.length && (
-                <Button onClick={routeNext} className="Pink" variant="outlined">
+                <Button onClick={routeNext} className="Purple" variant="outlined">
                     continue to algorithmic fairness
                 </Button>
             )}

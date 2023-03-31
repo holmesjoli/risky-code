@@ -16,19 +16,10 @@ export const DndWrapper = React.memo((props) => {
   ) : null;
 });
 
-export const getBackgroundColor = (isOver, canDrop, className) => {
+export const getBackgroundColor = (isOver, canDrop) => {
     if (isOver) {
       if (canDrop) {
-        if (className === "Purple") {
-          return "rgb(154, 0, 255, .12)"; 
-        } else if(className === "Pink") {
-          return "rgb(234, 33, 173, .12)"; 
-        } else if (className === "DarkOrange") {
-          return "rgb(254, 64, 2, .12)"; 
-        } else if (className === "LightOrange") {
-          return "rgb(253, 123, 3, .12)";
-        }
-
+        return "rgb(154, 0, 255, .12)"; 
       } else {
         return "rgb(255,188,188)"
       }
@@ -49,18 +40,10 @@ export const getColor = (isOver, canDrop) => {
     }
 };
 
-export const getBorder = (isOver, canDrop, className) => {
+export const getBorder = (isOver, canDrop) => {
   if (isOver) {
     if (canDrop) {
-      if (className === "Purple") {
         return "1.5pt dotted rgb(154, 0, 255)"; 
-      } else if (className === "Pink") {
-        return "1.5pt dotted rgb(234, 33, 173)"
-      } else if (className === "DarkOrange") {
-        return "1.5pt dotted rgb(254, 64, 2)"
-      } else if (className === "LightOrange") {
-        return "1.5pt dotted rgb(253, 123, 3)"
-      }
     } else if (!canDrop) {
       return "none";
     }
