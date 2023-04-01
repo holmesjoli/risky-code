@@ -95,6 +95,10 @@
 
   
 //Slider
+.MuiSlider-root.MuiSlider-colorPrimary.Purple {
+    color: $Purple;
+}
+
 .MuiSlider-root.MuiSlider-colorPrimary.Pink {
     color: $Pink;
 }
@@ -108,6 +112,10 @@
 }
 
 //Fab
+.MuiButtonBase-root.MuiFab-root.Purple.MuiFab-primary {
+    background-color: $Purple;
+}
+
 .MuiButtonBase-root.MuiFab-root.LightOrange.MuiFab-primary {
     background-color: $LightOrange;
 }
@@ -133,6 +141,11 @@ p {
 }
 
 //Switch
+.Purple .MuiButtonBase-root:hover {
+    color: $Purple;
+    border-color: $Purple;
+}
+
 .DarkOrange .MuiButtonBase-root:hover {
     color: $DarkOrange;
     border-color: $DarkOrange;
@@ -148,7 +161,21 @@ p {
     border-color: $Yellow;
 }
 
+.Purple .MuiButtonBase-root:hover {
+    color: $Purple;
+    border-color: $Purple;
+}
+
+
 // Accordion
+.Purple .MuiButtonBase-root.MuiAccordionSummary-root:hover,
+.Purple .MuiAccordionSummary-expandIcon:hover,
+.Purple .MuiAccordionSummary-content:hover,
+.Purple .Expand:hover {
+    color: $Purple;
+    border-color: $Purple;
+}
+
 .Pink .MuiButtonBase-root.MuiAccordionSummary-root:hover,
 .Pink .MuiAccordionSummary-expandIcon:hover,
 .Pink .MuiAccordionSummary-content:hover,
@@ -183,6 +210,10 @@ p {
 
 
 //Links
+
+.Purple:hover, h6 > .Pink:hover {
+    color: $Purple;
+}
 
 .Pink:hover, h6 > .Pink:hover {
     color: $Pink;
