@@ -207,7 +207,7 @@ export default function MiniModel() {
     <div id="stakeholderMiniModel" className="Text-Align-Center Two-Column">
       <DndWrapper id="stakeholderMiniModel">
         <div>
-          <Column title={STAKEHOLDER} className="Container Variables-Column Card-Group">
+          <Column title={STAKEHOLDER} className="Container Variables-Column Card-Group Dotted-Border">
             {returnItemsForColumn(STAKEHOLDER)}
           </Column>
           <div className="Container2 Margin-Bottom">
@@ -223,13 +223,13 @@ export default function MiniModel() {
       </div>
         {/* <ExpandMoreIcon className="Scale200"/> */}
         <div className="Three-Row-Equal">
-          <Column title={DIRECT} className="Container Variables-Column Margin-Bottom Card-Group">
+          <Column title={DIRECT} className="Container Variables-Column Margin-Bottom Card-Group Dotted-Border">
             {returnItemsForColumn(DIRECT)}
           </Column>
-            <Column title={INDIRECT} className="Container Variables-Column Margin-Bottom Card-Group">
+            <Column title={INDIRECT} className="Container Variables-Column Margin-Bottom Card-Group Dotted-Border">
             {returnItemsForColumn(INDIRECT)}
             </Column>
-            <Column title={EXCLUDED} className="Container Variables-Column Margin-Bottom Card-Group">
+            <Column title={EXCLUDED} className="Container Variables-Column Margin-Bottom Card-Group Dotted-Border">
             {returnItemsForColumn(EXCLUDED)}
             </Column>
         </div>

@@ -11,7 +11,7 @@ const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 let totalClassify;
 
 function bigCardClass(currentColumnName) {
-  return currentColumnName === ITEM_LIST? " Card-Big": "Card";
+  return currentColumnName === ITEM_LIST? " Card-Big Dotted-Border": "Card";
 }
 
 // Modified from https://codesandbox.io/s/react-dnd-example-try06?file=/src/assets/styles/App.css:0-1002
@@ -249,10 +249,10 @@ export default function SortLaundry({ items, setItems, nClassified, setNClassifi
         </Column>
         <ExpandMoreIcon/>
         <div className="Two-Column">
-          <Column title={CASE_TRUE} className="Container2 Case-True-Column Move-Column No-Margin-Bottom">
+          <Column title={CASE_TRUE} className="Container2 Case-True-Column Move-Column No-Margin-Bottom Dotted-Border">
             {returnItemsForColumn(items, CASE_TRUE)}
           </Column>
-          <Column title={CASE_FALSE} className="Container2 Case-False-Column Move-Column No-Margin-Bottom">
+          <Column title={CASE_FALSE} className="Container2 Case-False-Column Move-Column No-Margin-Bottom Dotted-Border">
             {returnItemsForColumn(items, CASE_FALSE)}
           </Column>
         </div>

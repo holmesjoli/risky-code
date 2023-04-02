@@ -185,11 +185,11 @@ export default function Model({variables, setVariables}) {
   return (
     <div id="StatisticalModel" className="Text-Align-Center">
       <DndWrapper id="StatisticalModel">
-        <Column title={DATA_VARIABLES} className="Container Variables-Column No-Margin-Bottom">
+        <Column title={DATA_VARIABLES} className="Container Variables-Column No-Margin-Bottom Dotted-Border">
           {returnItemsForColumn(variables, DATA_VARIABLES )}
         </Column>
         <ExpandMoreIcon/>
-        <Column title={MODEL_VARIABLES} className="Container Variables-Column No-Margin-Bottom">
+        <Column title={MODEL_VARIABLES} className="Container Variables-Column No-Margin-Bottom Dotted-Border">
           {returnItemsForColumn(variables, MODEL_VARIABLES)}
         </Column>
       </DndWrapper>
