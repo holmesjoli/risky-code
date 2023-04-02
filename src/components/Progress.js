@@ -199,7 +199,7 @@
 
 import * as React from 'react';
 
-import { Box, Drawer, Button, List, Divider, ListItem } from '@material-ui/core';
+import { Box, Drawer, Button} from '@material-ui/core';
 
 
 export default function TemporaryDrawer() {
