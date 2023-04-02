@@ -3,7 +3,12 @@ export function RolePrediction({user}) {
     return(
         <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">you</h4>
-            {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is <span className="Semi-Bold">you</span>, a group of busy individuals who want to learn more about algorithmic decision-making</p>: <p className="No-Margin-Bottom">Your role in this module is <span className="Semi-Bold">you</span>, a busy individual who wants to learn more about algorithmic decision-making</p>}
+            {user==="group"? <p>Your team's role in this module is <span className="Semi-Bold">you</span>, a group of busy individuals who want to learn more about algorithmic decision-making</p>: <p>Your role in this module is <span className="Semi-Bold">you</span>, a busy individual who wants to learn more about algorithmic decision-making</p>}
+
+            <h4>Responsibilities</h4>
+            <ul>
+                <li className="No-Margin-Bottom">Get your laundry done</li>
+            </ul>
         </div>
     )
 }
@@ -12,7 +17,14 @@ export function RoleFairness({user}) {
     return(
         <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">data scientist</h4>
-            {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is a team of socially aware <span className="Semi-Bold">data scientists</span>, interested in algorithmic fairness</p>: <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Semi-Bold">data scientist</span> interested in algorithmic fairness.</p>}
+            {user==="group"? <p>Your team's role in this module is a team of socially aware <span className="Semi-Bold">data scientists</span>, interested in algorithmic fairness</p>: <p>Your role in this module is a socially aware <span className="Semi-Bold">data scientist</span> interested in algorithmic fairness.</p>}
+
+            <h4>Responsibilities</h4>
+            <ul>
+                <li>Clean and parse data</li>
+                <li>Choose variables to add to a predictive model</li>
+                <li className="No-Margin-Bottom">Optimize for different indicators of predictive model performance (e.g., accuracy)</li>
+            </ul>
         </div>
     )
 }
@@ -21,7 +33,15 @@ export function RoleStakeholder({user}) {
     return(
         <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">designer</h4>
-            {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is a team of socially aware <span className="Semi-Bold">designers</span>, interested in bring value-sensitive design methods to algorithmically informed decision-making</p>: <p className="No-Margin-Bottom">Your role in this module is a socially aware <span className="Semi-Bold">designer</span>, interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>}
+            {user==="group"? <p>Your team's role in this module is a team of socially aware <span className="Semi-Bold">designers</span>, interested in bring value-sensitive design methods to algorithmically informed decision-making</p>: <p>Your role in this module is a socially aware <span className="Semi-Bold">designer</span>, interested in bring value-sensitive design methods to algorithmically informed decision-making.</p>}
+
+            <h4>Responsibilities</h4>
+            <ul>
+                <li>Generate ideas and plans</li>
+                <li>Brainstorm and suggest interventions to challenging problems</li>
+                <li>Use visual strategies to show solutions/interventions</li>
+                <li className="No-Margin-Bottom">Facilitate conversation</li>
+            </ul>
         </div>
     )
 }
@@ -30,7 +50,13 @@ export function RoleDeliberation({user}) {
     return(
         <div className="Container2 Margin-Bottom">
             <h4 className="Small-Margin">public policymaker</h4>
-            {user==="group"? <p className="No-Margin-Bottom">Your team's role in this module is a team of socially aware <span className="Semi-Bold">public policymakers</span>, interested in using algorithmic decision-making in equitable and fair ways</p>: <p className="No-Margin-Bottom">Your role in this module is a <span className="Semi-Bold">public policymaker</span>, interested in using algorithmic decision-making in equitable and fair ways</p>}
+            {user==="group"? <p>Your team's role in this module is a team of socially aware <span className="Semi-Bold">public policymakers</span>, interested in using algorithmic decision-making in equitable and fair ways</p>: <p>Your role in this module is a <span className="Semi-Bold">public policymaker</span>, interested in using algorithmic decision-making in equitable and fair ways</p>}
+            <h4>Responsibilities</h4>
+            <ul>
+                <li className="No-Margin-Bottom">Crate plans and recommendations for public issues</li>
+                <li className="No-Margin-Bottom">Gather and summarize evidence-based research</li>
+                <li className="No-Margin-Bottom">Make decisions and implement plans</li>
+            </ul>
         </div>
     )
 }
