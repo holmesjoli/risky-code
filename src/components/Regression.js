@@ -15,7 +15,7 @@ var logistic = new LogisticRegression({
 export function Threshold({predictiveProbability, updateSlider, containerClass="Container"}) {
     return(
         <div className={containerClass +" Margin-Bottom No-Padding-Bottom Bottom-Rule"}>
-            <h4 className="Small-Margin">decision threshold</h4>
+            <h3 className="Small-Margin">decision threshold</h3>
             <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the <span className="Emphasis">cold water load</span>.</p>
             <Slider
                 size="small"

@@ -44,8 +44,8 @@ export function Content({variables, setVariables, items, setItems, predictivePro
         <div className="Content No-Padding-Top">
             <div className="One-Column-Three5">
                 <div>
-                    <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                     <Model variables={variables} setVariables={setVariables}/>
+                    <Threshold predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
                 </div>
                 <div>
                     <Card items={items}/>

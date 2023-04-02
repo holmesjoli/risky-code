@@ -183,8 +183,8 @@ export default function Model({variables, setVariables}) {
   const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
 
   return (
-    <div id="StatisticalModel" className="Text-Align-Center Container">
-      <h3 className="Margin-Small Text-Align-Left">Statistical model</h3>
+    <div id="StatisticalModel" className="Text-Align-Center Container Margin-Bottom">
+      <h3 className="Small-Margin Text-Align-Left">Statistical model</h3>
       <DndWrapper id="StatisticalModel">
         <Column title={DATA_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom Dotted-Border">
           {returnItemsForColumn(variables, DATA_VARIABLES )}
