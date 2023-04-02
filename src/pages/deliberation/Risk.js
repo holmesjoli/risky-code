@@ -280,12 +280,12 @@ function RiskLevel({title, handleChange, children}) {
 const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderValues, updateAccountability}) => {
     return(
         <div className="Slider-Container">
-            <RiskLevel title="appropriate data usage" handleChange={updateAppropriateDataUse}>
-                <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
-                    <p className="Small-Margin"><span className="Emphasis">Citizen data use</span></p>
+            <RiskLevel title="stakeholder values" handleChange={updateStakeholderValues}>
+                <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
+                    <p className="Small-Margin"><span className="Emphasis">Serious stakeholder harm</span></p>
                 </Tooltip>
-                <Tooltip title="Consider the purposes and context under which the data was obtained">
-                    <p className="Small-Margin"><span className="Emphasis">Data compatability</span></p>
+                <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
+                    <p className="Small-Margin"><span className="Emphasis">Historical and societal bias</span></p>
                 </Tooltip>
             </RiskLevel>
             <RiskLevel title="technical bias" handleChange={updateTechnical}>
@@ -307,12 +307,12 @@ const Sliders = ({updateAppropriateDataUse, updateTechnical, updateStakeholderVa
                     <p className="Small-Margin"><span className="Emphasis">Automation</span></p>
                 </Tooltip>
             </RiskLevel>
-            <RiskLevel title="stakeholder values" handleChange={updateStakeholderValues}>
-                <Tooltip title="Consider stakeholder values such as loss of life, liberty, or property">
-                    <p className="Small-Margin"><span className="Emphasis">Serious stakeholder harm</span></p>
+            <RiskLevel title="appropriate data usage" handleChange={updateAppropriateDataUse}>
+                <Tooltip title="Consider if citizen data is used and if citizens opted into data collection">
+                    <p className="Small-Margin"><span className="Emphasis">Citizen data use</span></p>
                 </Tooltip>
-                <Tooltip title="Consider bias from racism, discrimination, class, gender, etc.">
-                    <p className="Small-Margin"><span className="Emphasis">Historical and societal bias</span></p>
+                <Tooltip title="Consider the purposes and context under which the data was obtained">
+                    <p className="Small-Margin"><span className="Emphasis">Data compatability</span></p>
                 </Tooltip>
             </RiskLevel>
         </div>
