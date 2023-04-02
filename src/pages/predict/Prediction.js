@@ -83,7 +83,7 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
   return (
     <div className="Orientation">
         <div className="Container Margin-Bottom">
-        <h3>introduction to algorithmic prediction</h3>
+        <h2>algorithmic prediction</h2>
             <Box sx={{ width: 500 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (

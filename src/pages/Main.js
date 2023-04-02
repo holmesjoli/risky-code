@@ -12,7 +12,7 @@ export default function Main() {
     return(
         <div className="Start">
             <h1>Risky Code</h1>
-            <h3>a digital workshop to educate participants and facilitate deliberation about algorithmically informed decision-making</h3>
+            <h2>a digital workshop to educate participants and facilitate deliberation about algorithmically informed decision-making</h2>
             <Button variant="contained" onClick={routeNext}>start workshop</Button>
         </div>
     )

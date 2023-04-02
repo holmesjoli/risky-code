@@ -131,7 +131,7 @@ export default function Orientation({user, setUser, name, setName, groupName, se
     return (
         <div className="Orientation">
             <div className="Container Margin-Bottom">
-            <h3>orientation</h3>
+            <h2>orientation</h2>
                 <Box sx={{ width: 500 }}>
                 <Stepper activeStep={activeStep} orientation="vertical">
                     {steps.map((step, index) => (

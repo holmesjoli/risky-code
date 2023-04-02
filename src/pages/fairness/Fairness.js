@@ -95,7 +95,7 @@ export default function Fairness({user}) {
   return (
     <div className="Orientation">
         <div className="Container Margin-Bottom">
-        <h3>introduction to algorithmic fairness</h3>
+        <h2>algorithmic fairness</h2>
             <Box sx={{ width: 500 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
