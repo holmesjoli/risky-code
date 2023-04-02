@@ -62,3 +62,10 @@ p {
 .Purple:hover, h6 > .Pink:hover {
     color: $Purple;
 }
+
+
+// Drawer Button 
+
+.MuiPaper-root.MuiDrawer-paper.MuiDrawer-paperAnchorRight.MuiPaper-elevation16 {
+    border-left: 1px solid $containerBorderColor;
+}

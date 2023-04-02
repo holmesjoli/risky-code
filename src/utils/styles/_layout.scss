@@ -95,6 +95,13 @@ ul {
     text-align: left;
 }
 
+.Container3 {
+    padding: $containerPadding;
+    text-align: left;
+    background-color: $appDarkAccent;
+    // border-left: 1px solid $containerBorderColor;
+}
+
 .Container-Fill-Secondary {
     background-color: $appDarkAccent;
 }

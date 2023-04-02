@@ -5,7 +5,7 @@ import * as d3 from 'd3';
 import { useEffect } from 'react';
 import { config, wrap, visStyles, highlightColorScale } from "../utils/global";
 
-const height = 540;
+const height = 460;
 const width = 260;
 const space = 35;
 const margin = {left: 30, top: 25}
@@ -174,7 +174,7 @@ function RenderProgress({id, modules, navigate}) {
     }, [modules, id])
 
     return(
-        <div className="Container Progress-Container">
+        <div className="Container3">
             <h3>Progress</h3>
             <p>Navigate to completed modules by clicking on an outlined node</p>
             <div id="Progress-Chart"></div>
@@ -214,7 +214,7 @@ export default function Progress({id, modules}) {
         <div className="Progress">
             {(['right']).map((anchor) => (
                 <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)} className="Purple">progress</Button>
+                <Button onClick={toggleDrawer(anchor, true)} variant="outlined" color="secondary" className="Left-Border">progress</Button>
                 <Drawer
                     anchor={anchor}
                     open={state[anchor]}
