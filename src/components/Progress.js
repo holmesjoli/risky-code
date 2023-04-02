@@ -1,75 +1,76 @@
-// import { useNavigate } from "react-router-dom";
-// import { Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
-// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-// import * as d3 from 'd3';
-// import { useEffect } from 'react';
-// import { config, wrap, visStyles, highlightColorScale } from "../utils/global";
+import { useNavigate } from "react-router-dom";
+import * as React from 'react';
+import { Accordion, AccordionSummary, AccordionDetails, Box, Drawer, Button } from '@material-ui/core';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import * as d3 from 'd3';
+import { useEffect } from 'react';
+import { config, wrap, visStyles, highlightColorScale } from "../utils/global";
 
-// const height = 540;
-// const width = 260;
-// const space = 35;
-// const margin = {left: 30, top: 25}
-// const style = "darkMode";
+const height = 540;
+const width = 260;
+const space = 35;
+const margin = {left: 30, top: 25}
+const style = "darkMode";
 
-// const rScale = d3.scaleOrdinal()
-//     .domain(["Small", "Large"])
-//     .range([5, 8]);
+const rScale = d3.scaleOrdinal()
+    .domain(["Small", "Large"])
+    .range([5, 8]);
 
-// function lookupPageId(id, configArray) {
-//     const pageId = configArray.filter(d => d.id === id).map(d => d.id)[0];
-//     return pageId;
-// }
+function lookupPageId(id, configArray) {
+    const pageId = configArray.filter(d => d.id === id).map(d => d.id)[0];
+    return pageId;
+}
 
-// function lookupOtherPages(id, configArray) {
-//     const pageId = configArray.filter(d => d.id !== id).map(d => d.id);
-//     return pageId;
-// }
-// function createVisited(modules, configArray) {
-//     let visited = configArray.filter(d => modules.includes(d.id)).map(d => d.id);
-//     return visited;
-// }
+function lookupOtherPages(id, configArray) {
+    const pageId = configArray.filter(d => d.id !== id).map(d => d.id);
+    return pageId;
+}
+function createVisited(modules, configArray) {
+    let visited = configArray.filter(d => modules.includes(d.id)).map(d => d.id);
+    return visited;
+}
 
-// function createScale(pageId, otherPageIds, scaleRange) {
+function createScale(pageId, otherPageIds, scaleRange) {
 
-//     let scale = d3.scaleOrdinal()
-//         .domain([pageId].concat(otherPageIds))
-//         .range(scaleRange);
+    let scale = d3.scaleOrdinal()
+        .domain([pageId].concat(otherPageIds))
+        .range(scaleRange);
 
-//     return scale;
-// }
+    return scale;
+}
 
-// // Click to Navigate to a different page
-// function onClickNav(navigate) {
+// Click to Navigate to a different page
+function onClickNav(navigate) {
 
-//     const routeChange = (d) => {
-//         navigate(d);
-//     }
+    const routeChange = (d) => {
+        navigate(d);
+    }
 
-//     d3.selectAll(".visited-node").on("click", function(e, d) {
-//         routeChange(d.navLink)
-//     })
-// }
+    d3.selectAll(".visited-node").on("click", function(e, d) {
+        routeChange(d.navLink)
+    })
+}
 
-// function renderTooltip(pageId, fillScale) {
+function renderTooltip(pageId, fillScale) {
     
-//     d3.selectAll(".visited-node").on("mouseover", function(e, d) {
+    d3.selectAll(".visited-node").on("mouseover", function(e, d) {
 
-//         let thisCircle = d3.select(this);
+        let thisCircle = d3.select(this);
 
-//         thisCircle
-//             .attr("stroke-width", d => d.id === pageId ? 1: 2)
-//             .attr("fill", d => highlightColorScale(d.group))
-//             .attr("fill-opacity", d => d.id === pageId ? 1: .5)
+        thisCircle
+            .attr("stroke-width", d => d.id === pageId ? 1: 2)
+            .attr("fill", d => highlightColorScale(d.group))
+            .attr("fill-opacity", d => d.id === pageId ? 1: .5)
 
-//     }).on("mouseout", function() {
+    }).on("mouseout", function() {
 
-//         d3.selectAll('.visited-node')
-//             .attr("stroke-width", 1)
-//             .attr("fill", d => fillScale(d.id));
-//     })
-// }
+        d3.selectAll('.visited-node')
+            .attr("stroke-width", 1)
+            .attr("fill", d => fillScale(d.id));
+    })
+}
 
-// export default function Progress({id, modules, defaultExpanded = false, className="Purple"}) {
+export default function Progress({id, modules, defaultExpanded = false, className="Purple"}) {
 
 //     let navigate = useNavigate();
 //     let configLength = Object.keys(config).length;
@@ -85,6 +86,24 @@
 
 //     let pageId, otherPageIds, highlightColor, fill;
 //     let visited, fillScale, fontWeightScale, fontColorScale;
+
+    const [state, setState] = React.useState({
+        right: false,
+    });
+
+    const toggleDrawer =
+        (anchor, open) =>
+        (event) => {
+        if (
+            event.type === 'keydown' &&
+            ((event).key === 'Tab' ||
+            (event).key === 'Shift')
+        ) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
+        };
 
 //     useEffect(() => {
 
@@ -194,57 +213,29 @@
 //             </Accordion>
 //         </div>
 //     )
-// }
 
+        return (
+            <div>
+            {(['right']).map((anchor) => (
+                <React.Fragment key={anchor}>
+                <Button onClick={toggleDrawer(anchor, true)} className="Purple">progress</Button>
+                <Drawer
+                    anchor={anchor}
+                    open={state[anchor]}
+                    onClose={toggleDrawer(anchor, false)}
+                >
+                    <Box
+                        sx={{ width: 300 }}
+                        role="presentation"
+                        onClick={toggleDrawer(anchor, false)}
+                        onKeyDown={toggleDrawer(anchor, false)}
+                        >
 
-import * as React from 'react';
-
-import { Box, Drawer, Button } from '@material-ui/core';
-
-
-export default function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    right: false,
-  });
-
-  const toggleDrawer =
-    (anchor, open) =>
-    (event) => {
-      if (
-        event.type === 'keydown' &&
-        ((event).key === 'Tab' ||
-          (event).key === 'Shift')
-      ) {
-        return;
-      }
-
-      setState({ ...state, [anchor]: open });
-    };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: 300 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-    </Box>
-  );
-
-  return (
-    <div>
-      {(['right']).map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>progress</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
-  );
+                    
+                    </Box>
+                </Drawer>
+                </React.Fragment>
+            ))}
+            </div>
+        );
 }
