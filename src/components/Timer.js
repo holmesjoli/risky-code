@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 // adpated from https://stackoverflow.com/questions/40885923/countdown-timer-in-react
 export default function Timer({user, disableNext, setDisableNext, children, className}) {
 
-    const [minutes, setMinutes ] = useState(3);
-    const [seconds, setSeconds ] =  useState(0);
+    const [minutes, setMinutes ] = useState(0);
+    const [seconds, setSeconds ] =  useState(2);
 
     useEffect(()=> {
 

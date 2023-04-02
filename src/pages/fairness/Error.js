@@ -214,7 +214,7 @@ function renderGraph(data, predictiveProbability) {
     d3.select(`#${textIdFNR}`)
         .append("p")
         .attr("class", "No-Margin-Bottom")
-        .text(`At a risk level of ${predictiveProbability}, COMPAS incorrectly predicts that ${FNRPctBlack}% of Black people and ${FNRPctWhite}% of White people were not reoffend, who do reoffend`);
+        .text(`At a risk level of ${predictiveProbability}, COMPAS incorrectly predicts that ${FNRPctBlack}% of Black people and ${FNRPctWhite}% of White people will not reoffend, who do reoffend`);
 
     renderTooltip(chartIdFPR);
     renderTooltip(chartIdFNR);
@@ -237,7 +237,7 @@ function renderTooltip(chartId) {
         tooltip.style("visibility", "visible")
             .style("left", x + "px")
             .style("top", y + "px")
-            .html(`A ${d.race} person who was ${d.confusion === "FP" || d.confusion === "FN"? "incorrectly": "correctly"} by the COMPAS algorithm`);
+            .html(`A ${d.race} person who was predicted ${d.confusion === "FP" || d.confusion === "FN"? "incorrectly": "correctly"} by the COMPAS algorithm`);
 
     }).on("mouseout", function () {
         tooltip.style("visibility", "hidden");
