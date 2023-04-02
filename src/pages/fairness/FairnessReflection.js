@@ -47,7 +47,7 @@ export default function FairnessReflection({user, disableFairnessNext3, setDisab
             <Timer user={user} disableNext={disableFairnessNext3} setDisableNext={setDisableFairnessNext3} className="Purple">
                 <p>Do you agree with ProPublica that the COMPAS recidivism algorithm is biased?</p>
                 <p>Can you think of any problems with using a proxy variable in this type of algorithmic decision-making?</p>
-                <p className={setDisableFairnessNext3 ? "": "No-Margin-Bottom"}>When may it be optimal to use different types of mathematical fairness?</p>
+                <p className={setDisableFairnessNext3 ? "": "No-Margin-Bottom"}>What are some challenges that the data scientist faces in this scenario?</p>
             </Timer>
         )
     }

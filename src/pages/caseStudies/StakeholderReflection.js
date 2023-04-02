@@ -46,7 +46,8 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
             <Timer user={user} disableNext={disableStakeholder} setDisableNext={setDisableStakeholder} className="Purple">
                 {user==="group"? <p>Did your team think of any stakeholders which you hadn't considered before?</p>: <p>Did you think of any stakeholders which you hadn't considered before?</p>}
                 <p>How did the stakeholders' values align or diverge?</p>
-                <p className={disableStakeholder ? "": "No-Margin-Bottom"}>Is it important to consider all stakeholders' values equally?</p>
+                <p>Is it important to consider all stakeholders' values equally?</p>
+                <p className={disableStakeholder ? "": "No-Margin-Bottom"}>As a designer, can you provide any recommendations on whose values to prioritize?</p>
             </Timer>
         )
     }

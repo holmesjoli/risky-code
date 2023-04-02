@@ -42,6 +42,7 @@ export default function DeliberationReflection({user, disableDeliberation, setDe
         return(
             <Timer user={user} disableNext={disableDeliberation} setDisableNext={setDeliberation} className="Purple">
                 <p>Do you think algorithmically informed decision-making should be used in your policy scenario?</p>
+                <p>What are some challenges the public policy maker faces implementing algorithmically informed decision-making?</p>
                 <p className={disableDeliberation ? "": "No-Margin-Bottom"}>What do you think of algorithmically informed decision-making after this workshop? Did any of your views change?</p>
             </Timer>
         )
