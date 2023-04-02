@@ -53,7 +53,7 @@ export function RoleDeliberation({user}) {
             {user==="group"? <p>Your team's role in this module is a team of socially aware <span className="Semi-Bold">public policymakers</span>, interested in using algorithmic decision-making in equitable and fair ways</p>: <p>Your role in this module is a <span className="Semi-Bold">public policymaker</span>, interested in using algorithmic decision-making in equitable and fair ways</p>}
             <h4>Responsibilities</h4>
             <ul>
-                <li className="No-Margin-Bottom">Crate plans and recommendations for public issues</li>
+                <li className="No-Margin-Bottom">Create plans and recommendations for public issues</li>
                 <li className="No-Margin-Bottom">Gather and summarize evidence-based research</li>
                 <li className="No-Margin-Bottom">Make decisions and implement plans</li>
             </ul>
