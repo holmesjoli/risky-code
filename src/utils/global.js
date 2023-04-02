@@ -358,4 +358,4 @@ export const terms = {
 
 export const highlightColorScale = d3.scaleOrdinal()
     .domain(["predict", "fairness", "stakeholders", "deliberation"])
-    .range(["#ea21ad", "#FE4002", "#FD7B03", "#F3C010"]);
+    .range(["#9A00FF", "#9A00FF", "#9A00FF", "#9A00FF"]);
