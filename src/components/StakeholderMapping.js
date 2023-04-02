@@ -8,22 +8,22 @@ import Progress from "./Progress";
 let values = [{"value": "Freedom", "checked": false}, 
               {"value": "Autonomy", "checked": false}, 
               {"value": "Privacy", "checked": false}, 
+              {"value": "Trust", "checked": false}, 
               {"value": "Security", "checked": false}, 
               {"value": "Safety", "checked": false}, 
               {"value": "Anonymity", "checked": false}, 
+              {"value": "Identity", "checked": false}, 
               {"value": "Reliability", "checked": false}, 
-              {"value": "Trust", "checked": false}, 
               {"value": "Fairness", "checked": false}, 
               {"value": "Accountability", "checked": false}, 
               {"value": "Inclusion", "checked": false}, 
               {"value": "Ownership and property", "checked": false}, 
+              {"value": "Peace", "checked": false}, 
+              {"value": "Efficiency", "checked": false},
               {"value": "Dignity", "checked": false},
               {"value": "Informed consent", "checked": false}, 
-              {"value": "Identity", "checked": false}, 
               {"value": "Environment sustainability", "checked": false}, 
-              {"value": "Peace", "checked": false}, 
-              {"value": "Transparency", "checked": false}, 
-              {"value": "Efficiency", "checked": false}
+              {"value": "Transparency", "checked": false}
         ];
 
 const defaultValues = values;
@@ -411,7 +411,10 @@ export default function StakeholderMapping({data, setData, stakeholderData, setS
 
     return(
         <div className="Content No-Padding-Top">
-            <Progress id={id} modules={modules} className="Purple"/>
+            <div className="Row">
+                <h2 className="Title">Stakeholder mapping</h2>
+                <Progress id={id} modules={modules} className="Purple"/>
+            </div>
             <div className="One-Column-Three">
                 <div className="">
                     {AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray, className)}

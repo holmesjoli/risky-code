@@ -14,7 +14,10 @@ import MiniModel from '../../components/MiniLaundryModel';
 export function Content({items, setItems, nClassified, setNClassified, setDisabled, modules}) {
     return(
         <div className="Content No-Padding-Top">
-            <Progress id="classify" modules={modules} className="Purple"/>
+            <div className="Row">
+                <h2 className="Title">Classify</h2>
+                <Progress id="classify" modules={modules} className="Purple"/>
+            </div>
             <div>
                 <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
             </div>

@@ -42,7 +42,10 @@ export function Content({variables, setVariables, items, setItems, predictivePro
 
     return(
         <div className="Content No-Padding-Top">
-            <Progress id="optimize" modules={modules} className="Purple"/>
+            <div className="Row">
+                <h2 className="Title">Optimize</h2>
+                <Progress id="optimize" modules={modules} className="Purple"/>
+            </div>
             <div className="One-Column-Three5">
                 <div>
                     <Model variables={variables} setVariables={setVariables}/>

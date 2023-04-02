@@ -16,7 +16,7 @@ export function Threshold({predictiveProbability, updateSlider, containerClass="
     return(
         <div className={containerClass +" Margin-Bottom No-Padding-Bottom Bottom-Rule"}>
             <h3 className="Small-Margin">decision threshold</h3>
-            <p className="Small-Margin">Laundry items with a predictive probability above {predictiveProbability}% are classified as belonging to the <span className="Emphasis">cold water load</span>.</p>
+            <p className="Small-Margin">Items with a predictive probability above {predictiveProbability}% are classified as belonging to the <span className="Emphasis">cold water load</span>.</p>
             <Slider
                 size="small"
                 defaultValue={50}
@@ -85,7 +85,7 @@ export function PredictiveOutcomes({predictiveProbability=50, containerClass="Co
                         <h5 className="Semi-Bold White Opacity1 No-Margin-Top">0.28</h5>
                     </div>
                     <div>
-                        <p className="No-Margin-Bottom">The predictive probability of this shirt is <span className="Semi-Bold White Opacity1">28%</span>. The model predicts this shirt has a <span className="Semi-Bold White Opacity1">28%</span> chance of belonging in the <span className="Emphasis">cold water load</span>.</p>
+                        <p className="No-Margin-Bottom">The model predicts this shirt has a <span className="Semi-Bold White Opacity1">28%</span> chance of belonging in the <span className="Emphasis">cold water load</span>.</p>
                     </div>
                 </div>
             </div>

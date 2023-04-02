@@ -31,7 +31,10 @@ export function Content({variables, setVariables, items, setItems, modules}) {
 
     return(
         <div className="Content No-Padding-Top">
-            <Progress id="train" modules={modules} className="Purple"/>
+             <div className="Row">
+                <h2 className="Title">Train</h2>
+                <Progress id="train" modules={modules} className="Purple"/>
+            </div>
             <div className="One-Column-Three5">
                 <div>
                     <div className=''>

@@ -23,7 +23,7 @@ let raceLegendId = "Error-Race-Legend";
 let predictedLegendId = "Error-Predicted-Legend";
 let style = "darkMode";
 
-let width = 480;
+let width = 540;
 let height = 225;
 
 const opacityScale = d3.scaleOrdinal()
@@ -265,7 +265,10 @@ export function Content({modules}) {
 
     return(
         <div className="Content No-Padding-Top">
-            <Progress id="error" modules={modules} className="Purple"/>
+             <div className="Row">
+                <h2 className="Title">Error rates</h2>
+                <Progress id="error" modules={modules} className="Purple"/>
+            </div>
             <div className="One-Column-Three2">
                 <div>
                     <div className="Container Margin-Bottom">

@@ -19,7 +19,7 @@ let introChartId = "Fairness-Chart";
 let chartId = "Calibration-Chart";
 let legendId = "Calibration-Legend";
 
-let width = 620;
+let width = 760;
 let height = 400;
 let style = "darkMode";
 let margin = {left: 70, right: 30, top: 30, bottom: 70};
@@ -163,7 +163,10 @@ function Information() {
 function Content({modules}) {
     return(
         <div className="Content No-Padding-Top">
-            <Progress id="calibration" modules={modules} className="Purple"/>
+             <div className="Row">
+                <h2 className="Title">Calibration</h2>
+                <Progress id="calibration" modules={modules} className="Purple"/>
+            </div>
             <div className="One-Column-Three4 ">
                 <div className="Container Margin-Bottom">
                     <h3 className="No-Margin-Bottom">compas' calibration risk scores by race</h3>

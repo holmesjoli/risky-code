@@ -31,7 +31,7 @@ ul {
 
 .Main {
     display: grid;
-    grid-template-columns: minmax(150px, 18%) 1fr;
+    grid-template-columns: minmax(150px, 20%) 1fr;
     min-height: 80vh;
     padding-top: $containerPadding;
 }
@@ -144,7 +144,7 @@ ul {
 .Three-Column2 {
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: minmax(150px, 40%) minmax(200px, 35%) minmax(150px, 25%);
+    grid-template-columns: minmax(150px, 23%) minmax(200px, 39%) minmax(150px, 38%);
 }
 
 .Three-Column3 {

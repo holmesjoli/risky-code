@@ -19,8 +19,8 @@ import { visStyles } from "../../utils/global";
 
 let chartId = "Base-Rates-Chart";
 let legendId = "Base-Rates-Legend";
-let width = 600;
-let height = 480;
+let width = 760;
+let height = 440;
 let margin = {left: 10, right: 10, top: 10, bottom: 10}
 let style = "darkMode";
 
@@ -60,7 +60,7 @@ export function transform(d) {
 
 function grid(data) {
 
-    const cols = 100;
+    const cols = 130;
     const colW = width / cols;
     const rows = Math.round(data.length/cols)
     const rowH = height / rows;
@@ -274,7 +274,10 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
     
     return(
         <div className="Content No-Padding-Top">
-            <Progress id="compas" modules={modules} className="Purple"/>
+            <div className="Row">
+                <h2 className="Title">COMPAS' Data</h2>
+                <Progress id="compas" modules={modules} className="Purple"/>
+            </div>
             <div>
                 <div className="One-Column-Three4">
                     <div className="Container Margin-Bottom">

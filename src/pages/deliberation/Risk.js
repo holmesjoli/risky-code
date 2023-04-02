@@ -20,7 +20,7 @@ let legendStakeholderId = "Risk-Stakeholder-Legend";
 let legendRiskId = "Risk-Legend";
 let stakeholderId = "Risk-Stakeholder";
 
-let width = 550;
+let width = 620;
 let height = 375;
 let style = "darkMode";
 let margin = {left: 80, right: 10, top: 10, bottom: 40};
@@ -442,7 +442,10 @@ function Content({ stakeholderData, data, setData, sid, setId, modules }) {
 
     return(
         <div className="Content No-Padding-Top">
-            <Progress id="risk" modules={modules} className="Purple"/>
+            <div className="Row">
+                <h2 className="Title">Risk framework</h2>
+                <Progress id="risk" modules={modules} className="Purple"/>
+            </div>
             <div className="One-Column-Three6">
                 <AddRisks stakeholderData={stakeholderData} data={data} setData={setData} sid={sid} setId={setId}/>
                 <RiskNetwork setData={setData}/>
