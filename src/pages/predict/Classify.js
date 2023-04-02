@@ -11,9 +11,10 @@ import { RoleShort } from "../../components/Role";
 import { Overlay } from "../../components/Overlay";
 import MiniModel from '../../components/MiniLaundryModel';
 
-export function Content({items, setItems, nClassified, setNClassified, setDisabled}) {
+export function Content({items, setItems, nClassified, setNClassified, setDisabled, modules}) {
     return(
         <div className="Content No-Padding-Top">
+            <Progress id="classify" modules={modules} className="Purple"/>
             <div>
                 <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
             </div>
@@ -102,13 +103,12 @@ export default function Classify({config, user, items, setItems, modules, rules,
                 <Terminology margin="Margin-Large-Bottom" className="Purple">
                     <Term term={terms['algorithm']}/>
                 </Terminology>
-                <BackButton routeBack={routeBack}/>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple" disabled={disabled}/>
+                </div>
             </LeftSideBar>
-            <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name}/>
-            <RightSideBar>
-                <Progress id={config.id} modules={modules} className="Purple"/>
-                <NextButton routeNext={routeNext} className="Purple" disabled={disabled}/>
-            </RightSideBar>
+            <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name} modules={modules}/>
         </div>
         <Footer/>
     </div>

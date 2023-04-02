@@ -3,6 +3,7 @@ import { Fab, Button, FormControl, RadioGroup, FormControlLabel, Radio, FormGrou
 import * as d3 from 'd3';
 import AddIcon from '@material-ui/icons/Add';
 import { visStyles } from "../utils/global";
+import Progress from "./Progress";
 
 let values = [{"value": "Freedom", "checked": false}, 
               {"value": "Autonomy", "checked": false}, 
@@ -404,17 +405,20 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
     )
 }
 
-export default function StakeholderMapping({data, setData, stakeholderData, setStakeholderData, className}) {
+export default function StakeholderMapping({data, setData, stakeholderData, setStakeholderData, className, modules, id}) {
 
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(
-        <div className="Content One-Column-Three No-Padding-Top">
-            <div className="">
-                {AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray, className)}
-            </div>
-            <div className="">
-                {StakeholderNetwork(data, setData)}
+        <div className="Content No-Padding-Top">
+            <Progress id={id} modules={modules} className="Purple"/>
+            <div className="One-Column-Three">
+                <div className="">
+                    {AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray, className)}
+                </div>
+                <div className="">
+                    {StakeholderNetwork(data, setData)}
+                </div>
             </div>
         </div>
     )

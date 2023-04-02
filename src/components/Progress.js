@@ -4,6 +4,7 @@ import { Box, Drawer, Button } from '@material-ui/core';
 import * as d3 from 'd3';
 import { useEffect } from 'react';
 import { config, wrap, visStyles, highlightColorScale } from "../utils/global";
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const height = 460;
 const width = 260;
@@ -214,7 +215,7 @@ export default function Progress({id, modules}) {
         <div className="Progress">
             {(['right']).map((anchor) => (
                 <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)} variant="outlined" color="secondary" className="Left-Border">progress</Button>
+                <Button onClick={toggleDrawer(anchor, true)} variant="outlined" className="Left-Border"><ExpandMoreIcon className="Rotate90"/></Button>
                 <Drawer
                     anchor={anchor}
                     open={state[anchor]}

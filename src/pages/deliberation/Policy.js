@@ -77,14 +77,13 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                     <Term term={terms['indirect stakeholders']}/>
                     <Term term={terms['excluded stakeholders']}/>
                 </Terminology>
-                <BackButton routeBack={routeBack}/>
-            </LeftSideBar>
-            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Purple"/>
-            <RightSideBar>
-                <Progress id={id} modules={modules} className="Purple"/>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                <NextButton routeNext={routeNext} className="Purple"/>
-            </RightSideBar>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple" />
+                </div>
+            </LeftSideBar>
+            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Purple" modules={modules} id={id}/>
         </div>
         <Footer/>
     </div>

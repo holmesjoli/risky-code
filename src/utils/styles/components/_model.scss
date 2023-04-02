@@ -80,8 +80,12 @@
     margin-bottom: 0;
 }
 
-.Rotate90 {
+.RotateNeg90 {
     transform: rotate(-90deg);
+}
+
+.Rotate90 {
+    transform: rotate(90deg);
 }
 
 .Dotted-Border {

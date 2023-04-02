@@ -31,7 +31,7 @@ ul {
 
 .Main {
     display: grid;
-    grid-template-columns: minmax(150px, 18%) 1fr minmax(150px, 18%);
+    grid-template-columns: minmax(150px, 18%) 1fr;
     min-height: 80vh;
     padding-top: $containerPadding;
 }
@@ -45,10 +45,6 @@ ul {
 
 .Sidebar-Left {
     border-right: 1px solid $containerBorderColor;
-}
-
-.Sidebar-Right {
-    border-left: 1px solid $containerBorderColor;
 }
 
 .Content {

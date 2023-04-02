@@ -247,7 +247,7 @@ function renderTooltip(chartId) {
     });
 }
 
-export function Content() {
+export function Content({modules}) {
 
     const [predictiveProbability, setPredictiveProbability] = useState(4);
 
@@ -265,6 +265,7 @@ export function Content() {
 
     return(
         <div className="Content No-Padding-Top">
+            <Progress id="error" modules={modules} className="Purple"/>
             <div className="One-Column-Three2">
                 <div>
                     <div className="Container Margin-Bottom">
@@ -292,6 +293,7 @@ export function Content() {
                             <div id={predictedLegendId}></div>
                         </div>
                     </div>
+                    <COMPASFair/>
                 </div>
                 <div>
                     <div className="Container">
@@ -380,14 +382,12 @@ export default function Error({config, modules}) {
                         <Term term={terms['mathematical-fairness']}/>
                         <Term term={terms['recidivism']}/>
                     </Terminology>
-                    <BackButton routeBack={routeBack}/>
+                    <div className="Button-Container-Right">
+                        <BackButton routeBack={routeBack}/>
+                        <NextButton routeNext={routeNext} className="Purple"d/>
+                    </div>
                 </LeftSideBar>
-                <Content />
-                <RightSideBar>
-                    <Progress id={config.id} modules={modules} className="Purple"/>
-                    <COMPASFair/>
-                    <NextButton routeNext={routeNext} className="Purple"/>
-                </RightSideBar>
+                <Content modules={modules}/>
             </div>
             <Footer/>
         </div>

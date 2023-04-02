@@ -57,7 +57,7 @@ export function RightSideBar({children}) {
 
 export function COMPASFair() {
     return(
-        <div className="Container Bottom">
+        <div className="Container">
             <FormControl>
                 <h4 className="Small-Margin">is compas fair?</h4>
                 <p>Evaluate if you think COMPAS treats people fairly based on race.</p>

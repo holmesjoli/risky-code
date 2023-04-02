@@ -155,21 +155,25 @@ function Information() {
                     <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
                     <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
             </div>
+            <COMPASFair/>
         </div>
     )
 }
 
-function Content() {
+function Content({modules}) {
     return(
-        <div className="Content One-Column-Three4 No-Padding-Top">
-            <div className="Container Margin-Bottom">
-                <h3 className="No-Margin-Bottom">compas' calibration risk scores by race</h3>
-                <div id={chartId} className="chart"></div>
-                <h4>legend</h4>
-                <div id={legendId} className="Small-Margin-Bottom"></div>
-                <h6 className="Small-Margin-Top">Visualization shows recidivism rate by risk score and race for Black people, White people, and people of other races. The calibration curves are roughtly equivalent for the three groups. For example, at a risk level of 7, 62% of White people reoffended compared with 59% of Black people.</h6>
+        <div className="Content No-Padding-Top">
+            <Progress id="calibration" modules={modules} className="Purple"/>
+            <div className="One-Column-Three4 ">
+                <div className="Container Margin-Bottom">
+                    <h3 className="No-Margin-Bottom">compas' calibration risk scores by race</h3>
+                    <div id={chartId} className="chart"></div>
+                    <h4>legend</h4>
+                    <div id={legendId} className="Small-Margin-Bottom"></div>
+                    <h6 className="Small-Margin-Top">Visualization shows recidivism rate by risk score and race for Black people, White people, and people of other races. The calibration curves are roughtly equivalent for the three groups. For example, at a risk level of 7, 62% of White people reoffended compared with 59% of Black people.</h6>
+                </div>
+                <Information/>
             </div>
-            <Information/>
         </div>
     )
 }
@@ -426,14 +430,12 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>
                 </Terminology>
-                <BackButton routeBack={routeBack}/>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple"/>
+                </div>
             </LeftSideBar>
-            <Content/>
-            <RightSideBar>
-                <Progress id={config.id} modules={modules} className="Purple"/>
-                <COMPASFair/>
-                <NextButton routeNext={routeNext} className="Purple"/>
-            </RightSideBar>
+            <Content modules={modules}/>
         </div>
         <Footer/>
     </div>

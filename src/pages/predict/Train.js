@@ -22,7 +22,7 @@ function Information() {
     )
 }
 
-export function Content({variables, setVariables, items, setItems}) {
+export function Content({variables, setVariables, items, setItems, modules}) {
 
     useEffect(() => {
             runRegression(variables, items, setItems);
@@ -31,6 +31,7 @@ export function Content({variables, setVariables, items, setItems}) {
 
     return(
         <div className="Content No-Padding-Top">
+            <Progress id="train" modules={modules} className="Purple"/>
             <div className="One-Column-Three5">
                 <div>
                     <div className=''>
@@ -115,14 +116,14 @@ export default function Train({config, user, variables, setVariables, items, set
                         <li>{rules.rule3}</li>
                     </ul>*/}
                     <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. A predictive model is a computational interpretation of an algorithm's rules.</p>
-                                <p>We will train a predictive model called Laundry AID. It will guess if an item belongs in the cold water load according to your rules from the last module.</p>
-                                <ul className="Margin-Bottom">
-                                    <li>{rules.rule1}</li>
-                                    <li>{rules.rule2}</li>
-                                    <li>{rules.rule3}</li>
-                                </ul>
-                                <p>Test how you will train Laundry AID by dragging one or more <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
-                                <p>Notice that the outcome variable, <span className="Emphasis">cold water load</span> is fixed and cannot be changed.</p>
+                    <p>We will train a predictive model called Laundry AID. It will guess if an item belongs in the cold water load according to your rules from the last module.</p>
+                    <ul className="Margin-Bottom">
+                        <li>{rules.rule1}</li>
+                        <li>{rules.rule2}</li>
+                        <li>{rules.rule3}</li>
+                    </ul>
+                    <p>Test how you will train Laundry AID by dragging one or more <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
+                    <p>Notice that the outcome variable, <span className="Emphasis">cold water load</span> is fixed and cannot be changed.</p>
                 </Description>
                 <RoleShort moduleName="prediction"/>
                 <Terminology margin="Margin-Large-Bottom" className="Purple">
@@ -133,13 +134,12 @@ export default function Train({config, user, variables, setVariables, items, set
                     <Term term={terms['predictive-model']}/>
                     <Term term={terms['predictive-probability']}/>
                 </Terminology>
-                <BackButton routeBack={routeBack}/>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple"/>
+                </div>
             </LeftSideBar>
-            <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems}/>
-            <RightSideBar>
-                <Progress id={config.id} modules={modules} className="Purple"/>
-                <NextButton routeNext={routeNext} className="Purple"/>
-            </RightSideBar>
+            <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules}/>
         </div>
         <Footer/>
     </div>

@@ -263,7 +263,7 @@ function Model() {
     )
 }
 
-export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext, baseRate, setBaseRate}) {
+export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext, baseRate, setBaseRate, modules}) {
     
     const handleChange = event => {
         let rate = event.target.checked? "arrests": "pop";
@@ -274,6 +274,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
     
     return(
         <div className="Content No-Padding-Top">
+            <Progress id="compas" modules={modules} className="Purple"/>
             <div>
                 <div className="One-Column-Three4">
                     <div className="Container Margin-Bottom">
@@ -399,13 +400,12 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>
                 </Terminology>
-                <BackButton routeBack={routeBack}/>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple"/>
+                </div>
             </LeftSideBar>
-            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate}/>
-            <RightSideBar>
-                <Progress id={id} modules={modules} className="Purple"/>
-                <NextButton routeNext={routeNext} className="Purple"/>
-            </RightSideBar>
+            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate} modules={modules}/>
         </div>
         <Footer/>
     </div>

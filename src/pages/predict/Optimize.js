@@ -38,10 +38,11 @@ function Information() {
     )
 }
 
-export function Content({variables, setVariables, items, setItems, predictiveProbability, updateSlider}) {
+export function Content({variables, setVariables, items, setItems, predictiveProbability, updateSlider, modules}) {
 
     return(
         <div className="Content No-Padding-Top">
+            <Progress id="optimize" modules={modules} className="Purple"/>
             <div className="One-Column-Three5">
                 <div>
                     <Model variables={variables} setVariables={setVariables}/>
@@ -126,13 +127,12 @@ export default function Optimize({config, variables, setVariables, items, setIte
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['decision-threshold']}/>
                     </Terminology>
+                    <div className="Button-Container-Right">
                     <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple" />
+                </div>
                 </LeftSideBar>
-                <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider}/>
-                <RightSideBar>
-                    <Progress id={config.id} modules={modules} className="Purple"/>
-                    <NextButton routeNext={routeNext} className="Purple"/>
-                </RightSideBar>
+                <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider} modules={modules}/>
             </div>
             <Footer/>
         </div>

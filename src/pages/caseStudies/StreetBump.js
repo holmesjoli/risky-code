@@ -5,7 +5,6 @@ import Footer from '../../components/Footer';
 import Overlay from "../../components/Overlay";
 import { Consequence } from "../../components/TrackUserInputs";
 import { terms } from '../../utils/global';
-import Progress from "../../components/Progress";
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import StakeholderMapping from "../../components/StakeholderMapping";
@@ -125,20 +124,19 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                     <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>
                 <RoleShort moduleName="caseStudies"/>
-                <Terminology margin="Margin-Large-Bottom" className="">
+                <Terminology className="Margin-Bottom">
                     <Term term={terms['stakeholders']}/>
                     <Term term={terms['direct stakeholders']}/>
                     <Term term={terms['indirect stakeholders']}/>
                     <Term term={terms['excluded stakeholders']}/>
                 </Terminology>
-                <BackButton routeBack={routeBack}/>
+                <Consequence className="Purple"/>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple" />
+                </div>
             </LeftSideBar>
-            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Purple"/>
-            <RightSideBar>
-            <Progress id={id} modules={modules} className="Purple"/>
-                <Consequence className="Purple Margin-Large-Bottom"/>
-                <NextButton routeNext={routeNext} className="Purple"/>
-            </RightSideBar>
+            <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Purple" modules={modules} id={id}/>
         </div>
         <Footer/>
     </div>

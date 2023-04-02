@@ -438,10 +438,11 @@ function RiskNetwork({setData}) {
     )
 }
 
-function Content({ stakeholderData, data, setData, sid, setId }) {
+function Content({ stakeholderData, data, setData, sid, setId, modules }) {
 
     return(
         <div className="Content No-Padding-Top">
+            <Progress id="risk" modules={modules} className="Purple"/>
             <div className="One-Column-Three6">
                 <AddRisks stakeholderData={stakeholderData} data={data} setData={setData} sid={sid} setId={setId}/>
                 <RiskNetwork setData={setData}/>
@@ -498,17 +499,16 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
                         <p>Use the sliders to adjust the risks for each stakeholder you identified on the stakeholder mapping page</p>
                     </Description>
                     <RoleShort moduleName="deliberation"/>
-                    <Terminology margin="Margin-Large-Bottom" className="Purple">
+                    <Terminology margin="Margin-Bottom" className="Purple">
                         <Term term={terms['proxy-variable']}/>
                     </Terminology>
-                    <BackButton routeBack={routeBack}/>
-                </LeftSideBar>
-                <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData} sid={sid} setId={setId}/>
-                <RightSideBar>
-                    <Progress id={config.id} modules={modules} className="Purple"/>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                    <NextButton routeNext={routeNext} className="Purple"/>
-                </RightSideBar>
+                    <div className="Button-Container-Right">
+                        <BackButton routeBack={routeBack}/>
+                        <NextButton routeNext={routeNext} className="Purple"/>
+                    </div>
+                </LeftSideBar>
+                <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData} sid={sid} setId={setId} modules={module}/>
             </div>
             <Footer/>
         </div>
