@@ -199,7 +199,7 @@
 
 import * as React from 'react';
 
-import { Box, Drawer, Button} from '@material-ui/core';
+import { Box, Drawer, Button } from '@material-ui/core';
 
 
 export default function TemporaryDrawer() {
@@ -223,7 +223,7 @@ export default function TemporaryDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
+      sx={{ width: 300 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -235,7 +235,7 @@ export default function TemporaryDrawer() {
     <div>
       {(['right']).map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)}>progress</Button>
           <Drawer
             anchor={anchor}
             open={state[anchor]}
