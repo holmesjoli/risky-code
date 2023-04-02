@@ -164,17 +164,15 @@ function updateProgress(id, modules, navigate) {
     renderTooltip(pageId, fillScale);
 }
 
-export default function Progress({id, modules, defaultExpanded = false, className="Purple"}) {
+export default function Progress({id, modules}) {
 
     let navigate = useNavigate();
     configLength = Object.keys(config).length;
     fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(configLength - 1).fill(visStyles[style]["fontWeight"]));
     fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
 
-
-    var result = Object.entries(config);
-
-    for (let i of result) {
+    // update configArray
+    for (let i of Object.entries(config)) {
         configArray.push(i[1])
     }
 
@@ -221,6 +219,7 @@ export default function Progress({id, modules, defaultExpanded = false, classNam
                     >
                     <div className="Container">
                         <h3>Progress</h3>
+                        <p>Navigate to completed modules by clicking on an outlined node</p>
                         <div id="Progress-Chart"></div>
                     </div>
                 </Box>
