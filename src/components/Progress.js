@@ -11,6 +11,10 @@ const space = 35;
 const margin = {left: 30, top: 25}
 const style = "darkMode";
 
+let pageId, otherPageIds, highlightColor, fill;
+let visited, fillScale, fontWeightScale, fontColorScale, fontWeight, fontColor;
+let configLength, configArray = [];
+
 const rScale = d3.scaleOrdinal()
     .domain(["Small", "Large"])
     .range([5, 8]);
@@ -69,22 +73,80 @@ function renderTooltip(pageId, fillScale) {
     })
 }
 
+function initProgress(id, modules, navigate) {
+    pageId = lookupPageId(id, configArray);
+    otherPageIds = lookupOtherPages(id, configArray);
+    highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
+    fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));;
+
+    // Node scales
+    visited = createVisited(modules, configArray);
+    fillScale = createScale(pageId, otherPageIds, fill);
+
+    // Font scales
+    fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
+    fontColorScale = createScale(pageId, otherPageIds, fontColor);
+
+    // Initialized svg
+    let svg = d3.select("#Progress-Chart")
+        .append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    svg
+        .append("line")
+        .attr("x1", margin.left)
+        .attr("x2", margin.left)
+        .attr("y1", margin.top)
+        .attr("y2", space*(configLength - 1) + margin.top)
+        .attr("stroke", "#272B30")
+
+    var nodes = svg.append("g")
+        .attr("class", "nodes")
+        .selectAll("circle")
+        .data(configArray)
+        .enter()
+        .append("g")
+        .attr("transform", function(d, i) {
+            d.x = margin.left;
+            d.y = i * space + margin.top;
+            return "translate(" + d.x + "," + d.y + ")"; 
+        })
+        .call(wrap, 40);
+
+    nodes.append("circle")
+        .attr("class", d => d.id === pageId ? "nav-node visited-node": "nav-node")
+        .attr("r", d => rScale(d.size))
+        .attr("fill", d => fillScale(d.id))
+        .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
+
+    nodes.append("text")
+        .attr("x", 30)
+        .attr("y", 5)
+        .attr("font-size", 13)
+        .attr("class", "nav-text")
+        .attr("font-weight", d => fontWeightScale(d.id))
+        .attr("letter-spacing", ".6px")
+        .style("fill", d => fontColorScale(d.id))
+        .text(d => d.name);
+
+    onClickNav(navigate);
+    renderTooltip(pageId, fillScale);
+}
+
 export default function Progress({id, modules, defaultExpanded = false, className="Purple"}) {
 
     let navigate = useNavigate();
-    let configLength = Object.keys(config).length;
+    configLength = Object.keys(config).length;
+    fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(configLength - 1).fill(visStyles[style]["fontWeight"]));
+    fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
+
+
     var result = Object.entries(config);
-    let configArray = [];
 
     for (let i of result) {
         configArray.push(i[1])
     }
-
-    const fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(configLength - 1).fill(visStyles[style]["fontWeight"]));
-    const fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
-
-    let pageId, otherPageIds, highlightColor, fill;
-    let visited, fillScale, fontWeightScale, fontColorScale;
 
     const [state, setState] = React.useState({
         right: false,
@@ -104,67 +166,8 @@ export default function Progress({id, modules, defaultExpanded = false, classNam
     };
 
     useEffect(() => {
-
-        pageId = lookupPageId(id, configArray);
-        otherPageIds = lookupOtherPages(id, configArray);
-        highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
-        fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));;
-
-        // Node scales
-        visited = createVisited(modules, configArray);
-        fillScale = createScale(pageId, otherPageIds, fill);
-
-        // Font scales
-        fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
-        fontColorScale = createScale(pageId, otherPageIds, fontColor);
-
-        // Initialized svg
-        let svg = d3.select("#Progress-Chart")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height);
-
-        svg
-            .append("line")
-            .attr("x1", margin.left)
-            .attr("x2", margin.left)
-            .attr("y1", margin.top)
-            .attr("y2", space*(configLength - 1) + margin.top)
-            .attr("stroke", "#272B30")
-
-        var nodes = svg.append("g")
-            .attr("class", "nodes")
-            .selectAll("circle")
-            .data(configArray)
-            .enter()
-            .append("g")
-            .attr("transform", function(d, i) {
-                d.x = margin.left;
-                d.y = i * space + margin.top;
-                return "translate(" + d.x + "," + d.y + ")"; 
-            })
-            .call(wrap, 40);
-
-        nodes.append("circle")
-            .attr("class", d => d.id === pageId ? "nav-node visited-node": "nav-node")
-            .attr("r", d => rScale(d.size))
-            .attr("fill", d => fillScale(d.id))
-            .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
-
-        nodes.append("text")
-            .attr("x", 30)
-            .attr("y", 5)
-            .attr("font-size", 13)
-            .attr("class", "nav-text")
-            .attr("font-weight", d => fontWeightScale(d.id))
-            .attr("letter-spacing", ".6px")
-            .style("fill", d => fontColorScale(d.id))
-            .text(d => d.name);
-
-        onClickNav(navigate);
-        renderTooltip(pageId, fillScale);
-
-    }, [])
+        initProgress(id, modules, navigate);
+    }, []);
 
     useEffect(() => {
 
