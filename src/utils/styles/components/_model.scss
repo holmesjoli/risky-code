@@ -66,6 +66,13 @@
     border: 1px solid $Purple;
 }
 
+.Variable-Purple:hover,
+.Variable-Purple:active {
+    border: 1px solid $Purple;
+    background-color: $Purple;
+    color: #000;
+
+}
 
 .Variable-Flat {
     // max-width: 50%;
