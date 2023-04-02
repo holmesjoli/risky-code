@@ -9,13 +9,26 @@ import Model from "../../components/Model";
 import { terms } from '../../utils/global';
 import { BackButton, NextButton, NextButtonOverlay } from '../../components/Button';
 import { runRegression, updateAccuracy, Accuracy, PredictiveOutcomes, Threshold } from "../../components/Regression";
-import { ActualPredicted, Predicted } from "../../components/Legend";
+import { Predicted } from "../../components/Legend";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 
 import { RoleShort } from "../../components/Role";
 import MiniModel from "../../components/MiniAccuracyModel";
 
-function Information({items, variables, predictiveProbability}) {
+function AccuracyDefinition() {
+
+    return(
+        <div>
+            <div className="Container2">
+                <h4 className="Small-Margin">model accuracy</h4>
+                <p className="No-Margin-Bottom"> Accuracy is a percent of how many predicted values match the actual values. In this example, the accuracy is either 0 or 100%, because there is only one item.</p>
+                <h5 className="Accuracy-Percent Small-Margin No-Margin-Top No-Margin-Bottom Semi-Bold White Opacity1"></h5>
+            </div>
+        </div>
+    )
+}
+
+function Information() {
     return (
         <div className="Three-Column2 Margin-Top">
             <Predicted className="Container"/>
@@ -36,7 +49,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
                 </div>
                 <div>
                     <Card items={items}/>
-                    <Information items={items} variables={variables} predictiveProbability={predictiveProbability}/>
+                    <Information/>
                 </div>
             </div>
         </div>
@@ -79,17 +92,19 @@ export default function Optimize({config, variables, setVariables, items, setIte
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title Small-Margin">introduction to algorithmic optimization</h3>
+                    <h3 className="Page-Title">algorithmic optimization</h3>
                     <div className="Two-Column-Three">
-                        <MiniModel/>
+                        <div>
+                            <MiniModel/>
+                        </div>
                         <RightSideBar>
-                            <div className="Container2">
+                            <div className="Container2 Margin-Bottom">
                                 <h4 className="Small-Margin">learn</h4>
                                 <p>The third step of algorithmic prediction is to <span className="Semi-Bold">optimize</span> a predictive model. Optimizing a model normally means making a predictive model as accurate as possible.</p>
                                 <p>First, convert the probability into a prediction by applying a threshold. Move the slider to adjust the threshold to maximize accuracy.</p>
-                                <p className="Padding-Bottom No-Margin-Bottom Bottom-Rule">Use the slider to adjust the threshold. Notice, how the prediction of belonging to the cold water load changes for each item and the overall model accuracy changes.</p>
-                                <Predicted/>
+                                <p className="No-Margin-Bottom">Use the slider to adjust the threshold. Notice, how the prediction of belonging to the cold water load changes for each item and the overall model accuracy changes.</p>
                             </div>
+                            <AccuracyDefinition />
                             <NextButtonOverlay className="Purple" toggleOverlay={toggleOverlay}/>
                         </RightSideBar>
                     </div>

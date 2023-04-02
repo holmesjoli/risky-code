@@ -183,18 +183,19 @@ export default function Model({variables, setVariables}) {
   const { DATA_VARIABLES, MODEL_VARIABLES } = MODEL_COLUMN_NAMES;
 
   return (
-    <div id="StatisticalModel" className="Text-Align-Center">
+    <div id="StatisticalModel" className="Text-Align-Center Container">
+      <h3 className="Margin-Small Text-Align-Left">Statistical model</h3>
       <DndWrapper id="StatisticalModel">
-        <Column title={DATA_VARIABLES} className="Container Variables-Column No-Margin-Bottom Dotted-Border">
+        <Column title={DATA_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom Dotted-Border">
           {returnItemsForColumn(variables, DATA_VARIABLES )}
         </Column>
         <ExpandMoreIcon/>
-        <Column title={MODEL_VARIABLES} className="Container Variables-Column No-Margin-Bottom Dotted-Border">
+        <Column title={MODEL_VARIABLES} className="Container2 Variables-Column No-Margin-Bottom Dotted-Border">
           {returnItemsForColumn(variables, MODEL_VARIABLES)}
         </Column>
       </DndWrapper>
       <ExpandMoreIcon/>
-      <div className="Container No-Margin-Bottom">
+      <div className="Container2 No-Margin-Bottom">
           <h4 className="Small-Margin">outcome variable</h4>
           <div className="Variable-Flat Case-True">cold water load</div>
       </div>
