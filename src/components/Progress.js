@@ -134,6 +134,36 @@ function initProgress(id, modules, navigate) {
     renderTooltip(pageId, fillScale);
 }
 
+function updateProgress(id, modules, navigate) {
+
+    pageId = lookupPageId(id, configArray);
+    otherPageIds = lookupOtherPages(id, configArray);
+    highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
+    fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));
+
+    if (!modules.includes(pageId)) {
+        modules.push(pageId)
+    }
+
+    visited = createVisited(modules, configArray);
+    fillScale = createScale(pageId, otherPageIds, fill);
+
+    fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
+    fontColorScale = createScale(pageId, otherPageIds, fontColor);
+
+    d3.selectAll(".nav-node")
+        .attr("class", d => d.id === pageId || visited.includes(d.id) ? "nav-node visited-node": "nav-node")
+        .attr("fill", d => fillScale(d.id))
+        .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
+
+    d3.selectAll(".nav-text")
+        .attr("font-weight", d => fontWeightScale(d.id))
+        .style("fill", d => fontColorScale(d.id))
+
+    onClickNav(navigate);
+    renderTooltip(pageId, fillScale);
+}
+
 export default function Progress({id, modules, defaultExpanded = false, className="Purple"}) {
 
     let navigate = useNavigate();
@@ -170,34 +200,7 @@ export default function Progress({id, modules, defaultExpanded = false, classNam
     }, []);
 
     useEffect(() => {
-
-        pageId = lookupPageId(id, configArray);
-        otherPageIds = lookupOtherPages(id, configArray);
-        highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
-        fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));
-
-        if (!modules.includes(pageId)) {
-            modules.push(pageId)
-        }
-
-        visited = createVisited(modules, configArray);
-        fillScale = createScale(pageId, otherPageIds, fill);
-
-        fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
-        fontColorScale = createScale(pageId, otherPageIds, fontColor);
-
-        d3.selectAll(".nav-node")
-            .attr("class", d => d.id === pageId || visited.includes(d.id) ? "nav-node visited-node": "nav-node")
-            .attr("fill", d => fillScale(d.id))
-            .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
-
-        d3.selectAll(".nav-text")
-            .attr("font-weight", d => fontWeightScale(d.id))
-            .style("fill", d => fontColorScale(d.id))
-
-        onClickNav(navigate);
-        renderTooltip(pageId, fillScale);
-
+        updateProgress(id, modules, navigate);
     }, [modules, id])
 
     return (
