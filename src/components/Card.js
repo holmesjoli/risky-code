@@ -40,7 +40,6 @@ export function Card({items}) {
         })
     }
 
-    console.log(items)
     return(
         <div className="Cards-Container Container">
             <h3 className="Small-Margin">classified</h3>

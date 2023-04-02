@@ -73,6 +73,36 @@ function renderTooltip(pageId, fillScale) {
     })
 }
 
+function updateProgress(id, modules, navigate) {
+
+    pageId = lookupPageId(id, configArray);
+    otherPageIds = lookupOtherPages(id, configArray);
+    highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
+    fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));
+
+    if (!modules.includes(pageId)) {
+        modules.push(pageId)
+    }
+
+    visited = createVisited(modules, configArray);
+    fillScale = createScale(pageId, otherPageIds, fill);
+
+    fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
+    fontColorScale = createScale(pageId, otherPageIds, fontColor);
+
+    d3.selectAll(".nav-node")
+        .attr("class", d => d.id === pageId || visited.includes(d.id) ? "nav-node visited-node": "nav-node")
+        .attr("fill", d => fillScale(d.id))
+        .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
+
+    d3.selectAll(".nav-text")
+        .attr("font-weight", d => fontWeightScale(d.id))
+        .style("fill", d => fontColorScale(d.id))
+
+    onClickNav(navigate);
+    renderTooltip(pageId, fillScale);
+}
+
 function initProgress(id, modules, navigate) {
     pageId = lookupPageId(id, configArray);
     otherPageIds = lookupOtherPages(id, configArray);
@@ -87,7 +117,6 @@ function initProgress(id, modules, navigate) {
     fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
     fontColorScale = createScale(pageId, otherPageIds, fontColor);
 
-    // Initialized svg
     let svg = d3.select("#Progress-Chart")
         .append("svg")
         .attr("width", width)
@@ -134,34 +163,23 @@ function initProgress(id, modules, navigate) {
     renderTooltip(pageId, fillScale);
 }
 
-function updateProgress(id, modules, navigate) {
+function RenderProgress({id, modules, navigate}) {
 
-    pageId = lookupPageId(id, configArray);
-    otherPageIds = lookupOtherPages(id, configArray);
-    highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
-    fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));
+    useEffect(() => {
+        initProgress(id, modules, navigate);
+    }, [])
 
-    if (!modules.includes(pageId)) {
-        modules.push(pageId)
-    }
+    useEffect(() => {
+        updateProgress(id, modules, navigate);
+    }, [modules, id])
 
-    visited = createVisited(modules, configArray);
-    fillScale = createScale(pageId, otherPageIds, fill);
-
-    fontWeightScale = createScale(pageId, otherPageIds, fontWeight);
-    fontColorScale = createScale(pageId, otherPageIds, fontColor);
-
-    d3.selectAll(".nav-node")
-        .attr("class", d => d.id === pageId || visited.includes(d.id) ? "nav-node visited-node": "nav-node")
-        .attr("fill", d => fillScale(d.id))
-        .attr("stroke", d => visited.includes(d.id) ? highlightColorScale(d.group): "#272B30");
-
-    d3.selectAll(".nav-text")
-        .attr("font-weight", d => fontWeightScale(d.id))
-        .style("fill", d => fontColorScale(d.id))
-
-    onClickNav(navigate);
-    renderTooltip(pageId, fillScale);
+    return(
+        <div className="Container Progress-Container">
+            <h3>Progress</h3>
+            <p>Navigate to completed modules by clicking on an outlined node</p>
+            <div id="Progress-Chart"></div>
+        </div>
+    )
 }
 
 export default function Progress({id, modules}) {
@@ -179,7 +197,6 @@ export default function Progress({id, modules}) {
     const [state, setState] = React.useState({
         right: false,
     });
-
     const toggleDrawer =
         (anchor, open) =>
         (event) => {
@@ -193,39 +210,28 @@ export default function Progress({id, modules}) {
         setState({ ...state, [anchor]: open });
     };
 
-    useEffect(() => {
-        initProgress(id, modules, navigate);
-    }, []);
-
-    useEffect(() => {
-        updateProgress(id, modules, navigate);
-    }, [modules, id])
-
     return (
-        <div>
-        {(['right']).map((anchor) => (
-            <React.Fragment key={anchor}>
-            <Button onClick={toggleDrawer(anchor, true)} className="Purple">progress</Button>
-            <Drawer
-                anchor={anchor}
-                open={state[anchor]}
-                onClose={toggleDrawer(anchor, false)}
-            >
-                <Box
-                    sx={{ width: 300 }}
-                    role="presentation"
-                    onClick={toggleDrawer(anchor, false)}
-                    onKeyDown={toggleDrawer(anchor, false)}
-                    >
-                    <div className="Container">
-                        <h3>Progress</h3>
-                        <p>Navigate to completed modules by clicking on an outlined node</p>
-                        <div id="Progress-Chart"></div>
-                    </div>
-                </Box>
-            </Drawer>
-            </React.Fragment>
-        ))}
+        <div className="Progress">
+            {(['right']).map((anchor) => (
+                <React.Fragment key={anchor}>
+                <Button onClick={toggleDrawer(anchor, true)} className="Purple">progress</Button>
+                <Drawer
+                    anchor={anchor}
+                    open={state[anchor]}
+                    onClose={toggleDrawer(anchor, false)}
+                >
+                    <Box
+                        sx={{ width: 300 }}
+                        role="presentation"
+                        onClick={toggleDrawer(anchor, false)}
+                        onKeyDown={toggleDrawer(anchor, false)}
+                        className="Progress-Chart"
+                        >
+                            <RenderProgress id={id} modules={modules} navigate={navigate}/>
+                    </Box>
+                </Drawer>
+                </React.Fragment>
+            ))}
         </div>
     );
 }
