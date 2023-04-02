@@ -37,7 +37,7 @@ const yScale = d3.scaleBand()
 
 const fillScale = d3.scaleOrdinal()
     .domain([5, 4, 3, 2, 1])
-    .range(["#9A00FF", "#ea21ad", "#F50141", "#FE4002", "#FD7B03"]);
+    .range(["#ea21ad", "#F50141", "#FE4002", "#FD7B03", "#F3C010"]);
 
 let simulation = d3.forceSimulation()
     .force('center', d3.forceCenter(width / 2, height / 2)) // pull nodes to a central point
