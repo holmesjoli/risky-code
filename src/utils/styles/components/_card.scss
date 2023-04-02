@@ -2,7 +2,7 @@
     height: auto;
     display: grid;
     grid-gap: .25rem;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .Card-Container2 {
@@ -32,6 +32,11 @@
     min-width: 60px;
     max-height: 92px;
     margin: .25rem;
+}
+
+.Card-Container > .Card,
+.Card-Container > .Card-Flat {
+    margin-left: 0;
 }
 
 .Card:hover {

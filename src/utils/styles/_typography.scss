@@ -160,7 +160,7 @@ h1 > a:focus {
 
 h2 {
   font-size: 1rem;
-  line-height: 137%;
+  line-height: 140%;
   letter-spacing: 1.6px;
   font-weight: 500;
   text-transform: uppercase;
@@ -168,19 +168,16 @@ h2 {
 
 h3,
 .Header .Link,
-.Expand {
+.Expand,
+h4 {
   margin-bottom: .8rem;
-  font-size: .78rem;
+  font-size: .75rem;
   letter-spacing: 1.3px;
   text-transform: uppercase;
   font-weight: 500;
 }
 
 h4 {
-  margin-bottom: .8rem;
-  font-size: .82rem;
-  letter-spacing: .8px;
-  text-transform: uppercase;
   font-weight: 400;
 }
 

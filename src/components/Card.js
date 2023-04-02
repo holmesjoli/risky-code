@@ -40,11 +40,23 @@ export function Card({items}) {
         })
     }
 
+    console.log(items)
     return(
         <div className="Cards-Container Container">
-            <h4 className="Small-Margin">clothing items</h4>
-            <div className="Card-Container">
-                   {createCard(items)}
+            <h3 className="Small-Margin">classified</h3>
+            <div className="Two-Column">
+                <div className="Container2">
+                    <h4>Cold Water Load</h4>
+                    <div className="Card-Container">
+                        {createCard(items.filter(d => d.column === "cold water load"))}
+                    </div>
+                </div>
+                <div className=" Container2">
+                    <h4>Save for Later Load</h4>
+                    <div className="Card-Container">
+                        {createCard(items.filter(d => d.column !== "cold water load"))}
+                    </div>
+                </div>
             </div>
         </div>
     )

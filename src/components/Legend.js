@@ -36,21 +36,23 @@ export function ActualPredicted() {
     )
 }
 
-export function Predicted() {
+export function Predicted({className=""}) {
 
     return(
-        <div className="Legend No-Margin-Bottom Padding-Top">
-            <h4 className="Small-Margin">legend</h4>
-            <div>
-                <h5 className="No-Margin-Top No-Margin-Bottom">Model prediction</h5>
-                <div className="Row">
-                    <div className="Text-Align-Center">
-                        <h6 className="Text-Align-Center">Correctly</h6>
-                        <div className="Card-Flat"></div>
-                    </div>
-                    <div className="Text-Align-Center">
-                        <h6 className="Text-Align-Center">Incorrectly</h6>
-                        <div className="Card-Flat Predicted-False"></div>
+        <div className="Legend No-Margin-Bottom">
+            <div className={className}>
+                <h4 className="Small-Margin">legend</h4>
+                <div>
+                    <h5 className="No-Margin-Top No-Margin-Bottom">Model prediction</h5>
+                    <div className="Row">
+                        <div className="Text-Align-Center">
+                            <h6 className="Text-Align-Center">Correctly</h6>
+                            <div className="Card-Flat"></div>
+                        </div>
+                        <div className="Text-Align-Center">
+                            <h6 className="Text-Align-Center">Incorrectly</h6>
+                            <div className="Card-Flat Predicted-False"></div>
+                        </div>
                     </div>
                 </div>
             </div>

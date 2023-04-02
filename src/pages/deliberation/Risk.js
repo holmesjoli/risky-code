@@ -257,7 +257,7 @@ function RiskLevel({title, handleChange, children}) {
 
     return (
         <div className="Container2 Small-Padding-Bottom">
-            <h4 className="Small-Margin Semi-Bold">{title}</h4>
+            <h4 className="Small-Margin">{title}</h4>
             {children}
             <div className="Small-Padding-Left Small-Padding-Right">
                   <Slider

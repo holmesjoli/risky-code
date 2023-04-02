@@ -16,8 +16,7 @@ import MiniModel from "../../components/MiniStatisticalModel";
 
 function Information() {
     return (
-        <div className="Two-Column2 Margin-Top">
-            <Actual/>
+        <div className="Two-Column Margin-Top">
             <PredictiveOutcomes/>
         </div>
     )

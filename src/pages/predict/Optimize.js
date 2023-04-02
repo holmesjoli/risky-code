@@ -18,7 +18,7 @@ import MiniModel from "../../components/MiniAccuracyModel";
 function Information({items, variables, predictiveProbability}) {
     return (
         <div className="Three-Column2 Margin-Top">
-            <ActualPredicted/>
+            <Predicted className="Container"/>
             <PredictiveOutcomes/>
             <Accuracy />
         </div>
