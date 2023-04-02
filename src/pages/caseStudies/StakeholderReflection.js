@@ -67,7 +67,7 @@ export default function StakeholderReflection({user, disableStakeholder, setDisa
   return (
     <div className="Orientation">
         <div className="Container Margin-Bottom">
-        <h2 className="Small-Bottom">reflect on stakeholder mapping</h2>
+        <h2 className="Small-Bottom">reflect</h2>
             <Box sx={{ width: 500 }}>
             <Stepper activeStep={activeStep} orientation="vertical">
                 {steps.map((step, index) => (
