@@ -223,8 +223,8 @@ function Model() {
     return(
         <div className="Container2 Model">
             <p>Research showed that the COMPAS recidivism algorithm used a <a href="https://www.documentcloud.org/documents/2702103-Sample-Risk-Assessment-COMPAS-CORE.html#document/p4/a296597" target="_blank">137 variables</a> in their statistical model. Example variables are shown below. Hover over the variables for a longer variable definition.</p>
-            <div className="Text-Align-Center">
-                <div className="Bottom-Rule Margin-Bottom">
+            <div className="Text-Align-Center Max50">
+                <div className="Margin-Bottom">
                     <h4 className="Text-Align-Left">model variables</h4>
                     <Tooltip title="Frequency of moving homes in the last twelve months">
                         <div className="Variable-Flat">moved frequently</div>

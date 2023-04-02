@@ -178,7 +178,7 @@ h3,
 
 h4 {
   margin-bottom: .8rem;
-  font-size: .8rem;
+  font-size: .82rem;
   letter-spacing: .8px;
   text-transform: uppercase;
   font-weight: 400;
@@ -232,7 +232,11 @@ b, strong {
 
 a {
   text-decoration: none;
-  // font-weight: 200;
+  color: $appColor;
+}
+
+a:hover {
+  color: $Purple;
 }
 
 a:visited {
@@ -241,6 +245,7 @@ a:visited {
 
 h6 > a:visited {
   opacity: .7;
+  color: $appColor;
 }
 
 a:hover,

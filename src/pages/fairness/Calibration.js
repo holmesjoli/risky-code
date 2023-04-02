@@ -13,7 +13,6 @@ import Timer from "../../components/Timer";
 import { RoleShort } from "../../components/Role";
 import fairnessData from "../../data/processed/mathematical_fairness.json"
 import data from "../../data/processed/calibrationCurve.json";
-import { FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import { fillScale, symbolScale } from "./COMPAS"
 
 let introChartId = "Fairness-Chart";
@@ -152,8 +151,8 @@ function Information() {
         <div className="Information">
             <div className="Container Margin-Bottom">
                 <h4 className="Margin-Small">learn</h4>
-                    <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources" className="Purple">(Angwin et al. 2016)</NavLink>. </p>
-                    <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources" className="Purple">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
+                    <p>In May 2016, the investigative newsroom, ProPublica, published an article titled <span className="Emphasis">Machine Bias</span>. The article accused Equivant, the developer of COMPAS, of overlooking encoded racial bias in the algorithm's predictions <NavLink to="/Resources">(Angwin et al. 2016)</NavLink>. </p>
+                    <p>The article sparked passionate discourse across industries and disciplines resulting in the replication of the analysis many times over <NavLink to="/Resources">(Flores, Bechtel, and Lowenkamp 2016; Corbett-Davies et al. 2016)</NavLink>.</p>
                     <p className="No-Margin-Bottom">However, the discourse did not result in a consensus supporting claims made by the authors of <span className="Emphasis">Machine Bias</span> or a complete vindication of Equivant. Instead, it sparked several new questions about algorithmically informed decision-making, such as what does it mean for an algorithm to be biased, and alternatively, what does it mean to be fair?</p>
             </div>
         </div>
@@ -180,7 +179,7 @@ function ImpossibilityTheorem() {
     return(
         <div>
             <div className="chart" id={introChartId}></div>
-            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources" className="Purple">Verma and Rubin (2018).</NavLink> Click to open journal article about that specific definition of algorithmic fairness.</h6>
+            <h6 className="Small-Margin-Top">Visualization shows twenty definitions of algorithmic fairness. Visualization created using data collected by <NavLink to="/Resources">Verma and Rubin (2018).</NavLink> Click to open journal article about that specific definition of algorithmic fairness.</h6>
         </div>
     )
 }
@@ -397,13 +396,15 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
                         <RightSideBar>
                             <div className="Container2 Margin-Bottom">
                                 <h4 className="Small-Margin">learn</h4>
-                                <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources" className="Purple">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources" className="Purple">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions if the underlying base rates of a population are unequal.</p>
+                                <p className="No-Margin-Bottom">AI researchers have proposed over twenty mathematical constructions of fairness <NavLink to="/Resources">(Verma and Rubin 2018; Narayanan 2018)</NavLink>. However, <NavLink to="/Resources">Kleinberg et al.'s (2016) </NavLink>research demonstrates that it is <span className="Semi-Bold">impossible</span> to meet multiple definitions if the underlying base rates of a population are unequal.</p>
                             </div>
-                            <Timer user={user} disableNext={disableFairnessNext2} setDisableNext={setDisableFairnessNext2} className="Purple">
+                            <div>
+                            <Timer user={user} className="Purple">
                                 <p>Have you heard of any of these definitions before?</p>
-                                <p className={disableFairnessNext2 ? "": "No-Margin-Bottom"}>Have you used or come across any of these definitions in your work before?</p>
+                                <p>Have you used or come across any of these definitions in your work before?</p>
                             </Timer>
-                            {toggleOverlay? <NextButtonOverlay disabled={disableFairnessNext2} toggleOverlay={toggleOverlay} className="Purple"/>: <></>}
+                            </div>
+                            <NextButtonOverlay toggleOverlay={toggleOverlay} className="Purple"/>
                         </RightSideBar>
                     </div>
                 </div>
