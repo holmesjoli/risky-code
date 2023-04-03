@@ -272,11 +272,11 @@ function StakeholderNetwork(data, setData) {
                 <div id={legendId} className="Small-Margin-Bottom"></div>
             </div>
             <div>
-                <div className="Three-Column-Equal Margin-Top">
+                {/* <div className="Three-Column-Equal Margin-Top">
                     <div></div>
                     <Button variant="outlined" color="secondary" onClick={resetNetwork}>reset network</Button>
                     <div></div>
-                </div>
+                </div> */}
             </div>
         </div>
     )
