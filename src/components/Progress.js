@@ -197,7 +197,7 @@ export default function Progress({id, modules}) {
     }
 
     const [state, setState] = React.useState({
-        right: false,
+        left: false,
     });
     const toggleDrawer =
         (anchor, open) =>
@@ -214,9 +214,9 @@ export default function Progress({id, modules}) {
 
     return (
         <div className="Progress">
-            {(['right']).map((anchor) => (
+            {(['left']).map((anchor) => (
                 <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)} variant="outlined" className="Left-Border"><ExpandMoreIcon className="Rotate90"/></Button>
+                <Button onClick={toggleDrawer(anchor, true)} variant="outlined" className="Right-Border">progress </Button>
                 <Drawer
                     anchor={anchor}
                     open={state[anchor]}

@@ -71,14 +71,10 @@ p {
 }
 
 .Progress {
-    max-width:50px;
-    margin-left: auto;
-    margin-right: $containerMargin;
+    // max-width:50px;
+    // margin-left: auto;
+    // margin-left: $containerMargin;
 }
-
-// .Progress .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Left-Border {
-//     padding: 10px;
-// }
 
 table {
     background-color: $cardBackgroundColor;
