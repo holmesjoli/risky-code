@@ -12,7 +12,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { RoleShort } from "../../components/Role";
 import Overlay from "../../components/Overlay";
-import MiniModel from "../../components/MiniStatisticalModel";
+import { importImages } from "../../components/Helper";
 
 function Information() {
     return (
@@ -20,6 +20,42 @@ function Information() {
             <PredictiveOutcomes/>
         </div>
     )
+}
+
+function DataModel({items}) {
+
+    const images = importImages();
+
+    return (
+        <table>
+           	<thead>
+                <tr>
+                    <th><h4 className="No-Margin-Bottom">Item</h4></th>
+                    <th><h4 className="No-Margin-Bottom">Delicate</h4></th>
+                    <th><h4 className="No-Margin-Bottom">Dry clean</h4></th>
+                    <th><h4 className="No-Margin-Bottom">Pastel</h4></th>
+                    <th><h4 className="No-Margin-Bottom">Print</h4></th>
+                    <th><h4 className="No-Margin-Bottom">White</h4></th>
+                    <th><h4 className="No-Margin-Bottom">Classified</h4></th>
+                </tr>
+		    </thead>
+            <tbody>
+
+                {items.filter(d => d.id < 5).map(function(d) {
+                    return(<tr>
+                        <td><img src={images[Object.keys(images)[d.id]]} alt="An item of clothing" width="100" height="50" ></img></td>
+                        <td>{d.delicate ? "True": "False"}</td>
+                        <td>{d.dryCleanOnly ? "True": "False"}</td>
+                        <td>{d.pastel ? "True": "False"}</td>
+                        <td>{d.print ? "True": "False"}</td>
+                        <td>{d.white ? "True": "False"}</td>
+                        <td>{d.column }</td>
+                    </tr>)
+                })}
+            </tbody>
+        </table>   
+    );
+
 }
 
 export function Content({variables, setVariables, items, setItems, modules}) {
@@ -57,7 +93,6 @@ export function Content({variables, setVariables, items, setItems, modules}) {
 export default function Train({config, user, variables, setVariables, items, setItems, modules, rules}) {
 
     const [isOpen, setIsOpen] = useState(true);
-    const [variablesMini, setVariablesMini] = useState(VARIABLES);
 
     let navigate = useNavigate();
     const routeNext = () => {
@@ -76,29 +111,26 @@ export default function Train({config, user, variables, setVariables, items, set
 
     return (
         <div className="App">
-            {/* {isOpen ?
+            {isOpen ?
             <Overlay isOpen={isOpen} onClose={toggleOverlay}>
             <div className="Containers-Container">
                 <div className="Container-Fill-Secondary">
-                    <h3 className="Page-Title Small-Margin">introduction to algorithmic training</h3>
+                    <h3 className="Page-Title Margin-Bottom">algorithmic training</h3>
                     <div className="Two-Column-Three">
-                        <div className="Two-Column">
-                            <MiniModel variablesMini={variablesMini} setVariablesMini={setVariablesMini}/>
-                            <LaundryItemPredicted variablesMini={variablesMini} className="Container2"/>
-                        </div>
+                        <DataModel items={items}/>
                         <RightSideBar>
                             <div className="Container2">
                                 <h4 className="Small-Margin">learn</h4>
-                                <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. A predictive model is a computational interpretation of an algorithm's rules.</p>
+                                <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. A predictive model is a computational interpretation of an algorithm's rules based on data.</p>
                                 <p>We will train a predictive model called Laundry AID. It will guess if an item belongs in the cold water load according to your rules from the last module.</p>
                                 <ul className="Margin-Bottom">
                                     <li>{rules.rule1}</li>
                                     <li>{rules.rule2}</li>
                                     <li>{rules.rule3}</li>
                                 </ul>
-                                <p>Test how you will train Laundry AID by dragging one or more <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
-                                <p className="No-Margin-Bottom">Notice that the outcome variable, <span className="Emphasis">cold water load</span> is fixed and cannot be changed.</p>
-                            </div>
+                                <p>All of the data in Laundry AID are called <span className="Emphasis">boolean</span> variables, meaning they contain two possible values — true or false.</p>
+                                <p className="No-Margin-Bottom">To train the model add data variables to the model that you think will be predictive of the outcome variable <span className="Emphasis">cold water load</span>.</p>
+                                </div>
                             <NextButtonOverlay toggleOverlay={toggleOverlay} className="Purple"/>
                         </RightSideBar>
                     </div>
@@ -106,27 +138,19 @@ export default function Train({config, user, variables, setVariables, items, set
             </div>
         </Overlay>:
         <></>
-        } */}
+        }
         <Header/>
         <div className="Main">
             <LeftSideBar>
                 <Description title={config.title}>
-                    {/* <p>To train Laundry AID, drag one or more variables from data variables to model variables. This will automatically run a statistical model to predict the results. Add or remove variables from the model to see how the predictive probabilities change.</p>
+                    <p>To train Laundry AID, drag one or more variables from data variables to model variables that you think are predictive of <span className="Emphasis">cold water load</span>. This will automatically run a statistical model to predict the results.</p>
                     <p>Laundry rules:</p>
                     <ul className="Margin-Bottom">
                         <li>{rules.rule1}</li>
                         <li>{rules.rule2}</li>
                         <li>{rules.rule3}</li>
-                    </ul>*/}
-                    <p>The second step of algorithmic prediction is to <span className="Semi-Bold">train</span> a predictive model. A predictive model is a computational interpretation of an algorithm's rules.</p>
-                    <p>We will train a predictive model called Laundry AID. It will guess if an item belongs in the cold water load according to your rules from the last module.</p>
-                    <ul className="Margin-Bottom">
-                        <li>{rules.rule1}</li>
-                        <li>{rules.rule2}</li>
-                        <li>{rules.rule3}</li>
                     </ul>
-                    <p>Test how you will train Laundry AID by dragging one or more <span className="Emphasis">data variables</span> to <span className="Emphasis">model variables</span>.</p>
-                    <p>Notice that the outcome variable, <span className="Emphasis">cold water load</span> is fixed and cannot be changed.</p>
+                    <p>Add or remove variables from the model to see how the predictive probabilities change.</p>
                 </Description>
                 <RoleShort moduleName="prediction"/>
                 <Terminology margin="Margin-Large-Bottom" className="Purple">

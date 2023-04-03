@@ -98,6 +98,14 @@ const theme = createTheme({
         backgroundColor: "#131517"
       }
     },
+    MuiDataGrid: {
+      root: {
+        borderColor: "#2e3238"
+      },
+      withBorderColor: {
+        borderColor: "#2e3238"
+      }
+    },
     MuiAccordionDetails: {
       root: {
         padding: 0,

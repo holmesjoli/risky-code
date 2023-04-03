@@ -79,3 +79,26 @@ p {
 // .Progress .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.Left-Border {
 //     padding: 10px;
 // }
+
+table {
+    background-color: $cardBackgroundColor;
+    border: 1px solid #2e3238;
+    border-radius: $containerBorderRadius;
+}
+
+th,
+td {
+	padding: 10px;
+	color: $appColor;
+    border: 1px solid #2e3238;
+}
+
+th {
+	text-align: left;
+    color: #fff;
+}
+
+tbody td {
+
+    font-size: .8rem;
+}
