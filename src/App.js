@@ -72,8 +72,8 @@ export default function App() {
           <Route path="/" element={<Main/>} />
           <Route path="/Orientation" element={<Orientation user={user} setUser={setUser} name={name} setName={setName} groupName={groupName} setGroupName={setGroupName}/>} />
 
-          <Route path="/Prediction" element={<Prediction user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} />} />
-          <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} setRules={setRules} name={name}/>} />
+          <Route path="/Prediction" element={<Prediction user={user} modules={modules} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} rules={rules} setRules={setRules} />} />
+          <Route path="/Classify" element={<Classify config={config.Classify} user={user} items={items} setItems={setItems} modules={modules} rules={rules} setRules={setRules} name={name}/>} />
           <Route path="/Train" element={<Train config={config.Train} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} rules={rules} />} />
           <Route path="/Optimize" element={<Optimize config={config.Optimize} user={user} variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules} setModules={setModules} />} />
           <Route path="/PredictionReflection" element={<PredictionReflection user={user} algorithmDefinition={algorithmDefinition} setAlgorithmDefinition={setAlgorithmDefinition} disablePredictionNext={disablePredictionNext} setDisablePredictionNext={setDisablePredictionNext}/>} />

@@ -27,7 +27,6 @@ export function Content({items, setItems, nClassified, setNClassified, setDisabl
 
 export default function Classify({config, user, items, setItems, modules, rules, setRules, name}) {
 
-    const [id, setId] = useState("predict");
     const [isOpen, setIsOpen] = useState(true);
     const [nClassified, setNClassified] = useState(0);
     const [disabled, setDisabled] = useState(true);
@@ -47,10 +46,6 @@ export default function Classify({config, user, items, setItems, modules, rules,
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
-
-    useEffect(() => {
-        setId(isOpen ? "predict": "classify");
-    }, [isOpen]);
 
     return (
         <div className="App"> 
@@ -111,7 +106,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     <NextButton routeNext={routeNext} className="Purple" disabled={disabled}/>
                 </div>
             </LeftSideBar>
-            <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name} modules={modules} id={id}/>
+            <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name} modules={modules} id={config.id}/>
         </div>
         <Footer/>
     </div>

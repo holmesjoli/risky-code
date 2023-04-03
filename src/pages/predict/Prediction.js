@@ -9,7 +9,7 @@ import StepContent from '@material-ui/core/StepContent';
 import { BrainstormAlgorithm, BrainstormLaundryRules } from "../../components/Brainstorm";
 import { RolePrediction } from "../../components/Role";
 
-export default function Algorithm({user, algorithmDefinition, setAlgorithmDefinition, rules, setRules}) {
+export default function Algorithm({user, algorithmDefinition, setAlgorithmDefinition, rules, setRules, modules }) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
@@ -32,6 +32,10 @@ export default function Algorithm({user, algorithmDefinition, setAlgorithmDefini
         setActiveStep((prevActiveStep) => prevActiveStep - 1);
     };
 
+    if (!modules.includes("predict")) {
+        modules.push("predict")
+    }
+    
     const Introduction = () => {
 
         return(
