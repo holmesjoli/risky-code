@@ -11,12 +11,12 @@ import { RoleShort } from "../../components/Role";
 import { Overlay } from "../../components/Overlay";
 import MiniModel from '../../components/MiniLaundryModel';
 
-export function Content({items, setItems, nClassified, setNClassified, setDisabled, modules}) {
+export function Content({items, setItems, nClassified, setNClassified, setDisabled, modules, id}) {
     return(
         <div className="Content No-Padding-Top">
             <div className="Row">
                 <h2 className="Title">Classify</h2>
-                <Progress id="classify" modules={modules} className="Purple"/>
+                <Progress id={id} modules={modules} className="Purple"/>
             </div>
             <div>
                 <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
@@ -111,7 +111,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     <NextButton routeNext={routeNext} className="Purple" disabled={disabled}/>
                 </div>
             </LeftSideBar>
-            <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name} modules={modules}/>
+            <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name} modules={modules} id={id}/>
         </div>
         <Footer/>
     </div>

@@ -81,10 +81,6 @@ function updateProgress(id, modules, navigate) {
     highlightColor = highlightColorScale(configArray.find(d => d.id === pageId).group);
     fill = [highlightColor].concat(Array(configLength - 1).fill("#131517"));
 
-    if (!modules.includes(pageId)) {
-        modules.push(pageId)
-    }
-
     visited = createVisited(modules, configArray);
     fillScale = createScale(pageId, otherPageIds, fill);
 
@@ -189,6 +185,11 @@ export default function Progress({id, modules}) {
     configLength = Object.keys(config).length;
     fontWeight = [visStyles[style]["fontHighlightWeight"]].concat(Array(configLength - 1).fill(visStyles[style]["fontWeight"]));
     fontColor = [visStyles[style]["textHighlightColor"]].concat(Array(configLength - 1).fill("#868B90"));
+    pageId = lookupPageId(id, configArray);
+
+    if (!modules.includes(pageId)) {
+        modules.push(pageId)
+    }
 
     // update configArray
     for (let i of Object.entries(config)) {

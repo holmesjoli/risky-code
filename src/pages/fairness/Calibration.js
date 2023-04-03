@@ -160,12 +160,12 @@ function Information() {
     )
 }
 
-function Content({modules}) {
+function Content({modules, id}) {
     return(
         <div className="Content No-Padding-Top">
              <div className="Row">
                 <h2 className="Title">Calibration</h2>
-                <Progress id="calibration" modules={modules} className="Purple"/>
+                <Progress id={id} modules={modules} className="Purple"/>
             </div>
             <div className="One-Column-Three4 ">
                 <div className="Container Margin-Bottom">
@@ -370,6 +370,7 @@ export function drawRaceLegend(legendId) {
 export default function Calibration({config, user, disableFairnessNext2, setDisableFairnessNext2, modules}) {
 
     const [isOpen, setIsOpen] = useState(true);
+    const [id, setId] = useState("fairness");
     let navigate = useNavigate(); 
     const routeNext = () => {
       let path = `/Error`; 
@@ -384,6 +385,11 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
     const toggleOverlay = () => {
         setIsOpen(!isOpen);
     };
+
+    useEffect(() => {
+        setId(isOpen ? "fairness": config.id);
+    }, [isOpen]);
+
 
     useEffect(() => {
         fairnessDefinitions();
@@ -438,7 +444,7 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
                     <NextButton routeNext={routeNext} className="Purple"/>
                 </div>
             </LeftSideBar>
-            <Content modules={modules}/>
+            <Content modules={modules} id={id}/>
         </div>
         <Footer/>
     </div>
