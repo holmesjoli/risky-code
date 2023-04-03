@@ -81,7 +81,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
     };
 
     useEffect(() => {
-        runRegression(variables, items, setItems, predictiveProbability/100);
+        runRegression(items, setItems, variables, predictiveProbability/100);
         updateCard(items, variables, true);
         updateAccuracy(items, variables)
     }, [variables, items, predictiveProbability]);

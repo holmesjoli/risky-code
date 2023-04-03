@@ -42,7 +42,7 @@ function DataModel({items}) {
             <tbody>
 
                 {items.filter(d => d.id < 5).map(function(d) {
-                    return(<tr>
+                    return(<tr key={d.id}>
                         <td><img src={images[Object.keys(images)[d.id]]} alt="An item of clothing" width="100" height="50" ></img></td>
                         <td>{d.delicate ? "True": "False"}</td>
                         <td>{d.dryCleanOnly ? "True": "False"}</td>
@@ -61,9 +61,9 @@ function DataModel({items}) {
 export function Content({variables, setVariables, items, setItems, modules}) {
 
     useEffect(() => {
-            runRegression(variables, items, setItems);
+            runRegression(items, setItems, variables);
             updateCard(items, variables);
-    }, [variables, items]);
+    }, [items, variables]);
 
     return(
         <div className="Content No-Padding-Top">

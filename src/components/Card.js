@@ -34,7 +34,7 @@ export function Card({items}) {
             return( 
                 <div key={"Card-Id"+item.id} id={"Card-Id"+item.id} className={addClass(item.column) + " Card Card-Flat"}>
                     <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                        <h5 id={item.id + "-predicted"} className="predicted Semi-Bold"></h5>
+                        <h5 id={item.id + "-predicted"} className="predicted Semi-Bold White"></h5>
                 </div>
             )
         })

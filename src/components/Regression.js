@@ -166,7 +166,7 @@ function logisticData(iterateData, modelVars) {
     return data;
 }
 
-export function runRegression(variables, items, setItems, predictiveProbability = .5) {
+export function runRegression(items, setItems, variables, predictiveProbability = .5) {
 
     var modelVars = getModelVariables(variables);
 
@@ -186,6 +186,7 @@ export function runRegression(variables, items, setItems, predictiveProbability 
             // console.log(pp >= predictiveProbability? 1: 0)
             // console.log("predicted probability", pp)
             // console.log("predicted", predicted)
+            // console.log(items[i])
 
             items[i].predicted = predicted;
             items[i].predictedProbability = pp;
