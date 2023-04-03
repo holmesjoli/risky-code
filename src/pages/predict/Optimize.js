@@ -42,10 +42,6 @@ export function Content({variables, setVariables, items, setItems, predictivePro
 
     return(
         <div className="Content No-Padding-Top">
-            <div className="Row">
-                <h2 className="Title">Optimize</h2>
-                <Progress id="optimize" modules={modules} className="Purple"/>
-            </div>
             <div className="One-Column-Three5">
                 <div>
                     <Model variables={variables} setVariables={setVariables}/>
@@ -120,7 +116,7 @@ export default function Optimize({config, variables, setVariables, items, setIte
         <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description title={config.title}>
+                    <Description title={config.title} id={config.id} modules={modules}>
                         <p>Optimize Laundry AID by adjusting the slider and adding or removing model variables.</p>
                         <p className="Padding-Bottom No-Margin-Bottom">Try to get the accuracy as high as possible.</p>
                     </Description>

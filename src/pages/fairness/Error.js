@@ -265,10 +265,6 @@ export function Content({modules}) {
 
     return(
         <div className="Content No-Padding-Top">
-             <div className="Row">
-                <h2 className="Title">Error rates</h2>
-                <Progress id="error" modules={modules} className="Purple"/>
-            </div>
             <div className="One-Column-Three2">
                 <div>
                     <div className="Container Margin-Bottom">
@@ -375,7 +371,7 @@ export default function Error({config, modules}) {
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description title={config.title}>
+                    <Description title={config.title} id={config.id} modules={modules}>
                         <p>Optimize the false positive rate and false negative rate by moving the slider. </p>
                     </Description>
                     <div className="Button-Container-Right">

@@ -1,5 +1,6 @@
 import { Accordion, AccordionSummary, AccordionDetails,  FormControl, RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Progress from "./Progress";
 
 export function Terminology({children, className, margin, defaultExpanded=false}) {
 
@@ -28,11 +29,12 @@ export function Term({term}) {
     )
 }
 
-export function Description({title, children}) {
+export function Description({title, id, modules, children}) {
     return(
         <div className="Description Bottom-Rule Margin-Bottom">
-            {/* <h2 className="Title">{title}</h2> */}
+            <h2 className="Margin-Bottom">{title}</h2>
             {children}
+            <Progress id={id} modules={modules} className="Purple"/>
         </div>
     )
 }

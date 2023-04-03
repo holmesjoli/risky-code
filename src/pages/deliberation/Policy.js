@@ -67,7 +67,7 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description title={config.title}>
+                <Description title={config.title} id={config.id} modules={modules}>
                     <p>Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box.</p>
                 </Description>
                 <div className="Button-Container-Right">

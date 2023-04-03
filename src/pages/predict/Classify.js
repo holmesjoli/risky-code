@@ -14,10 +14,6 @@ import MiniModel from '../../components/MiniLaundryModel';
 export function Content({items, setItems, nClassified, setNClassified, setDisabled, modules, id}) {
     return(
         <div className="Content No-Padding-Top">
-            <div className="Row">
-                <h2 className="Title">Classify</h2>
-                <Progress id={id} modules={modules} className="Purple"/>
-            </div>
             <div>
                 <SortLaundry items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled}/>
             </div>
@@ -80,7 +76,7 @@ export default function Classify({config, user, items, setItems, modules, rules,
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description title={config.title}>
+                <Description title={config.title} id={config.id} modules={modules}>
                     {/* <p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>
                     <p>Laundry rules:</p>
                     <ul className="Margin-Bottom">

@@ -405,16 +405,12 @@ function AddStakeholder(data, setData, stakeholderData, setStakeholderData, stak
     )
 }
 
-export default function StakeholderMapping({data, setData, stakeholderData, setStakeholderData, className, modules, id}) {
+export default function StakeholderMapping({data, setData, stakeholderData, setStakeholderData, className}) {
 
     const [stakeholderIdArray, updateStakeholderIdArray] = useState(['stakeholders']);
 
     return(
         <div className="Content No-Padding-Top">
-            <div className="Row">
-                <h2 className="Title">Stakeholder mapping</h2>
-                <Progress id={id} modules={modules} className="Purple"/>
-            </div>
             <div className="One-Column-Three">
                 <div className="">
                     {AddStakeholder(data, setData, stakeholderData, setStakeholderData, stakeholderIdArray, className)}

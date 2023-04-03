@@ -163,10 +163,6 @@ function Information() {
 function Content({modules, id}) {
     return(
         <div className="Content No-Padding-Top">
-             <div className="Row">
-                <h2 className="Title">Calibration</h2>
-                <Progress id={id} modules={modules} className="Purple"/>
-            </div>
             <div className="One-Column-Three4 ">
                 <div className="Container Margin-Bottom">
                     <h3 className="No-Margin-Bottom">compas' calibration risk scores by race</h3>
@@ -428,7 +424,7 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description title={config.title}>
+                <Description title={config.title} id={config.id} modules={modules}>
                     <p>An algorithm is well calibration if in each risk group, the rate of recidivism is about the same for different demographic groups.</p>
                     <p>Hover over points on the visualization to see more.</p>
                 </Description>

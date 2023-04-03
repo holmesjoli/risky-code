@@ -442,10 +442,6 @@ function Content({ stakeholderData, data, setData, sid, setId, modules }) {
 
     return(
         <div className="Content No-Padding-Top">
-            <div className="Row">
-                <h2 className="Title">Risk framework</h2>
-                <Progress id="risk" modules={modules} className="Purple"/>
-            </div>
             <div className="One-Column-Three6">
                 <AddRisks stakeholderData={stakeholderData} data={data} setData={setData} sid={sid} setId={setId}/>
                 <RiskNetwork setData={setData}/>
@@ -498,7 +494,7 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
             <Header/>
             <div className="Main">
                 <LeftSideBar>
-                    <Description title={config.title}>
+                    <Description title={config.title} id={config.id} modules={modules}>
                         <p>Use the sliders to adjust the risks for each stakeholder you identified on the stakeholder mapping page</p>
                     </Description>
                     <div className="Button-Container-Right">

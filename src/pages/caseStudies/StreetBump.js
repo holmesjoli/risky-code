@@ -14,47 +14,6 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
 import MiniModel from "../../components/MiniStakeholderModel";
 
-
-// import coastline from "../../data/processed/Boston/coastline.json";
-// import city from "../../data/processed/Boston/city.json";
-// import park from "../../data/processed/Boston/park.json";
-
-// function drawMap() {
-
-//     // console.log(window.innerHeight, window.innerWidth)
-
-//     const svg = d3
-//         .select("#Boston-Map")
-//         .append("svg")
-//         .attr("preserveAspectRatio", "xMinYMin meet")
-//         .style("background-color", "#fff")
-//         .attr("viewBox", "0 0 " + window.innerWidth + " " + window.innerHeight)
-//         .classed("svg-content", true);
-
-//     const projection = d3
-//         .geoAlbers()
-//         .translate([window.innerWidth / 2, window.innerHeight / 2])
-//         .scale(40)
-//         .center([0, 50]);
-
-//     let geoPathGenerator = d3
-//         .geoPath()
-//         .projection(projection);
-
-//     console.log(coastline)
-//     console.log(city)
-    
-//     svg
-//         .selectAll("path")
-//         .data(park.features)
-//         .enter()
-//         .append("path")
-//         // draw each country
-
-//         .attr("d", geoPathGenerator)
-//         .attr("color", "#eeeeee");
-// }
-
 export default function StreetBump({config, user, modules, data, setData, stakeholderData, setStakeholderData}) {
 
     const [isOpen, setIsOpen] = useState(true);
@@ -119,7 +78,7 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description title={config.title}>
+                <Description title={config.title} id={config.id} modules={modules}>
                     <p>Create a stakeholder map for stakeholders of the Street Bump application. </p>
                     <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>

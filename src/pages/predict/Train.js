@@ -67,10 +67,6 @@ export function Content({variables, setVariables, items, setItems, modules}) {
 
     return(
         <div className="Content No-Padding-Top">
-             <div className="Row">
-                <h2 className="Title">Train</h2>
-                <Progress id="train" modules={modules} className="Purple"/>
-            </div>
             <div className="One-Column-Three5">
                 <div>
                     <div className=''>
@@ -142,7 +138,7 @@ export default function Train({config, user, variables, setVariables, items, set
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description title={config.title}>
+                <Description title={config.title} id={config.id} modules={modules}>
                     <p>To train Laundry AID, drag one or more variables from data variables to model variables that you think are predictive of <span className="Emphasis">cold water load</span>. This will automatically run a statistical model to predict the results.</p>
                     <p>Laundry rules:</p>
                     <ul className="Margin-Bottom">

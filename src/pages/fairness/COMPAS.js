@@ -274,10 +274,6 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
     
     return(
         <div className="Content No-Padding-Top">
-            <div className="Row">
-                <h2 className="Title">COMPAS' Data</h2>
-                <Progress id={id} modules={modules} className="Purple"/>
-            </div>
             <div>
                 <div className="One-Column-Three4">
                     <div className="Container Margin-Bottom">
@@ -394,7 +390,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
         <Header/>
         <div className="Main">
             <LeftSideBar>
-                <Description title={config.title}>
+                <Description title={config.title} id={config.id} modules={modules}>
                     <p>Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
                 </Description>
                 <div className="Button-Container-Right">
