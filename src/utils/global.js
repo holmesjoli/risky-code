@@ -136,26 +136,26 @@ export const CLASSIFY_COLUMN_NAMES = {
 const {ITEM_LIST} = CLASSIFY_COLUMN_NAMES;
 
 export const CARDS = [
-    {id: 0, name: 'Card 0', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: true, white: false},
-    {id: 1, name: 'Card 1', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: true, item_color: "purple", dryCleanOnly: false, white: false},
-    {id: 2, name: 'Card 2', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "black", dryCleanOnly: false, white: false},
-    {id: 3, name: 'Card 3', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "green", dryCleanOnly: false, white: false},
-    {id: 4, name: 'Card 4', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "black", dryCleanOnly: false, white: false},
-    {id: 5, name: 'Card 5', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "pink", dryCleanOnly: false, white: false},
-    {id: 6, name: 'Card 6', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
-    {id: 7, name: 'Card 7', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "green", dryCleanOnly: false, white: false},
-    {id: 8, name: 'Card 8', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: true, item_color: "blue", dryCleanOnly: true, white: false},
-    {id: 9, name: 'Card 9', column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: false, white: false},
-    {id: 10, name: 'Card 10', column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
-    {id: 11, name: 'Card 11', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "pink", dryCleanOnly: false, white: false},
-    {id: 12, name: 'Card 12', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
-    {id: 13, name: 'Card 13', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "yellow", dryCleanOnly: false, white: false},
-    {id: 14, name: 'Card 14', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: false, white: false},
-    {id: 15, name: 'Card 15', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "green", dryCleanOnly: false, white: false},
-    {id: 16, name: 'Card 16', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "red", dryCleanOnly: true, white: false},
-    {id: 17, name: 'Card 17', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
-    {id: 18, name: 'Card 18', column: ITEM_LIST, item_type: "pants", print: true, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true},
-    {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true}
+    {id: 0, name: 'Card 0', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: true, white: false, src: "Asset 14.svg"},
+    {id: 1, name: 'Card 1', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: true, item_color: "orange", dryCleanOnly: false, white: false, src: "Asset 16.svg"},
+    {id: 2, name: 'Card 2', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "black", dryCleanOnly: false, white: false, src: "Asset 12.svg"},
+    {id: 3, name: 'Card 3', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "green", dryCleanOnly: false, white: false, src: "Asset 71.svg"},
+    {id: 4, name: 'Card 4', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: false, item_color: "black", dryCleanOnly: false, white: false, src: "Asset 2.svg"},
+    {id: 5, name: 'Card 5', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "pink", dryCleanOnly: false, white: false, src: "Asset 20.svg"},
+    {id: 6, name: 'Card 6', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true, src: "Asset 25.svg"},
+    {id: 7, name: 'Card 7', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "red", dryCleanOnly: false, white: false, src: "Asset 3.svg"},
+    {id: 8, name: 'Card 8', column: ITEM_LIST, item_type: "pants", print: false, pastel: false, delicate: true, item_color: "blue", dryCleanOnly: true, white: false, src: "Asset 38.svg"},
+    {id: 9, name: 'Card 9', column: ITEM_LIST, item_type: "hoodie", print: true, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: false, white: false, src: "Asset 33.svg"},
+    {id: 10, name: 'Card 10', column: ITEM_LIST, item_type: "shirt", print: true, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true, src: "Asset 87.svg"},
+    {id: 11, name: 'Card 11', column: ITEM_LIST, item_type: "hoodie", print: false, pastel: false, delicate: false, item_color: "pink", dryCleanOnly: false, white: false, src: "Asset 45.svg"},
+    {id: 12, name: 'Card 12', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true, src: "Asset 55.svg"},
+    {id: 13, name: 'Card 13', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "yellow", dryCleanOnly: false, white: false, src: "Asset 6.svg"},
+    {id: 14, name: 'Card 14', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "blue", dryCleanOnly: false, white: false, src: "Asset 69.svg"},
+    {id: 15, name: 'Card 15', column: ITEM_LIST, item_type: "shirt", print: false, pastel: true, delicate: false, item_color: "yellow", dryCleanOnly: false, white: false, src: "Asset 6.svg"},
+    {id: 16, name: 'Card 16', column: ITEM_LIST, item_type: "shorts", print: false, pastel: false, delicate: false, item_color: "red", dryCleanOnly: true, white: false, src: "Asset 8.svg"},
+    {id: 17, name: 'Card 17', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "black", dryCleanOnly: false, white: false, src: "Asset 28.svg"},
+    {id: 18, name: 'Card 18', column: ITEM_LIST, item_type: "pants", print: true, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true, src: "Asset 27.svg"},
+    {id: 19, name: 'Card 19', column: ITEM_LIST, item_type: "shirt", print: false, pastel: false, delicate: false, item_color: "white", dryCleanOnly: false, white: true, src: "Asset 99.svg"}
 ];
 
 export const STAKEHOLDER_COLUMN_NAMES = {

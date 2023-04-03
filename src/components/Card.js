@@ -1,9 +1,10 @@
 import { importImages } from "./Helper";
 import { CLASSIFY_COLUMN_NAMES, getModelVariables } from "../utils/global";
-import { useEffect } from "react";
 import * as d3 from 'd3';
 
 const { CASE_TRUE, CASE_FALSE } = CLASSIFY_COLUMN_NAMES;
+
+const images = importImages();
 
 export function addClass(column) {
 
@@ -27,14 +28,12 @@ export function addPredicted(predicted) {
 
 export function Card({items}) {
 
-    const images = importImages();
-
     const createCard = (items) => {
         return items.map((item) => {
             return( 
                 <div key={"Card-Id"+item.id} id={"Card-Id"+item.id} className={addClass(item.column) + " Card Card-Flat"}>
-                    <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
-                        <h5 id={item.id + "-predicted"} className="predicted Semi-Bold White"></h5>
+                    <img id={item.id + "-image"} src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
+                    <h5 id={item.id + "-predicted"} className="predicted Semi-Bold White Opacity1"></h5>
                 </div>
             )
         })
@@ -64,14 +63,35 @@ export function Card({items}) {
 export function updateCard(items, variables, addIncorrect=false) {
 
     var modelVars = getModelVariables(variables);
+    // console.log(items)
 
     if (modelVars.length > 0 ) {
+        let cards = d3.selectAll(".Card")
 
-        d3.selectAll(".predicted.Semi-Bold")
+        console.log("start")
+        cards.select("h5")
             .text(function() {
+                // console.log(d)
                 let id = +this.getAttribute("id").match(/\d+/)[0];
+                // console.log(id)
                 let predictedProbability = items.find((d) => d.id === id).predictedProbability;
-                return predictedProbability !== undefined ? Math.round(predictedProbability*100)/100: ""});
+                return Math.round(predictedProbability*100)/100
+                });
+
+        console.log(items)
+
+        cards.select("img")
+            .attr("src", function() {
+                let id = +this.getAttribute("id").match(/\d+/)[0];
+
+                let src = items.find((d) => d.id === id).src;
+                // console.log(src)
+                let index = Object.keys(images).indexOf(src);
+                // console.log(index)
+                return images[Object.keys(images)[index]]
+            });
+
+        // <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
 
         if (addIncorrect) {
             d3.selectAll(".Card")
