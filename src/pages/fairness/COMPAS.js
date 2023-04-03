@@ -393,10 +393,15 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                 <Description title={config.title} id={config.id} modules={modules}>
                     <p>Use the toggle switch to reveal discrepancies in the base rate of the population.</p>
                 </Description>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple"/>
+                <div className="Margin-Bottom Bottom-Rule Padding-Bottom">
+                        <h3>Navigation</h3>
+                        <NextButton routeNext={routeNext} className="Purple"/>
+                        <div className="Button-Container-Right">
+                            <BackButton routeBack={routeBack}/>
+                            <Progress id={id} modules={modules} className="Purple"/>
+                        </div>
                 </div>
+                <h3>Additional Information</h3>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom" className="Purple">
                     <Term term={terms['population-base-rate']}/>

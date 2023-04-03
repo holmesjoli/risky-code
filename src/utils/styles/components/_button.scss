@@ -24,13 +24,24 @@
 }
 
 .Button-Container-Right {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
     gap: 15px;
     // position: absolute;
     // bottom: 15px;
     // right: 15px;
     // width: 90%;
+    // display: grid;
+    // grid-gap: 1rem;
+    // grid-template-columns: minmax(75px, 50%) minmax(150px, 50%);
+    display: flex;
+    flex-direction: row;
+}
+
+.Next,
+.Back,
+.Progress {
+    width: 100%;
 }
 
 .Bottom {
@@ -45,4 +56,8 @@
 
 .Button-Container-Right-Overlay {
     padding: 0 10px;
+}
+
+.Navigation {
+    margin-bottom: $containerMargin;
 }

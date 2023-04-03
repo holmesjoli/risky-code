@@ -17,7 +17,9 @@ export function NextButton({routeNext, className, disabled=false, label="next"})
     }
 
     return(
-        <Button variant="outlined" className={className} onClick={routeNext} disabled={disabled}>{label}</Button>
+        <div className="Margin-Bottom">
+            <Button variant="outlined" className={className + " Next"} onClick={routeNext} disabled={disabled}>{label}</Button>
+        </div>
     )
 }
 

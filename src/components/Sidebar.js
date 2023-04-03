@@ -33,8 +33,7 @@ export function Description({title, id, modules, children}) {
     return(
         <div className="Description Bottom-Rule Margin-Bottom">
             <h2 className="Margin-Bottom">{title}</h2>
-            {children}
-            <Progress id={id} modules={modules} className="Purple"/>
+            {children}           
         </div>
     )
 }

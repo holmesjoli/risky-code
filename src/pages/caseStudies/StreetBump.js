@@ -9,6 +9,7 @@ import { BackButton, NextButton, NextButtonOverlay } from '../../components/Butt
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import StakeholderMapping from "../../components/StakeholderMapping";
 import { RoleShort } from "../../components/Role";
+import Progress from "../../components/Progress";
 
 import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
@@ -82,10 +83,15 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                     <p>Create a stakeholder map for stakeholders of the Street Bump application. </p>
                     <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple" />
+                <div className="Margin-Bottom Bottom-Rule Padding-Bottom">
+                    <h3>Navigation</h3>
+                    <NextButton routeNext={routeNext} className="Purple"/>
+                    <div className="Button-Container-Right">
+                        <BackButton routeBack={routeBack}/>
+                        <Progress id={id} modules={modules} className="Purple"/>
+                    </div>
                 </div>
+                <h3>Additional Information</h3>
                 <RoleShort moduleName="caseStudies"/>
                 <Terminology className="Margin-Bottom">
                     <Term term={terms['stakeholders']}/>

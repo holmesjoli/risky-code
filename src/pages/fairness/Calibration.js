@@ -428,10 +428,15 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
                     <p>An algorithm is well calibration if in each risk group, the rate of recidivism is about the same for different demographic groups.</p>
                     <p>Hover over points on the visualization to see more.</p>
                 </Description>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple"/>
+                <div className="Margin-Bottom Bottom-Rule Padding-Bottom">
+                        <h3>Navigation</h3>
+                        <NextButton routeNext={routeNext} className="Purple"/>
+                        <div className="Button-Container-Right">
+                            <BackButton routeBack={routeBack}/>
+                            <Progress id={config.id} modules={modules} className="Purple"/>
+                        </div>
                 </div>
+                <h3>Additional Information</h3>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom" className="Purple">
                     <Term term={terms['calibration']}/>

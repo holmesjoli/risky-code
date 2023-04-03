@@ -8,8 +8,6 @@ import SortLaundry from "../../components/SortLaundry";
 import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../../components/Sidebar";
 import { terms } from "../../utils/global";
 import { RoleShort } from "../../components/Role";
-import { Overlay } from "../../components/Overlay";
-import MiniModel from '../../components/MiniLaundryModel';
 
 export function Content({items, setItems, nClassified, setNClassified, setDisabled, modules, id}) {
     return(
@@ -77,13 +75,6 @@ export default function Classify({config, user, items, setItems, modules, rules,
         <div className="Main">
             <LeftSideBar>
                 <Description title={config.title} id={config.id} modules={modules}>
-                    {/* <p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>
-                    <p>Laundry rules:</p>
-                    <ul className="Margin-Bottom">
-                        <li>{rules.rule1}</li>
-                        <li>{rules.rule2}</li>
-                        <li>{rules.rule3}</li>
-                    </ul> */}
                     <p>The first step of algorithmic prediction is to collect and classify data. </p>
                     {user==="group"?<p className="Margin-Small">Your team will classify <span className="Semi-Bold">20</span> items of clothing using the rules you previously defined.</p>: <p className="Margin-Small">You will classify 20 items of clothing using the rules you previously defined.</p>}
                     <ul className="Margin-Bottom">
@@ -93,10 +84,15 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     </ul>
                     {user==="group"?<p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                 </Description>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
+                <div className="Margin-Bottom Bottom-Rule Padding-Bottom">
+                    <h3>Navigation</h3>
                     <NextButton routeNext={routeNext} className="Purple" disabled={disabled}/>
+                    <div className="Button-Container-Right">
+                        <BackButton routeBack={routeBack}/>
+                        <Progress id={config.id} modules={modules} className="Purple"/>
+                    </div>
                 </div>
+                <h3>Additional Information</h3>
                 <RoleShort moduleName="prediction"/>
                 <Terminology margin="Margin-Bottom" className="Purple">
                     <Term term={terms['algorithm']}/>

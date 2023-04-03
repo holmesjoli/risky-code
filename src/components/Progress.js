@@ -213,25 +213,25 @@ export default function Progress({id, modules}) {
     };
 
     return (
-        <div className="Progress">
+        <div className="Progress Right-Border">
             {(['left']).map((anchor) => (
                 <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)} variant="outlined" className="Right-Border">progress </Button>
-                <Drawer
-                    anchor={anchor}
-                    open={state[anchor]}
-                    onClose={toggleDrawer(anchor, false)}
-                >
-                    <Box
-                        sx={{ width: 300 }}
-                        role="presentation"
-                        onClick={toggleDrawer(anchor, false)}
-                        onKeyDown={toggleDrawer(anchor, false)}
-                        className="Progress-Chart"
-                        >
-                            <RenderProgress id={id} modules={modules} navigate={navigate}/>
-                    </Box>
-                </Drawer>
+                    <Button onClick={toggleDrawer(anchor, true)} variant="outlined" color="secondary">progress</Button>
+                    <Drawer
+                        anchor={anchor}
+                        open={state[anchor]}
+                        onClose={toggleDrawer(anchor, false)}
+                    >
+                        <Box
+                            sx={{ width: 300 }}
+                            role="presentation"
+                            onClick={toggleDrawer(anchor, false)}
+                            onKeyDown={toggleDrawer(anchor, false)}
+                            className="Progress-Chart"
+                            >
+                                <RenderProgress id={id} modules={modules} navigate={navigate}/>
+                        </Box>
+                    </Drawer>
                 </React.Fragment>
             ))}
         </div>

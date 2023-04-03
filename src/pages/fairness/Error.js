@@ -374,10 +374,15 @@ export default function Error({config, modules}) {
                     <Description title={config.title} id={config.id} modules={modules}>
                         <p>Optimize the false positive rate and false negative rate by moving the slider. </p>
                     </Description>
-                    <div className="Button-Container-Right">
-                        <BackButton routeBack={routeBack}/>
-                        <NextButton routeNext={routeNext} className="Purple"d/>
+                    <div className="Margin-Bottom Bottom-Rule Padding-Bottom">
+                        <h3>Navigation</h3>
+                        <NextButton routeNext={routeNext} className="Purple"/>
+                        <div className="Button-Container-Right">
+                            <BackButton routeBack={routeBack}/>
+                            <Progress id={config.id} modules={modules} className="Purple"/>
+                        </div>
                     </div>
+                    <h3>Additional Information</h3>
                     <RoleShort moduleName="fairness"/>
                     <Terminology margin="Margin-Large-Bottom" className="Purple">
                         <Term term={terms['fpr']}/>
