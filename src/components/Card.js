@@ -68,30 +68,20 @@ export function updateCard(items, variables, addIncorrect=false) {
     if (modelVars.length > 0 ) {
         let cards = d3.selectAll(".Card")
 
-        console.log("start")
         cards.select("h5")
             .text(function() {
-                // console.log(d)
                 let id = +this.getAttribute("id").match(/\d+/)[0];
-                // console.log(id)
                 let predictedProbability = items.find((d) => d.id === id).predictedProbability;
                 return Math.round(predictedProbability*100)/100
                 });
 
-        console.log(items)
-
         cards.select("img")
             .attr("src", function() {
                 let id = +this.getAttribute("id").match(/\d+/)[0];
-
                 let src = items.find((d) => d.id === id).src;
-                // console.log(src)
                 let index = Object.keys(images).indexOf(src);
-                // console.log(index)
                 return images[Object.keys(images)[index]]
             });
-
-        // <img src={images[Object.keys(images)[item.id]]} alt="An item of clothing" width="100" height="50" ></img>
 
         if (addIncorrect) {
             d3.selectAll(".Card")

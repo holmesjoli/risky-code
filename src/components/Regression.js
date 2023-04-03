@@ -158,10 +158,11 @@ function logisticData(iterateData, modelVars) {
             row.push(i.coldWaterLoad ? 1: 0)
         }
 
-        row.push(i.coldWaterLoad ? 1: 0)
-
         data.push(row);
     }
+
+    console.log(modelVars)
+    console.log(data)
 
     return data;
 }
@@ -186,7 +187,7 @@ export function runRegression(items, setItems, variables, predictiveProbability 
             // console.log(pp >= predictiveProbability? 1: 0)
             // console.log("predicted probability", pp)
             // console.log("predicted", predicted)
-            // console.log(items[i])
+            console.log(items[i])
 
             items[i].predicted = predicted;
             items[i].predictedProbability = pp;
