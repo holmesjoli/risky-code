@@ -432,6 +432,10 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
                     <p>An algorithm is well calibration if in each risk group, the rate of recidivism is about the same for different demographic groups.</p>
                     <p>Hover over points on the visualization to see more.</p>
                 </Description>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple"/>
+                </div>
                 <RoleShort moduleName="fairness"/>
                 <Terminology margin="Margin-Large-Bottom" className="Purple">
                     <Term term={terms['calibration']}/>
@@ -439,10 +443,6 @@ export default function Calibration({config, user, disableFairnessNext2, setDisa
                     <Term term={terms['proxy-variable']}/>
                     <Term term={terms['recidivism']}/>
                 </Terminology>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple"/>
-                </div>
             </LeftSideBar>
             <Content modules={modules} id={id}/>
         </div>

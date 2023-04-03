@@ -19,7 +19,7 @@ export function PolicyScenario({policy, setPolicy, className="Container"}) {
 export function Consequence({className}) {
 
     return(
-        <div className={"Consequence " + className}>
+        <div className={"Consequence Margin-Bottom " + className}>
             <div className="Container">
                 <h3 className="Small-Margin">reflect</h3>
                     <p>Reflect on the consequences (positive and negative) of using algorithmically informed decision-making in this policy setting</p>

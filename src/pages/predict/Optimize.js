@@ -124,16 +124,16 @@ export default function Optimize({config, variables, setVariables, items, setIte
                         <p>Optimize Laundry AID by adjusting the slider and adding or removing model variables.</p>
                         <p className="Padding-Bottom No-Margin-Bottom">Try to get the accuracy as high as possible.</p>
                     </Description>
+                    <div className="Button-Container-Right">
+                        <BackButton routeBack={routeBack}/>
+                        <NextButton routeNext={routeNext} className="Purple" />
+                    </div>
                     <RoleShort moduleName="prediction"/>
                     <Terminology margin="Margin-Large-Bottom" className="Purple">
                         <Term term={terms['accuracy']}/>
                         <Term term={terms['algorithm']}/>
                         <Term term={terms['decision-threshold']}/>
                     </Terminology>
-                    <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple" />
-                </div>
                 </LeftSideBar>
                 <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} predictiveProbability={predictiveProbability} updateSlider={updateSlider} modules={modules}/>
             </div>

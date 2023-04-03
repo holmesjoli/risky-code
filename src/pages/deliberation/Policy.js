@@ -70,6 +70,10 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                 <Description title={config.title}>
                     <p>Who are the stakeholders of that policy scenario? What are their values? How could algorithmically informed decision-making lead to good or potentially bad outcomes for those stakeholders. Write your answers in the text box.</p>
                 </Description>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple" />
+                </div>
                 <RoleShort moduleName="deliberation"/>
                 <Terminology margin="Margin-Bottom" className="Purple">
                     <Term term={terms['stakeholders']}/>
@@ -78,10 +82,6 @@ export default function Policy({config, user, modules, policy, setPolicy, data, 
                     <Term term={terms['excluded stakeholders']}/>
                 </Terminology>
                 <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple" />
-                </div>
             </LeftSideBar>
             <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Purple" modules={modules} id={id}/>
         </div>

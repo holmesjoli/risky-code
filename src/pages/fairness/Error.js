@@ -378,6 +378,10 @@ export default function Error({config, modules}) {
                     <Description title={config.title}>
                         <p>Optimize the false positive rate and false negative rate by moving the slider. </p>
                     </Description>
+                    <div className="Button-Container-Right">
+                        <BackButton routeBack={routeBack}/>
+                        <NextButton routeNext={routeNext} className="Purple"d/>
+                    </div>
                     <RoleShort moduleName="fairness"/>
                     <Terminology margin="Margin-Large-Bottom" className="Purple">
                         <Term term={terms['fpr']}/>
@@ -385,10 +389,6 @@ export default function Error({config, modules}) {
                         <Term term={terms['mathematical-fairness']}/>
                         <Term term={terms['recidivism']}/>
                     </Terminology>
-                    <div className="Button-Container-Right">
-                        <BackButton routeBack={routeBack}/>
-                        <NextButton routeNext={routeNext} className="Purple"d/>
-                    </div>
                 </LeftSideBar>
                 <Content modules={modules}/>
             </div>

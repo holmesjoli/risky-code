@@ -97,14 +97,14 @@ export default function Classify({config, user, items, setItems, modules, rules,
                     </ul>
                     {user==="group"?<p>Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>: <p className="No-Margin-Bottom">Drag and drop each item to classify it as a <span className="Emphasis">cold water load</span> or <span className="Emphasis">save for later load</span> item.</p>}
                 </Description>
-                <RoleShort moduleName="prediction"/>
-                <Terminology margin="Margin-Large-Bottom" className="Purple">
-                    <Term term={terms['algorithm']}/>
-                </Terminology>
                 <div className="Button-Container-Right">
                     <BackButton routeBack={routeBack}/>
                     <NextButton routeNext={routeNext} className="Purple" disabled={disabled}/>
                 </div>
+                <RoleShort moduleName="prediction"/>
+                <Terminology margin="Margin-Bottom" className="Purple">
+                    <Term term={terms['algorithm']}/>
+                </Terminology>
             </LeftSideBar>
             <Content items={items} setItems={setItems} nClassified={nClassified} setNClassified={setNClassified} setDisabled={setDisabled} user={user} rules={rules} setRules={setRules} name={name} modules={modules} id={config.id}/>
         </div>

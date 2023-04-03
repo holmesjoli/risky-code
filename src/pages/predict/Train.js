@@ -152,6 +152,10 @@ export default function Train({config, user, variables, setVariables, items, set
                     </ul>
                     <p>Add or remove variables from the model to see how the predictive probabilities change.</p>
                 </Description>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple"/>
+                </div>
                 <RoleShort moduleName="prediction"/>
                 <Terminology margin="Margin-Large-Bottom" className="Purple">
                     <Term term={terms['algorithm']}/>
@@ -161,10 +165,6 @@ export default function Train({config, user, variables, setVariables, items, set
                     <Term term={terms['predictive-model']}/>
                     <Term term={terms['predictive-probability']}/>
                 </Terminology>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple"/>
-                </div>
             </LeftSideBar>
             <Content variables={variables} setVariables={setVariables} items={items} setItems={setItems} modules={modules}/>
         </div>

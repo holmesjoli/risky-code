@@ -501,15 +501,15 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
                     <Description title={config.title}>
                         <p>Use the sliders to adjust the risks for each stakeholder you identified on the stakeholder mapping page</p>
                     </Description>
+                    <div className="Button-Container-Right">
+                        <BackButton routeBack={routeBack}/>
+                        <NextButton routeNext={routeNext} className="Purple"/>
+                    </div>
                     <RoleShort moduleName="deliberation"/>
                     <Terminology margin="Margin-Bottom" className="Purple">
                         <Term term={terms['proxy-variable']}/>
                     </Terminology>
                     <PolicyScenario policy={policy} setPolicy={setPolicy}/>
-                    <div className="Button-Container-Right">
-                        <BackButton routeBack={routeBack}/>
-                        <NextButton routeNext={routeNext} className="Purple"/>
-                    </div>
                 </LeftSideBar>
                 <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData} sid={sid} setId={setId} modules={modules}/>
             </div>

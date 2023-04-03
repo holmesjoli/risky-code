@@ -123,6 +123,10 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                     <p>Create a stakeholder map for stakeholders of the Street Bump application. </p>
                     <p>Then add your brainstorm to the map to see how the stakeholders' values overlap.</p>
                 </Description>
+                <div className="Button-Container-Right">
+                    <BackButton routeBack={routeBack}/>
+                    <NextButton routeNext={routeNext} className="Purple" />
+                </div>
                 <RoleShort moduleName="caseStudies"/>
                 <Terminology className="Margin-Bottom">
                     <Term term={terms['stakeholders']}/>
@@ -131,10 +135,6 @@ export default function StreetBump({config, user, modules, data, setData, stakeh
                     <Term term={terms['excluded stakeholders']}/>
                 </Terminology>
                 <Consequence className="Purple"/>
-                <div className="Button-Container-Right">
-                    <BackButton routeBack={routeBack}/>
-                    <NextButton routeNext={routeNext} className="Purple" />
-                </div>
             </LeftSideBar>
             <StakeholderMapping data={data} setData={setData} stakeholderData={stakeholderData} setStakeholderData={setStakeholderData} className="Purple" modules={modules} id={id}/>
         </div>

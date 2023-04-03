@@ -30,7 +30,7 @@ export function Term({term}) {
 
 export function Description({title, children}) {
     return(
-        <div className="Description Bottom-Rule">
+        <div className="Description Bottom-Rule Margin-Bottom">
             {/* <h2 className="Title">{title}</h2> */}
             {children}
         </div>
