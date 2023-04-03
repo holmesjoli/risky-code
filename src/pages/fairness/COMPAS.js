@@ -263,7 +263,7 @@ function Model() {
     )
 }
 
-export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext, baseRate, setBaseRate, modules}) {
+export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disableFairnessNext, setDisableFairnessNext, baseRate, setBaseRate, modules, id}) {
     
     const handleChange = event => {
         let rate = event.target.checked? "arrests": "pop";
@@ -276,7 +276,7 @@ export function Content({baseRatesBrainstorm, setBaseRatesBrainstorm, user, disa
         <div className="Content No-Padding-Top">
             <div className="Row">
                 <h2 className="Title">COMPAS' Data</h2>
-                <Progress id="compas" modules={modules} className="Purple"/>
+                <Progress id={id} modules={modules} className="Purple"/>
             </div>
             <div>
                 <div className="One-Column-Three4">
@@ -408,7 +408,7 @@ export default function COMPAS({config, user, disableFairnessNext, setDisableFai
                     <NextButton routeNext={routeNext} className="Purple"/>
                 </div>
             </LeftSideBar>
-            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate} modules={modules}/>
+            <Content baseRatesBrainstorm={baseRatesBrainstorm} setBaseRatesBrainstorm={setBaseRatesBrainstorm} user={user} disableFairnessNext={disableFairnessNext} setDisableFairnessNext={ setDisableFairnessNext} baseRate={baseRate} setBaseRate={setBaseRate} modules={modules} id={id}/>
         </div>
         <Footer/>
     </div>
