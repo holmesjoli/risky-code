@@ -511,7 +511,7 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
                         <NextButton routeNext={routeNext} className="Purple"/>
                     </div>
                 </LeftSideBar>
-                <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData} sid={sid} setId={setId} modules={module}/>
+                <Content stakeholderData={stakeholderData[sid]} data={data} setData={setData} sid={sid} setId={setId} modules={modules}/>
             </div>
             <Footer/>
         </div>
