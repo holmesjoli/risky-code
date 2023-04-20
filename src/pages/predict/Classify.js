@@ -19,13 +19,21 @@ export function Content({items, setItems, nClassified, setNClassified, setDisabl
     )
 }
 
-export default function Classify({config, user, items, setItems, modules, rules, setRules, name}) {
+export default function Classify({config, user, items, setItems, modules, rules, setRules, name, state, remaining}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [nClassified, setNClassified] = useState(0);
     const [disabled, setDisabled] = useState(true);
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
 
     const routeNext = () => {
       let path = `/Train`; 

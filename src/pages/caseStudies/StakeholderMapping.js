@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import * as React from 'react';
+import { useEffect } from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -9,10 +10,18 @@ import StepContent from '@material-ui/core/StepContent';
 import { RoleStakeholder } from "../../components/Role";
 import { BrainstormStakeholders } from "../../components/Brainstorm";
 
-export default function StakeholderMapping({user, brainstormStakeholders, setBrainstormStakeholders}) {
+export default function StakeholderMapping({user, brainstormStakeholders, setBrainstormStakeholders, state, remaining}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
 
     const routeNext = () => {
         let path = `/StreetBump`;

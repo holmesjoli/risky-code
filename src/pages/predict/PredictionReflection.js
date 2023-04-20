@@ -10,11 +10,17 @@ import Timer from "../../components/Timer";
 import { AlgorithmDefinition } from '../../components/Brainstorm';
 import { NextButtonOrientation } from "../../components/Button";
 
-export default function PredictionReflection({user, algorithmDefinition, setAlgorithmDefinition, disablePredictionNext, setDisablePredictionNext}) {
+export default function PredictionReflection({user, algorithmDefinition, setAlgorithmDefinition, disablePredictionNext, setDisablePredictionNext, state, remaining}) {
 
     const [activeStep, setActiveStep] = useState(0);
     let navigate = useNavigate();
-    // const [className, setClassName] = useState("Purple");
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
 
     const routeNext = () => {
         let path = `/Fairness`;

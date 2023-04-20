@@ -322,10 +322,18 @@ export function Content({modules}) {
     )
 }
 
-export default function Error({config, modules}) {
+export default function Error({config, modules, state, remaining}) {
 
     let navigate = useNavigate();
     // const [isOpen, setIsOpen] = useState(false);
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
 
     const routeNext = () => {
         let path = `/FairnessReflection`;

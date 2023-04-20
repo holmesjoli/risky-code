@@ -36,7 +36,7 @@ export function Content() {
     )
 }
 
-export default function Introduction({config, modules}) {
+export default function Introduction({config, modules, state, remaining}) {
 
     let navigate = useNavigate(); 
     const routeNext = () => {

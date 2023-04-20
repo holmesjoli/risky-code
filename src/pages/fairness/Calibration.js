@@ -363,11 +363,19 @@ export function drawRaceLegend(legendId) {
         .text(d => d.fill);
 }
 
-export default function Calibration({config, user, disableFairnessNext2, setDisableFairnessNext2, modules}) {
+export default function Calibration({config, user, disableFairnessNext2, setDisableFairnessNext2, modules, state, remaining}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("fairness");
     let navigate = useNavigate(); 
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
     const routeNext = () => {
       let path = `/Error`; 
       navigate(path);

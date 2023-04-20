@@ -56,7 +56,7 @@ export function Content({variables, setVariables, items, setItems, predictivePro
     )
 }
 
-export default function Optimize({config, variables, setVariables, items, setItems, modules}) {
+export default function Optimize({config, variables, setVariables, items, setItems, modules, state, remaining}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [predictiveProbability, setPredictiveProbability] = useState(50);
@@ -66,6 +66,14 @@ export default function Optimize({config, variables, setVariables, items, setIte
     };
 
     let navigate = useNavigate(); 
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
     const routeNext = () => {
       let path = `/PredictionReflection`; 
       navigate(path);

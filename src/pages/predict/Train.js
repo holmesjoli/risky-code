@@ -86,9 +86,16 @@ export function Content({variables, setVariables, items, setItems, modules}) {
     )
 }
 
-export default function Train({config, user, variables, setVariables, items, setItems, modules, rules}) {
+export default function Train({config, user, variables, setVariables, items, setItems, modules, rules, state, remaining}) {
 
     const [isOpen, setIsOpen] = useState(true);
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
 
     let navigate = useNavigate();
     const routeNext = () => {

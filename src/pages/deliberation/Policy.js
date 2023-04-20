@@ -12,12 +12,20 @@ import { LeftSideBar, RightSideBar, Description, Terminology, Term } from "../..
 import StakeholderMapping from "../../components/StakeholderMapping";
 import { RoleShort } from "../../components/Role";
 
-export default function Policy({config, user, modules, policy, setPolicy, data, setData, stakeholderData, setStakeholderData}) {
+export default function Policy({config, user, modules, policy, setPolicy, data, setData, stakeholderData, setStakeholderData, state, remaining}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("deliberation");
     let navigate = useNavigate();
     let chartId = "Policy-Chart3";
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
 
     const routeNext = () => {
         let path = `/Risk`; 

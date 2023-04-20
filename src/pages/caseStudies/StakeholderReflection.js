@@ -1,5 +1,6 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 import * as React from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
@@ -9,10 +10,18 @@ import StepContent from '@material-ui/core/StepContent';
 import Timer from "../../components/Timer";
 import { NextButtonOrientation } from "../../components/Button";
 
-export default function StakeholderReflection({user, disableStakeholder, setDisableStakeholder}) {
+export default function StakeholderReflection({user, disableStakeholder, setDisableStakeholder, state, remaining}) {
 
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
 
     const routeNext = () => {
         let path = `/Deliberation`;

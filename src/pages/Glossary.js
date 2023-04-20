@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { NavLink } from "react-router-dom";
 import { Description } from "../components/Sidebar";
+import { useEffect } from 'react';
 
 const glossary = {
     "algorithm": {
@@ -171,9 +172,16 @@ export function Content() {
     )
 }
 
-export default function Glossary({modules}) {
+export default function Glossary({modules, state, remaining}) {
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
 
     return (
         <div className="App">

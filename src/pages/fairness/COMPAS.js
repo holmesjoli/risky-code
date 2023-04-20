@@ -325,13 +325,22 @@ export function Outcomes({}) {
     )
 }
 
-export default function COMPAS({config, user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm, modules}) {
+export default function COMPAS({config, user, disableFairnessNext, setDisableFairnessNext, baseRatesBrainstorm, setBaseRatesBrainstorm, modules, state, remaining}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [baseRate, setBaseRate] = useState("pop");
     const [id, setId] = useState("fairness");
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
+
     const routeNext = () => {
       let path = `/Calibration`; 
       navigate(path);

@@ -15,13 +15,21 @@ import { policyDiagram } from '../../components/PolicyDiagram';
 import * as d3 from 'd3';
 import MiniModel from "../../components/MiniStakeholderModel";
 
-export default function StreetBump({config, user, modules, data, setData, stakeholderData, setStakeholderData}) {
+export default function StreetBump({config, user, modules, data, setData, stakeholderData, setStakeholderData, state, remaining}) {
 
     const [isOpen, setIsOpen] = useState(true);
     const [id, setId] = useState("stakeholderMapping");
     let chartID = "Policy-Chart2";
 
     let navigate = useNavigate();
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
 
     const routeNext = () => {
         let path = `/StakeholderReflection`; 

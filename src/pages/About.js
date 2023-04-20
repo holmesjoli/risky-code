@@ -4,6 +4,7 @@ import { Description } from "../components/Sidebar";
 import Progress from '../components/Progress';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useEffect } from 'react';
 
 export function Content() {
     return(
@@ -12,9 +13,16 @@ export function Content() {
     )
 }
 
-export default function About({modules}) {
+export default function About({modules, state, remaining}) {
 
-    let navigate = useNavigate(); 
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
 
     return (
         <div className="App">

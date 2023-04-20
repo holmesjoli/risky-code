@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-import { RadioGroup, FormControlLabel, Radio, TextField } from '@material-ui/core';
+import { RadioGroup, FormControlLabel, Radio } from '@material-ui/core';
+import { useEffect } from 'react';
 import * as React from 'react';
 import Box from "@material-ui/core/Box";
 import Stepper from '@material-ui/core/Stepper';
@@ -8,9 +9,17 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import StepContent from '@material-ui/core/StepContent';
 
-export default function Orientation({user, setUser, name, setName, groupName, setGroupName}) {
+export default function Orientation({user, setUser, name, setName, groupName, setGroupName, state, remaining}) {
     const [activeStep, setActiveStep] = React.useState(0);
     let navigate = useNavigate();
+    console.log(state, remaining)
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
 
     const routeNext = () => {
         let path = `/Prediction`;

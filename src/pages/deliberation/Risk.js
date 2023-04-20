@@ -194,8 +194,6 @@ function renderGraph(chartId, data) {
     svg.selectAll(".nodes").remove();
     svg.append("g").attr("class", "nodes");
 
-    console.log(data)
-
     if (data !== undefined) {
 
         let node = svg
@@ -450,7 +448,7 @@ function Content({ stakeholderData, data, setData, sid, setId, modules }) {
     )
 }
 
-export default function Risk({ config, modules, policy, setPolicy, stakeholderData }) {
+export default function Risk({ config, modules, policy, setPolicy, stakeholderData, state, remaining }) {
 
     let navigate = useNavigate();
     dataLength = stakeholderData.length;
@@ -461,6 +459,14 @@ export default function Risk({ config, modules, policy, setPolicy, stakeholderDa
     //     let path = `/Decision`; 
     //     navigate(path);
     // }
+
+    useEffect(() => {
+        if (remaining === 0) {
+            let path = `/`;
+            navigate(path);
+        }
+    }, [state, remaining])
+
 
     const routeNext = () => {
         let path = `/DeliberationReflection`; 
